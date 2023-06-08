@@ -311,6 +311,13 @@ var organisationConfig = {
             publisher: "Oasis",
             title: "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
         },
+        "eDelivery API4IPS": {
+            authors: ["J. Dimitriou, V. Veduta, B. Dumitriu"],
+            date: "sept 8 2022",
+            href: "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
+            publisher: "OpenID foundation",
+            title: "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
+        },
         "Eisen Pkioverheid": {
             href: "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
             publisher: "Logius",
