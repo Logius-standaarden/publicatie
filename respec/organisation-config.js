@@ -481,6 +481,14 @@ var organisationConfig = {
             editors: ["Nikolaus Thumm"],
             publisher: "Joint Research Center",
             id: "JRC117836",
-            date: "2019"},
+            date: "2019"
+        },
+        Krechmer2002 {
+            href: "https://www.isology.com/pdf/cathedrals.pdf",
+            title: "Cathedrals, Libraries and Bazaars",
+            authors: ["Ken Krechmer"],
+            publisher: "Association of Computing Machinery (ACM)",
+            date: "March 2002",
+        },
     }
 }
