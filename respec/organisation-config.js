@@ -488,7 +488,7 @@ var organisationConfig = {
             title: "Cathedrals, Libraries and Bazaars",
             authors: ["Ken Krechmer"],
             publisher: "Association of Computing Machinery (ACM)",
-            date: "March 2002",
+            date: "March 2002"
         },
     }
 }
