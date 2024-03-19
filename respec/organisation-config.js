@@ -474,5 +474,13 @@ var organisationConfig = {
             publisher: "Geonovum",
             date: "November 2023"
         },
+        JRC117836 { 
+            href: "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+            title: "The Relationship Between Open Source Software and Standard Setting",
+            authors: ["Knut Blind", "Mirko Böhm"],
+            editors: ["Nikolaus Thumm"],
+            publisher: "Joint Research Center",
+            id: "JRC117836",
+            date: "2019"},
     }
 }
