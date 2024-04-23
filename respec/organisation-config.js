@@ -291,7 +291,7 @@ var organisationConfig = {
         "Geospatial Module": {
             authors: ["L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"],
             date: "23 mei 2021",
-            href: "https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/",
+            href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
             publisher: "Geonovum",
             title: "API Design rules Module: Geospatial"
         },
@@ -430,10 +430,10 @@ var organisationConfig = {
         },
         "Transport Security Module": {
             authors: [""],
-            date: "27 september 2023",
-            href: "https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/",
+            date: "07 maart 2024",
+            href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
             publisher: "Kennisplatform API's",
-            title: "Transport Security Module"
+            title: "API Design rules Module:Transport Security"
         },
         "UMMR10": {
             authors: [""],
