@@ -290,7 +290,7 @@ var organisationConfig = {
         },
         "Geospatial Module": {
             authors: ["L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"],
-            date: "23 mei 2021",
+            date: "March 07, 2024",
             href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
             publisher: "Geonovum",
             title: "API Design rules Module: Geospatial"
@@ -430,7 +430,7 @@ var organisationConfig = {
         },
         "Transport Security Module": {
             authors: [""],
-            date: "07 maart 2024",
+            date: "March 07, 2024",
             href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
             publisher: "Kennisplatform API's",
             title: "API Design rules Module:Transport Security"
