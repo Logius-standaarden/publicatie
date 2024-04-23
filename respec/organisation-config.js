@@ -288,7 +288,7 @@ var organisationConfig = {
             publisher: "Logius",
             title: "Gebruiksvoorwaarden Digikoppeling"
         },
-        "Geospatial Module": {
+        "ADR-GEO": {
             authors: ["L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"],
             date: "March 07, 2024",
             href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
@@ -428,7 +428,7 @@ var organisationConfig = {
             href: "https://semver.org",
             title: "Semantic Versioning 2.0.0"
         },
-        "Transport Security Module": {
+        "ADR-TS": {
             authors: [""],
             date: "March 07, 2024",
             href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
