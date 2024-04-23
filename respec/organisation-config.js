@@ -293,7 +293,7 @@ var organisationConfig = {
             date: "March 07, 2024",
             href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
             publisher: "Geonovum",
-            title: "API Design rules Module: Geospatial"
+            title: "API Design Rules Module: Geospatial"
         },
         "HTTPS-factsheet NCSC": {
             date: "Nov 2014",
@@ -433,7 +433,7 @@ var organisationConfig = {
             date: "March 07, 2024",
             href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
             publisher: "Kennisplatform API's",
-            title: "API Design rules Module:Transport Security"
+            title: "API Design Rules Module: Transport Security"
         },
         "UMMR10": {
             authors: [""],
