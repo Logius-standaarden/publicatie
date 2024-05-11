@@ -32,6 +32,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [api/oauth/1.0r/](https://gitdocumentatie.logius.nl/publicatie/api/oauth/1.0r/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth/1.0r/)
    - [api/oauth/1.0r2/](https://gitdocumentatie.logius.nl/publicatie/api/oauth/1.0r2/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth/1.0r2/)
    - [api/oauth/v1.0/](https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth/v1.0/)
+   - [api/oauth/v1.1.0-rc.1/](https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.1.0-rc.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth/v1.1.0-rc.1/)
 - [api/oidc/](https://gitdocumentatie.logius.nl/publicatie/api/oidc/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oidc/)
    - [api/oidc/1.0.1/](https://gitdocumentatie.logius.nl/publicatie/api/oidc/1.0.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oidc/1.0.1/)
 
