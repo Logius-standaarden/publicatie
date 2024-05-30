@@ -1,0 +1,50 @@
+table.ebms {
+    border-collapse: collapse;
+    font-size: 10.5pt;
+    width: 125%;
+    /* --- Simple --- */
+    border-collapse: collapse;
+    border-bottom: 3px solid #005a9c;
+}
+
+.ebms th {
+    border: 1px solid white;
+    background-color:  #005a9c;
+    color: white;
+    text-align: left;
+    padding: 8px;
+    
+
+    /* --- Simple --- */
+
+    padding: 3px 5px;
+    text-align: left;
+
+}
+
+/* --- Simple --- */
+
+.ebms th a {
+    color: #fff;
+    padding: 3px 5px;
+    text-align: left;
+}
+
+.ebms th[scope="row"] {
+    background: inherit;
+    color: inherit;
+    border-top: 1px solid #ddd;
+}
+
+.ebms td {
+    border: 1px solid black;
+    padding: 3px 10px;
+    border-top: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.ebms tr:nth-child(even) {
+    background: #f0f6ff;
+}
+
+/* --- Simple --- */
