@@ -403,14 +403,14 @@ var organisationConfig = {
             title: "Lijst Verplichte standaarden"
         },
         "PKIO-PvE": {
-            href: "https://www.logius.nl/domeinen/toegang/pkioverheid/aansluiten-als-tsp/programma-van-eisen",
+            href: "https://por.pkioverheid.nl/",
             publisher: "Logius",
-            title: "Programma van Eisen (PKIoverheid)"
+            title: "Certificate Policy/Programme of Requirements PKIoverheid"
         },
         "PKI-CA": {
-            href: "https://www.logius.nl/domeinen/toegang/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+            href: "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
             publisher: "Logius",
-            title: "Toegetreden vertrouwensdienstverleners"
+            title: "Aansluiten als Trust Service Provider"
         },
         "PKIoverheid": {
             href: "https://www.logius.nl/domeinen/toegang/pkioverheid",
