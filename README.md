@@ -111,6 +111,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [dk/ebms/](https://gitdocumentatie.logius.nl/publicatie/dk/ebms/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/ebms/)
    - [dk/ebms/3.3/](https://gitdocumentatie.logius.nl/publicatie/dk/ebms/3.3/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/ebms/3.3/)
    - [dk/ebms/3.3.1/](https://gitdocumentatie.logius.nl/publicatie/dk/ebms/3.3.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/ebms/3.3.1/)
+   - [dk/ebms/3.3.2/](https://gitdocumentatie.logius.nl/publicatie/dk/ebms/3.3.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/ebms/3.3.2/)
    - [dk/ebms/def-st-ebms-20190516/](https://gitdocumentatie.logius.nl/publicatie/dk/ebms/def-st-ebms-20190516/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/ebms/def-st-ebms-20190516/)
 - [dk/ebmscvs/](https://gitdocumentatie.logius.nl/publicatie/dk/ebmscvs/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/ebmscvs/)
    - [dk/ebmscvs/2.1/](https://gitdocumentatie.logius.nl/publicatie/dk/ebmscvs/2.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/ebmscvs/2.1/)
