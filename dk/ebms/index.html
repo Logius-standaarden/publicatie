@@ -738,10 +738,10 @@ aanbieders als service afnemers.">
   ],
   "github": "https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-ebMS2",
   "maxTocLevel": 4,
-  "previousPublishDate": "2019-05-16",
+  "previousPublishDate": "2022-04-11",
   "previousPublishVersion": "3.3.1",
   "pubDomain": "dk",
-  "publishDate": "2022-04-11",
+  "publishDate": "2024-05-31",
   "publishVersion": "3.3.2",
   "shortName": "ebms",
   "specStatus": "DEF",
@@ -755,7 +755,7 @@ aanbieders als service afnemers.">
     <h2>
       Logius Standaard<br>
       Vastgestelde versie
-      <time class="dt-published" datetime="2022-04-11">11 april 2022</time>
+      <time class="dt-published" datetime="2024-05-31">31 mei 2024</time>
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
@@ -861,6 +861,12 @@ aanbieders als service afnemers.
 <td>3.3.1</td>
 <td>Logius</td>
 <td>Vermelding REST-API koppelvlak</td>
+</tr>
+<tr>
+<td>31-05-2024</td>
+<td>3.3.2</td>
+<td>Logius</td>
+<td>Herstel tabel onder <a href="#ondersteunde-varianten" data-matched-text="[[[#ondersteunde-varianten]]]" class="sec-ref"><bdi class="secno">2.3 </bdi>Ondersteunde varianten</a></td>
 </tr>
 </tbody></table>
 </section>
@@ -1182,7 +1188,7 @@ transport niveau (HTTPS).</p>
 <td>Best Effort</td>
 <td>osb-be</td>
 <td>√</td>
-<td>n.a.</td>
+<td>N/A</td>
 <td>―</td>
 <td>―</td>
 <td>Optional</td>
@@ -1197,16 +1203,16 @@ transport niveau (HTTPS).</p>
 <td>Optional</td>
 </tr>
 <tr>
-<td>Best Effort – Signed*</td>
+<td>Best Effort – Signed<sup>1</sup></td>
 <td>osb-be-s</td>
 <td>√</td>
-<td>n.a.</td>
+<td>N/A</td>
 <td>√</td>
 <td>―</td>
 <td>Optional</td>
 </tr>
 <tr>
-<td>Reliable – Signed*</td>
+<td>Reliable – Signed<sup>1</sup></td>
 <td>osb-rm-s</td>
 <td>√</td>
 <td>√</td>
@@ -1215,16 +1221,16 @@ transport niveau (HTTPS).</p>
 <td>Optional</td>
 </tr>
 <tr>
-<td>Best Effort – Encrypted*</td>
+<td>Best Effort – Encrypted<sup>1</sup></td>
 <td>osb-be-e</td>
 <td>√</td>
-<td>n.a.</td>
+<td>N/A</td>
 <td>√</td>
 <td>√</td>
 <td>Optional</td>
 </tr>
 <tr>
-<td>Reliable – Encrypted*</td>
+<td>Reliable – Encrypted<sup>1</sup></td>
 <td>osb-rm-e</td>
 <td>√</td>
 <td>√</td>
@@ -1233,12 +1239,9 @@ transport niveau (HTTPS).</p>
 <td>Optional</td>
 </tr>
 </tbody></table>
-<p>n.a. = Not applicable.</p>
-<ul>
-<li>End-to-End Security</li>
-</ul>
-<p>Met betrekking tot CPA-creatie: zie hoofdstuk <code>todo</code> 5.1 Deployment and processing and
-requirements for CPAs.</p>
+<p>N/A = Not applicable<br>
+<sup>1</sup> End-to-End Security</p>
+<p>Met betrekking tot CPA-creatie: zie <a href="#deployment-and-processing-requirements-for-cpas" data-matched-text="[[[#deployment-and-processing-requirements-for-cpas]]]" class="sec-ref"><bdi class="secno">6.1 </bdi>Deployment and Processing requirements for CPAs</a>.</p>
 </section><section id="berichtuitwisselpatronen"><div class="header-wrapper"><h3 id="x2-4-berichtuitwisselpatronen"><bdi class="secno">2.4 </bdi>Berichtuitwisselpatronen</h3><a class="self-link" href="#berichtuitwisselpatronen" aria-label="Permalink for Section 2.4"></a></div>
 <p>Deze specificatie ondersteunt zowel One Way als Two Way
 bericht-uitwisselpatronen (message exchange patterns, terminologie ontleend aan
