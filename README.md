@@ -24,6 +24,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [api/mod-ts/](https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/mod-ts/)
    - [api/mod-ts/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/mod-ts/1.0.0/)
    - [api/mod-ts/1.0.1/](https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/1.0.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/mod-ts/1.0.1/)
+   - [api/mod-ts/1.0.2/](https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/1.0.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/mod-ts/1.0.2/)
 - [api/oauth/](https://gitdocumentatie.logius.nl/publicatie/api/oauth/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth/)
 - [api/oauth-beheer/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-beheer/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-beheer/)
    - [api/oauth-beheer/1.0/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-beheer/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-beheer/1.0/)
