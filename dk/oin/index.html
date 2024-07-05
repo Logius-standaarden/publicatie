@@ -179,7 +179,8 @@ ul.index code{color:inherit}
     "nl_organisationPublishURL",
     "pubDomain",
     "/",
-    "shortName"
+    "shortName",
+    "/"
   ],
   "thisVersion": [
     "nl_organisationPublishURL",
@@ -187,7 +188,8 @@ ul.index code{color:inherit}
     "/",
     "shortName",
     "/",
-    "publishVersion"
+    "publishVersion",
+    "/"
   ],
   "prevVersion": [
     "nl_organisationPublishURL",
@@ -195,7 +197,8 @@ ul.index code{color:inherit}
     "/",
     "shortName",
     "/",
-    "previousPublishVersion"
+    "previousPublishVersion",
+    "/"
   ],
   "useLogo": true,
   "useLabel": true,
@@ -498,47 +501,20 @@ ul.index code{color:inherit}
       "title": "Gebruiksvoorwaarden Digikoppeling",
       "id": "dk-gebruiksvoorwaarden"
     },
-    "Geospatial Module": {
+    "ADR-GEO": {
       "authors": [
         "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
       ],
-      "date": "23 mei 2021",
-      "href": "https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
       "publisher": "Geonovum",
-      "title": "API Design rules Module: Geospatial"
-    },
-    "HEART.OAuth2": {
-      "authors": [
-        "J. Richer"
-      ],
-      "date": "April 25, 2017",
-      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
-      "publisher": "OpenID foundation",
-      "title": "Health Relationship Trust Profile for OAuth 2.0"
+      "title": "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
       "date": "Nov 2014",
       "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       "publisher": "NCSC",
       "title": "Factsheet HTTPS kan een stuk veiliger"
-    },
-    "I-D.ietf-oauth-pop-architecture": {
-      "authors": [
-        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
-      ],
-      "date": "July 8, 2016",
-      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
-      "publisher": "IETF",
-      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
-    },
-    "iGOV.OAuth2": {
-      "authors": [
-        "J. Richer, M. Varley, P. Grassi"
-      ],
-      "date": "October 5 2018",
-      "href": "https://openid.net/specs/openid-igov-oauth2-1_0.html",
-      "publisher": "OpenID foundation",
-      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
     "iGOV.OpenID": {
       "authors": [
@@ -593,15 +569,6 @@ ul.index code{color:inherit}
       "href": "https://tools.ietf.org/html/rfc7515",
       "publisher": "IETF",
       "title": "JSON Web Signature (JWS)"
-    },
-    "JWS.JWE.Algs": {
-      "authors": [
-        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
-      ],
-      "date": "",
-      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
-      "publisher": "IANA",
-      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
     },
     "JWT": {
       "authors": [
@@ -675,15 +642,15 @@ ul.index code{color:inherit}
       "title": "Lijst Verplichte standaarden"
     },
     "PKIO-PvE": {
-      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid/aansluiten-als-tsp/programma-van-eisen",
+      "href": "https://por.pkioverheid.nl/",
       "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)",
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid",
       "id": "pkio-pve"
     },
     "PKI-CA": {
-      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
       "publisher": "Logius",
-      "title": "Toegetreden vertrouwensdienstverleners"
+      "title": "Aansluiten als Trust Service Provider"
     },
     "PKIoverheid": {
       "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
@@ -703,14 +670,14 @@ ul.index code{color:inherit}
       "href": "https://semver.org",
       "title": "Semantic Versioning 2.0.0"
     },
-    "Transport Security Module": {
+    "ADR-TS": {
       "authors": [
         ""
       ],
-      "date": "27 september 2023",
-      "href": "https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       "publisher": "Kennisplatform API's",
-      "title": "Transport Security Module"
+      "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
       "authors": [
@@ -754,13 +721,36 @@ ul.index code{color:inherit}
       "title": "ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6"
     },
     "ADR-Validator": {
-      "href": "https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go",
-      "title": "Technical ADR Validation rule testset 0.1.0",
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
       "authors": [
         "H. Stijns"
       ],
       "publisher": "Geonovum",
-      "date": "December 2022"
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
     }
   },
   "alternateFormats": [
@@ -794,7 +784,7 @@ ul.index code{color:inherit}
   "specType": "HR"
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
- <body class="h-entry"><div class="head">
+ <body class="h-entry toc-inline"><div class="head">
     <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">OIN Stelsel 2.1.0</h1>
     
@@ -805,16 +795,16 @@ ul.index code{color:inherit}
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
-              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.1.0/">https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.1.0</a>
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.1.0/">https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.1.0/</a>
             </dd>
       <dt>Laatst gepubliceerde versie:</dt><dd>
-              <a href="https://gitdocumentatie.logius.nl/publicatie/dk/oin/">https://gitdocumentatie.logius.nl/publicatie/dk/oin</a>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/dk/oin/">https://gitdocumentatie.logius.nl/publicatie/dk/oin/</a>
             </dd>
       <dt>Laatste werkversie:</dt><dd><a href="https://logius-standaarden.github.io/OIN-Stelsel/">https://logius-standaarden.github.io/OIN-Stelsel/</a></dd>
       
       
       
-      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.0.3/">https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.0.3</a></dd>
+      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.0.3/">https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.0.3/</a></dd>
       
       <dt>Redacteur:</dt>
       <dd class="editor p-author h-card vcard">
@@ -1782,7 +1772,7 @@ Voorbeeldresultaat van de COR API:
 </aside></div>
 
 <section id="inleiding-1"><div class="header-wrapper"><h3 id="c-1-inleiding"><bdi class="secno">C.1 </bdi>Inleiding</h3><a class="self-link" href="#inleiding-1" aria-label="Permalink for Appendix C.1"></a></div>
-<p>Dit hoofdstuk beschrijft Invulling (Sub)OIN en Organisatienaam, en –onderdeel/voorziening/samenwerking in velden van het PKIO certificaat, zie <cite><a data-matched-text="[[[PKIO-PvE]]]" href="https://www.logius.nl/domeinen/toegang/pkioverheid/aansluiten-als-tsp/programma-van-eisen">Programma van Eisen (PKIoverheid)</a></cite> deel 3g.</p>
+<p>Dit hoofdstuk beschrijft Invulling (Sub)OIN en Organisatienaam, en –onderdeel/voorziening/samenwerking in velden van het PKIO certificaat, zie <cite><a data-matched-text="[[[PKIO-PvE]]]" href="https://por.pkioverheid.nl/">Certificate Policy/Programme of Requirements PKIoverheid</a></cite>.</p>
 <table class="simple">
 <thead>
 <tr>
@@ -2002,7 +1992,7 @@ Voorbeeldresultaat van de COR API:
     </dd><dt id="bib-dk-voorwaarden">[DK-Voorwaarden]</dt><dd>
       <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling"><cite>Voorwaarden Digikoppeling</cite></a>.  Logius. 1 januari 2021. URL: <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling">https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling</a>
     </dd><dt id="bib-pkio-pve">[PKIO-PvE]</dt><dd>
-      <a href="https://www.logius.nl/domeinen/toegang/pkioverheid/aansluiten-als-tsp/programma-van-eisen"><cite>Programma van Eisen (PKIoverheid)</cite></a>.  Logius. URL: <a href="https://www.logius.nl/domeinen/toegang/pkioverheid/aansluiten-als-tsp/programma-van-eisen">https://www.logius.nl/domeinen/toegang/pkioverheid/aansluiten-als-tsp/programma-van-eisen</a>
+      <a href="https://por.pkioverheid.nl/"><cite>Certificate Policy/Programme of Requirements PKIoverheid</cite></a>.  Logius. URL: <a href="https://por.pkioverheid.nl/">https://por.pkioverheid.nl/</a>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
