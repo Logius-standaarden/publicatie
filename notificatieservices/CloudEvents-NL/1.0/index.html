@@ -37,7 +37,7 @@ dfn{cursor:pointer}
 </style>
   
   
-<title>NL GOV profile for CloudEvents</title>
+<title>NL GOV profile for CloudEvents 1.0</title>
   
 <link href="./media/style.css" rel="stylesheet" type="text/css">
   
@@ -138,7 +138,7 @@ img.license{float:left;padding-right:5px}
     color: white;
     white-space: nowrap;
     z-index: 1;
-    background-color: #39870c;
+    background-color: #154273;
   }
 </style>
 <script id="initialUserConfig" type="application/json">{
@@ -771,7 +771,7 @@ img.license{float:left;padding-right:5px}
   "publishDate": "2024-06-27",
   "publishVersion": "1.0",
   "shortName": "CloudEvents-NL",
-  "specStatus": "WV",
+  "specStatus": "DEF",
   "specType": "ST",
   "subtitle": "Notificatieservices"
 }</script>
@@ -779,16 +779,16 @@ img.license{float:left;padding-right:5px}
  
  <body class="h-entry toc-inline"><div class="head">
     <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
-  </a> <h1 id="title" class="title">NL GOV profile for CloudEvents</h1>
+  </a> <h1 id="title" class="title">NL GOV profile for CloudEvents 1.0</h1>
     <h2 id="subtitle" class="subtitle">Notificatieservices</h2>
     <h2>
       Logius Standard<br>
-      Draft
-      <time class="dt-published" datetime="2024-06-27">July 15, 2024</time>
+      Definitive version
+      <time class="dt-published" datetime="2024-06-27">June 27, 2024</time>
     </h2>
     <dl>
       <dt>This version:</dt><dd class="status">
-              <a class="u-url status" href="https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/">https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/</a>
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/1.0/">https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/1.0/</a>
             </dd>
       <dt>Latest published version:</dt><dd>
               <a href="https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/">https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/</a>
@@ -873,7 +873,7 @@ img.license{float:left;padding-right:5px}
 
 <p>CloudEvents is a vendor neutral specification for defining the format of event data. This specification profiles the CloudEvents specification to standardize the automated exchange of information about events, specifically applicable to the Dutch government.</p>
 </section>
-  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">2. </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#notations-and-terminology"><bdi class="secno">3. </bdi>Notations and Terminology</a></li><li class="tocline"><a class="tocxref" href="#context-attributes"><bdi class="secno">4. </bdi>Context Attributes</a></li><li class="tocline"><a class="tocxref" href="#event-data"><bdi class="secno">5. </bdi>Event Data</a></li><li class="tocline"><a class="tocxref" href="#size-limits"><bdi class="secno">6. </bdi>Size Limits</a></li><li class="tocline"><a class="tocxref" href="#advanced-cloudevents-security-options"><bdi class="secno">7. </bdi>Advanced CloudEvents Security Options</a></li><li class="tocline"><a class="tocxref" href="#example"><bdi class="secno">8. </bdi>Example</a></li><li class="tocline"><a class="tocxref" href="#use-of-json-http-and-webhook"><bdi class="secno">A. </bdi>Use of JSON, HTTP and Webhook</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">B. </bdi>List of Figures</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">C. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">C.1 </bdi>Normative references</a></li></ol></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">2. </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#notations-and-terminology"><bdi class="secno">3. </bdi>Notations and Terminology</a></li><li class="tocline"><a class="tocxref" href="#context-attributes"><bdi class="secno">4. </bdi>Context Attributes</a></li><li class="tocline"><a class="tocxref" href="#event-data"><bdi class="secno">5. </bdi>Event Data</a></li><li class="tocline"><a class="tocxref" href="#size-limits"><bdi class="secno">6. </bdi>Size Limits</a></li><li class="tocline"><a class="tocxref" href="#advanced-cloudevents-security-options"><bdi class="secno">7. </bdi>Advanced CloudEvents Security Options</a></li><li class="tocline"><a class="tocxref" href="#example"><bdi class="secno">8. </bdi>Example</a></li><li class="tocline"><a class="tocxref" href="#use-of-json-http-and-webhook"><bdi class="secno">A. </bdi>Use of JSON, HTTP and Webhook</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">B. </bdi>List of Figures</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">C. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">C.1 </bdi>Normative references</a></li></ol></li></ol></nav>
   <div data-format="markdown"><p>Note: the format used is the format used by the Logius Centrum voor standaarden (e.g. <a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/">NL GOV Assurance profile for OAuth 2.0</a>). This makes it easier for reviewers to assess things. The format may also be used to publish the profile in the future.</p>
 <h2>Dutch government profile for CloudEvents</h2>
 <p>This profile is based upon the CloudEvents 1.0.1 specification [<cite><a class="bibref" data-link-type="biblio" href="#bib-cloudevents" title="CloudEvents - Version 1.0.1">CloudEvents</a></cite>] as published by the <a href="https://github.com/cncf/wg-serverless">Serverless Working Group</a> of the
@@ -2012,4 +2012,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Standard - Draft</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Standard - Definitive version</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
