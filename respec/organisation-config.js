@@ -157,6 +157,11 @@ var organisationConfig = {
             publisher: "Logius",
             title: "Digikoppeling Compliance Voorziening"
         },
+        "DK-WUS-voorbeeld": {
+            href: "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+            publisher: "Logius",
+            title: "Set voorbeeldberichten (zip)"
+        },
         "Deployment Guide 1.1": {
             authors: ["Pete Wenzel", "Jacques Durand"],
             date: "June 2005",
@@ -167,7 +172,7 @@ var organisationConfig = {
         "DK": {
             href: "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
             publisher: "Logius",
-            title: "Digikoppeling"
+            title: "Logius | Digikoppeling"
         },
         "DK-Doc": {
             href: "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
