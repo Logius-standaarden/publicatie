@@ -244,6 +244,18 @@ var organisationConfig = {
             publisher: "Logius",
             title: "Wat is Digikoppeling?"
         },
+        "BOMOSFundament": {
+            href: "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+            date: "2 november 2023",
+            publisher: "Logius",
+            title: "BOMOS, het fundament"
+        },
+        "BOMOSVerdieping": {
+            href: "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+            date: "2 november 2023",
+            publisher: "Logius",
+            title: "BOMOS, de verdieping"
+        },
         "ebCPP": {
             authors: ["Oasis"],
             date: "september 2002",
