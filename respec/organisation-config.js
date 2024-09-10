@@ -157,6 +157,11 @@ var organisationConfig = {
             publisher: "Logius",
             title: "Digikoppeling Compliance Voorziening"
         },
+        "DK-Portaal": {
+            href: "https://oinregister.logius.nl/",
+            publisher: "Logius",
+            title: "Digikoppeling Portaal"
+        },
         "DK-WUS-voorbeeld": {
             href: "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
             publisher: "Logius",
