@@ -1,25 +1,23 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 34.1.4">
+<meta name="generator" content="ReSpec 35.1.1">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
 div.illegal-example{color:red}
 div.illegal-example p{color:#000}
-:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
 aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-.example pre{background-color:rgba(0,0,0,.03)}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
 .dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
 .dfn-panel>div{display:flex}
 .dfn-panel a.self-link{font-weight:700;margin-right:auto}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
@@ -53,8 +51,6 @@ dfn{cursor:pointer}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
 a.bibref{text-decoration:none}
@@ -68,20 +64,8 @@ a.bibref{text-decoration:none}
 cite .bibref{font-style:normal}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
 #issue-summary>ul{column-count:2}
 #issue-summary li{list-style:none;display:inline-block}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
@@ -147,7 +131,8 @@ img.license{float:left;padding-right:5px}
     "nl_organisationPublishURL",
     "pubDomain",
     "/",
-    "shortName"
+    "shortName",
+    "/"
   ],
   "thisVersion": [
     "nl_organisationPublishURL",
@@ -155,7 +140,8 @@ img.license{float:left;padding-right:5px}
     "/",
     "shortName",
     "/",
-    "publishVersion"
+    "publishVersion",
+    "/"
   ],
   "prevVersion": [
     "nl_organisationPublishURL",
@@ -163,7 +149,8 @@ img.license{float:left;padding-right:5px}
     "/",
     "shortName",
     "/",
-    "previousPublishVersion"
+    "previousPublishVersion",
+    "/"
   ],
   "useLogo": true,
   "useLabel": true,
@@ -278,50 +265,21 @@ img.license{float:left;padding-right:5px}
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
-    "API Design Rules": {
-      "authors": [
-        "Jasper Roes",
-        "Joost Farla"
-      ],
-      "date": "Juli 2020",
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
-      "publisher": "Logius",
-      "title": "API Design Rules (Nederlandse API Strategie IIa)"
-    },
-    "API Design Rules-Extensions": {
-      "authors": [
-        "Jasper Roes",
-        "Linda van den Brink"
-      ],
-      "date": "Januari 2020",
-      "href": "https://docs.geostandaarden.nl/api/API-Strategie-ext",
-      "publisher": "Geonovum/Kennisplatform APi's",
-      "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
-    },
     "BCP195": {
       "authors": [
-        "Y. Sheffer, R. Holz, P. Saint-Andre"
+        "Y. Sheffer",
+        "R. Holz",
+        "P. Saint-Andre"
       ],
       "date": "May 2015",
       "href": "https://tools.ietf.org/html/bcp195",
       "publisher": "IETF",
       "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"
     },
-    "Beheermodel": {
-      "date": "Oktober 2017",
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
-      "publisher": "Logius",
-      "title": "Beheermodel en releasebeleid Digikoppeling v1.5"
-    },
-    "Beveiligingsdocument": {
+    "DK-beveiliging": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
       "publisher": "Logius",
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
-    },
-    "Certificaten": {
-      "href": "https://cert.pkioverheid.nl/",
-      "publisher": "Logius",
-      "title": "PkIoverheid certificaten"
     },
     "CloudEvents": {
       "authors": [
@@ -332,10 +290,28 @@ img.license{float:left;padding-right:5px}
       "publisher": "@@@",
       "title": "CloudEvents - Version 1.0.1"
     },
-    "Compliance": {
-      "href": "https://portaal.digikoppeling.nl",
+    "NLGOV-CloudEvents": {
+      "authors": [
+        "Werkgroep Berichtenstandaard (Project Notificatieservices)"
+      ],
+      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "publisher": "Logius",
+      "title": "NL GOV profile for CloudEvents"
+    },
+    "DK-CV": {
+      "href": "https://gitlab.com/logius/digikoppeling-compliance",
       "publisher": "Logius",
       "title": "Digikoppeling Compliance Voorziening"
+    },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
     },
     "Deployment Guide 1.1": {
       "authors": [
@@ -347,114 +323,92 @@ img.license{float:left;padding-right:5px}
       "publisher": "OASIS",
       "title": "Deployment Profile Template For OASIS ebXML Message Service 2.0"
     },
-    "Digikoppeling Actuele Documentatie": {
-      "href": "http://www.logius.nl/digikoppeling",
+    "DK": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
       "publisher": "Logius",
-      "title": "Digikoppeling Overzicht Actuele Documentatie en Compliance"
+      "title": "Logius | Digikoppeling"
     },
-    "Digikoppeling Beheermodel": {
-      "date": "Oktober 2017",
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
+    "DK-Doc": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
       "publisher": "Logius",
-      "title": "Beheermodel en releasebeleid Digikoppeling v1.5"
+      "title": "Digikoppeling documentatie"
     },
-    "Digikoppeling Best Practices ebMS2": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-Beheermodel": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beheermodel"
+    },
+    "DK-BPebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices ebMS2"
     },
-    "Digikoppeling Best Practices Grote Berichten": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-BPGB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpgb/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices Grote Berichten"
     },
-    "Digikoppeling Best Practices WUS": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-BPWUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpwus/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices WUS"
     },
-    "Digikoppeling Beveiligingsdocument": {
-      "date": "2021",
+    "DK-Beveiliging": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
       "publisher": "Logius",
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
     },
-    "Digikoppeling Compliance Voorziening": {
-      "href": "https://portaal.digikoppeling.nl",
-      "publisher": "Logius",
-      "title": "Digikoppeling Compliance Voorziening"
-    },
-    "Digikoppeling Gebruik Certificaten": {
-      "href": "http://www.logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Digikoppeling Gebruik en achtergrond certificaten"
-    },
-    "Digikoppeling Identificatie-Authenticatie": {
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
-      "publisher": "Logius",
-      "title": "Digikoppeling Identificatie en Authenticatie"
-    },
-    "Digikoppeling Koppelvlakstandaard ebMS2": {
-      "date": "mei 2019",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-ebMS2/",
+    "DK-gbachtcert": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
       "publisher": "Logius",
       "title": "Digikoppeling Koppelvlakstandaard ebMS2"
     },
-    "Digikoppeling Koppelvlakstandaard Grote Berichten": {
-      "date": "september 2020",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-GB/",
+    "DK-ebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-GB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/gb/",
       "publisher": "Logius",
       "title": "Digikoppeling Koppelvlakstandaard Grote Berichten"
     },
-    "Digikoppeling Koppelvlakstandaard REST API": {
-      "date": "februari 2021",
-      "href": "https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/",
+    "DK-WUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/wus/",
       "publisher": "Logius",
-      "title": "Digikoppeling Restful API Profiel (Concept)"
+      "title": "Digikoppeling Koppelvlakstandaard WUS"
     },
-    "Digikoppeling Koppelvlakstandaard WUS": {
-      "date": "oktober 2020",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-WUS/",
-      "publisher": "Logius",
-      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
-    },
-    "Digikoppeling Logius website": {
-      "href": "https://logius.nl/diensten/digikoppeling/documentatie",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Digikoppeling REST API profiel": {
+    "DK-RESTAPI": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/restapi/",
       "publisher": "Logius",
-      "title": "Digikoppeling REST API profiel"
+      "title": "Digikoppeling Koppelvlakstandaard REST-API"
     },
-    "Digikoppeling-Architectuur": {
+    "DK-Architectuur": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/",
       "publisher": "Logius",
       "title": "Digikoppeling Architectuur"
     },
-    "Digikoppeling-Beveiligingsdocument": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig",
-      "publisher": "Logius",
-      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
-    },
-    "Digikoppeling-Cert": {
-      "href": "http://www.logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Gebruik en achtergrond van Digikoppeling certificaten"
-    },
-    "Digikoppeling-Compliance-Voorziening": {
-      "href": "https://portaal.digikoppeling.nl",
-      "publisher": "Logius",
-      "title": "Digikoppeling Compliance Voorziening"
-    },
-    "Digikoppeling-Identificatie-Authenticatie": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth",
+    "DK-IDAuth": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth/",
       "publisher": "Logius",
       "title": "Digikoppeling Identificatie en Authenticatie"
+    },
+    "DK-WI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/",
+      "publisher": "Logius",
+      "title": "Wat is Digikoppeling?"
+    },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
     },
     "ebCPP": {
       "authors": [
@@ -475,15 +429,6 @@ img.license{float:left;padding-right:5px}
       "publisher": "Oasis",
       "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
     },
-    "ebXML CPPA V 2.0": {
-      "authors": [
-        "Oasis"
-      ],
-      "date": "september 2002",
-      "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
-      "publisher": "Oasis",
-      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
-    },
     "eDelivery API4IPS": {
       "authors": [
         "J. Dimitriou, V. Veduta, B. Dumitriu"
@@ -492,11 +437,6 @@ img.license{float:left;padding-right:5px}
       "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
       "publisher": "OpenID foundation",
       "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
-    },
-    "Eisen Pkioverheid": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
     },
     "Expert": {
       "authors": [
@@ -527,53 +467,26 @@ img.license{float:left;padding-right:5px}
       "date": "2012",
       "publisher": "Universiteit Twente"
     },
-    "Gebruiksvoorwaarden Digikoppeling": {
+    "DK-Gebruiksvoorwaarden": {
       "date": "1 januari 2021",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Gebruiksvoorwaarden Digikoppeling"
     },
-    "Geospatial Module": {
+    "ADR-GEO": {
       "authors": [
         "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
       ],
-      "date": "23 mei 2021",
-      "href": "https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
       "publisher": "Geonovum",
-      "title": "API Design rules Module: Geospatial"
-    },
-    "HEART.OAuth2": {
-      "authors": [
-        "J. Richer"
-      ],
-      "date": "April 25, 2017",
-      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
-      "publisher": "OpenID foundation",
-      "title": "Health Relationship Trust Profile for OAuth 2.0"
+      "title": "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
       "date": "Nov 2014",
       "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       "publisher": "NCSC",
       "title": "Factsheet HTTPS kan een stuk veiliger"
-    },
-    "I-D.ietf-oauth-pop-architecture": {
-      "authors": [
-        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
-      ],
-      "date": "July 8, 2016",
-      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
-      "publisher": "IETF",
-      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
-    },
-    "iGOV.OAuth2": {
-      "authors": [
-        "J. Richer, M. Varley, P. Grassi"
-      ],
-      "date": "October 5 2018",
-      "href": "https://openid.net/specs/openid-igov-oauth2-1_0.html",
-      "publisher": "OpenID foundation",
-      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
     "iGOV.OpenID": {
       "authors": [
@@ -629,15 +542,6 @@ img.license{float:left;padding-right:5px}
       "publisher": "IETF",
       "title": "JSON Web Signature (JWS)"
     },
-    "JWS.JWE.Algs": {
-      "authors": [
-        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
-      ],
-      "date": "",
-      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
-      "publisher": "IANA",
-      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
-    },
     "JWT": {
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
@@ -646,21 +550,6 @@ img.license{float:left;padding-right:5px}
       "href": "https://tools.ietf.org/html/rfc7519",
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
-    },
-    "Logius": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Logius website": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Logius-website": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
     },
     "NCSC 2019": {
       "date": "April 2019",
@@ -724,54 +613,25 @@ img.license{float:left;padding-right:5px}
       "publisher": "Forum Standaardisatie",
       "title": "Lijst Verplichte standaarden"
     },
-    "PKCE": {
-      "authors": [
-        "N. Sakimura, J. Bradley, N. Agarwal"
-      ],
-      "date": "september 2015",
-      "href": "https://tools.ietf.org/html/rfc7636",
-      "publisher": "IETF",
-      "title": "Proof Key for Code Exchange by OAuth Public Clients"
-    },
-    "PKI CA": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+    "PKIO-PvE": {
+      "href": "https://por.pkioverheid.nl/",
       "publisher": "Logius",
-      "title": "Toegetreden vertrouwensdienstverleners"
-    },
-    "PKI Policy": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
-    },
-    "PKI PvE": {
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/PKIoverheid/PoR-2022/PKIoverheid%20Programme%20of%20Requirements%20v4.10%20-%20Part%203j%20Certificate%20Policy%20for%20Server%20certificates%20in%20Server%202020%20%28EV%20G1%29%20Domain.pdf",
-      "publisher": "Logius",
-      "title": "Programma van Eisen Pkioverheid, deel 3j"
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
     },
     "PKI-CA": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
       "publisher": "Logius",
-      "title": "Toegetreden vertrouwensdienstverleners"
-    },
-    "PKI-Policy": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
+      "title": "Aansluiten als Trust Service Provider"
     },
     "PKIoverheid": {
-      "href": "https://www.logius.nl/diensten/pkioverheid",
+      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
       "publisher": "Logius",
       "title": "PKIoverheid"
     },
-    "PKIoverheid Certificaten": {
+    "PKIO-Cert": {
       "href": "https://cert.pkioverheid.nl/",
       "publisher": "Logius",
-      "title": "Pkioverheid certificaten"
-    },
-    "PKIoverheid-Certificaten": {
-      "href": "https://cert.pkioverheid.nl/",
-      "publisher": "Logius",
-      "title": "Pkioverheid certificaten"
+      "title": "Overzicht PKIoverheid certificaten"
     },
     "SemVer": {
       "authors": [
@@ -781,14 +641,14 @@ img.license{float:left;padding-right:5px}
       "href": "https://semver.org",
       "title": "Semantic Versioning 2.0.0"
     },
-    "Transport Security Module": {
+    "ADR-TS": {
       "authors": [
         ""
       ],
-      "date": "27 september 2023",
-      "href": "https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       "publisher": "Kennisplatform API's",
-      "title": "Transport Security Module"
+      "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
       "authors": [
@@ -819,14 +679,9 @@ img.license{float:left;padding-right:5px}
       "publisher": "The Internet Engineering Task Force",
       "title": "A Universally Unique IDentifier (UUID) URN Namespace"
     },
-    "Voorbeelden": {
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
-      "publisher": "Logius",
-      "title": "Digikoppeling WUS voorbeelden (zip)"
-    },
-    "Voorwaarden Digikoppeling": {
+    "DK-Voorwaarden": {
       "date": "1 januari 2021",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie/voorwaarden-digikoppeling",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Voorwaarden Digikoppeling"
     },
@@ -836,13 +691,36 @@ img.license{float:left;padding-right:5px}
       "title": "ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6"
     },
     "ADR-Validator": {
-      "href": "https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go",
-      "title": "Technical ADR Validation rule testset 0.1.0",
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
       "authors": [
         "H. Stijns"
       ],
       "publisher": "Geonovum",
-      "date": "December 2022"
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
     }
   },
   "alternateFormats": [
@@ -853,14 +731,14 @@ img.license{float:left;padding-right:5px}
   ],
   "authors": [
     {
-      "company": "Universiteit Twente",
+      "company": "HAN University of Applied Sciences",
       "companyURL": "https://www.utwente.nl/",
       "name": "Erwin Folmer"
     }
   ],
   "editors": [
     {
-      "company": "Universiteit Twente",
+      "company": "HAN University of Applied Sciences",
       "companyURL": "https://www.utwente.nl/",
       "name": "Erwin Folmer"
     },
@@ -899,20 +777,20 @@ img.license{float:left;padding-right:5px}
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
-              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.1/">https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.1</a>
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.1/">https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.1/</a>
             </dd>
       <dt>Laatst gepubliceerde versie:</dt><dd>
-              <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/">https://gitdocumentatie.logius.nl/publicatie/bomos/fundament</a>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/">https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/</a>
             </dd>
       <dt>Laatste werkversie:</dt><dd><a href="https://logius-standaarden.github.io/BOMOS-Fundament/">https://logius-standaarden.github.io/BOMOS-Fundament/</a></dd>
       
       
       
-      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.0/">https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.0</a></dd>
+      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.0/">https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.0/</a></dd>
       
       <dt>Redacteurs:</dt>
       <dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.utwente.nl/">Universiteit Twente</a>)
+    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.utwente.nl/">HAN University of Applied Sciences</a>)
   </dd><dd class="editor p-author h-card vcard">
     <span class="p-name fn">Gül Işik</span> (<a class="p-org org h-org" href="https://www.logius.nl/">Logius</a>)
   </dd><dd class="editor p-author h-card vcard">
@@ -920,7 +798,7 @@ img.license{float:left;padding-right:5px}
   </dd>
       
       <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.utwente.nl/">Universiteit Twente</a>)
+    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.utwente.nl/">HAN University of Applied Sciences</a>)
   </dd>
       <dt>Doe mee:</dt><dd>
     <a href="https://github.com/Logius-standaarden/BOMOS-Fundament/">GitHub Logius-standaarden/BOMOS-Fundament</a>
@@ -955,7 +833,7 @@ img.license{float:left;padding-right:5px}
 </section>
   <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#woord-van-dank"><bdi class="secno">1.1 </bdi>Woord van dank</a></li><li class="tocline"><a class="tocxref" href="#de-13-bomos-geboden"><bdi class="secno">1.2 </bdi>De 13 BOMOS "geboden"</a></li><li class="tocline"><a class="tocxref" href="#aanleiding"><bdi class="secno">1.3 </bdi>Aanleiding</a></li><li class="tocline"><a class="tocxref" href="#doel"><bdi class="secno">1.4 </bdi>Doel</a></li><li class="tocline"><a class="tocxref" href="#doelgroep"><bdi class="secno">1.5 </bdi>Doelgroep</a></li><li class="tocline"><a class="tocxref" href="#aanpak-historie"><bdi class="secno">1.6 </bdi>Aanpak &amp; Historie</a></li><li class="tocline"><a class="tocxref" href="#structuur-bomos"><bdi class="secno">1.7 </bdi>Structuur BOMOS</a></li><li class="tocline"><a class="tocxref" href="#leeswijzer"><bdi class="secno">1.8 </bdi>Leeswijzer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#context-definities"><bdi class="secno">2. </bdi>Context &amp; Definities</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#context-standaarden-voor-interoperabiliteit"><bdi class="secno">2.1 </bdi>Context: standaarden voor interoperabiliteit</a></li><li class="tocline"><a class="tocxref" href="#definities"><bdi class="secno">2.2 </bdi>Definities</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bomos-gebruiken"><bdi class="secno">3. </bdi>BOMOS gebruiken</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#bomos-als-hulpmiddel-voor-verdere-ontwikkeling-van-de-beheerorganisaties"><bdi class="secno">3.1 </bdi>BOMOS als hulpmiddel voor verdere ontwikkeling van de beheerorganisaties</a></li><li class="tocline"><a class="tocxref" href="#bomos-als-achtergrondinformatie-ter-inspiratie"><bdi class="secno">3.2 </bdi>BOMOS als achtergrondinformatie ter inspiratie</a></li><li class="tocline"><a class="tocxref" href="#bomos-als-spiegel-voor-het-huidige-beheerproces"><bdi class="secno">3.3 </bdi>BOMOS als spiegel voor het huidige beheerproces</a></li></ol></li><li class="tocline"><a class="tocxref" href="#het-beheer-en-ontwikkelmodel-onderwerpen-voor-ontwikkeling-en-beheer"><bdi class="secno">4. </bdi>Het Beheer- en Ontwikkelmodel: Onderwerpen voor ontwikkeling en beheer</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#benodigde-invulling-per-situatie"><bdi class="secno">4.1 </bdi>Benodigde invulling per situatie</a></li><li class="tocline"><a class="tocxref" href="#de-onderwerpen-uit-het-model"><bdi class="secno">4.2 </bdi>De onderwerpen uit het model</a></li><li class="tocline"><a class="tocxref" href="#activiteiten-en-rollen"><bdi class="secno">4.3 </bdi>Activiteiten en Rollen</a></li><li class="tocline"><a class="tocxref" href="#hoe-bomos-als-hulpmiddel-te-gebruiken-voor-beheerorganisatie"><bdi class="secno">4.4 </bdi>Hoe BOMOS als hulpmiddel te gebruiken voor beheerorganisatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#de-bomos-best-practices-in-vogelvlucht-introductie-van-bomos-deel-2-de-verdieping"><bdi class="secno">5. </bdi>De BOMOS best practices in vogelvlucht - Introductie van BOMOS Deel 2: De Verdieping</a></li><li class="tocline"><a class="tocxref" href="#tot-slot"><bdi class="secno">6. </bdi>Tot slot</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">7. </bdi>Lijst met figuren</a></li></ol></nav>
   <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th>Datum</th>
@@ -977,15 +855,15 @@ img.license{float:left;padding-right:5px}
 <td>Toevoeging: De Best Practices</td>
 </tr>
 <tr>
-<td>05/04/2022</td>
+<td>2024</td>
 <td>3.0</td>
-<td>Erwin Folmer, Erwin Kaats, Wouter van den Berg</td>
+<td>Erwin Folmer, Gül Işik, Edwin Wisse, Wouter van den Berg</td>
 <td>Herziene versie met samenvoegingen uit andere BOMOS varianten</td>
 </tr>
 </tbody></table>
 </section>
   <section class="introductory" id="colofon"><div class="header-wrapper"><h2 id="colofon-0">Colofon</h2><a class="self-link" href="#colofon" aria-label="Permalink for this Section"></a></div>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1645,7 +1523,7 @@ standaarden", en is hier in licht aangepaste versie overgenomen.</p>
 <p><strong>Functioneel beheerder</strong>: verantwoordelijk voor het proces van
   ontwikkelen en beheren van standaarden, binnen de kaders van de
   gemaakte afspraken en afgesproken governance. Toelichting: de
-  functioneel beheerder is verantwoordelijk het proces van ontwikkelen
+  functioneel beheerder is verantwoordelijk voor het proces van ontwikkelen
   en beheer van de inhoud van standaarden. Hiervoor werkt hij nauw
   samen met experts, gebruikers, de technische beheerder en de
   distributeur. De functioneel beheerder heeft vaak een regie voerende
@@ -1691,7 +1569,7 @@ vertegenwoordigd.</p>
 <p>Onderstaande tabel geeft voor de BOMOS hoofdactiviteiten weer welke
 rol primair verantwoordelijk is, en welke rollen veelal ook betrokken
 zullen zijn.</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th>Activiteit</th>
