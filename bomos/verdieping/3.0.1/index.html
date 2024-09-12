@@ -1,15 +1,13 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 34.1.4">
+<meta name="generator" content="ReSpec 35.1.1">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
 div.illegal-example{color:red}
 div.illegal-example p{color:#000}
-:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
 aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-.example pre{background-color:rgba(0,0,0,.03)}
 </style>
 <style>
 .issue-label{text-transform:initial}
@@ -18,7 +16,7 @@ aside.example div.example{border-left-width:.1em;border-color:#999;background:#f
 span.warning{padding:.1em .5em .15em}
 .issue.closed span.issue-number{text-decoration:line-through}
 .issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
-.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
 .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
 li.task-list-item{list-style:none}
 input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
@@ -26,13 +24,13 @@ input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
 .dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
 .dfn-panel>div{display:flex}
 .dfn-panel a.self-link{font-weight:700;margin-right:auto}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
@@ -59,16 +57,14 @@ dfn{cursor:pointer}
   </script>
   
   
-<link <="" head="" href="./media/style.css" rel="stylesheet" type="text/css">
-  
+<link href="./media/style.css" rel="stylesheet" type="text/css">
+ 
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
 a.bibref{text-decoration:none}
@@ -82,20 +78,8 @@ a.bibref{text-decoration:none}
 cite .bibref{font-style:normal}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
 #issue-summary>ul{column-count:2}
 #issue-summary li{list-style:none;display:inline-block}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
@@ -126,15 +110,19 @@ img.license{float:left;padding-right:5px}
   is geïntroduceerd. De verdieping is gebaseerd op vele ervaringen,
   best practices uit zowel de standaardisatiewereld en daarbuiten.">
 <style>
-.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
-.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
-.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
-.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
-.hljs-literal{color:#0b76c5}
-.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
-.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
-.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
-.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
 .hljs-emphasis{font-style:italic}
 .hljs-strong{font-weight:700}
 .hljs-link{text-decoration:underline}
@@ -180,7 +168,8 @@ img.license{float:left;padding-right:5px}
     "nl_organisationPublishURL",
     "pubDomain",
     "/",
-    "shortName"
+    "shortName",
+    "/"
   ],
   "thisVersion": [
     "nl_organisationPublishURL",
@@ -188,7 +177,8 @@ img.license{float:left;padding-right:5px}
     "/",
     "shortName",
     "/",
-    "publishVersion"
+    "publishVersion",
+    "/"
   ],
   "prevVersion": [
     "nl_organisationPublishURL",
@@ -196,7 +186,8 @@ img.license{float:left;padding-right:5px}
     "/",
     "shortName",
     "/",
-    "previousPublishVersion"
+    "previousPublishVersion",
+    "/"
   ],
   "useLogo": true,
   "useLabel": true,
@@ -311,50 +302,21 @@ img.license{float:left;padding-right:5px}
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
-    "API Design Rules": {
-      "authors": [
-        "Jasper Roes",
-        "Joost Farla"
-      ],
-      "date": "Juli 2020",
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
-      "publisher": "Logius",
-      "title": "API Design Rules (Nederlandse API Strategie IIa)"
-    },
-    "API Design Rules-Extensions": {
-      "authors": [
-        "Jasper Roes",
-        "Linda van den Brink"
-      ],
-      "date": "Januari 2020",
-      "href": "https://docs.geostandaarden.nl/api/API-Strategie-ext",
-      "publisher": "Geonovum/Kennisplatform APi's",
-      "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
-    },
     "BCP195": {
       "authors": [
-        "Y. Sheffer, R. Holz, P. Saint-Andre"
+        "Y. Sheffer",
+        "R. Holz",
+        "P. Saint-Andre"
       ],
       "date": "May 2015",
       "href": "https://tools.ietf.org/html/bcp195",
       "publisher": "IETF",
       "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"
     },
-    "Beheermodel": {
-      "date": "Oktober 2017",
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
-      "publisher": "Logius",
-      "title": "Beheermodel en releasebeleid Digikoppeling v1.5"
-    },
-    "Beveiligingsdocument": {
+    "DK-beveiliging": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
       "publisher": "Logius",
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
-    },
-    "Certificaten": {
-      "href": "https://cert.pkioverheid.nl/",
-      "publisher": "Logius",
-      "title": "PkIoverheid certificaten"
     },
     "CloudEvents": {
       "authors": [
@@ -365,10 +327,28 @@ img.license{float:left;padding-right:5px}
       "publisher": "@@@",
       "title": "CloudEvents - Version 1.0.1"
     },
-    "Compliance": {
-      "href": "https://portaal.digikoppeling.nl",
+    "NLGOV-CloudEvents": {
+      "authors": [
+        "Werkgroep Berichtenstandaard (Project Notificatieservices)"
+      ],
+      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "publisher": "Logius",
+      "title": "NL GOV profile for CloudEvents"
+    },
+    "DK-CV": {
+      "href": "https://gitlab.com/logius/digikoppeling-compliance",
       "publisher": "Logius",
       "title": "Digikoppeling Compliance Voorziening"
+    },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
     },
     "Deployment Guide 1.1": {
       "authors": [
@@ -380,114 +360,92 @@ img.license{float:left;padding-right:5px}
       "publisher": "OASIS",
       "title": "Deployment Profile Template For OASIS ebXML Message Service 2.0"
     },
-    "Digikoppeling Actuele Documentatie": {
-      "href": "http://www.logius.nl/digikoppeling",
+    "DK": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
       "publisher": "Logius",
-      "title": "Digikoppeling Overzicht Actuele Documentatie en Compliance"
+      "title": "Logius | Digikoppeling"
     },
-    "Digikoppeling Beheermodel": {
-      "date": "Oktober 2017",
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
+    "DK-Doc": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
       "publisher": "Logius",
-      "title": "Beheermodel en releasebeleid Digikoppeling v1.5"
+      "title": "Digikoppeling documentatie"
     },
-    "Digikoppeling Best Practices ebMS2": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-Beheermodel": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beheermodel"
+    },
+    "DK-BPebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices ebMS2"
     },
-    "Digikoppeling Best Practices Grote Berichten": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-BPGB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpgb/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices Grote Berichten"
     },
-    "Digikoppeling Best Practices WUS": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-BPWUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpwus/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices WUS"
     },
-    "Digikoppeling Beveiligingsdocument": {
-      "date": "2021",
+    "DK-Beveiliging": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
       "publisher": "Logius",
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
     },
-    "Digikoppeling Compliance Voorziening": {
-      "href": "https://portaal.digikoppeling.nl",
-      "publisher": "Logius",
-      "title": "Digikoppeling Compliance Voorziening"
-    },
-    "Digikoppeling Gebruik Certificaten": {
-      "href": "http://www.logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Digikoppeling Gebruik en achtergrond certificaten"
-    },
-    "Digikoppeling Identificatie-Authenticatie": {
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
-      "publisher": "Logius",
-      "title": "Digikoppeling Identificatie en Authenticatie"
-    },
-    "Digikoppeling Koppelvlakstandaard ebMS2": {
-      "date": "mei 2019",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-ebMS2/",
+    "DK-gbachtcert": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
       "publisher": "Logius",
       "title": "Digikoppeling Koppelvlakstandaard ebMS2"
     },
-    "Digikoppeling Koppelvlakstandaard Grote Berichten": {
-      "date": "september 2020",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-GB/",
+    "DK-ebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-GB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/gb/",
       "publisher": "Logius",
       "title": "Digikoppeling Koppelvlakstandaard Grote Berichten"
     },
-    "Digikoppeling Koppelvlakstandaard REST API": {
-      "date": "februari 2021",
-      "href": "https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/",
+    "DK-WUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/wus/",
       "publisher": "Logius",
-      "title": "Digikoppeling Restful API Profiel (Concept)"
+      "title": "Digikoppeling Koppelvlakstandaard WUS"
     },
-    "Digikoppeling Koppelvlakstandaard WUS": {
-      "date": "oktober 2020",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-WUS/",
-      "publisher": "Logius",
-      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
-    },
-    "Digikoppeling Logius website": {
-      "href": "https://logius.nl/diensten/digikoppeling/documentatie",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Digikoppeling REST API profiel": {
+    "DK-RESTAPI": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/restapi/",
       "publisher": "Logius",
-      "title": "Digikoppeling REST API profiel"
+      "title": "Digikoppeling Koppelvlakstandaard REST-API"
     },
-    "Digikoppeling-Architectuur": {
+    "DK-Architectuur": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/",
       "publisher": "Logius",
       "title": "Digikoppeling Architectuur"
     },
-    "Digikoppeling-Beveiligingsdocument": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig",
-      "publisher": "Logius",
-      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
-    },
-    "Digikoppeling-Cert": {
-      "href": "http://www.logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Gebruik en achtergrond van Digikoppeling certificaten"
-    },
-    "Digikoppeling-Compliance-Voorziening": {
-      "href": "https://portaal.digikoppeling.nl",
-      "publisher": "Logius",
-      "title": "Digikoppeling Compliance Voorziening"
-    },
-    "Digikoppeling-Identificatie-Authenticatie": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth",
+    "DK-IDAuth": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth/",
       "publisher": "Logius",
       "title": "Digikoppeling Identificatie en Authenticatie"
+    },
+    "DK-WI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/",
+      "publisher": "Logius",
+      "title": "Wat is Digikoppeling?"
+    },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
     },
     "ebCPP": {
       "authors": [
@@ -508,15 +466,6 @@ img.license{float:left;padding-right:5px}
       "publisher": "Oasis",
       "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
     },
-    "ebXML CPPA V 2.0": {
-      "authors": [
-        "Oasis"
-      ],
-      "date": "september 2002",
-      "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
-      "publisher": "Oasis",
-      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
-    },
     "eDelivery API4IPS": {
       "authors": [
         "J. Dimitriou, V. Veduta, B. Dumitriu"
@@ -525,11 +474,6 @@ img.license{float:left;padding-right:5px}
       "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
       "publisher": "OpenID foundation",
       "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
-    },
-    "Eisen Pkioverheid": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
     },
     "Expert": {
       "authors": [
@@ -562,53 +506,26 @@ img.license{float:left;padding-right:5px}
       "publisher": "Universiteit Twente",
       "id": "folmer2012"
     },
-    "Gebruiksvoorwaarden Digikoppeling": {
+    "DK-Gebruiksvoorwaarden": {
       "date": "1 januari 2021",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Gebruiksvoorwaarden Digikoppeling"
     },
-    "Geospatial Module": {
+    "ADR-GEO": {
       "authors": [
         "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
       ],
-      "date": "23 mei 2021",
-      "href": "https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
       "publisher": "Geonovum",
-      "title": "API Design rules Module: Geospatial"
-    },
-    "HEART.OAuth2": {
-      "authors": [
-        "J. Richer"
-      ],
-      "date": "April 25, 2017",
-      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
-      "publisher": "OpenID foundation",
-      "title": "Health Relationship Trust Profile for OAuth 2.0"
+      "title": "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
       "date": "Nov 2014",
       "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       "publisher": "NCSC",
       "title": "Factsheet HTTPS kan een stuk veiliger"
-    },
-    "I-D.ietf-oauth-pop-architecture": {
-      "authors": [
-        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
-      ],
-      "date": "July 8, 2016",
-      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
-      "publisher": "IETF",
-      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
-    },
-    "iGOV.OAuth2": {
-      "authors": [
-        "J. Richer, M. Varley, P. Grassi"
-      ],
-      "date": "October 5 2018",
-      "href": "https://openid.net/specs/openid-igov-oauth2-1_0.html",
-      "publisher": "OpenID foundation",
-      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
     "iGOV.OpenID": {
       "authors": [
@@ -664,15 +581,6 @@ img.license{float:left;padding-right:5px}
       "publisher": "IETF",
       "title": "JSON Web Signature (JWS)"
     },
-    "JWS.JWE.Algs": {
-      "authors": [
-        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
-      ],
-      "date": "",
-      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
-      "publisher": "IANA",
-      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
-    },
     "JWT": {
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
@@ -681,21 +589,6 @@ img.license{float:left;padding-right:5px}
       "href": "https://tools.ietf.org/html/rfc7519",
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
-    },
-    "Logius": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Logius website": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Logius-website": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
     },
     "NCSC 2019": {
       "date": "April 2019",
@@ -759,54 +652,25 @@ img.license{float:left;padding-right:5px}
       "publisher": "Forum Standaardisatie",
       "title": "Lijst Verplichte standaarden"
     },
-    "PKCE": {
-      "authors": [
-        "N. Sakimura, J. Bradley, N. Agarwal"
-      ],
-      "date": "september 2015",
-      "href": "https://tools.ietf.org/html/rfc7636",
-      "publisher": "IETF",
-      "title": "Proof Key for Code Exchange by OAuth Public Clients"
-    },
-    "PKI CA": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+    "PKIO-PvE": {
+      "href": "https://por.pkioverheid.nl/",
       "publisher": "Logius",
-      "title": "Toegetreden vertrouwensdienstverleners"
-    },
-    "PKI Policy": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
-    },
-    "PKI PvE": {
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/PKIoverheid/PoR-2022/PKIoverheid%20Programme%20of%20Requirements%20v4.10%20-%20Part%203j%20Certificate%20Policy%20for%20Server%20certificates%20in%20Server%202020%20%28EV%20G1%29%20Domain.pdf",
-      "publisher": "Logius",
-      "title": "Programma van Eisen Pkioverheid, deel 3j"
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
     },
     "PKI-CA": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
       "publisher": "Logius",
-      "title": "Toegetreden vertrouwensdienstverleners"
-    },
-    "PKI-Policy": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
+      "title": "Aansluiten als Trust Service Provider"
     },
     "PKIoverheid": {
-      "href": "https://www.logius.nl/diensten/pkioverheid",
+      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
       "publisher": "Logius",
       "title": "PKIoverheid"
     },
-    "PKIoverheid Certificaten": {
+    "PKIO-Cert": {
       "href": "https://cert.pkioverheid.nl/",
       "publisher": "Logius",
-      "title": "Pkioverheid certificaten"
-    },
-    "PKIoverheid-Certificaten": {
-      "href": "https://cert.pkioverheid.nl/",
-      "publisher": "Logius",
-      "title": "Pkioverheid certificaten"
+      "title": "Overzicht PKIoverheid certificaten"
     },
     "SemVer": {
       "authors": [
@@ -816,14 +680,14 @@ img.license{float:left;padding-right:5px}
       "href": "https://semver.org",
       "title": "Semantic Versioning 2.0.0"
     },
-    "Transport Security Module": {
+    "ADR-TS": {
       "authors": [
         ""
       ],
-      "date": "27 september 2023",
-      "href": "https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       "publisher": "Kennisplatform API's",
-      "title": "Transport Security Module"
+      "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
       "authors": [
@@ -854,14 +718,9 @@ img.license{float:left;padding-right:5px}
       "publisher": "The Internet Engineering Task Force",
       "title": "A Universally Unique IDentifier (UUID) URN Namespace"
     },
-    "Voorbeelden": {
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
-      "publisher": "Logius",
-      "title": "Digikoppeling WUS voorbeelden (zip)"
-    },
-    "Voorwaarden Digikoppeling": {
+    "DK-Voorwaarden": {
       "date": "1 januari 2021",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie/voorwaarden-digikoppeling",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Voorwaarden Digikoppeling"
     },
@@ -871,13 +730,36 @@ img.license{float:left;padding-right:5px}
       "title": "ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6"
     },
     "ADR-Validator": {
-      "href": "https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go",
-      "title": "Technical ADR Validation rule testset 0.1.0",
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
       "authors": [
         "H. Stijns"
       ],
       "publisher": "Geonovum",
-      "date": "December 2022"
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
     }
   },
   "alternateFormats": [
@@ -888,14 +770,14 @@ img.license{float:left;padding-right:5px}
   ],
   "authors": [
     {
-      "company": "Universiteit Twente",
+      "company": "HAN University of Applied Sciences",
       "companyURL": "https://www.utwente.nl/",
       "name": "Erwin Folmer"
     }
   ],
   "editors": [
     {
-      "company": "Universiteit Twente",
+      "company": "HAN University of Applied Sciences",
       "companyURL": "https://www.utwente.nl/",
       "name": "Erwin Folmer"
     },
@@ -925,7 +807,8 @@ img.license{float:left;padding-right:5px}
     null
   ]
 }</script>
-<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head><body class="h-entry informative toc-inline"><div class="head">
+<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
+ <body class="h-entry informative toc-inline"><div class="head">
     <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">BOMOS Deel 2: de verdieping 3.0.1</h1>
     
@@ -936,20 +819,20 @@ img.license{float:left;padding-right:5px}
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
-              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/3.0.1/">https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/3.0.1</a>
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/3.0.1/">https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/3.0.1/</a>
             </dd>
       <dt>Laatst gepubliceerde versie:</dt><dd>
-              <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/">https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping</a>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/">https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/</a>
             </dd>
       <dt>Laatste werkversie:</dt><dd><a href="https://logius-standaarden.github.io/BOMOS-Verdieping/">https://logius-standaarden.github.io/BOMOS-Verdieping/</a></dd>
       
       
       
-      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/3.0.0/">https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/3.0.0</a></dd>
+      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/3.0.0/">https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/3.0.0/</a></dd>
       
       <dt>Redacteurs:</dt>
       <dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.utwente.nl/">Universiteit Twente</a>)
+    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.utwente.nl/">HAN University of Applied Sciences</a>)
   </dd><dd class="editor p-author h-card vcard">
     <span class="p-name fn">Gül Işik</span> (<a class="p-org org h-org" href="https://www.logius.nl/">Logius</a>)
   </dd><dd class="editor p-author h-card vcard">
@@ -957,7 +840,7 @@ img.license{float:left;padding-right:5px}
   </dd>
       
       <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.utwente.nl/">Universiteit Twente</a>)
+    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.utwente.nl/">HAN University of Applied Sciences</a>)
   </dd>
       <dt>Doe mee:</dt><dd>
     <a href="https://github.com/Logius-standaarden/BOMOS-Verdieping/">GitHub Logius-standaarden/BOMOS-Verdieping</a>
@@ -990,7 +873,7 @@ img.license{float:left;padding-right:5px}
 </section>
      <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel"><bdi class="secno">1.1 </bdi>Doel</a></li><li class="tocline"><a class="tocxref" href="#structuur-bomos"><bdi class="secno">1.2 </bdi>Structuur BOMOS</a></li><li class="tocline"><a class="tocxref" href="#leeswijzer"><bdi class="secno">1.3 </bdi>Leeswijzer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#strategie"><bdi class="secno">2. </bdi>Strategie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#de-ontwikkel-en-beheerorganisatie-activiteit-governance"><bdi class="secno">2.1 </bdi>De ontwikkel- en beheerorganisatie (Activiteit Governance)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#organisatiestructuur"><bdi class="secno">2.1.1 </bdi>Organisatiestructuur</a></li><li class="tocline"><a class="tocxref" href="#rollen-en-activiteiten"><bdi class="secno">2.1.2 </bdi>Rollen en activiteiten.</a></li><li class="tocline"><a class="tocxref" href="#beheertaken-uitvoering"><bdi class="secno">2.1.3 </bdi>Beheertaken uitvoering</a></li><li class="tocline"><a class="tocxref" href="#de-organisatievorm"><bdi class="secno">2.1.4 </bdi>De organisatievorm</a></li><li class="tocline"><a class="tocxref" href="#visie"><bdi class="secno">2.1.5 </bdi>Visie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#de-kosten-en-de-opbrengsten-activiteit-financien"><bdi class="secno">2.2 </bdi>De kosten en de opbrengsten (Activiteit: Financiën)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#de-baten-van-standaardisatie-generiek"><bdi class="secno">2.2.1 </bdi>De baten van standaardisatie generiek</a></li><li class="tocline"><a class="tocxref" href="#kosten-en-opbrengsten"><bdi class="secno">2.2.2 </bdi>Kosten en opbrengsten</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#geschiktheid-van-opbrengsten-bronnen"><bdi class="secno">2.2.3 </bdi>Geschiktheid van opbrengsten bronnen</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#kostenbesparingen-bij-standaardisatie"><bdi class="secno">2.2.4 </bdi>Kostenbesparingen bij standaardisatie</a></li><li class="tocline"><a class="tocxref" href="#de-business-case"><bdi class="secno">2.2.5 </bdi>De business case</a></li><li class="tocline"><a class="tocxref" href="#het-opstellen-van-een-business-case"><bdi class="secno">2.2.6 </bdi>Het opstellen van een business case</a><ol class="toc"></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#tactiek"><bdi class="secno">3. </bdi>Tactiek</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#de-open-invulling-van-een-standaard-activiteit-community"><bdi class="secno">3.1 </bdi>De open invulling van een standaard (Activiteit Community)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#krechmer-s-open-standaarden-model-10-requirements"><bdi class="secno">3.1.1 </bdi>Krechmer's open standaarden model: '10 requirements'</a></li><li class="tocline"><a class="tocxref" href="#concrete-tips-voor-openheid"><bdi class="secno">3.1.2 </bdi>Concrete tips voor openheid</a></li><li class="tocline"><a class="tocxref" href="#het-toetsbaar-maken-van-het-model"><bdi class="secno">3.1.3 </bdi>Het toetsbaar maken van het model</a></li><li class="tocline"><a class="tocxref" href="#open-invulling-met-open-source-software"><bdi class="secno">3.1.4 </bdi>Open invulling met Open Source Software</a></li></ol></li><li class="tocline"><a class="tocxref" href="#samenhang-met-andere-standaarden-activiteit-architectuur"><bdi class="secno">3.2 </bdi>Samenhang met andere standaarden (Activiteit Architectuur)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#de-gelaagdheid-van-standaarden"><bdi class="secno">3.2.1 </bdi>De gelaagdheid van standaarden</a></li><li class="tocline"><a class="tocxref" href="#life-cycle-van-gelaagde-standaarden"><bdi class="secno">3.2.2 </bdi>Life cycle van gelaagde standaarden</a></li><li class="tocline"><a class="tocxref" href="#de-relatie-met-internationale-standaarden"><bdi class="secno">3.2.3 </bdi>De relatie met internationale standaarden</a></li><li class="tocline"><a class="tocxref" href="#voorbeelden-van-gelaagdheid-van-standaarden"><bdi class="secno">3.2.4 </bdi>Voorbeelden van gelaagdheid van standaarden</a></li><li class="tocline"><a class="tocxref" href="#sector-overstijgende-interoperabiliteit-verzuiling"><bdi class="secno">3.2.5 </bdi>Sector overstijgende interoperabiliteit: Verzuiling</a></li><li class="tocline"><a class="tocxref" href="#de-relatie-met-formele-standaarden"><bdi class="secno">3.2.6 </bdi>De relatie met formele standaarden</a></li><li class="tocline"><a class="tocxref" href="#strategieen-voor-omgang-met-lokalisatie-profielen"><bdi class="secno">3.2.7 </bdi>Strategieën voor omgang met lokalisatie profielen</a></li><li class="tocline"><a class="tocxref" href="#de-linked-data-standaarden-voor-semantisch-modelleren"><bdi class="secno">3.2.8 </bdi>De Linked Data standaarden voor semantisch modelleren</a></li></ol></li><li class="tocline"><a class="tocxref" href="#stimuleren-van-het-gebruik-van-standaarden-activiteit-adoptie-erkenning"><bdi class="secno">3.3 </bdi>Stimuleren van het gebruik van standaarden (Activiteit Adoptie &amp; Erkenning)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#succesfactoren-voor-adoptie-van-een-standaard"><bdi class="secno">3.3.1 </bdi>Succesfactoren voor adoptie van een standaard</a></li><li class="tocline"><a class="tocxref" href="#kiezen-van-de-juiste-middelen"><bdi class="secno">3.3.2 </bdi>Kiezen van de juiste middelen</a></li><li class="tocline"><a class="tocxref" href="#stappenplan"><bdi class="secno">3.3.3 </bdi>Stappenplan</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#plugfest"><bdi class="secno">3.3.4 </bdi>Plugfest</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#factoren-voor-adoptie"><bdi class="secno">3.3.5 </bdi>Factoren voor adoptie</a></li><li class="tocline"><a class="tocxref" href="#adoptie-binnen-gebruikersorganisaties"><bdi class="secno">3.3.6 </bdi>Adoptie binnen gebruikersorganisaties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#kwaliteitsbeleid-en-benchmarking"><bdi class="secno">3.4 </bdi>Kwaliteitsbeleid en benchmarking</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#kwaliteit-van-standaarden"><bdi class="secno">3.4.1 </bdi>Kwaliteit van standaarden</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#kwaliteit-van-implementaties"><bdi class="secno">3.4.2 </bdi>Kwaliteit van implementaties</a><ol class="toc"></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#operationeel"><bdi class="secno">4. </bdi>Operationeel</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#proces-voor-de-ontwikkeling-en-het-beheer-van-een-standaard-hoofdactiviteit-operationeel"><bdi class="secno">4.1 </bdi>Proces voor de ontwikkeling en het beheer van een standaard (Hoofdactiviteit: Operationeel)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#verzamelen-van-wensen-en-eisen"><bdi class="secno">4.1.1 </bdi>Verzamelen van wensen en eisen</a></li><li class="tocline"><a class="tocxref" href="#voorbereiden-veranderingsvoorstellen"><bdi class="secno">4.1.2 </bdi>Voorbereiden veranderingsvoorstellen</a></li><li class="tocline"><a class="tocxref" href="#beoordeling-en-besluitvorming"><bdi class="secno">4.1.3 </bdi>Beoordeling en besluitvorming</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#werkgroepen-en-stakeholders"><bdi class="secno">4.1.4 </bdi>Werkgroepen en stakeholders</a></li><li class="tocline"><a class="tocxref" href="#overgang-naar-nieuwe-versie"><bdi class="secno">4.1.5 </bdi>Overgang naar nieuwe versie</a></li><li class="tocline"><a class="tocxref" href="#vaste-cyclus"><bdi class="secno">4.1.6 </bdi>Vaste cyclus</a></li><li class="tocline"><a class="tocxref" href="#relatie-met-andere-standaarden"><bdi class="secno">4.1.7 </bdi>Relatie met andere standaarden</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voorbeelden-uit-de-operationele-praktijk"><bdi class="secno">4.2 </bdi>Voorbeelden uit de operationele praktijk</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pressure-cooker-een-standaard-in-een-week-in-de-afvalbranche"><bdi class="secno">4.2.1 </bdi>Pressure Cooker – een standaard in een week in de afvalbranche</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#implementatie-ondersteuning"><bdi class="secno">5. </bdi>Implementatie Ondersteuning</a></li><li class="tocline"><a class="tocxref" href="#communicatie"><bdi class="secno">6. </bdi>Communicatie</a></li><li class="tocline"><a class="tocxref" href="#bijlage-de-praktijk"><bdi class="secno">7. </bdi>Bijlage: de Praktijk</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#governance"><bdi class="secno">7.1 </bdi>Governance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#edustandaard-governance"><bdi class="secno">7.1.1 </bdi>Edustandaard governance</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#de-imbor-governance"><bdi class="secno">7.1.2 </bdi>De IMBOR governance</a></li><li class="tocline"><a class="tocxref" href="#logius-standaarden-governance"><bdi class="secno">7.1.3 </bdi>Logius standaarden governance</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#operationeel-gereedschap-voor-standaardenbeheer"><bdi class="secno">7.2 </bdi>Operationeel: Gereedschap voor standaardenbeheer</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#documentatie-en-publicatie-met-git-en-respec"><bdi class="secno">7.2.1 </bdi>Documentatie (en Publicatie) met Git en Respec</a></li><li class="tocline"><a class="tocxref" href="#git-en-git-platforms"><bdi class="secno">7.2.2 </bdi>Git en Git platforms</a></li><li class="tocline"><a class="tocxref" href="#wijzigingsverzoeken"><bdi class="secno">7.2.3 </bdi>Wijzigingsverzoeken</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">8. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">A.1 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
      <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th>Datum</th>
@@ -1006,15 +889,15 @@ img.license{float:left;padding-right:5px}
 <td>Toevoeging: De Best Practices</td>
 </tr>
 <tr>
-<td>05/04/2022</td>
+<td>2024</td>
 <td>3.0</td>
-<td>Erwin Folmer, Erwin Kaats, Wouter van den Berg</td>
+<td>Erwin Folmer, Gül Işik, Edwin Wisse, Wouter van den Berg</td>
 <td>Herziene versie met samenvoegingen uit andere BOMOS varianten</td>
 </tr>
 </tbody></table>
 </section>
      <section class="introductory" id="colofon"><div class="header-wrapper"><h2 id="colofon-0">Colofon</h2><a class="self-link" href="#colofon" aria-label="Permalink for this Section"></a></div>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1274,7 +1157,7 @@ kijken we er nu in meer detail naar. Onderstaande tabel geeft vanuit
 de rollen aan in welke BOMOS activiteiten ze betrokken kunnen zijn;
 dat laat ook zien dat een 1-op-1 koppeling tussen rol en activiteit
 niet werkt.</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th>Rol</th>
@@ -1747,7 +1630,7 @@ economisch onderzoek gedaan naar de vooren nadelen van
 standaardisatie. Bijgaande tabel geeft een samenvatting (op basis van
 Blind, K. (2004). The economics of standards; theory, evidence,
 policy):</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1802,7 +1685,7 @@ policy):</p>
 </section><section id="kosten-en-opbrengsten"><div class="header-wrapper"><h4 id="x2-2-2-kosten-en-opbrengsten"><bdi class="secno">2.2.2 </bdi>Kosten en opbrengsten</h4><a class="self-link" href="#kosten-en-opbrengsten" aria-label="Permalink for Section 2.2.2"></a></div>
 <p>Wel is het mogelijk om te kijken naar de mogelijke kostenposten en
 opbrengsten van het beheer van standaarden. De balans vat deze samen.</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th>Debet</th>
@@ -2116,7 +1999,7 @@ beheerorganisaties hun eigen validatie-service. Algemeen kan gesteld
 worden dat door middel van online tools de inzet van de vrijwilligers
 efficiënter gemaakt worden. Onderstaande tabel geeft als samenvatting
 een aantal suggesties weer om standaardisatie efficiënt in te vullen:</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th>Onderdeel in standaardisatie proces:</th>
@@ -2309,7 +2192,7 @@ de ontwikkelaar van de standaard, de implementator van de standaard in
 een product, en de gebruiker van de standaard (product waarin de
 standaard is verwerkt). Niet elk openheidsaspect is voor elke rol even
 interessant, zoals het model ook laat zien:</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -2552,7 +2435,7 @@ feit dat bepaalde variabelen belangrijker zijn dan andere variabelen.</p>
 <p>Het model op de volgende pagina is een invulling van de 10 criteria
 van Krechmer en is een hulpmiddel om de beheer-activiteiten op een
 open manier in te vullen.</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -3219,7 +3102,7 @@ kunnen bereiken.</p>
       </figure>
     <p></p>
 <p>De strategieën:</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th>Strategie</th>
@@ -3704,7 +3587,7 @@ meer detail de volgende vragen mee beantwoorden:</p>
 <p>In onderstaande tabel zijn de eerste twee (van drie) decompositie lagen van 
 productkwaliteit opgenomen, inclusief definities en toelichting. Het geeft al 
 veel handvaten om de kwaliteit van een standaard mee onder de loep te nemen.</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th><strong>Measurable Concept</strong></th>
@@ -3797,7 +3680,7 @@ veel handvaten om de kwaliteit van een standaard mee onder de loep te nemen.</p>
 </ol>
 <p>In de volgende tabel zijn de eerste twee (van drie) decompositie lagen van 
 proceskwaliteit opgenomen, inclusief definities en toelichting.</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th><strong>Measurable Concept</strong></th>
@@ -3876,7 +3759,7 @@ De twee meest prominente vragen:</p>
 </ol>
 <p>Ook hier zijn in onderstaande tabel de eerste twee (van drie) decompositie 
 lagen van kwaliteit in gebruik opgenomen, inclusief definities en toelichting. </p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th><strong>Measurable Concept</strong></th>
@@ -4260,7 +4143,7 @@ voor de interoperabiliteit doelstelling, en daarnaast op een andere
 manier certificatie in te richten voor adoptie of financiële
 doelstellingen. De volgende tabel laat zien waar de verschillende
 concepten voor gebruikt kunnen worden.</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th>Middel</th>
@@ -4439,7 +4322,7 @@ zien met wie er op een gestandaardiseerde manier data is te delen. </p>
 </ul>
 </section></section><section id="werkgroepen-en-stakeholders"><div class="header-wrapper"><h4 id="x4-1-4-werkgroepen-en-stakeholders"><bdi class="secno">4.1.4 </bdi>Werkgroepen en stakeholders</h4><a class="self-link" href="#werkgroepen-en-stakeholders" aria-label="Permalink for Section 4.1.4"></a></div>
 <p>Werkgroepen zijn een belangrijk instrument voor het verzamelen, voorbereiden en beoordelen van wijzigingsverzoeken. Ondanks openheid kan om praktische redenen de deelname aan werkgroepen gelimiteerd zijn. Daarbij wordt vaak onderscheid gemaakt in type stakeholder, mede omdat het verstandig is dat de werkgroep een goede afspiegeling bevat van de stakeholders. NEN gebruikt hiervoor een stakeholderanalyse waarin de stakeholders worden geïdentificeerd door gebruik te maken van een generieke waardeketen. Deze zijn de volgende:  </p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -4593,7 +4476,7 @@ gegeven moment is de magie uitgewerkt.</li>
 <p>Samenhangend met de promotie is ook het bouwen van een community. De waarde van een goede mailinglist is niet te onderschatten. Zo is de gemeenschap van gebruikers van de standaard direct te bereiken. Ook een specifieke LinkedIn groep is waardevol. Het gaat erom de doelgroep rechtstreeks op eigen initiatief te kunnen benaderen. Uiteraard moet het geheel wel in overeenstemming zijn met de AVG, wat vooral in de praktijk betekent dat explciet gevraagd moet worden voor toestemming voor het verzenden van e-mails, inclusief de reden van contact.</p>
 <p>Een ander belangrijk onderdeel van communicatie is de publicatie-aanpak. Het is niet meer van deze tijd om alleen PDF documenten te publiceren, dus elke standaard zou nu ook online-documentatie moeten hebben (al dan niet na inlog). We verwachten nu een online web omgeving, die er goed uitziet, en eenvoudig is in gebruik. Dezelfde online omgeving kan ongetwijfeld ook gebruikt worden voor het ontwikkelproces van de standaard. Online publiceren biedt voordelen op het gebied van het bieden van implementatie-ondersteuning, bijvoorbeeld implementatie-voorbeelden kunnen direct gelinkt (en getoond) worden aan een stukje tekst uit de online-publicatie. Maar ingrijpender ook impact op het standaardisatie-proces. Bijvoorbeeld versie-management wordt nu mogelijk op delen van het document, in plaats van dat versies van standaard altijd betrekking moeten hebben op het gehele document.</p>
 <p>Goede voorbeelden zijn:</p>
-<table class="dkkvs">
+<table>
 <thead>
 <tr>
 <th>Standaard</th>
@@ -4852,8 +4735,8 @@ wijzigingsvoorstellen met zo'n automatisch proces overzichtelijk te houden.</p>
   </li>
       </ul></section>
 
-  
  
+
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-referenties"><bdi class="secno">A. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="informatieve-referenties">
     <div class="header-wrapper"><h3 id="a-1-informatieve-referenties"><bdi class="secno">A.1 </bdi>Informatieve referenties</h3><a class="self-link" href="#informatieve-referenties" aria-label="Permalink for Appendix A.1"></a></div>
     <dl class="bibliography"><dt id="bib-folmer2011">[folmer2011]</dt><dd>
