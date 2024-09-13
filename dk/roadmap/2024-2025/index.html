@@ -285,6 +285,11 @@ img.license{float:left;padding-right:5px}
       "publisher": "Logius",
       "title": "Digikoppeling Compliance Voorziening"
     },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
     "DK-WUS-voorbeeld": {
       "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
       "publisher": "Logius",
@@ -788,13 +793,12 @@ img.license{float:left;padding-right:5px}
 <li>Digikoppeling REST API profiel baseren op ADR 2.0</li>
 <li>Signing &amp; Encryptie toevoegen aan RESTful API profiel</li>
 <li>Implementatie invoering eDelivery/ebMS3/AS4</li>
-<li>Aansluiting FSC standaard op Digikoppeling</li>
 <li>Best practice Gebruik OAuth icm Digikoppeling REST_API</li>
 <li>Periodiek actualiseren architectuur</li>
 <li>Periodiek actualiseren beveiligingsvoorschriften</li>
 </ul>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#achtergrond"><bdi class="secno">1. </bdi>Achtergrond</a></li><li class="tocline"><a class="tocxref" href="#doel-roadmap"><bdi class="secno">2. </bdi>Doel roadmap</a></li><li class="tocline"><a class="tocxref" href="#totstandkoming-roadmap"><bdi class="secno">3. </bdi>Totstandkoming Roadmap</a></li><li class="tocline"><a class="tocxref" href="#positionering-digikoppeling"><bdi class="secno">4. </bdi>Positionering Digikoppeling</a></li><li class="tocline"><a class="tocxref" href="#onderwerpen-digikoppeling-standaarden"><bdi class="secno">5. </bdi>Onderwerpen Digikoppeling Standaarden</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#digikoppeling-rest-api-profiel-baseren-op-adr-2-0"><bdi class="secno">5.1 </bdi>Digikoppeling REST API profiel baseren op ADR 2.0</a></li><li class="tocline"><a class="tocxref" href="#signing-encryptie-toevoegen-aan-restful-api-profiel"><bdi class="secno">5.2 </bdi>Signing &amp; Encryptie toevoegen aan RESTful API profiel</a></li><li class="tocline"><a class="tocxref" href="#implementatie-invoering-edelivery-ebms3-as4"><bdi class="secno">5.3 </bdi>Implementatie invoering eDelivery/ebMS3/AS4</a></li><li class="tocline"><a class="tocxref" href="#aansluiting-fsc-standaard-op-digikoppeling"><bdi class="secno">5.4 </bdi>Aansluiting FSC standaard op Digikoppeling</a></li><li class="tocline"><a class="tocxref" href="#best-practice-gebruik-oauth-icm-digikoppeling-rest_api"><bdi class="secno">5.5 </bdi>Best practice Gebruik OAuth icm Digikoppeling REST_API</a></li><li class="tocline"><a class="tocxref" href="#periodiek-actualiseren-architectuur"><bdi class="secno">5.6 </bdi>Periodiek actualiseren architectuur</a></li><li class="tocline"><a class="tocxref" href="#periodiek-actualiseren-beveiligingsvoorschriften"><bdi class="secno">5.7 </bdi>Periodiek actualiseren beveiligingsvoorschriften</a></li><li class="tocline"><a class="tocxref" href="#tijdlijn-roadmap-digikoppeling-standaarden"><bdi class="secno">5.8 </bdi>Tijdlijn Roadmap Digikoppeling Standaarden</a></li></ol></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#achtergrond"><bdi class="secno">1. </bdi>Achtergrond</a></li><li class="tocline"><a class="tocxref" href="#doel-roadmap"><bdi class="secno">2. </bdi>Doel roadmap</a></li><li class="tocline"><a class="tocxref" href="#totstandkoming-roadmap"><bdi class="secno">3. </bdi>Totstandkoming Roadmap</a></li><li class="tocline"><a class="tocxref" href="#positionering-digikoppeling"><bdi class="secno">4. </bdi>Positionering Digikoppeling</a></li><li class="tocline"><a class="tocxref" href="#onderwerpen-digikoppeling-standaarden"><bdi class="secno">5. </bdi>Onderwerpen Digikoppeling Standaarden</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#digikoppeling-rest-api-profiel-baseren-op-adr-2-0"><bdi class="secno">5.1 </bdi>Digikoppeling REST API profiel baseren op ADR 2.0</a></li><li class="tocline"><a class="tocxref" href="#signing-encryptie-toevoegen-aan-restful-api-profiel"><bdi class="secno">5.2 </bdi>Signing &amp; Encryptie toevoegen aan RESTful API profiel</a></li><li class="tocline"><a class="tocxref" href="#implementatie-invoering-edelivery-ebms3-as4"><bdi class="secno">5.3 </bdi>Implementatie invoering eDelivery/ebMS3/AS4</a></li><li class="tocline"><a class="tocxref" href="#best-practice-gebruik-oauth-icm-digikoppeling-rest_api"><bdi class="secno">5.4 </bdi>Best practice Gebruik OAuth icm Digikoppeling REST_API</a></li><li class="tocline"><a class="tocxref" href="#periodiek-actualiseren-architectuur"><bdi class="secno">5.5 </bdi>Periodiek actualiseren architectuur</a></li><li class="tocline"><a class="tocxref" href="#periodiek-actualiseren-beveiligingsvoorschriften"><bdi class="secno">5.6 </bdi>Periodiek actualiseren beveiligingsvoorschriften</a></li><li class="tocline"><a class="tocxref" href="#tijdlijn-roadmap-digikoppeling-standaarden"><bdi class="secno">5.7 </bdi>Tijdlijn Roadmap Digikoppeling Standaarden</a></li></ol></li></ol></nav>
   <section id="achtergrond"><div class="header-wrapper"><h2 id="x1-achtergrond"><bdi class="secno">1. </bdi>Achtergrond</h2><a class="self-link" href="#achtergrond" aria-label="Permalink for Section 1."></a></div>
 <p>Digikoppeling bevordert interoperabiliteit door digitale gegevensuitwisseling te standaardiseren. Hierbij maakt Digikoppeling gebruik van internationale open standaarden. Daarmee is Digikoppeling een belangrijke pijler voor de Generieke Digitale Infrastructuur (GDI) die publieke dienstverlening en uitvoering mogelijk maakt.</p>
 <p>Digikoppeling bestaat uit een set standaarden die het mogelijk maakt om berichten tussen overheidsinstellingen en organisaties die met of binnen de overheid digitaal informatie willen uitwisselen, op gestandaardiseerde wijze veilig uit te wisselen. Gebruik van deze standaarden wordt ondersteund door de Digikoppeling voorzieningen; de Centrale OIN Raadpleegvoorziening, de Compliance voorzieningen en het CPA Register. Dit ten behoeve van ontwikkeling en implementatie van systemen die Digikoppeling toepassen. Daarmee is Digikoppeling de invulling van de servicegerichte architectuur die de Nederlandse Overheid Referentie Architectuur (NORA) voorschrijft.</p>
@@ -853,18 +857,7 @@ Het eDelivery ebMS3/AS4 profiel is in principe geschikt bevonden bij deze verken
 <p>Een Digikoppeling standaard voorzien van een ebMS3/AS4 profiel op basis van eDelivery en een migratieplan voor de overgang van ebMS2 naar ebMS3/AS4</p>
 <p><em>Wanneer gaat dit gebeuren?</em></p>
 <p>Q1 2024-Q4 2025</p>
-</section><section id="aansluiting-fsc-standaard-op-digikoppeling"><div class="header-wrapper"><h3 id="x5-4-aansluiting-fsc-standaard-op-digikoppeling"><bdi class="secno">5.4 </bdi>Aansluiting FSC standaard op Digikoppeling</h3><a class="self-link" href="#aansluiting-fsc-standaard-op-digikoppeling" aria-label="Permalink for Section 5.4"></a></div>
-<p><em>Wat is het issue of de wens?</em></p>
-<p>In het vernieuwingsproject "Digikoppeling voor API's" is de Federated Service Connectivity Standaard (FSC) ontwikkeld.
-Deze standaard is gericht op het maken van peer-to-peer connecties (middels digitale contracten) en heeft specifieke ondersteuning voor gedelegeerde autorisatie (machtigen) en logging in een API ecosysteem met een groot aantal organisaties en connecties.</p>
-<p><em>Wat gaat er gebeuren?</em></p>
-<p>De FSC standaard wordt door de projectgroep FSC ingediend als wijzigingsvoorstel (en als aanvulling) voor de Digikoppeling REST API standaard. 
-De voorgestelde wijziging wordt besproken binnen het Technisch Overleg Digikoppeling, de Programeringstafel Gegevensuitwisseling en de Programmeringsraad.</p>
-<p><em>Wat is het resultaat?</em></p>
-<p>Bij een positief besluit van de MIDO gremia zal de Digikoppeling standaard worden uitgebreid met de FSC standaard voor het maken van connecties.</p>
-<p><em>Wanneer gaat dit gebeuren?</em></p>
-<p>Q1 2024-Q4 2025</p>
-</section><section id="best-practice-gebruik-oauth-icm-digikoppeling-rest_api"><div class="header-wrapper"><h3 id="x5-5-best-practice-gebruik-oauth-icm-digikoppeling-rest_api"><bdi class="secno">5.5 </bdi>Best practice Gebruik OAuth icm Digikoppeling REST_API</h3><a class="self-link" href="#best-practice-gebruik-oauth-icm-digikoppeling-rest_api" aria-label="Permalink for Section 5.5"></a></div>
+</section><section id="best-practice-gebruik-oauth-icm-digikoppeling-rest_api"><div class="header-wrapper"><h3 id="x5-4-best-practice-gebruik-oauth-icm-digikoppeling-rest_api"><bdi class="secno">5.4 </bdi>Best practice Gebruik OAuth icm Digikoppeling REST_API</h3><a class="self-link" href="#best-practice-gebruik-oauth-icm-digikoppeling-rest_api" aria-label="Permalink for Section 5.4"></a></div>
 <p><em>Wat is het issue of de wens?</em></p>
 <p>De OAuth standaard biedt mogelijkheden om fijnmazig te autoriseren. De OAuth standaard (mn de client credentials flow) kan gebruikt worden om systemen specifieke, beperkte rechten te geven (middels OAuth tokens met een bepaalde scope), dit naast de autorisatie op organisatie niveau (middels een PKIO certificaat en
 2 zijdig TLS) .</p>
@@ -874,7 +867,7 @@ De voorgestelde wijziging wordt besproken binnen het Technisch Overleg Digikoppe
 <p>Een Best practice Gebruik OAuth icm Digikoppeling REST API</p>
 <p><em>Wanneer gaat dit gebeuren?</em></p>
 <p>Q3 2024-Q1 2025</p>
-</section><section id="periodiek-actualiseren-architectuur"><div class="header-wrapper"><h3 id="x5-6-periodiek-actualiseren-architectuur"><bdi class="secno">5.6 </bdi>Periodiek actualiseren architectuur</h3><a class="self-link" href="#periodiek-actualiseren-architectuur" aria-label="Permalink for Section 5.6"></a></div>
+</section><section id="periodiek-actualiseren-architectuur"><div class="header-wrapper"><h3 id="x5-5-periodiek-actualiseren-architectuur"><bdi class="secno">5.5 </bdi>Periodiek actualiseren architectuur</h3><a class="self-link" href="#periodiek-actualiseren-architectuur" aria-label="Permalink for Section 5.5"></a></div>
 <p><em>Wat is het issue of de wens?</em></p>
 <p>De Digikoppeling architectuur dient periodiek te worden bijgewerkt om goed aan te blijven aansluiten bij ontwikkelingen in de NORA, Gemma, KP-API's en andere overheidsbrede architectuur ontwikkelingen;</p>
 <p><em>Wat gaat er gebeuren?</em></p>
@@ -883,7 +876,7 @@ De voorgestelde wijziging wordt besproken binnen het Technisch Overleg Digikoppe
 <p>Een nieuwe versie van het architectuur document</p>
 <p><em>Wanneer gaat dit gebeuren?</em></p>
 <p>Q2 2024 &amp; Q2 2025</p>
-</section><section id="periodiek-actualiseren-beveiligingsvoorschriften"><div class="header-wrapper"><h3 id="x5-7-periodiek-actualiseren-beveiligingsvoorschriften"><bdi class="secno">5.7 </bdi>Periodiek actualiseren beveiligingsvoorschriften</h3><a class="self-link" href="#periodiek-actualiseren-beveiligingsvoorschriften" aria-label="Permalink for Section 5.7"></a></div>
+</section><section id="periodiek-actualiseren-beveiligingsvoorschriften"><div class="header-wrapper"><h3 id="x5-6-periodiek-actualiseren-beveiligingsvoorschriften"><bdi class="secno">5.6 </bdi>Periodiek actualiseren beveiligingsvoorschriften</h3><a class="self-link" href="#periodiek-actualiseren-beveiligingsvoorschriften" aria-label="Permalink for Section 5.6"></a></div>
 <p><em>Wat is het issue of de wens?</em></p>
 <p>De Digikoppeling beveiligingsvoorschriften dienen periodiek te worden bijgewerkt om goed aan te blijven aansluiten bij de NCSC beveiligingsvoorschriften en de ontwikkelingen in de beveiligingsstandaarden;</p>
 <p><em>Wat gaat er gebeuren?</em></p>
@@ -892,7 +885,7 @@ De voorgestelde wijziging wordt besproken binnen het Technisch Overleg Digikoppe
 <p>Een nieuwe versie van het beveiligingsvoorschriften document</p>
 <p><em>Wanneer gaat dit gebeuren?</em></p>
 <p>Q3 2024 &amp; Q3 2025</p>
-</section><section id="tijdlijn-roadmap-digikoppeling-standaarden"><div class="header-wrapper"><h3 id="x5-8-tijdlijn-roadmap-digikoppeling-standaarden"><bdi class="secno">5.8 </bdi>Tijdlijn Roadmap Digikoppeling Standaarden</h3><a class="self-link" href="#tijdlijn-roadmap-digikoppeling-standaarden" aria-label="Permalink for Section 5.8"></a></div>
+</section><section id="tijdlijn-roadmap-digikoppeling-standaarden"><div class="header-wrapper"><h3 id="x5-7-tijdlijn-roadmap-digikoppeling-standaarden"><bdi class="secno">5.7 </bdi>Tijdlijn Roadmap Digikoppeling Standaarden</h3><a class="self-link" href="#tijdlijn-roadmap-digikoppeling-standaarden" aria-label="Permalink for Section 5.7"></a></div>
 <table>
 <thead>
 <tr>
@@ -931,17 +924,6 @@ De voorgestelde wijziging wordt besproken binnen het Technisch Overleg Digikoppe
 </tr>
 <tr>
 <td>Implementatie invoering ebMS3/AS4 (*)</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-</tr>
-<tr>
-<td>Aansluiting FSC standaard op Digikoppeling (*)</td>
 <td>X</td>
 <td>X</td>
 <td>X</td>

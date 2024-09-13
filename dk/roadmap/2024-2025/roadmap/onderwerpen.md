@@ -72,27 +72,6 @@ _Wanneer gaat dit gebeuren?_
 Q1 2024-Q4 2025
 
 
-### Aansluiting FSC standaard op Digikoppeling
-
-_Wat is het issue of de wens?_
-
-In het vernieuwingsproject "Digikoppeling voor API's" is de Federated Service Connectivity Standaard (FSC) ontwikkeld.
-Deze standaard is gericht op het maken van peer-to-peer connecties (middels digitale contracten) en heeft specifieke ondersteuning voor gedelegeerde autorisatie (machtigen) en logging in een API ecosysteem met een groot aantal organisaties en connecties.
-
-_Wat gaat er gebeuren?_
-
-De FSC standaard wordt door de projectgroep FSC ingediend als wijzigingsvoorstel (en als aanvulling) voor de Digikoppeling REST API standaard. 
-De voorgestelde wijziging wordt besproken binnen het Technisch Overleg Digikoppeling, de Programeringstafel Gegevensuitwisseling en de Programmeringsraad.
-
-_Wat is het resultaat?_
-
-Bij een positief besluit van de MIDO gremia zal de Digikoppeling standaard worden uitgebreid met de FSC standaard voor het maken van connecties.
-
-_Wanneer gaat dit gebeuren?_
-
-Q1 2024-Q4 2025
-
-
 
 ### Best practice Gebruik OAuth icm Digikoppeling REST_API
 
@@ -159,7 +138,6 @@ Q3 2024 & Q3 2025
 | Digikoppeling REST API profiel baseren op ADR 2.0      | X       | X       |         |         |         |         |         |         |
 | Signing & Encryptie toevoegen aan RESTful API profiel  | X       | X       | X       |         |         |         |         |         |
 | Implementatie invoering ebMS3/AS4 (\*)                 | X       | X       | X       | X       | X       | X       | X       | X       |
-| Aansluiting FSC standaard op Digikoppeling (\*)        | X       | X       | X       | X       | X       | X       | X       | X       |
 | Best practice Gebruik OAuth icm Digikoppeling REST_API |         |         | X       | X       |         |         |         |         |
 | Periodiek actualiseren architectuur                    |         | X       |         |         |         | X       |         |         |
 | Periodiek actualiseren beveiligingsvoorschriften       |         |         | X       |         |         |         | X       |         |
