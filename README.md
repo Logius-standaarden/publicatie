@@ -13,6 +13,8 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 
 ### api
 
+- [api/Logboek_Juridisch/](https://gitdocumentatie.logius.nl/publicatie/api/Logboek_Juridisch/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/Logboek_Juridisch/)
+   - [api/Logboek_Juridisch/0.1.0/](https://gitdocumentatie.logius.nl/publicatie/api/Logboek_Juridisch/0.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/Logboek_Juridisch/0.1.0/)
 - [api/adr/](https://gitdocumentatie.logius.nl/publicatie/api/adr/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/)
 - [api/adr-beheer/](https://gitdocumentatie.logius.nl/publicatie/api/adr-beheer/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr-beheer/)
    - [api/adr-beheer/1.0/](https://gitdocumentatie.logius.nl/publicatie/api/adr-beheer/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr-beheer/1.0/)
