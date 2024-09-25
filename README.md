@@ -6,6 +6,11 @@ De inhoud van deze repository wordt dagelijks gepubliceerd naar `gitdocumentatie
 
 Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de pagina op GitHub Pages te zien.
 
+### API
+
+- [API/Logboek_Juridisch/](https://gitdocumentatie.logius.nl/publicatie/API/Logboek_Juridisch/) [:scroll:](https://logius-standaarden.github.io/publicatie/API/Logboek_Juridisch/)
+   - [API/Logboek_Juridisch/0.1.0/](https://gitdocumentatie.logius.nl/publicatie/API/Logboek_Juridisch/0.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/API/Logboek_Juridisch/0.1.0/)
+
 ### api
 
 - [api/adr/](https://gitdocumentatie.logius.nl/publicatie/api/adr/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/)
