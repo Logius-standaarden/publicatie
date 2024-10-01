@@ -126,6 +126,12 @@ var organisationConfig = {
             href: "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
             publisher: "Logius",
             title: "Algemene voorwaarden Logius"
+            },
+        "AVG": {
+            date: "27 april 2016",
+            href: "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+            publisher: "Verordening (EU) 2016/679 van het Europees Parlement",
+            title: "Algemene Verordening Gegevensbescherming"
         },
         "BCP195": {
             authors: ["Y. Sheffer", "R. Holz", "P. Saint-Andre"],
