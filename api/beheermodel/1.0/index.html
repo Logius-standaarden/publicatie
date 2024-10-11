@@ -1,25 +1,23 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 34.1.4">
+<meta name="generator" content="ReSpec 35.1.1">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
 div.illegal-example{color:red}
 div.illegal-example p{color:#000}
-:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
 aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-.example pre{background-color:rgba(0,0,0,.03)}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
 .dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
 .dfn-panel>div{display:flex}
 .dfn-panel a.self-link{font-weight:700;margin-right:auto}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
@@ -36,7 +34,7 @@ dfn{cursor:pointer}
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
   
   
-<title>API Standaarden beheermodel</title>
+<title>API Standaarden beheermodel 1.0</title>
   
   
   
@@ -58,8 +56,6 @@ dfn{cursor:pointer}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
 a.bibref{text-decoration:none}
@@ -73,20 +69,8 @@ a.bibref{text-decoration:none}
 cite .bibref{font-style:normal}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
 #issue-summary>ul{column-count:2}
 #issue-summary li{list-style:none;display:inline-block}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
@@ -136,7 +120,7 @@ ul.index code{color:inherit}
     color: white;
     white-space: nowrap;
     z-index: 1;
-    background-color: #39870c;
+    background-color: #154273;
   }
 </style>
 <script id="initialUserConfig" type="application/json">{
@@ -157,7 +141,8 @@ ul.index code{color:inherit}
     "nl_organisationPublishURL",
     "pubDomain",
     "/",
-    "shortName"
+    "shortName",
+    "/"
   ],
   "thisVersion": [
     "nl_organisationPublishURL",
@@ -165,7 +150,8 @@ ul.index code{color:inherit}
     "/",
     "shortName",
     "/",
-    "publishVersion"
+    "publishVersion",
+    "/"
   ],
   "prevVersion": [
     "nl_organisationPublishURL",
@@ -173,7 +159,8 @@ ul.index code{color:inherit}
     "/",
     "shortName",
     "/",
-    "previousPublishVersion"
+    "previousPublishVersion",
+    "/"
   ],
   "useLogo": true,
   "useLabel": true,
@@ -288,6 +275,12 @@ ul.index code{color:inherit}
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
+    "AVG": {
+      "date": "27 april 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
+    },
     "BCP195": {
       "authors": [
         "Y. Sheffer",
@@ -326,6 +319,16 @@ ul.index code{color:inherit}
       "publisher": "Logius",
       "title": "Digikoppeling Compliance Voorziening"
     },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
+    },
     "Deployment Guide 1.1": {
       "authors": [
         "Pete Wenzel",
@@ -339,7 +342,7 @@ ul.index code{color:inherit}
     "DK": {
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
       "publisher": "Logius",
-      "title": "Digikoppeling"
+      "title": "Logius | Digikoppeling"
     },
     "DK-Doc": {
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
@@ -411,6 +414,18 @@ ul.index code{color:inherit}
       "publisher": "Logius",
       "title": "Wat is Digikoppeling?"
     },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
+    },
     "ebCPP": {
       "authors": [
         "Oasis"
@@ -474,14 +489,14 @@ ul.index code{color:inherit}
       "publisher": "Logius",
       "title": "Gebruiksvoorwaarden Digikoppeling"
     },
-    "Geospatial Module": {
+    "ADR-GEO": {
       "authors": [
         "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
       ],
-      "date": "23 mei 2021",
-      "href": "https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
       "publisher": "Geonovum",
-      "title": "API Design rules Module: Geospatial"
+      "title": "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
       "date": "Nov 2014",
@@ -615,14 +630,14 @@ ul.index code{color:inherit}
       "title": "Lijst Verplichte standaarden"
     },
     "PKIO-PvE": {
-      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid/aansluiten-als-tsp/programma-van-eisen",
+      "href": "https://por.pkioverheid.nl/",
       "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
     },
     "PKI-CA": {
-      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
       "publisher": "Logius",
-      "title": "Toegetreden vertrouwensdienstverleners"
+      "title": "Aansluiten als Trust Service Provider"
     },
     "PKIoverheid": {
       "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
@@ -642,14 +657,14 @@ ul.index code{color:inherit}
       "href": "https://semver.org",
       "title": "Semantic Versioning 2.0.0"
     },
-    "Transport Security Module": {
+    "ADR-TS": {
       "authors": [
         ""
       ],
-      "date": "27 september 2023",
-      "href": "https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       "publisher": "Kennisplatform API's",
-      "title": "Transport Security Module"
+      "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
       "authors": [
@@ -699,6 +714,29 @@ ul.index code{color:inherit}
       ],
       "publisher": "Geonovum",
       "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
     }
   },
   "alternateFormats": [
@@ -740,35 +778,35 @@ ul.index code{color:inherit}
   ],
   "github": "https://github.com/Logius-standaarden/API-Standaarden-Beheermodel",
   "pubDomain": "api",
-  "publishDate": "2024-02-02",
+  "publishDate": "2024-03-07",
   "publishVersion": "1.0",
   "previousPublishVersion": "1.0",
   "shortName": "beheermodel",
-  "specStatus": "WV",
+  "specStatus": "DEF",
   "specType": "HR"
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
  <body class="h-entry"><div class="head">
     <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
-  </a> <h1 id="title" class="title">API Standaarden beheermodel</h1>
+  </a> <h1 id="title" class="title">API Standaarden beheermodel 1.0</h1>
     
     <h2>
       Logius Handreiking<br>
-      Werkversie
-      <time class="dt-published" datetime="2024-02-02">11 maart 2024</time>
+      Vastgestelde versie
+      <time class="dt-published" datetime="2024-03-07">07 maart 2024</time>
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
-              <a class="u-url status" href="https://logius-standaarden.github.io/API-Standaarden-Beheermodel/">https://logius-standaarden.github.io/API-Standaarden-Beheermodel/</a>
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/1.0/">https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/1.0/</a>
             </dd>
       <dt>Laatst gepubliceerde versie:</dt><dd>
-              <a href="https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/">https://gitdocumentatie.logius.nl/publicatie/api/beheermodel</a>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/">https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/</a>
             </dd>
       <dt>Laatste werkversie:</dt><dd><a href="https://logius-standaarden.github.io/API-Standaarden-Beheermodel/">https://logius-standaarden.github.io/API-Standaarden-Beheermodel/</a></dd>
       
       
       
-      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/1.0/">https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/1.0</a></dd>
+      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/1.0/">https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/1.0/</a></dd>
       
       <dt>Redacteurs:</dt>
       <dd class="editor p-author h-card vcard">
@@ -807,7 +845,7 @@ ul.index code{color:inherit}
     <hr title="Separator for header">
   </div>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document beschrijft het beheermodel van de API Standaarden die Logius beheert. Dit model is gebaseerd op  BOMOS.</p></section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section>
   
   <section id="inleiding"><div class="header-wrapper"><h2 id="x1-inleiding"><bdi class="secno">1. </bdi>Inleiding</h2><a class="self-link" href="#inleiding" aria-label="Permalink for Section 1."></a></div>
 <section id="leeswijzer"><div class="header-wrapper"><h3 id="x1-1-leeswijzer"><bdi class="secno">1.1 </bdi>Leeswijzer</h3><a class="self-link" href="#leeswijzer" aria-label="Permalink for Section 1.1"></a></div>
@@ -830,7 +868,7 @@ voor alle standaarden onder beheer bij Logius.</p>
 De standaarden hebben tot doel om betere, uniforme en ontwikkelaar vriendelijke API’s te ontwikkelen die
 makkelijk te implementeren zijn. De sets van afspraken bestaan uit breed toepasbare en ondubbelzinnige richtlijnen.
 Deze helpen organisaties die nieuwe API’s ontwikkelen voor Nederlandse overheden (Rijk, provincies, gemeenten en waterschappen) en instellingen uit de (semi-) publieke sector. In onderstaande tabel zijn alle actuele links opgenomen naar alle bronnen van de standaarden:</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Formele standaard</th>
@@ -888,7 +926,7 @@ Websites presenteren informatie aan mensen, REST-API's maken applicaties en gege
 Ontwikkelaars kunnen deze REST-API's bevragen vanuit de gangbare programmeertalen en frameworks zoals Python, Java, Microsoft C#, PHP.</p>
 </section><section id="status"><div class="header-wrapper"><h4 id="x1-2-3-status"><bdi class="secno">1.2.3 </bdi>Status</h4><a class="self-link" href="#status" aria-label="Permalink for Section 1.2.3"></a></div>
 <p>De statussen van de verschillende API standaarden zijn in de standaarden zelf vastgelegd. De Status van dit beheermodel is als volgt:</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Gremium</th>
@@ -1005,7 +1043,7 @@ niveau van het OBDO. Voor GDI standaarden mandateert het OBDO de
 programmeringsraad tot het nemen van besluiten over wijzigingen op de standaarden.</p>
 <p>Het OBDO wordt geïnformeerd over wijzigingen op de standaarden.</p>
 <p>In tabelvorm:</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th><strong>Gremium</strong></th>
@@ -1260,7 +1298,7 @@ uitspraken doen over het ondersteunen van oude releases.</li>
 <p>Afhankelijk van de impact van een wijziging of patch krijgt een release een nieuw versienummer. Het versienummerbeheer volgt principes voor semantische versienummering <a href="#versienummering">en is beschreven in een bijlage</a></p>
 <p>De beheerorganisatie schat op basis van de wijziging of patch in welk nieuw versienummer noodzakelijk is.</p>
 </section></section><section id="status-van-de-standaard"><div class="header-wrapper"><h3 id="x4-4-status-van-de-standaard"><bdi class="secno">4.4 </bdi>Status van de standaard</h3><a class="self-link" href="#status-van-de-standaard" aria-label="Permalink for Section 4.4"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th><strong>Afkorting</strong></th>
@@ -1752,4 +1790,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Handreiking - Werkversie</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Handreiking - Vastgestelde versie</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
