@@ -1,0 +1,1261 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta name="generator" content="ReSpec 35.1.1">
+<style>
+span.example-title{text-transform:none}
+:is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+div.illegal-example{color:red}
+div.illegal-example p{color:#000}
+aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+  
+  
+  
+<link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon">
+  
+<title>BOMOS: Linked data 3.0.0</title>
+  
+  
+  
+<script>
+   respecConfig = {...organisationConfig, ...respecConfig};
+  </script>
+  
+  
+<link href="./media/style.css" rel="stylesheet" type="text/css">
+ 
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<style id="respec-nlgov">
+img.license{float:left;padding-right:5px}
+</style>
+<meta name="description" content="BOMOS (Beheer- en OntwikkelModel voor Open Standaarden) is een hulpmiddel
+  van en voor de standaardisatiewereld. Dit deel bevat een aanvullende
+  module over linked data. Het is een verkenning van de rol die linked data speelt en kan gaan spelen in moderne semantische standaarden.">
+<style>
+
+  .sidelabel {
+    position: fixed;
+    -webkit-transform-origin: top right;
+    right: 100%;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+    padding: 4px 50px 4px 10px;
+    color: white;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: #154273;
+  }
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "nl_organisationName": "Logius",
+  "nl_organisationStylesURL": "https://gitdocumentatie.logius.nl/publicatie/respec/style/",
+  "nl_organisationPublishURL": "https://gitdocumentatie.logius.nl/publicatie/",
+  "logos": [
+    {
+      "src": "https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg",
+      "alt": "Logius",
+      "id": "Logius",
+      "height": 77,
+      "width": 44,
+      "url": "https://www.logius.nl/standaarden"
+    }
+  ],
+  "latestVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/"
+  ],
+  "thisVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "publishVersion",
+    "/"
+  ],
+  "prevVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "previousPublishVersion",
+    "/"
+  ],
+  "useLogo": true,
+  "useLabel": true,
+  "license": "cc-by",
+  "addSectionLinks": true,
+  "localizationStrings": {
+    "en": {
+      "wv": "Draft",
+      "cv": "Consultation version",
+      "vv": "Proposed version",
+      "def": "Definitive version",
+      "basis": "Document",
+      "eo": "Outdated version",
+      "tg": "Rescinded version",
+      "no": "Norm",
+      "st": "Standard",
+      "im": "Information model",
+      "pr": "Guideline",
+      "hr": "Guide",
+      "wa": "Proposed recommendation",
+      "al": "General",
+      "bd": "Governance documentation",
+      "bp": "Best practice"
+    },
+    "nl": {
+      "wv": "Werkversie",
+      "cv": "Consultatieversie",
+      "vv": "Versie ter vaststelling",
+      "def": "Vastgestelde versie",
+      "basis": "Document",
+      "eo": "Verouderde versie",
+      "tg": "Teruggetrokken versie",
+      "no": "Norm",
+      "st": "Standaard",
+      "im": "Informatiemodel",
+      "pr": "Praktijkrichtlijn",
+      "hr": "Handreiking",
+      "wa": "Werkafspraak",
+      "al": "Algemeen",
+      "bd": "Beheerdocumentatie",
+      "bp": "Best practice"
+    }
+  },
+  "sotdText": {
+    "nl": {
+      "sotd": "Status van dit document",
+      "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.",
+      "cv": "Dit is een door het TO goedgekeurde consultatieversie. Commentaar over dit document kan gestuurd worden naar digikoppeling@logius.nl",
+      "vv": "Dit is een definitief concept van de nieuwe versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "basis": "Dit is een document zonder officiële status."
+    },
+    "en": {
+      "sotd": "Status of This Document",
+      "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
+      "wv": "This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.",
+      "cv": "This is a proposed recommendation approved by TO. Comments regarding this document may be sent to api@logius.nl",
+      "vv": "This is the definitive concept of this document. Edits resulting from consultations have been applied.",
+      "basis": "This document has no official standing."
+    }
+  },
+  "labelColor": {
+    "def": "#154273",
+    "wv": "#39870c",
+    "cv": "#000000",
+    "vv": "#000000"
+  },
+  "licenses": {
+    "cc0": {
+      "name": "Creative Commons 0 Public Domain Dedication",
+      "short": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-zero.svg"
+    },
+    "cc-by": {
+      "name": "Creative Commons Attribution 4.0 International Public License",
+      "short": "CC-BY",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg"
+    },
+    "cc-by-nd": {
+      "name": "Creative Commons Naamsvermelding-GeenAfgeleideWerken 4.0 Internationaal",
+      "short": "CC-BY-ND",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/legalcode.nl",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
+    }
+  },
+  "localBiblio": {
+    "ADR": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "date": "Juli 2020",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
+      "publisher": "Logius",
+      "title": "API Design Rules (Nederlandse API Strategie IIa)"
+    },
+    "ADR-ext": {
+      "authors": [
+        "Jasper Roes",
+        "Linda van den Brink"
+      ],
+      "date": "Januari 2020",
+      "href": "https://docs.geostandaarden.nl/api/API-Strategie-ext",
+      "publisher": "Geonovum/Kennisplatform APi's",
+      "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
+    },
+    "Algemene Voorwaarden Logius": {
+      "date": "12 juni 2018",
+      "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
+      "publisher": "Logius",
+      "title": "Algemene voorwaarden Logius"
+    },
+    "AVG": {
+      "date": "27 april 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
+    },
+    "BCP195": {
+      "authors": [
+        "Y. Sheffer",
+        "R. Holz",
+        "P. Saint-Andre"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/bcp195",
+      "publisher": "IETF",
+      "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"
+    },
+    "DK-beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "CloudEvents": {
+      "authors": [
+        "@@@"
+      ],
+      "date": "May 2011",
+      "href": "https://github.com/cloudevents/spec/blob/v1.0.1/spec.md",
+      "publisher": "@@@",
+      "title": "CloudEvents - Version 1.0.1"
+    },
+    "NLGOV-CloudEvents": {
+      "authors": [
+        "Werkgroep Berichtenstandaard (Project Notificatieservices)"
+      ],
+      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "publisher": "Logius",
+      "title": "NL GOV profile for CloudEvents"
+    },
+    "DK-CV": {
+      "href": "https://gitlab.com/logius/digikoppeling-compliance",
+      "publisher": "Logius",
+      "title": "Digikoppeling Compliance Voorziening"
+    },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
+    },
+    "Deployment Guide 1.1": {
+      "authors": [
+        "Pete Wenzel",
+        "Jacques Durand"
+      ],
+      "date": "June 2005",
+      "href": "http://www.oasis-open.org/apps/org/workgroup/ebxml-iic-deployment-profile-template-intro-100406.doc",
+      "publisher": "OASIS",
+      "title": "Deployment Profile Template For OASIS ebXML Message Service 2.0"
+    },
+    "DK": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
+      "publisher": "Logius",
+      "title": "Logius | Digikoppeling"
+    },
+    "DK-Doc": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
+      "publisher": "Logius",
+      "title": "Digikoppeling documentatie"
+    },
+    "DK-Beheermodel": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beheermodel"
+    },
+    "DK-BPebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices ebMS2"
+    },
+    "DK-BPGB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpgb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices Grote Berichten"
+    },
+    "DK-BPWUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpwus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices WUS"
+    },
+    "DK-Beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "DK-gbachtcert": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-ebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-GB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/gb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard Grote Berichten"
+    },
+    "DK-WUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/wus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard WUS"
+    },
+    "DK-RESTAPI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/restapi/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard REST-API"
+    },
+    "DK-Architectuur": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Architectuur"
+    },
+    "DK-IDAuth": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Identificatie en Authenticatie"
+    },
+    "DK-WI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/",
+      "publisher": "Logius",
+      "title": "Wat is Digikoppeling?"
+    },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
+    },
+    "ebCPP": {
+      "authors": [
+        "Oasis"
+      ],
+      "date": "september 2002",
+      "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "ebMS3": {
+      "authors": [
+        "Ian Jones",
+        "Pete Wenzel"
+      ],
+      "date": "October 2007",
+      "href": "https://docs.oasis-open.org/ebxml-msg/ebms/v3.0/core/os/ebms_core-3.0-spec-os.html",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "eDelivery API4IPS": {
+      "authors": [
+        "J. Dimitriou, V. Veduta, B. Dumitriu"
+      ],
+      "date": "sept 8 2022",
+      "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
+      "publisher": "OpenID foundation",
+      "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
+    },
+    "Expert": {
+      "authors": [
+        "@@@"
+      ],
+      "date": "@@@",
+      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
+      "publisher": "Forum Standaardisatie",
+      "title": "Expertadvies CloudEvents 1.0"
+    },
+    "folmer2011": {
+      "title": "Management and Development Model for Open Standards (BOMOS) version 2",
+      "keywords": "IR-76837",
+      "authors": [
+        "ErwinFolmer",
+        "Matthijs Punter"
+      ],
+      "date": "2011",
+      "language": "English",
+      "publisher": "Programmabureau NOiV"
+    },
+    "folmer2012": {
+      "href": "https://ris.utwente.nl/ws/portalfiles/portal/6064223/thesis_E_Folmer.pdf",
+      "title": "Quality of Semantic Standards",
+      "authors": [
+        "Erwin Folmer"
+      ],
+      "date": "2012",
+      "publisher": "Universiteit Twente"
+    },
+    "DK-Gebruiksvoorwaarden": {
+      "date": "1 januari 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Gebruiksvoorwaarden Digikoppeling"
+    },
+    "ADR-GEO": {
+      "authors": [
+        "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
+      "publisher": "Geonovum",
+      "title": "API Design Rules Module: Geospatial"
+    },
+    "HTTPS-factsheet NCSC": {
+      "date": "Nov 2014",
+      "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
+      "publisher": "NCSC",
+      "title": "Factsheet HTTPS kan een stuk veiliger"
+    },
+    "iGOV.OpenID": {
+      "authors": [
+        "M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "Introspection": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "October 2015",
+      "href": "https://tools.ietf.org/html/rfc7662",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Token Introspection"
+    },
+    "JWA": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7518",
+      "publisher": "IETF",
+      "title": "JSON Web Algorithms (JWA)"
+    },
+    "JWE": {
+      "authors": [
+        "M. Jones, J. Hildebrand"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7516",
+      "publisher": "IETF",
+      "title": "JSON Web Encryption (JWE)"
+    },
+    "JWK": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7517",
+      "publisher": "IETF",
+      "title": "JSON Web Key (JWK))"
+    },
+    "JWS": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7515",
+      "publisher": "IETF",
+      "title": "JSON Web Signature (JWS)"
+    },
+    "JWT": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7519",
+      "publisher": "IETF",
+      "title": "JSON Web Token (JWT)"
+    },
+    "NCSC 2019": {
+      "date": "April 2019",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2019/mei/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-tls",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.0"
+    },
+    "NCSC 2021": {
+      "date": "Jan 2021",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+    },
+    "NEN3610": {
+      "authors": [
+        ""
+      ],
+      "date": "Maart 2011",
+      "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
+      "publisher": "Nederlands Normalisatie-instituut",
+      "title": "Basismodel Geo-informatie - Termen, definities, relaties en algemene regels voor de uitwisseling van informatie over aan de aarde gerelateerde ruimtelijke objecten"
+    },
+    "no-Reliable-messaging": {
+      "authors": [
+        "Marc de Graauw"
+      ],
+      "date": "June 18, 2010",
+      "href": "https://www.infoq.com/articles/no-reliable-messaging/",
+      "publisher": "infoQ",
+      "title": "Nobody Needs Reliable Messaging"
+    },
+    "OAuth2": {
+      "authors": [
+        "D. Hardt"
+      ],
+      "date": "October 2012",
+      "href": "https://tools.ietf.org/html/rfc6749",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "The OAuth 2.0 Authorization Framework"
+    },
+    "OpenID.Core": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
+      ],
+      "date": "November 8 2014",
+      "href": "https://openid.net/specs/openid-connect-core-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Core 1.0"
+    },
+    "OpenID.Discovery": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, E. Jay"
+      ],
+      "date": "November 8 2014",
+      "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Discovery 1.0"
+    },
+    "Pas-toe-of-leg-uit": {
+      "href": "https://www.forumstandaardisatie.nl/open-standaarden/verplicht",
+      "publisher": "Forum Standaardisatie",
+      "title": "Lijst Verplichte standaarden"
+    },
+    "PKIO-PvE": {
+      "href": "https://por.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
+    },
+    "PKI-CA": {
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
+      "publisher": "Logius",
+      "title": "Aansluiten als Trust Service Provider"
+    },
+    "PKIoverheid": {
+      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
+      "publisher": "Logius",
+      "title": "PKIoverheid"
+    },
+    "PKIO-Cert": {
+      "href": "https://cert.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Overzicht PKIoverheid certificaten"
+    },
+    "SemVer": {
+      "authors": [
+        "T. Preston-Werner"
+      ],
+      "date": "June 2013",
+      "href": "https://semver.org",
+      "title": "Semantic Versioning 2.0.0"
+    },
+    "ADR-TS": {
+      "authors": [
+        ""
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
+      "publisher": "Kennisplatform API's",
+      "title": "API Design Rules Module: Transport Security"
+    },
+    "UMMR10": {
+      "authors": [
+        ""
+      ],
+      "date": "2001",
+      "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
+      "publisher": "UN/CEFACT",
+      "title": "UMM Revision 10"
+    },
+    "UMMUG": {
+      "authors": [
+        ""
+      ],
+      "date": "2003",
+      "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
+      "publisher": "UN/CEFACT",
+      "title": "UN/CEFACT Modeling Methodology (UMM) User Guide"
+    },
+    "UUID": {
+      "authors": [
+        "P. Leach",
+        "M. Mealling",
+        "R. Salz"
+      ],
+      "date": "July 2005",
+      "href": "https://tools.ietf.org/html/rfc4122",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "A Universally Unique IDentifier (UUID) URN Namespace"
+    },
+    "DK-Voorwaarden": {
+      "date": "1 januari 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Voorwaarden Digikoppeling"
+    },
+    "X520": {
+      "href": "https://www.iso.org/standard/43796.html",
+      "publisher": "ISO",
+      "title": "ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6"
+    },
+    "ADR-Validator": {
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
+      "authors": [
+        "H. Stijns"
+      ],
+      "publisher": "Geonovum",
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
+    }
+  },
+  "alternateFormats": [
+    {
+      "label": "pdf",
+      "uri": "BOMOS-LinkedData.pdf"
+    }
+  ],
+  "authors": [
+    {
+      "company": "TNO",
+      "companyURL": "https://www.tno.nl/",
+      "name": "Wouter van den Berg"
+    }
+  ],
+  "editors": [
+    {
+      "company": "Logius",
+      "companyURL": "https://www.logius.nl/",
+      "name": "Gül Işik"
+    },
+    {
+      "company": "Logius",
+      "companyURL": "https://www.logius.nl/",
+      "name": "Edwin Wisse"
+    }
+  ],
+  "github": "https://github.com/Logius-standaarden/BOMOS-LinkedData",
+  "maxTocLevel": 3,
+  "nl_markdownTableClass": "dkkvs",
+  "previousMaturity": "DEF",
+  "pubDomain": "bomos",
+  "publishDate": "2022-06-07",
+  "publishVersion": "3.0.0",
+  "shortName": "linkeddata",
+  "specStatus": "DEF",
+  "specType": "HR"
+}</script>
+<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
+ <body class="h-entry informative toc-inline"><div class="head">
+    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+  </a> <h1 id="title" class="title">BOMOS: Linked data 3.0.0</h1>
+    
+    <h2>
+      Logius Guide<br>
+      Definitive version
+      <time class="dt-published" datetime="2022-06-07">June 07, 2022</time>
+    </h2>
+    <dl>
+      <dt>This version:</dt><dd class="status">
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/3.0.0/">https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/3.0.0/</a>
+            </dd>
+      <dt>Latest published version:</dt><dd>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/">https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/</a>
+            </dd>
+      <dt>Latest editor's draft:</dt><dd><a href="https://logius-standaarden.github.io/BOMOS-LinkedData/">https://logius-standaarden.github.io/BOMOS-LinkedData/</a></dd>
+      
+      
+      
+      
+      
+      <dt>Editors:</dt>
+      <dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Gül Işik</span> (<a class="p-org org h-org" href="https://www.logius.nl/">Logius</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Edwin Wisse</span> (<a class="p-org org h-org" href="https://www.logius.nl/">Logius</a>)
+  </dd>
+      
+      <dt>Author:</dt><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Wouter van den Berg</span> (<a class="p-org org h-org" href="https://www.tno.nl/">TNO</a>)
+  </dd>
+      <dt>Participate:</dt><dd>
+    <a href="https://github.com/Logius-standaarden/BOMOS-LinkedData/">GitHub Logius-standaarden/BOMOS-LinkedData</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/BOMOS-LinkedData/issues/">File an issue</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/BOMOS-LinkedData/commits/">Commit history</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/BOMOS-LinkedData/pulls/">Pull requests</a>
+  </dd>
+    </dl>
+    
+    
+    <p>
+          This document is also available in these non-normative format:
+          <a rel="alternate" href="BOMOS-LinkedData.pdf">pdf</a>
+        </p>
+    <p class="copyright">
+          This document is licensed under 
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+        </p>
+    <hr title="Separator for header">
+  </div>
+  <section id="abstract" class="introductory"><h2>Abstract</h2><p> BOMOS (Beheer- en OntwikkelModel voor Open Standaarden) is een hulpmiddel
+  van en voor de standaardisatiewereld. Dit deel bevat een aanvullende
+  module over linked data. Het is een verkenning van de rol die linked data speelt en kan gaan spelen in moderne semantische standaarden.  
+</p>
+<p>
+  Het beheer van dit document ligt bij TNO (de oorspronkelijke auteur). Geinteresseerden en experts worden van harte uitgenodigd om feedback te delen, het document aan te vullen of anderzijds te verbeteren. 
+ </p>
+</section>
+  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#purpose"><bdi class="secno">1.1 </bdi>Purpose</a></li><li class="tocline"><a class="tocxref" href="#bomos-structure"><bdi class="secno">1.2 </bdi>BOMOS structure</a></li><li class="tocline"><a class="tocxref" href="#reading-guide"><bdi class="secno">1.3 </bdi>Reading guide</a></li></ol></li><li class="tocline"><a class="tocxref" href="#linked-data-ontologies"><bdi class="secno">2. </bdi>LINKED DATA &amp; ONTOLOGIES</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#emergence-of-linked-data"><bdi class="secno">2.1 </bdi>Emergence of Linked Data</a></li><li class="tocline"><a class="tocxref" href="#public-sector"><bdi class="secno">2.2 </bdi>Public sector</a></li><li class="tocline"><a class="tocxref" href="#private-sector"><bdi class="secno">2.3 </bdi>Private sector</a></li><li class="tocline"><a class="tocxref" href="#the-fair-movement"><bdi class="secno">2.4 </bdi>The FAIR movement</a></li><li class="tocline"><a class="tocxref" href="#why-linked-data"><bdi class="secno">2.5 </bdi>Why Linked Data?</a></li><li class="tocline"><a class="tocxref" href="#impact-on-standardisation-and-management"><bdi class="secno">2.6 </bdi>Impact on standardisation and management</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#reuse"><bdi class="secno">2.6.1 </bdi>Reuse</a></li></ol></li><li class="tocline"><a class="tocxref" href="#training"><bdi class="secno">2.7 </bdi>Training</a></li><li class="tocline"><a class="tocxref" href="#selecting-a-compromise"><bdi class="secno">2.8 </bdi>Selecting a compromise</a></li><li class="tocline"><a class="tocxref" href="#further-developments"><bdi class="secno">2.9 </bdi>Further developments</a></li><li class="tocline"><a class="tocxref" href="#user-analysis"><bdi class="secno">2.10 </bdi>User analysis</a></li><li class="tocline"><a class="tocxref" href="#tools"><bdi class="secno">2.11 </bdi>Tools</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#neoneologism"><bdi class="secno">2.11.1 </bdi>NeoNeoLogism</a></li><li class="tocline"><a class="tocxref" href="#poolparty"><bdi class="secno">2.11.2 </bdi>PoolParty</a></li><li class="tocline"><a class="tocxref" href="#protege"><bdi class="secno">2.11.3 </bdi>Protégé</a></li><li class="tocline"><a class="tocxref" href="#semantic-treehouse"><bdi class="secno">2.11.4 </bdi>Semantic Treehouse</a></li><li class="tocline"><a class="tocxref" href="#topbraid-composer"><bdi class="secno">2.11.5 </bdi>TopBraid Composer</a></li><li class="tocline"><a class="tocxref" href="#vocbench"><bdi class="secno">2.11.6 </bdi>VocBench</a></li><li class="tocline"><a class="tocxref" href="#matey"><bdi class="secno">2.11.7 </bdi>Matey</a></li></ol></li></ol></li></ol></nav>
+  <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
+<table>
+<thead>
+<tr>
+<th>Datum</th>
+<th>Versie</th>
+<th>Auteur</th>
+<th>Opmerkingen</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>13/11/2020</td>
+<td>1.0</td>
+<td>Wouter van den Berg</td>
+<td>Oplevering module</td>
+</tr>
+<tr>
+<td>01/06/2022</td>
+<td>2.0</td>
+<td>Wouter van den Berg</td>
+<td>Aanvullende modules in eigen documenten ondergebracht</td>
+</tr>
+</tbody></table>
+</section>
+  <section class="introductory" id="colofon"><div class="header-wrapper"><h2 id="colofon-0">Colofon</h2><a class="self-link" href="#colofon" aria-label="Permalink for this Section"></a></div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Logius Servicecentrum:</td>
+<td>Postbus 96810 <br>2509 JE Den Haag<br>tel. 0900 555 4555 (10 ct p/m)<br>email <a href="mailto:servicecentrum@logius.nl">servicecentrum@logius.nl</a></td>
+</tr>
+</tbody></table>
+</section>
+  <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
+<p>The BOMOS Substantiation discusses the components that make up BOMOS. In addition to operational, tactical and strategic layers, it also deals with implementation support and communication.
+The BOMOS documentation is divided into various sections (see <a href="#bomos-structure" data-matched-text="[[[#bomos-structure]]]" class="sec-ref"><bdi class="secno">1.2 </bdi>BOMOS structure</a>).</p>
+<section id="purpose"><div class="header-wrapper"><h3 id="x1-1-purpose"><bdi class="secno">1.1 </bdi>Purpose</h3><a class="self-link" href="#purpose" aria-label="Permalink for Section 1.1"></a></div>
+<p>The purpose of this publication is to assist organisations in compiling and improving the management of standards. This publication provides answers among others to the following questions:</p>
+<ul>
+<li>How can we successfully (further) develop and manage the standard in our organisation?</li>
+<li>How can be structure development and management in such a way that it results in an open standard?</li>
+<li>How can we improve the adoption rate of our standard among users?</li>
+</ul>
+<p>Thes specific questions were the original reason for drawing up the Management and Development Model for Open Standards (BOMOS) with its best practice guidelines for an open structure for management. Since that time, BOMOS has been used in practice, and users have expressed the need to share more knowledge and experience with the management of standards.  Other issues such as improving interoperability based on standards, transparency and the manageability of standards have been added. Finally BOMOS is now used as the common language in the world of standardisation.</p>
+</section><section id="bomos-structure"><div class="header-wrapper"><h3 id="x1-2-bomos-structure"><bdi class="secno">1.2 </bdi>BOMOS structure</h3><a class="self-link" href="#bomos-structure" aria-label="Permalink for Section 1.2"></a></div>
+<p>BOMOS consists of:</p>
+<ul>
+<li>BOMOS Part 1: <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/en/">The Foundation</a></li>
+<li>BOMOS Part 2: <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/en/">The Substantiation</a></li>
+<li>BOMOS Supplementary modules: Linked Data (this document) en <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/stelsels/en/">Stelsels</a></li>
+</ul>
+<p>The heart of BOMOS is the <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/en/">Foundation</a>. This consists of a basic description of the Management and Development Model and a further elaboration based on literature and experiences gained in practice.  In essence, the Management and Development Model is an activity diagram which also offers a definition of the roles relevant in the process of managing and developing standards.</p>
+<p>The <em>Substantiation</em> (this document) offers further insight in particular by sharing best practices from the world of standardisation.</p>
+<p>Together Part 1 and Part 2 form the basis for BOMOS.</p>
+<p>On top of this basic structure, the community has produced a number of BOMOS expansions which can be useful in deploying BOMOS in concrete situations, some of which may involve a slightly different context. We refer to these as the BOMOS Supplementary Modules or a Body of Knowledge, which will remain dynamic over time.</p>
+<p>When we talk about BOMOS, what we are actually referring to is the basis as described in <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/en/">Part 1</a> and Part 2. Although the supplementary modules are clearly linked to BOMOS, they have their own governance, which can result in their being given their own name, their own target group, their own management system, etc. The <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/en/#the-management-and-development-model-design-for-development-and-management">BOMOS management process</a> also describes the requirements that are imposed before something can be added as a BOMOS supplementary module.</p>
+<p> The first two supplementary modules are:
+-	<a href="https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/en/">Linked Data &amp; Ontologieën</a>:
+  the specific use of Linked Data for sematic standards.
+-	Structure for <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/stelsels/en/">BOMOS for the management of trust framework</a>: the use of BOMOS in the specific situation governing trust frameworks.</p>
+</section><section id="reading-guide"><div class="header-wrapper"><h3 id="x1-3-reading-guide"><bdi class="secno">1.3 </bdi>Reading guide</h3><a class="self-link" href="#reading-guide" aria-label="Permalink for Section 1.3"></a></div>
+<p>If from your policy making or administrative role you are only interested in the primary level, the foundation (part 1) will offer sufficient
+background and context. If however you are personally active in standardisation communities, you can seamlessly continue with reading part 2: The substantiation with best practices, which includes more background and practical tips for standardisation.</p>
+<p>If you actually intend to make use of BOMOS, it is advisable that you also study the supplementary modules. These contain examples and tools that could prove useful for implementing open standards. The supplementary modules also contain variants on BOMOS. These implementation profiles make BOMOS suitable for use with more than just semantic standards.</p>
+</section></section>
+  <section id="linked-data-ontologies"><div class="header-wrapper"><h2 id="x2-linked-data-ontologies"><bdi class="secno">2. </bdi>LINKED DATA &amp; ONTOLOGIES</h2><a class="self-link" href="#linked-data-ontologies" aria-label="Permalink for Section 2."></a></div>
+<p>Linked Data has been an emerging trend for some time. The standards and technologies covered by Linked Data -- such as RDF, SPARQL en OWL -- are becoming increasingly widely used in practice. It started in the academic world but over the past few years has expanded into both the public and the private sector.<br>Linked Data results in changes to the semantic standardisation discipline described by BOMOS. This chapter explains those changes. It is not merely a question of using new technologies and tools. Linked Data means a different approach to semantic interoperability: the emphasis is shifted from standardisation of messages (or ‘transactions’) to the standardisation of the underlying domain description.</p>
+<p>This chapter does assume a basic knowledge of the functioning of Linked Data. We start by discussing the differences between Linked Data and conventional semantic standards in terms of both management and further development and in application by users. Finally, we provide an overview of the digital tools that can be useful in the management and (further) development specifically of ontologies.</p>
+<p>However, we will start by explaining the meaning of the word ‘ontology’. There is a clear distinction between what is designated in the world of Linked Data as ‘vocabularies’ and ‘ontologies’. <a href="https://www.w3.org/standards/semanticweb/ontology">According to W3C</a> there is a clear trend of using the world ‘ontology’ for more complex and formal collections of terms, while ‘vocabulary’ is used for simpler variants or in situations in which less strict formalism if employed. In this chapter, the term ontology is used to refer to the entire spectrum.  </p>
+<p>Another fundamental element at the start of this chapter is the following distinction between the two types of semantic standards (see also figure 1):  </p>
+<ol>
+<li>Conventional semantic standards. These standards solve the interoperability problem by means of common agreements on the content structure of messages or transactions.</li>
+<li>Semantic standards based on Linked Data. These standards solve the interoperability problem by recording a common language for a description of the elements or events in a domain (in an ontology). Thanks to this common language, the community is no longer dependent on fixed message structures for uniform interpretation of the shared data. (The exchanging of standardised messages does however remain possible if there is a demand for this practice within the community.)</li>
+</ol>
+<section id="emergence-of-linked-data"><div class="header-wrapper"><h3 id="x2-1-emergence-of-linked-data"><bdi class="secno">2.1 </bdi>Emergence of Linked Data</h3><a class="self-link" href="#emergence-of-linked-data" aria-label="Permalink for Section 2.1"></a></div>
+<p>In the past few years, the Linked Data approach has become increasingly common in both the public and private sector. This chapter describes initiatives in the public sector and private sector and one initiative that occupies the ground between the two: the FAIR movement.</p>
+</section><section id="public-sector"><div class="header-wrapper"><h3 id="x2-2-public-sector"><bdi class="secno">2.2 </bdi>Public sector</h3><a class="self-link" href="#public-sector" aria-label="Permalink for Section 2.2"></a></div>
+<p>The cultural sector has always been a pioneer within the public sector. The Europeana project (launched in 2008) was ground-breaking: Today, Europeana Collections offers access to more than 50 million digitised items - books, music, art and more - with advanced search and filter functions to simplify the search process. As in other sectors, here too, it started with the development of the models in which the metadata of collections could be described. Other cultural institutions have expressed different models in Linked Data, for example the Royal Netherlands Library with the Dutch Thesaurus of Authors’ names and the Cultural Heritage Agency among others with its Archaeological Key Register.</p>
+<p>In the field of building and infrastructure, so-called Object Type Libraries (OTLs) are a well-known phenomenon. An OTL is a type of semantic library within an organisation. ProRail and Rijkswaterstaat are well-known organisations that employ such libraries. There there is COINS, another important Linked Data based standard, intended for the exchanging of BIM models.
+Organisations in the geographical information sector were also early adopters, with Geonovum as the driving force behind the Platform Linked Data Nederland. The Land Registry (Kadaster) soon published the first models of the Key Registers for Addresses and Buildings, followed by other datasets. Following the publication of the models, the key registers themselves were published as Linked Data, at ‘production’ level, in other words with persistent URIs, both updated and monitored. Moreover, on <a href="https://labs.kadaster.nl/">labs.kadaster.nl</a> as a source of inspiration, a large number of examples are given of the possibilities offered by Linked Data. A vital follow-up step is that the NEN3610 (the semantic ‘parent model’ for all Dutch geoinformation models) has also now been made available as Linked Data.</p>
+<p>These are just some of the many initiatives in the public sector, for example in agriculture and the organisations cooperating in the immigration process. Equally, the educational sector has taken numerous steps towards Linked Data based on ROSA, in which once again the semantic models are the starting point. There is not sufficient space in this chapter to list them all.</p>
+</section><section id="private-sector"><div class="header-wrapper"><h3 id="x2-3-private-sector"><bdi class="secno">2.3 </bdi>Private sector</h3><a class="self-link" href="#private-sector" aria-label="Permalink for Section 2.3"></a></div>
+<p>Linked Data developments are taking place at every level in the private sector: at the level of sector and chain processes, in individual companies and in specific business processes.</p>
+<p>There are sectors and communities in the private sector in which the role of Linked Data is constantly growing, but for the time being mainly in the form of a reconnaissance phase. The private sector above all appears curious about the huge volume of work being carried out in the academic world in the field of semantic technologies and what this could mean in real terms for addressing their problems.</p>
+<p>There is one clear example in the temporary employment sector. Parties from that sector have joined the research organisation TNO in establishing the multiyear Flexible IT (FIT) with Ontologies project. Using this project, they are testing the benefits of a switch from exchanging information via the SETU messaging standards to more flexible exchange using the SETU ontology.</p>
+<p>Elsewhere there are individual companies working with Linked Data. For example the company NXP Semiconductors, which won prizes in Dutch and European Linked Data competitions in 2015, with their Enterprise Datahub. This system enables data on their numerous products (more than 20,000) from different databases to be integrated. Wherever possible, NXP uses existing
+standard ontologies such as the Dublin Core, SKOS, FOAF and Schema.org. Because a number of the terms and concepts needed for their sector were not available, an NXP vocabulary was developed, and added to the already mentioned set. As a consequence, NXP Semiconductors is able to sufficiently enrich its data description so that external users can more easily identify the meaning of the terms.</p>
+<p>Finally, Linked Data technologies are becoming increasingly widely used in business processes. One well-known example is online marketing, more specifically search engine optimisation or SEO. Using SEO, businesses strive to ensure that their webpage scores as high as possible in the search results of a search engine. Today, this often achieved using JSON-LD. JSON-LD, a method for transferring Linked Data via the well-known JSON format, is used by search engines to gather information about websites in order to determine the desired search results. Google, owner of the world’s most widely used search engine, recommends use of JSON-LD. The emergence of JSON-LD, then, is another example of Linked Data creating a connection with widely used data formats.</p>
+</section><section id="the-fair-movement"><div class="header-wrapper"><h3 id="x2-4-the-fair-movement"><bdi class="secno">2.4 </bdi>The FAIR movement</h3><a class="self-link" href="#the-fair-movement" aria-label="Permalink for Section 2.4"></a></div>
+<p>The volume of data used by scientists and other data analysists is constantly growing. Hence also the growth in demand for more machine support in data processing and analysis. However, the data infrastructure required for these services simply did not exist. The FAIR Data Principles are a response to this situation. FAIR stands for a set of guidelines for making data more <strong>F</strong>indable, <strong>A</strong>ccesible, <strong>I</strong>nteroperable and <strong>R</strong>eusable. The focus of FAIR is on expanding the capacity of machines to automatically find and use data.</p>
+<p>The FAIR principles were introduced in an academic article in 2016. The FAIR movement massively expanded shortly thereafter. Leaders of the G20, for example, in the same year, expressed their support for FAIR, and in 2017, Germany, the Netherlands and France together launched the GO FAIR initiative.</p>
+<p>The ‘I’ in FAIR underlines the importance of automated data interoperability. The aim is to achieve and secure interoperability, even if data are produced in a very different format in different languages and in different search domains. This makes the link between FAIR and Linked Data very solid. As reflected by the three FAIR principles that come under the ‘I’ of ‘Interoperability*:</p>
+<ol>
+<li>(meta)data use a formal, accessible, shared and widely applicable language for knowledge representation.</li>
+<li>(meta)data use vocabularies that comply with FAIR principles.</li>
+<li>(meta)data contain qualified references to other (meta)data.</li>
+</ol>
+<p>To implement the Interoperability principles of FAIR, use is often made of ontologies (for point 1) and other Linked Data standards (for points 2 and 3).</p>
+<p>Links:  </p>
+<ul>
+<li><a href="https://www.nature.com/articles/sdata201618">The FAIR Guiding Principles for scientific data management and stewardship</a>, Nature, 2016, <em>het</em> academic article about FAIR</li>
+<li><a href="https://www.go-fair.org/fair-principles/">FAIR Principles</a>, GO FAIR Initiative, the FAIR principles</li>
+</ul>
+</section><section id="why-linked-data"><div class="header-wrapper"><h3 id="x2-5-why-linked-data"><bdi class="secno">2.5 </bdi>Why Linked Data?</h3><a class="self-link" href="#why-linked-data" aria-label="Permalink for Section 2.5"></a></div>
+<p>Linked Data makes it possible to share and open up datasets in a controlled manner without the dataset having to leave the source. The Europeana Collections is an excellent example. Not only the data within a dataset of this kind are linked, but the datasets are also linked together. Using a query language like SPARQL, it then becomes possible to consult the entire set of datasets. This is the core of the vision of the Semantic Web. The more Linked Data, the more powerful the queries that become possible.  </p>
+<p>In particular government authorities are increasingly using Linked Data to make data available to the public, preferably in a manner in which interested parties can easily automatically request and process the data. This is subject to the well-known five star model:</p>
+<p><strong>1 star:</strong> the data is available via internet, no matter what the format.<br><strong>2 stars:</strong> the available data has a machine-readable structure (no scan for example).<br><strong>3 stars:</strong> the data is available in a non-patented format (such as .csv and not MS Excel).<br><strong>4 stars:</strong> Linked Data published using W3C standards (RDF and SPARQL).<br><strong>5 stars:</strong> all the above and the dataset is linked to other Linked Open Data.  </p>
+<p>Linked Data is also used by digitalising organisations, to further integrate their data and systems, as with the example of Rijkswaterstaat and ProRail with their OTLS. The scope of efforts of this kind is often initially internal, before being extended to include major suppliers and other fixed partner organisations. This extension generates additional benefits from the step to Linked Data, with relatively little effort.</p>
+<p>Linked Data also makes it possible for machines to automatically read in the meaning (sematics) of data and in this way to create new links, links which would normally speaking only be created by people. Linked Data is an essential component of new generation Artificial Intelligence (AI) techniques, in which enormous volumes of data are combined with formalised domain descriptions to build ever smarter machines.</p>
+<p>Finally, Linked Data is the core of a new approach to expanding interoperability between parties in a sector or value chain. The semantic standard recorded for this purpose then contains one more more ontologies. Just as with other types of semantic standards, the aim is to make it as simple as possible for users to establish mutual interfaces that satisfy all their wishes. The Flexible IT with Ontologies project for the temporary employment sector is an example of a user community that is investigating the step to information exchange via a standardised ontology.</p>
+<p>The use of Linked Data is subject to the well-known network effect. The following applies to each of the above applications: the more widespread the use of Linked Data becomes, the greater the benefits for users.</p>
+<p>Go to the website of Platform Linked Data Nederland (<a href="https://www.pldn.nl/">www.pldn.nl</a>) for more information about how Linked Data can be used.</p>
+</section><section id="impact-on-standardisation-and-management"><div class="header-wrapper"><h3 id="x2-6-impact-on-standardisation-and-management"><bdi class="secno">2.6 </bdi>Impact on standardisation and management</h3><a class="self-link" href="#impact-on-standardisation-and-management" aria-label="Permalink for Section 2.6"></a></div>
+<p>Originally, BOMOS made no real distinction between the types of semantic standards. It is applicable to both the conventional approach and the Linked Data approach. However, there is certainly a clear difference between the two in terms of the precise structuring of the activities. It was always quite a challenge to implement the BOMOS model because each context requires a custom approach. With the Linked Data approach to semantic standards, new challenges have also emerged.</p>
+<p>Below we list a number of the challenges and lessons learned from the FIT with Ontologies innovation programme within the temporary employment sector. The order roughly runs from development phase to management phase.</p>
+<section id="reuse"><div class="header-wrapper"><h4 id="x2-6-1-reuse"><bdi class="secno">2.6.1 </bdi>Reuse</h4><a class="self-link" href="#reuse" aria-label="Permalink for Section 2.6.1"></a></div>
+<p>Ontologies rarely emerge in a ‘green field’ scenario. Specifically digital value chains in which far-reaching exchange agreements have already been reached are quicker to make the switch to a solution based on Linked Data. The documentation of these standards often contains a great deal of information valuable for the new solution, such as detailed descriptions for chain processes and business rules. It is important that that knowledge and information be reused as far as possible.  Reuse not only ensures time saving in the development process for the new solution but also greater confidence in the end result and hence better adoption by the user community.</p>
+</section></section><section id="training"><div class="header-wrapper"><h3 id="x2-7-training"><bdi class="secno">2.7 </bdi>Training</h3><a class="self-link" href="#training" aria-label="Permalink for Section 2.7"></a></div>
+<p>The switch to standardised exchange Linked Data almost always means that a different technology stack is used (for example with OWL, RDF and/or SPARQL). This in turn calls for different knowledge and skills, both for those involved in the development and management of the standard and among its users.<br>The management organisation must have sufficient expertise in these technologies on hand, to be able to implement their management tasks, such as estimating the impact of proposals for change on the standard or answering technical questions. These are obvious caveats. However, also on the part of the user organisations, there will probably be a need for further learning. Experience has shown that the majority of software developers have little or no experience with these technologies. To safeguard active participation by users in the development process, it is essential that sufficient training be made available and that users be given the time to acquire knowledge of the technology. The management organisation can meet these needs in many different ways, for example by writing guides, providing demonstrations and even organising a Linked Data hackathon.</p>
+<p>Training is also essential if the user community was already used to using standards for information exchange before making the switch to Linked Data. In that situation, the users and even the managers are used to thinking in terms of the old technology stack and the methods used for data exchange. In those cases, the switch to the Linked Data approach is often treated as a change in syntax, while in reality it also needs a new approach to overall thinking. This applies both to the development phase and the actual application of the semantic standards. Without this, during the development phase, you run the risk that the status quo will have too much of an influence on how the ontology is modelled, resulting in impoverishment of the model’s semantics. If the old thought processes are applied, the result is cumbersome approaches to requesting or exchanging data, which in turn leads to impoverishment of the semantics of the data. For example, the managers of the Key Register of Addresses and Buildings (BAG) saw that many users also unintentionally requested the entire history of the data, with their data request.  </p>
+</section><section id="selecting-a-compromise"><div class="header-wrapper"><h3 id="x2-8-selecting-a-compromise"><bdi class="secno">2.8 </bdi>Selecting a compromise</h3><a class="self-link" href="#selecting-a-compromise" aria-label="Permalink for Section 2.8"></a></div>
+<p>It should be remembered that the choices available are not only making the complete switch to Linked Data, or leaving everything as it was. Conceivably there are gradations or intermediate steps.</p>
+<p>One technology that plays a vital role in the switch is RML (RDF Mapping Language), developed by a team at the University of Ghent. Using RML, it is possible to transform semi-structured data like JSON, XML and CSV into Linked Data. You do this by first writing down the RML rules that must be applied to your data. You then feed these RML rules plus the original data into a so-called RMLMapper, which converts them into Linked Data triples.</p>
+<p>The use of RML could be the best alternative balance for many communities with standards, as compared with the complete switch to Linked Data or doing nothing. In principle, it is sufficient to use RML mappings to create an intermediate layer that makes the translation between the relevant internal systems of the user and the common ontology. Thanks to those mappings, using RESTful APIs, it is still possible to exchange Linked Data, while retaining the existing systems.</p>
+<aside class="example" id="example-1"><div class="marker">
+    <a class="self-link" href="#example-1">Example<bdi> 1</bdi></a>
+  </div>
+This strategy was also employed in the FIT with Ontologies project. One key aim of that project was to safeguard the backwards compatibility with message exchange according to the conventional SETU standards. In other words, using the new technology, it still had to be possible to receive and process SETU messages. This led the project group to work on the FIT engine: a software component that applies RML to SETU messages to convert them to Linked Data. Using the FIT engine, the parties that had made the switch to exchanging Linked Data were able to reap all the benefits, without having to redefine their existing links with their customers.  
+</aside>
+
+</section><section id="further-developments"><div class="header-wrapper"><h3 id="x2-9-further-developments"><bdi class="secno">2.9 </bdi>Further developments</h3><a class="self-link" href="#further-developments" aria-label="Permalink for Section 2.9"></a></div>
+<p>Imagine, the first version of the new semantic standard based on Linked Data is complete. The user community is hard at work on the implementation phase. From this point onwards, what characterises the management and further development?  </p>
+<p>To start with, the managed material, the new standard ontology, is more modular in nature than you are used to as the manager of a more conventional standard. Any further development is aimed more at compiling existing ontologies and other building blocks than was the case with the conventional approach.  Take for example the Geo standards. In this application, new ontologies have added relatively little. Numerous existing vocabularies have been assembled. The common agreements discuss how those items should be compiled. Using the conventional approach to semantic standards, this was less the case, for example using XML Schema, but it is more relevant with ontologies and for larger blocks.</p>
+<p>Nevertheless, part of the domain description is modelled in its own ontology. That own ontology must be further developed in order to move with the times. The challenge is to ensure that this continues to be done as carefully and precisely as possible. The advanced applications of ontologies, such as complex queries or automatic reasoning, are more sensitive to errors. More than with other semantic standards, therefore, precision and coherence of the ontology are of critical importance.</p>
+<p>Not every request for change will result in changes in the common ontology. It is sometimes better to develop an extension, which is then used by the part of the user community that has most to benefit from its use. Ontologies and other Linked Data standards were designed precisely for that purpose. For you as manager, the issue is to make these extensions explicit and accessible to the users. Before carrying out your own checks and analyses on those expansions.</p>
+</section><section id="user-analysis"><div class="header-wrapper"><h3 id="x2-10-user-analysis"><bdi class="secno">2.10 </bdi>User analysis</h3><a class="self-link" href="#user-analysis" aria-label="Permalink for Section 2.10"></a></div>
+<p>In the FIT with Ontologies project, a web application is used to click together message definitions from the SETU ontology. These specific message definitions may look different, but all comply with the ontology and can be uniformly translated to facts from that ontology. Storing these different message definitions centrally means that detailed user analysis is possible, comparable to the code coverage concept from software engineering. This term refers to identifying which parts (e.g. concepts, relationships) of an ontology are actually used in which messages, and by whom, together with the related trends.  Findings from code coverage tests provide important clues for further development and can support discussions about the standard, with real user data.  </p>
+</section><section id="tools"><div class="header-wrapper"><h3 id="x2-11-tools"><bdi class="secno">2.11 </bdi>Tools</h3><a class="self-link" href="#tools" aria-label="Permalink for Section 2.11"></a></div>
+<p>Below we list a number of tools that could be valuable for managers of common ontologies. Pool Party, Protégé and TopBraid Composer demonstrate considerable overlap; it is possible to model ontologies using all three. Semantic Treehouse is not intended for modelling but for the management and further development process, and is the only one of the four tools with a direct link to BOMOS. Matey (and the related RML and YARRRML languages) is focused on the transformation of traditional data formats such as JSON, XML and CVS to Linked Data that complies with a specific ontology.  </p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Developer</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://netage.nl/neoneologism/">NeoNeoLogism</a></td>
+<td>Netage B.V.</td>
+<td>An RDF Schema vocabulary editor and publication environment to be used with the web browser.</td>
+</tr>
+<tr>
+<td><a href="https://www.poolparty.biz/">Pool Party</a></td>
+<td>Semantic Web Company GmbH</td>
+<td>Knowledge management, data analytics &amp; content organization</td>
+</tr>
+<tr>
+<td><a href="https://protege.stanford.edu/">Protégé</a></td>
+<td>Stanford University School of Medicine</td>
+<td>Ontology editor (free and open source)</td>
+</tr>
+<tr>
+<td><a href="https://www.semantic-treehouse.nl/">Semantic Treehouse</a></td>
+<td>TNO</td>
+<td>Publication and management environment for common ontologies and other data models</td>
+</tr>
+<tr>
+<td><a href="https://www.topquadrant.com/products/TopBraid-composer/">TopBraid Composer</a></td>
+<td>TopQuadrant</td>
+<td>Integrated Development Environment (IDE) for Semantic Web, including ontology editor</td>
+</tr>
+<tr>
+<td><a href="https://op.europa.eu/en/web/eu-vocabularies/vocbench">VocBench</a></td>
+<td>EU Publicatiebureau</td>
+<td>Open source publication and management environment with multilingual vocabularies</td>
+</tr>
+<tr>
+<td><a href="https://rml.io/yarrrml/matey/">Matey</a></td>
+<td>University of Ghent</td>
+<td>Matey is a browser-based editor for writing YARRRML rules.</td>
+</tr>
+</tbody></table>
+<section id="neoneologism"><div class="header-wrapper"><h4 id="x2-11-1-neoneologism"><bdi class="secno">2.11.1 </bdi>NeoNeoLogism</h4><a class="self-link" href="#neoneologism" aria-label="Permalink for Section 2.11.1"></a></div>
+<p>NeoNeoLogism is a simple tool for writing and publishing vocabularies in RDF(S), and is nothing like TopBraid, Protégé, VocBench or PoolParty. It is intended to be simple but sufficiently expressive to support subclasses and sub attributes and different forms of relationships.</p>
+</section><section id="poolparty"><div class="header-wrapper"><h4 id="x2-11-2-poolparty"><bdi class="secno">2.11.2 </bdi>PoolParty</h4><a class="self-link" href="#poolparty" aria-label="Permalink for Section 2.11.2"></a></div>
+<p>The PoolParty Semantic Suite offers various functions to enable organisations to generate more value from their own data. The product commercialises Semantic Web technologies. The first release of the PoolParty Semantic Software was placed on the market in 2009. Since that time, the project has evolved from a taxonomy management tool into a multifunctioning semantic software platform that enables businesses to use ontologies to integrate structured and unstructured data.</p>
+</section><section id="protege"><div class="header-wrapper"><h4 id="x2-11-3-protege"><bdi class="secno">2.11.3 </bdi>Protégé</h4><a class="self-link" href="#protege" aria-label="Permalink for Section 2.11.3"></a></div>
+<p>Protégé is a free, open source platform that offers a series of tools for building domain models and applications with ontologies. There is both a web version and a desktop version. WebProtégé is an ontology development environment for the web for creating, uploading, adjusting and sharing ontologies. Users can view and process the ontologies, in combination. Protégé Desktop also contains additional functionaly such as ‘semantic reasoners’ and visualisation tools.</p>
+</section><section id="semantic-treehouse"><div class="header-wrapper"><h4 id="x2-11-4-semantic-treehouse"><bdi class="secno">2.11.4 </bdi>Semantic Treehouse</h4><a class="self-link" href="#semantic-treehouse" aria-label="Permalink for Section 2.11.4"></a></div>
+<p>Semantic Treehouse is the community platform that supports the management of ontologies and other types of data models. What makes Semantic Treehouse unique is that it combines the publication, maintenance and management of your data models in a single place. Semantic Treehouse is based on more than 10 years’ experience with the development, maintenance and sharing of data standards according to BOMOS. Semantic Treehouse falls into the category Software as a Service, which offers customers the opportunity to structure their own visual identity for the user interface, to provide a recognisable user experience.</p>
+</section><section id="topbraid-composer"><div class="header-wrapper"><h4 id="x2-11-5-topbraid-composer"><bdi class="secno">2.11.5 </bdi>TopBraid Composer</h4><a class="self-link" href="#topbraid-composer" aria-label="Permalink for Section 2.11.5"></a></div>
+<p>TopBraid Composer is a desktop tool for creating ontology models and integrating data sources. It supports visual processing of ontologies and can be linked to database backends such as Oracle and different popular triplestores. The expanded edition is an IDE that adds the possibility of rapidly developing semantic web applications.</p>
+</section><section id="vocbench"><div class="header-wrapper"><h4 id="x2-11-6-vocbench"><bdi class="secno">2.11.6 </bdi>VocBench</h4><a class="self-link" href="#vocbench" aria-label="Permalink for Section 2.11.6"></a></div>
+<p>VocBench 3 was financed by the European Commission’s ISA2 programme.
+It is a free platform that enables the joint processing and management of code lists, taxonomies, thesauri and ontologies. In addition to community management (management of multiple users, role definition, access control), VocBench 3 offers a mechanism that enables users to link their model to Jira, a type of issue and bug tracking platform for software.</p>
+</section><section id="matey"><div class="header-wrapper"><h4 id="x2-11-7-matey"><bdi class="secno">2.11.7 </bdi>Matey</h4><a class="self-link" href="#matey" aria-label="Permalink for Section 2.11.7"></a></div>
+<p>The idea behind Matey is to make RML more accessible.</p>
+<p>The RDF Mapping Language (RML) is a generic mapping language for expressing rules that allocate data in heterogeneous structures and serialisations (e.g. JSON, XML, CSV) to the RDF data model. See <a href="https://rml.io/docs/rml/introduction/">https://rml.io/docs/rml/introduction/</a> for more information about RML.</p>
+<p>YARRRML is a human readable,  text-based reproduction for declarative rules for the generation of Linked Data. It is a subset of YAML, a commonly used data serialisation language designed to be human friendly. YARRRML can be used for reproducing RML rules. See <a href="https://rml.io/yarrrml/">https://rml.io/yarrrml/</a> for more information about YARRRML.</p>
+</section></section></section>
+  <section id="tof">
+  </section>
+ 
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><div class="sidelabel">Logius Guide - Definitive version</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
