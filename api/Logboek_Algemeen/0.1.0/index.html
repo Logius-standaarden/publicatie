@@ -935,8 +935,52 @@ ul.index code{color:inherit}
 </section><section id="logging-van-gegevens"><div class="header-wrapper"><h4 id="x3-1-4-logging-van-gegevens"><bdi class="secno">3.1.4 </bdi>Logging van gegevens</h4><a class="self-link" href="#logging-van-gegevens" aria-label="Permalink for Section 3.1.4"></a></div>
 <p>De volgende gegevens worden gelogd in de diverse logmomenten:</p>
 <p><strong>1.	Log opvragenVergunningen (log vergunningenapplicatie):</strong></p>
-<p>|<strong>Attribuut</strong> |<strong>Waarde</strong> |
-|----|----|----|---|---|</p>
+<table>
+<thead>
+<tr>
+<th>Activiteit</th>
+<th>Verantwoordelijk</th>
+<th>Toelichting</th>
+<th>RFC status (begin)</th>
+<th>RFC status (eind)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Intake RFC</td>
+<td>Beheer</td>
+<td>Beheer legt issue voor aan TO of hoger Gremium</td>
+<td>-</td>
+<td>ter Beoordeling</td>
+</tr>
+<tr>
+<td>Beoordelen_RFC</td>
+<td>TO / Progr. tafel / Progr. Raad</td>
+<td>Het Gremium beoordeelt het issue en geeft aan of dit moet worden uitgewerkt</td>
+<td>ter Beoordeling</td>
+<td>in Bewerking</td>
+</tr>
+<tr>
+<td>Uitwerken</td>
+<td>Beheer</td>
+<td>Uitwerking RFC</td>
+<td>in Bewerking</td>
+<td>ter Goedkeuring</td>
+</tr>
+<tr>
+<td>Beoordelen</td>
+<td>TO</td>
+<td>Het TO beoordeelt de uitwerking en geeft aan of de RFC moet worden doorgevoerd</td>
+<td>ter Goedkeuring</td>
+<td>Gereed</td>
+</tr>
+<tr>
+<td>Doorvoeren RFC</td>
+<td>Beheer</td>
+<td>Beheer voert de RFC door</td>
+<td>Gereed</td>
+<td>Klaar voor release</td>
+</tr>
+</tbody></table>
 </section></section></section>
   <section id="besluitenlijst">
     <div class="header-wrapper"><h2 id="x4-besluitenlijst"><bdi class="secno">4. </bdi>Besluitenlijst</h2><a class="self-link" href="#besluitenlijst" aria-label="Permalink for Section 4."></a></div>
