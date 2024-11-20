@@ -161,6 +161,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [dk/restapi/1.0.1/](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/1.0.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/restapi/1.0.1/)
    - [dk/restapi/1.1.0/](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/1.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/restapi/1.1.0/)
    - [dk/restapi/1.1.1/](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/1.1.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/restapi/1.1.1/)
+   - [dk/restapi/fsc202411/](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/fsc202411/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/restapi/fsc202411/)
    - [dk/restapi/rc202410/](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/rc202410/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/restapi/rc202410/)
 - [dk/roadmap/](https://gitdocumentatie.logius.nl/publicatie/dk/roadmap/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/roadmap/)
    - [dk/roadmap/2022-2023/](https://gitdocumentatie.logius.nl/publicatie/dk/roadmap/2022-2023/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/roadmap/2022-2023/)
