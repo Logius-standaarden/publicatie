@@ -34,6 +34,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [api/oauth-beheer/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-beheer/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-beheer/)
    - [api/oauth-beheer/1.0/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-beheer/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-beheer/1.0/)
 - [api/oauth-inleiding/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-inleiding/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-inleiding/)
+   - [api/oauth-inleiding/0.1.0/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-inleiding/0.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-inleiding/0.1.0/)
    - [api/oauth-inleiding/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-inleiding/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-inleiding/1.0.0/)
    - [api/oauth/1.0r/](https://gitdocumentatie.logius.nl/publicatie/api/oauth/1.0r/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth/1.0r/)
    - [api/oauth/1.0r2/](https://gitdocumentatie.logius.nl/publicatie/api/oauth/1.0r2/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth/1.0r2/)
