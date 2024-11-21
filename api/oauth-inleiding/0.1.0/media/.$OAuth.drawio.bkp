@@ -666,9 +666,6 @@
         <mxCell id="B8GWx_rGcyZGVCstcXvB-7" value="Organisatie Z" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;verticalAlign=top;" vertex="1" parent="42hOb9ZS4OHQU7NGaAFI-1">
           <mxGeometry x="-110" y="390" width="355" height="260" as="geometry" />
         </mxCell>
-        <mxCell id="B8GWx_rGcyZGVCstcXvB-8" value="&lt;h4 id=&quot;x3-2-1-jwt-bearer-tokens&quot;&gt;Kansen: Scopes &amp;amp; claims toevoegen&lt;/h4&gt;" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;position2=0;" vertex="1" parent="42hOb9ZS4OHQU7NGaAFI-1">
-          <mxGeometry x="830" y="30" width="170" height="100" as="geometry" />
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
