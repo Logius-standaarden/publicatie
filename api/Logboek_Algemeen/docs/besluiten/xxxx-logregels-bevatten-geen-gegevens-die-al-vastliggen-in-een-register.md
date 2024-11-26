@@ -3,17 +3,15 @@
 - Status: proposed
 - Datum: 2024-02-01
 
-
 ## Context en probleemstelling
 
-Om te optimaliseren voor de het lezen en begrijpen van de logs is het denkbaar om de benodigde informatie redundant weg te schrijven in elk logrecord, zodat er geen afhankelijkheid bestaat van andere bronnen.
+Om logs zo begrijpelijk mogelijk te maken is het aantrekkelijk om de benodigde informatie redundant weg te schrijven in elk logrecord, zodat er geen afhankelijkheid bestaat van andere bronnen.
 
 Dit heeft nadelen, zoals:
 
 - Wanneer de statische gegevens (zoals bewaartermijn, verantwoordelijke, etc.) wijzigen, zou dit moeten worden aangepast in alle logrecords. Dat verhoudt zich slecht tot het 'inmutable' zijn van deze logrecords.
 - De grote vrijheid in alle clients om invulling te geven aan deze gegevens leidt er vrijwel zeker toe dat verdere divergentie optreedt. Dit heeft o.a. tot gevolg dat het lastig wordt om te rapporteren uit de logs
 - De API voor het wegschrijven van logs wordt ingewikkeld en relatief traag voor het wegschrijven van records
-
 
 In de gewenste situatie:
 
@@ -29,18 +27,15 @@ Met meer gestandaardiseerde namen en bewaartermijnenen en een eenduidige omgang 
 
 Overigens werkt het conceptueel wél wanneer men geen API op het RvVA aanbiedt, deze link kan ook handmatig worden gelegd iedere keer als deze informatie nodig is, en het RvVA bijvoorbeeld alleen bestaat als Excel document.
 
-
 ## Besluit
 
 Logregels bevatten geen informatie over Verwerkingsactiviteiten en Verantwoordelijkheden die al vastliggen in een Register
-
 
 ## Gevolgen
 
 - In de standaard Logboek Dataverwerkingen is het nodig om ook de benodigde interface op de RvVA te standaardiseren. Dit is nodig om de logs geautomatiseerd en realtime te kunnen interpreteren: zonder gestandaardiseerde manier om informatie over verwerkingsactiviteiten op te vragen kan men aan logregels niet zien of het verwerkingen, handelingen of acties betreft.
 
 Met de volgende sequentie diagrammen wordt in beeld gebracht wat de gevolgen zijn voor de diverse flows in het gebruik van de standaard.
-
 
 ### Loggen van een verwerking
 
@@ -56,7 +51,6 @@ sequenceDiagram
 ```
 
 Deze transactie is geoptimaliseerd op eenvoud en snelheid, want deze heeft rechtstreeks invloed op de snelheid van verwerkingen. Deze transactie moet schaalbaar zijn naar bijv. tienduizenden transacties per seconde.
-
 
 ### Tonen van een verwerking
 
