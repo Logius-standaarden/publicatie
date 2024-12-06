@@ -957,8 +957,8 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </section><section id="zijn-er-dingen-die-je-moet-aanpassen-aan-je-audit-log-als-je-de-standaard-implementeert"><div class="header-wrapper"><h4 id="x2-1-9-zijn-er-dingen-die-je-moet-aanpassen-aan-je-audit-log-als-je-de-standaard-implementeert"><bdi class="secno">2.1.9 </bdi>Zijn er dingen die je moet aanpassen aan je Audit Log als je de standaard implementeert?</h4><a class="self-link" href="#zijn-er-dingen-die-je-moet-aanpassen-aan-je-audit-log-als-je-de-standaard-implementeert" aria-label="Permalink for Section 2.1.9"></a></div>
 <p>In de logging worden geen identificerende gegevens opgeslagen over gebruiker van het systeem (bijv. de ambtenaar die het systeem gebruikt). Om de link tussen een gebruiker en de standaard te maken, kan de Audit Log worden aangepast door te verwijzen naar de Operation ID die de dataverwerking identificeert die door de gebruiker is uitgevoerd. </p>
 </section><section id="kan-je-de-standaard-implementeren-als-je-een-cloud-saas-applicatie-gebruikt"><div class="header-wrapper"><h4 id="x2-1-10-kan-je-de-standaard-implementeren-als-je-een-cloud-saas-applicatie-gebruikt"><bdi class="secno">2.1.10 </bdi>Kan je de standaard implementeren als je een cloud (SaaS) applicatie gebruikt?</h4><a class="self-link" href="#kan-je-de-standaard-implementeren-als-je-een-cloud-saas-applicatie-gebruikt" aria-label="Permalink for Section 2.1.10"></a></div>
-<p>Ja dat kan. Het is wel van belang een duidelijk onderscheid te maken tussen verwerkingsverantwoordelijke en een verwerker van de gegevens. Dit bepaalt bijvoorbeeld de Register van verwerkingsactiviteiten waarnaar u dient te verwijzen bij implementatie van de standaard.</p>
-<p>Voor meer informatie over de rol van een verwerkingsverantwoordelijke en een verwerker kunt u de de website van <a href="https://www.autoriteitpersoonsgegevens.nl/themas/basis-avg/avg-algemeen/verantwoordelijke-en-verwerker">Autoriteit Persoonsgegevens</a> raadplegen.</p>
+<p>Ja dat kan. Het is wel van belang een duidelijk onderscheid te maken tussen verantwoordelijke en een verwerker van de gegevens. Dit bepaalt bijvoorbeeld de Register van verwerkingsactiviteiten waarnaar u dient te verwijzen bij implementatie van de standaard.</p>
+<p>Voor meer informatie over de rol van een verantwoordelijke en een verwerker kunt u de de website van <a href="https://www.autoriteitpersoonsgegevens.nl/themas/basis-avg/avg-algemeen/verantwoordelijke-en-verwerker">Autoriteit Persoonsgegevens</a> raadplegen.</p>
 </section><section id="is-de-performance-van-de-standaard-getest-zal-de-standaard-de-performance-van-mijn-applicaties-beperken"><div class="header-wrapper"><h4 id="x2-1-11-is-de-performance-van-de-standaard-getest-zal-de-standaard-de-performance-van-mijn-applicaties-beperken"><bdi class="secno">2.1.11 </bdi>Is de performance van de standaard getest? / Zal de standaard de performance van mijn applicaties beperken?</h4><a class="self-link" href="#is-de-performance-van-de-standaard-getest-zal-de-standaard-de-performance-van-mijn-applicaties-beperken" aria-label="Permalink for Section 2.1.11"></a></div>
 <p>Ja, de performance is getest met een aantal demo-applicaties. De testen toonden aan dat er weinig tot geen performanceverlies was op geraakte applicaties.</p>
 </section><section id="moet-ik-mijn-rvva-aanpassen-als-ik-deze-standaard-implementeer"><div class="header-wrapper"><h4 id="x2-1-12-moet-ik-mijn-rvva-aanpassen-als-ik-deze-standaard-implementeer"><bdi class="secno">2.1.12 </bdi>Moet ik mijn RvvA aanpassen als ik deze standaard implementeer?</h4><a class="self-link" href="#moet-ik-mijn-rvva-aanpassen-als-ik-deze-standaard-implementeer" aria-label="Permalink for Section 2.1.12"></a></div>
@@ -985,7 +985,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 
 </section>
     <section id="canoniek-gegevensmodel"><div class="header-wrapper"><h3 id="x3-2-canoniek-gegevensmodel"><bdi class="secno">3.2 </bdi>Canoniek Gegevensmodel</h3><a class="self-link" href="#canoniek-gegevensmodel" aria-label="Permalink for Section 3.2"></a></div>
-<p>Ter verduidelijking van de standaard is een Canoniek gegevensmodel uitgewerkt, dit gestandaardiseerd model voor datarepresentatie is  ontworpen om de attributen eenduidig en consistenter te maken. Het biedt een uniforme structuur en terminologie voor alle relevante gegevens in de standaard.</p>
+<p>Ter verduidelijking van de standaard is een Canoniek gegevensmodel uitgewerkt, dit gestandaardiseerd model voor datarepresentatie is  ontworpen om de attributen eenduidig en consistenter te maken. Het biedt een uniforme structuur en terminologie voor alle relevante gegevens in de standaard. Zie voor de definitie van de gebruikte terminologie ook <a href="https://logius-standaarden.github.io/logboek-dataverwerkingen/#terminologie">Paragraaf 1.2 van de standaard</a>.</p>
 <section id="attribute"><div class="header-wrapper"><h4 id="x3-2-1-attribute"><bdi class="secno">3.2.1 </bdi>attribute</h4><a class="self-link" href="#attribute" aria-label="Permalink for Section 3.2.1"></a></div>
 <table>
 <thead>
@@ -1065,7 +1065,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td><strong>Toelichting</strong></td>
-<td>Bij het gebruik van dataSubject (betrokkene) moet rekening gehouden met artikel 32-1a: <em>Rekening houdend met de stand van de techniek, de uitvoeringskosten, alsook met de aard, de omvang, de context en de verwerkingsdoeleinden en de qua waarschijnlijkheid en ernst uiteenlopende risico's voor de rechten en vrijheden van personen, treffen de verwerkingsverantwoordelijke en de verwerker passende technische en organisatorische maatregelen om een op het risico afgestemd beveiligingsniveau te waarborgen, die, waar passend, onder meer het volgende omvatten:</em>  <em><strong>a) de pseudonimisering en versleuteling van persoonsgegevens.</strong></em></td>
+<td>Bij het gebruik van dataSubject (betrokkene) moet rekening gehouden met artikel 32-1a: <em>Rekening houdend met de stand van de techniek, de uitvoeringskosten, alsook met de aard, de omvang, de context en de verwerkingsdoeleinden en de qua waarschijnlijkheid en ernst uiteenlopende risico's voor de rechten en vrijheden van personen, treffen de verantwoordelijke en de verwerker passende technische en organisatorische maatregelen om een op het risico afgestemd beveiligingsniveau te waarborgen, die, waar passend, onder meer het volgende omvatten:</em>  <em><strong>a) de pseudonimisering en versleuteling van persoonsgegevens.</strong></em></td>
 </tr>
 <tr>
 <td><strong>Noodzakelijkheid</strong></td>
@@ -1122,7 +1122,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td><strong>Noodzakelijkheid</strong></td>
-<td>In AVG artikel 30-1c wordt de volgende maatregel benoemd: <em>Elke verwerkingsverantwoordelijke en, in voorkomend geval, de vertegenwoordiger van de verwerkingsverantwoordelijke houdt een register van de verwerkingsactiviteiten die onder hun verantwoordelijkheid plaatsvinden. Dat register bevat alle volgende gegevens: een beschrijving van de categorieën van betrokkenen en van de categorieën van persoonsgegevens.</em></td>
+<td>In AVG artikel 30-1c wordt de volgende maatregel benoemd: <em>Elke verantwoordelijke en, in voorkomend geval, de vertegenwoordiger van de verantwoordelijke houdt een register van de verwerkingsactiviteiten die onder hun verantwoordelijkheid plaatsvinden. Dat register bevat alle volgende gegevens: een beschrijving van de categorieën van betrokkenen en van de categorieën van persoonsgegevens.</em></td>
 </tr>
 <tr>
 <td><strong>Datatype</strong></td>
@@ -1281,7 +1281,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td><strong>Noodzakelijkheid</strong></td>
-<td>In AVG artikel 30-1f wordt de volgende maatregel benoemd: <em>Elke verwerkingsverantwoordelijke en, in voorkomend geval, de vertegenwoordiger van de verwerkingsverantwoordelijke houdt een register van de verwerkingsactiviteiten die onder hun verantwoordelijkheid plaatsvinden. Dat register bevat alle volgende gegevens: indien mogelijk, de beoogde termijnen waarbinnen de verschillende categorieën van gegevens moeten worden gewist.</em> De concrete datum waarop een gegevensverwerking moet worden gewist uit het logboek, kan bepaald worden door middel van het bewaartermijn in het register en de eindtijd waarop een gegevensverwerking is gelogd in het logboek. Daardoor is het onnodig om de concrete verwijderdatum van een gegevensverwerking te registreren in het logboek.</td>
+<td>In AVG artikel 30-1f wordt de volgende maatregel benoemd: <em>Elke verantwoordelijke en, in voorkomend geval, de vertegenwoordiger van de verantwoordelijke houdt een register van de verwerkingsactiviteiten die onder hun verantwoordelijkheid plaatsvinden. Dat register bevat alle volgende gegevens: indien mogelijk, de beoogde termijnen waarbinnen de verschillende categorieën van gegevens moeten worden gewist.</em> De concrete datum waarop een gegevensverwerking moet worden gewist uit het logboek, kan bepaald worden door middel van het bewaartermijn in het register en de eindtijd waarop een gegevensverwerking is gelogd in het logboek. Daardoor is het onnodig om de concrete verwijderdatum van een gegevensverwerking te registreren in het logboek.</td>
 </tr>
 <tr>
 <td><strong>Datatype</strong></td>
@@ -1432,7 +1432,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td><strong>Definitie Nederlands</strong></td>
-<td>Algemene voorwaarden inzake de rechtmatigheid van verwerking door de verwerkingsverantwoordelijke.</td>
+<td>Algemene voorwaarden inzake de rechtmatigheid van verwerking door de verantwoordelijke.</td>
 </tr>
 <tr>
 <td><strong>Toelichting</strong></td>
@@ -1456,7 +1456,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td></td>
-<td><em>c) de verwerking is noodzakelijk om te voldoen aan een wettelijke verplichting die op de verwerkingsverantwoordelijke rust;</em></td>
+<td><em>c) de verwerking is noodzakelijk om te voldoen aan een wettelijke verplichting die op de verantwoordelijke rust;</em></td>
 </tr>
 <tr>
 <td></td>
@@ -1464,11 +1464,11 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td></td>
-<td><em>e) de verwerking is noodzakelijk voor de vervulling van een taak van algemeen belang of van een taak in het kader van de uitoefening van het openbaar gezag dat aan de verwerkingsverantwoordelijke is opgedragen;</em></td>
+<td><em>e) de verwerking is noodzakelijk voor de vervulling van een taak van algemeen belang of van een taak in het kader van de uitoefening van het openbaar gezag dat aan de verantwoordelijke is opgedragen;</em></td>
 </tr>
 <tr>
 <td></td>
-<td><em>f) de verwerking is noodzakelijk voor de behartiging van de gerechtvaardigde belangen van de verwerkingsverantwoordelijke of van een derde, behalve wanneer de belangen of de grondrechten en de fundamentele vrijheden van de betrokkene die tot bescherming van persoonsgegevens nopen, zwaarder wegen dan die belangen, met name wanneer de betrokkene een kind is.</em></td>
+<td><em>f) de verwerking is noodzakelijk voor de behartiging van de gerechtvaardigde belangen van de verantwoordelijke of van een derde, behalve wanneer de belangen of de grondrechten en de fundamentele vrijheden van de betrokkene die tot bescherming van persoonsgegevens nopen, zwaarder wegen dan die belangen, met name wanneer de betrokkene een kind is.</em></td>
 </tr>
 <tr>
 <td></td>
@@ -1561,7 +1561,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td><strong>Definitie Nederlands</strong></td>
-<td>Uitleg bij de algemene voorwaarden inzake de rechtmatigheid van verwerking door de verwerkingsverantwoordelijke.</td>
+<td>Uitleg bij de algemene voorwaarden inzake de rechtmatigheid van verwerking door de verantwoordelijke.</td>
 </tr>
 <tr>
 <td><strong>Toelichting</strong></td>
@@ -1854,7 +1854,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td><strong>Noodzakelijkheid</strong></td>
-<td>In AVG artikel 30-1c wordt de volgende maatregel benoemd: <em>Elke verwerkingsverantwoordelijke en, in voorkomend geval, de vertegenwoordiger van de verwerkingsverantwoordelijke houdt een register van de verwerkingsactiviteiten die onder hun verantwoordelijkheid plaatsvinden. Dat register bevat alle volgende gegevens: een beschrijving van de categorieën van betrokkenen en van de categorieën van persoonsgegevens.</em></td>
+<td>In AVG artikel 30-1c wordt de volgende maatregel benoemd: <em>Elke verantwoordelijke en, in voorkomend geval, de vertegenwoordiger van de verantwoordelijke houdt een register van de verwerkingsactiviteiten die onder hun verantwoordelijkheid plaatsvinden. Dat register bevat alle volgende gegevens: een beschrijving van de categorieën van betrokkenen en van de categorieën van persoonsgegevens.</em></td>
 </tr>
 <tr>
 <td><strong>Datatype</strong></td>
@@ -1960,7 +1960,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td><strong>Noodzakelijkheid</strong></td>
-<td>In AVG artikel 30-1d wordt de volgende maatregel benoemd: <em>Elke verwerkingsverantwoordelijke en, in voorkomend geval, de vertegenwoordiger van de verwerkingsverantwoordelijke houdt een register van de verwerkingsactiviteiten die onder hun verantwoordelijkheid plaatsvinden. Dat register bevat alle volgende gegevens: de categorieën van ontvangers aan wie de persoonsgegevens zijn of zullen worden verstrekt, onder meer ontvangers in derde landen of internationale organisaties.</em></td>
+<td>In AVG artikel 30-1d wordt de volgende maatregel benoemd: <em>Elke verantwoordelijke en, in voorkomend geval, de vertegenwoordiger van de verantwoordelijke houdt een register van de verwerkingsactiviteiten die onder hun verantwoordelijkheid plaatsvinden. Dat register bevat alle volgende gegevens: de categorieën van ontvangers aan wie de persoonsgegevens zijn of zullen worden verstrekt, onder meer ontvangers in derde landen of internationale organisaties.</em></td>
 </tr>
 <tr>
 <td><strong>Datatype</strong></td>
@@ -2013,7 +2013,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td><strong>Noodzakelijkheid</strong></td>
-<td>In AVG grond 61 wordt de volgende maatregel benoemd: <em>De informatie over de verwerking van persoonsgegevens betreffende de betrokkene dient hem te worden meegedeeld bij het verzamelen bij de betrokkene van de gegevens of, indien de gegevens uit een andere bron zijn verkregen, binnen een redelijke termijn, die afhangt van de omstandigheden van het geval. Wanneer de persoonsgegevens rechtmatig aan een andere ontvanger kunnen worden verstrekt, dient de betrokkene te worden meegedeeld wanneer de persoonsgegevens voor het eerst aan de ontvanger worden verstrekt. Wanneer de verwerkingsverantwoordelijke voornemens is de persoonsgegevens te verwerken met een ander doel dan dat waarvoor zij zijn verzameld, moet de verwerkingsverantwoordelijke de betrokkene vóór die verdere verwerking informatie over dat andere doel en andere noodzakelijke informatie verstrekken. Wanneer de oorsprong van de persoonsgegevens niet aan de betrokkene kan worden meegedeeld omdat verschillende bronnen zijn gebruikt, moet algemene informatie worden verstrekt.</em> De organisatie kan meerdere attribuutsoorten definiëren indien dit preciezere informatie oplevert ten aanzien van de gegevensbron.</td>
+<td>In AVG grond 61 wordt de volgende maatregel benoemd: <em>De informatie over de verwerking van persoonsgegevens betreffende de betrokkene dient hem te worden meegedeeld bij het verzamelen bij de betrokkene van de gegevens of, indien de gegevens uit een andere bron zijn verkregen, binnen een redelijke termijn, die afhangt van de omstandigheden van het geval. Wanneer de persoonsgegevens rechtmatig aan een andere ontvanger kunnen worden verstrekt, dient de betrokkene te worden meegedeeld wanneer de persoonsgegevens voor het eerst aan de ontvanger worden verstrekt. Wanneer de verantwoordelijke voornemens is de persoonsgegevens te verwerken met een ander doel dan dat waarvoor zij zijn verzameld, moet de verantwoordelijke de betrokkene vóór die verdere verwerking informatie over dat andere doel en andere noodzakelijke informatie verstrekken. Wanneer de oorsprong van de persoonsgegevens niet aan de betrokkene kan worden meegedeeld omdat verschillende bronnen zijn gebruikt, moet algemene informatie worden verstrekt.</em> De organisatie kan meerdere attribuutsoorten definiëren indien dit preciezere informatie oplevert ten aanzien van de gegevensbron.</td>
 </tr>
 <tr>
 <td><strong>Datatype</strong></td>
@@ -2066,7 +2066,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td><strong>Noodzakelijkheid</strong></td>
-<td>In AVG grond 61 wordt de volgende maatregel benoemd: <em>De informatie over de verwerking van persoonsgegevens betreffende de betrokkene dient hem te worden meegedeeld bij het verzamelen bij de betrokkene van de gegevens of, indien de gegevens uit een andere bron zijn verkregen, binnen een redelijke termijn, die afhangt van de omstandigheden van het geval. Wanneer de persoonsgegevens rechtmatig aan een andere ontvanger kunnen worden verstrekt, dient de betrokkene te worden meegedeeld wanneer de persoonsgegevens voor het eerst aan de ontvanger worden verstrekt. Wanneer de verwerkingsverantwoordelijke voornemens is de persoonsgegevens te verwerken met een ander doel dan dat waarvoor zij zijn verzameld, moet de verwerkingsverantwoordelijke de betrokkene vóór die verdere verwerking informatie over dat andere doel en andere noodzakelijke informatie verstrekken. Wanneer de oorsprong van de persoonsgegevens niet aan de betrokkene kan worden meegedeeld omdat verschillende bronnen zijn gebruikt, moet algemene informatie worden verstrekt.</em></td>
+<td>In AVG grond 61 wordt de volgende maatregel benoemd: <em>De informatie over de verwerking van persoonsgegevens betreffende de betrokkene dient hem te worden meegedeeld bij het verzamelen bij de betrokkene van de gegevens of, indien de gegevens uit een andere bron zijn verkregen, binnen een redelijke termijn, die afhangt van de omstandigheden van het geval. Wanneer de persoonsgegevens rechtmatig aan een andere ontvanger kunnen worden verstrekt, dient de betrokkene te worden meegedeeld wanneer de persoonsgegevens voor het eerst aan de ontvanger worden verstrekt. Wanneer de verantwoordelijke voornemens is de persoonsgegevens te verwerken met een ander doel dan dat waarvoor zij zijn verzameld, moet de verantwoordelijke de betrokkene vóór die verdere verwerking informatie over dat andere doel en andere noodzakelijke informatie verstrekken. Wanneer de oorsprong van de persoonsgegevens niet aan de betrokkene kan worden meegedeeld omdat verschillende bronnen zijn gebruikt, moet algemene informatie worden verstrekt.</em></td>
 </tr>
 <tr>
 <td><strong>Datatype</strong></td>
@@ -2119,7 +2119,7 @@ Vanuit Audit Log kan wel een relatie gelegd worden met een verwerking in de stan
 </tr>
 <tr>
 <td><strong>Noodzakelijkheid</strong></td>
-<td>In AVG grond 61 wordt de volgende maatregel benoemd: <em>De informatie over de verwerking van persoonsgegevens betreffende de betrokkene dient hem te worden meegedeeld bij het verzamelen bij de betrokkene van de gegevens of, indien de gegevens uit een andere bron zijn verkregen, binnen een redelijke termijn, die afhangt van de omstandigheden van het geval. Wanneer de persoonsgegevens rechtmatig aan een andere ontvanger kunnen worden verstrekt, dient de betrokkene te worden meegedeeld wanneer de persoonsgegevens voor het eerst aan de ontvanger worden verstrekt. Wanneer de verwerkingsverantwoordelijke voornemens is de persoonsgegevens te verwerken met een ander doel dan dat waarvoor zij zijn verzameld, moet de verwerkingsverantwoordelijke de betrokkene vóór die verdere verwerking informatie over dat andere doel en andere noodzakelijke informatie verstrekken. Wanneer de oorsprong van de persoonsgegevens niet aan de betrokkene kan worden meegedeeld omdat verschillende bronnen zijn gebruikt, moet algemene informatie worden verstrekt.</em> Van sommige informatiebronnen zijn meerdere versies aanwezig. In dit geval is de vermelding van de versie van deze informatiebron een preciezere definitie.</td>
+<td>In AVG grond 61 wordt de volgende maatregel benoemd: <em>De informatie over de verwerking van persoonsgegevens betreffende de betrokkene dient hem te worden meegedeeld bij het verzamelen bij de betrokkene van de gegevens of, indien de gegevens uit een andere bron zijn verkregen, binnen een redelijke termijn, die afhangt van de omstandigheden van het geval. Wanneer de persoonsgegevens rechtmatig aan een andere ontvanger kunnen worden verstrekt, dient de betrokkene te worden meegedeeld wanneer de persoonsgegevens voor het eerst aan de ontvanger worden verstrekt. Wanneer de verantwoordelijke voornemens is de persoonsgegevens te verwerken met een ander doel dan dat waarvoor zij zijn verzameld, moet de verantwoordelijke de betrokkene vóór die verdere verwerking informatie over dat andere doel en andere noodzakelijke informatie verstrekken. Wanneer de oorsprong van de persoonsgegevens niet aan de betrokkene kan worden meegedeeld omdat verschillende bronnen zijn gebruikt, moet algemene informatie worden verstrekt.</em> Van sommige informatiebronnen zijn meerdere versies aanwezig. In dit geval is de vermelding van de versie van deze informatiebron een preciezere definitie.</td>
 </tr>
 <tr>
 <td><strong>Datatype</strong></td>
