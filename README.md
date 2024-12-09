@@ -22,6 +22,8 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [api/adr/2.0.0-rc.2/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0-rc.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.0.0-rc.2/)
 - [api/beheermodel/](https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/beheermodel/)
    - [api/beheermodel/1.0/](https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/beheermodel/1.0/)
+- [api/logboek_algemeen/](https://gitdocumentatie.logius.nl/publicatie/api/logboek_algemeen/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/logboek_algemeen/)
+   - [api/logboek_algemeen/0.1.0/](https://gitdocumentatie.logius.nl/publicatie/api/logboek_algemeen/0.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/logboek_algemeen/0.1.0/)
 - [api/logboek_juridisch/](https://gitdocumentatie.logius.nl/publicatie/api/logboek_juridisch/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/logboek_juridisch/)
    - [api/logboek_juridisch/0.8.2/](https://gitdocumentatie.logius.nl/publicatie/api/logboek_juridisch/0.8.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/logboek_juridisch/0.8.2/)
 - [api/mod-geo/](https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/mod-geo/)
