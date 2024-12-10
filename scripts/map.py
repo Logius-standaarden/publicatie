@@ -30,7 +30,7 @@ for item in found:
     prev = split
     entry = item
     # entry = f"{item} ({datetime.utcfromtimestamp(ts).strftime('%d/%m/%Y %H:%M:%S')} UTC)"
-    content += f"- [{entry}](https://gitdocumentatie.logius.nl/publicatie/{entry}) [:scroll:](https://logius-standaarden.github.io/publicatie/{entry} "Preview op GitHub Pages")\n"
+    content += f"- [{entry}](https://gitdocumentatie.logius.nl/publicatie/{entry}) [:scroll:](https://logius-standaarden.github.io/publicatie/{entry} \"Preview op GitHub Pages\")\n"
 print(content)
 
 f = open("README.md", "w")
