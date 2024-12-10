@@ -61,6 +61,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [bomos/linkeddata/](https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/linkeddata/)
    - [bomos/linkeddata/3.0.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/3.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/linkeddata/3.0.0/)
    - [bomos/linkeddata/en/](https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/en/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/linkeddata/en/)
+      - [bomos/linkeddata/en/3.0.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/en/3.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/linkeddata/en/3.0.0/)
 - [bomos/opensource/](https://gitdocumentatie.logius.nl/publicatie/bomos/opensource/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/opensource/)
 - [bomos/stelsels/](https://gitdocumentatie.logius.nl/publicatie/bomos/stelsels/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/stelsels/)
    - [bomos/stelsels/3.0.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/stelsels/3.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/stelsels/3.0.0/)
