@@ -21,6 +21,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [api/logboek_algemeen/0.1.0/](https://gitdocumentatie.logius.nl/publicatie/api/logboek_algemeen/0.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/logboek_algemeen/0.1.0/ "Preview op GitHub Pages")
 - [api/logboek_juridisch/](https://gitdocumentatie.logius.nl/publicatie/api/logboek_juridisch/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/logboek_juridisch/ "Preview op GitHub Pages")
    - [api/logboek_juridisch/0.8.2/](https://gitdocumentatie.logius.nl/publicatie/api/logboek_juridisch/0.8.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/logboek_juridisch/0.8.2/ "Preview op GitHub Pages")
+   - [api/logboek_juridisch/0.8.3/](https://gitdocumentatie.logius.nl/publicatie/api/logboek_juridisch/0.8.3/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/logboek_juridisch/0.8.3/ "Preview op GitHub Pages")
 - [api/mod-geo/](https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/mod-geo/ "Preview op GitHub Pages")
    - [api/mod-geo/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/mod-geo/1.0.0/ "Preview op GitHub Pages")
    - [api/mod-geo/1.0.1/](https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/mod-geo/1.0.1/ "Preview op GitHub Pages")
