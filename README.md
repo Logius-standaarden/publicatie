@@ -8,11 +8,6 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 
 ### api
 
-- [api/Logboek_Algemeen/](https://gitdocumentatie.logius.nl/publicatie/api/Logboek_Algemeen/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/Logboek_Algemeen/ "Preview op GitHub Pages")
-   - [api/Logboek_Algemeen/0.1.0/](https://gitdocumentatie.logius.nl/publicatie/api/Logboek_Algemeen/0.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/Logboek_Algemeen/0.1.0/ "Preview op GitHub Pages")
-- [api/Logboek_Juridisch/](https://gitdocumentatie.logius.nl/publicatie/api/Logboek_Juridisch/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/Logboek_Juridisch/ "Preview op GitHub Pages")
-   - [api/Logboek_Juridisch/0.1.0/](https://gitdocumentatie.logius.nl/publicatie/api/Logboek_Juridisch/0.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/Logboek_Juridisch/0.1.0/ "Preview op GitHub Pages")
-   - [api/Logboek_Juridisch/0.8.2/](https://gitdocumentatie.logius.nl/publicatie/api/Logboek_Juridisch/0.8.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/Logboek_Juridisch/0.8.2/ "Preview op GitHub Pages")
 - [api/adr/](https://gitdocumentatie.logius.nl/publicatie/api/adr/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/ "Preview op GitHub Pages")
 - [api/adr-beheer/](https://gitdocumentatie.logius.nl/publicatie/api/adr-beheer/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr-beheer/ "Preview op GitHub Pages")
    - [api/adr-beheer/1.0/](https://gitdocumentatie.logius.nl/publicatie/api/adr-beheer/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr-beheer/1.0/ "Preview op GitHub Pages")
