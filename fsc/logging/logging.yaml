@@ -1,0 +1,262 @@
+openapi: 3.0.3
+info:
+  title: FSC Logging
+  version: 1.0.0
+  description: Logging REST API
+servers:
+  - url: https://{managerUrl}:8443/v1
+    variables:
+      managerUrl:
+        default: localhost
+        description: URL of the Manager
+paths:
+  /logs:
+    get:
+      tags:
+        - logging
+      summary: Returns logs
+      operationId: getLogs
+      parameters:
+        - $ref: "#/components/parameters/queryPaginationCursor"
+        - $ref: "#/components/parameters/queryPaginationLimit"
+        - $ref: "#/components/parameters/queryPaginationOrder"
+        - in: query
+          description: Log records with a creation date after this value will be returned
+          name: after
+          schema:
+            $ref: "#/components/schemas/timestamp"
+          required: false
+        - in: query
+          description: Log records with a creation date before this value will be returned
+          name: before
+          schema:
+            $ref: "#/components/schemas/timestamp"
+          required: false
+        - in: query
+          description: A list of Grant hashes on which to filter. When multiple filters are used the records where either condition is true should be returned
+          name: grant_hash
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/grantHash"
+          required: false
+          style: form
+          explode: false
+        - in: query
+          description: A list of service names on which to filter. When multiple filters are used the records where either condition is true should be returned
+          name: service_name
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/serviceName"
+          required: false
+          style: form
+          explode: false
+        - in: query
+          description: A list of transaction IDs on which to filter. When this query parameter is set the pagination parameters and other filters should be ignored
+          name: transaction_ids
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/transactionID"
+          required: false
+          style: form
+          explode: false
+      responses:
+        200:
+          description: Log records
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  records:
+                    description: List of log records
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/logRecord"
+                  pagination:
+                    $ref: "#/components/schemas/paginationResult"
+                required:
+                  - records
+                  - pagination
+          links:
+            pagination:
+              operationId: getLogs
+              parameters:
+                query.cursor: "$response.body#/pagination/next_cursor"
+              description: >
+                The `next_cursor` value returned in the response can be used as
+                the `cursor` query parameter in `GET /logs`.
+components:
+  parameters:
+    queryPaginationCursor:
+      in: query
+      name: cursor
+      description: A cursor from which paginated results should be returned. Leave empty for the first page
+      schema:
+        type: string
+      required: false
+    queryPaginationLimit:
+      in: query
+      name: limit
+      description: The maximum number of results
+      schema:
+        type: integer
+        format: uint32
+        maximum: 1000
+        minimum: 1
+        default: 25
+      required: false
+    queryPaginationOrder:
+      in: query
+      name: sort_order
+      description: The sorting order of the results
+      required: false
+      schema:
+        $ref: "#/components/schemas/sortOrder"
+  schemas:
+    peerID:
+      description: The ID of a Peer
+      type: string
+      example: "12345678901234567891"
+      minLength: 1
+      maxLength: 20
+    transactionID:
+      type: string
+      description: The ID of the Transaction. Format is determined in a FSC Profile
+    serviceName:
+      description: The name of a service
+      type: string
+      example: random_service_name
+      minLength: 3
+      maxLength: 255
+    grantHash:
+      type: string
+      description: The hash of a Grant
+      example: $1$4$+PQI7we01qIfEwq4O5UioLKzjGBgRva6F5+bUfDlKxUjcY5yX1MRsn6NKquDbL8VcklhYO9sk18rHD6La3w/mg
+      maxLength: 1024
+    timestamp:
+      type: integer
+      description: A Unix timestamp
+      format: int64
+      example: 1672527600
+      minimum: 0
+    sourceType:
+      type: string
+      enum:
+        - SOURCE_TYPE_SOURCE
+        - SOURCE_TYPE_DELEGATED_SOURCE
+    destinationType:
+      type: string
+      enum:
+        - DESTINATION_TYPE_DESTINATION
+        - DESTINATION_TYPE_DELEGATED_DESTINATION
+    logRecord:
+      description: A log record
+      type: object
+      properties:
+        transaction_id:
+          $ref: "#/components/schemas/transactionID"
+        direction:
+          description: The direction of a request. I.e. is the request being send or received
+          type: string
+          enum:
+            - DIRECTION_INCOMING
+            - DIRECTION_OUTGOING
+        grant_hash:
+          $ref: "#/components/schemas/grantHash"
+        source:
+          oneOf:
+            - $ref: "#/components/schemas/source"
+            - $ref: "#/components/schemas/sourceDelegated"
+          discriminator:
+            propertyName: type
+            mapping:
+              SOURCE_TYPE_SOURCE: "#/components/schemas/source"
+              SOURCE_TYPE_DELEGATED_SOURCE: "#/components/schemas/sourceDelegated"
+        destination:
+          oneOf:
+            - $ref: "#/components/schemas/destination"
+            - $ref: "#/components/schemas/destinationDelegated"
+          discriminator:
+            propertyName: type
+            mapping:
+              DESTINATION_TYPE_DESTINATION: "#/components/schemas/destination"
+              DESTINATION_TYPE_DELEGATED_DESTINATION: "#/components/schemas/destinationDelegated"
+        service_name:
+          $ref: "#/components/schemas/serviceName"
+        created_at:
+          $ref: "#/components/schemas/timestamp"
+      required:
+        - transaction_id
+        - direction
+        - grant_hash
+        - source
+        - destination
+        - service_name
+        - created_at
+    source:
+      description: Details of the Peer initiating the request
+      type: object
+      properties:
+        type:
+          $ref: "#/components/schemas/sourceType"
+        outway_peer_id:
+          $ref: "#/components/schemas/peerID"
+      required:
+        - type
+        - outway_peer_id
+    sourceDelegated:
+      description: Details of the Peer initiating the request and the Delegator
+      type: object
+      properties:
+        type:
+          $ref: "#/components/schemas/sourceType"
+        outway_peer_id:
+          $ref: "#/components/schemas/peerID"
+        delegator_peer_id:
+          $ref: "#/components/schemas/peerID"
+      required:
+        - type
+        - outway_peer_id
+        - delegator_peer_id
+    destination:
+      description: Details of the Peer offering the Service
+      type: object
+      properties:
+        type:
+          $ref: "#/components/schemas/destinationType"
+        service_peer_id:
+          $ref: "#/components/schemas/peerID"
+      required:
+        - type
+        - service_peer_id
+    destinationDelegated:
+      description: Details of the Peer offering the Service and the Delegator
+      type: object
+      properties:
+        type:
+          $ref: "#/components/schemas/destinationType"
+        service_peer_id:
+          $ref: "#/components/schemas/peerID"
+        delegator_peer_id:
+          $ref: "#/components/schemas/peerID"
+      required:
+        - type
+        - service_peer_id
+        - delegator_peer_id
+    sortOrder:
+      description: The order in which the results should be returned
+      type: string
+      enum:
+        - SORT_ORDER_ASCENDING
+        - SORT_ORDER_DESCENDING
+    paginationResult:
+      type: object
+      properties:
+        next_cursor:
+          description: A cursor that can be used to retrieve the next page or an empty string if there are no more results
+          type: string
+      required:
+        - next_cursor
