@@ -368,7 +368,7 @@ The Logging extensions contains descriptions of the contents of Log Records, as 
         </p>
     <hr title="Separator for header">
   </div>
-    <section id="abstract" class="introductory"><h2>Abstract</h2><p>Logging is an extension on the Federated Service Connectivity (FSC) standard <a href="../core/draft-fsc-core-00.html">FSC Core</a>. It can only be used in addition to the FSC Core specification and if applicable the Delegation extension. 
+    <section id="abstract" class="introductory"><h2>Abstract</h2><p>Logging is an extension on the Federated Service Connectivity (FSC) standard <a href="https://gitdocumentatie.logius.nl/publicatie/fsc/core/">FSC Core</a>. It can only be used in addition to the FSC Core specification and if applicable the Delegation extension. 
 The purpose of the Logging extension is to provide insights into transactions performed with services inside a FSC Group. The extension ensures Log records are uniformly described, stored and can be exchanged between Peers. 
 The Logging extensions contains descriptions of the contents of Log Records, as well as a manner for other Peers to request Log records of transactions they have participated in as a Peer. </p>
 <p>In addition, this extension also described the format of uniquely identifying transactions occurring within an FSC Group. Which also can be used to establish an audit trail.</p>
@@ -394,7 +394,7 @@ Organizations can use this as a foundation to create a log that will satisfy all
 <p><em>TransactionID:</em></p>
 <p>A unique identifier which can be used to trace a Transaction between Peers.</p>
 </section><section id="profiles"><div class="header-wrapper"><h3 id="x1-4-profiles"><bdi class="secno">1.4 </bdi>Profiles</h3><a class="self-link" href="#profiles" aria-label="Permalink for Section 1.4"></a></div>
-<p>When using the Logging Extension the following additions <strong><em class="rfc2119">MUST</em></strong> be made to the <a href="../core/draft-fsc-core-00.html#profiles">FSC Profile</a>:</p>
+<p>When using the Logging Extension the following additions <strong><em class="rfc2119">MUST</em></strong> be made to the <a href="https://gitdocumentatie.logius.nl/publicatie/fsc/core/#profiles">FSC Profile</a>:</p>
 <ol>
 <li>Determine the expiration date for log records</li>
 </ol>
@@ -520,7 +520,7 @@ It is <strong><em class="rfc2119">RECOMMENDED</em></strong> to also add the Tran
 <p>The Outway <strong><em class="rfc2119">MUST</em></strong> write a record to the TransactionLog for each request that will be sent to the Inway.</p>
 <p>The Outway <strong><em class="rfc2119">MUST</em></strong> create a TransactionID which <strong><em class="rfc2119">MUST</em></strong> be unique for the transaction, the format is determined in a FSC Profile.</p>
 <p>The Outway <strong><em class="rfc2119">MUST</em></strong> add the TransactionID to the request sent to the Inway using the HTTP header <code>Fsc-Transaction-Id</code>.</p>
-<p>The TransactionLog record <strong><em class="rfc2119">MUST</em></strong> contain the fields described in the <a href="#transaction_log_record">TransactionLog record section</a></p>
+<p>The TransactionLog record <strong><em class="rfc2119">MUST</em></strong> contain the fields described in the <a href="#log_record">TransactionLog record section</a></p>
 <p>The Outway <strong><em class="rfc2119">MUST</em></strong> deny the request if the record to the TransactionLog could not be written.</p>
 <p>The Outway <strong><em class="rfc2119">MUST</em></strong> add the TransactionID to the response sent to the Client using the HTTP header <code>Fsc-Transaction-Id</code>.</p>
 </section><section id="delegation-0"><div class="header-wrapper"><h5 id="x3-4-1-2-delegation"><bdi class="secno">3.4.1.2 </bdi>Delegation</h5><a class="self-link" href="#delegation-0" aria-label="Permalink for Section 3.4.1.2"></a></div>
