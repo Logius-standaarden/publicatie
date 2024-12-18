@@ -465,7 +465,7 @@ Services in the Group can be discovered through the Directory.<br>The Manager's 
 Auxiliary functionality for either an FSC Peer or an entire FSC Group can be realized with <code>extensions</code>. An Extension performs a well scoped feature enhancing the overall working of FSC. </p>
 <p>It is <strong><em class="rfc2119">RECOMMENDED</em></strong> to use FSC Core with the following extensions, each specified in a dedicated RFC:</p>
 <ul>
-<li><a href="../logging/draft-fsc-logging-00.html">FSC Logging</a>, keep a log of requests to Services.</li>
+<li><a href="https://gitdocumentatie.logius.nl/publicatie/fsc/logging/">FSC Logging</a>, keep a log of requests to Services.</li>
 </ul>
 </section><section id="profiles"><div class="header-wrapper"><h4 id="x1-3-2-profiles"><bdi class="secno">1.3.2 </bdi>Profiles</h4><a class="self-link" href="#profiles" aria-label="Permalink for Section 1.3.2"></a></div>
 <p>FSC Core provides the foundation for cooperation between organizations (Peers). However, in practice additional decisions have to be made to guarantee a functioning Group within a broader context.
@@ -541,9 +541,9 @@ Contracts can contain multiple Peers. E.g. if a Peer wants a single Contract for
 <p>Additionally optional decisions <strong>COULD</strong> be added to the profile whilst creating an FSC Group providing additional restrictions placed on the FSC Group.</p>
 </section><section id="service-discovery"><div class="header-wrapper"><h3 id="x2-4-service-discovery"><bdi class="secno">2.4 </bdi>Service discovery</h3><a class="self-link" href="#service-discovery" aria-label="Permalink for Section 2.4"></a></div>
 <p>Every Group is defined by one Directory that contains the Services and Peers in the Group.
-All Peers in the Group make themselves known to the Directory by having their Manager call the <a href="#Announce">Announce</a> endpoint of the Directory. 
+All Peers in the Group make themselves known to the Directory by having their Manager call the <a href="#announce">Announce</a> endpoint of the Directory. 
 This way the Directory contains a list of all Peers in the Group with their corresponding Manager address.</p>
-<p>When publishing services, Managers register Services by offering Contracts with a <a href="#service_publication_grant">ServicePublicationGrant</a> or <a href="#delegated_service_publication_grant">DelegatedServicePublicationGrant</a> to the Directory.</p>
+<p>When publishing services, Managers register Services by offering Contracts with a <a href="#service_publication_grant">ServicePublicationGrant</a> or <a href="#grant_delegated_service_publication">DelegatedServicePublicationGrant</a> to the Directory.</p>
 <p>Peers query the Directory to discover the Services available in the Group </p>
 <p>
       </p><figure id="fig-providing-a-service">
@@ -597,7 +597,7 @@ Once the Contract is signed by all the Peers, the Outway can connect to the Inwa
 </ol>
 </section><section id="delegate-the-authorization-to-connect-to-a-service"><div class="header-wrapper"><h3 id="x2-6-delegate-the-authorization-to-connect-to-a-service"><bdi class="secno">2.6 </bdi>Delegate the authorization to connect to a Service</h3><a class="self-link" href="#delegate-the-authorization-to-connect-to-a-service" aria-label="Permalink for Section 2.6"></a></div>
 <section id="a-delegated-service-connection"><div class="header-wrapper"><h4 id="x2-6-1-a-delegated-service-connection"><bdi class="secno">2.6.1 </bdi>A delegated service connection</h4><a class="self-link" href="#a-delegated-service-connection" aria-label="Permalink for Section 2.6.1"></a></div>
-<p>A connection on behalf of another Peer (delegation) can only be established if the Peer connecting to the Service has a valid Contract containing a <a href="#delegated_service_connection_grant">DelegatedServiceConnectionGrant</a> with the Peer providing the Service.
+<p>A connection on behalf of another Peer (delegation) can only be established if the Peer connecting to the Service has a valid Contract containing a <a href="#grant_delegated_service_connection">DelegatedServiceConnectionGrant</a> with the Peer providing the Service.
 The connection Grants contains information about the Service, the public key of the Outway that is authorized to connect to the Service and the Peer acting as Delegator.</p>
 <p>The Contract is distributed among the three Peers. Once the Contract is signed by all the Peers, the Outway of the Delegatee can connect to the Inway offering the Service on behalf the Delegator.</p>
 <p>
