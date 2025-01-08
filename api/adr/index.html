@@ -39,7 +39,7 @@ dfn{cursor:pointer}
   
   
   
-<title>NLGov REST API Design Rules</title>
+<title>NLGov REST API Design Rules 2.0.1</title>
   
   
 <link href="./media/style.css" rel="stylesheet" type="text/css">
@@ -132,7 +132,7 @@ img.license{float:left;padding-right:5px}
     color: white;
     white-space: nowrap;
     z-index: 1;
-    background-color: #39870c;
+    background-color: #154273;
   }
 </style>
 <script id="initialUserConfig" type="application/json">{
@@ -802,7 +802,7 @@ img.license{float:left;padding-right:5px}
   "previousPublishDate": "2024-03-07",
   "previousPublishVersion": "2.0.0",
   "shortName": "adr",
-  "specStatus": "WV",
+  "specStatus": "def",
   "specType": "ST",
   "pluralize": true
 }</script>
@@ -810,16 +810,16 @@ img.license{float:left;padding-right:5px}
  
  <body class="h-entry"><div class="head">
     <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
-  </a> <h1 id="title" class="title">NLGov REST API Design Rules</h1>
+  </a> <h1 id="title" class="title">NLGov REST API Design Rules 2.0.1</h1>
     
     <h2>
       Logius Standard<br>
-      Draft
-      <time class="dt-published" datetime="2025-01-07">January 08, 2025</time>
+      Definitive version
+      <time class="dt-published" datetime="2025-01-07">January 07, 2025</time>
     </h2>
     <dl>
       <dt>This version:</dt><dd class="status">
-              <a class="u-url status" href="https://logius-standaarden.github.io/API-Design-Rules/">https://logius-standaarden.github.io/API-Design-Rules/</a>
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.1/">https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.1/</a>
             </dd>
       <dt>Latest published version:</dt><dd>
               <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/">https://gitdocumentatie.logius.nl/publicatie/api/adr/</a>
@@ -878,7 +878,7 @@ img.license{float:left;padding-right:5px}
         when, and only when, they appear in all capitals, as shown here.
       </p>
   </section>
-  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#goal"><bdi class="secno">1.1 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#status"><bdi class="secno">1.2 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#authors"><bdi class="secno">1.3 </bdi>Authors</a></li><li class="tocline"><a class="tocxref" href="#reading-guide"><bdi class="secno">1.4 </bdi>Reading Guide</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">1.5 </bdi>Extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#summary"><bdi class="secno">2. </bdi>Summary</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-design-rules"><bdi class="secno">2.1 </bdi>Normative Design Rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#list-of-functional-rules"><bdi class="secno">2.1.1 </bdi>List of functional rules</a></li><li class="tocline"><a class="tocxref" href="#list-of-technical-rules"><bdi class="secno">2.1.2 </bdi>List of technical rules</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#the-core-set-of-design-rules"><bdi class="secno">3. </bdi>The core set of Design Rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#resources"><bdi class="secno">3.1 </bdi>Resources</a></li><li class="tocline"><a class="tocxref" href="#http-methods"><bdi class="secno">3.2 </bdi>HTTP methods</a></li><li class="tocline"><a class="tocxref" href="#statelessness"><bdi class="secno">3.3 </bdi>Statelessness</a></li><li class="tocline"><a class="tocxref" href="#relationships"><bdi class="secno">3.4 </bdi>Relationships</a></li><li class="tocline"><a class="tocxref" href="#operations"><bdi class="secno">3.5 </bdi>Operations</a></li><li class="tocline"><a class="tocxref" href="#documentation"><bdi class="secno">3.6 </bdi>Documentation</a></li><li class="tocline"><a class="tocxref" href="#versioning"><bdi class="secno">3.7 </bdi>Versioning</a></li><li class="tocline"><a class="tocxref" href="#transport-security"><bdi class="secno">3.8 </bdi>Transport Security</a></li><li class="tocline"><a class="tocxref" href="#geospatial"><bdi class="secno">3.9 </bdi>Geospatial</a></li></ol></li><li class="tocline"><a class="tocxref" href="#glossary"><bdi class="secno">4. </bdi>Glossary</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">A.2 </bdi>Informative references</a></li></ol></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#goal"><bdi class="secno">1.1 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#status"><bdi class="secno">1.2 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#authors"><bdi class="secno">1.3 </bdi>Authors</a></li><li class="tocline"><a class="tocxref" href="#reading-guide"><bdi class="secno">1.4 </bdi>Reading Guide</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">1.5 </bdi>Extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#summary"><bdi class="secno">2. </bdi>Summary</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-design-rules"><bdi class="secno">2.1 </bdi>Normative Design Rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#list-of-functional-rules"><bdi class="secno">2.1.1 </bdi>List of functional rules</a></li><li class="tocline"><a class="tocxref" href="#list-of-technical-rules"><bdi class="secno">2.1.2 </bdi>List of technical rules</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#the-core-set-of-design-rules"><bdi class="secno">3. </bdi>The core set of Design Rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#resources"><bdi class="secno">3.1 </bdi>Resources</a></li><li class="tocline"><a class="tocxref" href="#http-methods"><bdi class="secno">3.2 </bdi>HTTP methods</a></li><li class="tocline"><a class="tocxref" href="#statelessness"><bdi class="secno">3.3 </bdi>Statelessness</a></li><li class="tocline"><a class="tocxref" href="#relationships"><bdi class="secno">3.4 </bdi>Relationships</a></li><li class="tocline"><a class="tocxref" href="#operations"><bdi class="secno">3.5 </bdi>Operations</a></li><li class="tocline"><a class="tocxref" href="#documentation"><bdi class="secno">3.6 </bdi>Documentation</a></li><li class="tocline"><a class="tocxref" href="#versioning"><bdi class="secno">3.7 </bdi>Versioning</a></li><li class="tocline"><a class="tocxref" href="#transport-security"><bdi class="secno">3.8 </bdi>Transport Security</a></li><li class="tocline"><a class="tocxref" href="#geospatial"><bdi class="secno">3.9 </bdi>Geospatial</a></li></ol></li><li class="tocline"><a class="tocxref" href="#glossary"><bdi class="secno">4. </bdi>Glossary</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">A.2 </bdi>Informative references</a></li></ol></li></ol></nav>
   <div><table>
 <thead>
 <tr>
@@ -2046,4 +2046,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Standard - Draft</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Standard - Definitive version</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
