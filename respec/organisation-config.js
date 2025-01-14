@@ -304,7 +304,7 @@ var organisationConfig = {
             publisher: "Programmabureau NOiV",
         },
         folmer2012: {
-            href: "https://ris.utwente.nl/ws/portalfiles/portal/6064223/thesis_E_Folmer.pdf",
+            href: "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
             title: "Quality of Semantic Standards",
             authors: ["Erwin Folmer"],
             date: "2012",
