@@ -296,6 +296,7 @@ var organisationConfig = {
             title: "Expertadvies CloudEvents 1.0"
         },
         folmer2011: {
+            href: "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
             title: "Management and Development Model for Open Standards (BOMOS) version 2",
             keywords: "IR-76837",
             authors: ["ErwinFolmer", "Matthijs Punter"],
