@@ -16,6 +16,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [api/adr/2.0.0-rc.1/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0-rc.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.0.0-rc.1/ "Preview op GitHub Pages")
    - [api/adr/2.0.0-rc.2/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0-rc.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.0.0-rc.2/ "Preview op GitHub Pages")
    - [api/adr/2.0.1/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.0.1/ "Preview op GitHub Pages")
+   - [api/adr/2.0.x/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.x/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.0.x/ "Preview op GitHub Pages")
 - [api/beheermodel/](https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/beheermodel/ "Preview op GitHub Pages")
    - [api/beheermodel/1.0/](https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/beheermodel/1.0/ "Preview op GitHub Pages")
 - [api/logboek_algemeen/](https://gitdocumentatie.logius.nl/publicatie/api/logboek_algemeen/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/logboek_algemeen/ "Preview op GitHub Pages")
