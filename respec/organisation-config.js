@@ -519,5 +519,17 @@ var organisationConfig = {
             publisher: "Association of Computing Machinery (ACM)",
             date: "March 2002"
         },
+        "FSC-Core": {
+            href: "https://gitdocumentatie.logius.nl/publicatie/fsc/core/",
+            title: "FSC - Core",
+            authors: ["Eelco Hotting", "Ronald Koster", "Henk van Maanen", "Niels Dequeker", "Edward van Gelderen", "Pim Gaemers"],
+            publisher: "Logius"
+        },
+        "FSC-Logging": {
+            href: "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/",
+            title: "FSC - Logging",
+            authors: ["Eelco Hotting", "Ronald Koster", "Henk van Maanen", "Niels Dequeker", "Edward van Gelderen", "Pim Gaemers"],
+            publisher: "Logius"
+        },
     }
 }
