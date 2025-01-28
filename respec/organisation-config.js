@@ -520,13 +520,13 @@ var organisationConfig = {
             date: "March 2002"
         },
         "FSC-Core": {
-            href: "https://gitdocumentatie.logius.nl/publicatie/fsc/core/",
+            href: "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
             title: "FSC - Core",
             authors: ["Eelco Hotting", "Ronald Koster", "Henk van Maanen", "Niels Dequeker", "Edward van Gelderen", "Pim Gaemers"],
             publisher: "Logius"
         },
         "FSC-Logging": {
-            href: "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/",
+            href: "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
             title: "FSC - Logging",
             authors: ["Eelco Hotting", "Ronald Koster", "Henk van Maanen", "Niels Dequeker", "Edward van Gelderen", "Pim Gaemers"],
             publisher: "Logius"
