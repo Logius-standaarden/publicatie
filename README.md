@@ -215,6 +215,8 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 
 ### notificatieservices
 
+- [notificatieservices/CloudEvents-NL/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/CloudEvents-NL/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/CloudEvents-NL/ "Preview op GitHub Pages")
+   - [notificatieservices/CloudEvents-NL/1.0/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/CloudEvents-NL/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/CloudEvents-NL/1.0/ "Preview op GitHub Pages")
 - [notificatieservices/cloudevents-nl/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/cloudevents-nl/ "Preview op GitHub Pages")
    - [notificatieservices/cloudevents-nl/0.3/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/0.3/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/cloudevents-nl/0.3/ "Preview op GitHub Pages")
    - [notificatieservices/cloudevents-nl/1.0/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/cloudevents-nl/1.0/ "Preview op GitHub Pages")
