@@ -9,7 +9,7 @@ var organisationConfig = {
         id: "Logius",
         height: 77,
         width: 44,
-        url: "https://www.logius.nl/standaarden",
+        url: "https://www.logius.nl/onze-dienstverlening/standaarden",
     }],
 
     latestVersion: ["nl_organisationPublishURL", "pubDomain", "/", "shortName", "/"],
