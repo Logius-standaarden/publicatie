@@ -337,6 +337,12 @@ var organisationConfig = {
             publisher: "OpenID foundation",
             title: "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
         },
+        "NLGOV.OpenID": {
+            authors: ["Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"],
+            href: "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+            publisher: "Logius",
+            title: "OpenID NLGov"
+        },
         "Introspection": {
             authors: ["J. Richer"],
             date: "October 2015",
