@@ -3,19 +3,6 @@
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
 <meta name="generator" content="ReSpec 35.1.1">
 <style>
-.issue-label{text-transform:initial}
-.warning>p:first-child{margin-top:0}
-.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
-span.warning{padding:.1em .5em .15em}
-.issue.closed span.issue-number{text-decoration:line-through}
-.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
-.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
-.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
-li.task-list-item{list-style:none}
-input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
-.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
-</style>
-<style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
@@ -378,12 +365,66 @@ ul.index code{color:inherit}
   </div>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Tekst</p>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#niet-normatieve-deel"><bdi class="secno">1. </bdi>Niet-normatieve deel</a></li><li class="tocline"><a class="tocxref" href="#meer-inhoud"><bdi class="secno">2. </bdi>Meer inhoud</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definities"><bdi class="secno">2.1 </bdi>Definities</a></li><li class="tocline"><a class="tocxref" href="#afbeeldingen"><bdi class="secno">2.2 </bdi>Afbeeldingen</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">2.3 </bdi>Referenties</a></li><li class="tocline"><a class="tocxref" href="#optioneel"><bdi class="secno">2.4 </bdi>Optioneel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#mermaid-diagram"><bdi class="secno">3. </bdi>Mermaid diagram</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">5. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
-  <section class="informative" id="niet-normatieve-deel"><div class="header-wrapper"><h2 id="x1-niet-normatieve-deel"><bdi class="secno">1. </bdi>Niet-normatieve deel</h2><a class="self-link" href="#niet-normatieve-deel" aria-label="Permalink for Section 1."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
-<p>Bijvoorbeeld een introductie.</p>
-<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="3"><span>Noot</span><span class="issue-label">: index</span></div><p class="">
-Dit hoofdstuk is toegevoegd met <code>class="informative"</code> in <code>config.js</code>.
-</p></div></section>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#richtlijnen-voor-extensies-in-logboek-dataverwerkingen"><bdi class="secno">1. </bdi>Richtlijnen voor Extensies in Logboek Dataverwerkingen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#x1-inleiding"><bdi class="secno">1.1 </bdi>1. Inleiding</a></li><li class="tocline"><a class="tocxref" href="#x2-randvoorwaarden"><bdi class="secno">1.2 </bdi>2. Randvoorwaarden</a></li><li class="tocline"><a class="tocxref" href="#x3-verschil-tussen-de-extensie-en-de-core-standaard"><bdi class="secno">1.3 </bdi>3. Verschil tussen de Extensie en de Core Standaard</a></li><li class="tocline"><a class="tocxref" href="#x4-wat-moet-er-in-een-extensiedocumentatie-staan"><bdi class="secno">1.4 </bdi>4. Wat moet er in een extensiedocumentatie staan?</a></li><li class="tocline"><a class="tocxref" href="#x5-wat-mag-niet-limitaties"><bdi class="secno">1.5 </bdi>5. Wat mag niet? (Limitaties)</a></li><li class="tocline"><a class="tocxref" href="#x6-hoe-voorkom-je-conflicten-tussen-extensies"><bdi class="secno">1.6 </bdi>6. Hoe voorkom je conflicten tussen extensies?</a></li><li class="tocline"><a class="tocxref" href="#x7-wat-mag-wel-invulmogelijkheid"><bdi class="secno">1.7 </bdi>7. Wat mag wel? (Invulmogelijkheid)</a></li><li class="tocline"><a class="tocxref" href="#x8-structuur-van-een-extensie"><bdi class="secno">1.8 </bdi>8. Structuur van een extensie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#x1-naam-en-beschrijving"><bdi class="secno">1.8.1 </bdi>1. Naam en beschrijving</a></li><li class="tocline"><a class="tocxref" href="#x2-doel-en-nut"><bdi class="secno">1.8.2 </bdi>2. Doel en nut</a></li><li class="tocline"><a class="tocxref" href="#x3-technische-specificatie"><bdi class="secno">1.8.3 </bdi>3. Technische specificatie</a></li><li class="tocline"><a class="tocxref" href="#x4-gebruiksscenario-s"><bdi class="secno">1.8.4 </bdi>4. Gebruiksscenario’s</a></li><li class="tocline"><a class="tocxref" href="#x5-beperkingen"><bdi class="secno">1.8.5 </bdi>5. Beperkingen</a></li><li class="tocline"><a class="tocxref" href="#x6-versiebeheer"><bdi class="secno">1.8.6 </bdi>6. Versiebeheer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#x9-schrijfwijze-en-stijl"><bdi class="secno">1.9 </bdi>9. Schrijfwijze en Stijl</a></li><li class="tocline"><a class="tocxref" href="#x10-relevante-standaarden"><bdi class="secno">1.10 </bdi>10. Relevante Standaarden</a></li></ol></li><li class="tocline"><a class="tocxref" href="#meer-inhoud"><bdi class="secno">2. </bdi>Meer inhoud</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definities"><bdi class="secno">2.1 </bdi>Definities</a></li><li class="tocline"><a class="tocxref" href="#afbeeldingen"><bdi class="secno">2.2 </bdi>Afbeeldingen</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">2.3 </bdi>Referenties</a></li><li class="tocline"><a class="tocxref" href="#optioneel"><bdi class="secno">2.4 </bdi>Optioneel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#mermaid-diagram"><bdi class="secno">3. </bdi>Mermaid diagram</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">5. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
+  <section class="informative" id="richtlijnen-voor-extensies-in-logboek-dataverwerkingen"><div class="header-wrapper"><h2 id="x1-richtlijnen-voor-extensies-in-logboek-dataverwerkingen"><bdi class="secno">1. </bdi>Richtlijnen voor Extensies in Logboek Dataverwerkingen</h2><a class="self-link" href="#richtlijnen-voor-extensies-in-logboek-dataverwerkingen" aria-label="Permalink for Section 1."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
+<section id="x1-inleiding"><div class="header-wrapper"><h3 id="x1-1-1-inleiding"><bdi class="secno">1.1 </bdi>1. Inleiding</h3><a class="self-link" href="#x1-inleiding" aria-label="Permalink for Section 1.1"></a></div>
+<p>Extensies worden toegevoegd aan een standaard wanneer de core-standaard niet alle benodigde functionaliteiten biedt die de gebruiker van de standaard nodig heeft. Dit kan voorkomen wanneer verschillende sectoren andere eisen stellen aan de standaard.</p>
+<p>Bijvoorbeeld:</p>
+<p>In de zorgsector moeten logs mogelijk strenger gecontroleerd worden vanwege gevoelige gegevens zoals patiëntendossiers.
+In het onderwijs kunnen er andere gegevens worden gelogd, zoals toetsresultaten of inschrijvingsgegevens, waarbij minder strenge controle nodig is.</p>
+<p>Of een extensie noodzakelijk of optioneel is, hangt af van de gebruiker van de standaard en de eisen binnen een sector. Als een organisatie haar taken volledig kan uitvoeren met de core-standaard, is een extensie niet verplicht. Echter, in situaties waarin extra functionaliteit nodig is, kan een extensie een waardevolle toevoeging zijn, bijvoorbeeld om sector-specifieke eisen te ondersteunen.</p>
+</section><section id="x2-randvoorwaarden"><div class="header-wrapper"><h3 id="x1-2-2-randvoorwaarden"><bdi class="secno">1.2 </bdi>2. Randvoorwaarden</h3><a class="self-link" href="#x2-randvoorwaarden" aria-label="Permalink for Section 1.2"></a></div>
+<p>Bij het ontwerpen van een extensie moet rekening worden gehouden met:</p>
+<ul>
+<li><strong>Compatibiliteit</strong>: De extensie moet voldoen aan bepaalde normen of protocollen.</li>
+<li><strong>Interoperabiliteit</strong>: De extensie moet correct functioneren binnen de core van de standaard.</li>
+<li><strong>Onderhoudbaarheid</strong>: De extensie moet eenvoudig te onderhouden en aanpasbaar zijn.</li>
+</ul>
+</section><section id="x3-verschil-tussen-de-extensie-en-de-core-standaard"><div class="header-wrapper"><h3 id="x1-3-3-verschil-tussen-de-extensie-en-de-core-standaard"><bdi class="secno">1.3 </bdi>3. Verschil tussen de Extensie en de Core Standaard</h3><a class="self-link" href="#x3-verschil-tussen-de-extensie-en-de-core-standaard" aria-label="Permalink for Section 1.3"></a></div>
+<p>Beschrijf hoe de extensie zich verhoudt tot de core standaard. Bijvoorbeeld:</p>
+<ul>
+<li>De core biedt generieke functionaliteit.</li>
+<li>De extensie voegt specifieke mogelijkheden toe voor een bepaalde context.</li>
+</ul>
+</section><section id="x4-wat-moet-er-in-een-extensiedocumentatie-staan"><div class="header-wrapper"><h3 id="x1-4-4-wat-moet-er-in-een-extensiedocumentatie-staan"><bdi class="secno">1.4 </bdi>4. Wat moet er in een extensiedocumentatie staan?</h3><a class="self-link" href="#x4-wat-moet-er-in-een-extensiedocumentatie-staan" aria-label="Permalink for Section 1.4"></a></div>
+<p>Elke extensie moet minimaal de volgende onderdelen bevatten:</p>
+<ul>
+<li><strong>Nut</strong>: Wat is het doel van deze extensie?</li>
+<li><strong>Technische details</strong>: Hoe werkt de extensie?</li>
+<li><strong>Beperkingen</strong>: Wat kan de extensie niet?</li>
+</ul>
+</section><section id="x5-wat-mag-niet-limitaties"><div class="header-wrapper"><h3 id="x1-5-5-wat-mag-niet-limitaties"><bdi class="secno">1.5 </bdi>5. Wat mag niet? (Limitaties)</h3><a class="self-link" href="#x5-wat-mag-niet-limitaties" aria-label="Permalink for Section 1.5"></a></div>
+<p>Extensies mogen niet:</p>
+<ul>
+<li>Incompatibel zijn met de core standaard.</li>
+<li>Functionaliteit breken of conflicteren met andere extensies.</li>
+</ul>
+</section><section id="x6-hoe-voorkom-je-conflicten-tussen-extensies"><div class="header-wrapper"><h3 id="x1-6-6-hoe-voorkom-je-conflicten-tussen-extensies"><bdi class="secno">1.6 </bdi>6. Hoe voorkom je conflicten tussen extensies?</h3><a class="self-link" href="#x6-hoe-voorkom-je-conflicten-tussen-extensies" aria-label="Permalink for Section 1.6"></a></div>
+<ul>
+<li>Gebruik unieke namespaces.</li>
+<li>Zorg voor een duidelijke documentatie van afhankelijkheden.</li>
+</ul>
+</section><section id="x7-wat-mag-wel-invulmogelijkheid"><div class="header-wrapper"><h3 id="x1-7-7-wat-mag-wel-invulmogelijkheid"><bdi class="secno">1.7 </bdi>7. Wat mag wel? (Invulmogelijkheid)</h3><a class="self-link" href="#x7-wat-mag-wel-invulmogelijkheid" aria-label="Permalink for Section 1.7"></a></div>
+<ul>
+<li>Nieuwe functionaliteit toevoegen zonder de core te verstoren.</li>
+</ul>
+</section><section id="x8-structuur-van-een-extensie"><div class="header-wrapper"><h3 id="x1-8-8-structuur-van-een-extensie"><bdi class="secno">1.8 </bdi>8. Structuur van een extensie</h3><a class="self-link" href="#x8-structuur-van-een-extensie" aria-label="Permalink for Section 1.8"></a></div>
+<p>Elke extensie moet de volgende structuur hebben:</p>
+<section id="x1-naam-en-beschrijving"><div class="header-wrapper"><h4 id="x1-8-1-1-naam-en-beschrijving"><bdi class="secno">1.8.1 </bdi>1. Naam en beschrijving</h4><a class="self-link" href="#x1-naam-en-beschrijving" aria-label="Permalink for Section 1.8.1"></a></div>
+</section><section id="x2-doel-en-nut"><div class="header-wrapper"><h4 id="x1-8-2-2-doel-en-nut"><bdi class="secno">1.8.2 </bdi>2. Doel en nut</h4><a class="self-link" href="#x2-doel-en-nut" aria-label="Permalink for Section 1.8.2"></a></div>
+</section><section id="x3-technische-specificatie"><div class="header-wrapper"><h4 id="x1-8-3-3-technische-specificatie"><bdi class="secno">1.8.3 </bdi>3. Technische specificatie</h4><a class="self-link" href="#x3-technische-specificatie" aria-label="Permalink for Section 1.8.3"></a></div>
+</section><section id="x4-gebruiksscenario-s"><div class="header-wrapper"><h4 id="x1-8-4-4-gebruiksscenario-s"><bdi class="secno">1.8.4 </bdi>4. Gebruiksscenario’s</h4><a class="self-link" href="#x4-gebruiksscenario-s" aria-label="Permalink for Section 1.8.4"></a></div>
+</section><section id="x5-beperkingen"><div class="header-wrapper"><h4 id="x1-8-5-5-beperkingen"><bdi class="secno">1.8.5 </bdi>5. Beperkingen</h4><a class="self-link" href="#x5-beperkingen" aria-label="Permalink for Section 1.8.5"></a></div>
+</section><section id="x6-versiebeheer"><div class="header-wrapper"><h4 id="x1-8-6-6-versiebeheer"><bdi class="secno">1.8.6 </bdi>6. Versiebeheer</h4><a class="self-link" href="#x6-versiebeheer" aria-label="Permalink for Section 1.8.6"></a></div>
+</section></section><section id="x9-schrijfwijze-en-stijl"><div class="header-wrapper"><h3 id="x1-9-9-schrijfwijze-en-stijl"><bdi class="secno">1.9 </bdi>9. Schrijfwijze en Stijl</h3><a class="self-link" href="#x9-schrijfwijze-en-stijl" aria-label="Permalink for Section 1.9"></a></div>
+<ul>
+<li>Gebruik een formele en eenduidige schrijfstijl.</li>
+<li>Definieer alle termen duidelijk.</li>
+<li>Zorg voor consistente naamgeving.</li>
+</ul>
+</section><section id="x10-relevante-standaarden"><div class="header-wrapper"><h3 id="x1-10-10-relevante-standaarden"><bdi class="secno">1.10 </bdi>10. Relevante Standaarden</h3><a class="self-link" href="#x10-relevante-standaarden" aria-label="Permalink for Section 1.10"></a></div>
+<p>Voeg hier links toe naar andere relevante standaarden om dubbel werk te voorkomen.</p>
+</section></section>
   <section id="meer-inhoud"><div class="header-wrapper"><h2 id="x2-meer-inhoud"><bdi class="secno">2. </bdi>Meer inhoud</h2><a class="self-link" href="#meer-inhoud" aria-label="Permalink for Section 2."></a></div>
 <section id="definities"><div class="header-wrapper"><h3 id="x2-1-definities"><bdi class="secno">2.1 </bdi>Definities</h3><a class="self-link" href="#definities" aria-label="Permalink for Section 2.1"></a></div>
 <p><dfn id="dfn-definitie" tabindex="0" aria-haspopup="dialog">Definitie</dfn>: Een definitie is een beschrijving van een woord. Een ander woord voor definitie is betekenis of beschrijving.</p>
