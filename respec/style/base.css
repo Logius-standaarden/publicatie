@@ -181,6 +181,8 @@
 	--outdated-shadow: red;
 
 	--editedrec-bg: darkorange;
+
+	--logius-table-even-rows: #f0f6ff;
 }
 
 /******************************************************************************/
@@ -1056,7 +1058,7 @@ table {
   border-top: 1px solid #ddd;
 }
  tr:nth-child(even) {
-  background: #f0f6ff;
+  background: var(--logius-table-even-rows);
 }
 /* --- DL --- */
 .section dd > p:first-child {
