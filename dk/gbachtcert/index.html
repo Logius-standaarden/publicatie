@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 34.1.4">
+<meta name="generator" content="ReSpec 35.1.1">
 <style>
 .issue-label{text-transform:initial}
 .warning>p:first-child{margin-top:0}
@@ -9,7 +9,7 @@
 span.warning{padding:.1em .5em .15em}
 .issue.closed span.issue-number{text-decoration:line-through}
 .issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
-.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
 .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
 li.task-list-item{list-style:none}
 input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
@@ -17,13 +17,13 @@ input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
 .dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
 .dfn-panel>div{display:flex}
 .dfn-panel a.self-link{font-weight:700;margin-right:auto}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
@@ -57,8 +57,6 @@ dfn{cursor:pointer}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
 a.bibref{text-decoration:none}
@@ -72,20 +70,8 @@ a.bibref{text-decoration:none}
 cite .bibref{font-style:normal}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
 #issue-summary>ul{column-count:2}
 #issue-summary li{list-style:none;display:inline-block}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
@@ -138,14 +124,15 @@ img.license{float:left;padding-right:5px}
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
     "nl_organisationPublishURL",
     "pubDomain",
     "/",
-    "shortName"
+    "shortName",
+    "/"
   ],
   "thisVersion": [
     "nl_organisationPublishURL",
@@ -153,7 +140,8 @@ img.license{float:left;padding-right:5px}
     "/",
     "shortName",
     "/",
-    "publishVersion"
+    "publishVersion",
+    "/"
   ],
   "prevVersion": [
     "nl_organisationPublishURL",
@@ -161,7 +149,8 @@ img.license{float:left;padding-right:5px}
     "/",
     "shortName",
     "/",
-    "previousPublishVersion"
+    "previousPublishVersion",
+    "/"
   ],
   "useLogo": true,
   "useLabel": true,
@@ -170,8 +159,8 @@ img.license{float:left;padding-right:5px}
   "localizationStrings": {
     "en": {
       "wv": "Draft",
-      "cv": "Recommendation",
-      "vv": "Proposed recommendation",
+      "cv": "Consultation version",
+      "vv": "Proposed version",
       "def": "Definitive version",
       "basis": "Document",
       "eo": "Outdated version",
@@ -210,7 +199,7 @@ img.license{float:left;padding-right:5px}
       "sotd": "Status van dit document",
       "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
       "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.",
-      "cv": "Dit is een door het TO goedgekeurde consultatieversie. Commentaar over dit document kan gestuurd worden naar ",
+      "cv": "Dit is een door het TO goedgekeurde consultatieversie. Commentaar over dit document kan gestuurd worden naar digikoppeling@logius.nl",
       "vv": "Dit is een definitief concept van de nieuwe versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
       "basis": "Dit is een document zonder officiële status."
     },
@@ -218,14 +207,16 @@ img.license{float:left;padding-right:5px}
       "sotd": "Status of This Document",
       "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
       "wv": "This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.",
-      "cv": "This is a proposed recommendation approved by TO. Comments regarding this document may be sent to ",
+      "cv": "This is a proposed recommendation approved by TO. Comments regarding this document may be sent to api@logius.nl",
       "vv": "This is the definitive concept of this document. Edits resulting from consultations have been applied.",
       "basis": "This document has no official standing."
     }
   },
   "labelColor": {
     "def": "#154273",
-    "wv": "#39870c"
+    "wv": "#39870c",
+    "cv": "#000000",
+    "vv": "#000000"
   },
   "licenses": {
     "cc0": {
@@ -274,50 +265,27 @@ img.license{float:left;padding-right:5px}
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
-    "API Design Rules": {
-      "authors": [
-        "Jasper Roes",
-        "Joost Farla"
-      ],
-      "date": "Juli 2020",
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
-      "publisher": "Logius",
-      "title": "API Design Rules (Nederlandse API Strategie IIa)"
-    },
-    "API Design Rules-Extensions": {
-      "authors": [
-        "Jasper Roes",
-        "Linda van den Brink"
-      ],
-      "date": "Januari 2020",
-      "href": "https://docs.geostandaarden.nl/api/API-Strategie-ext",
-      "publisher": "Geonovum/Kennisplatform APi's",
-      "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
+    "AVG": {
+      "date": "27 april 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
     },
     "BCP195": {
       "authors": [
-        "Y. Sheffer, R. Holz, P. Saint-Andre"
+        "Y. Sheffer",
+        "R. Holz",
+        "P. Saint-Andre"
       ],
       "date": "May 2015",
       "href": "https://tools.ietf.org/html/bcp195",
       "publisher": "IETF",
       "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"
     },
-    "Beheermodel": {
-      "date": "Oktober 2017",
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
-      "publisher": "Logius",
-      "title": "Beheermodel en releasebeleid Digikoppeling v1.5"
-    },
-    "Beveiligingsdocument": {
+    "DK-beveiliging": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
       "publisher": "Logius",
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
-    },
-    "Certificaten": {
-      "href": "https://cert.pkioverheid.nl/",
-      "publisher": "Logius",
-      "title": "PkIoverheid certificaten"
     },
     "CloudEvents": {
       "authors": [
@@ -328,10 +296,28 @@ img.license{float:left;padding-right:5px}
       "publisher": "@@@",
       "title": "CloudEvents - Version 1.0.1"
     },
-    "Compliance": {
-      "href": "https://portaal.digikoppeling.nl",
+    "NLGOV-CloudEvents": {
+      "authors": [
+        "Werkgroep Berichtenstandaard (Project Notificatieservices)"
+      ],
+      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "publisher": "Logius",
+      "title": "NL GOV profile for CloudEvents"
+    },
+    "DK-CV": {
+      "href": "https://gitlab.com/logius/digikoppeling-compliance",
       "publisher": "Logius",
       "title": "Digikoppeling Compliance Voorziening"
+    },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
     },
     "Deployment Guide 1.1": {
       "authors": [
@@ -343,115 +329,93 @@ img.license{float:left;padding-right:5px}
       "publisher": "OASIS",
       "title": "Deployment Profile Template For OASIS ebXML Message Service 2.0"
     },
-    "Digikoppeling Actuele Documentatie": {
-      "href": "http://www.logius.nl/digikoppeling",
+    "DK": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
       "publisher": "Logius",
-      "title": "Digikoppeling Overzicht Actuele Documentatie en Compliance"
+      "title": "Logius | Digikoppeling"
     },
-    "Digikoppeling Beheermodel": {
-      "date": "Oktober 2017",
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
+    "DK-Doc": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
       "publisher": "Logius",
-      "title": "Beheermodel en releasebeleid Digikoppeling v1.5"
+      "title": "Digikoppeling documentatie"
     },
-    "Digikoppeling Best Practices ebMS2": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-Beheermodel": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beheermodel",
+      "id": "dk-beheermodel"
+    },
+    "DK-BPebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices ebMS2"
     },
-    "Digikoppeling Best Practices Grote Berichten": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-BPGB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpgb/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices Grote Berichten"
     },
-    "Digikoppeling Best Practices WUS": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-BPWUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpwus/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices WUS"
     },
-    "Digikoppeling Beveiligingsdocument": {
-      "date": "2021",
+    "DK-Beveiliging": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
       "publisher": "Logius",
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
     },
-    "Digikoppeling Compliance Voorziening": {
-      "href": "https://portaal.digikoppeling.nl",
-      "publisher": "Logius",
-      "title": "Digikoppeling Compliance Voorziening"
-    },
-    "Digikoppeling Gebruik Certificaten": {
-      "href": "http://www.logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Digikoppeling Gebruik en achtergrond certificaten"
-    },
-    "Digikoppeling Identificatie-Authenticatie": {
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
-      "publisher": "Logius",
-      "title": "Digikoppeling Identificatie en Authenticatie"
-    },
-    "Digikoppeling Koppelvlakstandaard ebMS2": {
-      "date": "mei 2019",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-ebMS2/",
+    "DK-gbachtcert": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
       "publisher": "Logius",
       "title": "Digikoppeling Koppelvlakstandaard ebMS2"
     },
-    "Digikoppeling Koppelvlakstandaard Grote Berichten": {
-      "date": "september 2020",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-GB/",
+    "DK-ebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-GB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/gb/",
       "publisher": "Logius",
       "title": "Digikoppeling Koppelvlakstandaard Grote Berichten"
     },
-    "Digikoppeling Koppelvlakstandaard REST API": {
-      "date": "februari 2021",
-      "href": "https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/",
+    "DK-WUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/wus/",
       "publisher": "Logius",
-      "title": "Digikoppeling Restful API Profiel (Concept)"
+      "title": "Digikoppeling Koppelvlakstandaard WUS"
     },
-    "Digikoppeling Koppelvlakstandaard WUS": {
-      "date": "oktober 2020",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-WUS/",
-      "publisher": "Logius",
-      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
-    },
-    "Digikoppeling Logius website": {
-      "href": "https://logius.nl/diensten/digikoppeling/documentatie",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Digikoppeling REST API profiel": {
+    "DK-RESTAPI": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/restapi/",
       "publisher": "Logius",
-      "title": "Digikoppeling REST API profiel",
-      "id": "digikoppeling rest api profiel"
+      "title": "Digikoppeling Koppelvlakstandaard REST-API"
     },
-    "Digikoppeling-Architectuur": {
+    "DK-Architectuur": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/",
       "publisher": "Logius",
       "title": "Digikoppeling Architectuur"
     },
-    "Digikoppeling-Beveiligingsdocument": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig",
-      "publisher": "Logius",
-      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
-    },
-    "Digikoppeling-Cert": {
-      "href": "http://www.logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Gebruik en achtergrond van Digikoppeling certificaten"
-    },
-    "Digikoppeling-Compliance-Voorziening": {
-      "href": "https://portaal.digikoppeling.nl",
-      "publisher": "Logius",
-      "title": "Digikoppeling Compliance Voorziening"
-    },
-    "Digikoppeling-Identificatie-Authenticatie": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth",
+    "DK-IDAuth": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth/",
       "publisher": "Logius",
       "title": "Digikoppeling Identificatie en Authenticatie"
+    },
+    "DK-WI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/",
+      "publisher": "Logius",
+      "title": "Wat is Digikoppeling?"
+    },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
     },
     "ebCPP": {
       "authors": [
@@ -472,15 +436,6 @@ img.license{float:left;padding-right:5px}
       "publisher": "Oasis",
       "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
     },
-    "ebXML CPPA V 2.0": {
-      "authors": [
-        "Oasis"
-      ],
-      "date": "september 2002",
-      "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
-      "publisher": "Oasis",
-      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
-    },
     "eDelivery API4IPS": {
       "authors": [
         "J. Dimitriou, V. Veduta, B. Dumitriu"
@@ -489,11 +444,6 @@ img.license{float:left;padding-right:5px}
       "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
       "publisher": "OpenID foundation",
       "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
-    },
-    "Eisen Pkioverheid": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
     },
     "Expert": {
       "authors": [
@@ -505,6 +455,7 @@ img.license{float:left;padding-right:5px}
       "title": "Expertadvies CloudEvents 1.0"
     },
     "folmer2011": {
+      "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
       "title": "Management and Development Model for Open Standards (BOMOS) version 2",
       "keywords": "IR-76837",
       "authors": [
@@ -516,7 +467,7 @@ img.license{float:left;padding-right:5px}
       "publisher": "Programmabureau NOiV"
     },
     "folmer2012": {
-      "href": "https://ris.utwente.nl/ws/portalfiles/portal/6064223/thesis_E_Folmer.pdf",
+      "href": "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
       "title": "Quality of Semantic Standards",
       "authors": [
         "Erwin Folmer"
@@ -524,53 +475,26 @@ img.license{float:left;padding-right:5px}
       "date": "2012",
       "publisher": "Universiteit Twente"
     },
-    "Gebruiksvoorwaarden Digikoppeling": {
+    "DK-Gebruiksvoorwaarden": {
       "date": "1 januari 2021",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Gebruiksvoorwaarden Digikoppeling"
     },
-    "Geospatial Module": {
+    "ADR-GEO": {
       "authors": [
         "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
       ],
-      "date": "23 mei 2021",
-      "href": "https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
       "publisher": "Geonovum",
-      "title": "API Design rules Module: Geospatial"
-    },
-    "HEART.OAuth2": {
-      "authors": [
-        "J. Richer"
-      ],
-      "date": "April 25, 2017",
-      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
-      "publisher": "OpenID foundation",
-      "title": "Health Relationship Trust Profile for OAuth 2.0"
+      "title": "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
       "date": "Nov 2014",
       "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       "publisher": "NCSC",
       "title": "Factsheet HTTPS kan een stuk veiliger"
-    },
-    "I-D.ietf-oauth-pop-architecture": {
-      "authors": [
-        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
-      ],
-      "date": "July 8, 2016",
-      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
-      "publisher": "IETF",
-      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
-    },
-    "iGOV.OAuth2": {
-      "authors": [
-        "J. Richer, M. Varley, P. Grassi"
-      ],
-      "date": "October 5 2018",
-      "href": "https://openid.net/specs/openid-igov-oauth2-1_0.html",
-      "publisher": "OpenID foundation",
-      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
     "iGOV.OpenID": {
       "authors": [
@@ -580,6 +504,14 @@ img.license{float:left;padding-right:5px}
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
     },
     "Introspection": {
       "authors": [
@@ -626,15 +558,6 @@ img.license{float:left;padding-right:5px}
       "publisher": "IETF",
       "title": "JSON Web Signature (JWS)"
     },
-    "JWS.JWE.Algs": {
-      "authors": [
-        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
-      ],
-      "date": "",
-      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
-      "publisher": "IANA",
-      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
-    },
     "JWT": {
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
@@ -643,21 +566,6 @@ img.license{float:left;padding-right:5px}
       "href": "https://tools.ietf.org/html/rfc7519",
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
-    },
-    "Logius": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Logius website": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Logius-website": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
     },
     "NCSC 2019": {
       "date": "April 2019",
@@ -721,55 +629,25 @@ img.license{float:left;padding-right:5px}
       "publisher": "Forum Standaardisatie",
       "title": "Lijst Verplichte standaarden"
     },
-    "PKCE": {
-      "authors": [
-        "N. Sakimura, J. Bradley, N. Agarwal"
-      ],
-      "date": "september 2015",
-      "href": "https://tools.ietf.org/html/rfc7636",
-      "publisher": "IETF",
-      "title": "Proof Key for Code Exchange by OAuth Public Clients"
-    },
-    "PKI CA": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+    "PKIO-PvE": {
+      "href": "https://por.pkioverheid.nl/",
       "publisher": "Logius",
-      "title": "Toegetreden vertrouwensdienstverleners"
-    },
-    "PKI Policy": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)",
-      "id": "pki policy"
-    },
-    "PKI PvE": {
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/PKIoverheid/PoR-2022/PKIoverheid%20Programme%20of%20Requirements%20v4.10%20-%20Part%203j%20Certificate%20Policy%20for%20Server%20certificates%20in%20Server%202020%20%28EV%20G1%29%20Domain.pdf",
-      "publisher": "Logius",
-      "title": "Programma van Eisen Pkioverheid, deel 3j"
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
     },
     "PKI-CA": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
       "publisher": "Logius",
-      "title": "Toegetreden vertrouwensdienstverleners"
-    },
-    "PKI-Policy": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
+      "title": "Aansluiten als Trust Service Provider"
     },
     "PKIoverheid": {
-      "href": "https://www.logius.nl/diensten/pkioverheid",
+      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
       "publisher": "Logius",
       "title": "PKIoverheid"
     },
-    "PKIoverheid Certificaten": {
+    "PKIO-Cert": {
       "href": "https://cert.pkioverheid.nl/",
       "publisher": "Logius",
-      "title": "Pkioverheid certificaten"
-    },
-    "PKIoverheid-Certificaten": {
-      "href": "https://cert.pkioverheid.nl/",
-      "publisher": "Logius",
-      "title": "Pkioverheid certificaten"
+      "title": "Overzicht PKIoverheid certificaten"
     },
     "SemVer": {
       "authors": [
@@ -778,6 +656,15 @@ img.license{float:left;padding-right:5px}
       "date": "June 2013",
       "href": "https://semver.org",
       "title": "Semantic Versioning 2.0.0"
+    },
+    "ADR-TS": {
+      "authors": [
+        ""
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
+      "publisher": "Kennisplatform API's",
+      "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
       "authors": [
@@ -808,14 +695,9 @@ img.license{float:left;padding-right:5px}
       "publisher": "The Internet Engineering Task Force",
       "title": "A Universally Unique IDentifier (UUID) URN Namespace"
     },
-    "Voorbeelden": {
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
-      "publisher": "Logius",
-      "title": "Digikoppeling WUS voorbeelden (zip)"
-    },
-    "Voorwaarden Digikoppeling": {
+    "DK-Voorwaarden": {
       "date": "1 januari 2021",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie/voorwaarden-digikoppeling",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Voorwaarden Digikoppeling"
     },
@@ -826,13 +708,62 @@ img.license{float:left;padding-right:5px}
       "id": "x520"
     },
     "ADR-Validator": {
-      "href": "https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go",
-      "title": "Technical ADR Validation rule testset 0.1.0",
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
       "authors": [
         "H. Stijns"
       ],
       "publisher": "Geonovum",
-      "date": "December 2022"
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
     }
   },
   "alternateFormats": [
@@ -871,8 +802,8 @@ img.license{float:left;padding-right:5px}
   "specType": "BP"
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
- <body class="h-entry informative toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+ <body class="h-entry informative"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">Digikoppeling Gebruik en Achtergrond Certificaten 1.6.3</h1>
     
     <h2>
@@ -882,16 +813,16 @@ img.license{float:left;padding-right:5px}
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
-              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/1.6.3/">https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/1.6.3</a>
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/1.6.3/">https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/1.6.3/</a>
             </dd>
       <dt>Laatst gepubliceerde versie:</dt><dd>
-              <a href="https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/">https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert</a>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/">https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/</a>
             </dd>
       <dt>Laatste werkversie:</dt><dd><a href="https://logius-standaarden.github.io/Digikoppeling-Gebruik-en-achtergrond-certificaten/">https://logius-standaarden.github.io/Digikoppeling-Gebruik-en-achtergrond-certificaten/</a></dd>
       
       
       
-      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/1.6.2/">https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/1.6.2</a></dd>
+      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/1.6.2/">https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/1.6.2/</a></dd>
       
       <dt>Redacteurs:</dt>
       <dd class="editor p-author h-card vcard">
@@ -929,7 +860,7 @@ img.license{float:left;padding-right:5px}
   <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel-en-doelgroep"><bdi class="secno">1.1 </bdi>Doel en doelgroep</a></li><li class="tocline"><a class="tocxref" href="#digikoppeling-standaarden"><bdi class="secno">1.2 </bdi>Digikoppeling standaarden</a></li><li class="tocline"><a class="tocxref" href="#achtergrond"><bdi class="secno">1.3 </bdi>Achtergrond</a></li><li class="tocline"><a class="tocxref" href="#omgang-met-certificaat"><bdi class="secno">1.4 </bdi>Omgang met certificaat</a></li><li class="tocline"><a class="tocxref" href="#leeswijzer"><bdi class="secno">1.5 </bdi>Leeswijzer</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">1.6 </bdi>Referenties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#achtergrond-pkioverheid-certificaten"><bdi class="secno">2. </bdi>Achtergrond PKIoverheid certificaten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pkioverheid"><bdi class="secno">2.1 </bdi>PKIoverheid</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#stamcertificaat"><bdi class="secno">2.1.1 </bdi>Stamcertificaat</a></li><li class="tocline"><a class="tocxref" href="#certificaat-hierarchieen"><bdi class="secno">2.1.2 </bdi>Certificaat hiërarchieën</a></li><li class="tocline"><a class="tocxref" href="#tsps"><bdi class="secno">2.1.3 </bdi>TSPs</a></li><li class="tocline"><a class="tocxref" href="#persoonsgebonden-certificaten"><bdi class="secno">2.1.4 </bdi>Persoonsgebonden certificaten</a></li><li class="tocline"><a class="tocxref" href="#server-service-certificaten"><bdi class="secno">2.1.5 </bdi>Server (service) certificaten</a></li><li class="tocline"><a class="tocxref" href="#private-services-servercertificaten"><bdi class="secno">2.1.6 </bdi>Private services servercertificaten</a></li><li class="tocline"><a class="tocxref" href="#generaties-en-naamgeving"><bdi class="secno">2.1.7 </bdi>Generaties en naamgeving</a></li></ol></li><li class="tocline"><a class="tocxref" href="#toepassingen"><bdi class="secno">2.2 </bdi>Toepassingen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#hoe-werkt-pki-in-digikoppeling"><bdi class="secno">2.2.1 </bdi>Hoe werkt PKI in Digikoppeling?</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#ontwerp-aspecten-digikoppeling-adapter"><bdi class="secno">3. </bdi>Ontwerp aspecten Digikoppeling adapter</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vragen"><bdi class="secno">3.1 </bdi>Vragen</a></li><li class="tocline"><a class="tocxref" href="#achtergrond-0"><bdi class="secno">3.2 </bdi>Achtergrond</a></li><li class="tocline"><a class="tocxref" href="#stappen"><bdi class="secno">3.3 </bdi>Stappen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bestellen-certificaat"><bdi class="secno">4. </bdi>Bestellen certificaat</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vragen-0"><bdi class="secno">4.1 </bdi>Vragen</a></li><li class="tocline"><a class="tocxref" href="#achtergrond-1"><bdi class="secno">4.2 </bdi>Achtergrond</a></li><li class="tocline"><a class="tocxref" href="#stappen-0"><bdi class="secno">4.3 </bdi>Stappen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#installatie-certificaat"><bdi class="secno">5. </bdi>Installatie certificaat</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vragen-1"><bdi class="secno">5.1 </bdi>Vragen</a></li><li class="tocline"><a class="tocxref" href="#achtergrond-2"><bdi class="secno">5.2 </bdi>Achtergrond</a></li><li class="tocline"><a class="tocxref" href="#stappen-1"><bdi class="secno">5.3 </bdi>Stappen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#distributie-en-cpa-creatie"><bdi class="secno">6. </bdi>Distributie en CPA-creatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vragen-2"><bdi class="secno">6.1 </bdi>Vragen</a></li><li class="tocline"><a class="tocxref" href="#achtergrond-3"><bdi class="secno">6.2 </bdi>Achtergrond</a></li><li class="tocline"><a class="tocxref" href="#stappen-2"><bdi class="secno">6.3 </bdi>Stappen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#gebruiksaspecten"><bdi class="secno">7. </bdi>Gebruiksaspecten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vragen-3"><bdi class="secno">7.1 </bdi>Vragen</a></li><li class="tocline"><a class="tocxref" href="#achtergrond-4"><bdi class="secno">7.2 </bdi>Achtergrond</a></li><li class="tocline"><a class="tocxref" href="#stappen-3"><bdi class="secno">7.3 </bdi>Stappen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#tls-offloading-cpa"><bdi class="secno">7.3.1 </bdi>TLS Offloading - CPA</a></li><li class="tocline"><a class="tocxref" href="#tls-offloading-wus"><bdi class="secno">7.3.2 </bdi>TLS offloading - WUS</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#bijlage-1-bestandsformaten-voor-certificaten"><bdi class="secno">8. </bdi>Bijlage 1: Bestandsformaten voor certificaten</a></li><li class="tocline"><a class="tocxref" href="#bijlage-2-richtlijnen-voor-een-veilig-password"><bdi class="secno">9. </bdi>Bijlage 2: Richtlijnen voor een veilig password</a></li><li class="tocline"><a class="tocxref" href="#bijlage-3-basisattributen-in-certificaat"><bdi class="secno">10. </bdi>Bijlage 3: Basisattributen in certificaat</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">11. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">A.1 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
   <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
 <p>Documentbeheer</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Datum</th>
@@ -971,7 +902,7 @@ img.license{float:left;padding-right:5px}
 </tbody></table>
 </section>
   <section class="introductory" id="colofon"><div class="header-wrapper"><h2 id="colofon-0">Colofon</h2><a class="self-link" href="#colofon" aria-label="Permalink for this Section"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -988,7 +919,7 @@ img.license{float:left;padding-right:5px}
 <section id="doel-en-doelgroep"><div class="header-wrapper"><h3 id="x1-1-doel-en-doelgroep"><bdi class="secno">1.1 </bdi>Doel en doelgroep</h3><a class="self-link" href="#doel-en-doelgroep" aria-label="Permalink for Section 1.1"></a></div>
 <p>Dit document beschrijft de wijze waarop, binnen de context van Digikoppeling, met certificaten wordt omgegaan. Inhoudelijk voorziet het in de detaillering van de architectuur voor identificatie, authenticatie en autorisatie. Bovendien geeft het uitleg over de gebruikelijke werkwijze bij het toepassen van certificaten. Meer informatie over certificaten is te vinden op de website: <a href="https://cert.pkioverheid.nl/">https://cert.pkioverheid.nl/</a>.</p>
 <p>Onderstaande tabel geeft de doelgroep van dit document weer.</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Afkorting</th>
@@ -1024,64 +955,41 @@ img.license{float:left;padding-right:5px}
 </tbody></table>
 </section><section id="digikoppeling-standaarden"><div class="header-wrapper"><h3 id="x1-2-digikoppeling-standaarden"><bdi class="secno">1.2 </bdi>Digikoppeling standaarden</h3><a class="self-link" href="#digikoppeling-standaarden" aria-label="Permalink for Section 1.2"></a></div>
 <p>Dit document is een onderdeel van de Digikoppeling standaard.</p>
-<p>
-      </p><figure id="fig-opbouw-documentatie-digikoppeling">
-        <img src="media/DK_Specificatie_structuur.svg" alt="Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen">
-        <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
-      </figure>
-    <p></p>
-<details>
-    <summary> Tekstalternatief </summary>
+<figure id="fig-opbouw-documentatie-digikoppeling">
+  <object data="https://logius-standaarden.github.io/publicatie/dk/actueel/media/DK_Specificatie_structuur.svg" type="image/svg+xml" id="infographic">Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen</object>
+  <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
+</figure>
+
+<p><b>Legenda</b></p>
+<table class="legendum">
+    <thead>
+        <tr>
+            <th><strong>Kleur</strong></th>
+            <th><strong>Soort Document</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="green">Groen</td>
+            <td>Standaard documentatie</td>
+        </tr>
+        <tr>
+            <td class="grey">Grijs</td>
+            <td>Ondersteunende documentatie</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p><b>Beheer</b></p>
 <ul>
-    <li>Digikoppeling Standaard
-        <ul>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">DK Beheermodel en releasebeleid</a>* </li>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/actueel/">DK Overzicht Actuele Documentatie en Compliance</a>* </li>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/architectuur">DK Architectuur</a>*
-                <ul>
-                    <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/idauth/">DK Identificatie en Authenticatie</a>*
-                        <ul>
-                            <li><i> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/">Digikoppeling Gebruik en Achtergronden Certificaten</a></i>† </li>
-                        </ul>
-                    </li>
-                    <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">DK Beveiligingsstandaarden en voorschriften</a>* </li>
-                    <li>Koppelvlakstandaarden
-                        <ul>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/">DK Koppelvlakstandaard REST-API</a>*
-                                <ul>
-                                    <li><i>Best-practice REST-API</i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/wus/">DK Koppelvlakstandaard WUS</a>*
-                                <ul>
-                                    <li><i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpwus">Best-practice WUS</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/ebms/">DK Koppelvlakstandaard ebMS2</a>*
-                                <ul>
-                                    <li> <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpebms">Best-practice ebMS2</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/gb/">DK Koppelvlakstandaard Grote Berichten</a>*
-                                <ul>
-                                    <li> <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpgb">Best-practice Grote Berichten</a></i>†</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-    <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/">Wat is Digikoppeling</a></i>†
-  </li>
-        </ul>
-    </li>
+<li><p>De standaarddocumenten (groen/vierkant aangegeven) vallen onder het beheer zoals geformaliseerd in het document <cite><a data-matched-text="[[[?DK-Beheermodel]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">Digikoppeling Beheermodel</a></cite>.</p>
+</li>
+<li><p>De ondersteunende documentatie wordt onderhouden door Logius als de beheerder van de standaard (en afgestemd met stakeholders/ gebruikers).</p>
+</li>
+<li><p>Alle goedgekeurde documenten zijn te vinden op de website van Logius, <a href="https://www.logius.nl/onze-dienstverlening/domeinen/gegevensuitwisseling/digikoppeling">www.logius.nl</a>.</p>
+</li>
 </ul>
-<p>* Normatief document</p>
-<p>† Ondersteunend document</p>
-</details>
-
-
 </section><section id="achtergrond"><div class="header-wrapper"><h3 id="x1-3-achtergrond"><bdi class="secno">1.3 </bdi>Achtergrond</h3><a class="self-link" href="#achtergrond" aria-label="Permalink for Section 1.3"></a></div>
 <p>Een belangrijk aspect voor beveiliging van Digikoppeling is de juiste identificatie, authenticatie en autorisatie van organisaties. Voor Digikoppeling is daarbij gekozen om certificaten toe te passen die voldoen aan de eisen van PKIoverheid<sup>1</sup>. Het juist toepassen van deze certificaten is essentieel voor een goede beveiliging. Helaas is dit toepassen ook complex. Digikoppeling heeft daarom aanvullend aan de door PKIoverheid gestelde eisen een aantal afspraken gemaakt die enerzijds de beveiliging conform PKIoverheid garanderen en anderzijds de complexiteit beheersbaar maken<sup>2</sup>. De praktische toepassing van deze afspraken is uitgewerkt in dit document. Het bevat daarvoor:</p>
 <p><sup>1</sup>: Zie <a href="http://www.logius.nl/pkioverheid">http://www.logius.nl/pkioverheid</a></p>
@@ -1137,7 +1045,7 @@ img.license{float:left;padding-right:5px}
 </li>
 </ul>
 </section><section id="referenties"><div class="header-wrapper"><h3 id="x1-6-referenties"><bdi class="secno">1.6 </bdi>Referenties</h3><a class="self-link" href="#referenties" aria-label="Permalink for Section 1.6"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th><strong>Overige standaarden</strong></th>
@@ -1146,7 +1054,7 @@ img.license{float:left;padding-right:5px}
 </thead>
 <tbody><tr>
 <td>PKIoverheid “Programma van Eisen”</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>], <a href="http://www.logius.nl/pkioverheid/">www.logius.nl/pkioverheid/</a></td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found">PKI Policy</a></cite>], <a href="http://www.logius.nl/pkioverheid/">www.logius.nl/pkioverheid/</a></td>
 </tr>
 </tbody></table>
 </section></section>
@@ -1225,7 +1133,7 @@ img.license{float:left;padding-right:5px}
 </ul>
 <p>Digikoppeling onderkent de profielen <em>signed</em>, en <em>signed en encrypted</em> die zowel voor WUS als ebMS2 zijn uitgewerkt.</p>
 <div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="5"><span>Noot</span><span class="issue-label">: REST API</span></div><aside class="">
-<p>Zie het [<cite><a class="bibref" data-link-type="biblio" href="#bib-digikoppeling rest api profiel" title="Digikoppeling REST API profiel">Digikoppeling REST API profiel</a></cite>] voor de ondersteuning van signing en encryptie voor REST API's</p>
+<p>Zie het [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-digikoppeling rest api profiel" title="Reference &quot;[Digikoppeling REST API profiel]&quot; not found." id="respec-offender-reference-digikoppeling-rest-api-profiel-not-found">Digikoppeling REST API profiel</a></cite>] voor de ondersteuning van signing en encryptie voor REST API's</p>
 </aside></div></section></section></section>
   <section id="ontwerp-aspecten-digikoppeling-adapter"><div class="header-wrapper"><h2 id="x3-ontwerp-aspecten-digikoppeling-adapter"><bdi class="secno">3. </bdi>Ontwerp aspecten Digikoppeling adapter</h2><a class="self-link" href="#ontwerp-aspecten-digikoppeling-adapter" aria-label="Permalink for Section 3."></a></div>
 <section id="vragen"><div class="header-wrapper"><h3 id="x3-1-vragen"><bdi class="secno">3.1 </bdi>Vragen</h3><a class="self-link" href="#vragen" aria-label="Permalink for Section 3.1"></a></div>
@@ -1306,7 +1214,7 @@ img.license{float:left;padding-right:5px}
 </ol>
 </section><section id="achtergrond-2"><div class="header-wrapper"><h3 id="x5-2-achtergrond"><bdi class="secno">5.2 </bdi>Achtergrond</h3><a class="self-link" href="#achtergrond-2" aria-label="Permalink for Section 5.2"></a></div>
 <p>Het programma van eisen<sup>15</sup> dat PKIoverheid aan TSP's oplegt bevat de verplichting aan TSP's om over de juiste beveiliging van sleutels door gebruikers te waken inclusief de mogelijkheid tot audit (zie kader).</p>
-<p><sup>15</sup>: Zie [<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>], zoekterm “deel 3b”.</p>
+<p><sup>15</sup>: Zie [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-0">PKI Policy</a></cite>], zoekterm “deel 3b”.</p>
 </section><section id="stappen-1"><div class="header-wrapper"><h3 id="x5-3-stappen"><bdi class="secno">5.3 </bdi>Stappen</h3><a class="self-link" href="#stappen-1" aria-label="Permalink for Section 5.3"></a></div>
 <p>Zodra u een door de TSP ondertekend certificaat ontvangt kunt u dit installeren bij de privésleutel op uw server. Dit certificaat (met de daarin opgenomen publieke sleutel) is niet vertrouwelijk. De bijbehorende privésleutel daarentegen des te meer. Het is belangrijk om deze privésleutel goed te beveiligen. Immers: de privésleutel vertegenwoordigt in de elektronische communicatie de eigenaar en kan toegang tot (meerdere) basisregistraties en andere services geven (zie verder “Omgang met certificaat“).</p>
 <p>Om de privésleutel behorend bij certificaten veilig op te slaan in een keystore is het noodzakelijk om veilige wachtwoorden te kiezen. Gebruik daarom een wachtwoord dat moeilijk te herleiden is (zie “Bijlage 2: Richtlijnen voor een veilig password“ voor een voorbeeld). Basisregistraties en andere gegevenshouders kunnen aanvullende maatregelen eisen vanuit de vertrouwelijkheid van de door hen beheerde gegevens en het gebruik van daarbij behorende certificaten<sup>16</sup>.</p>
@@ -1398,7 +1306,7 @@ img.license{float:left;padding-right:5px}
 </section></section></section>
   <section id="bijlage-1-bestandsformaten-voor-certificaten"><div class="header-wrapper"><h2 id="x8-bijlage-1-bestandsformaten-voor-certificaten"><bdi class="secno">8. </bdi>Bijlage 1: Bestandsformaten voor certificaten</h2><a class="self-link" href="#bijlage-1-bestandsformaten-voor-certificaten" aria-label="Permalink for Section 8."></a></div>
 <p>De volgende bestandsformaten worden gebruikt voor uitwisseling van sleutels en/of certificaten:</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1466,7 +1374,7 @@ img.license{float:left;padding-right:5px}
   <section id="bijlage-3-basisattributen-in-certificaat"><div class="header-wrapper"><h2 id="x10-bijlage-3-basisattributen-in-certificaat"><bdi class="secno">10. </bdi>Bijlage 3: Basisattributen in certificaat</h2><a class="self-link" href="#bijlage-3-basisattributen-in-certificaat" aria-label="Permalink for Section 10."></a></div>
 <p>Voor de meest actuele versie zie het Programma van Eisen van PKIoverheid deel 3b<sup>27</sup></p>
 <p><sup>27</sup>: http:// <a href="https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen/">https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen/</a></p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Veld / attribuut</th>
@@ -1505,14 +1413,14 @@ img.license{float:left;padding-right:5px}
 <td>Issuer</td>
 <td>V</td>
 <td><em class="rfc2119">MOET</em> een Distinguished Name (DN) bevatten. Veld heeft de onderstaande attributen:</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>],  [<cite><a class="bibref" data-link-type="biblio" href="#bib-etsi-ts-102-280" title="ETSI TS 102 280 V1.1.1 (2004-03): X.509 V.3 Certificate Profile for Certificates Issued to Natural Persons">etsi-ts-102-280</a></cite>]</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-1">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>],  [<cite><a class="bibref" data-link-type="biblio" href="#bib-etsi-ts-102-280" title="ETSI TS 102 280 V1.1.1 (2004-03): X.509 V.3 Certificate Profile for Certificates Issued to Natural Persons">etsi-ts-102-280</a></cite>]</td>
 <td></td>
 <td>Andere attributen dan hieronder genoemd <em class="rfc2119">MOGEN</em> NIET worden gebruikt.</td>
 </tr>
 <tr>
 <td>Issuer.countryName</td>
 <td>V</td>
-<td>zie eis 7.1-pkio174   [<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>]</td>
+<td>zie eis 7.1-pkio174   [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-2">PKI Policy</a></cite>]</td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-etsi-ts-101-862" title="ETSI TS 101 862 V1.3.3 (2006-01): Qualified Certificate profile">etsi-ts-101-862</a></cite>],  [<cite><a class="bibref" data-link-type="biblio" href="#bib-x520" title="ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6">X520</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso3166" title="Codes for the representation of names of countries and their subdivisions — Part 1: Country code">ISO3166</a></cite>]</td>
 <td>Printable String</td>
 <td></td>
@@ -1520,7 +1428,7 @@ img.license{float:left;padding-right:5px}
 <tr>
 <td>Issuer.OrganizationName</td>
 <td>V</td>
-<td>zie [<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>] eis 7.1-pkio174</td>
+<td>zie [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-3">PKI Policy</a></cite>] eis 7.1-pkio174</td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-etsi-ts-102-280" title="ETSI TS 102 280 V1.1.1 (2004-03): X.509 V.3 Certificate Profile for Certificates Issued to Natural Persons">etsi-ts-102-280</a></cite>]</td>
 <td>UTF8String</td>
 <td></td>
@@ -1528,7 +1436,7 @@ img.license{float:left;padding-right:5px}
 <tr>
 <td>Issuer. organizationalUnitName</td>
 <td>O</td>
-<td>zie [<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>] eis 7.1-pkio174</td>
+<td>zie [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-4">PKI Policy</a></cite>] eis 7.1-pkio174</td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-etsi-ts-102-280" title="ETSI TS 102 280 V1.1.1 (2004-03): X.509 V.3 Certificate Profile for Certificates Issued to Natural Persons">etsi-ts-102-280</a></cite>]</td>
 <td>UTF8String</td>
 <td></td>
@@ -1536,7 +1444,7 @@ img.license{float:left;padding-right:5px}
 <tr>
 <td>Issuer.serialNumber</td>
 <td>O</td>
-<td>zie [<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>] eis7.1-pkio174</td>
+<td>zie [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-5">PKI Policy</a></cite>] eis7.1-pkio174</td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>]</td>
 <td>Printable String</td>
 <td></td>
@@ -1544,8 +1452,8 @@ img.license{float:left;padding-right:5px}
 <tr>
 <td>Issuer.commonName</td>
 <td>V</td>
-<td>zie [<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>] eis 7.1-pkio174</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>]</td>
+<td>zie [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-6">PKI Policy</a></cite>] eis 7.1-pkio174</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-7">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>]</td>
 <td>UTF8String</td>
 <td>Het commonName attribuut <em class="rfc2119">MAG</em> NIET nodig zijn om de uitgevende instantie te identificeren (geen onderdeel van de Distinguished Name, eis uit [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>]).</td>
 </tr>
@@ -1569,7 +1477,7 @@ img.license{float:left;padding-right:5px}
 <td>Subject</td>
 <td>V</td>
 <td>De attributen die worden gebruikt om het subject (service) te beschrijven <em class="rfc2119">MOETEN</em> het subject op unieke wijze benoemen en gegevens bevatten over de abonneeorganisatie. Dit veld heeft de volgende attributen:</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-etsi-ts-102-280" title="ETSI TS 102 280 V1.1.1 (2004-03): X.509 V.3 Certificate Profile for Certificates Issued to Natural Persons">etsi-ts-102-280</a></cite>]</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-8">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-etsi-ts-102-280" title="ETSI TS 102 280 V1.1.1 (2004-03): X.509 V.3 Certificate Profile for Certificates Issued to Natural Persons">etsi-ts-102-280</a></cite>]</td>
 <td></td>
 <td><em class="rfc2119">MOET</em> een Distinguished Name (DN) bevatten. Andere attributen dan hieronder genoemd <em class="rfc2119">MOGEN</em> NIET worden gebruikt.</td>
 </tr>
@@ -1577,7 +1485,7 @@ img.license{float:left;padding-right:5px}
 <td>Subject.countryName</td>
 <td>V</td>
 <td>C vullen met tweeletterige landcode conform [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso3166" title="Codes for the representation of names of countries and their subdivisions — Part 1: Country code">ISO3166-1</a></cite>]. Indien een officiële alpha-2 code ontbreekt, <em class="rfc2119">MAG</em> de TSP de user-assigned code XX gebruiken.</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-x520" title="ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6">X520</a></cite>],  [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso3166" title="Codes for the representation of names of countries and their subdivisions — Part 1: Country code">ISO3166</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>]</td>
+<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-x520" title="ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6">X520</a></cite>],  [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso3166" title="Codes for the representation of names of countries and their subdivisions — Part 1: Country code">ISO3166</a></cite>], [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-9">PKI Policy</a></cite>]</td>
 <td>PrintableString</td>
 <td>De landcode die wordt gehanteerd in Subject.countryName <em class="rfc2119">MOET</em> in overeenstemming zijn met het adres van de abonnee volgens geaccepteerd document of registratie.</td>
 </tr>
@@ -1585,7 +1493,7 @@ img.license{float:left;padding-right:5px}
 <td>Subject.commonName</td>
 <td>V</td>
 <td>Naam die de service identificeert. Bij services certificaten is dit veld verplicht</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-etsi-ts-102-280" title="ETSI TS 102 280 V1.1.1 (2004-03): X.509 V.3 Certificate Profile for Certificates Issued to Natural Persons">etsi-ts-102-280</a></cite>],  [<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>]</td>
+<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-etsi-ts-102-280" title="ETSI TS 102 280 V1.1.1 (2004-03): X.509 V.3 Certificate Profile for Certificates Issued to Natural Persons">etsi-ts-102-280</a></cite>],  [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-10">PKI Policy</a></cite>]</td>
 <td>UTF8String</td>
 <td>In de subject.commonname wordt de functie van een organisatorische entiteit of de naam waarmee het apparaat of systeem wordt aangeduid opgenomen.</td>
 </tr>
@@ -1593,7 +1501,7 @@ img.license{float:left;padding-right:5px}
 <td>Subject.organizationName</td>
 <td>V</td>
 <td>Volledige naam van de organisatie van de abonnee conform geaccepteerd document of Basisregistratie.</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>]</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-11">PKI Policy</a></cite>]</td>
 <td>UTF8String</td>
 <td>De abonnee-organisatie is de organisatie waarmee de TSP een overeenkomst heeft gesloten en namens welke de certificaathouder (service) communiceert of handelt.</td>
 </tr>
@@ -1609,7 +1517,7 @@ img.license{float:left;padding-right:5px}
 <td>Subject.stateOrProvinceName</td>
 <td>A</td>
 <td>Het gebruik wordt afgeraden. Indien aanwezig <em class="rfc2119">MOET</em> dit veld de provincie van vestiging van de abonnee conform geaccepteerd document of Basisregistratie bevatten.</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>]</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-12">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>]</td>
 <td>UTF8String</td>
 <td>Naam van de provincie <em class="rfc2119">MOET</em> in overeenstemming zijn met het adres van de abonnee volgens geaccepteerd document of registratie.</td>
 </tr>
@@ -1617,7 +1525,7 @@ img.license{float:left;padding-right:5px}
 <td>Subject.localityName</td>
 <td>A</td>
 <td>Het gebruik wordt afgeraden. Indien aanwezig <em class="rfc2119">MOET</em> dit veld de  vestigingsplaats van de abonnee conform geaccepteerd document of Basisregistratie bevatten.</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>]</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-13">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>]</td>
 <td>UTF8String</td>
 <td>Naam van de vestigingsplaats <em class="rfc2119">MOET</em> in overeenstemming zijn met het adres van de abonnee volgens geaccepteerd document of registratie.</td>
 </tr>
@@ -1625,7 +1533,7 @@ img.license{float:left;padding-right:5px}
 <td>Subject.postalAddress</td>
 <td>A</td>
 <td>Het gebruik wordt afgeraden. Indien aanwezig <em class="rfc2119">MOET</em> dit veld het postadres van de abonnee conform geaccepteerd document of Basisregistratie te bevatten.</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>]</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-14">PKI Policy</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>]</td>
 <td>UTF8String</td>
 <td>Adres <em class="rfc2119">MOET</em> in overeenstemming zijn met het adres van de abonnee volgens geaccepteerd document of registratie.</td>
 </tr>
@@ -1633,7 +1541,7 @@ img.license{float:left;padding-right:5px}
 <td>Subject.serialNumber</td>
 <td>O</td>
 <td>Het is de verantwoordelijkheid van een  TSP om de uniciteit van het subject  (service) te waarborgen. Het  Subject.serialNumber <em class="rfc2119">MOET</em> gebruikt worden om het subject uniek te identificeren. Het gebruik van 20 posities is uitsluitend toegestaan voor OIN en HRN na aanvullende afspraken met Logius.</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-x520" title="ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6">X520</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-pki policy" title="Programma van Eisen (PKIoverheid)">PKI Policy</a></cite>]</td>
+<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3739" title="Internet X.509 Public Key Infrastructure: Qualified Certificates Profile">rfc3739</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-x520" title="ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6">X520</a></cite>], [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pki policy" title="Reference &quot;[PKI Policy]&quot; not found." id="respec-offender-reference-pki-policy-not-found-15">PKI Policy</a></cite>]</td>
 <td>Printable String</td>
 <td>Het nummer wordt door de TSP en/of de overheid bepaald. Het nummer kan per domein verschillen en voor meerdere toepassingen gebruikt worden.</td>
 </tr>
@@ -1650,7 +1558,9 @@ img.license{float:left;padding-right:5px}
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-referenties"><bdi class="secno">A. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="informatieve-referenties">
     <div class="header-wrapper"><h3 id="a-1-informatieve-referenties"><bdi class="secno">A.1 </bdi>Informatieve referenties</h3><a class="self-link" href="#informatieve-referenties" aria-label="Permalink for Appendix A.1"></a></div>
     <dl class="bibliography"><dt id="bib-digikoppeling rest api profiel">[Digikoppeling REST API profiel]</dt><dd>
-      <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/"><cite>Digikoppeling REST API profiel</cite></a>.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/">https://gitdocumentatie.logius.nl/publicatie/dk/restapi/</a>
+      <em class="respec-offending-element">Reference not found.</em>
+    </dd><dt id="bib-dk-beheermodel">[DK-Beheermodel]</dt><dd>
+      <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/"><cite>Digikoppeling Beheermodel</cite></a>.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/</a>
     </dd><dt id="bib-etsi-en-319-412-1">[etsi-en-319-412-1]</dt><dd>
       <a href="http://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.01.01_60/en_31941201v010101p.pdf"><cite>ETSI EN 319 412-1 V1.1.1 (2016-02): Electronic Signatures and Infrastructures (ESI); Certificate Profiles; Part 1: Overview and common data structures</cite></a>.  ETSI. February 2016. Published. URL: <a href="http://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.01.01_60/en_31941201v010101p.pdf">http://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.01.01_60/en_31941201v010101p.pdf</a>
     </dd><dt id="bib-etsi-ts-101-862">[etsi-ts-101-862]</dt><dd>
@@ -1664,7 +1574,7 @@ img.license{float:left;padding-right:5px}
     </dd><dt id="bib-iso3166">[ISO3166]</dt><dd>
       <a href="https://www.iso.org/standard/72482.html"><cite>Codes for the representation of names of countries and their subdivisions — Part 1: Country code</cite></a>.  International Organization for Standardization (ISO). August 2020. Published. URL: <a href="https://www.iso.org/standard/72482.html">https://www.iso.org/standard/72482.html</a>
     </dd><dt id="bib-pki policy">[PKI Policy]</dt><dd>
-      <a href="https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen"><cite>Programma van Eisen (PKIoverheid)</cite></a>.  Logius. URL: <a href="https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen">https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen</a>
+      <em class="respec-offending-element">Reference not found.</em>
     </dd><dt id="bib-rfc3739">[rfc3739]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc3739"><cite>Internet X.509 Public Key Infrastructure: Qualified Certificates Profile</cite></a>. S. Santesson; M. Nystrom; T. Polk.  IETF. March 2004. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3739">https://www.rfc-editor.org/rfc/rfc3739</a>
     </dd><dt id="bib-rfc5280">[rfc5280]</dt><dd>
