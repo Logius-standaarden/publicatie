@@ -1,25 +1,23 @@
 <!DOCTYPE html><html lang="nl"><head>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 32.1.2 Logius profile 20220405">
+<meta name="generator" content="ReSpec 35.1.1">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
 div.illegal-example{color:red}
 div.illegal-example p{color:#000}
-:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
 aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-.example pre{background-color:rgba(0,0,0,.03)}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
 .dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
 .dfn-panel>div{display:flex}
 .dfn-panel a.self-link{font-weight:700;margin-right:auto}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
@@ -34,20 +32,23 @@ dfn{cursor:pointer}
   
   
   
-<title>Digikoppeling Koppelvlakstandaard WUS 3.8.1</title>
+<title>Digikoppeling Koppelvlakstandaard WUS</title>
   
   
-<link rel="shortcut icon" type="image/x-icon" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico">
   
-
+<script>
+   respecConfig = {...organisationConfig, ...respecConfig};
+  </script>
+  
+<link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon">
+  
+ 
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
 a.bibref{text-decoration:none}
@@ -59,24 +60,10 @@ a.bibref{text-decoration:none}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
 cite .bibref{font-style:normal}
-code{color:#c63501}
-th code{color:inherit}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
 #issue-summary>ul{column-count:2}
 #issue-summary li{list-style:none;display:inline-block}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
@@ -87,9 +74,8 @@ details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-.header-wrapper{display:flex;align-items:baseline}
-:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
-:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
 :is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
 :is(h2,h3)+a.self-link{top:-.2em}
 :is(h4,h5,h6)+a.self-link::before{color:#000}
@@ -100,40 +86,714 @@ dd{margin-left:0}
 .removeOnSave{display:none}
 }
 </style>
+<style id="respec-nlgov">
+img.license{float:left;padding-right:5px}
+</style>
 <meta name="description" content="Dit document beschrijft de functionele specificaties voor de Digikoppeling
     koppelvlak standaard WUS">
 <style>
-.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
-.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
-.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
-.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
-.hljs-literal{color:#0b76c5}
-.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
-.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
-.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
-.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
 .hljs-emphasis{font-style:italic}
 .hljs-strong{font-weight:700}
 .hljs-link{text-decoration:underline}
 </style>
 <style>
-var{position:relative;cursor:pointer}
-var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
-var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
-var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
-var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+
+  .sidelabel {
+    position: fixed;
+    -webkit-transform-origin: top right;
+    right: 100%;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+    padding: 4px 50px 4px 10px;
+    color: white;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: #39870c;
+  }
 </style>
 <script id="initialUserConfig" type="application/json">{
-  "specStatus": "DEF",
-  "specType": "ST",
-  "pubDomain": "dk",
-  "shortName": "wus",
-  "publishDate": "2022-04-11",
-  "previousPublishDate": "2020-10-06",
-  "publishVersion": "3.8.1",
-  "previousPublishVersion": "3.8",
-  "license": "cc-by-nd",
-  "doJsonLd": true,
+  "nl_organisationName": "Logius",
+  "nl_organisationStylesURL": "https://gitdocumentatie.logius.nl/publicatie/respec/style/",
+  "nl_organisationPublishURL": "https://gitdocumentatie.logius.nl/publicatie/",
+  "logos": [
+    {
+      "src": "https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg",
+      "alt": "Logius",
+      "id": "Logius",
+      "height": 77,
+      "width": 44,
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
+    }
+  ],
+  "latestVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/"
+  ],
+  "thisVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "publishVersion",
+    "/"
+  ],
+  "prevVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "previousPublishVersion",
+    "/"
+  ],
+  "useLogo": true,
+  "useLabel": true,
+  "license": "cc-by",
+  "addSectionLinks": true,
+  "localizationStrings": {
+    "en": {
+      "wv": "Draft",
+      "cv": "Consultation version",
+      "vv": "Proposed version",
+      "def": "Definitive version",
+      "basis": "Document",
+      "eo": "Outdated version",
+      "tg": "Rescinded version",
+      "no": "Norm",
+      "st": "Standard",
+      "im": "Information model",
+      "pr": "Guideline",
+      "hr": "Guide",
+      "wa": "Proposed recommendation",
+      "al": "General",
+      "bd": "Governance documentation",
+      "bp": "Best practice"
+    },
+    "nl": {
+      "wv": "Werkversie",
+      "cv": "Consultatieversie",
+      "vv": "Versie ter vaststelling",
+      "def": "Vastgestelde versie",
+      "basis": "Document",
+      "eo": "Verouderde versie",
+      "tg": "Teruggetrokken versie",
+      "no": "Norm",
+      "st": "Standaard",
+      "im": "Informatiemodel",
+      "pr": "Praktijkrichtlijn",
+      "hr": "Handreiking",
+      "wa": "Werkafspraak",
+      "al": "Algemeen",
+      "bd": "Beheerdocumentatie",
+      "bp": "Best practice"
+    }
+  },
+  "sotdText": {
+    "nl": {
+      "sotd": "Status van dit document",
+      "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.",
+      "cv": "Dit is een door het TO goedgekeurde consultatieversie. Commentaar over dit document kan gestuurd worden naar digikoppeling@logius.nl",
+      "vv": "Dit is een definitief concept van de nieuwe versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "basis": "Dit is een document zonder officiële status."
+    },
+    "en": {
+      "sotd": "Status of This Document",
+      "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
+      "wv": "This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.",
+      "cv": "This is a proposed recommendation approved by TO. Comments regarding this document may be sent to api@logius.nl",
+      "vv": "This is the definitive concept of this document. Edits resulting from consultations have been applied.",
+      "basis": "This document has no official standing."
+    }
+  },
+  "labelColor": {
+    "def": "#154273",
+    "wv": "#39870c",
+    "cv": "#000000",
+    "vv": "#000000"
+  },
+  "licenses": {
+    "cc0": {
+      "name": "Creative Commons 0 Public Domain Dedication",
+      "short": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-zero.svg"
+    },
+    "cc-by": {
+      "name": "Creative Commons Attribution 4.0 International Public License",
+      "short": "CC-BY",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg"
+    },
+    "cc-by-nd": {
+      "name": "Creative Commons Naamsvermelding-GeenAfgeleideWerken 4.0 Internationaal",
+      "short": "CC-BY-ND",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/legalcode.nl",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
+    }
+  },
+  "localBiblio": {
+    "ADR": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "date": "Juli 2020",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
+      "publisher": "Logius",
+      "title": "API Design Rules (Nederlandse API Strategie IIa)"
+    },
+    "ADR-ext": {
+      "authors": [
+        "Jasper Roes",
+        "Linda van den Brink"
+      ],
+      "date": "Januari 2020",
+      "href": "https://docs.geostandaarden.nl/api/API-Strategie-ext",
+      "publisher": "Geonovum/Kennisplatform APi's",
+      "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
+    },
+    "Algemene Voorwaarden Logius": {
+      "date": "12 juni 2018",
+      "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
+      "publisher": "Logius",
+      "title": "Algemene voorwaarden Logius"
+    },
+    "AVG": {
+      "date": "27 april 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
+    },
+    "BCP195": {
+      "authors": [
+        "Y. Sheffer",
+        "R. Holz",
+        "P. Saint-Andre"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/bcp195",
+      "publisher": "IETF",
+      "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"
+    },
+    "DK-beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "CloudEvents": {
+      "authors": [
+        "@@@"
+      ],
+      "date": "May 2011",
+      "href": "https://github.com/cloudevents/spec/blob/v1.0.1/spec.md",
+      "publisher": "@@@",
+      "title": "CloudEvents - Version 1.0.1"
+    },
+    "NLGOV-CloudEvents": {
+      "authors": [
+        "Werkgroep Berichtenstandaard (Project Notificatieservices)"
+      ],
+      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "publisher": "Logius",
+      "title": "NL GOV profile for CloudEvents"
+    },
+    "DK-CV": {
+      "href": "https://gitlab.com/logius/digikoppeling-compliance",
+      "publisher": "Logius",
+      "title": "Digikoppeling Compliance Voorziening",
+      "id": "dk-cv"
+    },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)",
+      "id": "dk-wus-voorbeeld"
+    },
+    "Deployment Guide 1.1": {
+      "authors": [
+        "Pete Wenzel",
+        "Jacques Durand"
+      ],
+      "date": "June 2005",
+      "href": "http://www.oasis-open.org/apps/org/workgroup/ebxml-iic-deployment-profile-template-intro-100406.doc",
+      "publisher": "OASIS",
+      "title": "Deployment Profile Template For OASIS ebXML Message Service 2.0"
+    },
+    "DK": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
+      "publisher": "Logius",
+      "title": "Logius | Digikoppeling",
+      "id": "dk"
+    },
+    "DK-Doc": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
+      "publisher": "Logius",
+      "title": "Digikoppeling documentatie"
+    },
+    "DK-Beheermodel": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beheermodel",
+      "id": "dk-beheermodel"
+    },
+    "DK-BPebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices ebMS2"
+    },
+    "DK-BPGB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpgb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices Grote Berichten"
+    },
+    "DK-BPWUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpwus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices WUS"
+    },
+    "DK-Beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften",
+      "id": "dk-beveiliging"
+    },
+    "DK-gbachtcert": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-ebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-GB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/gb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard Grote Berichten"
+    },
+    "DK-WUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/wus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard WUS"
+    },
+    "DK-RESTAPI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/restapi/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard REST-API"
+    },
+    "DK-Architectuur": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Architectuur"
+    },
+    "DK-IDAuth": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Identificatie en Authenticatie"
+    },
+    "DK-WI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/",
+      "publisher": "Logius",
+      "title": "Wat is Digikoppeling?"
+    },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
+    },
+    "ebCPP": {
+      "authors": [
+        "Oasis"
+      ],
+      "date": "september 2002",
+      "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "ebMS3": {
+      "authors": [
+        "Ian Jones",
+        "Pete Wenzel"
+      ],
+      "date": "October 2007",
+      "href": "https://docs.oasis-open.org/ebxml-msg/ebms/v3.0/core/os/ebms_core-3.0-spec-os.html",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "eDelivery API4IPS": {
+      "authors": [
+        "J. Dimitriou, V. Veduta, B. Dumitriu"
+      ],
+      "date": "sept 8 2022",
+      "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
+      "publisher": "OpenID foundation",
+      "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
+    },
+    "Expert": {
+      "authors": [
+        "@@@"
+      ],
+      "date": "@@@",
+      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
+      "publisher": "Forum Standaardisatie",
+      "title": "Expertadvies CloudEvents 1.0"
+    },
+    "folmer2011": {
+      "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
+      "title": "Management and Development Model for Open Standards (BOMOS) version 2",
+      "keywords": "IR-76837",
+      "authors": [
+        "ErwinFolmer",
+        "Matthijs Punter"
+      ],
+      "date": "2011",
+      "language": "English",
+      "publisher": "Programmabureau NOiV"
+    },
+    "folmer2012": {
+      "href": "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
+      "title": "Quality of Semantic Standards",
+      "authors": [
+        "Erwin Folmer"
+      ],
+      "date": "2012",
+      "publisher": "Universiteit Twente"
+    },
+    "DK-Gebruiksvoorwaarden": {
+      "date": "1 januari 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Gebruiksvoorwaarden Digikoppeling"
+    },
+    "ADR-GEO": {
+      "authors": [
+        "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
+      "publisher": "Geonovum",
+      "title": "API Design Rules Module: Geospatial"
+    },
+    "HTTPS-factsheet NCSC": {
+      "date": "Nov 2014",
+      "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
+      "publisher": "NCSC",
+      "title": "Factsheet HTTPS kan een stuk veiliger"
+    },
+    "iGOV.OpenID": {
+      "authors": [
+        "M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
+    },
+    "Introspection": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "October 2015",
+      "href": "https://tools.ietf.org/html/rfc7662",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Token Introspection"
+    },
+    "JWA": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7518",
+      "publisher": "IETF",
+      "title": "JSON Web Algorithms (JWA)"
+    },
+    "JWE": {
+      "authors": [
+        "M. Jones, J. Hildebrand"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7516",
+      "publisher": "IETF",
+      "title": "JSON Web Encryption (JWE)"
+    },
+    "JWK": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7517",
+      "publisher": "IETF",
+      "title": "JSON Web Key (JWK))"
+    },
+    "JWS": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7515",
+      "publisher": "IETF",
+      "title": "JSON Web Signature (JWS)"
+    },
+    "JWT": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7519",
+      "publisher": "IETF",
+      "title": "JSON Web Token (JWT)"
+    },
+    "NCSC 2019": {
+      "date": "April 2019",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2019/mei/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-tls",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.0"
+    },
+    "NCSC 2021": {
+      "date": "Jan 2021",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+    },
+    "NEN3610": {
+      "authors": [
+        ""
+      ],
+      "date": "Maart 2011",
+      "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
+      "publisher": "Nederlands Normalisatie-instituut",
+      "title": "Basismodel Geo-informatie - Termen, definities, relaties en algemene regels voor de uitwisseling van informatie over aan de aarde gerelateerde ruimtelijke objecten"
+    },
+    "no-Reliable-messaging": {
+      "authors": [
+        "Marc de Graauw"
+      ],
+      "date": "June 18, 2010",
+      "href": "https://www.infoq.com/articles/no-reliable-messaging/",
+      "publisher": "infoQ",
+      "title": "Nobody Needs Reliable Messaging"
+    },
+    "OAuth2": {
+      "authors": [
+        "D. Hardt"
+      ],
+      "date": "October 2012",
+      "href": "https://tools.ietf.org/html/rfc6749",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "The OAuth 2.0 Authorization Framework"
+    },
+    "OpenID.Core": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
+      ],
+      "date": "November 8 2014",
+      "href": "https://openid.net/specs/openid-connect-core-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Core 1.0"
+    },
+    "OpenID.Discovery": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, E. Jay"
+      ],
+      "date": "November 8 2014",
+      "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Discovery 1.0"
+    },
+    "Pas-toe-of-leg-uit": {
+      "href": "https://www.forumstandaardisatie.nl/open-standaarden/verplicht",
+      "publisher": "Forum Standaardisatie",
+      "title": "Lijst Verplichte standaarden"
+    },
+    "PKIO-PvE": {
+      "href": "https://por.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
+    },
+    "PKI-CA": {
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
+      "publisher": "Logius",
+      "title": "Aansluiten als Trust Service Provider"
+    },
+    "PKIoverheid": {
+      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
+      "publisher": "Logius",
+      "title": "PKIoverheid"
+    },
+    "PKIO-Cert": {
+      "href": "https://cert.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Overzicht PKIoverheid certificaten",
+      "id": "pkio-cert"
+    },
+    "SemVer": {
+      "authors": [
+        "T. Preston-Werner"
+      ],
+      "date": "June 2013",
+      "href": "https://semver.org",
+      "title": "Semantic Versioning 2.0.0"
+    },
+    "ADR-TS": {
+      "authors": [
+        ""
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
+      "publisher": "Kennisplatform API's",
+      "title": "API Design Rules Module: Transport Security"
+    },
+    "UMMR10": {
+      "authors": [
+        ""
+      ],
+      "date": "2001",
+      "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
+      "publisher": "UN/CEFACT",
+      "title": "UMM Revision 10"
+    },
+    "UMMUG": {
+      "authors": [
+        ""
+      ],
+      "date": "2003",
+      "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
+      "publisher": "UN/CEFACT",
+      "title": "UN/CEFACT Modeling Methodology (UMM) User Guide"
+    },
+    "UUID": {
+      "authors": [
+        "P. Leach",
+        "M. Mealling",
+        "R. Salz"
+      ],
+      "date": "July 2005",
+      "href": "https://tools.ietf.org/html/rfc4122",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "A Universally Unique IDentifier (UUID) URN Namespace"
+    },
+    "DK-Voorwaarden": {
+      "date": "1 januari 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Voorwaarden Digikoppeling"
+    },
+    "X520": {
+      "href": "https://www.iso.org/standard/43796.html",
+      "publisher": "ISO",
+      "title": "ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6"
+    },
+    "ADR-Validator": {
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
+      "authors": [
+        "H. Stijns"
+      ],
+      "publisher": "Geonovum",
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    }
+  },
+  "alternateFormats": [
+    {
+      "label": "pdf",
+      "uri": "Digikoppeling-Koppelvlakstandaard-WUS.pdf"
+    }
+  ],
+  "authors": [
+    {
+      "mailto": "digikoppeling@logius.nl",
+      "name": "Logius",
+      "url": "mailto:digikoppeling@logius.nl"
+    }
+  ],
   "editors": [
     {
       "name": "Peter Haasnoot",
@@ -144,95 +804,38 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "url": "https://logius.nl/standaarden"
     }
   ],
-  "authors": [
-    {
-      "name": "Logius",
-      "mailto": "digikoppeling@logius.nl",
-      "url": "mailto:digikoppeling@logius.nl"
-    }
-  ],
   "github": "https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-WUS",
-  "addSectionLinks": true,
-  "a11y": false,
-  "alternateFormats": [
-    {
-      "label": "pdf",
-      "uri": "Digikoppeling-Koppelvlakstandaard-WUS.pdf"
-    }
-  ],
-  "nl_emailComments": "digikoppeling@logius.nl",
-  "nl_addReleaseTagTitle": true,
-  "nl_markdownSplitH1sections": false,
-  "nl_organisationName": "Logius",
-  "nl_organisationPrefix": "LS-",
-  "nl_markdownEmbedImageInFigure": true,
-  "nl_organisationStylesURL": "https://gitdocumentatie.logius.nl/publicatie/respec/style/",
-  "nl_organisationPublishURL": "https://gitdocumentatie.logius.nl/publicatie/",
-  "nl_logo": {
-    "src": "https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg",
-    "alt": "Logius",
-    "id": "Logius",
-    "height": 77,
-    "width": 44,
-    "url": "https://www.logius.nl/standaarden"
-  },
-  "localBiblio": {
-    "Beveiligingsdocument": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
-      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften",
-      "publisher": "Logius",
-      "id": "beveiligingsdocument"
-    },
-    "Certificaten": {
-      "href": "https://cert.pkioverheid.nl/",
-      "title": "PkIoverheid certificaten",
-      "publisher": "Logius",
-      "id": "certificaten"
-    },
-    "Logius": {
-      "href": "https://logius.nl/digikoppeling",
-      "title": "Logius Digikoppeling",
-      "publisher": "Logius",
-      "id": "logius"
-    },
-    "Compliance": {
-      "href": "https://portaal.digikoppeling.nl",
-      "title": "Digikoppeling Compliance Voorziening",
-      "publisher": "Logius",
-      "id": "compliance"
-    },
-    "Voorbeelden": {
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
-      "title": "Digikoppeling WUS voorbeelden (zip)",
-      "publisher": "Logius",
-      "id": "voorbeelden"
-    }
-  },
-  "publishISODate": "2022-04-11T00:00:00.000Z",
-  "generatedSubtitle": "Vastgestelde versie 11 april 2022"
+  "previousPublishDate": "2020-10-06",
+  "previousPublishVersion": "3.8",
+  "pubDomain": "dk",
+  "publishDate": "2022-04-11",
+  "publishVersion": "3.8.1",
+  "shortName": "wus",
+  "specStatus": "WV",
+  "specType": "ST"
 }</script>
-<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/LS-DEF.css"></head>
-
-<body class="h-entry toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
-  </a> <h1 id="title" class="title">Digikoppeling Koppelvlakstandaard WUS 3.8.1</h1>
+<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
+ <body class="h-entry"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+  </a> <h1 id="title" class="title">Digikoppeling Koppelvlakstandaard WUS</h1>
     
     <h2>
       Logius Standaard<br>
-      Vastgestelde versie
-      <time class="dt-published" datetime="2022-04-11">11 april 2022</time>
+      Werkversie
+      <time class="dt-published" datetime="2022-04-11">24 februari 2025</time>
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
-              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/dk/wus/3.8.1/">https://gitdocumentatie.logius.nl/publicatie/dk/wus/3.8.1</a>
-            </dd><dt>Laatst gepubliceerde versie:</dt><dd>
+              <a class="u-url status" href="https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-WUS/">https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-WUS/</a>
+            </dd>
+      <dt>Laatst gepubliceerde versie:</dt><dd>
               <a href="https://gitdocumentatie.logius.nl/publicatie/dk/wus/">https://gitdocumentatie.logius.nl/publicatie/dk/wus/</a>
             </dd>
       <dt>Laatste werkversie:</dt><dd><a href="https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-WUS/">https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-WUS/</a></dd>
       
       
       
-      <dt>Vorige versie</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/dk/wus/3.8/">https://gitdocumentatie.logius.nl/publicatie/dk/wus/3.8/</a></dd>
+      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/dk/wus/3.8/">https://gitdocumentatie.logius.nl/publicatie/dk/wus/3.8/</a></dd>
       
       <dt>Redacteurs:</dt>
       <dd class="editor p-author h-card vcard">
@@ -256,13 +859,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </dl>
     
     
-    <p lang="en">
-          This document is also available in this non-normative format:
+    <p>
+          Dit document is ook beschikbaar in dit niet-normatieve formaat:
           <a rel="alternate" href="Digikoppeling-Koppelvlakstandaard-WUS.pdf">pdf</a>
         </p>
-    <p class="copyright" lang="en">
-          This document is licensed under a
-          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" class="subfoot">Creative Commons Attribution 4.0 License</a>.
+    <p class="copyright">
+          Dit document valt onder de volgende licentie: 
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
         </p>
     <hr title="Separator for header">
   </div>
@@ -279,10 +882,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     Het document is bestemd voor architecten en ontwikkelaars die op basis van WUS
     gegevens willen uitwisselen via Digikoppeling. Het gaat hierbij om zowel service
     providers als service requesters (clients).</p></section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2>Dit is de definitieve versie van de  standaard. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.<p>Het OBDO heeft op advies van het Forum Standaardisatie deze versie vastgesteld.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel-en-doelgroep"><bdi class="secno">1.1 </bdi>Doel en Doelgroep</a></li><li class="tocline"><a class="tocxref" href="#opbouw-digikoppeling-documentatie"><bdi class="secno">1.2 </bdi>Opbouw Digikoppeling documentatie</a></li><li class="tocline"><a class="tocxref" href="#koppelvlak-koppelvlakstandaard"><bdi class="secno">1.3 </bdi>Koppelvlak &amp; koppelvlakstandaard</a></li><li class="tocline"><a class="tocxref" href="#opbouw-van-dit-document"><bdi class="secno">1.4 </bdi>Opbouw van dit document</a></li></ol></li><li class="tocline"><a class="tocxref" href="#koppelvlakstandaard-wus"><bdi class="secno">2. </bdi>Koppelvlakstandaard WUS</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">2.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wsdl"><bdi class="secno">2.1.1 </bdi>WSDL</a></li><li class="tocline"><a class="tocxref" href="#resulterende-berichtheaders"><bdi class="secno">2.1.2 </bdi>Resulterende berichtheaders</a></li></ol></li><li class="tocline"><a class="tocxref" href="#ondersteunde-varianten"><bdi class="secno">2.2 </bdi>Ondersteunde varianten</a></li><li class="tocline"><a class="tocxref" href="#compliancevoorzieningen"><bdi class="secno">2.3 </bdi>Compliancevoorzieningen</a></li><li class="tocline"><a class="tocxref" href="#gehanteerde-standaarden"><bdi class="secno">2.4 </bdi>Gehanteerde standaarden</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overwegingen"><bdi class="secno">2.4.1 </bdi>Overwegingen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voorschriften"><bdi class="secno">2.5 </bdi>Voorschriften</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#service-definitie-wsdl"><bdi class="secno">2.5.1 </bdi>Service definitie WSDL</a></li><li class="tocline"><a class="tocxref" href="#ws-addressing"><bdi class="secno">2.5.2 </bdi>WS-Addressing</a></li><li class="tocline"><a class="tocxref" href="#binaire-data"><bdi class="secno">2.5.3 </bdi>Binaire Data</a></li><li class="tocline"><a class="tocxref" href="#beveiliging"><bdi class="secno">2.5.4 </bdi>Beveiliging</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#point-to-point-beveiliging"><bdi class="secno">2.5.4.1 </bdi>Point-to-Point beveiliging</a></li><li class="tocline"><a class="tocxref" href="#end-to-end-beveiliging"><bdi class="secno">2.5.4.2 </bdi>End-to-End beveiliging</a></li></ol></li><li class="tocline"><a class="tocxref" href="#naamgeving-namespaces"><bdi class="secno">2.5.5 </bdi>Naamgeving, namespaces</a></li></ol></li><li class="tocline"><a class="tocxref" href="#foutafhandeling"><bdi class="secno">2.6 </bdi>Foutafhandeling</a></li></ol></li><li class="tocline"><a class="tocxref" href="#digikoppeling-profielen-wus"><bdi class="secno">3. </bdi>Digikoppeling profielen WUS</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wus-profiel-digikoppeling-2w-be"><bdi class="secno">3.1 </bdi>WUS Profiel Digikoppeling 2W-be</a></li><li class="tocline"><a class="tocxref" href="#wus-profiel-digikoppeling-2w-be-s"><bdi class="secno">3.2 </bdi>WUS Profiel Digikoppeling 2W-be-S</a></li><li class="tocline"><a class="tocxref" href="#wus-profiel-digikoppeling-2w-be-se"><bdi class="secno">3.3 </bdi>WUS Profiel Digikoppeling 2W-be-SE</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">5. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</a></li><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">A.2 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
-  <section class="introductory"><h1>Documentbeheer</h1>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel-en-doelgroep"><bdi class="secno">1.1 </bdi>Doel en Doelgroep</a></li><li class="tocline"><a class="tocxref" href="#opbouw-digikoppeling-documentatie"><bdi class="secno">1.2 </bdi>Opbouw Digikoppeling documentatie</a></li><li class="tocline"><a class="tocxref" href="#koppelvlak-koppelvlakstandaard"><bdi class="secno">1.3 </bdi>Koppelvlak &amp; koppelvlakstandaard</a></li><li class="tocline"><a class="tocxref" href="#opbouw-van-dit-document"><bdi class="secno">1.4 </bdi>Opbouw van dit document</a></li></ol></li><li class="tocline"><a class="tocxref" href="#koppelvlakstandaard-wus"><bdi class="secno">2. </bdi>Koppelvlakstandaard WUS</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">2.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wsdl"><bdi class="secno">2.1.1 </bdi>WSDL</a></li><li class="tocline"><a class="tocxref" href="#resulterende-berichtheaders"><bdi class="secno">2.1.2 </bdi>Resulterende berichtheaders</a></li></ol></li><li class="tocline"><a class="tocxref" href="#ondersteunde-varianten"><bdi class="secno">2.2 </bdi>Ondersteunde varianten</a></li><li class="tocline"><a class="tocxref" href="#compliancevoorzieningen"><bdi class="secno">2.3 </bdi>Compliancevoorzieningen</a></li><li class="tocline"><a class="tocxref" href="#gehanteerde-standaarden"><bdi class="secno">2.4 </bdi>Gehanteerde standaarden</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overwegingen"><bdi class="secno">2.4.1 </bdi>Overwegingen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voorschriften"><bdi class="secno">2.5 </bdi>Voorschriften</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#service-definitie-wsdl"><bdi class="secno">2.5.1 </bdi>Service definitie WSDL</a></li><li class="tocline"><a class="tocxref" href="#ws-addressing"><bdi class="secno">2.5.2 </bdi>WS-Addressing</a></li><li class="tocline"><a class="tocxref" href="#binaire-data"><bdi class="secno">2.5.3 </bdi>Binaire Data</a></li><li class="tocline"><a class="tocxref" href="#beveiliging"><bdi class="secno">2.5.4 </bdi>Beveiliging</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#point-to-point-beveiliging"><bdi class="secno">2.5.4.1 </bdi>Point-to-Point beveiliging</a></li><li class="tocline"><a class="tocxref" href="#end-to-end-beveiliging"><bdi class="secno">2.5.4.2 </bdi>End-to-End beveiliging</a></li></ol></li><li class="tocline"><a class="tocxref" href="#naamgeving-namespaces"><bdi class="secno">2.5.5 </bdi>Naamgeving, namespaces</a></li></ol></li><li class="tocline"><a class="tocxref" href="#foutafhandeling"><bdi class="secno">2.6 </bdi>Foutafhandeling</a></li></ol></li><li class="tocline"><a class="tocxref" href="#digikoppeling-profielen-wus"><bdi class="secno">3. </bdi>Digikoppeling profielen WUS</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wus-profiel-digikoppeling-2w-be"><bdi class="secno">3.1 </bdi>WUS Profiel Digikoppeling 2W-be</a></li><li class="tocline"><a class="tocxref" href="#wus-profiel-digikoppeling-2w-be-s"><bdi class="secno">3.2 </bdi>WUS Profiel Digikoppeling 2W-be-S</a></li><li class="tocline"><a class="tocxref" href="#wus-profiel-digikoppeling-2w-be-se"><bdi class="secno">3.3 </bdi>WUS Profiel Digikoppeling 2W-be-SE</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">5. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</a></li><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">A.2 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
+  <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
 <p>Documentbeheer</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Datum</th>
@@ -329,8 +932,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </tr>
 </tbody></table>
 </section>
-  <section class="introductory"><h1>Colofon</h1>
-<table class="simple">
+  <section class="introductory" id="colofon"><div class="header-wrapper"><h2 id="colofon-0">Colofon</h2><a class="self-link" href="#colofon" aria-label="Permalink for this Section"></a></div>
+<table>
 <thead>
 <tr>
 <th></th>
@@ -339,12 +942,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </thead>
 <tbody><tr>
 <td>Logius Servicecentrum:</td>
-<td>Postbus 96810 2509<br>JE Den Haag<br>t. 0900 555 4555 (10 ct p/m)<br>e.<a href="mailto:servicecentrum@logius.nl">servicecentrum@logius.nl</a></td>
+<td>Postbus 96810 <br>2509 JE Den Haag<br>tel. 0900 555 4555 (10 ct p/m)<br>email <a href="mailto:servicecentrum@logius.nl">servicecentrum@logius.nl</a></td>
 </tr>
 </tbody></table>
 </section>
-  
-<section id="inleiding"><div class="header-wrapper"><h2 id="x1-inleiding"><bdi class="secno">1. </bdi>Inleiding</h2><a class="self-link" href="#inleiding" aria-label="Permalink for Section 1."></a></div>
+  <section id="inleiding"><div class="header-wrapper"><h2 id="x1-inleiding"><bdi class="secno">1. </bdi>Inleiding</h2><a class="self-link" href="#inleiding" aria-label="Permalink for Section 1."></a></div>
 <section id="doel-en-doelgroep"><div class="header-wrapper"><h3 id="x1-1-doel-en-doelgroep"><bdi class="secno">1.1 </bdi>Doel en Doelgroep</h3><a class="self-link" href="#doel-en-doelgroep" aria-label="Permalink for Section 1.1"></a></div>
 <p>Dit document beschrijft de functionele specificaties voor de Digikoppeling
 koppelvlak standaard WUS</p>
@@ -360,59 +962,41 @@ providers als service requesters (clients).</p>
 </section><section id="opbouw-digikoppeling-documentatie"><div class="header-wrapper"><h3 id="x1-2-opbouw-digikoppeling-documentatie"><bdi class="secno">1.2 </bdi>Opbouw Digikoppeling documentatie</h3><a class="self-link" href="#opbouw-digikoppeling-documentatie" aria-label="Permalink for Section 1.2"></a></div>
 <p>Digikoppeling is beschreven in een set van documenten. Deze set is als volgt
 opgebouwd:</p>
-<p><figure id="fig-opbouw-documentatie-digikoppeling"><img src="media/DK_Specificatie_structuur.svg" alt="Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen" title="Opbouw documentatie Digikoppeling"><figcaption>Figuur <bdi class="figno">1</bdi> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption></figure></p>
-<details>
-    <summary> Tekstalternatief </summary>
+<figure id="fig-opbouw-documentatie-digikoppeling">
+  <object data="https://logius-standaarden.github.io/publicatie/dk/actueel/media/DK_Specificatie_structuur.svg" type="image/svg+xml" id="infographic">Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen</object>
+  <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
+</figure>
+
+<p><b>Legenda</b></p>
+<table class="legendum">
+    <thead>
+        <tr>
+            <th><strong>Kleur</strong></th>
+            <th><strong>Soort Document</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="green">Groen</td>
+            <td>Standaard documentatie</td>
+        </tr>
+        <tr>
+            <td class="grey">Grijs</td>
+            <td>Ondersteunende documentatie</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p><b>Beheer</b></p>
 <ul>
-    <li>Digikoppeling Standaard
-        <ul>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">DK Beheermodel en releasebeleid</a>* </li>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/actueel/">DK Overzicht Actuele Documentatie en Compliance</a>* </li>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/architectuur">DK Architectuur</a>*
-                <ul>
-                    <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/idauth/">DK Identificatie en Authenticatie</a>*
-                        <ul>
-                            <li><i> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/">Digikoppeling Gebruik en Achtergronden Certificaten</a></i>† </li>
-                        </ul>
-                    </li>
-                    <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">DK Beveiligingsstandaarden en voorschriften</a>* </li>
-                    <li>Koppelvlakstandaarden
-                        <ul>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/">DK Koppelvlakstandaard REST-API</a>*
-                                <ul>
-                                    <li><i>Best-practice REST-API</i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/wus/">DK Koppelvlakstandaard WUS</a>*
-                                <ul>
-                                    <li><i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpwus">Best-practice WUS</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/ebms/">DK Koppelvlakstandaard ebMS2</a>*
-                                <ul>
-                                    <li> <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpebms">Best-practice ebMS2</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/gb/">DK Koppelvlakstandaard Grote Berichten</a>*
-                                <ul>
-                                    <li> <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpgb">Best-practice Grote Berichten</a></i>†</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-    <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/">Wat is Digikoppeling</a></i>†
-  </li>
-        </ul>
-    </li>
+<li><p>De standaarddocumenten (groen/vierkant aangegeven) vallen onder het beheer zoals geformaliseerd in het document <cite><a data-matched-text="[[[?DK-Beheermodel]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">Digikoppeling Beheermodel</a></cite>.</p>
+</li>
+<li><p>De ondersteunende documentatie wordt onderhouden door Logius als de beheerder van de standaard (en afgestemd met stakeholders/ gebruikers).</p>
+</li>
+<li><p>Alle goedgekeurde documenten zijn te vinden op de website van Logius, <a href="https://www.logius.nl/onze-dienstverlening/domeinen/gegevensuitwisseling/digikoppeling">www.logius.nl</a>.</p>
+</li>
 </ul>
-<p>* Normatief document</p>
-<p>† Ondersteunend document</p>
-</details>
-
-
 <p>Dit document beschrijft de WUS-variant van de koppelvlakstandaarden. Naast de
 Koppelvlakstandaard WUS zijn er ook de ebMS2- en REST-API-standaarden. Deze worden in een aparte
 documenten beschreven.</p>
@@ -463,7 +1047,7 @@ de ‘Digikoppeling Glossary’ via de onderstaande website.</p>
 <p>Dit document en andere documentatie is beschikbaar op
 <a href="http://www.logius.nl/digikoppeling">www.logius.nl/digikoppeling</a>.</p>
 </section></section>
-<section id="koppelvlakstandaard-wus"><div class="header-wrapper"><h2 id="x2-koppelvlakstandaard-wus"><bdi class="secno">2. </bdi>Koppelvlakstandaard WUS</h2><a class="self-link" href="#koppelvlakstandaard-wus" aria-label="Permalink for Section 2."></a></div>
+  <section id="koppelvlakstandaard-wus"><div class="header-wrapper"><h2 id="x2-koppelvlakstandaard-wus"><bdi class="secno">2. </bdi>Koppelvlakstandaard WUS</h2><a class="self-link" href="#koppelvlakstandaard-wus" aria-label="Permalink for Section 2."></a></div>
 <section id="inleiding-0"><div class="header-wrapper"><h3 id="x2-1-inleiding"><bdi class="secno">2.1 </bdi>Inleiding</h3><a class="self-link" href="#inleiding-0" aria-label="Permalink for Section 2.1"></a></div>
 <p>WUS is een acroniem voor WSDL, UDDI en SOAP: WUS dus. Daarmee wordt een familie
 van internationale standaarden van OASIS en W3C bedoeld; deze worden ook vaak
@@ -476,7 +1060,7 @@ de volgende onderwerpen relevant: WSDL met adressering en naamgeving,
 beveiliging, betrouwbaarheid, binaire data, resulterende berichtheaders,
 profielen van Digikoppeling en compliancevoorzieningen. Deze standaard wordt
 verder aangevuld met “Best Practices” en adviezen, beschreven in een apart
-document. Alle documentatie over Digikoppeling is te vinden op [<cite><a class="bibref" data-link-type="biblio" href="#bib-logius" title="Logius Digikoppeling">Logius</a></cite>].</p>
+document. Alle documentatie over Digikoppeling is te vinden op <cite><a data-matched-text="[[[?DK]]]" href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling">Logius | Digikoppeling</a></cite>.</p>
 <section id="wsdl"><div class="header-wrapper"><h4 id="x2-1-1-wsdl"><bdi class="secno">2.1.1 </bdi>WSDL</h4><a class="self-link" href="#wsdl" aria-label="Permalink for Section 2.1.1"></a></div>
 <p>Een webservice wordt deels formeel en automatisch verwerkbaar gedefinieerd
 (beschrijving – description) door een WSDL. Deze WSDL geeft een beschrijving van
@@ -490,8 +1074,8 @@ specifieke aandachtsgebieden.</p>
 <p>Deze standaard beschrijft per definitie aan welke eisen een Digikoppeling WUS
 implementatie moet voldoen. De praktijk leert dat dergelijke eisen vaak erg
 abstract zijn en dus gebaat zijn bij voorbeelden. Voorbeelden van berichten zijn
-gepubliceerd op [<cite><a class="bibref" data-link-type="biblio" href="#bib-logius" title="Logius Digikoppeling">Logius</a></cite>]. Voorbeelden van WSDL’s zijn beschikbaar als
-onderdeel van [<cite><a class="bibref" data-link-type="biblio" href="#bib-compliance" title="Digikoppeling Compliance Voorziening">Compliance</a></cite>].</p>
+gepubliceerd op <cite><a data-matched-text="[[[?DK]]]" href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling">Logius | Digikoppeling</a></cite>. Voorbeelden van WSDL’s zijn beschikbaar als
+onderdeel van <cite><a data-matched-text="[[[?DK-CV]]]" href="https://gitlab.com/logius/digikoppeling-compliance">Digikoppeling Compliance Voorziening</a></cite>.</p>
 </section></section><section id="ondersteunde-varianten"><div class="header-wrapper"><h3 id="x2-2-ondersteunde-varianten"><bdi class="secno">2.2 </bdi>Ondersteunde varianten</h3><a class="self-link" href="#ondersteunde-varianten" aria-label="Permalink for Section 2.2"></a></div>
 <p>Om redenen van interoperabiliteit, eenvoud en overzichtelijkheid onderscheidt
 deze Digikoppeling Koppelvlakstandaard een tweetal varianten van uitwisselingen.
@@ -537,7 +1121,7 @@ voldoen aan één of een combinatie van de volgende Digikoppeling WUS-varianten:
 <p>De onderstaande tabel geeft in essentie de eigenschappen van de verschillende
 Digikoppeling profielen weer. Voor alle profielen wordt tweezijdig TLS gebruikt
 op transportniveau (HTTPS).</p>
-<table class="simple">
+<table>
 <thead>
   <tr>
     <td colspan="3">Profile Names</td>
@@ -585,7 +1169,7 @@ op transportniveau (HTTPS).</p>
 beschikbaar gesteld, waarmee een ontwikkelaar of beheerder kan testen “of het
 berichtenverkeer werkt”. Deze compliancevoorziening is gedefinieerd aan de hand
 van de WSDL’s die opvraagbaar zijn op
-[<cite><a class="bibref" data-link-type="biblio" href="#bib-compliance" title="Digikoppeling Compliance Voorziening">Compliance</a></cite>].</p>
+<cite><a data-matched-text="[[[?DK-CV]]]" href="https://gitlab.com/logius/digikoppeling-compliance">Digikoppeling Compliance Voorziening</a></cite>.</p>
 <p>De volgende interacties zijn beschikbaar:</p>
 <ul>
 <li><p>Digikoppeling service requester: wordt gebruikt om een ontwikkelde servicere
@@ -595,8 +1179,8 @@ van de WSDL’s die opvraagbaar zijn op
   provider (service) te testen.</p>
 </li>
 </ul>
-<p>De documenten over de compliancevoorzieningen zijn te vinden op [<cite><a class="bibref" data-link-type="biblio" href="#bib-logius" title="Logius Digikoppeling">Logius</a></cite>]. De Digikoppeling Compliancevoorziening zelf is beschikbaar op
-[<cite><a class="bibref" data-link-type="biblio" href="#bib-compliance" title="Digikoppeling Compliance Voorziening">Compliance</a></cite>]</p>
+<p>De documenten over de compliancevoorzieningen zijn te vinden op <cite><a data-matched-text="[[[?DK]]]" href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling">Logius | Digikoppeling</a></cite>. De Digikoppeling Compliancevoorziening zelf is beschikbaar op
+<cite><a data-matched-text="[[[?DK-CV]]]" href="https://gitlab.com/logius/digikoppeling-compliance">Digikoppeling Compliance Voorziening</a></cite></p>
 </section><section id="gehanteerde-standaarden"><div class="header-wrapper"><h3 id="x2-4-gehanteerde-standaarden"><bdi class="secno">2.4 </bdi>Gehanteerde standaarden</h3><a class="self-link" href="#gehanteerde-standaarden" aria-label="Permalink for Section 2.4"></a></div>
 <p>In dit hoofdstuk worden de verschillende versies van de onderliggende
 internationale standaarden vermeld.</p>
@@ -609,7 +1193,7 @@ zeggen interoperabel geïmplementeerd zijn in het grootste deel van de
 (ontwikkel) tools. De kans daarop is groter bij “final” standaarden dan bij
 drafts. Digikoppeling kiest daarom voor WS-I Standaarden met status final.</p>
 <p>De minimaal ondersteunde TLS encryptie algoritmen en sleutellengtes worden
-beschreven in het [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>].</p>
+beschreven in <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite>.</p>
 <p>Resulterende beslissingen ten aanzien van standaarden:</p>
 <ul>
 <li><p>WS-I BP 1.2; deze is gebaseerd op onderliggende standaarden: SOAP 1.1, WSDL
@@ -617,7 +1201,7 @@ beschreven in het [<cite><a class="bibref" data-link-type="biblio" href="#bib-be
 </li>
 <li><p>WS-I BSP 1.1 voor berichtbeveiliging op basis van WS-Security.</p>
 </li>
-<li><p>De TLS versies zoals beschreven in [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>],
+<li><p>De TLS versies zoals beschreven in <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite>,
   conform de aanbevelingen in WS-I BSP 1.0 voor beveiliging op
   transport/kanaal niveau en aanbevelingen van NIST en NCSC.</p>
 </li>
@@ -627,7 +1211,7 @@ beschreven in het [<cite><a class="bibref" data-link-type="biblio" href="#bib-be
 <p>Bovenstaande standaarden zijn gebaseerd op diverse onderliggende standaarden.
 Gevolg is dat de Digikoppeling WUS standaard gebruikmaakt van de volgende set
 van standaarden:</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Standaarden</th>
@@ -643,7 +1227,7 @@ van standaarden:</p>
 <td>WS-I Basic Profile 1.2</td>
 </tr>
 <tr>
-<td>WSDL 1.1 [<cite><a class="bibref" data-link-type="biblio" href="#bib-wsdl" title="Web Service Definition Language (WSDL)">wsdl</a></cite>]</td>
+<td>WSDL 1.1 [<cite><a class="bibref" data-link-type="biblio" href="#bib-wsdl" title="Web Services Description Language (WSDL) 1.1">wsdl</a></cite>]</td>
 <td>WS-I Basic Profile 1.2</td>
 </tr>
 <tr>
@@ -659,7 +1243,7 @@ van standaarden:</p>
 <td>WS-I Basic Profile 1.2</td>
 </tr>
 <tr>
-<td>De huidig toegestane TLS versies zoals beschreven in [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>]</td>
+<td>De huidig toegestane TLS versies zoals beschreven in <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite></td>
 <td>WS-I Basic Profile 1.2,  NCSC, NIST, ENISA</td>
 </tr>
 <tr>
@@ -713,7 +1297,7 @@ mogelijkheden in die standaarden).</p>
 <section id="service-definitie-wsdl"><div class="header-wrapper"><h4 id="x2-5-1-service-definitie-wsdl"><bdi class="secno">2.5.1 </bdi>Service definitie WSDL</h4><a class="self-link" href="#service-definitie-wsdl" aria-label="Permalink for Section 2.5.1"></a></div>
 <p>Voorschriften ten gevolge van de keuze voor BP 1.2</p>
 
-<table class="dkkvs simple">
+<table class="dkkvs">
     <thead>
  <tr>
  <th>Nr</th>
@@ -764,7 +1348,7 @@ mogelijkheden in die standaarden).</p>
 </table>
 
 <p>Aanvullende voorschriften (dus specifieke Digikoppeling-invulling binnen de ruimte van een bovengenoemde standaard)</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Nr</th>
@@ -781,7 +1365,7 @@ mogelijkheden in die standaarden).</p>
 </tr>
 <tr>
 <td>WS003</td>
-<td>De Digikoppeling WUS ondersteunt alleen de zogenaamde “request/response” berichtenuitwisseling (zie WSDL 1.1 specificatie paragraaf “2.4 Port Types”) [<cite><a class="bibref" data-link-type="biblio" href="#bib-wsdl" title="Web Service Definition Language (WSDL)">wsdl</a></cite>].</td>
+<td>De Digikoppeling WUS ondersteunt alleen de zogenaamde “request/response” berichtenuitwisseling (zie WSDL 1.1 specificatie paragraaf “2.4 Port Types”) [<cite><a class="bibref" data-link-type="biblio" href="#bib-wsdl" title="Web Services Description Language (WSDL) 1.1">wsdl</a></cite>].</td>
 </tr>
 <tr>
 <td>WS005</td>
@@ -803,7 +1387,7 @@ mogelijkheden in die standaarden).</p>
 </section><section id="ws-addressing"><div class="header-wrapper"><h4 id="x2-5-2-ws-addressing"><bdi class="secno">2.5.2 </bdi>WS-Addressing</h4><a class="self-link" href="#ws-addressing" aria-label="Permalink for Section 2.5.2"></a></div>
 <p>Voorschriften als gevolg van het toepassen van WS-Addressing</p>
 
-<p></p><table class="dkkvs simple">
+<p></p><table class="dkkvs">
     <thead>
         <tr>
             <th>Nr</th>
@@ -844,7 +1428,7 @@ mogelijkheden in die standaarden).</p>
                 [<cite><a class="bibref" data-link-type="biblio" href="#bib-ws-addr-metadata" title="Web Services Addressing 1.0 - Metadata">ws-addr-metadata</a></cite>])
                 <br><br>
                 <b>WS-Addressing request headers Field</b>
-                <table class="dkkvsincell simple">
+                <table class="dkkvsincell">
                     <thead>
                         <tr>
                             <th>Field</th>
@@ -906,7 +1490,7 @@ mogelijkheden in die standaarden).</p>
     ook toegestaan.
                 <br><br>
                 <b>WS-Addressing response headers</b>
-                <table class="dkkvsincell simple">
+                <table class="dkkvsincell">
                     <thead>
                         <tr>
                             <th>Field</th>
@@ -994,7 +1578,7 @@ configuratiebestand geregeld worden.</p>
 ondersteuning biedt voor MTOM. Bij een nieuwe koppeling in samenspraak, bij
 toevoegen van een afnemer aan een bestaande dienst dient deze zich te
 conformeren aan de bestaande inrichting (en wel of niet gebruik van MTOM).</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Nr</th>
@@ -1015,7 +1599,7 @@ van WS-Security.</p>
 beveiligd tijdens het transport van verzender naar ontvanger. Alle Digikoppeling
 profielen verplichten point-to-point beveiliging. Hierbij gelden de volgende
 voorschriften:</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Nr</th>
@@ -1024,11 +1608,11 @@ voorschriften:</p>
 </thead>
 <tbody><tr>
 <td>WT001</td>
-<td>Authenticatie op transportniveau gebeurt op basis TLS met tweezijdige authenticatie. De huidige toegestane protocolversies zijn beschreven in het [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>]. Client and Server authenticatie is vereist gebruikmakend van HTTPS en alle in [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>] genoemde TLS versies. De TLS implementatie mag niet op een oudere TLS of SSL versie terug kunnen vallen.</td>
+<td>Authenticatie op transportniveau gebeurt op basis TLS met tweezijdige authenticatie. De huidige toegestane protocolversies zijn beschreven in <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite>. Client and Server authenticatie is vereist gebruikmakend van HTTPS en alle in <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite> genoemde TLS versies. De TLS implementatie mag niet op een oudere TLS of SSL versie terug kunnen vallen.</td>
 </tr>
 <tr>
 <td></td>
-<td>Meer informatie in het [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>]</td>
+<td>Meer informatie in <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite></td>
 </tr>
 <tr>
 <td>WT002</td>
@@ -1036,11 +1620,11 @@ voorschriften:</p>
 </tr>
 <tr>
 <td>WT003</td>
-<td>De minimaal ondersteunde TLS encryptie algoritmen en sleutellengtes worden beschreven in het [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>]</td>
+<td>De minimaal ondersteunde TLS encryptie algoritmen en sleutellengtes worden beschreven in het <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite></td>
 </tr>
 <tr>
 <td></td>
-<td>Meer informatie in het [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>]</td>
+<td>Meer informatie in <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite></td>
 </tr>
 <tr>
 <td>WT004</td>
@@ -1073,7 +1657,7 @@ ingezet op SOAP niveau met behulp van ondertekening en versleuteling. End-to-End
 beveiliging is primair van toepassing in de scenario’s waar intermediairs
 betrokken zijn gedurende de gegevensuitwisseling en in scenario’s waarbij
 onweerlegbaarheid van belang is.</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Nr</th>
@@ -1129,12 +1713,12 @@ onweerlegbaarheid van belang is.</p>
 <td>Overwegingen: Omdat er zowel wordt ondertekend als versleuteld, moet de volgorde hiervan gespecificeerd worden: -Bij verzending eerst ondertekenen en vervolgens versleutelen. -Bij ontvangst eerst ontsleutelen en daarna de ondertekening verifieren.</td>
 </tr>
 </tbody></table>
-<table class="dkkvs simple">
+<table class="dkkvs">
     <tbody>
         <tr>
             <td>WB007</td>
             <td>Technische gegevens ten behoeve van ondertekenen
-                <table class="dkkvsincell simple">
+                <table class="dkkvsincell">
                     <thead>
                         <tr>
                             <th>Parameter</th>
@@ -1149,11 +1733,11 @@ onweerlegbaarheid van belang is.</p>
                         </td></tr>
                         <tr>
                             <td>Data Encryption Algorithms</td>
-                            <td>zie [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>]
+                            <td>zie <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite>
                         </td></tr>
                         <tr>
                             <td>Key Transport Algorithms</td>
-                            <td>zie [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>]
+                            <td>zie <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite>
                     </td></tr></tbody>
                 </table>
             </td>
@@ -1161,7 +1745,7 @@ onweerlegbaarheid van belang is.</p>
         <tr>
             <td>WB008</td>
             <td>Technische gegevens ten behoeve van versleutelen:
-                <table class="dkkvsincell simple">
+                <table class="dkkvsincell">
                     <thead>
                         <tr>
                             <th>Parameter</th>
@@ -1171,11 +1755,11 @@ onweerlegbaarheid van belang is.</p>
                     <tbody>
                         <tr>
                             <td>Data Encryption Algorithms</td>
-                            <td>zie [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>]
+                            <td>zie <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite>
                         </td></tr>
                         <tr>
                             <td>Key Transport Algorithms</td>
-                            <td>zie [<cite><a class="bibref" data-link-type="biblio" href="#bib-beveiligingsdocument" title="Digikoppeling Beveiligingsstandaarden en voorschriften">Beveiligingsdocument</a></cite>]
+                            <td>zie <cite><a data-matched-text="[[[DK-Beveiliging]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">Digikoppeling Beveiligingsstandaarden en voorschriften</a></cite>
                     </td></tr></tbody>
                 </table>
             </td>
@@ -1183,7 +1767,7 @@ onweerlegbaarheid van belang is.</p>
     </tbody>
 </table>
 
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1200,7 +1784,7 @@ onweerlegbaarheid van belang is.</p>
 </tr>
 <tr>
 <td></td>
-<td>Overwegingen:<br>Het certificaat wordt in het bericht meegestuurd. Hiermee kan de ontvanger door middel van het meegeleverd certificaat de handtekening controleren. Het certificaat dient uiteraard wel vertrouwd te zijn via een truststore configuratie waarin het PKIoverheid stamcertificaat alsmede de intermediair certificaten en Trusted Servicer Provider certificaten zijn opgenomen. Zie hiervoor [<cite><a class="bibref" data-link-type="biblio" href="#bib-certificaten" title="PkIoverheid certificaten">Certificaten</a></cite>]. (een vereiste voor veel platformen om de validatie van het bericht aan te vangen).</td>
+<td>Overwegingen:<br>Het certificaat wordt in het bericht meegestuurd. Hiermee kan de ontvanger door middel van het meegeleverd certificaat de handtekening controleren. Het certificaat dient uiteraard wel vertrouwd te zijn via een truststore configuratie waarin het PKIoverheid stamcertificaat alsmede de intermediair certificaten en Trusted Servicer Provider certificaten zijn opgenomen. Zie hiervoor <cite><a data-matched-text="[[[PKIO-Cert]]]" href="https://cert.pkioverheid.nl/">Overzicht PKIoverheid certificaten</a></cite>. (een vereiste voor veel platformen om de validatie van het bericht aan te vangen).</td>
 </tr>
 <tr>
 <td>WB011</td>
@@ -1250,7 +1834,7 @@ opgenomen.</p>
 <p>Aanvullende standaarden die gebruikt worden in combinatie met Digikoppeling
 kunnen overigens wel eisen stellen aan de fouthandeling.</p>
 </section></section>
-<section id="digikoppeling-profielen-wus"><div class="header-wrapper"><h2 id="x3-digikoppeling-profielen-wus"><bdi class="secno">3. </bdi>Digikoppeling profielen WUS</h2><a class="self-link" href="#digikoppeling-profielen-wus" aria-label="Permalink for Section 3."></a></div>
+  <section id="digikoppeling-profielen-wus"><div class="header-wrapper"><h2 id="x3-digikoppeling-profielen-wus"><bdi class="secno">3. </bdi>Digikoppeling profielen WUS</h2><a class="self-link" href="#digikoppeling-profielen-wus" aria-label="Permalink for Section 3."></a></div>
 <p>Op Digikoppeling wordt gewerkt met zogenaamde “profielen”. Een profiel is een
 gedefinieerde bundeling van functionaliteit en daarmee van voorschriften. In de
 huidige Digikoppeling versie zijn drie WUS-profielen aanwezig:</p>
@@ -1266,13 +1850,18 @@ huidige Digikoppeling versie zijn drie WUS-profielen aanwezig:</p>
 standaard) als niet geoptimaliseerd verstuurd kunnen worden. Hierom zijn voor
 elk profiel voorbeeldberichten beschikbaar in zowel de geoptimaliseerde (MTOM)
 als niet geoptimaliseerde vorm. Alle voorbeeldberichten zijn gebundeld in een
-set <cite><a data-matched-text="[[[?Voorbeelden]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Digikoppeling WUS voorbeelden (zip)</a></cite> en beschikbaar op de <cite><a data-matched-text="[[[?Logius]]]" href="https://logius.nl/digikoppeling">Logius Digikoppeling</a></cite>.</p>
+<cite><a data-matched-text="[[[?DK-WUS-voorbeeld]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Set voorbeeldberichten (zip)</a></cite> en beschikbaar op <cite><a data-matched-text="[[[?DK]]]" href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling">Logius | Digikoppeling</a></cite>.</p>
 <p>Ten aanzien van beveiliging maken alle profielen gebruik van tweezijdig TLS, zie
-hoofdstuk 2 paragraaf “Point-to-Point beveiliging”.</p>
-<p><figure id="fig-schematische-weergave-digikoppeling-wus-profielen"><img src="media/wus_profielen_digikoppeling.png" alt="Digikoppeling WUS profielen bevinden zich in de logistieke laag dat via een SOAP processor verbonden is met de applicatielaag." title="Schematische weergave Digikoppeling WUS profielen"><figcaption>Figuur <bdi class="figno">2</bdi> <span class="fig-title">Schematische weergave Digikoppeling WUS profielen</span></figcaption></figure></p>
+<a href="#point-to-point-beveiliging" data-matched-text="[[[#point-to-point-beveiliging]]]" class="sec-ref"><bdi class="secno">2.5.4.1 </bdi>Point-to-Point beveiliging</a>.</p>
+<p>
+      </p><figure id="fig-schematische-weergave-digikoppeling-wus-profielen">
+        <img src="media/wus_profielen_digikoppeling.png" alt="Digikoppeling WUS profielen bevinden zich in de logistieke laag dat via een SOAP processor verbonden is met de applicatielaag.">
+        <figcaption><a class="self-link" href="#fig-schematische-weergave-digikoppeling-wus-profielen">Figuur <bdi class="figno">2</bdi></a> <span class="fig-title">Schematische weergave Digikoppeling WUS profielen</span></figcaption>
+      </figure>
+    <p></p>
 <p>In het bovenstaande figuur wordt schematisch weergegeven welke WUS profielen
 Digikoppeling biedt en wat de algemene verschillen zijn. Alle profielen worden
-in de volgende paragrafen in meer detail beschreven. In set <cite><a data-matched-text="[[[?Voorbeelden]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Digikoppeling WUS voorbeelden (zip)</a></cite>
+in de volgende paragrafen in meer detail beschreven. In <cite><a data-matched-text="[[[?DK-WUS-voorbeeld]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Set voorbeeldberichten (zip)</a></cite>
 zijn voorbeeld berichten opgenomen voor de drie profielen. Deze bieden een
 duidelijk inzicht hoe de berichten uiteindelijk eruit komen te zien.</p>
 <section id="wus-profiel-digikoppeling-2w-be"><div class="header-wrapper"><h3 id="x3-1-wus-profiel-digikoppeling-2w-be"><bdi class="secno">3.1 </bdi>WUS Profiel Digikoppeling 2W-be</h3><a class="self-link" href="#wus-profiel-digikoppeling-2w-be" aria-label="Permalink for Section 3.1"></a></div>
@@ -1284,11 +1873,11 @@ Dit profiel maakt voor de beveiliging alleen gebruik van tweezijdig TLS.
 <dt>Headerblocks</dt>
 <dd>
 Alleen de verplichte WS-Addressing headers zijn hier van toepassing (zie
-soapenv:Header in <cite><a data-matched-text="[[[?Voorbeelden]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Digikoppeling WUS voorbeelden (zip)</a></cite>).
+soapenv:Header in <cite><a data-matched-text="[[[?DK-WUS-voorbeeld]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Set voorbeeldberichten (zip)</a></cite>).
 </dd>
 <dt>MTOM</dt>
 <dd>
-De geoptimaliseerde (MTOM) voorbeeldberichten worden weergegeven in <cite><a data-matched-text="[[[?Voorbeelden]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Digikoppeling WUS voorbeelden (zip)</a></cite>.
+De geoptimaliseerde (MTOM) voorbeeldberichten worden weergegeven in <cite><a data-matched-text="[[[?DK-WUS-voorbeeld]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Set voorbeeldberichten (zip)</a></cite>.
 </dd>
 </dl>
 
@@ -1297,18 +1886,17 @@ De geoptimaliseerde (MTOM) voorbeeldberichten worden weergegeven in <cite><a dat
 <dt>Beveiliging</dt>
 <dd>
 Dit profiel maakt voor de beveiliging gebruik van tweezijdig TLS en tevens
-worden de berichtonderdelen ondertekend zoals vermeld in hoofdstuk 2, paragraaf
-End-to-End beveiliging.
+worden de berichtonderdelen ondertekend zoals vermeld in <a href="#end-to-end-beveiliging" data-matched-text="[[[#end-to-end-beveiliging]]]" class="sec-ref"><bdi class="secno">2.5.4.2 </bdi>End-to-End beveiliging</a>.
 </dd>
 <dt>Headerblocks</dt>
 <dd>
 In dit profiel zijn de WS-Addressing en WS-Security 1.0 ondertekening
-(wsse:Security) headers van toepassing (zie <cite><a data-matched-text="[[[?Voorbeelden]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Digikoppeling WUS voorbeelden (zip)</a></cite>).
+(wsse:Security) headers van toepassing (zie <cite><a data-matched-text="[[[?DK-WUS-voorbeeld]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Set voorbeeldberichten (zip)</a></cite>).
 </dd>
 <dt>MTOM</dt>
 <dd>
 De geoptimaliseerde (MTOM) voorbeeldberichten voor profiel Digikoppeling 2W-be-S
-worden weergegeven in <cite><a data-matched-text="[[[?Voorbeelden]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Digikoppeling WUS voorbeelden (zip)</a></cite>.
+worden weergegeven in <cite><a data-matched-text="[[[?DK-WUS-voorbeeld]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Set voorbeeldberichten (zip)</a></cite>.
 </dd>
 </dl>
 
@@ -1318,69 +1906,55 @@ worden weergegeven in <cite><a data-matched-text="[[[?Voorbeelden]]]" href="http
 <dd>
 Dit profiel maakt voor de beveiliging gebruik van tweezijdig TLS en tevens
 worden de berichtonderdelen ondertekend en versleuteld zoals vermeld in
-hoofdstuk 2, paragraaf End-to-End beveiliging.
+<a href="#end-to-end-beveiliging" data-matched-text="[[[#end-to-end-beveiliging]]]" class="sec-ref"><bdi class="secno">2.5.4.2 </bdi>End-to-End beveiliging</a>.
 </dd>
 <dt>Headerblocks</dt>
 <dd>
 In dit profiel zijn de WS-Addressing en WS-Security 1.0 ondertekening
 (wsse:Security) headers van toepassing. Ook wordt hierbij de payload van het
-bericht versleuteld (xenc:EncryptedData) (zie <cite><a data-matched-text="[[[?Voorbeelden]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Digikoppeling WUS voorbeelden (zip)</a></cite>).
+bericht versleuteld (xenc:EncryptedData) (zie <cite><a data-matched-text="[[[?DK-WUS-voorbeeld]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Set voorbeeldberichten (zip)</a></cite>).
 </dd>
 <dt>MTOM</dt>
 <dd>
 De geoptimaliseerde (MTOM) voorbeeldberichten voor profiel Digikoppeling
-2W-be-SE worden weergegeven in <cite><a data-matched-text="[[[?Voorbeelden]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Digikoppeling WUS voorbeelden (zip)</a></cite>.
+2W-be-SE worden weergegeven in <cite><a data-matched-text="[[[?DK-WUS-voorbeeld]]]" href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">Set voorbeeldberichten (zip)</a></cite>.
 </dd>
 </dl></section></section>
-  
-    
-    <section id="conformance"><div class="header-wrapper"><h2 id="x4-conformiteit"><bdi class="secno">4. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 4."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p>
-      
-    </section>
-  
-    <section id="tof">
-      
-    <div class="header-wrapper"><h2 id="x5-lijst-met-figuren"><bdi class="secno">5. </bdi>Lijst met figuren</h2><a class="self-link" href="#tof" aria-label="Permalink for Section 5."></a></div><ul class="tof">
+  <section id="conformance"><div class="header-wrapper"><h2 id="x4-conformiteit"><bdi class="secno">4. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 4."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p>
+  </section>
+  <section id="tof">
+  <div class="header-wrapper"><h2 id="x5-lijst-met-figuren"><bdi class="secno">5. </bdi>Lijst met figuren</h2><a class="self-link" href="#tof" aria-label="Permalink for Section 5."></a></div><ul class="tof">
         <li class="tofline">
-    <a class="tocxref" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi> <span class="fig-title">Opbouw documentatie Digikoppeling</span></a>
+    <a class="tocxref" href="#fig-opbouw-documentatie-digikoppeling"><span class="self-link">Figuur <bdi class="figno">1</bdi></span> <span class="fig-title">Opbouw documentatie Digikoppeling</span></a>
   </li><li class="tofline">
-    <a class="tocxref" href="#fig-schematische-weergave-digikoppeling-wus-profielen">Figuur <bdi class="figno">2</bdi> <span class="fig-title">Schematische weergave Digikoppeling WUS profielen</span></a>
+    <a class="tocxref" href="#fig-schematische-weergave-digikoppeling-wus-profielen"><span class="self-link">Figuur <bdi class="figno">2</bdi></span> <span class="fig-title">Schematische weergave Digikoppeling WUS profielen</span></a>
   </li>
       </ul></section>
-  
-    
-      
-    
-  
-    
-      
-    
-  
-      
-    
-
+ 
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-referenties"><bdi class="secno">A. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normatieve-referenties">
     <div class="header-wrapper"><h3 id="a-1-normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</h3><a class="self-link" href="#normatieve-referenties" aria-label="Permalink for Appendix A.1"></a></div>
-    <dl class="bibliography"><dt id="bib-beveiligingsdocument">[Beveiligingsdocument]</dt><dd>
+    <dl class="bibliography"><dt id="bib-dk-beveiliging">[DK-Beveiliging]</dt><dd>
       <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/"><cite>Digikoppeling Beveiligingsstandaarden en voorschriften</cite></a>.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/</a>
-    </dd><dt id="bib-certificaten">[Certificaten]</dt><dd>
-      <a href="https://cert.pkioverheid.nl/"><cite>PkIoverheid certificaten</cite></a>.  Logius. URL: <a href="https://cert.pkioverheid.nl/">https://cert.pkioverheid.nl/</a>
+    </dd><dt id="bib-pkio-cert">[PKIO-Cert]</dt><dd>
+      <a href="https://cert.pkioverheid.nl/"><cite>Overzicht PKIoverheid certificaten</cite></a>.  Logius. URL: <a href="https://cert.pkioverheid.nl/">https://cert.pkioverheid.nl/</a>
     </dd><dt id="bib-ws-addr-core">[ws-addr-core]</dt><dd>
       <a href="https://www.w3.org/TR/ws-addr-core/"><cite>Web Services Addressing 1.0 - Core</cite></a>. Martin Gudgin; Marc Hadley; Tony Rogers.  W3C. 9 May 2006. W3C Recommendation. URL: <a href="https://www.w3.org/TR/ws-addr-core/">https://www.w3.org/TR/ws-addr-core/</a>
     </dd><dt id="bib-ws-addr-metadata">[ws-addr-metadata]</dt><dd>
       <a href="https://www.w3.org/TR/ws-addr-metadata/"><cite>Web Services Addressing 1.0 - Metadata</cite></a>. Martin Gudgin; Marc Hadley; Tony Rogers; Ümit Yalçinalp et al.  W3C. 4 September 2007. W3C Recommendation. URL: <a href="https://www.w3.org/TR/ws-addr-metadata/">https://www.w3.org/TR/ws-addr-metadata/</a>
     </dd><dt id="bib-wsdl">[wsdl]</dt><dd>
-      <a href="https://www.w3.org/TR/wsdl"><cite>Web Service Definition Language (WSDL)</cite></a>.  W3C. 15 March 2001. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/wsdl">https://www.w3.org/TR/wsdl</a>
+      <a href="https://www.w3.org/TR/wsdl"><cite>Web Services Description Language (WSDL) 1.1</cite></a>. Francisco Curbera; Sanjiva Weerawarana.  W3C. 15 March 2001. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/wsdl">https://www.w3.org/TR/wsdl</a>
     </dd></dl>
   </section><section id="informatieve-referenties">
     <div class="header-wrapper"><h3 id="a-2-informatieve-referenties"><bdi class="secno">A.2 </bdi>Informatieve referenties</h3><a class="self-link" href="#informatieve-referenties" aria-label="Permalink for Appendix A.2"></a></div>
-    <dl class="bibliography"><dt id="bib-compliance">[Compliance]</dt><dd>
-      <a href="https://portaal.digikoppeling.nl"><cite>Digikoppeling Compliance Voorziening</cite></a>.  Logius. URL: <a href="https://portaal.digikoppeling.nl">https://portaal.digikoppeling.nl</a>
-    </dd><dt id="bib-logius">[Logius]</dt><dd>
-      <a href="https://logius.nl/digikoppeling"><cite>Logius Digikoppeling</cite></a>.  Logius. URL: <a href="https://logius.nl/digikoppeling">https://logius.nl/digikoppeling</a>
-    </dd><dt id="bib-voorbeelden">[Voorbeelden]</dt><dd>
-      <a href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip"><cite>Digikoppeling WUS voorbeelden (zip)</cite></a>.  Logius. URL: <a href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip</a>
+    <dl class="bibliography"><dt id="bib-dk">[DK]</dt><dd>
+      <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling"><cite>Logius | Digikoppeling</cite></a>.  Logius. URL: <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling">https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling</a>
+    </dd><dt id="bib-dk-beheermodel">[DK-Beheermodel]</dt><dd>
+      <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/"><cite>Digikoppeling Beheermodel</cite></a>.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/</a>
+    </dd><dt id="bib-dk-cv">[DK-CV]</dt><dd>
+      <a href="https://gitlab.com/logius/digikoppeling-compliance"><cite>Digikoppeling Compliance Voorziening</cite></a>.  Logius. URL: <a href="https://gitlab.com/logius/digikoppeling-compliance">https://gitlab.com/logius/digikoppeling-compliance</a>
+    </dd><dt id="bib-dk-wus-voorbeeld">[DK-WUS-voorbeeld]</dt><dd>
+      <a href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip"><cite>Set voorbeeldberichten (zip)</cite></a>.  Logius. URL: <a href="https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip">https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip</a>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
@@ -1606,4 +2180,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Standaard - Werkversie</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
