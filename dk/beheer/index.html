@@ -1,18 +1,13 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 34.1.4">
-<style id="__________cytoscape_stylesheet">
-.__________cytoscape_container { position: relative; }
-</style>
+<meta name="generator" content="ReSpec 35.1.1">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
 div.illegal-example{color:red}
 div.illegal-example p{color:#000}
-:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
 aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-.example pre{background-color:rgba(0,0,0,.03)}
 </style>
 <style>
 .issue-label{text-transform:initial}
@@ -21,7 +16,7 @@ aside.example div.example{border-left-width:.1em;border-color:#999;background:#f
 span.warning{padding:.1em .5em .15em}
 .issue.closed span.issue-number{text-decoration:line-through}
 .issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
-.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
 .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
 li.task-list-item{list-style:none}
 input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
@@ -29,13 +24,13 @@ input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
 .dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
 .dfn-panel>div{display:flex}
 .dfn-panel a.self-link{font-weight:700;margin-right:auto}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
@@ -67,8 +62,6 @@ dfn{cursor:pointer}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
 a.bibref{text-decoration:none}
@@ -82,20 +75,8 @@ a.bibref{text-decoration:none}
 cite .bibref{font-style:normal}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
 #issue-summary>ul{column-count:2}
 #issue-summary li{list-style:none;display:inline-block}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
@@ -131,15 +112,19 @@ img.license{float:left;padding-right:5px}
   release-nummering en de publicatie en informatievoorziening
   rond Digikoppeling.">
 <style>
-.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
-.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
-.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
-.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
-.hljs-literal{color:#0b76c5}
-.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
-.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
-.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
-.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
 .hljs-emphasis{font-style:italic}
 .hljs-strong{font-weight:700}
 .hljs-link{text-decoration:underline}
@@ -170,14 +155,15 @@ img.license{float:left;padding-right:5px}
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
     "nl_organisationPublishURL",
     "pubDomain",
     "/",
-    "shortName"
+    "shortName",
+    "/"
   ],
   "thisVersion": [
     "nl_organisationPublishURL",
@@ -185,7 +171,8 @@ img.license{float:left;padding-right:5px}
     "/",
     "shortName",
     "/",
-    "publishVersion"
+    "publishVersion",
+    "/"
   ],
   "prevVersion": [
     "nl_organisationPublishURL",
@@ -193,7 +180,8 @@ img.license{float:left;padding-right:5px}
     "/",
     "shortName",
     "/",
-    "previousPublishVersion"
+    "previousPublishVersion",
+    "/"
   ],
   "useLogo": true,
   "useLabel": true,
@@ -308,50 +296,27 @@ img.license{float:left;padding-right:5px}
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
-    "API Design Rules": {
-      "authors": [
-        "Jasper Roes",
-        "Joost Farla"
-      ],
-      "date": "Juli 2020",
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
-      "publisher": "Logius",
-      "title": "API Design Rules (Nederlandse API Strategie IIa)"
-    },
-    "API Design Rules-Extensions": {
-      "authors": [
-        "Jasper Roes",
-        "Linda van den Brink"
-      ],
-      "date": "Januari 2020",
-      "href": "https://docs.geostandaarden.nl/api/API-Strategie-ext",
-      "publisher": "Geonovum/Kennisplatform APi's",
-      "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
+    "AVG": {
+      "date": "27 april 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
     },
     "BCP195": {
       "authors": [
-        "Y. Sheffer, R. Holz, P. Saint-Andre"
+        "Y. Sheffer",
+        "R. Holz",
+        "P. Saint-Andre"
       ],
       "date": "May 2015",
       "href": "https://tools.ietf.org/html/bcp195",
       "publisher": "IETF",
       "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"
     },
-    "Beheermodel": {
-      "date": "Oktober 2017",
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
-      "publisher": "Logius",
-      "title": "Beheermodel en releasebeleid Digikoppeling v1.5"
-    },
-    "Beveiligingsdocument": {
+    "DK-beveiliging": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
       "publisher": "Logius",
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
-    },
-    "Certificaten": {
-      "href": "https://cert.pkioverheid.nl/",
-      "publisher": "Logius",
-      "title": "PkIoverheid certificaten"
     },
     "CloudEvents": {
       "authors": [
@@ -362,10 +327,28 @@ img.license{float:left;padding-right:5px}
       "publisher": "@@@",
       "title": "CloudEvents - Version 1.0.1"
     },
-    "Compliance": {
-      "href": "https://portaal.digikoppeling.nl",
+    "NLGOV-CloudEvents": {
+      "authors": [
+        "Werkgroep Berichtenstandaard (Project Notificatieservices)"
+      ],
+      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "publisher": "Logius",
+      "title": "NL GOV profile for CloudEvents"
+    },
+    "DK-CV": {
+      "href": "https://gitlab.com/logius/digikoppeling-compliance",
       "publisher": "Logius",
       "title": "Digikoppeling Compliance Voorziening"
+    },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
     },
     "Deployment Guide 1.1": {
       "authors": [
@@ -377,115 +360,95 @@ img.license{float:left;padding-right:5px}
       "publisher": "OASIS",
       "title": "Deployment Profile Template For OASIS ebXML Message Service 2.0"
     },
-    "Digikoppeling Actuele Documentatie": {
-      "href": "http://www.logius.nl/digikoppeling",
+    "DK": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
       "publisher": "Logius",
-      "title": "Digikoppeling Overzicht Actuele Documentatie en Compliance"
+      "title": "Logius | Digikoppeling",
+      "id": "dk"
     },
-    "Digikoppeling Beheermodel": {
-      "date": "Oktober 2017",
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Standaarden/Digikoppeling-Beheermodel.pdf",
+    "DK-Doc": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
       "publisher": "Logius",
-      "title": "Beheermodel en releasebeleid Digikoppeling v1.5"
+      "title": "Digikoppeling documentatie"
     },
-    "Digikoppeling Best Practices ebMS2": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-Beheermodel": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beheermodel",
+      "id": "dk-beheermodel"
+    },
+    "DK-BPebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices ebMS2"
     },
-    "Digikoppeling Best Practices Grote Berichten": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-BPGB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpgb/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices Grote Berichten"
     },
-    "Digikoppeling Best Practices WUS": {
-      "date": "2019",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
+    "DK-BPWUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpwus/",
       "publisher": "Logius",
       "title": "Digikoppeling Best Practices WUS"
     },
-    "Digikoppeling Beveiligingsdocument": {
-      "date": "2021",
+    "DK-Beveiliging": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
       "publisher": "Logius",
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
     },
-    "Digikoppeling Compliance Voorziening": {
-      "href": "https://portaal.digikoppeling.nl",
-      "publisher": "Logius",
-      "title": "Digikoppeling Compliance Voorziening"
-    },
-    "Digikoppeling Gebruik Certificaten": {
-      "href": "http://www.logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Digikoppeling Gebruik en achtergrond certificaten"
-    },
-    "Digikoppeling Identificatie-Authenticatie": {
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie",
-      "publisher": "Logius",
-      "title": "Digikoppeling Identificatie en Authenticatie"
-    },
-    "Digikoppeling Koppelvlakstandaard ebMS2": {
-      "date": "mei 2019",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-ebMS2/",
+    "DK-gbachtcert": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
       "publisher": "Logius",
       "title": "Digikoppeling Koppelvlakstandaard ebMS2"
     },
-    "Digikoppeling Koppelvlakstandaard Grote Berichten": {
-      "date": "september 2020",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-GB/",
+    "DK-ebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-GB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/gb/",
       "publisher": "Logius",
       "title": "Digikoppeling Koppelvlakstandaard Grote Berichten"
     },
-    "Digikoppeling Koppelvlakstandaard REST API": {
-      "date": "februari 2021",
-      "href": "https://centrumvoorstandaarden.github.io/DigikoppelingRestfulApiProfiel/",
+    "DK-WUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/wus/",
       "publisher": "Logius",
-      "title": "Digikoppeling Restful API Profiel (Concept)"
+      "title": "Digikoppeling Koppelvlakstandaard WUS"
     },
-    "Digikoppeling Koppelvlakstandaard WUS": {
-      "date": "oktober 2020",
-      "href": "https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-WUS/",
-      "publisher": "Logius",
-      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
-    },
-    "Digikoppeling Logius website": {
-      "href": "https://logius.nl/diensten/digikoppeling/documentatie",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Digikoppeling REST API profiel": {
+    "DK-RESTAPI": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/restapi/",
       "publisher": "Logius",
-      "title": "Digikoppeling REST API profiel"
+      "title": "Digikoppeling Koppelvlakstandaard REST-API"
     },
-    "Digikoppeling-Architectuur": {
+    "DK-Architectuur": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/",
       "publisher": "Logius",
       "title": "Digikoppeling Architectuur",
-      "id": "digikoppeling-architectuur"
+      "id": "dk-architectuur"
     },
-    "Digikoppeling-Beveiligingsdocument": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig",
-      "publisher": "Logius",
-      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
-    },
-    "Digikoppeling-Cert": {
-      "href": "http://www.logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Gebruik en achtergrond van Digikoppeling certificaten"
-    },
-    "Digikoppeling-Compliance-Voorziening": {
-      "href": "https://portaal.digikoppeling.nl",
-      "publisher": "Logius",
-      "title": "Digikoppeling Compliance Voorziening"
-    },
-    "Digikoppeling-Identificatie-Authenticatie": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth",
+    "DK-IDAuth": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth/",
       "publisher": "Logius",
       "title": "Digikoppeling Identificatie en Authenticatie"
+    },
+    "DK-WI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/",
+      "publisher": "Logius",
+      "title": "Wat is Digikoppeling?"
+    },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
     },
     "ebCPP": {
       "authors": [
@@ -506,15 +469,6 @@ img.license{float:left;padding-right:5px}
       "publisher": "Oasis",
       "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
     },
-    "ebXML CPPA V 2.0": {
-      "authors": [
-        "Oasis"
-      ],
-      "date": "september 2002",
-      "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
-      "publisher": "Oasis",
-      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
-    },
     "eDelivery API4IPS": {
       "authors": [
         "J. Dimitriou, V. Veduta, B. Dumitriu"
@@ -523,11 +477,6 @@ img.license{float:left;padding-right:5px}
       "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
       "publisher": "OpenID foundation",
       "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
-    },
-    "Eisen Pkioverheid": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
     },
     "Expert": {
       "authors": [
@@ -539,6 +488,7 @@ img.license{float:left;padding-right:5px}
       "title": "Expertadvies CloudEvents 1.0"
     },
     "folmer2011": {
+      "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
       "title": "Management and Development Model for Open Standards (BOMOS) version 2",
       "keywords": "IR-76837",
       "authors": [
@@ -550,7 +500,7 @@ img.license{float:left;padding-right:5px}
       "publisher": "Programmabureau NOiV"
     },
     "folmer2012": {
-      "href": "https://ris.utwente.nl/ws/portalfiles/portal/6064223/thesis_E_Folmer.pdf",
+      "href": "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
       "title": "Quality of Semantic Standards",
       "authors": [
         "Erwin Folmer"
@@ -558,53 +508,26 @@ img.license{float:left;padding-right:5px}
       "date": "2012",
       "publisher": "Universiteit Twente"
     },
-    "Gebruiksvoorwaarden Digikoppeling": {
+    "DK-Gebruiksvoorwaarden": {
       "date": "1 januari 2021",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Gebruiksvoorwaarden Digikoppeling"
     },
-    "Geospatial Module": {
+    "ADR-GEO": {
       "authors": [
         "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
       ],
-      "date": "23 mei 2021",
-      "href": "https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
       "publisher": "Geonovum",
-      "title": "API Design rules Module: Geospatial"
-    },
-    "HEART.OAuth2": {
-      "authors": [
-        "J. Richer"
-      ],
-      "date": "April 25, 2017",
-      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
-      "publisher": "OpenID foundation",
-      "title": "Health Relationship Trust Profile for OAuth 2.0"
+      "title": "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
       "date": "Nov 2014",
       "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       "publisher": "NCSC",
       "title": "Factsheet HTTPS kan een stuk veiliger"
-    },
-    "I-D.ietf-oauth-pop-architecture": {
-      "authors": [
-        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
-      ],
-      "date": "July 8, 2016",
-      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
-      "publisher": "IETF",
-      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
-    },
-    "iGOV.OAuth2": {
-      "authors": [
-        "J. Richer, M. Varley, P. Grassi"
-      ],
-      "date": "October 5 2018",
-      "href": "https://openid.net/specs/openid-igov-oauth2-1_0.html",
-      "publisher": "OpenID foundation",
-      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
     "iGOV.OpenID": {
       "authors": [
@@ -614,6 +537,14 @@ img.license{float:left;padding-right:5px}
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
     },
     "Introspection": {
       "authors": [
@@ -660,15 +591,6 @@ img.license{float:left;padding-right:5px}
       "publisher": "IETF",
       "title": "JSON Web Signature (JWS)"
     },
-    "JWS.JWE.Algs": {
-      "authors": [
-        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
-      ],
-      "date": "",
-      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
-      "publisher": "IANA",
-      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
-    },
     "JWT": {
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
@@ -677,22 +599,6 @@ img.license{float:left;padding-right:5px}
       "href": "https://tools.ietf.org/html/rfc7519",
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
-    },
-    "Logius": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
-    },
-    "Logius website": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling",
-      "id": "logius website"
-    },
-    "Logius-website": {
-      "href": "https://logius.nl/digikoppeling",
-      "publisher": "Logius",
-      "title": "Logius Digikoppeling"
     },
     "NCSC 2019": {
       "date": "April 2019",
@@ -756,54 +662,25 @@ img.license{float:left;padding-right:5px}
       "publisher": "Forum Standaardisatie",
       "title": "Lijst Verplichte standaarden"
     },
-    "PKCE": {
-      "authors": [
-        "N. Sakimura, J. Bradley, N. Agarwal"
-      ],
-      "date": "september 2015",
-      "href": "https://tools.ietf.org/html/rfc7636",
-      "publisher": "IETF",
-      "title": "Proof Key for Code Exchange by OAuth Public Clients"
-    },
-    "PKI CA": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+    "PKIO-PvE": {
+      "href": "https://por.pkioverheid.nl/",
       "publisher": "Logius",
-      "title": "Toegetreden vertrouwensdienstverleners"
-    },
-    "PKI Policy": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
-    },
-    "PKI PvE": {
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/PKIoverheid/PoR-2022/PKIoverheid%20Programme%20of%20Requirements%20v4.10%20-%20Part%203j%20Certificate%20Policy%20for%20Server%20certificates%20in%20Server%202020%20%28EV%20G1%29%20Domain.pdf",
-      "publisher": "Logius",
-      "title": "Programma van Eisen Pkioverheid, deel 3j"
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
     },
     "PKI-CA": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/toegetreden-vertrouwensdienstverleners",
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
       "publisher": "Logius",
-      "title": "Toegetreden vertrouwensdienstverleners"
-    },
-    "PKI-Policy": {
-      "href": "https://www.logius.nl/diensten/pkioverheid/aansluiten-als-tsp/pogramma-van-eisen",
-      "publisher": "Logius",
-      "title": "Programma van Eisen (PKIoverheid)"
+      "title": "Aansluiten als Trust Service Provider"
     },
     "PKIoverheid": {
-      "href": "https://www.logius.nl/diensten/pkioverheid",
+      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
       "publisher": "Logius",
       "title": "PKIoverheid"
     },
-    "PKIoverheid Certificaten": {
+    "PKIO-Cert": {
       "href": "https://cert.pkioverheid.nl/",
       "publisher": "Logius",
-      "title": "Pkioverheid certificaten"
-    },
-    "PKIoverheid-Certificaten": {
-      "href": "https://cert.pkioverheid.nl/",
-      "publisher": "Logius",
-      "title": "Pkioverheid certificaten"
+      "title": "Overzicht PKIoverheid certificaten"
     },
     "SemVer": {
       "authors": [
@@ -813,14 +690,14 @@ img.license{float:left;padding-right:5px}
       "href": "https://semver.org",
       "title": "Semantic Versioning 2.0.0"
     },
-    "Transport Security Module": {
+    "ADR-TS": {
       "authors": [
         ""
       ],
-      "date": "27 september 2023",
-      "href": "https://geonovum.github.io/KP-APIs/API-strategie-modules/transport-security/",
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       "publisher": "Kennisplatform API's",
-      "title": "Transport Security Module"
+      "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
       "authors": [
@@ -851,14 +728,9 @@ img.license{float:left;padding-right:5px}
       "publisher": "The Internet Engineering Task Force",
       "title": "A Universally Unique IDentifier (UUID) URN Namespace"
     },
-    "Voorbeelden": {
-      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
-      "publisher": "Logius",
-      "title": "Digikoppeling WUS voorbeelden (zip)"
-    },
-    "Voorwaarden Digikoppeling": {
+    "DK-Voorwaarden": {
       "date": "1 januari 2021",
-      "href": "https://www.logius.nl/diensten/digikoppeling/documentatie/voorwaarden-digikoppeling",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Voorwaarden Digikoppeling"
     },
@@ -868,13 +740,62 @@ img.license{float:left;padding-right:5px}
       "title": "ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6"
     },
     "ADR-Validator": {
-      "href": "https://gitlab.com/commonground/don/adr-validator/-/blob/v0.1.0/pkg/adr/rules.go",
-      "title": "Technical ADR Validation rule testset 0.1.0",
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
       "authors": [
         "H. Stijns"
       ],
       "publisher": "Geonovum",
-      "date": "December 2022"
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
     }
   },
   "alternateFormats": [
@@ -913,8 +834,8 @@ img.license{float:left;padding-right:5px}
   "specType": "WA"
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
- <body class="h-entry toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+ <body class="h-entry"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">Digikoppeling Beheermodel 1.8</h1>
     
     <h2>
@@ -924,16 +845,16 @@ img.license{float:left;padding-right:5px}
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
-              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/1.8/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/1.8</a>
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/1.8/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/1.8/</a>
             </dd>
       <dt>Laatst gepubliceerde versie:</dt><dd>
-              <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer</a>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/</a>
             </dd>
       <dt>Laatste werkversie:</dt><dd><a href="https://logius-standaarden.github.io/Digikoppeling-Beheermodel/">https://logius-standaarden.github.io/Digikoppeling-Beheermodel/</a></dd>
       
       
       
-      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/1.7/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/1.7</a></dd>
+      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/1.7/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/1.7/</a></dd>
       
       <dt>Redacteurs:</dt>
       <dd class="editor p-author h-card vcard">
@@ -986,7 +907,7 @@ img.license{float:left;padding-right:5px}
 </section>
   <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#leeswijzer"><bdi class="secno">1.1 </bdi>Leeswijzer</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#bijlagen"><bdi class="secno">1.1.1 </bdi>Bijlagen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#digikoppeling"><bdi class="secno">1.2 </bdi>Digikoppeling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#nut"><bdi class="secno">1.2.1 </bdi>Nut</a></li><li class="tocline"><a class="tocxref" href="#werking"><bdi class="secno">1.2.2 </bdi>Werking</a></li><li class="tocline"><a class="tocxref" href="#status"><bdi class="secno">1.2.3 </bdi>Status</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bomos"><bdi class="secno">1.3 </bdi>BOMOS</a></li></ol></li><li class="tocline"><a class="tocxref" href="#strategie"><bdi class="secno">2. </bdi>Strategie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#visie"><bdi class="secno">2.1 </bdi>Visie</a></li><li class="tocline"><a class="tocxref" href="#governance"><bdi class="secno">2.2 </bdi>Governance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#governancestructuur"><bdi class="secno">2.2.1 </bdi>Governancestructuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#de-digikoppeling-community"><bdi class="secno">2.2.1.1 </bdi>De Digikoppeling community</a></li><li class="tocline"><a class="tocxref" href="#technisch-overleg"><bdi class="secno">2.2.1.2 </bdi>Technisch Overleg</a></li><li class="tocline"><a class="tocxref" href="#tactisch-overleg-de-programmeringstafel"><bdi class="secno">2.2.1.3 </bdi>Tactisch overleg: De Programmeringstafel</a></li><li class="tocline"><a class="tocxref" href="#het-strategisch-overleg-de-programmeringsraad-gdi"><bdi class="secno">2.2.1.4 </bdi>Het Strategisch overleg: De Programmeringsraad GDI</a></li><li class="tocline"><a class="tocxref" href="#overheidsbreed-beleidsoverleg-digitale-overheid-obdo"><bdi class="secno">2.2.1.5 </bdi>Overheidsbreed Beleidsoverleg Digitale Overheid (OBDO)</a></li><li class="tocline"><a class="tocxref" href="#architectuurraad"><bdi class="secno">2.2.1.6 </bdi>Architectuurraad</a></li></ol></li><li class="tocline"><a class="tocxref" href="#besluitvorming"><bdi class="secno">2.2.2 </bdi>Besluitvorming</a></li><li class="tocline"><a class="tocxref" href="#deelname"><bdi class="secno">2.2.3 </bdi>Deelname</a></li></ol></li><li class="tocline"><a class="tocxref" href="#financiering"><bdi class="secno">2.3 </bdi>Financiering</a></li></ol></li><li class="tocline"><a class="tocxref" href="#tactiek"><bdi class="secno">3. </bdi>Tactiek</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#community"><bdi class="secno">3.1 </bdi>Community</a></li><li class="tocline"><a class="tocxref" href="#architectuur"><bdi class="secno">3.2 </bdi>Architectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#internationale-europese-en-nationale-standaardisatiegemeenschap"><bdi class="secno">3.2.1 </bdi>Internationale, Europese en nationale standaardisatiegemeenschap</a></li><li class="tocline"><a class="tocxref" href="#samenwerking-met-andere-beheerorganisaties"><bdi class="secno">3.2.2 </bdi>Samenwerking met andere beheerorganisaties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#rechtenbeleid"><bdi class="secno">3.3 </bdi>Rechtenbeleid</a></li><li class="tocline"><a class="tocxref" href="#kwaliteitsbeleid-en-benchmarking"><bdi class="secno">3.4 </bdi>Kwaliteitsbeleid en benchmarking</a></li><li class="tocline"><a class="tocxref" href="#adoptie-en-erkenning"><bdi class="secno">3.5 </bdi>Adoptie en erkenning</a></li></ol></li><li class="tocline"><a class="tocxref" href="#operationeel"><bdi class="secno">4. </bdi>Operationeel</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#initiatie"><bdi class="secno">4.1 </bdi>Initiatie</a></li><li class="tocline"><a class="tocxref" href="#wensen-en-eisen"><bdi class="secno">4.2 </bdi>Wensen en Eisen</a></li><li class="tocline"><a class="tocxref" href="#uitvoering-en-ontwikkeling-wijzigingsproces"><bdi class="secno">4.3 </bdi>Uitvoering en ontwikkeling (Wijzigingsproces)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wijzigingen"><bdi class="secno">4.3.1 </bdi>Wijzigingen</a></li><li class="tocline"><a class="tocxref" href="#patches"><bdi class="secno">4.3.2 </bdi>Patches</a></li><li class="tocline"><a class="tocxref" href="#releases"><bdi class="secno">4.3.3 </bdi>Releases</a></li><li class="tocline"><a class="tocxref" href="#impact-van-wijzigingen-en-versienummering"><bdi class="secno">4.3.4 </bdi>Impact van wijzigingen en versienummering</a></li></ol></li><li class="tocline"><a class="tocxref" href="#status-van-de-standaard"><bdi class="secno">4.4 </bdi>Status van de standaard</a></li><li class="tocline"><a class="tocxref" href="#documentatie"><bdi class="secno">4.5 </bdi>Documentatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#implementatieondersteuning"><bdi class="secno">5. </bdi>Implementatieondersteuning</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#opleiding-en-advies"><bdi class="secno">5.1 </bdi>Opleiding en advies</a></li><li class="tocline"><a class="tocxref" href="#helpdesk"><bdi class="secno">5.2 </bdi>Helpdesk</a></li><li class="tocline"><a class="tocxref" href="#validatie-certificatie"><bdi class="secno">5.3 </bdi>Validatie &amp; Certificatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#communicatie"><bdi class="secno">6. </bdi>Communicatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#promotie"><bdi class="secno">6.1 </bdi>Promotie</a></li><li class="tocline"><a class="tocxref" href="#publicatie"><bdi class="secno">6.2 </bdi>Publicatie</a></li><li class="tocline"><a class="tocxref" href="#klachtenafhandeling"><bdi class="secno">6.3 </bdi>Klachtenafhandeling</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bijlage-gebruik-respec"><bdi class="secno">7. </bdi>Bijlage: Gebruik ReSpec</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#logius-profiel"><bdi class="secno">7.1 </bdi>Logius profiel</a></li><li class="tocline"><a class="tocxref" href="#literatuurverwijzingen"><bdi class="secno">7.2 </bdi>Literatuurverwijzingen</a></li><li class="tocline"><a class="tocxref" href="#links"><bdi class="secno">7.3 </bdi>Links</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bijlage-gebruik-github-in-het-beheerproces"><bdi class="secno">8. </bdi>Bijlage: Gebruik GitHub in het beheerproces</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#publicatie-0"><bdi class="secno">8.1 </bdi>Publicatie</a></li><li class="tocline"><a class="tocxref" href="#wijzigingsvoorstellen"><bdi class="secno">8.2 </bdi>Wijzigingsvoorstellen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#branches"><bdi class="secno">8.2.1 </bdi>Branches</a></li><li class="tocline"><a class="tocxref" href="#labels"><bdi class="secno">8.2.2 </bdi>Labels</a></li></ol></li><li class="tocline"><a class="tocxref" href="#patches-0"><bdi class="secno">8.3 </bdi>Patches</a></li><li class="tocline"><a class="tocxref" href="#automatisering-en-scripts"><bdi class="secno">8.4 </bdi>Automatisering en scripts</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bijlage-versie-nummering-logius-standaarden"><bdi class="secno">9. </bdi>Bijlage: versie-nummering Logius standaarden</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#versioneringsmethodiek"><bdi class="secno">9.1 </bdi>Versioneringsmethodiek</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#patch-releases"><bdi class="secno">9.1.1 </bdi>Patch Releases</a></li><li class="tocline"><a class="tocxref" href="#minor-releases"><bdi class="secno">9.1.2 </bdi>Minor releases</a></li><li class="tocline"><a class="tocxref" href="#major-releases"><bdi class="secno">9.1.3 </bdi>Major Releases</a></li></ol></li><li class="tocline"><a class="tocxref" href="#toelichting-en-voorbeeld-regels"><bdi class="secno">9.2 </bdi>Toelichting en voorbeeld regels</a></li><li class="tocline"><a class="tocxref" href="#versie-overgangen"><bdi class="secno">9.3 </bdi>Versie overgangen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">10. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">11. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</a></li><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">A.2 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
   <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Datum</th>
@@ -1064,7 +985,7 @@ img.license{float:left;padding-right:5px}
 </tbody></table>
 </section>
   <section class="introductory" id="colofon"><div class="header-wrapper"><h2 id="colofon-0">Colofon</h2><a class="self-link" href="#colofon" aria-label="Permalink for this Section"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1087,62 +1008,41 @@ gebaseerd op de principes uit de BOMOS standaard.</p>
 <section id="leeswijzer"><div class="header-wrapper"><h3 id="x1-1-leeswijzer"><bdi class="secno">1.1 </bdi>Leeswijzer</h3><a class="self-link" href="#leeswijzer" aria-label="Permalink for Section 1.1"></a></div>
 <p>De Digikoppeling standaarden zijn beschreven in een set van documenten.
 Deze set is als volgt opgebouwd:</p>
-<p>
-      </p><figure id="fig-opbouw-documentatie-digikoppeling">
-        <img src="images/DK_Specificatie_structuur.png" alt="Opbouw documentatie Digikoppeling">
-        <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
-      </figure>
-    <p></p>
-<details>
-    <summary>Tekstalternatief</summary>
-<ul>
-    <li>Digikoppeling Standaard
-        <ul>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">DK Beheermodel en releasebeleid</a>* </li>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/actueel/">DK Overzicht Actuele Documentatie en Compliance</a>* </li>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/architectuur">DK Architectuur</a>*
-                <ul>
-                    <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/idauth/">DK Identificatie en Authenticatie</a>*
-                        <ul>
-                            <li><i> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/">Digikoppeling Gebruik en Achtergronden Certificaten</a></i>† </li>
-                        </ul>
-                    </li>
-                    <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">DK Beveiligingsstandaarden en voorschriften</a>* </li>
-                    <li>Koppelvlakstandaarden
-                        <ul>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/wus/">DK Koppelvlakstandaard WUS</a>*
-                                <ul>
-                                    <li><i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpwus">Best-practice WUS</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/ebms/">DK Koppelvlakstandaard ebMS2</a>*
-                                <ul>
-                                    <li> <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpebms">Best-practice ebMS2</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/">DK Koppelvlakstandaard REST API</a>*
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/gb/">DK Koppelvlakstandaard Grote Berichten</a>*
-                                <ul>
-                                    <li> <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpgb">Best-practice Grote Berichten</a></i>†</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-    <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/">Wat is Digikoppeling</a></i>†
-  </li>
-        </ul>
-    </li>
-</ul>
-<p>* Normatief document</p>
-<p>† Ondersteunend document</p>
-</details>
+<figure id="fig-opbouw-documentatie-digikoppeling">
+  <object data="https://logius-standaarden.github.io/publicatie/dk/actueel/media/DK_Specificatie_structuur.svg" type="image/svg+xml" id="infographic">Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen</object>
+  <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
+</figure>
 
-<p>Alle met de kleur groen aangegeven documenten vallen onder het beheer
-zoals geformaliseerd in het Beheermodel en releasebeleid.</p>
+<p><b>Legenda</b></p>
+<table class="legendum">
+    <thead>
+        <tr>
+            <th><strong>Kleur</strong></th>
+            <th><strong>Soort Document</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="green">Groen</td>
+            <td>Standaard documentatie</td>
+        </tr>
+        <tr>
+            <td class="grey">Grijs</td>
+            <td>Ondersteunende documentatie</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p><b>Beheer</b></p>
+<ul>
+<li><p>De standaarddocumenten (groen/vierkant aangegeven) vallen onder het beheer zoals geformaliseerd in het document <cite><a data-matched-text="[[[?DK-Beheermodel]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">Digikoppeling Beheermodel</a></cite>.</p>
+</li>
+<li><p>De ondersteunende documentatie wordt onderhouden door Logius als de beheerder van de standaard (en afgestemd met stakeholders/ gebruikers).</p>
+</li>
+<li><p>Alle goedgekeurde documenten zijn te vinden op de website van Logius, <a href="https://www.logius.nl/onze-dienstverlening/domeinen/gegevensuitwisseling/digikoppeling">www.logius.nl</a>.</p>
+</li>
+</ul>
 <p>De Digikoppeling Koppelvlakstandaarden bevatten meerdere profielen
 waarin een samenhangend interactiepatroon voor berichtuitwisseling is
 beschreven<sup>2</sup>.</p>
@@ -1320,7 +1220,7 @@ niveau van het OBDO. Voor GDI standaarden  mandateert het OBDO de
 programmeringsraad tot het nemen van besluiten over wijzigingen op de standaard. </p>
 <p>Het OBDO wordt geïnformeerd over wijzigingen op de standaard. </p>
 <p>In tabelvorm:</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th><strong>Gremium</strong></th>
@@ -1428,23 +1328,39 @@ de ontwikkeling, de implementatie en het gebruik van de
 Digikoppeling-standaard. Dit geldt dus ook voor het beheer en
 onderhoud ervan. In onderstaand schema zijn de belanghebbenden
 aangegeven.</p>
-<pre><code class="mermaid hljs" aria-busy="false" data-processed="true"><svg aria-roledescription="mindmap" role="graphics-document document" viewBox="5 5 1193.679931640625 589.2019653320312" style="max-width: 1193.679931640625px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1700152313275"><style>
-#mermaid-1700152313275{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1700152313275 .error-icon{fill:#552222;}#mermaid-1700152313275 .error-text{fill:#552222;stroke:#552222;}#mermaid-1700152313275 .edge-thickness-normal{stroke-width:2px;}#mermaid-1700152313275 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1700152313275 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1700152313275 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1700152313275 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1700152313275 .marker{fill:#333333;stroke:#333333;}#mermaid-1700152313275 .marker.cross{stroke:#333333;}#mermaid-1700152313275 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1700152313275 .edge{stroke-width:3;}#mermaid-1700152313275 .section--1 rect,#mermaid-1700152313275 .section--1 path,#mermaid-1700152313275 .section--1 circle,#mermaid-1700152313275 .section--1 polygon,#mermaid-1700152313275 .section--1 path{fill:hsl(240, 100%, 76.2745098039%);}#mermaid-1700152313275 .section--1 text{fill:#ffffff;}#mermaid-1700152313275 .node-icon--1{font-size:40px;color:#ffffff;}#mermaid-1700152313275 .section-edge--1{stroke:hsl(240, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth--1{stroke-width:17;}#mermaid-1700152313275 .section--1 line{stroke:hsl(60, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-0 rect,#mermaid-1700152313275 .section-0 path,#mermaid-1700152313275 .section-0 circle,#mermaid-1700152313275 .section-0 polygon,#mermaid-1700152313275 .section-0 path{fill:hsl(60, 100%, 73.5294117647%);}#mermaid-1700152313275 .section-0 text{fill:black;}#mermaid-1700152313275 .node-icon-0{font-size:40px;color:black;}#mermaid-1700152313275 .section-edge-0{stroke:hsl(60, 100%, 73.5294117647%);}#mermaid-1700152313275 .edge-depth-0{stroke-width:14;}#mermaid-1700152313275 .section-0 line{stroke:hsl(240, 100%, 83.5294117647%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-1 rect,#mermaid-1700152313275 .section-1 path,#mermaid-1700152313275 .section-1 circle,#mermaid-1700152313275 .section-1 polygon,#mermaid-1700152313275 .section-1 path{fill:hsl(80, 100%, 76.2745098039%);}#mermaid-1700152313275 .section-1 text{fill:black;}#mermaid-1700152313275 .node-icon-1{font-size:40px;color:black;}#mermaid-1700152313275 .section-edge-1{stroke:hsl(80, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth-1{stroke-width:11;}#mermaid-1700152313275 .section-1 line{stroke:hsl(260, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-2 rect,#mermaid-1700152313275 .section-2 path,#mermaid-1700152313275 .section-2 circle,#mermaid-1700152313275 .section-2 polygon,#mermaid-1700152313275 .section-2 path{fill:hsl(270, 100%, 76.2745098039%);}#mermaid-1700152313275 .section-2 text{fill:#ffffff;}#mermaid-1700152313275 .node-icon-2{font-size:40px;color:#ffffff;}#mermaid-1700152313275 .section-edge-2{stroke:hsl(270, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth-2{stroke-width:8;}#mermaid-1700152313275 .section-2 line{stroke:hsl(90, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-3 rect,#mermaid-1700152313275 .section-3 path,#mermaid-1700152313275 .section-3 circle,#mermaid-1700152313275 .section-3 polygon,#mermaid-1700152313275 .section-3 path{fill:hsl(300, 100%, 76.2745098039%);}#mermaid-1700152313275 .section-3 text{fill:black;}#mermaid-1700152313275 .node-icon-3{font-size:40px;color:black;}#mermaid-1700152313275 .section-edge-3{stroke:hsl(300, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth-3{stroke-width:5;}#mermaid-1700152313275 .section-3 line{stroke:hsl(120, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-4 rect,#mermaid-1700152313275 .section-4 path,#mermaid-1700152313275 .section-4 circle,#mermaid-1700152313275 .section-4 polygon,#mermaid-1700152313275 .section-4 path{fill:hsl(330, 100%, 76.2745098039%);}#mermaid-1700152313275 .section-4 text{fill:black;}#mermaid-1700152313275 .node-icon-4{font-size:40px;color:black;}#mermaid-1700152313275 .section-edge-4{stroke:hsl(330, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth-4{stroke-width:2;}#mermaid-1700152313275 .section-4 line{stroke:hsl(150, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-5 rect,#mermaid-1700152313275 .section-5 path,#mermaid-1700152313275 .section-5 circle,#mermaid-1700152313275 .section-5 polygon,#mermaid-1700152313275 .section-5 path{fill:hsl(0, 100%, 76.2745098039%);}#mermaid-1700152313275 .section-5 text{fill:black;}#mermaid-1700152313275 .node-icon-5{font-size:40px;color:black;}#mermaid-1700152313275 .section-edge-5{stroke:hsl(0, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth-5{stroke-width:-1;}#mermaid-1700152313275 .section-5 line{stroke:hsl(180, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-6 rect,#mermaid-1700152313275 .section-6 path,#mermaid-1700152313275 .section-6 circle,#mermaid-1700152313275 .section-6 polygon,#mermaid-1700152313275 .section-6 path{fill:hsl(30, 100%, 76.2745098039%);}#mermaid-1700152313275 .section-6 text{fill:black;}#mermaid-1700152313275 .node-icon-6{font-size:40px;color:black;}#mermaid-1700152313275 .section-edge-6{stroke:hsl(30, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth-6{stroke-width:-4;}#mermaid-1700152313275 .section-6 line{stroke:hsl(210, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-7 rect,#mermaid-1700152313275 .section-7 path,#mermaid-1700152313275 .section-7 circle,#mermaid-1700152313275 .section-7 polygon,#mermaid-1700152313275 .section-7 path{fill:hsl(90, 100%, 76.2745098039%);}#mermaid-1700152313275 .section-7 text{fill:black;}#mermaid-1700152313275 .node-icon-7{font-size:40px;color:black;}#mermaid-1700152313275 .section-edge-7{stroke:hsl(90, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth-7{stroke-width:-7;}#mermaid-1700152313275 .section-7 line{stroke:hsl(270, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-8 rect,#mermaid-1700152313275 .section-8 path,#mermaid-1700152313275 .section-8 circle,#mermaid-1700152313275 .section-8 polygon,#mermaid-1700152313275 .section-8 path{fill:hsl(150, 100%, 76.2745098039%);}#mermaid-1700152313275 .section-8 text{fill:black;}#mermaid-1700152313275 .node-icon-8{font-size:40px;color:black;}#mermaid-1700152313275 .section-edge-8{stroke:hsl(150, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth-8{stroke-width:-10;}#mermaid-1700152313275 .section-8 line{stroke:hsl(330, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-9 rect,#mermaid-1700152313275 .section-9 path,#mermaid-1700152313275 .section-9 circle,#mermaid-1700152313275 .section-9 polygon,#mermaid-1700152313275 .section-9 path{fill:hsl(180, 100%, 76.2745098039%);}#mermaid-1700152313275 .section-9 text{fill:black;}#mermaid-1700152313275 .node-icon-9{font-size:40px;color:black;}#mermaid-1700152313275 .section-edge-9{stroke:hsl(180, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth-9{stroke-width:-13;}#mermaid-1700152313275 .section-9 line{stroke:hsl(0, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-10 rect,#mermaid-1700152313275 .section-10 path,#mermaid-1700152313275 .section-10 circle,#mermaid-1700152313275 .section-10 polygon,#mermaid-1700152313275 .section-10 path{fill:hsl(210, 100%, 76.2745098039%);}#mermaid-1700152313275 .section-10 text{fill:black;}#mermaid-1700152313275 .node-icon-10{font-size:40px;color:black;}#mermaid-1700152313275 .section-edge-10{stroke:hsl(210, 100%, 76.2745098039%);}#mermaid-1700152313275 .edge-depth-10{stroke-width:-16;}#mermaid-1700152313275 .section-10 line{stroke:hsl(30, 100%, 86.2745098039%);stroke-width:3;}#mermaid-1700152313275 .disabled,#mermaid-1700152313275 .disabled circle,#mermaid-1700152313275 .disabled text{fill:lightgray;}#mermaid-1700152313275 .disabled text{fill:#efefef;}#mermaid-1700152313275 .section-root rect,#mermaid-1700152313275 .section-root path,#mermaid-1700152313275 .section-root circle,#mermaid-1700152313275 .section-root polygon{fill:hsl(240, 100%, 46.2745098039%);}#mermaid-1700152313275 .section-root text{fill:#ffffff;}#mermaid-1700152313275 .icon-container{height:100%;display:flex;justify-content:center;align-items:center;}#mermaid-1700152313275 .edge{fill:none;}#mermaid-1700152313275 .mindmap-node-label{dy:1em;alignment-baseline:middle;text-anchor:middle;dominant-baseline:middle;text-align:center;}#mermaid-1700152313275 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}
-</style><g></g><g></g><g class="mindmap-edges"><path class="edge section-edge-0 edge-depth-2" d="M 810.6950235357093,183.69485764662073 L 797.6441969471571,152.13623810160695 L784.5933703586048,120.57761855659318"></path><path class="edge section-edge-0 edge-depth-2" d="M 826.6129119739137,186.54479918051106 L 853.8138631242674,157.1380938460314 L881.0148142746211,127.73138851155177"></path><path class="edge section-edge-0 edge-depth-2" d="M 801.5175610058923,195.91356552693352 L 737.843881829444,188.8979419940484 L674.1702026529956,181.8823184611633"></path><path class="edge section-edge-0 edge-depth-1" d="M 806.0154737488263,283.469286821899 L 810.3190745313576,247.95833457582506 L814.622675313889,212.44738232975115"></path><path class="edge section-edge-0 edge-depth-2" d="M 980.9080935165662,290.3870515653113 L 1034.7976490617657,316.6393824368293 L1088.6872046069652,342.8917133083473"></path><path class="edge section-edge-0 edge-depth-2" d="M 982.2621357251703,281.6262980416537 L 1046.374703141622,272.15773608976957 L1110.4872705580738,262.68917413788546"></path><path class="edge section-edge-0 edge-depth-2" d="M 975.3231850783183,271.066803843361 L 997.3446617346062,235.5233848767122 L1019.3661383908943,199.9799659100634"></path><path class="edge section-edge-0 edge-depth-1" d="M 819.1516248442146,297.02907859749286 L 885.8169541853495,291.0890780993458 L952.4822835264844,285.1490776011987"></path><path class="edge section-edge-0 edge-depth-2" d="M 847.3663491561974,396.55734469855713 L 776.7254151516231,420.1959276421133 L706.084481147049,443.8345105856695"></path><path class="edge section-edge-0 edge-depth-2" d="M 863.22531949578,406.70803678726975 L 866.8013397332467,439.33494198168125 L870.3773599707133,471.96184717609265"></path><path class="edge section-edge-0 edge-depth-2" d="M 875.8680094675512,396.39826175315113 L 934.2778599366485,415.221586013612 L992.6877104057457,434.0449102740729"></path><path class="edge section-edge-0 edge-depth-1" d="M 812.0604215794365,311.14249458745235 L 832.9009356012621,345.07883068631185 L853.7414496230874,379.01516678517135"></path><path class="edge section-edge-0 edge-depth-0" d="M 655.0049280443318,303.76749614256585 L 722.1127921416917,301.33553265545345 L789.2206562390516,298.90356916834105"></path><path class="edge section-edge-1 edge-depth-2" d="M 528.6963924775216,495.6206952178453 L 569.5467449108667,523.0024685574343 L610.3970973442116,550.3842418970233"></path><path class="edge section-edge-1 edge-depth-2" d="M 505.5866570107428,497.8320653880942 L 476.3994385238625,526.7815587518572 L447.21222003698233,555.7310521156203"></path><path class="edge section-edge-1 edge-depth-1" d="M 515.5867289462492,400.83835937561634 L 515.8552491499559,436.5538532097921 L516.1237693536624,472.2693470439679"></path><path class="edge section-edge-1 edge-depth-2" d="M 281.3600538377958,438.5769954986339 L 259.6894556541021,468.6253480305103 L238.01885747040842,498.67370056238667"></path><path class="edge section-edge-1 edge-depth-2" d="M 275.1834990152996,425.1952822094489 L 197.45111618706704,418.87520753587984 L119.7187333588345,412.55513286231076"></path><path class="edge section-edge-1 edge-depth-1" d="M 500.71133221558307,388.4967704683289 L 402.80406074601285,406.124818824675 L304.89678927644263,423.7528671810211"></path><path class="edge section-edge-1 edge-depth-0" d="M 627.4647269630209,312.52635709478716 L 577.7443628205654,345.0747585667599 L528.0239986781097,377.62316003873264"></path><path class="edge section-edge-2 edge-depth-2" d="M 317.4091317321537,193.40377712336533 L 277.91845156667273,160.7540353703916 L238.42777140119176,128.1042936174178"></path><path class="edge section-edge-2 edge-depth-2" d="M 335.22052924117264,216.59719575703005 L 351.38680454148243,251.86201323239942 L367.5530798417922,287.1268307077688"></path><path class="edge section-edge-2 edge-depth-2" d="M 331.19914693155573,188.12830717664673 L 336.6851888707525,151.62791144659806 L342.17123080994924,115.1275157165494"></path><path class="edge section-edge-2 edge-depth-2" d="M 314.01922314336645,201.7435090059762 L 217.47702511878651,193.87708775396595 L120.93482709420658,186.01066650195565"></path><path class="edge section-edge-2 edge-depth-2" d="M 315.73424993895935,210.02027463760032 L 258.58942819304593,240.49614884052494 L201.44460644713246,270.97202304344955"></path><path class="edge section-edge-2 edge-depth-1" d="M 496.77286836899884,220.46125142115935 L 420.33081794695,212.4894018365388 L343.888767524901,204.51755225191826"></path><path class="edge section-edge-2 edge-depth-2" d="M 519.2446825897692,107.41513180514269 L 500.2314725204496,76.54728282017825 L481.21826245112993,45.6794338352138"></path><path class="edge section-edge-2 edge-depth-2" d="M 539.2444619450994,111.36691781397138 L 577.1428054081499,83.81757121481033 L615.0411488712004,56.26822461564927"></path><path class="edge section-edge-2 edge-depth-1" d="M 513.9377067483961,207.18617188110505 L 519.4016944908903,171.10192986771435 L524.8656822333846,135.01768785432364"></path><path class="edge section-edge-2 edge-depth-0" d="M 627.3881646710336,296.2132722689545 L 575.8533644173683,263.16392021670106 L524.3185641637031,230.1145681644477"></path></g><g class="mindmap-nodes"><g transform="translate(581.9835181784098, 277.6029221012694)" class="mindmap-node section--1 section-root"><g><path d="M0 0 a17.409375,17.409375 0 0,1 29.015625,-11.606250000000001
-      a40.621874999999996,40.621874999999996 1 0,1 46.425000000000004,-11.606250000000001
-      a29.015625,29.015625 1 0,1 40.621874999999996,23.212500000000002
-
-      a17.409375,17.409375 1 0,1 17.409375,18.69546821594238
-      a23.212500000000002,23.212500000000002 1 0,1 -17.409375,34.72015525817871
-
-      a29.015625,17.409375 1 0,1 -29.015625,17.409375
-      a40.621874999999996,40.621874999999996 1 0,1 -58.03125,0
-      a17.409375,17.409375 1 0,1 -29.015625,-17.409375
-
-      a17.409375,17.409375 1 0,1 -11.606250000000001,-18.69546821594238
-      a23.212500000000002,23.212500000000002 1 0,1 11.606250000000001,-34.72015525817871
-
-    H0 V0 Z" class="node-bkg node-cloud" id="node-0"></path></g><g transform="translate(58.03125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Belang</tspan><tspan font-weight="normal" class="text-inner-tspan" font-style="normal"> bij</tspan></tspan><tspan dy="1.1em" y="1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Digikoppeling</tspan></tspan></text></g></g></g><g transform="translate(763.1561286049736, 275.45251897257697)" class="mindmap-node section-0"><g><polygon transform="translate(-1.4539062500000028, 45.815625)" points="11.45390625,0 73.56328125,0 85.0171875,-22.9078125 73.56328125,-45.815625 11.45390625,-45.815625 0,-22.9078125"></polygon></g><g transform="translate(41.0546875, 10)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Vraag</tspan></tspan></text></g></g></g><g transform="translate(740.4038954577417, 174.6485251790732)" class="mindmap-node section-0"><g><rect width="152.046875" ry="20" rx="20" height="45.815625" class="node-bkg node-rounded-rect" id="node-2"></rect></g><g transform="translate(76.0234375, 10)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Sectorregiseurs</tspan></tspan></text></g></g></g><g transform="translate(751.5251234365725, 88.80832602414068)" class="mindmap-node section-0"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h44.671875 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-3"></path><line y2="35.815625" x2="54.671875" y1="35.815625" x1="0" class="node-line-0"></line></g><g transform="translate(27.3359375, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">VNG</tspan></tspan></text></g></g></g><g transform="translate(863.4191432907932, 98.8120375129896)" class="mindmap-node section-0"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h45.5625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-4"></path><line y2="35.815625" x2="55.5625" y1="35.815625" x1="0" class="node-line-0"></line></g><g transform="translate(27.78125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">DUO</tspan></tspan></text></g></g></g><g transform="translate(628.8151182011462, 162.3317338090236)" class="mindmap-node section-0"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h50.890625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-5"></path><line y2="35.815625" x2="60.890625" y1="35.815625" x1="0" class="node-line-0"></line></g><g transform="translate(30.4453125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">BKWI</tspan></tspan></text></g></g></g><g transform="translate(908.2980922657254, 260.91001222611465)" class="mindmap-node section-0"><g><rect width="118.25" ry="20" rx="20" height="45.815625" class="node-bkg node-rounded-rect" id="node-6"></rect></g><g transform="translate(59.125, 10)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Gebruikers</tspan></tspan></text></g></g></g><g transform="translate(1015.6643933578061, 331.553127647544)" class="mindmap-node section-0"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h163.015625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-7"></path><line y2="35.815625" x2="173.015625" y1="35.815625" x1="0" class="node-line-0"></line></g><g transform="translate(86.5078125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Indivduele</tspan><tspan font-weight="normal" class="text-inner-tspan" font-style="normal"> overheden</tspan></tspan></text></g></g></g><g transform="translate(1083.3028765175186, 242.5898349534245)" class="mindmap-node section-0"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h74.046875 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-8"></path><line y2="35.815625" x2="84.046875" y1="35.815625" x1="0" class="node-line-0"></line></g><g transform="translate(42.0234375, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Sectoren</tspan></tspan></text></g></g></g><g transform="translate(956.3287312034872, 160.52113329024928)" class="mindmap-node section-0"><g><path d="M0 48.41562347412109 v-43.41562347412109 q0,-5 5,-5 h131.875 q5,0 5,5 v48.41562347412109 H0 Z" class="node-bkg node-no-border" id="node-9"></path><line y2="53.41562347412109" x2="141.875" y1="53.41562347412109" x1="0" class="node-line-0"></line></g><g transform="translate(70.9375, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Bronhouders</tspan><tspan font-weight="normal" class="text-inner-tspan" font-style="normal"> van</tspan></tspan><tspan dy="1.1em" y="1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">basisregistraties</tspan></tspan></text></g></g></g><g transform="translate(765.5441800975503, 368.88951740004677)" class="mindmap-node section-0"><g><rect width="192.09375" ry="20" rx="20" height="45.815625" class="node-bkg node-rounded-rect" id="node-10"></rect></g><g transform="translate(96.046875, 10)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">eOverheids</tspan><tspan font-weight="normal" class="text-inner-tspan" font-style="normal"> projecten</tspan></tspan></text></g></g></g><g transform="translate(634.7269627056961, 430.6867128841799)" class="mindmap-node section-0"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h104.265625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-11"></path><line y2="35.815625" x2="114.265625" y1="35.815625" x1="0" class="node-line-0"></line></g><g transform="translate(57.1328125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">MijnOverheid</tspan></tspan></text></g></g></g><g transform="translate(816.644436868943, 468.96474156331567)" class="mindmap-node section-0"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h100.734375 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-12"></path><line y2="35.815625" x2="110.734375" y1="35.815625" x1="0" class="node-line-0"></line></g><g transform="translate(55.3671875, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">eHerkenning</tspan></tspan></text></g></g></g><g transform="translate(984.5115397757467, 420.7380296271773)" class="mindmap-node section-0"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h34.90625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-13"></path><line y2="35.815625" x2="44.90625" y1="35.815625" x1="0" class="node-line-0"></line></g><g transform="translate(22.453125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">eID</tspan></tspan></text></g></g></g><g transform="translate(442.9895824627208, 362.93097079518986)" class="mindmap-node section-1"><g><polygon transform="translate(-1.4539062500000028, 45.815625)" points="11.45390625,0 136.42265625000002,0 147.8765625,-22.9078125 136.42265625000002,-45.815625 11.45390625,-45.815625 0,-22.9078125"></polygon></g><g transform="translate(72.484375, 10)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Ondersteuning</tspan></tspan></text></g></g></g><g transform="translate(462.8381033371908, 464.3611106243944)" class="mindmap-node section-1"><g><rect width="106.796875" ry="20" rx="20" height="45.815625" class="node-bkg node-rounded-rect" id="node-15"></rect></g><g transform="translate(53.3984375, 10)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Expertise</tspan></tspan></text></g></g></g><g transform="translate(559.9350739845424, 540.8282014904743)" class="mindmap-node section-1"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h115.84375 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-16"></path><line y2="35.815625" x2="125.84375" y1="35.815625" x1="0" class="node-line-1"></line></g><g transform="translate(62.921875, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Adviesbureaus</tspan></tspan></text></g></g></g><g transform="translate(382.99202371053434, 548.3863818793201)" class="mindmap-node section-1"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h97.140625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-17"></path><line y2="35.815625" x2="107.140625" y1="35.815625" x1="0" class="node-line-1"></line></g><g transform="translate(53.5703125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">ICT–experts</tspan></tspan></text></g></g></g><g transform="translate(192.72791402930488, 403.5030418541602)" class="mindmap-node section-1"><g><rect width="194.8125" ry="20" rx="20" height="45.815625" class="node-bkg node-rounded-rect" id="node-18"></rect></g><g transform="translate(97.40625, 10)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Beheer</tspan><tspan font-weight="normal" class="text-inner-tspan" font-style="normal"> en</tspan><tspan font-weight="normal" class="text-inner-tspan" font-style="normal"> onderhoud</tspan></tspan></text></g></g></g><g transform="translate(169.16662227889935, 492.9320292068604)" class="mindmap-node section-1"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h110.15625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-19"></path><line y2="35.815625" x2="120.15625" y1="35.815625" x1="0" class="node-line-1"></line></g><g transform="translate(60.078125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Domeinexpert</tspan></tspan></text></g></g></g><g transform="translate(71.1899433448292, 393.43174821759953)" class="mindmap-node section-1"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h57.15625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-20"></path><line y2="35.815625" x2="67.15625" y1="35.815625" x1="0" class="node-line-1"></line></g><g transform="translate(33.578125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Logius</tspan></tspan></text></g></g></g><g transform="translate(464.10602315632684, 199.1092940950722)" class="mindmap-node section-2"><g><polygon transform="translate(-1.4539062500000028, 45.815625)" points="11.45390625,0 86.62578125,0 98.0796875,-22.9078125 86.62578125,-45.815625 11.45390625,-45.815625 0,-22.9078125"></polygon></g><g transform="translate(47.5859375, 10)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Aanbod</tspan></tspan></text></g></g></g><g transform="translate(253.32514398757303, 171.25388534094486)" class="mindmap-node section-2"><g><rect width="151.2890625" ry="20" rx="20" height="63.41562347412109" class="node-bkg node-rounded-rect" id="node-22"></rect></g><g transform="translate(75.64453125, 10)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Standaardisatie</tspan></tspan><tspan dy="1.1em" y="1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">organisaties</tspan></tspan></text></g></g></g><g transform="translate(192.41410289577243, 100.6385611627777)" class="mindmap-node section-2"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h58.90625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-23"></path><line y2="35.815625" x2="68.90625" y1="35.815625" x1="0" class="node-line-2"></line></g><g transform="translate(34.453125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">OASIS</tspan></tspan></text></g></g></g><g transform="translate(346.02268384539184, 282.8545168867935)" class="mindmap-node section-2"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h45.5625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-24"></path><line y2="35.815625" x2="55.5625" y1="35.815625" x1="0" class="node-line-2"></line></g><g transform="translate(27.78125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">W3C</tspan></tspan></text></g></g></g><g transform="translate(316.06476500393194, 82.3863133151907)" class="mindmap-node section-2"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h46.671875 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-25"></path><line y2="35.815625" x2="56.671875" y1="35.815625" x1="0" class="node-line-2"></line></g><g transform="translate(28.3359375, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">NIST</tspan></tspan></text></g></g></g><g transform="translate(15, 166.88466592992643)" class="mindmap-node section-2"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h171.96875 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-26"></path><line y2="35.815625" x2="181.96875" y1="35.815625" x1="0" class="node-line-2"></line></g><g transform="translate(90.984375, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Forum</tspan><tspan font-weight="normal" class="text-inner-tspan" font-style="normal"> Standaardisatie</tspan></tspan></text></g></g></g><g transform="translate(102.12714989851878, 260.1227881030445)" class="mindmap-node section-2"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h162.1640625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-27"></path><line y2="35.815625" x2="172.1640625" y1="35.815625" x1="0" class="node-line-2"></line></g><g transform="translate(86.08203125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Europese</tspan><tspan font-weight="normal" class="text-inner-tspan" font-style="normal"> Commissie</tspan></tspan></text></g></g></g><g transform="translate(461.30674082545386, 97.2789406403565)" class="mindmap-node section-2"><g><rect width="131.609375" ry="20" rx="20" height="45.815625" class="node-bkg node-rounded-rect" id="node-28"></rect></g><g transform="translate(65.8046875, 10)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Leveranciers</tspan></tspan></text></g></g></g><g transform="translate(431.7733917154453, 15)" class="mindmap-node section-2"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h73.15625 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-29"></path><line y2="35.815625" x2="83.15625" y1="35.815625" x1="0" class="node-line-2"></line></g><g transform="translate(41.578125, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Diensten</tspan></tspan></text></g></g></g><g transform="translate(580.705432490846, 29.54057678926415)" class="mindmap-node section-2"><g><path d="M0 30.815624999999997 v-25.815624999999997 q0,-5 5,-5 h82.9375 q5,0 5,5 v30.815624999999997 H0 Z" class="node-bkg node-no-border" id="node-30"></path><line y2="35.815625" x2="92.9375" y1="35.815625" x1="0" class="node-line-2"></line></g><g transform="translate(46.46875, 5)" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" dy="1em"><g><rect class="background"></rect><text y="-10.1"><tspan dy="1.1em" y="-0.1em" x="0" class="text-outer-tspan"><tspan font-weight="normal" class="text-inner-tspan" font-style="normal">Producten</tspan></tspan></text></g></g></g></g></svg></code></pre>
+<pre><code class="mermaid hljs" aria-busy="false">mindmap
+  root)Belang bij&lt;br&gt;Digikoppeling(
+    {{Vraag}}
+      (Sectorregiseurs)
+        VNG
+        DUO
+        BKWI
+      (Gebruikers)
+        Indivduele overheden
+        Sectoren
+        Bronhouders van basisregistraties
+      (eOverheids projecten)
+        MijnOverheid
+        eHerkenning
+        eID
+    {{Ondersteuning}}
+      (Expertise)
+        Adviesbureaus
+        ICT–experts
+      (Beheer en onderhoud)
+        Domeinexpert
+        Logius
+    {{Aanbod}}
+      (Standaardisatie organisaties)
+        OASIS
+        W3C
+        NIST
+        Forum Standaardisatie
+        Europese Commissie
+      (Leveranciers)
+        Diensten
+        Producten
+</code></pre>
 <figure id="fig-belang-bij-digikoppeling">
 <figcaption><a class="self-link" href="#fig-belang-bij-digikoppeling">Figuur <bdi class="figno">4</bdi></a> <span class="fig-title">Belang bij Digikoppeling</span></figcaption>
 </figure>
@@ -1482,7 +1398,7 @@ beheer van de Digikoppeling-standaard, maar bevat wel belangrijke
 informatie over Digikoppeling en haar toepassing.</p>
 <p>De MIDO governance kent een <a href="#architectuurraad">Architectuurraad</a>.
 Dit gremium kan om advies worden gevraagd over wijzigingsvoorstellen.</p>
-<p>De Digikoppeling architectuur is beschreven in een apart document [<cite><a class="bibref" data-link-type="biblio" href="#bib-digikoppeling-architectuur" title="Digikoppeling Architectuur">Digikoppeling-Architectuur</a></cite>].</p>
+<p>De <cite><a data-matched-text="[[[DK-Architectuur]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/">Digikoppeling Architectuur</a></cite> is beschreven in een apart document.</p>
 <section id="internationale-europese-en-nationale-standaardisatiegemeenschap"><div class="header-wrapper"><h4 id="x3-2-1-internationale-europese-en-nationale-standaardisatiegemeenschap"><bdi class="secno">3.2.1 </bdi>Internationale, Europese en nationale standaardisatiegemeenschap</h4><a class="self-link" href="#internationale-europese-en-nationale-standaardisatiegemeenschap" aria-label="Permalink for Section 3.2.1"></a></div>
 <p>Internationale standaarden leveren de basis voor de koppelvlakspecificaties
 die we in Digikoppeling gebruiken.</p>
@@ -1697,7 +1613,7 @@ toepassingsgebied.</li>
 </section><section id="impact-van-wijzigingen-en-versienummering"><div class="header-wrapper"><h4 id="x4-3-4-impact-van-wijzigingen-en-versienummering"><bdi class="secno">4.3.4 </bdi>Impact van wijzigingen en versienummering</h4><a class="self-link" href="#impact-van-wijzigingen-en-versienummering" aria-label="Permalink for Section 4.3.4"></a></div>
 <p>Afhankelijk van de impact van een wijziging of patch krijgt een release een nieuw versienummer. Het versienummerbeheer volgt principes voor semantische versienummering <a href="#bijlage-versie-nummering-logius-standaarden">en is beschreven in een bijlage</a></p>
 <p>De impact van een wijziging kan verschillen per koppelvlakspecificatie. Voor de standaarden die deel uitmaken van Digikoppeling hebben we de volgende <em>impactmatrix</em> opgesteld:</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Standaard</th>
@@ -1733,7 +1649,7 @@ toepassingsgebied.</li>
 </tbody></table>
 <p>Met verwijderen wordt het volledig verwijderen van een regel of concept bedoeld. Bij vervallen blijft deze behouden maar wordt door een geldigheidsdatum aangegeven dat de regel of het concept niet meer van toepassing is.</p>
 </section></section><section id="status-van-de-standaard"><div class="header-wrapper"><h3 id="x4-4-status-van-de-standaard"><bdi class="secno">4.4 </bdi>Status van de standaard</h3><a class="self-link" href="#status-van-de-standaard" aria-label="Permalink for Section 4.4"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th><strong>Afkorting</strong></th>
@@ -1822,7 +1738,7 @@ kennisplatforms, bijeenkomsten en seminars. De standaarden die Logius
 beheert, zijn verplichte standaarden voor overheidsorganisaties en
 staan op de 'Pas toe of leg uit'-lijst van het Forum of zijn verplicht
 via wetgeving.</p>
-<p><a href="https://logius.nl/diensten/digikoppeling">De Logius website biedt informatie over de Digikoppeling standaard</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-logius website" title="Logius Digikoppeling">Logius website</a></cite>]. Hier staan:</p>
+<p>De Logius website biedt informatie over de Digikoppeling standaard [<cite><a class="bibref" data-link-type="biblio" href="#bib-dk" title="Logius | Digikoppeling">DK</a></cite>]. Hier staan:</p>
 <ul>
 <li>De korte beschrijving van de standaard;</li>
 <li>En korte omschrijving van de werking;</li>
@@ -2081,7 +1997,7 @@ In het onderstaande voorbeeld zien wij een standaard van 1.0.0 naar 1.1.0 ontwik
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-referenties"><bdi class="secno">A. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div>
   <section id="normatieve-referenties">
     <div class="header-wrapper"><h3 id="a-1-normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</h3><a class="self-link" href="#normatieve-referenties" aria-label="Permalink for Appendix A.1"></a></div>
-    <dl class="bibliography"><dt id="bib-digikoppeling-architectuur">[Digikoppeling-Architectuur]</dt><dd>
+    <dl class="bibliography"><dt id="bib-dk-architectuur">[DK-Architectuur]</dt><dd>
       <a href="https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/"><cite>Digikoppeling Architectuur</cite></a>.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/">https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/</a>
     </dd><dt id="bib-ebxml-msg">[EBXML-MSG]</dt><dd>
       <a href="https://www.oasis-open.org/committees/download.php/272/ebMS_v2_0.pdf"><cite>OASIS ebXML Message Service Specification</cite></a>. Ian Jones; Brian Gibb; David Fischer. 1 April 2002. URL: <a href="https://www.oasis-open.org/committees/download.php/272/ebMS_v2_0.pdf">https://www.oasis-open.org/committees/download.php/272/ebMS_v2_0.pdf</a>
@@ -2092,8 +2008,10 @@ In het onderstaande voorbeeld zien wij een standaard van 1.0.0 naar 1.1.0 ontwik
     </dd></dl>
   </section><section id="informatieve-referenties">
     <div class="header-wrapper"><h3 id="a-2-informatieve-referenties"><bdi class="secno">A.2 </bdi>Informatieve referenties</h3><a class="self-link" href="#informatieve-referenties" aria-label="Permalink for Appendix A.2"></a></div>
-    <dl class="bibliography"><dt id="bib-logius website">[Logius website]</dt><dd>
-      <a href="https://logius.nl/digikoppeling"><cite>Logius Digikoppeling</cite></a>.  Logius. URL: <a href="https://logius.nl/digikoppeling">https://logius.nl/digikoppeling</a>
+    <dl class="bibliography"><dt id="bib-dk">[DK]</dt><dd>
+      <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling"><cite>Logius | Digikoppeling</cite></a>.  Logius. URL: <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling">https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling</a>
+    </dd><dt id="bib-dk-beheermodel">[DK-Beheermodel]</dt><dd>
+      <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/"><cite>Digikoppeling Beheermodel</cite></a>.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/</a>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
