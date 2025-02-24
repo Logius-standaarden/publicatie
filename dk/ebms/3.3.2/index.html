@@ -1,16 +1,16 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 34.1.4">
+<meta name="generator" content="ReSpec 35.1.1">
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
 .dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
 .dfn-panel>div{display:flex}
 .dfn-panel a.self-link{font-weight:700;margin-right:auto}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
@@ -44,8 +44,6 @@ dfn{cursor:pointer}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
 a.bibref{text-decoration:none}
@@ -59,20 +57,8 @@ a.bibref{text-decoration:none}
 cite .bibref{font-style:normal}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
 #issue-summary>ul{column-count:2}
 #issue-summary li{list-style:none;display:inline-block}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
@@ -132,7 +118,7 @@ aanbieders als service afnemers.">
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
@@ -273,6 +259,12 @@ aanbieders als service afnemers.">
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
+    "AVG": {
+      "date": "27 april 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
+    },
     "BCP195": {
       "authors": [
         "Y. Sheffer",
@@ -312,6 +304,16 @@ aanbieders als service afnemers.">
       "publisher": "Logius",
       "title": "Digikoppeling Compliance Voorziening"
     },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
+    },
     "Deployment Guide 1.1": {
       "authors": [
         "Pete Wenzel",
@@ -326,7 +328,7 @@ aanbieders als service afnemers.">
     "DK": {
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
       "publisher": "Logius",
-      "title": "Digikoppeling"
+      "title": "Logius | Digikoppeling"
     },
     "DK-Doc": {
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
@@ -336,7 +338,8 @@ aanbieders als service afnemers.">
     "DK-Beheermodel": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
       "publisher": "Logius",
-      "title": "Digikoppeling Beheermodel"
+      "title": "Digikoppeling Beheermodel",
+      "id": "dk-beheermodel"
     },
     "DK-BPebMS": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
@@ -399,6 +402,18 @@ aanbieders als service afnemers.">
       "publisher": "Logius",
       "title": "Wat is Digikoppeling?"
     },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
+    },
     "ebCPP": {
       "authors": [
         "Oasis"
@@ -438,6 +453,7 @@ aanbieders als service afnemers.">
       "title": "Expertadvies CloudEvents 1.0"
     },
     "folmer2011": {
+      "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
       "title": "Management and Development Model for Open Standards (BOMOS) version 2",
       "keywords": "IR-76837",
       "authors": [
@@ -449,7 +465,7 @@ aanbieders als service afnemers.">
       "publisher": "Programmabureau NOiV"
     },
     "folmer2012": {
-      "href": "https://ris.utwente.nl/ws/portalfiles/portal/6064223/thesis_E_Folmer.pdf",
+      "href": "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
       "title": "Quality of Semantic Standards",
       "authors": [
         "Erwin Folmer"
@@ -486,6 +502,14 @@ aanbieders als service afnemers.">
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
     },
     "Introspection": {
       "authors": [
@@ -715,6 +739,32 @@ aanbieders als service afnemers.">
       ],
       "publisher": "Association of Computing Machinery (ACM)",
       "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
     }
   },
   "alternateFormats": [
@@ -749,7 +799,7 @@ aanbieders als service afnemers.">
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
  <body class="h-entry toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">Digikoppeling Koppelvlakstandaard ebMS2 3.3.2</h1>
     
     <h2>
@@ -811,7 +861,7 @@ aanbieders als service afnemers.
 </p></section>
   <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel-en-doelgroep"><bdi class="secno">1.1 </bdi>Doel en doelgroep</a></li><li class="tocline"><a class="tocxref" href="#opbouw-digikoppeling-documentatie"><bdi class="secno">1.2 </bdi>Opbouw Digikoppeling documentatie</a></li><li class="tocline"><a class="tocxref" href="#doel-en-scope-van-digikoppeling"><bdi class="secno">1.3 </bdi>Doel en scope van Digikoppeling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#leidende-principes"><bdi class="secno">1.3.1 </bdi>Leidende principes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#koppelvlak-koppelvlakstandaard"><bdi class="secno">1.4 </bdi>Koppelvlak &amp; koppelvlakstandaard</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#specificatie-van-de-koppelvlakstandaard"><bdi class="secno">1.4.1 </bdi>Specificatie van de koppelvlakstandaard</a></li></ol></li><li class="tocline"><a class="tocxref" href="#opbouw-van-dit-document"><bdi class="secno">1.5 </bdi>Opbouw van dit document</a></li></ol></li><li class="tocline"><a class="tocxref" href="#koppelvlakstandaard-ebms2"><bdi class="secno">2. </bdi>Koppelvlakstandaard ebMS2</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#terminologie-in-dit-document"><bdi class="secno">2.2 </bdi>Terminologie in dit document</a></li><li class="tocline"><a class="tocxref" href="#ondersteunde-varianten"><bdi class="secno">2.3 </bdi>Ondersteunde varianten</a></li><li class="tocline"><a class="tocxref" href="#berichtuitwisselpatronen"><bdi class="secno">2.4 </bdi>Berichtuitwisselpatronen</a></li><li class="tocline"><a class="tocxref" href="#beveiligingsaspecten"><bdi class="secno">2.5 </bdi>Beveiligingsaspecten</a></li><li class="tocline"><a class="tocxref" href="#format-van-dit-document"><bdi class="secno">2.6 </bdi>Format van dit document</a></li></ol></li><li class="tocline"><a class="tocxref" href="#profiling-the-modules-of-ebms-2-0"><bdi class="secno">3. </bdi>Profiling the Modules of ebMS 2.0</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#core-modules"><bdi class="secno">3.1 </bdi>Core Modules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#core-extension-elements-ebms-2-0-section-3"><bdi class="secno">3.1.1 </bdi>Core Extension Elements [ebMS 2.0] Section 3</a></li><li class="tocline"><a class="tocxref" href="#security-module-ebms-2-0-section-4-1"><bdi class="secno">3.1.2 </bdi>Security Module [ebMS 2.0] Section 4.1</a></li><li class="tocline"><a class="tocxref" href="#syncreply-module-ebms-2-0-section-4-3"><bdi class="secno">3.1.3 </bdi>SyncReply Module [ebMS 2.0] Section 4.3</a></li></ol></li><li class="tocline"><a class="tocxref" href="#additional-modules"><bdi class="secno">3.2 </bdi>Additional Modules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#reliable-messaging-module-ebms-2-0-section-6"><bdi class="secno">3.2.1 </bdi>Reliable Messaging Module [ebMS 2.0] Section 6</a></li><li class="tocline"><a class="tocxref" href="#message-status-service-ebms-2-0-section-7"><bdi class="secno">3.2.2 </bdi>Message Status Service [ebMS 2.0] Section 7</a></li><li class="tocline"><a class="tocxref" href="#ping-service-ebms-2-0-section-8"><bdi class="secno">3.2.3 </bdi>Ping Service [ebMS 2.0] Section 8</a></li><li class="tocline"><a class="tocxref" href="#message-order-ebms-2-0-section-9"><bdi class="secno">3.2.4 </bdi>Message Order [ebMS 2.0] Section 9</a></li><li class="tocline"><a class="tocxref" href="#multi-hop-module-ebms-2-0-section-10"><bdi class="secno">3.2.5 </bdi>Multi-Hop Module [ebMS 2.0] Section 10</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#communication-protocol-bindings"><bdi class="secno">4. </bdi>Communication Protocol Bindings</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-transport-protocol"><bdi class="secno">4.1 </bdi>Profile Requirement Item: Transport Protocol</a></li></ol></li><li class="tocline"><a class="tocxref" href="#profile-requirements-details"><bdi class="secno">5. </bdi>Profile Requirements Details</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#module-core-extension-elements"><bdi class="secno">5.1 </bdi>Module: Core Extension Elements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-partyid"><bdi class="secno">5.1.1 </bdi>Profile Requirement Item: PartyId</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-role"><bdi class="secno">5.1.2 </bdi>Profile Requirement Item: Role</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-cpaid"><bdi class="secno">5.1.3 </bdi>Profile Requirement Item: CPAId</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-conversationid"><bdi class="secno">5.1.4 </bdi>Profile Requirement Item: ConversationId</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-messageid"><bdi class="secno">5.1.5 </bdi>Profile Requirement Item: MessageId</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-service"><bdi class="secno">5.1.6 </bdi>Profile Requirement Item: Service</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-action"><bdi class="secno">5.1.7 </bdi>Profile Requirement Item: Action</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-timestamp-removed"><bdi class="secno">5.1.8 </bdi>Profile Requirement Item: Timestamp (removed)</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-description"><bdi class="secno">5.1.9 </bdi>Profile Requirement Item: Description</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-manifest"><bdi class="secno">5.1.10 </bdi>Profile Requirement Item: Manifest</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-reference"><bdi class="secno">5.1.11 </bdi>Profile Requirement Item: Reference</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-reference-schema"><bdi class="secno">5.1.12 </bdi>Profile Requirement Item: Reference/Schema</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-reference-description"><bdi class="secno">5.1.13 </bdi>Profile Requirement Item: Reference/Description</a></li></ol></li><li class="tocline"><a class="tocxref" href="#module-security"><bdi class="secno">5.2 </bdi>Module: Security</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-signature-generation"><bdi class="secno">5.2.1 </bdi>Profile Requirement Item: Signature generation</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-persistent-signed-receipt"><bdi class="secno">5.2.2 </bdi>Profile Requirement Item: Persistent Signed Receipt</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-non-persistent-authentication"><bdi class="secno">5.2.3 </bdi>Profile Requirement Item: Non Persistent Authentication</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-non-persistent-integrity"><bdi class="secno">5.2.4 </bdi>Profile Requirement Item: Non Persistent Integrity</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-persistent-confidentiality"><bdi class="secno">5.2.5 </bdi>Profile Requirement Item: Persistent Confidentiality</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-non-persistent-confidentiality"><bdi class="secno">5.2.6 </bdi>Profile Requirement Item: Non Persistent Confidentiality</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-persistent-authorization"><bdi class="secno">5.2.7 </bdi>Profile Requirement Item: Persistent Authorization</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-non-persistent-authorization"><bdi class="secno">5.2.8 </bdi>Profile Requirement Item: Non Persistent Authorization</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-trusted-timestamp"><bdi class="secno">5.2.9 </bdi>Profile Requirement Item: Trusted Timestamp</a></li></ol></li><li class="tocline"><a class="tocxref" href="#module-error-handling"><bdi class="secno">5.3 </bdi>Module : Error Handling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item"><bdi class="secno">5.3.1 </bdi>Profile Requirement Item</a></li></ol></li><li class="tocline"><a class="tocxref" href="#module-syncreply"><bdi class="secno">5.4 </bdi>Module : SyncReply</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-syncreply"><bdi class="secno">5.4.1 </bdi>Profile Requirement Item: SyncReply</a></li></ol></li><li class="tocline"><a class="tocxref" href="#module-reliable-messaging"><bdi class="secno">5.5 </bdi>Module : Reliable Messaging</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-soap-actor-attribute"><bdi class="secno">5.5.1 </bdi>Profile Requirement Item: SOAP Actor attribute</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-signed-attribute"><bdi class="secno">5.5.2 </bdi>Profile Requirement Item: Signed attribute</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-duplicateelimination"><bdi class="secno">5.5.3 </bdi>Profile Requirement Item: DuplicateElimination</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-retries-and-retryinterval"><bdi class="secno">5.5.4 </bdi>Profile Requirement Item: Retries and RetryInterval</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-persistduration"><bdi class="secno">5.5.5 </bdi>Profile Requirement Item: PersistDuration</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-reliability-protocol"><bdi class="secno">5.5.6 </bdi>Profile Requirement Item: Reliability Protocol</a></li></ol></li><li class="tocline"><a class="tocxref" href="#module-message-status"><bdi class="secno">5.6 </bdi>Module : Message Status</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-status-request-message"><bdi class="secno">5.6.1 </bdi>Profile Requirement Item: Status Request message</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-status-response-message"><bdi class="secno">5.6.2 </bdi>Profile Requirement Item: Status Response message</a></li></ol></li><li class="tocline"><a class="tocxref" href="#module-ping-service"><bdi class="secno">5.7 </bdi>Module : Ping Service</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-ping-pong-security"><bdi class="secno">5.7.1 </bdi>Profile Requirement Item: Ping-Pong Security</a></li></ol></li><li class="tocline"><a class="tocxref" href="#module-multi-hop"><bdi class="secno">5.8 </bdi>Module : Multi-Hop</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-use-of-intermediaries"><bdi class="secno">5.8.1 </bdi>Profile Requirement Item: Use of intermediaries</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-acknowledgements"><bdi class="secno">5.8.2 </bdi>Profile Requirement Item: Acknowledgements</a></li></ol></li><li class="tocline"><a class="tocxref" href="#soap-extensions"><bdi class="secno">5.9 </bdi>SOAP Extensions</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-wildcard-id"><bdi class="secno">5.9.1 </bdi>Profile Requirement Item: #wildCard, Id</a></li></ol></li><li class="tocline"><a class="tocxref" href="#mime-header-container"><bdi class="secno">5.10 </bdi>MIME Header Container</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-charset"><bdi class="secno">5.10.1 </bdi>Profile Requirement Item: charset</a></li></ol></li><li class="tocline"><a class="tocxref" href="#http-binding"><bdi class="secno">5.11 </bdi>HTTP Binding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-http-headers"><bdi class="secno">5.11.1 </bdi>Profile Requirement Item: HTTP Headers</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-http-response-codes"><bdi class="secno">5.11.2 </bdi>Profile Requirement Item: HTTP Response Codes</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-http-access-control"><bdi class="secno">5.11.3 </bdi>Profile Requirement Item: HTTP Access Control</a></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-http-confidentiality-and-security"><bdi class="secno">5.11.4 </bdi>Profile Requirement Item: HTTP Confidentiality and Security</a></li></ol></li><li class="tocline"><a class="tocxref" href="#smtp-binding"><bdi class="secno">5.12 </bdi>SMTP Binding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-requirement-item-mime-headers"><bdi class="secno">5.12.1 </bdi>Profile Requirement Item: MIME Headers</a></li></ol></li><li class="tocline"><a class="tocxref" href="#profile-requirement-item-smtp-confidentiality-and-security"><bdi class="secno">5.13 </bdi>Profile Requirement Item: SMTP Confidentiality and Security</a></li></ol></li><li class="tocline"><a class="tocxref" href="#operational-profile"><bdi class="secno">6. </bdi>Operational Profile</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#deployment-and-processing-requirements-for-cpas"><bdi class="secno">6.1 </bdi>Deployment and Processing requirements for CPAs</a></li><li class="tocline"><a class="tocxref" href="#security-profile"><bdi class="secno">6.2 </bdi>Security Profile</a></li><li class="tocline"><a class="tocxref" href="#reliability-profile"><bdi class="secno">6.3 </bdi>Reliability Profile</a></li><li class="tocline"><a class="tocxref" href="#error-handling-profile"><bdi class="secno">6.4 </bdi>Error Handling Profile</a></li><li class="tocline"><a class="tocxref" href="#message-payload-and-flow-profile"><bdi class="secno">6.5 </bdi>Message Payload and Flow Profile</a></li><li class="tocline"><a class="tocxref" href="#additional-messaging-features-beyond-ebms-specification"><bdi class="secno">6.6 </bdi>Additional Messaging Features beyond ebMS Specification</a></li><li class="tocline"><a class="tocxref" href="#additional-deployment-or-operational-requirements"><bdi class="secno">6.7 </bdi>Additional Deployment or Operational Requirements</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">7. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">8. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</a></li><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">A.2 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
   <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Datum</th>
@@ -871,7 +921,7 @@ aanbieders als service afnemers.
 </tbody></table>
 </section>
   <section class="introductory" id="colofon"><div class="header-wrapper"><h2 id="colofon-0">Colofon</h2><a class="self-link" href="#colofon" aria-label="Permalink for this Section"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -896,7 +946,7 @@ tot in detail in dit document gespecificeerd. Het doel van dit document is
 ontwikkelaars te informeren wat deze koppelvlakstandaard nu precies inhoudt en
 waar zij zich aan moeten conformeren. Het gaat hierbij om zowel service
 aanbieders als service afnemers.</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Afkorting</th>
@@ -933,60 +983,41 @@ aanbieders als service afnemers.</p>
 </section><section id="opbouw-digikoppeling-documentatie"><div class="header-wrapper"><h3 id="x1-2-opbouw-digikoppeling-documentatie"><bdi class="secno">1.2 </bdi>Opbouw Digikoppeling documentatie</h3><a class="self-link" href="#opbouw-digikoppeling-documentatie" aria-label="Permalink for Section 1.2"></a></div>
 <p>Digikoppeling is beschreven in een set van documenten. Deze set is als volgt
 opgebouwd:</p>
-<p>
-      </p><figure id="fig-opbouw-documentatie-digikoppeling">
-        <img src="media/DK_Specificatie_structuur.svg" alt="Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen">
-        <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
-      </figure>
-    <p></p>
-<details>
-    <summary> Tekstalternatief </summary>
-<ul>
-    <li>Digikoppeling Standaard
-        <ul>
-            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/beheer/">DK Beheermodel en releasebeleid</a>* </li>
-            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/actueel/">DK Overzicht Actuele Documentatie en Compliance</a>* </li>
-            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/architectuur">DK Architectuur</a>*
-                <ul>
-                    <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/idauth/">DK Identificatie en Authenticatie</a>*
-                        <ul>
-                            <li><i> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/gbachtcert/">Digikoppeling Gebruik en Achtergronden Certificaten</a></i>† </li>
-                        </ul>
-                    </li>
-                    <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/beveilig/">DK Beveiligingsstandaarden en voorschriften</a>* </li>
-                    <li>Koppelvlakstandaarden
-                        <ul>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/wus/">DK Koppelvlakstandaard WUS</a>*
-                                <ul>
-                                    <li><i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpwus">Best-practice WUS</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/ebms/">DK Koppelvlakstandaard ebMS2</a>*
-                                <ul>
-                                    <li> <i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpebms">Best-practice ebMS2</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/restapi/">DK Koppelvlakstandaard REST API</a>*
-                            </li>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/gb/">DK Koppelvlakstandaard Grote Berichten</a>*
-                                <ul>
-                                    <li> <i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpgb">Best-practice Grote Berichten</a></i>†</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-    <i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/watisdk/">Wat is Digikoppeling</a></i>†
-  </li>
-        </ul>
-    </li>
-</ul>
-<p>* Normatief document</p>
-<p>† Ondersteunend document</p>
-</details>
+<figure id="fig-opbouw-documentatie-digikoppeling">
+  <object data="https://logius-standaarden.github.io/publicatie/dk/actueel/media/DK_Specificatie_structuur.svg" type="image/svg+xml" id="infographic">Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen</object>
+  <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
+</figure>
 
+<p><b>Legenda</b></p>
+<table class="legendum">
+    <thead>
+        <tr>
+            <th><strong>Kleur</strong></th>
+            <th><strong>Soort Document</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="green">Groen</td>
+            <td>Standaard documentatie</td>
+        </tr>
+        <tr>
+            <td class="grey">Grijs</td>
+            <td>Ondersteunende documentatie</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p><b>Beheer</b></p>
+<ul>
+<li><p>De standaarddocumenten (groen/vierkant aangegeven) vallen onder het beheer zoals geformaliseerd in het document <cite><a data-matched-text="[[[?DK-Beheermodel]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">Digikoppeling Beheermodel</a></cite>.</p>
+</li>
+<li><p>De ondersteunende documentatie wordt onderhouden door Logius als de beheerder van de standaard (en afgestemd met stakeholders/ gebruikers).</p>
+</li>
+<li><p>Alle goedgekeurde documenten zijn te vinden op de website van Logius, <a href="https://www.logius.nl/onze-dienstverlening/domeinen/gegevensuitwisseling/digikoppeling">www.logius.nl</a>.</p>
+</li>
+</ul>
 </section><section id="doel-en-scope-van-digikoppeling"><div class="header-wrapper"><h3 id="x1-3-doel-en-scope-van-digikoppeling"><bdi class="secno">1.3 </bdi>Doel en scope van Digikoppeling</h3><a class="self-link" href="#doel-en-scope-van-digikoppeling" aria-label="Permalink for Section 1.3"></a></div>
 <p>Digikoppeling biedt de mogelijkheid om op een sterk gestandaardiseerde wijze
 berichten uit te wisselen tussen service aanbieders en service afnemers. De
@@ -1163,7 +1194,7 @@ profielen:</p>
 Digikoppeling profielen weer. Ten behoeve van het CPA register is de kolom 'CPA
 Creation' toegevoegd. Voor alle profielen wordt twee-zijdig TLS gebruikt op
 transport niveau (HTTPS).</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Profile Names</th>
@@ -1292,7 +1323,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
   <section id="profiling-the-modules-of-ebms-2-0"><div class="header-wrapper"><h2 id="x3-profiling-the-modules-of-ebms-2-0"><bdi class="secno">3. </bdi>Profiling the Modules of ebMS 2.0</h2><a class="self-link" href="#profiling-the-modules-of-ebms-2-0" aria-label="Permalink for Section 3."></a></div>
 <section id="core-modules"><div class="header-wrapper"><h3 id="x3-1-core-modules"><bdi class="secno">3.1 </bdi>Core Modules</h3><a class="self-link" href="#core-modules" aria-label="Permalink for Section 3.1"></a></div>
 <section id="core-extension-elements-ebms-2-0-section-3"><div class="header-wrapper"><h4 id="x3-1-1-core-extension-elements-ebms-2-0-section-3"><bdi class="secno">3.1.1 </bdi>Core Extension Elements [ebMS 2.0] Section 3</h4><a class="self-link" href="#core-extension-elements-ebms-2-0-section-3" aria-label="Permalink for Section 3.1.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Profile(s)</th>
@@ -1305,7 +1336,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="security-module-ebms-2-0-section-4-1"><div class="header-wrapper"><h4 id="x3-1-2-security-module-ebms-2-0-section-4-1"><bdi class="secno">3.1.2 </bdi>Security Module [ebMS 2.0] Section 4.1</h4><a class="self-link" href="#security-module-ebms-2-0-section-4-1" aria-label="Permalink for Section 3.1.2"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Profile(s)</th>
@@ -1322,7 +1353,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="syncreply-module-ebms-2-0-section-4-3"><div class="header-wrapper"><h4 id="x3-1-3-syncreply-module-ebms-2-0-section-4-3"><bdi class="secno">3.1.3 </bdi>SyncReply Module [ebMS 2.0] Section 4.3</h4><a class="self-link" href="#syncreply-module-ebms-2-0-section-4-3" aria-label="Permalink for Section 3.1.3"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Profile(s)</th>
@@ -1348,7 +1379,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="additional-modules"><div class="header-wrapper"><h3 id="x3-2-additional-modules"><bdi class="secno">3.2 </bdi>Additional Modules</h3><a class="self-link" href="#additional-modules" aria-label="Permalink for Section 3.2"></a></div>
 <section id="reliable-messaging-module-ebms-2-0-section-6"><div class="header-wrapper"><h4 id="x3-2-1-reliable-messaging-module-ebms-2-0-section-6"><bdi class="secno">3.2.1 </bdi>Reliable Messaging Module [ebMS 2.0] Section 6</h4><a class="self-link" href="#reliable-messaging-module-ebms-2-0-section-6" aria-label="Permalink for Section 3.2.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Profile(s)</th>
@@ -1373,7 +1404,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="message-status-service-ebms-2-0-section-7"><div class="header-wrapper"><h4 id="x3-2-2-message-status-service-ebms-2-0-section-7"><bdi class="secno">3.2.2 </bdi>Message Status Service [ebMS 2.0] Section 7</h4><a class="self-link" href="#message-status-service-ebms-2-0-section-7" aria-label="Permalink for Section 3.2.2"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Profile(s)</th>
@@ -1388,7 +1419,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="ping-service-ebms-2-0-section-8"><div class="header-wrapper"><h4 id="x3-2-3-ping-service-ebms-2-0-section-8"><bdi class="secno">3.2.3 </bdi>Ping Service [ebMS 2.0] Section 8</h4><a class="self-link" href="#ping-service-ebms-2-0-section-8" aria-label="Permalink for Section 3.2.3"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Profile(s)</th>
@@ -1403,7 +1434,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="message-order-ebms-2-0-section-9"><div class="header-wrapper"><h4 id="x3-2-4-message-order-ebms-2-0-section-9"><bdi class="secno">3.2.4 </bdi>Message Order [ebMS 2.0] Section 9</h4><a class="self-link" href="#message-order-ebms-2-0-section-9" aria-label="Permalink for Section 3.2.4"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Profile(s)</th>
@@ -1418,7 +1449,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="multi-hop-module-ebms-2-0-section-10"><div class="header-wrapper"><h4 id="x3-2-5-multi-hop-module-ebms-2-0-section-10"><bdi class="secno">3.2.5 </bdi>Multi-Hop Module [ebMS 2.0] Section 10</h4><a class="self-link" href="#multi-hop-module-ebms-2-0-section-10" aria-label="Permalink for Section 3.2.5"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Profile(s)</th>
@@ -1435,7 +1466,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </section></section></section>
   <section id="communication-protocol-bindings"><div class="header-wrapper"><h2 id="x4-communication-protocol-bindings"><bdi class="secno">4. </bdi>Communication Protocol Bindings</h2><a class="self-link" href="#communication-protocol-bindings" aria-label="Permalink for Section 4."></a></div>
 <section id="profile-requirement-item-transport-protocol"><div class="header-wrapper"><h3 id="x4-1-profile-requirement-item-transport-protocol"><bdi class="secno">4.1 </bdi>Profile Requirement Item: Transport Protocol</h3><a class="self-link" href="#profile-requirement-item-transport-protocol" aria-label="Permalink for Section 4.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Appendix B</th>
@@ -1479,7 +1510,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
   <section id="profile-requirements-details"><div class="header-wrapper"><h2 id="x5-profile-requirements-details"><bdi class="secno">5. </bdi>Profile Requirements Details</h2><a class="self-link" href="#profile-requirements-details" aria-label="Permalink for Section 5."></a></div>
 <section id="module-core-extension-elements"><div class="header-wrapper"><h3 id="x5-1-module-core-extension-elements"><bdi class="secno">5.1 </bdi>Module: Core Extension Elements</h3><a class="self-link" href="#module-core-extension-elements" aria-label="Permalink for Section 5.1"></a></div>
 <section id="profile-requirement-item-partyid"><div class="header-wrapper"><h4 id="x5-1-1-profile-requirement-item-partyid"><bdi class="secno">5.1.1 </bdi>Profile Requirement Item: PartyId</h4><a class="self-link" href="#profile-requirement-item-partyid" aria-label="Permalink for Section 5.1.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.1.1.1</th>
@@ -1516,7 +1547,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-role"><div class="header-wrapper"><h4 id="x5-1-2-profile-requirement-item-role"><bdi class="secno">5.1.2 </bdi>Profile Requirement Item: Role</h4><a class="self-link" href="#profile-requirement-item-role" aria-label="Permalink for Section 5.1.2"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.1.1.2 Role Element</th>
@@ -1545,7 +1576,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-cpaid"><div class="header-wrapper"><h4 id="x5-1-3-profile-requirement-item-cpaid"><bdi class="secno">5.1.3 </bdi>Profile Requirement Item: CPAId</h4><a class="self-link" href="#profile-requirement-item-cpaid" aria-label="Permalink for Section 5.1.3"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.1.2 CPAId Element</th>
@@ -1574,7 +1605,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-conversationid"><div class="header-wrapper"><h4 id="x5-1-4-profile-requirement-item-conversationid"><bdi class="secno">5.1.4 </bdi>Profile Requirement Item: ConversationId</h4><a class="self-link" href="#profile-requirement-item-conversationid" aria-label="Permalink for Section 5.1.4"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.1.3 ConversationId Element</th>
@@ -1607,7 +1638,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-messageid"><div class="header-wrapper"><h4 id="x5-1-5-profile-requirement-item-messageid"><bdi class="secno">5.1.5 </bdi>Profile Requirement Item: MessageId</h4><a class="self-link" href="#profile-requirement-item-messageid" aria-label="Permalink for Section 5.1.5"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.1.6.1</th>
@@ -1636,7 +1667,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-service"><div class="header-wrapper"><h4 id="x5-1-6-profile-requirement-item-service"><bdi class="secno">5.1.6 </bdi>Profile Requirement Item: Service</h4><a class="self-link" href="#profile-requirement-item-service" aria-label="Permalink for Section 5.1.6"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.1.4 Service Element</th>
@@ -1669,7 +1700,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-action"><div class="header-wrapper"><h4 id="x5-1-7-profile-requirement-item-action"><bdi class="secno">5.1.7 </bdi>Profile Requirement Item: Action</h4><a class="self-link" href="#profile-requirement-item-action" aria-label="Permalink for Section 5.1.7"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.1.5 Action Element</th>
@@ -1700,7 +1731,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </section><section id="profile-requirement-item-timestamp-removed"><div class="header-wrapper"><h4 id="x5-1-8-profile-requirement-item-timestamp-removed"><bdi class="secno">5.1.8 </bdi>Profile Requirement Item: Timestamp (removed)</h4><a class="self-link" href="#profile-requirement-item-timestamp-removed" aria-label="Permalink for Section 5.1.8"></a></div>
 <p>This item is no longer required.</p>
 </section><section id="profile-requirement-item-description"><div class="header-wrapper"><h4 id="x5-1-9-profile-requirement-item-description"><bdi class="secno">5.1.9 </bdi>Profile Requirement Item: Description</h4><a class="self-link" href="#profile-requirement-item-description" aria-label="Permalink for Section 5.1.9"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.1.8 Description Element</th>
@@ -1729,7 +1760,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-manifest"><div class="header-wrapper"><h4 id="x5-1-10-profile-requirement-item-manifest"><bdi class="secno">5.1.10 </bdi>Profile Requirement Item: Manifest</h4><a class="self-link" href="#profile-requirement-item-manifest" aria-label="Permalink for Section 5.1.10"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.2.2 Manifest Validation</th>
@@ -1762,7 +1793,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-reference"><div class="header-wrapper"><h4 id="x5-1-11-profile-requirement-item-reference"><bdi class="secno">5.1.11 </bdi>Profile Requirement Item: Reference</h4><a class="self-link" href="#profile-requirement-item-reference" aria-label="Permalink for Section 5.1.11"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.2.1 Reference Element</th>
@@ -1795,7 +1826,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-reference-schema"><div class="header-wrapper"><h4 id="x5-1-12-profile-requirement-item-reference-schema"><bdi class="secno">5.1.12 </bdi>Profile Requirement Item: Reference/Schema</h4><a class="self-link" href="#profile-requirement-item-reference-schema" aria-label="Permalink for Section 5.1.12"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>]</th>
@@ -1824,7 +1855,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-reference-description"><div class="header-wrapper"><h4 id="x5-1-13-profile-requirement-item-reference-description"><bdi class="secno">5.1.13 </bdi>Profile Requirement Item: Reference/Description</h4><a class="self-link" href="#profile-requirement-item-reference-description" aria-label="Permalink for Section 5.1.13"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 3.2.1.2 Description Element</th>
@@ -1854,7 +1885,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="module-security"><div class="header-wrapper"><h3 id="x5-2-module-security"><bdi class="secno">5.2 </bdi>Module: Security</h3><a class="self-link" href="#module-security" aria-label="Permalink for Section 5.2"></a></div>
 <section id="profile-requirement-item-signature-generation"><div class="header-wrapper"><h4 id="x5-2-1-profile-requirement-item-signature-generation"><bdi class="secno">5.2.1 </bdi>Profile Requirement Item: Signature generation</h4><a class="self-link" href="#profile-requirement-item-signature-generation" aria-label="Permalink for Section 5.2.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.1.4.1 Persistent Digital Signature</th>
@@ -1924,7 +1955,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-persistent-signed-receipt"><div class="header-wrapper"><h4 id="x5-2-2-profile-requirement-item-persistent-signed-receipt"><bdi class="secno">5.2.2 </bdi>Profile Requirement Item: Persistent Signed Receipt</h4><a class="self-link" href="#profile-requirement-item-persistent-signed-receipt" aria-label="Permalink for Section 5.2.2"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.1.4.2 Persistent Signed Receipt</th>
@@ -1964,7 +1995,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-non-persistent-authentication"><div class="header-wrapper"><h4 id="x5-2-3-profile-requirement-item-non-persistent-authentication"><bdi class="secno">5.2.3 </bdi>Profile Requirement Item: Non Persistent Authentication</h4><a class="self-link" href="#profile-requirement-item-non-persistent-authentication" aria-label="Permalink for Section 5.2.3"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>]Section 4.1.4.3 Non Persistent Authentication</th>
@@ -1989,7 +2020,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-non-persistent-integrity"><div class="header-wrapper"><h4 id="x5-2-4-profile-requirement-item-non-persistent-integrity"><bdi class="secno">5.2.4 </bdi>Profile Requirement Item: Non Persistent Integrity</h4><a class="self-link" href="#profile-requirement-item-non-persistent-integrity" aria-label="Permalink for Section 5.2.4"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.1.4.4 Non Persistent Integrity</th>
@@ -2018,7 +2049,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-persistent-confidentiality"><div class="header-wrapper"><h4 id="x5-2-5-profile-requirement-item-persistent-confidentiality"><bdi class="secno">5.2.5 </bdi>Profile Requirement Item: Persistent Confidentiality</h4><a class="self-link" href="#profile-requirement-item-persistent-confidentiality" aria-label="Permalink for Section 5.2.5"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.1.4.1 Section 4.1.4.5 Persistent Confidentiality</th>
@@ -2053,7 +2084,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-non-persistent-confidentiality"><div class="header-wrapper"><h4 id="x5-2-6-profile-requirement-item-non-persistent-confidentiality"><bdi class="secno">5.2.6 </bdi>Profile Requirement Item: Non Persistent Confidentiality</h4><a class="self-link" href="#profile-requirement-item-non-persistent-confidentiality" aria-label="Permalink for Section 5.2.6"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.1.4.6 Non Persistent Confidentiality</th>
@@ -2082,7 +2113,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-persistent-authorization"><div class="header-wrapper"><h4 id="x5-2-7-profile-requirement-item-persistent-authorization"><bdi class="secno">5.2.7 </bdi>Profile Requirement Item: Persistent Authorization</h4><a class="self-link" href="#profile-requirement-item-persistent-authorization" aria-label="Permalink for Section 5.2.7"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.1.4.7 Persistent Authorization</th>
@@ -2111,7 +2142,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-non-persistent-authorization"><div class="header-wrapper"><h4 id="x5-2-8-profile-requirement-item-non-persistent-authorization"><bdi class="secno">5.2.8 </bdi>Profile Requirement Item: Non Persistent Authorization</h4><a class="self-link" href="#profile-requirement-item-non-persistent-authorization" aria-label="Permalink for Section 5.2.8"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.1.4.8 Non Persistent Authorization</th>
@@ -2140,7 +2171,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-trusted-timestamp"><div class="header-wrapper"><h4 id="x5-2-9-profile-requirement-item-trusted-timestamp"><bdi class="secno">5.2.9 </bdi>Profile Requirement Item: Trusted Timestamp</h4><a class="self-link" href="#profile-requirement-item-trusted-timestamp" aria-label="Permalink for Section 5.2.9"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.1.4.9 Trusted Timestamp</th>
@@ -2170,7 +2201,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="module-error-handling"><div class="header-wrapper"><h3 id="x5-3-module-error-handling"><bdi class="secno">5.3 </bdi>Module : Error Handling</h3><a class="self-link" href="#module-error-handling" aria-label="Permalink for Section 5.3"></a></div>
 <section id="profile-requirement-item"><div class="header-wrapper"><h4 id="x5-3-1-profile-requirement-item"><bdi class="secno">5.3.1 </bdi>Profile Requirement Item</h4><a class="self-link" href="#profile-requirement-item" aria-label="Permalink for Section 5.3.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.2.3.2 Error Element</th>
@@ -2208,7 +2239,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="module-syncreply"><div class="header-wrapper"><h3 id="x5-4-module-syncreply"><bdi class="secno">5.4 </bdi>Module : SyncReply</h3><a class="self-link" href="#module-syncreply" aria-label="Permalink for Section 5.4"></a></div>
 <section id="profile-requirement-item-syncreply"><div class="header-wrapper"><h4 id="x5-4-1-profile-requirement-item-syncreply"><bdi class="secno">5.4.1 </bdi>Profile Requirement Item: SyncReply</h4><a class="self-link" href="#profile-requirement-item-syncreply" aria-label="Permalink for Section 5.4.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.3 SyncReply</th>
@@ -2256,7 +2287,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="module-reliable-messaging"><div class="header-wrapper"><h3 id="x5-5-module-reliable-messaging"><bdi class="secno">5.5 </bdi>Module : Reliable Messaging</h3><a class="self-link" href="#module-reliable-messaging" aria-label="Permalink for Section 5.5"></a></div>
 <section id="profile-requirement-item-soap-actor-attribute"><div class="header-wrapper"><h4 id="x5-5-1-profile-requirement-item-soap-actor-attribute"><bdi class="secno">5.5.1 </bdi>Profile Requirement Item: SOAP Actor attribute</h4><a class="self-link" href="#profile-requirement-item-soap-actor-attribute" aria-label="Permalink for Section 5.5.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 6.3.1.1 SOAP Actor attribute</th>
@@ -2297,7 +2328,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-signed-attribute"><div class="header-wrapper"><h4 id="x5-5-2-profile-requirement-item-signed-attribute"><bdi class="secno">5.5.2 </bdi>Profile Requirement Item: Signed attribute</h4><a class="self-link" href="#profile-requirement-item-signed-attribute" aria-label="Permalink for Section 5.5.2"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 6.3.1.2 Signed attribute</th>
@@ -2332,7 +2363,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-duplicateelimination"><div class="header-wrapper"><h4 id="x5-5-3-profile-requirement-item-duplicateelimination"><bdi class="secno">5.5.3 </bdi>Profile Requirement Item: DuplicateElimination</h4><a class="self-link" href="#profile-requirement-item-duplicateelimination" aria-label="Permalink for Section 5.5.3"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 6.4.1</th>
@@ -2379,7 +2410,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-retries-and-retryinterval"><div class="header-wrapper"><h4 id="x5-5-4-profile-requirement-item-retries-and-retryinterval"><bdi class="secno">5.5.4 </bdi>Profile Requirement Item: Retries and RetryInterval</h4><a class="self-link" href="#profile-requirement-item-retries-and-retryinterval" aria-label="Permalink for Section 5.5.4"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>]Section 6.4.3, 6.4.4 Retries and RetryInterval</th>
@@ -2420,7 +2451,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-persistduration"><div class="header-wrapper"><h4 id="x5-5-5-profile-requirement-item-persistduration"><bdi class="secno">5.5.5 </bdi>Profile Requirement Item: PersistDuration</h4><a class="self-link" href="#profile-requirement-item-persistduration" aria-label="Permalink for Section 5.5.5"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>]Section 6.4.6 PersistDuration</th>
@@ -2455,7 +2486,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-reliability-protocol"><div class="header-wrapper"><h4 id="x5-5-6-profile-requirement-item-reliability-protocol"><bdi class="secno">5.5.6 </bdi>Profile Requirement Item: Reliability Protocol</h4><a class="self-link" href="#profile-requirement-item-reliability-protocol" aria-label="Permalink for Section 5.5.6"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>]Section 6.5.3, 6.5.7</th>
@@ -2503,7 +2534,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="module-message-status"><div class="header-wrapper"><h3 id="x5-6-module-message-status"><bdi class="secno">5.6 </bdi>Module : Message Status</h3><a class="self-link" href="#module-message-status" aria-label="Permalink for Section 5.6"></a></div>
 <section id="profile-requirement-item-status-request-message"><div class="header-wrapper"><h4 id="x5-6-1-profile-requirement-item-status-request-message"><bdi class="secno">5.6.1 </bdi>Profile Requirement Item: Status Request message</h4><a class="self-link" href="#profile-requirement-item-status-request-message" aria-label="Permalink for Section 5.6.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 7.1.1 Message Status Request</th>
@@ -2536,7 +2567,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-status-response-message"><div class="header-wrapper"><h4 id="x5-6-2-profile-requirement-item-status-response-message"><bdi class="secno">5.6.2 </bdi>Profile Requirement Item: Status Response message</h4><a class="self-link" href="#profile-requirement-item-status-response-message" aria-label="Permalink for Section 5.6.2"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>]  Section 7.1.2 Message Status Response</th>
@@ -2566,7 +2597,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="module-ping-service"><div class="header-wrapper"><h3 id="x5-7-module-ping-service"><bdi class="secno">5.7 </bdi>Module : Ping Service</h3><a class="self-link" href="#module-ping-service" aria-label="Permalink for Section 5.7"></a></div>
 <section id="profile-requirement-item-ping-pong-security"><div class="header-wrapper"><h4 id="x5-7-1-profile-requirement-item-ping-pong-security"><bdi class="secno">5.7.1 </bdi>Profile Requirement Item: Ping-Pong Security</h4><a class="self-link" href="#profile-requirement-item-ping-pong-security" aria-label="Permalink for Section 5.7.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 8.1, 8.2 Message Service Handler Ping/Pong Message</th>
@@ -2608,7 +2639,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="module-multi-hop"><div class="header-wrapper"><h3 id="x5-8-module-multi-hop"><bdi class="secno">5.8 </bdi>Module : Multi-Hop</h3><a class="self-link" href="#module-multi-hop" aria-label="Permalink for Section 5.8"></a></div>
 <section id="profile-requirement-item-use-of-intermediaries"><div class="header-wrapper"><h4 id="x5-8-1-profile-requirement-item-use-of-intermediaries"><bdi class="secno">5.8.1 </bdi>Profile Requirement Item: Use of intermediaries</h4><a class="self-link" href="#profile-requirement-item-use-of-intermediaries" aria-label="Permalink for Section 5.8.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 10</th>
@@ -2641,7 +2672,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-acknowledgements"><div class="header-wrapper"><h4 id="x5-8-2-profile-requirement-item-acknowledgements"><bdi class="secno">5.8.2 </bdi>Profile Requirement Item: Acknowledgements</h4><a class="self-link" href="#profile-requirement-item-acknowledgements" aria-label="Permalink for Section 5.8.2"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 10.1.1, 10.1.3</th>
@@ -2679,7 +2710,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="soap-extensions"><div class="header-wrapper"><h3 id="x5-9-soap-extensions"><bdi class="secno">5.9 </bdi>SOAP Extensions</h3><a class="self-link" href="#soap-extensions" aria-label="Permalink for Section 5.9"></a></div>
 <section id="profile-requirement-item-wildcard-id"><div class="header-wrapper"><h4 id="x5-9-1-profile-requirement-item-wildcard-id"><bdi class="secno">5.9.1 </bdi>Profile Requirement Item: #wildCard, Id</h4><a class="self-link" href="#profile-requirement-item-wildcard-id" aria-label="Permalink for Section 5.9.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 2.3.6, 2.3.7, 2.3.8</th>
@@ -2713,7 +2744,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="mime-header-container"><div class="header-wrapper"><h3 id="x5-10-mime-header-container"><bdi class="secno">5.10 </bdi>MIME Header Container</h3><a class="self-link" href="#mime-header-container" aria-label="Permalink for Section 5.10"></a></div>
 <section id="profile-requirement-item-charset"><div class="header-wrapper"><h4 id="x5-10-1-profile-requirement-item-charset"><bdi class="secno">5.10.1 </bdi>Profile Requirement Item: charset</h4><a class="self-link" href="#profile-requirement-item-charset" aria-label="Permalink for Section 5.10.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 2.1.3.2</th>
@@ -2743,7 +2774,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="http-binding"><div class="header-wrapper"><h3 id="x5-11-http-binding"><bdi class="secno">5.11 </bdi>HTTP Binding</h3><a class="self-link" href="#http-binding" aria-label="Permalink for Section 5.11"></a></div>
 <section id="profile-requirement-item-http-headers"><div class="header-wrapper"><h4 id="x5-11-1-profile-requirement-item-http-headers"><bdi class="secno">5.11.1 </bdi>Profile Requirement Item: HTTP Headers</h4><a class="self-link" href="#profile-requirement-item-http-headers" aria-label="Permalink for Section 5.11.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Appendix B.2.2 Sending ebXML Service messages over HTTP</th>
@@ -2780,7 +2811,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-http-response-codes"><div class="header-wrapper"><h4 id="x5-11-2-profile-requirement-item-http-response-codes"><bdi class="secno">5.11.2 </bdi>Profile Requirement Item: HTTP Response Codes</h4><a class="self-link" href="#profile-requirement-item-http-response-codes" aria-label="Permalink for Section 5.11.2"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Appendix B.2.3 HTTP Response Codes</th>
@@ -2793,7 +2824,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 <tr>
 <td>What client behaviors should result when 3xx, 4xx or 5xx HTTP error codes are received?</td>
-<td>In the event of an HTTP 5xx error code, the MSH <strong>must</strong> behave according to the recommendations specified in [<cite><a class="bibref" data-link-type="biblio" href="#bib-soap" title="SOAP Specifications">SOAP</a></cite>]. An HTTP 503 error code <strong>should</strong> be treated as a recoverable error (i.e. <strong>should not</strong> terminate any reliable messaging retries). Codes in the 3xx and 4xx ranges <strong>must</strong> be interpreted as errors.</td>
+<td>In the event of an HTTP 5xx error code, the MSH <strong>must</strong> behave according to the recommendations specified in [<cite><a class="bibref" data-link-type="biblio" href="#bib-soap" title="Simple Object Access Protocol (SOAP) 1.1">SOAP</a></cite>]. An HTTP 503 error code <strong>should</strong> be treated as a recoverable error (i.e. <strong>should not</strong> terminate any reliable messaging retries). Codes in the 3xx and 4xx ranges <strong>must</strong> be interpreted as errors.</td>
 </tr>
 <tr>
 <td>Alignment</td>
@@ -2809,7 +2840,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-http-access-control"><div class="header-wrapper"><h4 id="x5-11-3-profile-requirement-item-http-access-control"><bdi class="secno">5.11.3 </bdi>Profile Requirement Item: HTTP Access Control</h4><a class="self-link" href="#profile-requirement-item-http-access-control" aria-label="Permalink for Section 5.11.3"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Appendix B.2.6 Access Control Header elements</th>
@@ -2838,7 +2869,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section><section id="profile-requirement-item-http-confidentiality-and-security"><div class="header-wrapper"><h4 id="x5-11-4-profile-requirement-item-http-confidentiality-and-security"><bdi class="secno">5.11.4 </bdi>Profile Requirement Item: HTTP Confidentiality and Security</h4><a class="self-link" href="#profile-requirement-item-http-confidentiality-and-security" aria-label="Permalink for Section 5.11.4"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Appendix B.2.7 Confidentiality and Transport Protocol Level Security</th>
@@ -2892,7 +2923,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tbody></table>
 </section></section><section id="smtp-binding"><div class="header-wrapper"><h3 id="x5-12-smtp-binding"><bdi class="secno">5.12 </bdi>SMTP Binding</h3><a class="self-link" href="#smtp-binding" aria-label="Permalink for Section 5.12"></a></div>
 <section id="profile-requirement-item-mime-headers"><div class="header-wrapper"><h4 id="x5-12-1-profile-requirement-item-mime-headers"><bdi class="secno">5.12.1 </bdi>Profile Requirement Item: MIME Headers</h4><a class="self-link" href="#profile-requirement-item-mime-headers" aria-label="Permalink for Section 5.12.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Appendix B.3.2 Sending ebXML Messages over SMTP</th>
@@ -2925,7 +2956,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 </tr>
 </tbody></table>
 </section></section><section id="profile-requirement-item-smtp-confidentiality-and-security"><div class="header-wrapper"><h3 id="x5-13-profile-requirement-item-smtp-confidentiality-and-security"><bdi class="secno">5.13 </bdi>Profile Requirement Item: SMTP Confidentiality and Security</h3><a class="self-link" href="#profile-requirement-item-smtp-confidentiality-and-security" aria-label="Permalink for Section 5.13"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Appendix B.3.4, B.3.5</th>
@@ -2963,7 +2994,7 @@ te worden samen met de technische specificatie [EBXML-MSG].</p>
 with which the profile which is mentioned above is supposed to operate with,
 expected or required conditions of operations, usage context, etc.</p>
 <section id="deployment-and-processing-requirements-for-cpas"><div class="header-wrapper"><h3 id="x6-1-deployment-and-processing-requirements-for-cpas"><bdi class="secno">6.1 </bdi>Deployment and Processing requirements for CPAs</h3><a class="self-link" href="#deployment-and-processing-requirements-for-cpas" aria-label="Permalink for Section 6.1"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -2988,7 +3019,7 @@ expected or required conditions of operations, usage context, etc.</p>
 </tr>
 </tbody></table>
 </section><section id="security-profile"><div class="header-wrapper"><h3 id="x6-2-security-profile"><bdi class="secno">6.2 </bdi>Security Profile</h3><a class="self-link" href="#security-profile" aria-label="Permalink for Section 6.2"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -3021,7 +3052,7 @@ expected or required conditions of operations, usage context, etc.</p>
 </tr>
 </tbody></table>
 </section><section id="reliability-profile"><div class="header-wrapper"><h3 id="x6-3-reliability-profile"><bdi class="secno">6.3 </bdi>Reliability Profile</h3><a class="self-link" href="#reliability-profile" aria-label="Permalink for Section 6.3"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -3042,7 +3073,7 @@ expected or required conditions of operations, usage context, etc.</p>
 </tr>
 </tbody></table>
 </section><section id="error-handling-profile"><div class="header-wrapper"><h3 id="x6-4-error-handling-profile"><bdi class="secno">6.4 </bdi>Error Handling Profile</h3><a class="self-link" href="#error-handling-profile" aria-label="Permalink for Section 6.4"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>[<cite><a class="bibref" data-link-type="biblio" href="#bib-ebxml-msg" title="OASIS ebXML Message Service Specification">EBXML-MSG</a></cite>] Section 4.2.4.2</th>
@@ -3067,7 +3098,7 @@ expected or required conditions of operations, usage context, etc.</p>
 </tr>
 </tbody></table>
 </section><section id="message-payload-and-flow-profile"><div class="header-wrapper"><h3 id="x6-5-message-payload-and-flow-profile"><bdi class="secno">6.5 </bdi>Message Payload and Flow Profile</h3><a class="self-link" href="#message-payload-and-flow-profile" aria-label="Permalink for Section 6.5"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -3104,7 +3135,7 @@ expected or required conditions of operations, usage context, etc.</p>
 </tr>
 </tbody></table>
 </section><section id="additional-messaging-features-beyond-ebms-specification"><div class="header-wrapper"><h3 id="x6-6-additional-messaging-features-beyond-ebms-specification"><bdi class="secno">6.6 </bdi>Additional Messaging Features beyond ebMS Specification</h3><a class="self-link" href="#additional-messaging-features-beyond-ebms-specification" aria-label="Permalink for Section 6.6"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -3117,7 +3148,7 @@ expected or required conditions of operations, usage context, etc.</p>
 </tr>
 </tbody></table>
 </section><section id="additional-deployment-or-operational-requirements"><div class="header-wrapper"><h3 id="x6-7-additional-deployment-or-operational-requirements"><bdi class="secno">6.7 </bdi>Additional Deployment or Operational Requirements</h3><a class="self-link" href="#additional-deployment-or-operational-requirements" aria-label="Permalink for Section 6.7"></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -3157,7 +3188,7 @@ expected or required conditions of operations, usage context, etc.</p>
     </dd><dt id="bib-rfc5322">[rfc5322]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc5322"><cite>Internet Message Format</cite></a>. P. Resnick, Ed..  IETF. October 2008. Draft Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc5322">https://www.rfc-editor.org/rfc/rfc5322</a>
     </dd><dt id="bib-soap">[SOAP]</dt><dd>
-      <a href="https://www.w3.org/TR/SOAP/"><cite>SOAP Specifications</cite></a>.  W3C. 8 May 2000. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/SOAP/">https://www.w3.org/TR/SOAP/</a>
+      <a href="https://www.w3.org/TR/SOAP/"><cite>Simple Object Access Protocol (SOAP) 1.1</cite></a>. Andrew Layman; David Winer; Henrik Frystyk Nielsen; Gopal Kakivaya; David Ehnebuske; Satish Thatte; Noah Mendelsohn; Don Box.  W3C. 8 May 2000. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/SOAP/">https://www.w3.org/TR/SOAP/</a>
     </dd><dt id="bib-xml-exc-c14n">[xml-exc-c14n]</dt><dd>
       <a href="https://www.w3.org/TR/xml-exc-c14n/"><cite>Exclusive XML Canonicalization Version 1.0</cite></a>. John Boyer; Donald Eastlake; Joseph Reagle.  W3C. 18 July 2002. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xml-exc-c14n/">https://www.w3.org/TR/xml-exc-c14n/</a>
     </dd><dt id="bib-xmldsig-core-20020212">[xmldsig-core-20020212]</dt><dd>
@@ -3169,6 +3200,8 @@ expected or required conditions of operations, usage context, etc.</p>
     <div class="header-wrapper"><h3 id="a-2-informatieve-referenties"><bdi class="secno">A.2 </bdi>Informatieve referenties</h3><a class="self-link" href="#informatieve-referenties" aria-label="Permalink for Appendix A.2"></a></div>
     <dl class="bibliography"><dt id="bib-deployment guide 1.1">[Deployment Guide 1.1]</dt><dd>
       <a href="http://www.oasis-open.org/apps/org/workgroup/ebxml-iic-deployment-profile-template-intro-100406.doc"><cite>Deployment Profile Template For OASIS ebXML Message Service 2.0</cite></a>. Pete Wenzel; Jacques Durand.  OASIS. June 2005. URL: <a href="http://www.oasis-open.org/apps/org/workgroup/ebxml-iic-deployment-profile-template-intro-100406.doc">http://www.oasis-open.org/apps/org/workgroup/ebxml-iic-deployment-profile-template-intro-100406.doc</a>
+    </dd><dt id="bib-dk-beheermodel">[DK-Beheermodel]</dt><dd>
+      <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/"><cite>Digikoppeling Beheermodel</cite></a>.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/</a>
     </dd><dt id="bib-ebms3">[ebMS3]</dt><dd>
       <a href="https://docs.oasis-open.org/ebxml-msg/ebms/v3.0/core/os/ebms_core-3.0-spec-os.html"><cite>Collaboration-Protocol Profile and Agreement Specification Version 2.0</cite></a>. Ian Jones; Pete Wenzel.  Oasis. October 2007. URL: <a href="https://docs.oasis-open.org/ebxml-msg/ebms/v3.0/core/os/ebms_core-3.0-spec-os.html">https://docs.oasis-open.org/ebxml-msg/ebms/v3.0/core/os/ebms_core-3.0-spec-os.html</a>
     </dd><dt id="bib-ummr10">[UMMR10]</dt><dd>
