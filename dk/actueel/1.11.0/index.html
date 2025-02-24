@@ -108,7 +108,7 @@ img.license{float:left;padding-right:5px}
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
@@ -326,7 +326,8 @@ img.license{float:left;padding-right:5px}
     "DK-Beheermodel": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
       "publisher": "Logius",
-      "title": "Digikoppeling Beheermodel"
+      "title": "Digikoppeling Beheermodel",
+      "id": "dk-beheermodel"
     },
     "DK-BPebMS": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
@@ -487,6 +488,14 @@ img.license{float:left;padding-right:5px}
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
     },
     "Introspection": {
       "authors": [
@@ -777,7 +786,7 @@ img.license{float:left;padding-right:5px}
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
  <body class="h-entry toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">Digikoppeling Overzicht Actuele Documentatie en Compliance 1.11.0</h1>
     
     <h2>
@@ -833,7 +842,7 @@ img.license{float:left;padding-right:5px}
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document Digikoppeling Overzicht Actuele Documentatie &amp; Compliance beschrijft de opzet en huidige versies van de
     Digikoppeling standaard. Ook geeft dit document aan hoe compliance aan de standaard kan worden bepaald en
     aangetoond.</p></section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel"><bdi class="secno">1.1 </bdi>Doel</a></li><li class="tocline"><a class="tocxref" href="#doelgroep"><bdi class="secno">1.2 </bdi>Doelgroep</a></li><li class="tocline"><a class="tocxref" href="#verantwoording"><bdi class="secno">1.3 </bdi>Verantwoording</a></li></ol></li><li class="tocline"><a class="tocxref" href="#wat-is-digikoppeling"><bdi class="secno">2. </bdi>Wat is Digikoppeling?</a></li><li class="tocline"><a class="tocxref" href="#welke-digikoppeling-documentatie-is-beschikbaar"><bdi class="secno">3. </bdi>Welke Digikoppeling documentatie is beschikbaar?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#structuur-opbouw-documentatie"><bdi class="secno">3.1 </bdi>Structuur &amp; opbouw documentatie</a></li><li class="tocline"><a class="tocxref" href="#overzicht-documentatie"><bdi class="secno">3.2 </bdi>Overzicht documentatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#algemene-documentatie"><bdi class="secno">3.2.1 </bdi>Algemene documentatie</a></li><li class="tocline"><a class="tocxref" href="#technische-documentatie"><bdi class="secno">3.2.2 </bdi>Technische documentatie</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#wat-zijn-de-huidige-versies-van-documenten"><bdi class="secno">4. </bdi>Wat zijn de huidige versies van documenten?</a></li><li class="tocline"><a class="tocxref" href="#wanneer-ben-ik-digikoppeling-compliant"><bdi class="secno">5. </bdi>Wanneer ben ik Digikoppeling compliant?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#documenten-per-koppelvlak"><bdi class="secno">5.1 </bdi>Documenten per koppelvlak</a></li><li class="tocline"><a class="tocxref" href="#toelichting-compliance"><bdi class="secno">5.2 </bdi>Toelichting compliance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">6. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">7. </bdi>Lijst met figuren</a></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel"><bdi class="secno">1.1 </bdi>Doel</a></li><li class="tocline"><a class="tocxref" href="#doelgroep"><bdi class="secno">1.2 </bdi>Doelgroep</a></li><li class="tocline"><a class="tocxref" href="#verantwoording"><bdi class="secno">1.3 </bdi>Verantwoording</a></li></ol></li><li class="tocline"><a class="tocxref" href="#wat-is-digikoppeling"><bdi class="secno">2. </bdi>Wat is Digikoppeling?</a></li><li class="tocline"><a class="tocxref" href="#welke-digikoppeling-documentatie-is-beschikbaar"><bdi class="secno">3. </bdi>Welke Digikoppeling documentatie is beschikbaar?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#structuur-opbouw-documentatie"><bdi class="secno">3.1 </bdi>Structuur &amp; opbouw documentatie</a></li><li class="tocline"><a class="tocxref" href="#overzicht-documentatie"><bdi class="secno">3.2 </bdi>Overzicht documentatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#algemene-documentatie"><bdi class="secno">3.2.1 </bdi>Algemene documentatie</a></li><li class="tocline"><a class="tocxref" href="#technische-documentatie"><bdi class="secno">3.2.2 </bdi>Technische documentatie</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#wat-zijn-de-huidige-versies-van-documenten"><bdi class="secno">4. </bdi>Wat zijn de huidige versies van documenten?</a></li><li class="tocline"><a class="tocxref" href="#wanneer-ben-ik-digikoppeling-compliant"><bdi class="secno">5. </bdi>Wanneer ben ik Digikoppeling compliant?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#documenten-per-koppelvlak"><bdi class="secno">5.1 </bdi>Documenten per koppelvlak</a></li><li class="tocline"><a class="tocxref" href="#toelichting-compliance"><bdi class="secno">5.2 </bdi>Toelichting compliance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">6. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">7. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">A.1 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
   <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
 <table>
 <thead>
@@ -971,63 +980,10 @@ img.license{float:left;padding-right:5px}
 <p>Dit hoofdstuk geeft aan welk onderdeel van de standaard in welk document wordt beschreven en geeft ook de samenhang weer tussen de verschillende soorten documenten.</p>
 <section id="structuur-opbouw-documentatie"><div class="header-wrapper"><h3 id="x3-1-structuur-opbouw-documentatie"><bdi class="secno">3.1 </bdi>Structuur &amp; opbouw documentatie</h3><a class="self-link" href="#structuur-opbouw-documentatie" aria-label="Permalink for Section 3.1"></a></div>
 <p>De onderstaande figuur geeft de opbouw weer van de Digikoppeling documentatie.</p>
-<p>
-      </p><figure id="fig-opbouw-documentatie-digikoppeling">
-        <img src="media/DK_Specificatie_structuur.svg" alt="Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen">
-        <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">2</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
-      </figure>
-    <p></p>
-<details>
-    <summary> Tekstalternatief </summary>
-<ul>
-    <li>Digikoppeling Standaard
-        <ul>
-            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/beheer/">DK Beheermodel en releasebeleid</a>* </li>
-            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/actueel/">DK Overzicht Actuele Documentatie en Compliance</a>* </li>
-            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/architectuur">DK Architectuur</a>*
-                <ul>
-                    <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/idauth/">DK Identificatie en Authenticatie</a>*
-                        <ul>
-                            <li><i> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/gbachtcert/">Digikoppeling Gebruik en Achtergronden Certificaten</a></i>† </li>
-                        </ul>
-                    </li>
-                    <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/beveilig/">DK Beveiligingsstandaarden en voorschriften</a>* </li>
-                    <li>Koppelvlakstandaarden
-                        <ul>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/wus/">DK Koppelvlakstandaard WUS</a>*
-                                <ul>
-                                    <li><i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpwus">Best-practice WUS</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/ebms/">DK Koppelvlakstandaard ebMS2</a>*
-                                <ul>
-                                    <li> <i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpebms">Best-practice ebMS2</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/restapi/">DK Koppelvlakstandaard REST API</a>*
-                                <ul>
-                                    <li> <i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/restapi">Best-practice REST API</a></i>†</li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/gb/">DK Koppelvlakstandaard Grote Berichten</a>*
-                                <ul>
-                                    <li> <i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpgb">Best-practice Grote Berichten</a></i>†</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-    <i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/watisdk/">Wat is Digikoppeling</a></i>†
-  </li>
-        </ul>
-    </li>
-</ul>
-<p>* Normatief document</p>
-<p>† Ondersteunend document</p>
-</details>
-
+<figure id="fig-opbouw-documentatie-digikoppeling">
+  <object data="media/DK_Specificatie_structuur.svg" type="image/svg+xml" id="infographic">Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen</object>
+  <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">2</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
+</figure>
 
 <p><b>Legenda</b></p>
 <table class="legendum">
@@ -1039,11 +995,11 @@ img.license{float:left;padding-right:5px}
     </thead>
     <tbody>
         <tr>
-            <td class="green"></td>
+            <td class="green">Groen</td>
             <td>Standaard documentatie</td>
         </tr>
         <tr>
-            <td class="grey"></td>
+            <td class="grey">Grijs</td>
             <td>Ondersteunende documentatie</td>
         </tr>
     </tbody>
@@ -1052,11 +1008,11 @@ img.license{float:left;padding-right:5px}
 
 <p><b>Beheer</b></p>
 <ul>
-<li><p>De standaarddocumenten (groen/vierkant aangegeven) vallen onder het beheer zoals geformaliseerd in het document [Beheermodel en releasebeleid].</p>
+<li><p>De standaarddocumenten (groen/vierkant aangegeven) vallen onder het beheer zoals geformaliseerd in het document <cite><a data-matched-text="[[[?DK-Beheermodel]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">Digikoppeling Beheermodel</a></cite>.</p>
 </li>
 <li><p>De ondersteunende documentatie wordt onderhouden door Logius als de beheerder van de standaard (en afgestemd met stakeholders/ gebruikers).</p>
 </li>
-<li><p>Alle goedgekeurde documenten zijn te vinden op de website van Logius, <a href="http://www.logius.nl/digikoppeling">www.logius.nl</a>.</p>
+<li><p>Alle goedgekeurde documenten zijn te vinden op de website van Logius, <a href="https://www.logius.nl/onze-dienstverlening/domeinen/gegevensuitwisseling/digikoppeling">www.logius.nl</a>.</p>
 </li>
 </ul>
 </section><section id="overzicht-documentatie"><div class="header-wrapper"><h3 id="x3-2-overzicht-documentatie"><bdi class="secno">3.2 </bdi>Overzicht documentatie</h3><a class="self-link" href="#overzicht-documentatie" aria-label="Permalink for Section 3.2"></a></div>
@@ -1593,7 +1549,12 @@ Patchversies (hieronder weergegeven met een asterisk) raken de technische specif
       </ul></section>
  
 
-<p role="navigation" id="back-to-top">
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-referenties"><bdi class="secno">A. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="informatieve-referenties">
+    <div class="header-wrapper"><h3 id="a-1-informatieve-referenties"><bdi class="secno">A.1 </bdi>Informatieve referenties</h3><a class="self-link" href="#informatieve-referenties" aria-label="Permalink for Appendix A.1"></a></div>
+    <dl class="bibliography"><dt id="bib-dk-beheermodel">[DK-Beheermodel]</dt><dd>
+      <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/"><cite>Digikoppeling Beheermodel</cite></a>.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/</a>
+    </dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
   </p><script id="respec-dfn-panel">(() => {
 // @ts-check
