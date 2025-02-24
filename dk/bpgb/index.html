@@ -126,7 +126,7 @@ img.license{float:left;padding-right:5px}
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
@@ -344,7 +344,8 @@ img.license{float:left;padding-right:5px}
     "DK-Beheermodel": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
       "publisher": "Logius",
-      "title": "Digikoppeling Beheermodel"
+      "title": "Digikoppeling Beheermodel",
+      "id": "dk-beheermodel"
     },
     "DK-BPebMS": {
       "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
@@ -505,6 +506,14 @@ img.license{float:left;padding-right:5px}
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
     },
     "Introspection": {
       "authors": [
@@ -730,6 +739,32 @@ img.license{float:left;padding-right:5px}
       ],
       "publisher": "Association of Computing Machinery (ACM)",
       "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
     }
   },
   "alternateFormats": [
@@ -773,7 +808,7 @@ img.license{float:left;padding-right:5px}
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
  <body class="h-entry informative toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">Digikoppeling Best Practices Grote Berichten 3.2.0</h1>
     
     <h2>
@@ -835,7 +870,7 @@ img.license{float:left;padding-right:5px}
     willen uitwisselen. Dit document is een aanvulling hierop en
     heeft tot doel ontwikkelaars te informeren en adviseren over de te volgen werkwijze bij het toepassen van de
     Koppelvlakstandaard Grote Berichten.</p></section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel-en-doelgroep"><bdi class="secno">1.1 </bdi>Doel en doelgroep</a></li><li class="tocline"><a class="tocxref" href="#opbouw-digikoppeling-documentatie"><bdi class="secno">1.2 </bdi>Opbouw Digikoppeling documentatie</a></li><li class="tocline"><a class="tocxref" href="#doel-en-scope-van-digikoppeling"><bdi class="secno">1.3 </bdi>Doel en scope van Digikoppeling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#leidend-principe"><bdi class="secno">1.3.1 </bdi>Leidend principe</a></li></ol></li><li class="tocline"><a class="tocxref" href="#koppelvlak-koppelvlakstandaard"><bdi class="secno">1.4 </bdi>Koppelvlak &amp; koppelvlakstandaard</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#specificatie-van-de-koppelvlakstandaard"><bdi class="secno">1.4.1 </bdi>Specificatie van de koppelvlakstandaard</a></li></ol></li><li class="tocline"><a class="tocxref" href="#opbouw-van-dit-document"><bdi class="secno">1.5 </bdi>Opbouw van dit document</a></li></ol></li><li class="tocline"><a class="tocxref" href="#best-practices"><bdi class="secno">2. </bdi>Best Practices</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#interactiepatronen"><bdi class="secno">2.2 </bdi>Interactiepatronen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pull-principe"><bdi class="secno">2.2.1 </bdi>Pull principe</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ebms2"><bdi class="secno">2.2.1.1 </bdi>EbMS2</a></li><li class="tocline"><a class="tocxref" href="#wus"><bdi class="secno">2.2.1.2 </bdi>WUS</a></li><li class="tocline"><a class="tocxref" href="#rest-api"><bdi class="secno">2.2.1.3 </bdi>REST-API</a></li></ol></li><li class="tocline"><a class="tocxref" href="#push-principe"><bdi class="secno">2.2.2 </bdi>Push principe</a></li></ol></li><li class="tocline"><a class="tocxref" href="#metadata"><bdi class="secno">2.3 </bdi>Metadata</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#location-url"><bdi class="secno">2.3.1 </bdi>Location URL</a></li><li class="tocline"><a class="tocxref" href="#bestandsnaam"><bdi class="secno">2.3.2 </bdi>Bestandsnaam</a></li><li class="tocline"><a class="tocxref" href="#metadata-als-deel-van-een-bericht"><bdi class="secno">2.3.3 </bdi>Metadata als deel van een bericht</a></li><li class="tocline"><a class="tocxref" href="#meerdere-bestanden-in-een-bericht"><bdi class="secno">2.3.4 </bdi>Meerdere bestanden in één bericht</a></li><li class="tocline"><a class="tocxref" href="#geldigheidsduur"><bdi class="secno">2.3.5 </bdi>Geldigheidsduur</a></li><li class="tocline"><a class="tocxref" href="#context"><bdi class="secno">2.3.6 </bdi>Context</a></li></ol></li><li class="tocline"><a class="tocxref" href="#reliability"><bdi class="secno">2.4 </bdi>Reliability</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#retry-strategie"><bdi class="secno">2.4.1 </bdi>Retry strategie</a></li><li class="tocline"><a class="tocxref" href="#foutafhandeling"><bdi class="secno">2.4.2 </bdi>Foutafhandeling</a></li></ol></li><li class="tocline"><a class="tocxref" href="#security"><bdi class="secno">2.5 </bdi>Security</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oin-en-certificaten"><bdi class="secno">2.5.1 </bdi>OIN en certificaten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#client-zijde"><bdi class="secno">2.5.1.1 </bdi>Client-zijde</a></li><li class="tocline"><a class="tocxref" href="#server-zijde"><bdi class="secno">2.5.1.2 </bdi>Server-zijde</a></li><li class="tocline"><a class="tocxref" href="#certificaat-geldigheid"><bdi class="secno">2.5.1.3 </bdi>Certificaat-geldigheid</a></li></ol></li><li class="tocline"><a class="tocxref" href="#server-configuration"><bdi class="secno">2.5.2 </bdi>Server configuration</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#apache-tomcat"><bdi class="secno">2.5.2.1 </bdi>Apache Tomcat</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#http-connector"><bdi class="secno">2.5.2.1.1 </bdi>HTTP connector</a></li><li class="tocline"><a class="tocxref" href="#security-filter"><bdi class="secno">2.5.2.1.2 </bdi>Security Filter</a></li><li class="tocline"><a class="tocxref" href="#certificaten"><bdi class="secno">2.5.2.1.3 </bdi>Certificaten</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#intermediairs"><bdi class="secno">2.6 </bdi>Intermediairs</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#niet-transparant"><bdi class="secno">2.6.1 </bdi>Niet-transparant</a></li><li class="tocline"><a class="tocxref" href="#transparant"><bdi class="secno">2.6.2 </bdi>Transparant</a></li></ol></li><li class="tocline"><a class="tocxref" href="#natting"><bdi class="secno">2.7 </bdi>NATting</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">3. </bdi>Use cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#download"><bdi class="secno">3.1 </bdi>Download</a></li><li class="tocline"><a class="tocxref" href="#selectie"><bdi class="secno">3.2 </bdi>Selectie</a></li><li class="tocline"><a class="tocxref" href="#verzending-pull"><bdi class="secno">3.3 </bdi>Verzending (pull)</a></li><li class="tocline"><a class="tocxref" href="#push"><bdi class="secno">3.4 </bdi>Push</a></li><li class="tocline"><a class="tocxref" href="#multi-distributie"><bdi class="secno">3.5 </bdi>Multi-distributie</a></li><li class="tocline"><a class="tocxref" href="#upload"><bdi class="secno">3.6 </bdi>Upload</a></li><li class="tocline"><a class="tocxref" href="#business-voorbeelden"><bdi class="secno">3.7 </bdi>Business voorbeelden</a></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">4. </bdi>Lijst met figuren</a></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel-en-doelgroep"><bdi class="secno">1.1 </bdi>Doel en doelgroep</a></li><li class="tocline"><a class="tocxref" href="#opbouw-digikoppeling-documentatie"><bdi class="secno">1.2 </bdi>Opbouw Digikoppeling documentatie</a></li><li class="tocline"><a class="tocxref" href="#doel-en-scope-van-digikoppeling"><bdi class="secno">1.3 </bdi>Doel en scope van Digikoppeling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#leidend-principe"><bdi class="secno">1.3.1 </bdi>Leidend principe</a></li></ol></li><li class="tocline"><a class="tocxref" href="#koppelvlak-koppelvlakstandaard"><bdi class="secno">1.4 </bdi>Koppelvlak &amp; koppelvlakstandaard</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#specificatie-van-de-koppelvlakstandaard"><bdi class="secno">1.4.1 </bdi>Specificatie van de koppelvlakstandaard</a></li></ol></li><li class="tocline"><a class="tocxref" href="#opbouw-van-dit-document"><bdi class="secno">1.5 </bdi>Opbouw van dit document</a></li></ol></li><li class="tocline"><a class="tocxref" href="#best-practices"><bdi class="secno">2. </bdi>Best Practices</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#interactiepatronen"><bdi class="secno">2.2 </bdi>Interactiepatronen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pull-principe"><bdi class="secno">2.2.1 </bdi>Pull principe</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ebms2"><bdi class="secno">2.2.1.1 </bdi>EbMS2</a></li><li class="tocline"><a class="tocxref" href="#wus"><bdi class="secno">2.2.1.2 </bdi>WUS</a></li><li class="tocline"><a class="tocxref" href="#rest-api"><bdi class="secno">2.2.1.3 </bdi>REST-API</a></li></ol></li><li class="tocline"><a class="tocxref" href="#push-principe"><bdi class="secno">2.2.2 </bdi>Push principe</a></li></ol></li><li class="tocline"><a class="tocxref" href="#metadata"><bdi class="secno">2.3 </bdi>Metadata</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#location-url"><bdi class="secno">2.3.1 </bdi>Location URL</a></li><li class="tocline"><a class="tocxref" href="#bestandsnaam"><bdi class="secno">2.3.2 </bdi>Bestandsnaam</a></li><li class="tocline"><a class="tocxref" href="#metadata-als-deel-van-een-bericht"><bdi class="secno">2.3.3 </bdi>Metadata als deel van een bericht</a></li><li class="tocline"><a class="tocxref" href="#meerdere-bestanden-in-een-bericht"><bdi class="secno">2.3.4 </bdi>Meerdere bestanden in één bericht</a></li><li class="tocline"><a class="tocxref" href="#geldigheidsduur"><bdi class="secno">2.3.5 </bdi>Geldigheidsduur</a></li><li class="tocline"><a class="tocxref" href="#context"><bdi class="secno">2.3.6 </bdi>Context</a></li></ol></li><li class="tocline"><a class="tocxref" href="#reliability"><bdi class="secno">2.4 </bdi>Reliability</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#retry-strategie"><bdi class="secno">2.4.1 </bdi>Retry strategie</a></li><li class="tocline"><a class="tocxref" href="#foutafhandeling"><bdi class="secno">2.4.2 </bdi>Foutafhandeling</a></li></ol></li><li class="tocline"><a class="tocxref" href="#security"><bdi class="secno">2.5 </bdi>Security</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oin-en-certificaten"><bdi class="secno">2.5.1 </bdi>OIN en certificaten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#client-zijde"><bdi class="secno">2.5.1.1 </bdi>Client-zijde</a></li><li class="tocline"><a class="tocxref" href="#server-zijde"><bdi class="secno">2.5.1.2 </bdi>Server-zijde</a></li><li class="tocline"><a class="tocxref" href="#certificaat-geldigheid"><bdi class="secno">2.5.1.3 </bdi>Certificaat-geldigheid</a></li></ol></li><li class="tocline"><a class="tocxref" href="#server-configuration"><bdi class="secno">2.5.2 </bdi>Server configuration</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#apache-tomcat"><bdi class="secno">2.5.2.1 </bdi>Apache Tomcat</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#http-connector"><bdi class="secno">2.5.2.1.1 </bdi>HTTP connector</a></li><li class="tocline"><a class="tocxref" href="#security-filter"><bdi class="secno">2.5.2.1.2 </bdi>Security Filter</a></li><li class="tocline"><a class="tocxref" href="#certificaten"><bdi class="secno">2.5.2.1.3 </bdi>Certificaten</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#intermediairs"><bdi class="secno">2.6 </bdi>Intermediairs</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#niet-transparant"><bdi class="secno">2.6.1 </bdi>Niet-transparant</a></li><li class="tocline"><a class="tocxref" href="#transparant"><bdi class="secno">2.6.2 </bdi>Transparant</a></li></ol></li><li class="tocline"><a class="tocxref" href="#natting"><bdi class="secno">2.7 </bdi>NATting</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">3. </bdi>Use cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#download"><bdi class="secno">3.1 </bdi>Download</a></li><li class="tocline"><a class="tocxref" href="#selectie"><bdi class="secno">3.2 </bdi>Selectie</a></li><li class="tocline"><a class="tocxref" href="#verzending-pull"><bdi class="secno">3.3 </bdi>Verzending (pull)</a></li><li class="tocline"><a class="tocxref" href="#push"><bdi class="secno">3.4 </bdi>Push</a></li><li class="tocline"><a class="tocxref" href="#multi-distributie"><bdi class="secno">3.5 </bdi>Multi-distributie</a></li><li class="tocline"><a class="tocxref" href="#upload"><bdi class="secno">3.6 </bdi>Upload</a></li><li class="tocline"><a class="tocxref" href="#business-voorbeelden"><bdi class="secno">3.7 </bdi>Business voorbeelden</a></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">4. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">A.1 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
   <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
 <table>
 <thead>
@@ -942,64 +977,41 @@ img.license{float:left;padding-right:5px}
 </tbody></table>
 </section><section id="opbouw-digikoppeling-documentatie"><div class="header-wrapper"><h3 id="x1-2-opbouw-digikoppeling-documentatie"><bdi class="secno">1.2 </bdi>Opbouw Digikoppeling documentatie</h3><a class="self-link" href="#opbouw-digikoppeling-documentatie" aria-label="Permalink for Section 1.2"></a></div>
 <p>Digikoppeling is beschreven in een set van documenten. Deze set is als volgt opgebouwd:</p>
-<p>
-      </p><figure id="fig-opbouw-documentatie-digikoppeling">
-        <img src="media/DK_Specificatie_structuur.svg" alt="Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen">
-        <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
-      </figure>
-    <p></p>
-<details>
-    <summary> Tekstalternatief </summary>
+<figure id="fig-opbouw-documentatie-digikoppeling">
+  <object data="https://logius-standaarden.github.io/publicatie/dk/actueel/media/DK_Specificatie_structuur.svg" type="image/svg+xml" id="infographic">Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen</object>
+  <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
+</figure>
+
+<p><b>Legenda</b></p>
+<table class="legendum">
+    <thead>
+        <tr>
+            <th><strong>Kleur</strong></th>
+            <th><strong>Soort Document</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="green">Groen</td>
+            <td>Standaard documentatie</td>
+        </tr>
+        <tr>
+            <td class="grey">Grijs</td>
+            <td>Ondersteunende documentatie</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p><b>Beheer</b></p>
 <ul>
-    <li>Digikoppeling Standaard
-        <ul>
-            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/beheer/">DK Beheermodel en releasebeleid</a>* </li>
-            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/actueel/">DK Overzicht Actuele Documentatie en Compliance</a>* </li>
-            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/architectuur">DK Architectuur</a>*
-                <ul>
-                    <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/idauth/">DK Identificatie en Authenticatie</a>*
-                        <ul>
-                            <li><i> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/gbachtcert/">Digikoppeling Gebruik en Achtergronden Certificaten</a></i> † </li>
-                        </ul>
-                    </li>
-                    <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/beveilig/">DK Beveiligingsstandaarden en voorschriften</a>* </li>
-                    <li>Koppelvlakstandaarden
-                        <ul>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/restapi/">DK Koppelvlakstandaard REST-API</a>*
-                                <ul>
-                                    <li><i>Best-practice REST-API</i> † </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/wus/">DK Koppelvlakstandaard WUS</a>*
-                                <ul>
-                                    <li><i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpwus">Best-practice WUS</a></i> † </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/ebms/">DK Koppelvlakstandaard ebMS2</a>*
-                                <ul>
-                                    <li> <i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpebms">Best-practice ebMS2</a></i> † </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://publicatie.centrumvoorstandaarden.nl/dk/gb/">DK Koppelvlakstandaard Grote Berichten</a>*
-                                <ul>
-                                    <li> <i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/bpgb">Best-practice Grote Berichten</a></i> † </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-    <i><a href="https://publicatie.centrumvoorstandaarden.nl/dk/watisdk/">Wat is Digikoppeling</a></i>†
-  </li>
-        </ul>
-    </li>
+<li><p>De standaarddocumenten (groen/vierkant aangegeven) vallen onder het beheer zoals geformaliseerd in het document <cite><a data-matched-text="[[[?DK-Beheermodel]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">Digikoppeling Beheermodel</a></cite>.</p>
+</li>
+<li><p>De ondersteunende documentatie wordt onderhouden door Logius als de beheerder van de standaard (en afgestemd met stakeholders/ gebruikers).</p>
+</li>
+<li><p>Alle goedgekeurde documenten zijn te vinden op de website van Logius, <a href="https://www.logius.nl/onze-dienstverlening/domeinen/gegevensuitwisseling/digikoppeling">www.logius.nl</a>.</p>
+</li>
 </ul>
-<p>* Normatief document</p>
-<p>† Ondersteunend document</p>
-</details>
-
-
 </section><section id="doel-en-scope-van-digikoppeling"><div class="header-wrapper"><h3 id="x1-3-doel-en-scope-van-digikoppeling"><bdi class="secno">1.3 </bdi>Doel en scope van Digikoppeling</h3><a class="self-link" href="#doel-en-scope-van-digikoppeling" aria-label="Permalink for Section 1.3"></a></div>
 <p>Digikoppeling biedt de mogelijkheid om op een sterk gestandaardiseerde wijze berichten uit te wisselen tussen service aanbieders en service afnemers. De uitwisseling tussen partijen wordt in drie lagen opgedeeld:</p>
 <ul>
@@ -1627,7 +1639,12 @@ In die gevallen zal dit “grote bericht” op een andere wijze verstuurd moeten
       </ul></section>
  
 
-<p role="navigation" id="back-to-top">
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-referenties"><bdi class="secno">A. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="informatieve-referenties">
+    <div class="header-wrapper"><h3 id="a-1-informatieve-referenties"><bdi class="secno">A.1 </bdi>Informatieve referenties</h3><a class="self-link" href="#informatieve-referenties" aria-label="Permalink for Appendix A.1"></a></div>
+    <dl class="bibliography"><dt id="bib-dk-beheermodel">[DK-Beheermodel]</dt><dd>
+      <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/"><cite>Digikoppeling Beheermodel</cite></a>.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">https://gitdocumentatie.logius.nl/publicatie/dk/beheer/</a>
+    </dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
   </p><script id="respec-dfn-panel">(() => {
 // @ts-check
