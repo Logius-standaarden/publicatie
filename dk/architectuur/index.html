@@ -106,7 +106,7 @@ img.license{float:left;padding-right:5px}
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
@@ -501,6 +501,14 @@ img.license{float:left;padding-right:5px}
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
+    },
     "Introspection": {
       "authors": [
         "J. Richer"
@@ -800,7 +808,7 @@ img.license{float:left;padding-right:5px}
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
  <body class="h-entry"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">Digikoppeling Architectuur 2.1.0</h1>
     
     <h2>
@@ -936,65 +944,39 @@ img.license{float:left;padding-right:5px}
 </section><section id="digikoppeling-standaarden"><div class="header-wrapper"><h3 id="x1-6-digikoppeling-standaarden"><bdi class="secno">1.6 </bdi>Digikoppeling standaarden</h3><a class="self-link" href="#digikoppeling-standaarden" aria-label="Permalink for Section 1.6"></a></div>
 <p>De <em>Architectuur Digikoppeling</em> is onderdeel van de Digikoppeling-standaarden.
 De documentatie is als volgt opgebouwd:</p>
-<p>
-      </p><figure id="fig-digikoppeling-standaard">
-        <img src="media/DK_Specificatie_structuur.svg" alt="Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen">
-        <figcaption><a class="self-link" href="#fig-digikoppeling-standaard">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Digikoppeling Standaard</span></figcaption>
-      </figure>
-    <p></p>
-<details>
-    <summary> Tekstalternatief </summary>
-<ul>
-    <li>Digikoppeling Standaard
-        <ul>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">DK Beheermodel en releasebeleid</a>* </li>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/actueel/">DK Overzicht Actuele Documentatie en Compliance</a>* </li>
-            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/architectuur">DK Architectuur</a>*
-                <ul>
-                    <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/idauth/">DK Identificatie en Authenticatie</a>*
-                        <ul>
-                            <li><i> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/gbachtcert/">Digikoppeling Gebruik en Achtergronden Certificaten</a></i>† </li>
-                        </ul>
-                    </li>
-                    <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/">DK Beveiligingsstandaarden en voorschriften</a>* </li>
-                    <li>Koppelvlakstandaarden
-                        <ul>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/wus/">DK Koppelvlakstandaard WUS</a>*
-                                <ul>
-                                    <li><i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpwus">Best-practice WUS</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/ebms/">DK Koppelvlakstandaard ebMS2</a>*
-                                <ul>
-                                    <li> <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpebms">Best-practice ebMS2</a></i>† </li>
-                                </ul>
-                            </li>
-                            <li> <a href="https://gitdocumentatie.logius.nl/publicatie/dk/gb/">DK Koppelvlakstandaard Grote Berichten</a>*
-                                <ul>
-                                    <li> <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/bpgb">Best-practice Grote Berichten</a></i>†</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-    <i><a href="https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/">Wat is Digikoppeling</a></i>†
-  </li>
-        </ul>
-    </li>
-</ul>
-<p>* Normatief document</p>
-<p>† Ondersteunend document</p>
-</details>
+<figure id="fig-opbouw-documentatie-digikoppeling">
+  <object data="https://logius-standaarden.github.io/publicatie/dk/actueel/media/DK_Specificatie_structuur.svg" type="image/svg+xml" id="infographic">Overzicht van de onderdelen van de Digikoppeling Standaard, de standaard is onderverdeeld in normatieve en ondersteunende onderdelen</object>
+  <figcaption><a class="self-link" href="#fig-opbouw-documentatie-digikoppeling">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Opbouw documentatie Digikoppeling</span></figcaption>
+</figure>
 
+<p><b>Legenda</b></p>
+<table class="legendum">
+    <thead>
+        <tr>
+            <th><strong>Kleur</strong></th>
+            <th><strong>Soort Document</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="green">Groen</td>
+            <td>Standaard documentatie</td>
+        </tr>
+        <tr>
+            <td class="grey">Grijs</td>
+            <td>Ondersteunende documentatie</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p><b>Beheer</b></p>
 <ul>
-<li><p>Alle groene documenten vallen onder het beheer zoals geformaliseerd in het <cite><a data-matched-text="[[[?DK-Beheermodel]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">Digikoppeling Beheermodel</a></cite>.</p>
+<li><p>De standaarddocumenten (groen/vierkant aangegeven) vallen onder het beheer zoals geformaliseerd in het document <cite><a data-matched-text="[[[?DK-Beheermodel]]]" href="https://gitdocumentatie.logius.nl/publicatie/dk/beheer/">Digikoppeling Beheermodel</a></cite>.</p>
 </li>
-<li><p>Een overzicht van alle Digikoppeling documentatie is opgenomen in <a href="#bronnen" data-matched-text="[[[#bronnen]]]" class="sec-ref"><bdi class="secno">A. </bdi>Bronnen</a>.</p>
+<li><p>De ondersteunende documentatie wordt onderhouden door Logius als de beheerder van de standaard (en afgestemd met stakeholders/ gebruikers).</p>
 </li>
-<li><p>Alle goedgekeurde documenten zijn te vinden op de website van Logius: <cite><a data-matched-text="[[[DK-Doc]]]" href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie">Digikoppeling documentatie</a></cite>.</p>
-<p>(<em>Opmerking : De Best Practice REST API is in ontwikkeling</em>)</p>
+<li><p>Alle goedgekeurde documenten zijn te vinden op de website van Logius, <a href="https://www.logius.nl/onze-dienstverlening/domeinen/gegevensuitwisseling/digikoppeling">www.logius.nl</a>.</p>
 </li>
 </ul>
 </section><section id="begrippen"><div class="header-wrapper"><h3 id="x1-7-begrippen"><bdi class="secno">1.7 </bdi>Begrippen</h3><a class="self-link" href="#begrippen" aria-label="Permalink for Section 1.7"></a></div>
@@ -2441,7 +2423,7 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.</e
 </tr>
 <tr>
 <td>Developer.overheid.nl (DON)</td>
-<td>Developer.overheid.nl is één centraal platform voor de developer die voor of met de overheid ontwikkelt. Het platform focused zich op API's en repositories die developers kunnen gebruiken</td>
+<td>Developer.overheid.nl is één centraal platform voor de developer die voor of met de overheid ontwikkelt. Het platform focused zich op API's en repositories die developers kunnen gebruiken.</td>
 </tr>
 <tr>
 <td>Dienst</td>
@@ -2589,11 +2571,15 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.</e
 </tr>
 <tr>
 <td>Interactiepatronen</td>
-<td>Vormen van gegevensuitwisseling tussen twee partijen. <code>todo</code> In Digikoppeling: meldingen, bevragingen en grote berichten.</td>
+<td>Vormen van gegevensuitwisseling tussen twee partijen.</td>
 </tr>
 <tr>
 <td>Intermediair</td>
 <td>Een partij in de keten die berichten doorstuurt naar de volgende schakel in de keten. Zie ook: transparante intermediair of niet-transparante intermediair.</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>JSON (JavaScript Object Notation) is een breed ondersteund gegevensuitwisselingsformaat dat voor zowel mens als machine eenvoudig leesbaar is.</td>
 </tr>
 <tr>
 <td>Knooppunt</td>
@@ -2605,7 +2591,7 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.</e
 </tr>
 <tr>
 <td>Koppelvlakstandaard</td>
-<td>De Digikoppeling-beschrijving van de ebMS- en WUS-koppelvlakken, die beschrijft hoe deze standaarden in de Nederlandse publieke sector worden gebruikt.</td>
+<td>De Digikoppeling-beschrijving van de ebMS-, REST en WUS-koppelvlakken, die beschrijft hoe deze standaarden in de Nederlandse publieke sector worden gebruikt.</td>
 </tr>
 <tr>
 <td>Landelijke voorziening</td>
@@ -2629,15 +2615,11 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.</e
 </tr>
 <tr>
 <td>mapping</td>
-<td>dynamische en statische mapping:</td>
-</tr>
-<tr>
-<td></td>
-<td>‘bericht mapping’: contract mapping’: Actionmapping: vertaling tussen actions van ebMS en WUS Servicemapping: vertaling tussen services</td>
+<td>Een dynamische of statische vertaling tussen actions, services en gegevens.</td>
 </tr>
 <tr>
 <td>mapping schema</td>
-<td>Een vertaaltabel tussen twee protocollen</td>
+<td>Een vertaaltabel tussen twee protocollen en of gegevens sets.</td>
 </tr>
 <tr>
 <td>Melding</td>
@@ -2725,7 +2707,7 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.</e
 </tr>
 <tr>
 <td>Payload</td>
-<td>De inhoud van het bericht, bestaande uit XML elementen.</td>
+<td>De inhoud van het bericht, bestaande uit JSON of XML elementen.</td>
 </tr>
 <tr>
 <td>Persistent storage</td>
@@ -2745,15 +2727,11 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.</e
 </tr>
 <tr>
 <td>Point-to-point security</td>
-<td>Beveiliging van de transportlaag door middel van tweezijdig TLS</td>
+<td>Beveiliging van de transportlaag door middel van tweezijdig TLS (mTLS)</td>
 </tr>
 <tr>
 <td>Private key</td>
 <td>de geheime sleutel van een PKI sleutelpaar (certificaten), nodig voor de ondertekening en ontcijfering van informatie (asymetrische encryptie)</td>
-</tr>
-<tr>
-<td>Private sleutel</td>
-<td>Zie: Private key</td>
 </tr>
 <tr>
 <td>Profiel</td>
@@ -2764,16 +2742,8 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.</e
 <td>Een set van regels en afspraken voor de representatie van data, signalering, authenticatie en foutdetectie, nodig voor het verzenden van informatie tussen systemen.</td>
 </tr>
 <tr>
-<td>protocol-specifiek betrouwbaar verkeer</td>
-<td>Betrouwbaar berichten verkeer realiseren door gebruik te maken van protocol technieken als WS-RM en ebMS</td>
-</tr>
-<tr>
 <td>Public key</td>
 <td>De openbare sleutel van een PKI sleutelpaar (certificaten), nodig voor de vercijfering van informatie (asymetrische encryptie) en controle van de digitale handtekening.</td>
-</tr>
-<tr>
-<td>Publieke sleutel</td>
-<td>De openbare sleutel van een PKI sleutelpaar (certificaten), nodig voor de vercijfering van informatie (asymetrische encryptie)</td>
 </tr>
 <tr>
 <td>RelatesTo</td>
@@ -2817,7 +2787,7 @@ TCP/IP, netwerk, etc. Hiervoor kunt u andere bronnen via internet raadplegen.</e
 </tr>
 <tr>
 <td>Servicebus</td>
-<td>Integratie-infrastructuur (middleware) die nodig is om een SGA (of SOA) te faciliteren.</td>
+<td>Integratie-infrastructuur (middleware) met een verzameling van functies die gebruikt kunnen worden om verschillende integratiepatronen te faciliteren.</td>
 </tr>
 <tr>
 <td>Servicecontract</td>
@@ -3137,7 +3107,7 @@ Standaardisatie: <a href="https://www.forumstandaardisatie.nl/open-standaarden/v
   <section id="tof">
   <div class="header-wrapper"><h2 id="f-lijst-met-figuren"><bdi class="secno">F. </bdi>Lijst met figuren</h2><a class="self-link" href="#tof" aria-label="Permalink for Section F."></a></div><ul class="tof">
         <li class="tofline">
-    <a class="tocxref" href="#fig-digikoppeling-standaard"><span class="self-link">Figuur <bdi class="figno">1</bdi></span> <span class="fig-title">Digikoppeling Standaard</span></a>
+    <a class="tocxref" href="#fig-opbouw-documentatie-digikoppeling"><span class="self-link">Figuur <bdi class="figno">1</bdi></span> <span class="fig-title">Opbouw documentatie Digikoppeling</span></a>
   </li><li class="tofline">
     <a class="tocxref" href="#fig-soap-vs-rest-apis-bron-upwork-com"><span class="self-link">Figuur <bdi class="figno">2</bdi></span> <span class="fig-title">Soap vs. REST APIs bron upwork.com</span></a>
   </li><li class="tofline">
