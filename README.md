@@ -203,6 +203,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 
 - [fsc/core/](https://gitdocumentatie.logius.nl/publicatie/fsc/core/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/core/ "Preview op GitHub Pages")
    - [fsc/core/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/core/1.0.0/ "Preview op GitHub Pages")
+   - [fsc/core/1.0.1/](https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/core/1.0.1/ "Preview op GitHub Pages")
 - [fsc/logging/](https://gitdocumentatie.logius.nl/publicatie/fsc/logging/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/logging/ "Preview op GitHub Pages")
    - [fsc/logging/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/logging/1.0.0/ "Preview op GitHub Pages")
 
