@@ -207,6 +207,11 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [fsc/logging/](https://gitdocumentatie.logius.nl/publicatie/fsc/logging/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/logging/ "Preview op GitHub Pages")
    - [fsc/logging/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/logging/1.0.0/ "Preview op GitHub Pages")
 
+### logboek
+
+- [logboek/logboek-extensie-template/](https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/) [:scroll:](https://logius-standaarden.github.io/publicatie/logboek/logboek-extensie-template/ "Preview op GitHub Pages")
+   - [logboek/logboek-extensie-template/0.9/](https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/0.9/) [:scroll:](https://logius-standaarden.github.io/publicatie/logboek/logboek-extensie-template/0.9/ "Preview op GitHub Pages")
+
 ### logius
 
 - [logius/beheermodel/](https://gitdocumentatie.logius.nl/publicatie/logius/beheermodel/) [:scroll:](https://logius-standaarden.github.io/publicatie/logius/beheermodel/ "Preview op GitHub Pages")
