@@ -1,0 +1,740 @@
+<!DOCTYPE html><html lang="nl"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta name="generator" content="ReSpec 35.2.2">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+  
+  
+  
+  
+  
+  
+  
+<title>Logboek Dataverwerkingen Extensie Guidelines</title>
+  
+<link rel="shortcut icon" type="image/x-icon" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico">
+  
+
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<style id="respec-nlgov">
+img.license{float:left;padding-right:5px}
+</style>
+<meta name="color-scheme" content="light">
+<style>
+ul.index{columns:30ch;column-gap:1.5em}
+ul.index li{list-style:inherit}
+ul.index li span{color:inherit;cursor:pointer;white-space:normal}
+#index-defined-here ul.index li{font-size:.9rem}
+ul.index code{color:inherit}
+#index-defined-here .print-only{display:none}
+@media print{
+#index-defined-here .print-only{display:initial}
+}
+</style>
+<meta name="description" content="De overheid wil voor burgers en bedrijven zo transparant mogelijk zijn in de omgang met hun gegevens. Daarom is het bij de informatieverwerking in datasets belangrijk om voor elke mutatie of raadpleging vast te leggen wie deze actie wanneer uitvoert, en waarom. Deze herleidbaarheid speelt zowel een rol in het kader van de wetgeving op het gebied van privacy als ook het streven naar openheid en transparantie bij de overheid. Voor een optimale samenwerking over organisaties en bronnen heen is voor deze logging een algemene standaard nodig.">
+<style>
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+
+  .sidelabel {
+    position: fixed;
+    -webkit-transform-origin: top right;
+    right: 100%;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+    padding: 4px 50px 4px 10px;
+    color: white;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: #39870c;
+  }
+</style>
+<script type="text/javascript">
+   /* Any custom mermaid.js scripts will go here. */
+  </script>
+<style>
+
+  /* Any custom mermaid.js scripts will go here. */
+  }
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "nl_organisationName": "Logius",
+  "nl_organisationStylesURL": "https://gitdocumentatie.logius.nl/publicatie/respec/style/",
+  "nl_organisationPublishURL": "https://gitdocumentatie.logius.nl/publicatie/",
+  "logos": [
+    {
+      "src": "https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg",
+      "alt": "Logius",
+      "id": "Logius",
+      "height": 77,
+      "width": 44,
+      "url": "https://www.logius.nl/standaarden"
+    }
+  ],
+  "postProcess": [
+    null
+  ],
+  "latestVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName"
+  ],
+  "thisVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "specStatus",
+    "-",
+    "specType",
+    "-",
+    "shortName",
+    "-",
+    "publishDate"
+  ],
+  "prevVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "previousMaturity",
+    "-",
+    "specType",
+    "-",
+    "shortName",
+    "-",
+    "previousPublishDate"
+  ],
+  "useLogo": true,
+  "useLabel": true,
+  "license": "cc-by",
+  "addSectionLinks": true,
+  "localizationStrings": {
+    "en": {
+      "wv": "Draft",
+      "cv": "Recommendation",
+      "vv": "Proposed recommendation",
+      "def": "Definitive version",
+      "basis": "Document",
+      "eo": "Outdated version",
+      "tg": "Rescinded version",
+      "no": "Norm",
+      "st": "Standard",
+      "im": "Information model",
+      "pr": "Guideline",
+      "hr": "Guide",
+      "wa": "Proposed recommendation",
+      "al": "General",
+      "bd": "Governance documentation",
+      "bp": "Best practice"
+    },
+    "nl": {
+      "wv": "Werkversie",
+      "cv": "Consultatieversie",
+      "vv": "Versie ter vaststelling",
+      "def": "Vastgestelde versie",
+      "basis": "Document",
+      "eo": "Verouderde versie",
+      "tg": "Teruggetrokken versie",
+      "no": "Norm",
+      "st": "Standaard",
+      "im": "Informatiemodel",
+      "pr": "Praktijkrichtlijn",
+      "hr": "Handreiking",
+      "wa": "Werkafspraak",
+      "al": "Algemeen",
+      "bd": "Beheerdocumentatie",
+      "bp": "Best practice"
+    }
+  },
+  "sotdText": {
+    "nl": {
+      "sotd": "Status van dit document",
+      "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.",
+      "cv": "Dit is een door het TO goedgekeurde consultatieversie. Commentaar over dit document kan gestuurd worden naar ",
+      "vv": "Dit is een definitief concept van de nieuwe versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "basis": "Dit is een document zonder officiële status."
+    },
+    "en": {
+      "sotd": "Status of This Document",
+      "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
+      "wv": "This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.",
+      "cv": "This is a proposed recommendation approved by TO. Comments regarding this document may be sent to ",
+      "vv": "This is the definitive concept of this document. Edits resulting from consultations have been applied.",
+      "basis": "This document has no official standing."
+    }
+  },
+  "labelColor": {
+    "def": "#154273",
+    "wv": "#39870c"
+  },
+  "licenses": {
+    "cc0": {
+      "name": "Creative Commons 0 Public Domain Dedication",
+      "short": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-zero.svg"
+    },
+    "cc-by": {
+      "name": "Creative Commons Attribution 4.0 International Public License",
+      "short": "CC-BY",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg"
+    },
+    "cc-by-nd": {
+      "name": "Creative Commons Naamsvermelding-GeenAfgeleideWerken 4.0 Internationaal",
+      "short": "CC-BY-ND",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/legalcode.nl",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
+    }
+  },
+  "localBiblio": {
+    "SemVer": {
+      "href": "https://semver.org",
+      "title": "Semantic Versioning 2.0.0",
+      "authors": [
+        "T. Preston-Werner"
+      ],
+      "date": "June 2013"
+    }
+  },
+  "maxTocLevel": 3,
+  "specStatus": "WV",
+  "specType": "PR",
+  "pubDomain": "logboek",
+  "shortName": "logboek-extensie-template",
+  "publishDate": "2025-03-31",
+  "publishVersion": "0.9",
+  "editors": [
+    {
+      "name": "Logius Standaarden",
+      "company": "Logius",
+      "companyURL": "https://logius.nl"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Logius Standaarden",
+      "company": "Logius",
+      "companyURL": "https://logius.nl"
+    }
+  ],
+  "github": "https://github.com/Logius-standaarden/logboek-extensie-template",
+  "alternateFormats": [
+    {
+      "label": "pdf",
+      "uri": "template.pdf"
+    }
+  ]
+}</script>
+<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
+
+<body class="h-entry"><div class="head">
+    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+  </a> <h1 id="title" class="title">Logboek Dataverwerkingen Extensie Guidelines</h1>
+    
+    <h2>
+      Logius Praktijkrichtlijn<br>
+      Werkversie
+      <time class="dt-published" datetime="2025-03-31">12 maart 2025</time>
+    </h2>
+    <dl>
+      <dt>Deze versie:</dt><dd class="status">
+              <a class="u-url status" href="https://logius-standaarden.github.io/logboek-extensie-template/">https://logius-standaarden.github.io/logboek-extensie-template/</a>
+            </dd>
+      <dt>Laatst gepubliceerde versie:</dt><dd>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template">https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template</a>
+            </dd>
+      <dt>Laatste werkversie:</dt><dd><a href="https://logius-standaarden.github.io/logboek-extensie-template/">https://logius-standaarden.github.io/logboek-extensie-template/</a></dd>
+      
+      
+      
+      
+      
+      <dt>Redacteur:</dt>
+      <dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Logius Standaarden</span> (<a class="p-org org h-org" href="https://logius.nl">Logius</a>)
+  </dd>
+      
+      <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Logius Standaarden</span> (<a class="p-org org h-org" href="https://logius.nl">Logius</a>)
+  </dd>
+      <dt>Doe mee:</dt><dd>
+    <a href="https://github.com/Logius-standaarden/logboek-extensie-template/">GitHub Logius-standaarden/logboek-extensie-template</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/logboek-extensie-template/issues/">Dien een melding in</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/logboek-extensie-template/commits/">Revisiehistorie</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/logboek-extensie-template/pulls/">Pull requests</a>
+  </dd>
+    </dl>
+    
+    
+    <p>
+          Dit document is ook beschikbaar in dit niet-normatieve formaat:
+          <a rel="alternate" href="template.pdf">pdf</a>
+        </p>
+    <p class="copyright">
+            Dit document valt onder de volgende licentie: 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
+    <hr title="Separator for header">
+  </div>
+  <section id="abstract" class="introductory"><h2>Samenvatting</h2>
+<p>De overheid wil voor burgers en bedrijven zo transparant mogelijk zijn in de omgang met hun gegevens. Daarom is het bij de informatieverwerking in datasets belangrijk om voor elke mutatie of raadpleging vast te leggen wie deze actie wanneer uitvoert, en waarom. Deze herleidbaarheid speelt zowel een rol in het kader van de wetgeving op het gebied van privacy als ook het streven naar openheid en transparantie bij de overheid. Voor een optimale samenwerking over organisaties en bronnen heen is voor deze logging een algemene standaard nodig.</p>
+<p>Het project Logboek Dataverwerkingen (voorheen: Verwerkingenlogging) maakt deel uit van het <a href="https://www.digitaleoverheid.nl/data-bij-de-bron/">actieplan Data bij de Bron</a> en onderzoekt met Digilab in samenwerking met diverse overheidspartijen (ministeries, uitvoeringsorganisaties en gemeenten) of we op basis van de tot nu toe opgedane inzichten een overheidsbrede standaard kunnen vaststellen.</p>
+<blockquote>
+<p>bron: <a href="https://digilab.overheid.nl/projecten/logboek-dataverwerkingen/">Digitale overheid.nl</a></p>
+</blockquote>
+<section id="verwijzingen"><div class="header-wrapper"><h3 id="verwijzingen-0">Verwijzingen</h3><a class="self-link" href="#verwijzingen" aria-label="Permalink for this Section"></a></div>
+<p>De Logboek Dataverwerkingen (LDV) standaard bestaat uit de volgende vijf documenten:</p>
+<table>
+<thead>
+<tr>
+<th>Beschrijving van het document</th>
+<th>Gepubliceerde versie</th>
+<th>Werk versie</th>
+<th>Repository</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. De LDV Normatieve Standaard</td>
+<td>-</td>
+<td><a href="https://logius-standaarden.github.io/logboek-dataverwerkingen/">Logboek dataverwerkingen (werkversie)</a></td>
+<td><a href="https://github.com/Logius-standaarden/logboek-dataverwerkingen">logboek-dataverwerkingen</a></td>
+</tr>
+<tr>
+<td>2. De Algemene Inleiding</td>
+<td>-</td>
+<td><a href="https://logius-standaarden.github.io/logboek-dataverwerkingen_Inleiding/">De Algemene Inleiding (werkversie)</a></td>
+<td><a href="https://github.com/Logius-standaarden/logboek-dataverwerkingen_Inleiding">logboek-dataverwerkingen_Inleiding</a></td>
+</tr>
+<tr>
+<td>3. het Juridische Beleidskader</td>
+<td>-</td>
+<td><a href="https://logius-standaarden.github.io/logboek-dataverwerkingen_Juridisch-beleidskader/">Juridisch Beleidskader (werkversie)</a></td>
+<td><a href="https://github.com/Logius-standaarden/logboek-dataverwerkingen_Juridisch-beleidskader/">logboek-dataverwerkingen_Juridisch-beleidskader</a></td>
+</tr>
+<tr>
+<td>4. LDV Extensie Guideline</td>
+<td>-</td>
+<td><a href="">Guideline voor het schrijven van een extensie voor LDV</a></td>
+<td><a href="https://github.com/Logius-standaarden/logboek-extensie-template">logboek-extensie-template</a></td>
+</tr>
+<tr>
+<td>5. LDV Extensie voor objecten</td>
+<td>-</td>
+<td><a href="https://geonovum.github.io/logboek-dataverwerkingen-voor-objecten/">Onderzoek logboek dataverwerkingen voor (geo) objecten</a></td>
+<td><a href="https://github.com/geonovum/logboek-dataverwerkingen-voor-objecten/">logboek-dataverwerkingen-voor-objecten</a></td>
+</tr>
+</tbody></table>
+</section></section>
+  <section id="feedback" class="informative">
+  <div class="header-wrapper"><h2 id="x1-feedback-en-issues"><bdi class="secno">1. </bdi>Feedback en Issues</h2><a class="self-link" href="#feedback" aria-label="Permalink for Section 1."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
+  <p>
+    We moedigen gebruikers aan om meldingen of suggesties aan te maken via
+    <a href="https://github.com/Logius-standaarden/logboek-dataverwerkingen/issues">GitHub</a>. Mocht dit niet mogelijk zijn, dan kunt u ook een e-mail sturen naar 
+    <a href="mailto:api@logius.nl">api@logius.nl</a>.
+  </p>
+  </section>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#verwijzingen">Verwijzingen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#feedback"><bdi class="secno">1. </bdi>Feedback en Issues</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#richtlijnen-voor-extensies-in-logboek-dataverwerkingen"><bdi class="secno">2. </bdi>Richtlijnen voor Extensies in Logboek Dataverwerkingen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#randvoorwaarden"><bdi class="secno">2.2 </bdi>Randvoorwaarden</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#compatibiliteit"><bdi class="secno">2.2.1 </bdi>Compatibiliteit</a></li><li class="tocline"><a class="tocxref" href="#interoperabiliteit"><bdi class="secno">2.2.2 </bdi>Interoperabiliteit</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#verschil-tussen-de-extensie-en-de-core-standaard"><bdi class="secno">2.3 </bdi>Verschil tussen de Extensie en de Core Standaard</a></li><li class="tocline"><a class="tocxref" href="#wat-moet-er-in-een-extensiedocumentatie-staan"><bdi class="secno">2.4 </bdi>Wat moet er in een extensiedocumentatie staan?</a></li><li class="tocline"><a class="tocxref" href="#schrijfwijze-en-stijl"><bdi class="secno">2.5 </bdi>Schrijfwijze en stijl</a></li><li class="tocline"><a class="tocxref" href="#relevante-standaarden"><bdi class="secno">2.6 </bdi>Relevante Standaarden</a></li></ol></li><li class="tocline"><a class="tocxref" href="#structuur-van-een-extensie"><bdi class="secno">A. </bdi>Structuur van een extensie</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">B. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">C. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">C.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">C.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li></ol></nav>
+  <section class="informative" id="richtlijnen-voor-extensies-in-logboek-dataverwerkingen"><div class="header-wrapper"><h2 id="x2-richtlijnen-voor-extensies-in-logboek-dataverwerkingen"><bdi class="secno">2. </bdi>Richtlijnen voor Extensies in Logboek Dataverwerkingen</h2><a class="self-link" href="#richtlijnen-voor-extensies-in-logboek-dataverwerkingen" aria-label="Permalink for Section 2."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
+<section id="inleiding"><div class="header-wrapper"><h3 id="x2-1-inleiding"><bdi class="secno">2.1 </bdi>Inleiding</h3><a class="self-link" href="#inleiding" aria-label="Permalink for Section 2.1"></a></div>
+<p>Extensies worden toegevoegd aan een standaard wanneer de core-standaard niet alle benodigde functionaliteiten biedt die de gebruiker van de standaard nodig heeft. Dit kan voorkomen wanneer verschillende sectoren andere eisen stellen aan de standaard.</p>
+<p>Bijvoorbeeld:</p>
+<p>In de zorgsector moeten logs mogelijk strenger gecontroleerd worden vanwege gevoelige gegevens zoals patiëntendossiers.
+In het onderwijs kunnen er juist andere gegevens worden gelogd, zoals toetsresultaten of inschrijvingsgegevens, waarbij minder strenge controle nodig is.</p>
+<p>Of een extensie noodzakelijk of optioneel is, hangt af van de gebruiker van de standaard en de eisen binnen een sector. Als een organisatie haar taken volledig kan uitvoeren met de core-standaard, is een extensie niet verplicht. Echter, in situaties waarin extra functionaliteit nodig is, kan een extensie een waardevolle toevoeging zijn, bijvoorbeeld om sector-specifieke eisen te ondersteunen.</p>
+</section><section id="randvoorwaarden"><div class="header-wrapper"><h3 id="x2-2-randvoorwaarden"><bdi class="secno">2.2 </bdi>Randvoorwaarden</h3><a class="self-link" href="#randvoorwaarden" aria-label="Permalink for Section 2.2"></a></div>
+<p>Bij het ontwerpen van een extensie moet rekening worden gehouden met:</p>
+<ul>
+<li><strong>Compatibiliteit</strong>: De extensie moet voldoen aan de voorgeschreven normen of protocollen van de core standaard.</li>
+<li><strong>Interoperabiliteit</strong>: De extensie moet correct functioneren binnen de core van de standaard in samenwerking met andere extensies.</li>
+</ul>
+<section id="compatibiliteit"><div class="header-wrapper"><h4 id="x2-2-1-compatibiliteit"><bdi class="secno">2.2.1 </bdi>Compatibiliteit</h4><a class="self-link" href="#compatibiliteit" aria-label="Permalink for Section 2.2.1"></a></div>
+<p>De extensie mag <strong>geen</strong> verplichte of benodigde velden van de core-standaard tegenspreken, aanpassen of overschrijven en moet zich houden aan de verplichte velden, tenzij de core-standaard dit expliciet toe staat. Voorbeelden zijn de <code>resources</code> en <code>attributes</code> velden van het Logboek component die expliciet open zijn voor extensie. Extensies mogen optioneel functionaliteit toevoegen.</p>
+<p>De extensie mag geen bestaande protocollen vanuit de core-standaard overschrijven, maar wel extra protocollen als ondersteuning toevoegen als deze compatibel zijn met de core-standaard.</p>
+</section><section id="interoperabiliteit"><div class="header-wrapper"><h4 id="x2-2-2-interoperabiliteit"><bdi class="secno">2.2.2 </bdi>Interoperabiliteit</h4><a class="self-link" href="#interoperabiliteit" aria-label="Permalink for Section 2.2.2"></a></div>
+<p>Interoperabiliteit is nodig om samenwerking tussen verschillende systemenen aan te sporen en om te voorkomen dat het niet in conflict komt met andere extensies. De extensie mag de samenwerkingen tussen systemen niet verstoren, vooral als data wordt uitgewisseld tussen verschillende organisaties.</p>
+<p>Elke extensie moet een unieke namespace hebben om conflicten te voorkomen. Een extensie mag geen velden gebruiken die al door andere extensies gebruikt worden, hierdoor kunnen er juist conflicten ontstaan. Dit is cruciaal om uniek te houden voor het geval dat een systeem gebruik maakt van verschillende extensies en deze met elkaar wilt laten samenwerken.</p>
+<section id="belang-unieke-namespaces-a-d-h-v-voorbeeldcase-student"><div class="header-wrapper"><h5 id="x2-2-2-1-belang-unieke-namespaces-a-d-h-v-voorbeeldcase-student"><bdi class="secno">2.2.2.1 </bdi>Belang unieke namespaces a.d.h.v. voorbeeldcase student</h5><a class="self-link" href="#belang-unieke-namespaces-a-d-h-v-voorbeeldcase-student" aria-label="Permalink for Section 2.2.2.1"></a></div>
+<p>In deze voorbeeldcase wordt uitgegaan van een school die informatie wil ophalen over de status van een student binnen een hogeschool en de status van zijn examenrecht in één API-call. Dit is nodig om te zien of de student nog is ingeschreven bij de school en of hij het examen mag afleggen.</p>
+<p>Het systeem roept hiervoor een bepaalde API-call aan, namelijk <code>https://www.schoolapi.nl/student?id=123&amp;status_exam</code>.</p>
+<p>Die krijgt vervolgens het volgende response terug:</p>
+<pre><code aria-busy="false" class="hljs">  id: student115839
+  status: ingeschreven
+  id: examenNederlands
+  status: gemachtigd
+</code></pre>
+<p>De velden <code>id</code> en <code>status</code> komen twee keer voor, maar het systeem kan niet herkennen welke van deze velden bij de student horen en welke bij het examen. 
+Hierdoor kan het systeem ten onrechte verkeerde data terugkoppelen, omdat er gebruik gemaakt wordt van dezelfde namespaces voor twee verschillende datavelden.</p>
+<p>Maar op het moment dat er wel gebruik gemaakt wordt van unieke namespaces zoals <code>student</code> en <code>exam</code> en duidelijk onderscheid maakt, kan het systeem de velden wel duidelijk herkennen. </p>
+<p>Hiermee kan je gebruik maken van twee extensies tegelijkertijd en krijg je het volgende response terug:</p>
+<pre><code aria-busy="false" class="hljs">  dpl.student.id: student115839
+  dpl.student.status: ingeschreven
+  dpl.exam.id: examenNederlands
+  dpl.exam.status: gemachtigd
+</code></pre>
+<p>Dit is enkel een voorbeeld van als er gebruik wordt gemaakt van twee extensies, maar op het moment dat er meer dan twee extensies gebruikt worden, kan het overzicht van de response zo lang worden dat het onoverzichtelijk voor de gebruiker wordt. </p>
+</section><section id="namespaces-key"><div class="header-wrapper"><h5 id="x2-2-2-2-namespaces-key"><bdi class="secno">2.2.2.2 </bdi>Namespaces Key</h5><a class="self-link" href="#namespaces-key" aria-label="Permalink for Section 2.2.2.2"></a></div>
+<p>In de core standaard is de veld <code>resource</code> opgebouwd uit een lijst <code>attributes</code> met <em>KeyValue pairs</em> in een namespace met prefix <code>dpl.</code> (data processing log). Het is <strong>verplicht</strong> in de extensie om elke key te beschrijven in het begin met de prefix <code>dpl.extensienaam</code>.</p>
+<p>Zo mag een key van de extensie bijvoorbeeld:</p>
+<p><code>dpl.zorg.userid</code> heten, <em>maar niet</em> <code>dpl.userid.zorg</code> of enkel <code>dpl.userid</code>.</p>
+<p>De naam van de extensie moet altijd beschreven worden in de prefix. Anders kan dit collisions tussen verschillende extensies veroorzaken.</p>
+</section></section></section><section id="verschil-tussen-de-extensie-en-de-core-standaard"><div class="header-wrapper"><h3 id="x2-3-verschil-tussen-de-extensie-en-de-core-standaard"><bdi class="secno">2.3 </bdi>Verschil tussen de Extensie en de Core Standaard</h3><a class="self-link" href="#verschil-tussen-de-extensie-en-de-core-standaard" aria-label="Permalink for Section 2.3"></a></div>
+<p>De extensie voegt aanvullende functionaliteit toe die niet verplicht is, zoals bijvoorbeeld extra velden of regels die bedoeld zijn voor specifieke domeinen.</p>
+<p>De core biedt dus alleen generieke functionaliteit en de extensie voegt alleen specifieke mogelijkheden toe voor een bepaalde context.</p>
+<p>Als een organisatie haar taken niet volledig kan uitvoeren met de core-standaard, dan komt een extensie goed te pas.</p>
+</section><section id="wat-moet-er-in-een-extensiedocumentatie-staan"><div class="header-wrapper"><h3 id="x2-4-wat-moet-er-in-een-extensiedocumentatie-staan"><bdi class="secno">2.4 </bdi>Wat moet er in een extensiedocumentatie staan?</h3><a class="self-link" href="#wat-moet-er-in-een-extensiedocumentatie-staan" aria-label="Permalink for Section 2.4"></a></div>
+<p>Elke extensie moet minimaal de volgende onderdelen bevatten:</p>
+<ul>
+<li><strong>Nut</strong>: Wat is het doel van deze extensie? Voor wie is deze extensie ontworpen?</li>
+<li><strong>Technische details</strong>: Hoe werkt de extensie in samenwerking met de core-standaard? Wat zijn de toegevoegde functionaliteiten vanuit de extensie op de core-standaard?</li>
+<li><strong>Benoem voorbeeldsituaties van hoe de extensie toegepast kan worden</strong></li>
+<li><strong>Beperkingen</strong>: Beschrijf wat je niet met de extensie kan.</li>
+</ul>
+</section><section id="schrijfwijze-en-stijl"><div class="header-wrapper"><h3 id="x2-5-schrijfwijze-en-stijl"><bdi class="secno">2.5 </bdi>Schrijfwijze en stijl</h3><a class="self-link" href="#schrijfwijze-en-stijl" aria-label="Permalink for Section 2.5"></a></div>
+<ul>
+<li>Gebruik een formele en eenduidige schrijfstijl.</li>
+<li>Definieer alle termen duidelijk.</li>
+<li>Zorg voor consistente naamgeving.</li>
+</ul>
+</section><section id="relevante-standaarden"><div class="header-wrapper"><h3 id="x2-6-relevante-standaarden"><bdi class="secno">2.6 </bdi>Relevante Standaarden</h3><a class="self-link" href="#relevante-standaarden" aria-label="Permalink for Section 2.6"></a></div>
+<p>Gebruik referenties naar andere relevante standaarden, om te voorkomen dat de extensie herdefinieert wat in andere standaarden als is vastgelegd.
+Voor extensies is dit van extra belang omdat ze de relatie beschrijven tussen het Logboek Dataverwerkingen en een domein.
+Standaardisatie binnen het domein is nodig om ook op een gestandaardiseerde manier te kunnen loggen.</p>
+</section></section>
+  <section class="appendix" id="structuur-van-een-extensie"><div class="header-wrapper"><h2 id="a-structuur-van-een-extensie"><bdi class="secno">A. </bdi>Structuur van een extensie</h2><a class="self-link" href="#structuur-van-een-extensie" aria-label="Permalink for Appendix A."></a></div>
+<p>Elke extensie moet de volgende structuur hebben:</p>
+<ol>
+<li>Naam en beschrijving<br>
+Hierin wordt de naam van de extensie beschreven en wat het inhoudt.</li>
+<li>Doel en nut<br>
+Hierin moet beschreven worden wat het doel is van deze extensie. Waar dient de extensie voor? Wie is het doelgroep hiervoor en welke toepassingsgebieden zijn er voor deze extensie?</li>
+<li>Technische specificatie<br>
+Beschrijf hierin de aanvullende technische specificaties op de core standaard.</li>
+<li>Gebruiksscenario's<br>
+In dit kopstuk worden de verschillende use cases van de extensie beschreven</li>
+<li>Versiebeheer<br>
+Hierin wordt de versiebeheer beschreven.</li>
+</ol>
+</section>
+  <section id="conformance"><div class="header-wrapper"><h2 id="b-conformiteit"><bdi class="secno">B. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section B."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
+  <section id="tof"></section>
+  <section id="index" class="appendix"><div class="header-wrapper"><h2 id="c-index"><bdi class="secno">C. </bdi>Index</h2><a class="self-link" href="#index" aria-label="Permalink for Appendix C."></a></div><section id="index-defined-here">
+    <div class="header-wrapper"><h3 id="c-1-begrippen-gedefinieerd-door-deze-specificatie"><bdi class="secno">C.1 </bdi>Begrippen gedefinieerd door deze specificatie</h3><a class="self-link" href="#index-defined-here" aria-label="Permalink for Appendix C.1"></a></div>
+    <ul class="index">
+    
+  </ul>
+  </section><section id="index-defined-elsewhere">
+    <div class="header-wrapper"><h3 id="c-2-begrippen-gedefinieerd-door-verwijzing"><bdi class="secno">C.2 </bdi>Begrippen gedefinieerd door verwijzing</h3><a class="self-link" href="#index-defined-elsewhere" aria-label="Permalink for Appendix C.2"></a></div>
+    <ul class="index">
+    
+  </ul>
+  </section></section>
+
+
+
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><div class="sidelabel">Logius Praktijkrichtlijn - Werkversie</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
