@@ -108,6 +108,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [dk/beveilig/](https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/beveilig/ "Preview op GitHub Pages")
    - [dk/beveilig/1.3/](https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/1.3/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/beveilig/1.3/ "Preview op GitHub Pages")
    - [dk/beveilig/1.4/](https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/1.4/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/beveilig/1.4/ "Preview op GitHub Pages")
+   - [dk/beveilig/1.4.1/](https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/1.4.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/beveilig/1.4.1/ "Preview op GitHub Pages")
    - [dk/beveilig/def-st-beveilig-20200901/](https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/def-st-beveilig-20200901/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/beveilig/def-st-beveilig-20200901/ "Preview op GitHub Pages")
    - [dk/beveilig/def-st-beveilig-20210201/](https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/def-st-beveilig-20210201/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/beveilig/def-st-beveilig-20210201/ "Preview op GitHub Pages")
    - [dk/beveilig/rc202410/](https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/rc202410/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/beveilig/rc202410/ "Preview op GitHub Pages")
