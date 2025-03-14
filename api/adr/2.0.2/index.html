@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.1.1">
+<meta name="generator" content="ReSpec 35.2.2">
 <style>
 .issue-label{text-transform:initial}
 .warning>p:first-child{margin-top:0}
@@ -98,7 +98,10 @@ dd{margin-left:0}
 <style id="respec-nlgov">
 img.license{float:left;padding-right:5px}
 </style>
-<meta name="description" content="This document contains a normative standard for designing APIs in the Dutch Public Sector.The Governance of this standard is described in a separate repository and published by Logius.This document is part of the Nederlandse API Strategie, which consists of a set of documents.">
+<meta name="color-scheme" content="light">
+<meta name="description" content="This document contains a normative standard for designing APIs in the Dutch Public Sector.
+The Governance of this standard is described by the API-Standaarden beheermodel in a separate repository and published by Logius.
+This document is part of the Nederlandse API Strategie, which consists of a set of documents.">
 <style>
 .hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
 @media (prefers-color-scheme:dark){
@@ -524,6 +527,14 @@ img.license{float:left;padding-right:5px}
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
+    },
     "Introspection": {
       "authors": [
         "J. Richer"
@@ -832,7 +843,7 @@ img.license{float:left;padding-right:5px}
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
  
- <body class="h-entry"><div class="head">
+ <body class="h-entry toc-inline"><div class="head">
     <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">NLGov REST API Design Rules 2.0.2</h1>
     
@@ -887,12 +898,14 @@ img.license{float:left;padding-right:5px}
           <a rel="alternate" href="API-Design-Rules.pdf">pdf</a>
         </p>
     <p class="copyright">
-          This document is licensed under 
-          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
-        </p>
+            This document is licensed under 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
     <hr title="Separator for header">
   </div>
-  <section id="abstract" class="introductory"><h2>Abstract</h2><p>This document contains a normative standard for designing APIs in the Dutch Public Sector.<br><a href="https://publicatie.centrumvoorstandaarden.nl/api/adr-beheer/">The Governance of this standard</a> is described in a <a href="https://github.com/Logius-standaarden/ADR-Beheermodel">separate repository</a> and published by Logius.<br>This document is part of the <em>Nederlandse API Strategie</em>, which consists of <a href="https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie">a set of documents</a>.</p>
+  <section id="abstract" class="introductory"><h2>Abstract</h2><p>This document contains a normative standard for designing APIs in the Dutch Public Sector.
+<a href="https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/">The Governance of this standard</a> is described by the API-Standaarden beheermodel in a <a href="https://github.com/Logius-standaarden/API-Standaarden-Beheermodel/">separate repository</a> and published by Logius.
+This document is part of the <em>Nederlandse API Strategie</em>, which consists of <a href="https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie">a set of documents</a>.</p>
 </section>
   <section class="notoc" id="conformance"><div class="header-wrapper"><h2 id="conformance-0">Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
         The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>, and <em class="rfc2119">SHOULD</em> in this document
@@ -1775,7 +1788,7 @@ In addition to this (normative) document, separate modules are being written to 
     </dd><dt id="bib-rfc3986">[rfc3986]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc3986"><cite>Uniform Resource Identifier (URI): Generic Syntax</cite></a>. T. Berners-Lee; R. Fielding; L. Masinter.  IETF. January 2005. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a>
     </dd><dt id="bib-rfc7231">[rfc7231]</dt><dd>
-      <a href="https://httpwg.org/specs/rfc7231.html"><cite>Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</cite></a>. R. Fielding, Ed.; J. Reschke, Ed..  IETF. June 2014. Proposed Standard. URL: <a href="https://httpwg.org/specs/rfc7231.html">https://httpwg.org/specs/rfc7231.html</a>
+      <a href="https://httpwg.org/specs/rfc7231.html"><cite>Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</cite></a>. R. Fielding, Ed.; J. Reschke, Ed. IETF. June 2014. Proposed Standard. URL: <a href="https://httpwg.org/specs/rfc7231.html">https://httpwg.org/specs/rfc7231.html</a>
     </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
     </dd><dt id="bib-semver">[SemVer]</dt><dd>
