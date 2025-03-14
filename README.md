@@ -155,6 +155,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [dk/idauth/1.4.1/](https://gitdocumentatie.logius.nl/publicatie/dk/idauth/1.4.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/idauth/1.4.1/ "Preview op GitHub Pages")
    - [dk/idauth/1.4.2/](https://gitdocumentatie.logius.nl/publicatie/dk/idauth/1.4.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/idauth/1.4.2/ "Preview op GitHub Pages")
    - [dk/idauth/1.4.3/](https://gitdocumentatie.logius.nl/publicatie/dk/idauth/1.4.3/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/idauth/1.4.3/ "Preview op GitHub Pages")
+   - [dk/idauth/1.4.4/](https://gitdocumentatie.logius.nl/publicatie/dk/idauth/1.4.4/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/idauth/1.4.4/ "Preview op GitHub Pages")
    - [dk/idauth/def-st-idauth-20171001/](https://gitdocumentatie.logius.nl/publicatie/dk/idauth/def-st-idauth-20171001/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/idauth/def-st-idauth-20171001/ "Preview op GitHub Pages")
    - [dk/idauth/rc202410/](https://gitdocumentatie.logius.nl/publicatie/dk/idauth/rc202410/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/idauth/rc202410/ "Preview op GitHub Pages")
 - [dk/oin/](https://gitdocumentatie.logius.nl/publicatie/dk/oin/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/oin/ "Preview op GitHub Pages")
