@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.1.1">
+<meta name="generator" content="ReSpec 35.2.2">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
@@ -87,15 +87,9 @@ dd{margin-left:0}
 }
 </style>
 <style id="respec-nlgov">
-img.license{float:left;padding-right:5px}
+img.license{float:left;padding-right:5px;background:0 0}
 </style>
-<meta name="description" content="BOMOS (Beheer- en OntwikkelModel voor Open Standaarden) is een hulpmiddel
-  van en voor de standaardisatiewereld. Dit deel 1 bevat als fundament een
-  beschrijving van het Beheer- en Ontwikkelmodel; een gelaagde set van
-  activiteiten die relevant zijn bij het ontwikkelen en beheren van standaarden.
-  Daarnaast zijn rollen gedefinieerd die relevant zijn bij het beheer-
-  en ontwikkelproces van standaarden. Ook beschrijft het de context hoe BOMOS
-  in de standaardisatiepraktijk te gebruiken is.">
+<meta name="color-scheme" content="light">
 <style>
 
   .sidelabel {
@@ -122,7 +116,7 @@ img.license{float:left;padding-right:5px}
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
@@ -502,6 +496,14 @@ img.license{float:left;padding-right:5px}
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
+    },
     "Introspection": {
       "authors": [
         "J. Richer"
@@ -797,8 +799,8 @@ img.license{float:left;padding-right:5px}
   "specType": "HR"
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
- <body class="h-entry informative toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+ <body class="h-entry informative"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">BOMOS: The Foundation 3.0.1</h1>
     
     <h2>
@@ -848,65 +850,11 @@ img.license{float:left;padding-right:5px}
           <a rel="alternate" href="BOMOS-Foundation.pdf">pdf</a>
         </p>
     <p class="copyright">
-          This document is licensed under 
-          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
-        </p>
+            This document is licensed under 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
     <hr title="Separator for header">
   </div>
-  <section id="abstract" class="introductory"><h2>Abstract</h2><p> BOMOS (Beheer- en OntwikkelModel voor Open Standaarden) is een hulpmiddel
-  van en voor de standaardisatiewereld. Dit deel 1 bevat als fundament een
-  beschrijving van het Beheer- en Ontwikkelmodel; een gelaagde set van
-  activiteiten die relevant zijn bij het ontwikkelen en beheren van standaarden.
-  Daarnaast zijn rollen gedefinieerd die relevant zijn bij het beheer-
-  en ontwikkelproces van standaarden. Ook beschrijft het de context hoe BOMOS
-  in de standaardisatiepraktijk te gebruiken is.
- </p>
-</section>
-  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">1.1 </bdi>Acknowledgements</a></li><li class="tocline"><a class="tocxref" href="#the-13-bomos-commandments"><bdi class="secno">1.2 </bdi>The 13 BOMOS ‘Commandments’</a></li><li class="tocline"><a class="tocxref" href="#background"><bdi class="secno">1.3 </bdi>Background</a></li><li class="tocline"><a class="tocxref" href="#purpose"><bdi class="secno">1.4 </bdi>Purpose</a></li><li class="tocline"><a class="tocxref" href="#target-group"><bdi class="secno">1.5 </bdi>Target group</a></li><li class="tocline"><a class="tocxref" href="#approach-history"><bdi class="secno">1.6 </bdi>Approach &amp; History</a></li><li class="tocline"><a class="tocxref" href="#bomos-structure"><bdi class="secno">1.7 </bdi>BOMOS Structure</a></li><li class="tocline"><a class="tocxref" href="#reading-guide"><bdi class="secno">1.8 </bdi>Reading Guide</a></li></ol></li><li class="tocline"><a class="tocxref" href="#context-definitions"><bdi class="secno">2. </bdi>Context &amp; Definitions</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#context-standards-for-interoperability"><bdi class="secno">2.1 </bdi>Context: Standards for Interoperability</a></li><li class="tocline"><a class="tocxref" href="#definitions"><bdi class="secno">2.2 </bdi>Definitions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#using-bomos"><bdi class="secno">3. </bdi>Using BOMOS</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#bomos-as-a-tool-for-further-development-of-the-management-organisations"><bdi class="secno">3.1 </bdi>BOMOS as a Tool for Further Development of the Management Organisations</a></li><li class="tocline"><a class="tocxref" href="#bomos-as-background-information-and-a-source-of-inspiration"><bdi class="secno">3.2 </bdi>BOMOS as Background Information and a Source of Inspiration</a></li><li class="tocline"><a class="tocxref" href="#bomos-as-a-mirror-for-the-current-management-process"><bdi class="secno">3.3 </bdi>BOMOS as a Mirror for the Current Management Process</a></li></ol></li><li class="tocline"><a class="tocxref" href="#the-management-and-development-model-design-for-development-and-mmnagement"><bdi class="secno">4. </bdi>The Management and Development Model: Design for Development and mMnagement</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#necessary-structure-for-each-situation"><bdi class="secno">4.1 </bdi>Necessary Structure for each Situation</a></li><li class="tocline"><a class="tocxref" href="#the-subjects-from-the-model"><bdi class="secno">4.2 </bdi>The Subjects from the Model</a></li><li class="tocline"><a class="tocxref" href="#activities-and-roles"><bdi class="secno">4.3 </bdi>Activities and Roles</a></li><li class="tocline"><a class="tocxref" href="#how-to-use-bomos-as-a-tool-for-the-management-organisation"><bdi class="secno">4.4 </bdi>How to use BOMOS as a Tool for the Management Organisation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bomos-best-practices-a-review-introduction-to-bomos-part-2-the-elaboration"><bdi class="secno">5. </bdi>BOMOS Best Practices a Review - Introduction to BOMOS Part 2: The Elaboration</a></li><li class="tocline"><a class="tocxref" href="#in-conclusion"><bdi class="secno">6. </bdi>In Conclusion</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">7. </bdi>List of Figures</a></li></ol></nav>
-  <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
-<table>
-<thead>
-<tr>
-<th>Datum</th>
-<th>Versie</th>
-<th>Auteur</th>
-<th>Opmerkingen</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>2009</td>
-<td>1.0</td>
-<td>Erwin Folmer</td>
-<td>Toevoeging vanuit Werkgroep CMO: Activiteiten Diagram</td>
-</tr>
-<tr>
-<td>2011</td>
-<td>2.0</td>
-<td>Erwin Folmer &amp; Matthijs Punter</td>
-<td>Toevoeging: De Best Practices</td>
-</tr>
-<tr>
-<td>2024</td>
-<td>3.0</td>
-<td>Erwin Folmer, Gül Işik, Edwin Wisse, Wouter van den Berg</td>
-<td>Herziene versie met samenvoegingen uit andere BOMOS varianten</td>
-</tr>
-</tbody></table>
-</section>
-  <section class="introductory" id="colofon"><div class="header-wrapper"><h2 id="colofon-0">Colofon</h2><a class="self-link" href="#colofon" aria-label="Permalink for this Section"></a></div>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Logius Servicecentrum:</td>
-<td>Postbus 96810 <br>2509 JE Den Haag<br>tel. 0900 555 4555 (10 ct p/m)<br>email <a href="mailto:servicecentrum@logius.nl">servicecentrum@logius.nl</a></td>
-</tr>
-</tbody></table>
-</section>
   <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
 <p><em>BOMOS is the abbreviaton of dutch name "Beheer en OntwikkelModel voor Open Standaarden". In English this means <strong>Management and Development Model for Open Standards</strong></em>. We will use BOMOS as a noun in the English version rather than introducing a new acronym.</p>
 <p>We will start with a series of acknowledgements, before presenting the BOMOS ‘Commandments’, which bring together many of the elements that make up BOMOS. We will then describe the structure behind BOMOS before introducing the Management and Development Model itself in detail, concluding with an overview of the subjects discussed in <a href="https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/en/">BOMOS Part 2: The Elaboration</a>.  </p>
@@ -950,7 +898,7 @@ March 2022</p>
 <li>How can we improve the adoption rate of our standard among users?</li>
 </ul>
 <p>These specific questions were the original reason for drawing up the Management and Development Model for Open Standards (BOMOS) with its best practice guidelines for an open structure for management. Since that time, BOMOS has been used in practice, and users have expressed the need to share more knowledge and experience with the management of standards.  Other issues such as improving interoperability based on standards, transparency and the manageability of standards have been added. Finally BOMOS is now used as the common language in the world of standardisation. </p>
-</section><section id="target-group"><div class="header-wrapper"><h3 id="x1-5-target-group"><bdi class="secno">1.5 </bdi>Target group</h3><a class="self-link" href="#target-group" aria-label="Permalink for Section 1.5"></a></div>
+</section><section id="target-audience"><div class="header-wrapper"><h3 id="x1-5-target-audience"><bdi class="secno">1.5 </bdi>Target audience</h3><a class="self-link" href="#target-audience" aria-label="Permalink for Section 1.5"></a></div>
 <p>The purpose of BOMOS is to support and inspire standardisation communities and their clients in the structural design and management as well as the further development of standards. Practical insights are used to provide this target group with simple and clear models and recommendations. </p>
 </section><section id="approach-history"><div class="header-wrapper"><h3 id="x1-6-approach-history"><bdi class="secno">1.6 </bdi>Approach &amp; History</h3><a class="self-link" href="#approach-history" aria-label="Permalink for Section 1.6"></a></div>
 <p>The Working Group CMO (Community Model Open Standards), a working group within the Open Standards Office (which was later renamed the Standardisation Forum) at GBO.Overheid (which later became Logius) started working on this subject in 2006. The outcome of their work, a memorandum, was made available by the Standardisation Forum and served as the starting point for the development of BOMOS version 1. </p>
@@ -1047,9 +995,9 @@ Means that the collaborating parties allocate the same meaning to the data excha
 <p><strong>Working group</strong><br>A group within the community with a demarcated sub activity with an unequivocally defined end result as its objective.</p>
 <p>For more information about interoperability and standards:</p>
 <p>Open Standard:<br><a href="https://forumstandaardisatie.nl/open-standaarden">https://forumstandaardisatie.nl/open-standaarden</a></p>
-<p>Standardisation Handbook:</p>
-<p><a href="https://en.wikipedia.org/wiki/Open_standard">https://en.wikipedia.org/wiki/Open_standard</a></p>
-<p><a href="https://open-stand.org/">https://open-stand.org/</a></p>
+<p>Standardisation Handbook:
+<a href="https://en.wikipedia.org/wiki/Open_standard">https://en.wikipedia.org/wiki/Open_standard</a>
+<a href="https://open-stand.org/">https://open-stand.org/</a></p>
 <p>European Interoperability Framework:<br><a href="https://ec.europa.eu/isa2/eif_en">https://ec.europa.eu/isa2/eif_en</a></p>
 <p>BSI Guide to Standardization:<br><a href="https://www.bsigroup.com/en-GB/standards/Information-about-standards/how-are-standards-made/The-BSI-Guide-to-Standardization/">https://www.bsigroup.com/en-GB/standards/Information-about-standards/how-are-standards-made/The-BSI-Guide-to-Standardization/</a></p>
 <p>Standardisation Handbook:<br><a href="https://en.wikipedia.org/wiki/Open_standard">https://en.wikipedia.org/wiki/Open_standard</a></p>
@@ -1115,8 +1063,8 @@ TOOI (Thesaurus and Ontology for Government Information) is a model for the info
 <p>Moreover, even if the management organisation does operate in accordance with BOMOS, this does not automatically mean that the standard also complies with the criteria for the apply or explain list of standards published by the government. However, it is clearly preferable if the registered standards do operate in accordance with BOMOS, as well as focusing particular attention on the chapters relating to the development and management organisation, openness, the operational process and the financial structure.</p>
 <p>In linguistic terms, the word ‘Standard’ often refers to something which is jointly agreed on and laid down. In that context, we may conclude that BOMOS is a standard. A standard for (the development and management of) standards.</p>
 </section></section>
-  <section id="the-management-and-development-model-design-for-development-and-mmnagement"><div class="header-wrapper"><h2 id="x4-the-management-and-development-model-design-for-development-and-mmnagement"><bdi class="secno">4. </bdi>The Management and Development Model: Design for Development and mMnagement</h2><a class="self-link" href="#the-management-and-development-model-design-for-development-and-mmnagement" aria-label="Permalink for Section 4."></a></div>
-<p>The <a href="#fig-bomos-activiteitendiagram">figure below</a> shows the Management and Development Model: a layered structure of subjects necessary for the development and management of an open standard.</p>
+  <section id="the-management-and-development-model-design-for-development-and-management"><div class="header-wrapper"><h2 id="x4-the-management-and-development-model-design-for-development-and-management"><bdi class="secno">4. </bdi>The Management and Development Model: Design for Development and Management</h2><a class="self-link" href="#the-management-and-development-model-design-for-development-and-management" aria-label="Permalink for Section 4."></a></div>
+<p>The <a href="#fig-bomos-activitydiagram">figure below</a> shows the Management and Development Model: a layered structure of subjects necessary for the development and management of an open standard.</p>
 <p>The structure consists of a series of elements:</p>
 <ul>
 <li>Three main layers: strategy, tactical and operational.</li>
