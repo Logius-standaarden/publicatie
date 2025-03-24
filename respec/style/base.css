@@ -90,7 +90,7 @@
 	--logo-active-bg: #c00;
 	--logo-text: white;
 
-	--tocnav-normal-text: #707070;
+	--tocnav-normal-text: #555;
 	--tocnav-normal-bg: var(--bg);
 	--tocnav-hover-text: var(--tocnav-normal-text);
 	--tocnav-hover-bg: #f8f8f8;
