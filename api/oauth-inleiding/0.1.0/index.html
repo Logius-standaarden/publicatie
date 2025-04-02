@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.1.1">
+<meta name="generator" content="ReSpec 35.3.0">
 <style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
@@ -53,7 +53,7 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
-cite .bibref{font-style:normal}
+cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
@@ -81,8 +81,9 @@ dd{margin-left:0}
 }
 </style>
 <style id="respec-nlgov">
-img.license{float:left;padding-right:5px}
+img.license{float:left;padding-right:5px;background:0 0}
 </style>
+<meta name="color-scheme" content="light">
 <meta name="description" content="Dit document geeft een inleiding op Open Authentication, kortweg OAuth. De laatste werkversie van de OAuth.NLGov standaard is gepubliceerd op github.io, de laatste vastgestelde versie is gepubliceerd op Logius.nl en de bronbestanden staan in de github repositories van Logius standaarden die zijn gemarkeerd met het topic &quot;oauth&quot;">
 <style>
 
@@ -110,7 +111,7 @@ img.license{float:left;padding-right:5px}
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
@@ -440,6 +441,7 @@ img.license{float:left;padding-right:5px}
       "title": "Expertadvies CloudEvents 1.0"
     },
     "folmer2011": {
+      "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
       "title": "Management and Development Model for Open Standards (BOMOS) version 2",
       "keywords": "IR-76837",
       "authors": [
@@ -451,7 +453,7 @@ img.license{float:left;padding-right:5px}
       "publisher": "Programmabureau NOiV"
     },
     "folmer2012": {
-      "href": "https://ris.utwente.nl/ws/portalfiles/portal/6064223/thesis_E_Folmer.pdf",
+      "href": "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
       "title": "Quality of Semantic Standards",
       "authors": [
         "Erwin Folmer"
@@ -488,6 +490,14 @@ img.license{float:left;padding-right:5px}
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
     },
     "Introspection": {
       "authors": [
@@ -713,6 +723,32 @@ img.license{float:left;padding-right:5px}
       ],
       "publisher": "Association of Computing Machinery (ACM)",
       "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
     }
   },
   "specStatus": "WV",
@@ -746,14 +782,14 @@ img.license{float:left;padding-right:5px}
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
 
-<body class="h-entry informative toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+<body class="h-entry informative"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">Algemene Inleiding Open Authenticatie (OAuth)</h1>
     
     <h2>
       Logius Praktijkrichtlijn<br>
       Werkversie
-      <time class="dt-published" datetime="2024-11-16">09 januari 2025</time>
+      <time class="dt-published" datetime="2024-11-16">02 april 2025</time>
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
@@ -793,9 +829,9 @@ img.license{float:left;padding-right:5px}
           <a rel="alternate" href="OAuth-Inleiding.pdf">pdf</a>
         </p>
     <p class="copyright">
-          Dit document valt onder de volgende licentie: 
-          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
-        </p>
+            Dit document valt onder de volgende licentie: 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
     <hr title="Separator for header">
   </div>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document geeft een inleiding op Open Authentication, kortweg OAuth. De laatste werkversie van de OAuth.NLGov standaard is <a href="https://logius-standaarden.github.io/OAuth-NL-profiel/">gepubliceerd op github.io</a>, de laatste vastgestelde versie is <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">gepubliceerd op Logius.nl</a> en de bronbestanden staan in <a href="https://github.com/search?q=topic%3Aoauth+org%3ALogius-standaarden+fork%3Atrue&amp;type=repositories">de github repositories van Logius standaarden die zijn gemarkeerd met het topic "oauth"</a></p>
@@ -846,7 +882,7 @@ Het document is zo opgebouwd dat alle hoofdstukken afzonderlijk kunne nwordn gel
 <p>[link naar de standaard]</p>
 <p><a href="https://forumstandaardisatie.nl/open-standaarden/verplicht#:~:text=NL%20GOV%20Assurance%20profile%20for%20OAuth%202.0">https://forumstandaardisatie.nl/open-standaarden/verplicht#:~:text=NL%20GOV%20Assurance%20profile%20for%20OAuth%202.0</a></p>
 <p>[link naar de logius standaard]</p>
-<p><a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/">https://publicatie.centrumvoorstandaarden.nl/api/oauth/</a></p>
+<p><a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">https://gitdocumentatie.logius.nl/publicatie/api/oauth/</a></p>
 <p>[link naar het IAM thema van de NORA]</p>
 <p><a href="https://www.noraonline.nl/wiki/Identity_%26_Access_Management_(IAM)">https://www.noraonline.nl/wiki/Identity_%26_Access_Management_(IAM)</a></p>
 <p>[link naar het API Thema van de NORA]</p>
@@ -856,7 +892,7 @@ Het document is zo opgebouwd dat alle hoofdstukken afzonderlijk kunne nwordn gel
 </section>
   <section data-format="markdown" class="informative" id="oauth-samenvatting-van-de-oauth-nl-standaard"><div class="header-wrapper"><h2 id="x3-oauth-samenvatting-van-de-oauth-nl-standaard"><bdi class="secno">3. </bdi>OAuth - Samenvatting van de OAuth-NL standaard</h2><a class="self-link" href="#oauth-samenvatting-van-de-oauth-nl-standaard" aria-label="Permalink for Section 3."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
 <blockquote>
-<p>link naar de standaard: <a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0">https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0</a>
+<p>link naar de standaard: <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0">https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0</a>
 Versie 1.0 vastgesteld op 09 juli 2020</p>
 </blockquote>
 <div class="header-wrapper"><h2 id="inleiding-2">Inleiding</h2><a class="self-link" href="#oauth-samenvatting-van-de-oauth-nl-standaard" aria-label="Permalink for this Section"></a></div>
@@ -868,50 +904,50 @@ Versie 1.0 vastgesteld op 09 juli 2020</p>
 <p>Deze standaard beschrijft vereisten voor de API (Resource Server), Authorization Server en de Client. Hieronder is een samenvatting van de vereisten toegelicht:</p>
 <div class="header-wrapper"><h3 id="x1-introductie">1. Introductie</h3><a class="self-link" href="#oauth-samenvatting-van-de-oauth-nl-standaard" aria-label="Permalink for this Section"></a></div>
 <ul>
-<li>Iedere Authorization Server moet voldoen aan alle vereisten uit de standaard (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#conformance">§  1.3</a>)</li>
-<li>Iedere Client moet alle functies uit de standaard gebruiken (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#conformance">§  1.3</a>)</li>
-<li>Iedere API moet alle functies uit de standaard gebruiken (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#conformance">§  1.3</a>)</li>
+<li>Iedere Authorization Server moet voldoen aan alle vereisten uit de standaard (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#conformance">§  1.3</a>)</li>
+<li>Iedere Client moet alle functies uit de standaard gebruiken (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#conformance">§  1.3</a>)</li>
+<li>Iedere API moet alle functies uit de standaard gebruiken (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#conformance">§  1.3</a>)</li>
 </ul>
 <div class="header-wrapper"><h3 id="x2-client-profiel">2. Client profiel</h3><a class="self-link" href="#oauth-samenvatting-van-de-oauth-nl-standaard" aria-label="Permalink for this Section"></a></div>
 <ul>
-<li>Clients zijn <em>Full</em> clients, ofwel web applicaties die centraal draaien, of <em>Native</em> clients, instanties van software die draaien op het device van de user, de zogenaamde apps. Beide client types hebben verschillende vereisten (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#client-types">§  2.1</a>)</li>
-<li>Clients moeten vooraf zijn geregistreerd bij de Authorization Server (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#client-registration">§  2.2</a>)</li>
-<li>Clients mogen geen gebruik maken van een redirect naar de localhost en mogen ook geen waardes doorsturen naar andere URI's (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#redirect-uri">§  2.2.1</a>)</li>
-<li>Clients moeten een willekeurige status parameter genereren en koppelen aan de client sessie om deze vervolgens mee te sturen naar de Authorization server en te verifiëren of deze ook correct in de response wordt meegegeven (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connection-to-the-authorization-server">§  2.3</a>)</li>
-<li>Clients moeten de volledige redirect URI meesturen in het verzoek aan de Authorization server (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connection-to-the-authorization-server">§  2.3</a>)</li>
-<li>De Authorization Server moet de redirect URI controleren ten opzichte van de URI die vooraf is geregistreerd door de Client (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connection-to-the-authorization-server">§  2.3</a>)</li>
-<li>Native Clients moeten PCKE toepassen (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connection-to-the-authorization-server">§  2.3</a>)</li>
-<li>Wanneer de API, Client en Authorisation Server niet onder verantwoordelijkheid vallen van één organisatie moeten PKIOverheid certificaten worden gebruikt (met OIN) (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#client-keys">§  2.3.4</a>)</li>
-<li>Clients moeten autorisatie requests over TLS sturen en moeten het certificaat van de API verifiëren (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connection-to-the-protected-resource">§  2.4</a>)</li>
+<li>Clients zijn <em>Full</em> clients, ofwel web applicaties die centraal draaien, of <em>Native</em> clients, instanties van software die draaien op het device van de user, de zogenaamde apps. Beide client types hebben verschillende vereisten (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#client-types">§  2.1</a>)</li>
+<li>Clients moeten vooraf zijn geregistreerd bij de Authorization Server (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#client-registration">§  2.2</a>)</li>
+<li>Clients mogen geen gebruik maken van een redirect naar de localhost en mogen ook geen waardes doorsturen naar andere URI's (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#redirect-uri">§  2.2.1</a>)</li>
+<li>Clients moeten een willekeurige status parameter genereren en koppelen aan de client sessie om deze vervolgens mee te sturen naar de Authorization server en te verifiëren of deze ook correct in de response wordt meegegeven (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#connection-to-the-authorization-server">§  2.3</a>)</li>
+<li>Clients moeten de volledige redirect URI meesturen in het verzoek aan de Authorization server (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#connection-to-the-authorization-server">§  2.3</a>)</li>
+<li>De Authorization Server moet de redirect URI controleren ten opzichte van de URI die vooraf is geregistreerd door de Client (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#connection-to-the-authorization-server">§  2.3</a>)</li>
+<li>Native Clients moeten PCKE toepassen (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#connection-to-the-authorization-server">§  2.3</a>)</li>
+<li>Wanneer de API, Client en Authorisation Server niet onder verantwoordelijkheid vallen van één organisatie moeten PKIOverheid certificaten worden gebruikt (met OIN) (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#client-keys">§  2.3.4</a>)</li>
+<li>Clients moeten autorisatie requests over TLS sturen en moeten het certificaat van de API verifiëren (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#connection-to-the-protected-resource">§  2.4</a>)</li>
 </ul>
 <div class="header-wrapper"><h3 id="x3-authorization-server-profiel">3. Authorization Server profiel</h3><a class="self-link" href="#oauth-samenvatting-van-de-oauth-nl-standaard" aria-label="Permalink for this Section"></a></div>
 <ul>
-<li>De Authorization Server moet alle communicatie versleutelen met TLS en voldoen aan alle security eisen (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#authorization-server-profile">§  3</a>)</li>
-<li>De Authorization Server moet dynamic client registration toestaan. De autorisatie server mag de Scopes beperken van dynamisch geregistreerde clients (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#dynamic-registration">§  3.1.3</a>)</li>
-<li>De Authorization Server moet de user laten weten welke Client is geregistreerd en welke access die Client vraagt (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#dynamic-registration">§  3.1.4</a>)</li>
-<li>De Authorization Server moet OpenID.Discovery aanbieden (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#discovery">§  3.1.5</a>)</li>
-<li>De Authorization Server moet op verzoek van de Client tokens intrekken (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#revocation">§  3.1.6</a>)</li>
-<li>De Authorization Server moet JWT tokens verstrekken die de API kan verifiëren (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#jwt-bearer-tokens">§  3.2.1</a>)</li>
-<li>De Authorization Server moet authenticatie vereisen voor de revocation en introspection endpoints (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#introspection">§  3.2.2</a>)</li>
-<li>Alle uitgegeven tokens mogen worden ingetrokken (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#token-lifetimes">§  3.4</a>)</li>
-<li>Access tokens hebben verschillende lifetimes (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#token-lifetimes">§  3.4</a>)</li>
-<li>De Authorization Server zou Scopes moeten definiëren en documenteren (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#scopes">§  3.5</a>)</li>
+<li>De Authorization Server moet alle communicatie versleutelen met TLS en voldoen aan alle security eisen (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#authorization-server-profile">§  3</a>)</li>
+<li>De Authorization Server moet dynamic client registration toestaan. De autorisatie server mag de Scopes beperken van dynamisch geregistreerde clients (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#dynamic-registration">§  3.1.3</a>)</li>
+<li>De Authorization Server moet de user laten weten welke Client is geregistreerd en welke access die Client vraagt (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#dynamic-registration">§  3.1.4</a>)</li>
+<li>De Authorization Server moet OpenID.Discovery aanbieden (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#discovery">§  3.1.5</a>)</li>
+<li>De Authorization Server moet op verzoek van de Client tokens intrekken (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#revocation">§  3.1.6</a>)</li>
+<li>De Authorization Server moet JWT tokens verstrekken die de API kan verifiëren (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#jwt-bearer-tokens">§  3.2.1</a>)</li>
+<li>De Authorization Server moet authenticatie vereisen voor de revocation en introspection endpoints (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#introspection">§  3.2.2</a>)</li>
+<li>Alle uitgegeven tokens mogen worden ingetrokken (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#token-lifetimes">§  3.4</a>)</li>
+<li>Access tokens hebben verschillende lifetimes (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#token-lifetimes">§  3.4</a>)</li>
+<li>De Authorization Server zou Scopes moeten definiëren en documenteren (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#scopes">§  3.5</a>)</li>
 </ul>
 <div class="header-wrapper"><h3 id="x4-protected-resource-api-profiel">4. Protected Resource (API) profiel</h3><a class="self-link" href="#oauth-samenvatting-van-de-oauth-nl-standaard" aria-label="Permalink for this Section"></a></div>
 <ul>
-<li>De API geeft de Client toegang wanneer deze een geldig access token en de correcte Scope heeft. De API vertrouwd erop dat de Authorization Server de security en access control borgt (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#protecting-resources">§  4.1</a>)</li>
-<li>De API (met vertrouwelijke data) die een hoger vertrouwensniveau vereist van de eindgebruiker moet de data alleen beschikbaar stellen binnen een unieke Scope (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#protecting-resources">§  4.1</a>)</li>
-<li>De Client die vertrouwelijke data wil opvragen bij de API moet een hoger vertrouwensniveau Scope meegeven in het verzoek aan de Authorization Server (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#protecting-resources">§  4.1</a>)</li>
-<li>De Authorization Server moet de authenticatie van de eindgebruiker op het juiste vertrouwensniveau vaststellen (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#protecting-resources">§  4.1</a>)</li>
-<li>Een API moet Bearer tokens accepteren in de authorization header en mag deze ook accepteren als form parameter (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#protecting-resources">§  4.2</a>)</li>
-<li>Een API mag geen access tokens accepteren als query parameter (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#protecting-resources">§  4.2</a>)</li>
-<li>Een API moet documenteren welke scopes vereist zijn voor toegang tot vertrouwelijke data (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#protecting-resources">§  4.2</a>)</li>
-<li>Een API moet een access token verifiëren (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connections-with-authorization-servers">§  4.3</a>)</li>
-<li>Een API moet limiteren welke Authorization Servers het vertrouwt (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#connections-with-authorization-servers">§  4.3</a>)</li>
+<li>De API geeft de Client toegang wanneer deze een geldig access token en de correcte Scope heeft. De API vertrouwd erop dat de Authorization Server de security en access control borgt (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#protecting-resources">§  4.1</a>)</li>
+<li>De API (met vertrouwelijke data) die een hoger vertrouwensniveau vereist van de eindgebruiker moet de data alleen beschikbaar stellen binnen een unieke Scope (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#protecting-resources">§  4.1</a>)</li>
+<li>De Client die vertrouwelijke data wil opvragen bij de API moet een hoger vertrouwensniveau Scope meegeven in het verzoek aan de Authorization Server (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#protecting-resources">§  4.1</a>)</li>
+<li>De Authorization Server moet de authenticatie van de eindgebruiker op het juiste vertrouwensniveau vaststellen (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#protecting-resources">§  4.1</a>)</li>
+<li>Een API moet Bearer tokens accepteren in de authorization header en mag deze ook accepteren als form parameter (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#protecting-resources">§  4.2</a>)</li>
+<li>Een API mag geen access tokens accepteren als query parameter (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#protecting-resources">§  4.2</a>)</li>
+<li>Een API moet documenteren welke scopes vereist zijn voor toegang tot vertrouwelijke data (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#protecting-resources">§  4.2</a>)</li>
+<li>Een API moet een access token verifiëren (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#connections-with-authorization-servers">§  4.3</a>)</li>
+<li>Een API moet limiteren welke Authorization Servers het vertrouwt (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#connections-with-authorization-servers">§  4.3</a>)</li>
 </ul>
 <div class="header-wrapper"><h3 id="x6-security-overwegingen">6. Security overwegingen</h3><a class="self-link" href="#oauth-samenvatting-van-de-oauth-nl-standaard" aria-label="Permalink for this Section"></a></div>
 <ul>
-<li>Alle transacties moeten worden versleuteld met TLS en het is aanbevolen om hierbij de richtlijnen van het NCSC op te volgen (<a href="https://publicatie.centrumvoorstandaarden.nl/api/oauth/v1.0/#security-considerations">§  6</a>)</li>
+<li>Alle transacties moeten worden versleuteld met TLS en het is aanbevolen om hierbij de richtlijnen van het NCSC op te volgen (<a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0/#security-considerations">§  6</a>)</li>
 </ul>
 <div class="header-wrapper"><h2 id="disclaimer">!! Disclaimer</h2><a class="self-link" href="#oauth-samenvatting-van-de-oauth-nl-standaard" aria-label="Permalink for this Section"></a></div>
 <p>Deze samenvatting is een interpretatie van de standaard en is niet volledig in de opsomming of beschrijving van alle vereisten. Wanneer de standaard moet worden geïmplementeerd dient altijd de officiële en actuele  standaard te worden gebruikt zoals gepubliceerd door het Forum Standaardisatie op: <a href="https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oauth-20">https://forumstandaardisatie.nl/open-standaarden/nl-gov-assurance-profile-oauth-20</a>.</p>
@@ -1482,4 +1518,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Praktijkrichtlijn - Werkversie</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Praktijkrichtlijn - Werkversie</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
