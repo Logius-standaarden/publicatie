@@ -109,10 +109,15 @@ var organisationConfig = {
     localBiblio: {
         "ADR": {
             authors: ["Jasper Roes", "Joost Farla"],
-            date: "Juli 2020",
-            href: "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
+            href: "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
             publisher: "Logius",
-            title: "API Design Rules (Nederlandse API Strategie IIa)"
+            title: "API Design Rules"
+        },
+        "ADR1": {
+            authors: ["Jasper Roes", "Joost Farla"],
+            href: "https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0",
+            publisher: "Logius",
+            title: "API Design Rules"
         },
         "ADR-ext": {
             authors: ["Jasper Roes", "Linda van den Brink"],
