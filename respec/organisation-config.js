@@ -132,6 +132,12 @@ var organisationConfig = {
             publisher: "Logius",
             title: "Algemene voorwaarden Logius"
             },
+        "AuthZEN": {
+            date: "6 September 2024 ",
+            href: "https://openid.net/specs/authorization-api-1_0-01.html",
+            publisher: "OpenID",
+            title: "Authorization API 1.0 – draft 01"
+            },
         "AVG": {
             date: "27 april 2016",
             href: "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
