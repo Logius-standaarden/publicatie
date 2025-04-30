@@ -26,7 +26,7 @@ D.w.z. voor teksten waar nu verwezen wordt naar WUS/EBMS koppelvlakken zal de te
 Zie voor toelichting [Digikoppeling Architectuur](https://github.com/Logius-standaarden/Digikoppeling-Architectuur#readme)
 
 ##### Digikoppeling-Koppelvlakstandaard-ebMS2
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-ebMS2/pull/7) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Koppelvlakstandaard-ebMS2/Toevoegen-Rest-API-profiel)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-ebMS2/pull/7)
 <details><summary>Wijzigingen</summary>
 
 ```diff
@@ -136,7 +136,7 @@ index 05c0dc4..a386c25 100644
 </details>
 
 ##### Digikoppeling-Koppelvlakstandaard-WUS
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-WUS/pull/2) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Koppelvlakstandaard-WUS/REST-API)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-WUS/pull/2)
 <details><summary>Wijzigingen</summary>
 
 ```diff
@@ -349,7 +349,7 @@ index 05c0dc4..a386c25 100644
 </details>
 
 ##### Digikoppeling-Identificatie-en-Authenticatie
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Identificatie-en-Authenticatie/pull/6) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Identificatie-en-Authenticatie/Toevoegen-REST-API)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Identificatie-en-Authenticatie/pull/6)
 <details><summary>Wijzigingen</summary>
 
 ```diff
@@ -400,7 +400,7 @@ index 05c0dc4..a386c25 100644
 </details>
 
 ##### Digikoppeling-Overzicht-Actuele-Documentatie-en-Compliance
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Overzicht-Actuele-Documentatie-en-Compliance/pull/1) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Overzicht-Actuele-Documentatie-en-Compliance/Toevoegen_Rest_Api)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Overzicht-Actuele-Documentatie-en-Compliance/pull/1)
 <details><summary>Wijzigingen</summary>
 
 ```diff
@@ -620,7 +620,7 @@ index 0000000..afaa0b4
 </details>
 
 ##### Digikoppeling-Best-Practices-WUS
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Best-Practices-WUS/pull/3) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Best-Practices-WUS/REST-API)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Best-Practices-WUS/pull/3)
 <details><summary>Wijzigingen</summary>
 
 ```diff
@@ -675,7 +675,7 @@ index 05c0dc4..a386c25 100644
 </details>
 
 ##### Digikoppeling-Best-Practices-ebMS2
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Best-Practices-ebMS2/pull/3) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Best-Practices-ebMS2/Toevoegen-Rest-API-profiel)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Best-Practices-ebMS2/pull/3)
 <details><summary>Wijzigingen</summary>
 
 ```diff
@@ -739,7 +739,7 @@ index 05c0dc4..a386c25 100644
 </details>
 
 ##### Digikoppeling-Best-Practices-GB
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Best-Practices-GB/pull/4) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Best-Practices-GB/REST-API)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Best-Practices-GB/pull/4)
 <details><summary>Wijzigingen</summary>
 
 ```diff
@@ -1018,7 +1018,7 @@ index 176d61c..95e49f8 100644
 </details>
 
 ##### Digikoppeling-Gebruik-en-achtergrond-certificaten
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Gebruik-en-achtergrond-certificaten/pull/2) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Gebruik-en-achtergrond-certificaten/Toevoegen-Rest-API-profiel)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Gebruik-en-achtergrond-certificaten/pull/2)
 <details><summary>Wijzigingen</summary>
 
 ```diff
@@ -1127,7 +1127,7 @@ index 05c0dc4..a386c25 100644
 </details>
 
 ##### Digikoppeling-Wat-is-Digikoppeling
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Wat-is-Digikoppeling/pull/6) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Wat-is-Digikoppeling/Toevoegen-Rest-API-profiel)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Wat-is-Digikoppeling/pull/6)
 <details><summary>Wijzigingen</summary>
 
 ```diff
@@ -1386,7 +1386,7 @@ Aanpassen Bijlage OIN Tabel conform OIN-Beleid.
 #### Aangepaste documenten
 
 ##### Digikoppeling-Identificatie-en-Authenticatie
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Identificatie-en-Authenticatie/pull/3) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Identificatie-en-Authenticatie/RFC-2022-001-OIN-Tabel-update)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Identificatie-en-Authenticatie/pull/3)
 <details><summary>Wijzigingen</summary>
 
 ```diff
@@ -1489,7 +1489,7 @@ Samenvatting moet aangepast worden naar onderwerp identificatie & authenticatie.
 #### Aangepaste documenten
 
 ##### Digikoppeling-Identificatie-en-Authenticatie
-[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Identificatie-en-Authenticatie/pull/5) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Identificatie-en-Authenticatie/Correctie-samenvatting)
+[Pull request](https://github.com/Logius-standaarden/Digikoppeling-Identificatie-en-Authenticatie/pull/5)
 <details><summary>Wijzigingen</summary>
 
 ```diff

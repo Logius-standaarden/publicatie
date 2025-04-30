@@ -21,7 +21,7 @@ https://publicatie.centrumvoorstandaarden.nl/dk/restapi/#afspraken-api-design-ru
 #### Aangepaste documenten
 
 ##### Digikoppeling Koppelvlakstandaard REST-API
-[Issue](https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-REST-API/issues/15) | [Pull request](https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-REST-API/pull/16) | [Preview](https://logius-standaarden.github.io/Publicatie-Preview/Digikoppeling-Koppelvlakstandaard-REST-API/Toevoegen-API-58/)
+[Issue](https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-REST-API/issues/15) | [Pull request](https://github.com/Logius-standaarden/Digikoppeling-Koppelvlakstandaard-REST-API/pull/16)
 <details><summary>Wijzigingen</summary>
 
 ```diff
