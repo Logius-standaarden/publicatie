@@ -230,3 +230,8 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [notificatieservices/guidelines/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/guidelines/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/guidelines/ "Preview op GitHub Pages")
    - [notificatieservices/guidelines/0.3/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/guidelines/0.3/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/guidelines/0.3/ "Preview op GitHub Pages")
    - [notificatieservices/guidelines/1.0/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/guidelines/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/guidelines/1.0/ "Preview op GitHub Pages")
+
+### testdir
+
+- [testdir/test/](https://gitdocumentatie.logius.nl/publicatie/testdir/test/) [:scroll:](https://logius-standaarden.github.io/publicatie/testdir/test/ "Preview op GitHub Pages")
+   - [testdir/test/1.2.4/](https://gitdocumentatie.logius.nl/publicatie/testdir/test/1.2.4/) [:scroll:](https://logius-standaarden.github.io/publicatie/testdir/test/1.2.4/ "Preview op GitHub Pages")
