@@ -238,3 +238,4 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [testdir/test/1.2/](https://gitdocumentatie.logius.nl/publicatie/testdir/test/1.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/testdir/test/1.2/ "Preview op GitHub Pages")
    - [testdir/test/1.2.4/](https://gitdocumentatie.logius.nl/publicatie/testdir/test/1.2.4/) [:scroll:](https://logius-standaarden.github.io/publicatie/testdir/test/1.2.4/ "Preview op GitHub Pages")
    - [testdir/test/1.2.5/](https://gitdocumentatie.logius.nl/publicatie/testdir/test/1.2.5/) [:scroll:](https://logius-standaarden.github.io/publicatie/testdir/test/1.2.5/ "Preview op GitHub Pages")
+   - [testdir/test/1.3/](https://gitdocumentatie.logius.nl/publicatie/testdir/test/1.3/) [:scroll:](https://logius-standaarden.github.io/publicatie/testdir/test/1.3/ "Preview op GitHub Pages")
