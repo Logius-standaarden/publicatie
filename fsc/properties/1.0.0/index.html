@@ -1,0 +1,767 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta name="generator" content="ReSpec 35.3.0">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+    
+    
+    
+<title>FSC - Core</title>
+    
+    
+    
+    
+<title>Default</title>
+    
+<link rel="shortcut icon" type="image/x-icon" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico">
+    
+  
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:italic}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<style id="respec-nlgov">
+img.license{float:left;padding-right:5px;background:0 0}
+</style>
+<meta name="color-scheme" content="light">
+<meta name="description" content="This document specifies an extension to the Federated Service Connectivity (FSC) Core specification, introducing the ability to include custom properties in grants. The extension defines a flexible mechanism for adding key-value pairs to grants, which are then propagated through access tokens and made available to services.">
+<style>
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+
+  .sidelabel {
+    position: fixed;
+    -webkit-transform-origin: top right;
+    right: 100%;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+    padding: 4px 50px 4px 10px;
+    color: white;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: #39870c;
+  }
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "nl_organisationName": "Logius",
+  "nl_organisationStylesURL": "https://gitdocumentatie.logius.nl/publicatie/respec/style/",
+  "nl_organisationPublishURL": "https://gitdocumentatie.logius.nl/publicatie/",
+  "logos": [
+    {
+      "src": "https://www.logius.nl/themes/custom/logius/logo.svg",
+      "alt": "Logius",
+      "id": "Logius",
+      "height": 77,
+      "width": 44,
+      "url": "https://github.com/Logius-standaarden"
+    }
+  ],
+  "useLogo": true,
+  "useLabel": true,
+  "latestVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/"
+  ],
+  "thisVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "publishVersion",
+    "/"
+  ],
+  "prevVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "previousPublishVersion",
+    "/"
+  ],
+  "license": "cc-by",
+  "addSectionLinks": true,
+  "localizationStrings": {
+    "en": {
+      "wv": "Draft",
+      "cv": "Recommendation",
+      "vv": "Proposed recommendation",
+      "def": "Definitive version",
+      "basis": "Document",
+      "eo": "Outdated version",
+      "tg": "Rescinded version",
+      "no": "Norm",
+      "st": "Standard",
+      "im": "Information model",
+      "pr": "Guideline",
+      "hr": "Guide",
+      "wa": "Proposed recommendation",
+      "al": "General",
+      "bd": "Governance documentation",
+      "bp": "Best practice"
+    },
+    "nl": {
+      "wv": "Werkversie",
+      "cv": "Consultatieversie",
+      "vv": "Versie ter vaststelling",
+      "def": "Vastgestelde versie",
+      "basis": "Document",
+      "eo": "Verouderde versie",
+      "tg": "Teruggetrokken versie",
+      "no": "Norm",
+      "st": "Standaard",
+      "im": "Informatiemodel",
+      "pr": "Praktijkrichtlijn",
+      "hr": "Handreiking",
+      "wa": "Werkafspraak",
+      "al": "Algemeen",
+      "bd": "Beheerdocumentatie",
+      "bp": "Best practice"
+    }
+  },
+  "sotdText": {
+    "nl": {
+      "sotd": "Status van dit document",
+      "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.",
+      "cv": "Dit is een door het TO goedgekeurde consultatieversie. Commentaar over dit document kan gestuurd worden naar ",
+      "vv": "Dit is een definitief concept van de nieuwe versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "basis": "Dit is een document zonder officiële status."
+    },
+    "en": {
+      "sotd": "Status of This Document",
+      "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
+      "wv": "This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.",
+      "cv": "This is a proposed recommendation approved by TO. Comments regarding this document may be sent to ",
+      "vv": "This is the definitive concept of this document. Edits resulting from consultations have been applied.",
+      "basis": "This document has no official standing."
+    }
+  },
+  "labelColor": {
+    "def": "#154273",
+    "wv": "#39870c"
+  },
+  "licenses": {
+    "cc0": {
+      "name": "Creative Commons 0 Public Domain Dedication",
+      "short": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-zero.svg"
+    },
+    "cc-by": {
+      "name": "Creative Commons Attribution 4.0 International Public License",
+      "short": "CC-BY",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg"
+    },
+    "cc-by-nd": {
+      "name": "Creative Commons Naamsvermelding-GeenAfgeleideWerken 4.0 Internationaal",
+      "short": "CC-BY-ND",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/legalcode.nl",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
+    }
+  },
+  "localBiblio": {
+    "SemVer": {
+      "href": "https://semver.org",
+      "title": "Semantic Versioning 2.0.0",
+      "authors": [
+        "T. Preston-Werner"
+      ],
+      "date": "June 2013",
+      "id": "semver"
+    }
+  },
+  "specStatus": "WV",
+  "specType": "ST",
+  "pubDomain": "fsc",
+  "shortName": "properties",
+  "publishDate": "2025-05-26",
+  "publishVersion": "1.0.0",
+  "editors": [
+    {
+      "name": "VNG Realisatie",
+      "company": "VNG",
+      "companyURL": "https://vng.nl/rubrieken/onderwerpen/standaarden"
+    },
+    {
+      "name": "Logius",
+      "company": "Logius",
+      "companyURL": "https://github.com/Logius-standaarden"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Eelco Hotting",
+      "company": "Hotting IT",
+      "extras": [
+        {
+          "name": "Email",
+          "href": "mailto:rfc@hotting.it"
+        }
+      ]
+    },
+    {
+      "name": "Ronald Koster",
+      "company": "PhillyShell",
+      "extras": [
+        {
+          "name": "Email",
+          "href": "mailto:rfc@phillyshell.nl"
+        }
+      ]
+    },
+    {
+      "name": "Henk van Maanen",
+      "company": "AceWorks",
+      "extras": [
+        {
+          "name": "Email",
+          "href": "mailto:henk.van.maanen@aceworks.nl"
+        }
+      ]
+    },
+    {
+      "name": "Niels Dequeker",
+      "company": "ND Software",
+      "extras": [
+        {
+          "name": "Email",
+          "href": "mailto:niels@nd-software.be"
+        }
+      ]
+    },
+    {
+      "name": "Edward van Gelderen",
+      "company": "vanG IT",
+      "extras": [
+        {
+          "name": "Email",
+          "href": "mailto:e.van.gelderen@vang.nl"
+        }
+      ]
+    },
+    {
+      "name": "Pim Gaemers",
+      "company": "Apily",
+      "extras": [
+        {
+          "name": "Email",
+          "href": "mailto:pim.gaemers@apily.dev"
+        }
+      ]
+    }
+  ],
+  "github": "https://github.com/Logius-standaarden/fsc-properties"
+}</script>
+<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
+  <body class="h-entry toc-inline"><div class="head">
+    <a class="logo" href="https://github.com/Logius-standaarden"><img alt="Logius" height="77" id="Logius" src="https://www.logius.nl/themes/custom/logius/logo.svg" width="44">
+  </a> <h1 id="title" class="title">FSC - Core</h1>
+    
+    <h2>
+      Logius Standard<br>
+      Draft
+      <time class="dt-published" datetime="2025-05-26">May 02, 2025</time>
+    </h2>
+    <dl>
+      <dt>This version:</dt><dd class="status">
+              <a class="u-url status" href="https://logius-standaarden.github.io/fsc-properties/">https://logius-standaarden.github.io/fsc-properties/</a>
+            </dd>
+      <dt>Latest published version:</dt><dd>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/fsc/properties/">https://gitdocumentatie.logius.nl/publicatie/fsc/properties/</a>
+            </dd>
+      <dt>Latest editor's draft:</dt><dd><a href="https://logius-standaarden.github.io/fsc-properties/">https://logius-standaarden.github.io/fsc-properties/</a></dd>
+      
+      
+      
+      
+      
+      <dt>Editors:</dt>
+      <dd class="editor p-author h-card vcard">
+    <span class="p-name fn">VNG Realisatie</span> (<a class="p-org org h-org" href="https://vng.nl/rubrieken/onderwerpen/standaarden">VNG</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Logius</span> (<a class="p-org org h-org" href="https://github.com/Logius-standaarden">Logius</a>)
+  </dd>
+      
+      <dt>Authors:</dt><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Eelco Hotting</span> (<span class="p-org org h-org">Hotting IT</span>), <a href="mailto:rfc@hotting.it">Email</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Ronald Koster</span> (<span class="p-org org h-org">PhillyShell</span>), <a href="mailto:rfc@phillyshell.nl">Email</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Henk van Maanen</span> (<span class="p-org org h-org">AceWorks</span>), <a href="mailto:henk.van.maanen@aceworks.nl">Email</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Niels Dequeker</span> (<span class="p-org org h-org">ND Software</span>), <a href="mailto:niels@nd-software.be">Email</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Edward van Gelderen</span> (<span class="p-org org h-org">vanG IT</span>), <a href="mailto:e.van.gelderen@vang.nl">Email</a>
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Pim Gaemers</span> (<span class="p-org org h-org">Apily</span>), <a href="mailto:pim.gaemers@apily.dev">Email</a>
+  </dd>
+      <dt>Participate:</dt><dd>
+    <a href="https://github.com/Logius-standaarden/fsc-properties/">GitHub Logius-standaarden/fsc-properties</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/fsc-properties/issues/">File an issue</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/fsc-properties/commits/">Commit history</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/fsc-properties/pulls/">Pull requests</a>
+  </dd>
+    </dl>
+    
+    
+    
+    <p class="copyright">
+            This document is licensed under 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
+    <hr title="Separator for header">
+  </div>
+    <section id="abstract" class="introductory"><h2>Abstract</h2><p>This document specifies an extension to the Federated Service Connectivity (FSC) Core specification, introducing the ability to include custom properties in grants. The extension defines a flexible mechanism for adding key-value pairs to grants, which are then propagated through access tokens and made available to services.</p>
+<p>Key features of this extension include:</p>
+<ol>
+<li>A <code>properties</code> object within grants, allowing for arbitrary JSON key-value pairs.</li>
+<li>Integration of the <code>properties</code> object into the grant hash calculation process.</li>
+<li>Inclusion of properties in access tokens as a new <code>prp</code> claim.</li>
+<li>Guidelines for Manager, Inway, and Outway behavior when handling properties.</li>
+<li>Security considerations, including size limitations and sensitive data handling.</li>
+</ol>
+<p>This extension maintains backwards compatibility with the FSC Core specification while enabling more detailed and flexible grant definitions. It opens up possibilities for application-specific metadata and configuration options within the FSC ecosystem, enhancing the capabilities of federated service connectivity implementations.</p>
+</section>
+    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#meer-inhoud"><bdi class="secno">1. </bdi>Meer inhoud</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definities"><bdi class="secno">1.1 </bdi>Definities</a></li><li class="tocline"><a class="tocxref" href="#afbeeldingen"><bdi class="secno">1.2 </bdi>Afbeeldingen</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">1.3 </bdi>Referenties</a></li><li class="tocline"><a class="tocxref" href="#optioneel"><bdi class="secno">1.4 </bdi>Optioneel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">2. </bdi>Architecture</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#grant-properties"><bdi class="secno">2.1 </bdi>Grant Properties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#specifications"><bdi class="secno">3. </bdi>Specifications</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#property-object"><bdi class="secno">3.1 </bdi>Property Object</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#structure"><bdi class="secno">3.1.1 </bdi>Structure</a></li><li class="tocline"><a class="tocxref" href="#grant"><bdi class="secno">3.1.2 </bdi>Grant</a></li><li class="tocline"><a class="tocxref" href="#inclusion-in-grant-hash"><bdi class="secno">3.1.3 </bdi>Inclusion in Grant Hash</a></li><li class="tocline"><a class="tocxref" href="#validation"><bdi class="secno">3.1.4 </bdi>Validation</a></li><li class="tocline"><a class="tocxref" href="#security-considerations"><bdi class="secno">3.1.5 </bdi>Security Considerations</a></li><li class="tocline"><a class="tocxref" href="#backwards-compatibility"><bdi class="secno">3.1.6 </bdi>Backwards Compatibility</a></li><li class="tocline"><a class="tocxref" href="#future-considerations"><bdi class="secno">3.1.7 </bdi>Future Considerations</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">5. </bdi>List of Figures</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
+    
+    <section id="meer-inhoud"><div class="header-wrapper"><h2 id="x1-meer-inhoud"><bdi class="secno">1. </bdi>Meer inhoud</h2><a class="self-link" href="#meer-inhoud" aria-label="Permalink for Section 1."></a></div>
+<section id="definities"><div class="header-wrapper"><h3 id="x1-1-definities"><bdi class="secno">1.1 </bdi>Definities</h3><a class="self-link" href="#definities" aria-label="Permalink for Section 1.1"></a></div>
+<p><dfn id="dfn-definitie" tabindex="0" aria-haspopup="dialog">Definitie</dfn>: Een definitie is een beschrijving van een woord. Een ander woord voor definitie is betekenis of beschrijving.</p>
+</section><section id="afbeeldingen"><div class="header-wrapper"><h3 id="x1-2-afbeeldingen"><bdi class="secno">1.2 </bdi>Afbeeldingen</h3><a class="self-link" href="#afbeeldingen" aria-label="Permalink for Section 1.2"></a></div>
+<p>Afbeeldingen krijgen een nummer en vermelding in de figurenlijst <a href="#tof" data-matched-text="[[[#tof]]]" class="sec-ref"><bdi class="secno">5. </bdi>List of Figures</a>.</p>
+<p>
+      </p><figure id="fig-onderschrift">
+        <img src="media/Bomos_levenscyclus.svg" alt="Tekstueel alternatief voor toegankelijkheid">
+        <figcaption><a class="self-link" href="#fig-onderschrift">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">Onderschrift</span></figcaption>
+      </figure>
+    <p></p>
+</section><section id="referenties"><div class="header-wrapper"><h3 id="x1-3-referenties"><bdi class="secno">1.3 </bdi>Referenties</h3><a class="self-link" href="#referenties" aria-label="Permalink for Section 1.3"></a></div>
+<p>Referentie uit locale lijst [<cite><a class="bibref" data-link-type="biblio" href="#bib-semver" title="Semantic Versioning 2.0.0">SemVer</a></cite>]. Lijst staat in <code>organisation-config.js</code>. Alleen referenties die in de tekst voorkomen worden getoond.</p>
+<p>We gebruiken een <a href="#dfn-definitie" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-definitie-1">definitie</a> om een woord te omschrijven.</p>
+</section><section id="optioneel"><div class="header-wrapper"><h3 id="x1-4-optioneel"><bdi class="secno">1.4 </bdi>Optioneel</h3><a class="self-link" href="#optioneel" aria-label="Permalink for Section 1.4"></a></div>
+<p>De onderstaande secties (<em>Conformiteit</em> e.d.) zijn optioneel, zie <code>index.html</code>:</p>
+<pre><code aria-busy="false" class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"abstract"</span> <span class="hljs-attr">data-include-format</span>=<span class="hljs-string">"markdown"</span> <span class="hljs-attr">data-include</span>=<span class="hljs-string">"abstract.md"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sotd"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span><span class="hljs-comment">&lt;!-- Wordt automatisch gevuld --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">data-include-format</span>=<span class="hljs-string">"markdown"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"informative"</span> <span class="hljs-attr">data-include</span>=<span class="hljs-string">"ch01.md"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">data-include-format</span>=<span class="hljs-string">"markdown"</span> <span class="hljs-attr">data-include</span>=<span class="hljs-string">"ch02.md"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Hieronder optionele secties. Worden automatisch gevuld --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'conformance'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'tof'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"index"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+</section></section>
+    <section id="architecture"><div class="header-wrapper"><h2 id="x2-architecture"><bdi class="secno">2. </bdi>Architecture</h2><a class="self-link" href="#architecture" aria-label="Permalink for Section 2."></a></div>
+<p>This section describes how the property object fits into the existing FSC architecture.</p>
+<section id="grant-properties"><div class="header-wrapper"><h3 id="x2-1-grant-properties"><bdi class="secno">2.1 </bdi>Grant Properties</h3><a class="self-link" href="#grant-properties" aria-label="Permalink for Section 2.1"></a></div>
+<p>Each grant in a Contract can now contain an optional property object. This object is included in the grant's data and is part of the content that is hashed when creating the grant hash and contract content hash.</p>
+<p>The property object can contain one or multiple keys, with values of any valid JSON datatype. This flexibility allows for a wide range of use cases and future extensibility.</p>
+<p>Example of a ServiceConnectionGrant with a property object:</p>
+<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"data"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"GRANT_TYPE_SERVICE_CONNECTION"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"service"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"peer_id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"00000000000000000001"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"example-service"</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"outway"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"peer_id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"00000000000000000002"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"public_key_thumbprint"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"3a56f2e9269ac63f0d4394c46b96539da1625b6a985d38029ff89f34e490960c"</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"properties"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"max_requests_per_minute"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">100</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"tags"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">"api"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"v1"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"beta"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"custom_metadata"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"department"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"IT"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"project"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"FSC Integration"</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+</section></section>
+    <section id="specifications"><div class="header-wrapper"><h2 id="x3-specifications"><bdi class="secno">3. </bdi>Specifications</h2><a class="self-link" href="#specifications" aria-label="Permalink for Section 3."></a></div>
+<p>This section provides detailed specifications for implementing the property object extension.</p>
+<section id="property-object"><div class="header-wrapper"><h3 id="x3-1-property-object"><bdi class="secno">3.1 </bdi>Property Object</h3><a class="self-link" href="#property-object" aria-label="Permalink for Section 3.1"></a></div>
+<section id="structure"><div class="header-wrapper"><h4 id="x3-1-1-structure"><bdi class="secno">3.1.1 </bdi>Structure</h4><a class="self-link" href="#structure" aria-label="Permalink for Section 3.1.1"></a></div>
+<p>The property object must be a valid JSON object. It can contain any number of key-value pairs, where:</p>
+<ol>
+<li>Keys must be strings</li>
+<li>Values can be of any valid JSON datatype (string, number, boolean, object, array, or null)</li>
+</ol>
+</section><section id="grant"><div class="header-wrapper"><h4 id="x3-1-2-grant"><bdi class="secno">3.1.2 </bdi>Grant</h4><a class="self-link" href="#grant" aria-label="Permalink for Section 3.1.2"></a></div>
+<p>The property object <em class="rfc2119">MAY</em> be added to a grant object and <em class="rfc2119">MUST</em> have the key 'properties'.</p>
+</section><section id="inclusion-in-grant-hash"><div class="header-wrapper"><h4 id="x3-1-3-inclusion-in-grant-hash"><bdi class="secno">3.1.3 </bdi>Inclusion in Grant Hash</h4><a class="self-link" href="#inclusion-in-grant-hash" aria-label="Permalink for Section 3.1.3"></a></div>
+<p>When calculating the grant hash, the property object must be included in the hashing process. This ensures that the properties are part of the immutable grant definition.</p>
+<p>To include the property object in the grant hash:</p>
+<ol>
+<li>Canonicalize the JSON property object as described in <a href="https://www.rfc-editor.org/rfc/rfc8785">RFC 8785</a></li>
+<li>Hash the canonicalized JSON string using the hash algorithm described in contract.content.algorithm</li>
+<li>Add the hash to the grantBytes array as described in the FSC Core specification.</li>
+<li>Continue with the hashing process as described in the FSC Core specification.</li>
+</ol>
+</section><section id="validation"><div class="header-wrapper"><h4 id="x3-1-4-validation"><bdi class="secno">3.1.4 </bdi>Validation</h4><a class="self-link" href="#validation" aria-label="Permalink for Section 3.1.4"></a></div>
+<p>When validating a grant with properties:</p>
+<ol>
+<li>The Manager must ensure that the <code>properties</code> field, if present, is a valid JSON object.</li>
+<li>The Manager should not impose any restrictions on the content of the property object beyond it being valid JSON, as the meaning and use of properties are application-specific.</li>
+</ol>
+</section><section id="security-considerations"><div class="header-wrapper"><h4 id="x3-1-5-security-considerations"><bdi class="secno">3.1.5 </bdi>Security Considerations</h4><a class="self-link" href="#security-considerations" aria-label="Permalink for Section 3.1.5"></a></div>
+<ol>
+<li><p>The size of the <code>properties</code> object should be limited to prevent excessive data transfer and storage. It is recommended to implement a size limit of 1MB for the serialized <code>properties</code> object.</p>
+</li>
+<li><p>Sensitive information like secrets or other private information should not be stored in the <code>properties</code> object, as it may be visible to Services and potentially logged or stored in various systems.</p>
+</li>
+<li><p>Implementers should be aware that the contents of the <code>properties</code> object are unsanitized. For example, they should consider sanitizing the data before showing it in user interfaces to prevent XSS injections or other security vulnerabilities.</p>
+</li>
+</ol>
+</section><section id="backwards-compatibility"><div class="header-wrapper"><h4 id="x3-1-6-backwards-compatibility"><bdi class="secno">3.1.6 </bdi>Backwards Compatibility</h4><a class="self-link" href="#backwards-compatibility" aria-label="Permalink for Section 3.1.6"></a></div>
+<p>This extension is backwards compatible with the FSC Core specification. Systems that do not implement this extension will ignore the <code>properties</code> field in grants and the <code>prp</code> claim in access tokens.</p>
+</section><section id="future-considerations"><div class="header-wrapper"><h4 id="x3-1-7-future-considerations"><bdi class="secno">3.1.7 </bdi>Future Considerations</h4><a class="self-link" href="#future-considerations" aria-label="Permalink for Section 3.1.7"></a></div>
+<ol>
+<li>Standard property keys and their meanings could be defined in future versions to promote interoperability between different implementations.</li>
+</ol>
+</section></section></section>
+    <section id="conformance"><div class="header-wrapper"><h2 id="x4-conformance"><bdi class="secno">4. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 4."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+        The key words <em class="rfc2119">MAY</em> and <em class="rfc2119">MUST</em> in this document
+        are to be interpreted as described in
+        <a href="https://www.rfc-editor.org/info/bcp14">BCP 14</a>
+        [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
+        when, and only when, they appear in all capitals, as shown here.
+      </p></section>
+    <section id="tof"><div class="header-wrapper"><h2 id="x5-list-of-figures"><bdi class="secno">5. </bdi>List of Figures</h2><a class="self-link" href="#tof" aria-label="Permalink for Section 5."></a></div><ul class="tof">
+        <li class="tofline">
+    <a class="tocxref" href="#fig-onderschrift"><span class="self-link">Figure <bdi class="figno">1</bdi></span> <span class="fig-title">Onderschrift</span></a>
+  </li>
+      </ul></section>
+  
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references">
+    <div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
+    <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
+    </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+    </dd><dt id="bib-semver">[SemVer]</dt><dd>
+      <a href="https://semver.org"><cite>Semantic Versioning 2.0.0</cite></a>. T. Preston-Werner. June 2013. URL: <a href="https://semver.org">https://semver.org</a>
+    </dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-definitie" aria-label="Links in this document to definition: Definitie">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-definitie" aria-label="Permalink for definition: Definitie. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-definitie-1" title="§ 1.3 Referenties">§ 1.3 Referenties</a> 
+    </li>
+  </ul>
+    </div><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><div class="sidelabel">Logius Standard - Draft</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
