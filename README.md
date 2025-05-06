@@ -52,6 +52,8 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [bomos/fundament/3.0.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/3.0.0/ "Preview op GitHub Pages")
    - [bomos/fundament/3.0.1/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/3.0.1/ "Preview op GitHub Pages")
    - [bomos/fundament/en/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/en/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/en/ "Preview op GitHub Pages")
+      - [bomos/fundament/en/3/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/en/3/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/en/3/ "Preview op GitHub Pages")
+      - [bomos/fundament/en/3.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/en/3.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/en/3.0/ "Preview op GitHub Pages")
       - [bomos/fundament/en/3.0.1/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/en/3.0.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/en/3.0.1/ "Preview op GitHub Pages")
 - [bomos/linkeddata/](https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/linkeddata/ "Preview op GitHub Pages")
    - [bomos/linkeddata/3.0.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/linkeddata/3.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/linkeddata/3.0.0/ "Preview op GitHub Pages")
