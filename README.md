@@ -12,6 +12,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [api/adr-beheer/](https://gitdocumentatie.logius.nl/publicatie/api/adr-beheer/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr-beheer/ "Preview op GitHub Pages")
    - [api/adr-beheer/1.0/](https://gitdocumentatie.logius.nl/publicatie/api/adr-beheer/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr-beheer/1.0/ "Preview op GitHub Pages")
 - [api/adr/1.0/](https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/1.0/ "Preview op GitHub Pages")
+   - [api/adr/2/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2/ "Preview op GitHub Pages")
    - [api/adr/2.0/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.0/ "Preview op GitHub Pages")
    - [api/adr/2.0.0/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.0.0/ "Preview op GitHub Pages")
    - [api/adr/2.0.0-rc.1/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0-rc.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.0.0-rc.1/ "Preview op GitHub Pages")
