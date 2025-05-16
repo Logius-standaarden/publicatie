@@ -1,15 +1,13 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 34.1.4">
+<meta name="generator" content="ReSpec 35.3.0">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
 div.illegal-example{color:red}
 div.illegal-example p{color:#000}
-:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
 aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-.example pre{background-color:rgba(0,0,0,.03)}
 </style>
 <style>
 .issue-label{text-transform:initial}
@@ -18,7 +16,7 @@ aside.example div.example{border-left-width:.1em;border-color:#999;background:#f
 span.warning{padding:.1em .5em .15em}
 .issue.closed span.issue-number{text-decoration:line-through}
 .issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
-.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
 .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
 li.task-list-item{list-style:none}
 input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
@@ -26,13 +24,13 @@ input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
 .dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
 .dfn-panel>div{display:flex}
 .dfn-panel a.self-link{font-weight:700;margin-right:auto}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
@@ -53,9 +51,6 @@ dfn{cursor:pointer}
   
   
   
-<script>
-   respecConfig = {...organisationConfig, ...respecConfig};
-  </script>
   
   
 <link href="./media/style.css" rel="stylesheet" type="text/css">
@@ -66,8 +61,6 @@ dfn{cursor:pointer}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
 a.bibref{text-decoration:none}
@@ -78,23 +71,11 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
-cite .bibref{font-style:normal}
+cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
 #issue-summary>ul{column-count:2}
 #issue-summary li{list-style:none;display:inline-block}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
@@ -118,8 +99,9 @@ dd{margin-left:0}
 }
 </style>
 <style id="respec-nlgov">
-img.license{float:left;padding-right:5px}
+img.license{float:left;padding-right:5px;background:0 0}
 </style>
+<meta name="color-scheme" content="light">
 <style>
 ul.index{columns:30ch;column-gap:1.5em}
 ul.index li{list-style:inherit}
@@ -133,15 +115,19 @@ ul.index code{color:inherit}
 </style>
 <meta name="description" content="OIN Stelsel 2.0 beschrijft het OIN beleid en de werking van het OIN. In de nieuwe versie zijn de volgende wijzigingen opgenomen">
 <style>
-.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
-.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
-.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
-.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
-.hljs-literal{color:#0b76c5}
-.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
-.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
-.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
-.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
 .hljs-emphasis{font-style:italic}
 .hljs-strong{font-weight:700}
 .hljs-link{text-decoration:underline}
@@ -172,7 +158,7 @@ ul.index code{color:inherit}
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
@@ -292,10 +278,18 @@ ul.index code{color:inherit}
         "Jasper Roes",
         "Joost Farla"
       ],
-      "date": "Juli 2020",
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
       "publisher": "Logius",
-      "title": "API Design Rules (Nederlandse API Strategie IIa)"
+      "title": "API Design Rules"
+    },
+    "ADR1": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0",
+      "publisher": "Logius",
+      "title": "API Design Rules"
     },
     "ADR-ext": {
       "authors": [
@@ -313,6 +307,18 @@ ul.index code{color:inherit}
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius",
       "id": "algemene voorwaarden logius"
+    },
+    "AuthZEN": {
+      "date": "6 September 2024 ",
+      "href": "https://openid.net/specs/authorization-api-1_0-01.html",
+      "publisher": "OpenID",
+      "title": "Authorization API 1.0 – draft 01"
+    },
+    "AVG": {
+      "date": "27 april 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
     },
     "BCP195": {
       "authors": [
@@ -352,6 +358,16 @@ ul.index code{color:inherit}
       "publisher": "Logius",
       "title": "Digikoppeling Compliance Voorziening"
     },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
+    },
     "Deployment Guide 1.1": {
       "authors": [
         "Pete Wenzel",
@@ -365,7 +381,7 @@ ul.index code{color:inherit}
     "DK": {
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
       "publisher": "Logius",
-      "title": "Digikoppeling"
+      "title": "Logius | Digikoppeling"
     },
     "DK-Doc": {
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
@@ -437,6 +453,18 @@ ul.index code{color:inherit}
       "publisher": "Logius",
       "title": "Wat is Digikoppeling?"
     },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
+    },
     "ebCPP": {
       "authors": [
         "Oasis"
@@ -475,6 +503,7 @@ ul.index code{color:inherit}
       "title": "Expertadvies CloudEvents 1.0"
     },
     "folmer2011": {
+      "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
       "title": "Management and Development Model for Open Standards (BOMOS) version 2",
       "keywords": "IR-76837",
       "authors": [
@@ -486,7 +515,7 @@ ul.index code{color:inherit}
       "publisher": "Programmabureau NOiV"
     },
     "folmer2012": {
-      "href": "https://ris.utwente.nl/ws/portalfiles/portal/6064223/thesis_E_Folmer.pdf",
+      "href": "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
       "title": "Quality of Semantic Standards",
       "authors": [
         "Erwin Folmer"
@@ -524,6 +553,14 @@ ul.index code{color:inherit}
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
     },
     "Introspection": {
       "authors": [
@@ -751,6 +788,32 @@ ul.index code{color:inherit}
       ],
       "publisher": "Association of Computing Machinery (ACM)",
       "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
     }
   },
   "alternateFormats": [
@@ -784,8 +847,8 @@ ul.index code{color:inherit}
   "specType": "HR"
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
- <body class="h-entry toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+ <body class="h-entry"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">OIN Stelsel 2.1.0</h1>
     
     <h2>
@@ -831,9 +894,9 @@ ul.index code{color:inherit}
           <a rel="alternate" href="OIN-Stelsel.pdf">pdf</a>
         </p>
     <p class="copyright">
-          Dit document valt onder de volgende licentie: 
-          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
-        </p>
+            Dit document valt onder de volgende licentie: 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
     <hr title="Separator for header">
   </div>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>OIN Stelsel 2.0 beschrijft het OIN beleid en de werking van het OIN. In de nieuwe versie zijn de volgende wijzigingen opgenomen</p>
@@ -857,7 +920,7 @@ ul.index code{color:inherit}
     </ul>
     Dit document is een <i>handreiking</i> en geeft een niet-normatieve beschrijving van de werking van het OIN stelsel.
 </aside></div></section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#het-oin-stelsel"><bdi class="secno">1.1 </bdi>Het OIN stelsel</a></li><li class="tocline"><a class="tocxref" href="#waarom-dit-document"><bdi class="secno">1.2 </bdi>Waarom dit document</a></li><li class="tocline"><a class="tocxref" href="#aanleiding-voor-een-nieuwe-versie-van-dit-document"><bdi class="secno">1.3 </bdi>Aanleiding voor een nieuwe versie van dit document</a></li><li class="tocline"><a class="tocxref" href="#doel-en-scope-van-document"><bdi class="secno">1.4 </bdi>Doel en scope van document</a></li><li class="tocline"><a class="tocxref" href="#historie-van-het-oin-en-vooruitblik"><bdi class="secno">1.5 </bdi>Historie van het OIN (en vooruitblik)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oin-en-pkioverheid"><bdi class="secno">1.5.1 </bdi>OIN en PKIoverheid</a></li><li class="tocline"><a class="tocxref" href="#overheids-identificatienummer"><bdi class="secno">1.5.2 </bdi><em>Overheids</em> Identificatienummer</a></li><li class="tocline"><a class="tocxref" href="#oin-en-hrn"><bdi class="secno">1.5.3 </bdi>OIN en HRN</a></li><li class="tocline"><a class="tocxref" href="#nieuw-handelsregister"><bdi class="secno">1.5.4 </bdi>Nieuw Handelsregister</a></li><li class="tocline"><a class="tocxref" href="#oin-2016-organisatie-identificatienummer"><bdi class="secno">1.5.5 </bdi>OIN 2016: <em>Organisatie</em> Identificatienummer</a></li><li class="tocline"><a class="tocxref" href="#doorontwikkeling-cor"><bdi class="secno">1.5.6 </bdi>Doorontwikkeling <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#leeswijzer"><bdi class="secno">1.6 </bdi>Leeswijzer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#architectuurvisie"><bdi class="secno">2. </bdi>Architectuurvisie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel-oin"><bdi class="secno">2.1 </bdi>Doel OIN</a></li><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">2.2 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#gebruik-van-het-oin"><bdi class="secno">2.3 </bdi>Gebruik van het OIN</a></li><li class="tocline"><a class="tocxref" href="#context-centrale-oin-raadpleegvoorziening-cor"><bdi class="secno">2.4 </bdi>Context Centrale OIN Raadpleegvoorziening (<span data-link-type="dfn|abstract-op" class="formerLink">COR</span>)</a></li><li class="tocline"><a class="tocxref" href="#kaders-en-bronnen"><bdi class="secno">2.5 </bdi>Kaders en bronnen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#businessarchitectuur"><bdi class="secno">3. </bdi>Businessarchitectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wat-is-het-oin"><bdi class="secno">3.1 </bdi>Wat is het OIN</a></li><li class="tocline"><a class="tocxref" href="#voor-wie-is-het-oin"><bdi class="secno">3.2 </bdi>Voor wie is het OIN</a></li><li class="tocline"><a class="tocxref" href="#op-welke-manier-kan-een-organisatie-een-oin-verkrijgen"><bdi class="secno">3.3 </bdi>Op welke manier kan een organisatie een OIN verkrijgen</a></li><li class="tocline"><a class="tocxref" href="#wat-is-een-suboin"><bdi class="secno">3.4 </bdi>Wat is een SubOIN</a></li><li class="tocline"><a class="tocxref" href="#voor-wie-is-het-suboin"><bdi class="secno">3.5 </bdi>Voor wie is het SubOIN</a></li><li class="tocline"><a class="tocxref" href="#wijzigingen-in-het-oin-stelsel-sinds-2006"><bdi class="secno">3.6 </bdi>Wijzigingen in het OIN Stelsel sinds 2006</a></li><li class="tocline"><a class="tocxref" href="#rollen-in-het-oin-stelsel"><bdi class="secno">3.7 </bdi>Rollen in het OIN stelsel</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#afnemer"><bdi class="secno">3.7.1 </bdi>Afnemer</a></li><li class="tocline"><a class="tocxref" href="#stakeholders"><bdi class="secno">3.7.2 </bdi>Stakeholders</a></li><li class="tocline"><a class="tocxref" href="#opdrachtgever"><bdi class="secno">3.7.3 </bdi>Opdrachtgever</a></li><li class="tocline"><a class="tocxref" href="#beheerder-oin-stelsel"><bdi class="secno">3.7.4 </bdi>Beheerder OIN-stelsel</a></li><li class="tocline"><a class="tocxref" href="#beheerder-cor"><bdi class="secno">3.7.5 </bdi>Beheerder COR</a></li><li class="tocline"><a class="tocxref" href="#registerhouder-overheidsregister"><bdi class="secno">3.7.6 </bdi>Registerhouder overheidsregister</a></li><li class="tocline"><a class="tocxref" href="#suboin-beheerder"><bdi class="secno">3.7.7 </bdi>SubOIN-beheerder</a></li><li class="tocline"><a class="tocxref" href="#certificatiedienstverlener-tsp"><bdi class="secno">3.7.8 </bdi>Certificatiedienstverlener (TSP)</a></li><li class="tocline"><a class="tocxref" href="#oin-houder"><bdi class="secno">3.7.9 </bdi>OIN-houder</a></li><li class="tocline"><a class="tocxref" href="#beheerder-pve-pkioverheid"><bdi class="secno">3.7.10 </bdi>Beheerder PvE PKIoverheid</a></li></ol></li><li class="tocline"><a class="tocxref" href="#juridische-structuur"><bdi class="secno">3.8 </bdi>Juridische structuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oin-voorwaarden-en-oin-formulieren"><bdi class="secno">3.8.1 </bdi>OIN-voorwaarden en OIN–formulieren</a></li><li class="tocline"><a class="tocxref" href="#identificatie"><bdi class="secno">3.8.2 </bdi>Identificatie</a></li><li class="tocline"><a class="tocxref" href="#handelsregister"><bdi class="secno">3.8.3 </bdi>Handelsregister</a></li><li class="tocline"><a class="tocxref" href="#rechtspersonen-en-samenwerkingsverbanden"><bdi class="secno">3.8.4 </bdi>Rechtspersonen en samenwerkingsverbanden</a></li><li class="tocline"><a class="tocxref" href="#buitenlandse-rechtspersonen-en-organisaties"><bdi class="secno">3.8.5 </bdi>Buitenlandse rechtspersonen en organisaties</a></li><li class="tocline"><a class="tocxref" href="#oin"><bdi class="secno">3.8.6 </bdi>OIN</a></li><li class="tocline"><a class="tocxref" href="#oin-houder-0"><bdi class="secno">3.8.7 </bdi>OIN-houder</a></li><li class="tocline"><a class="tocxref" href="#suboins-op-basis-van-een-aangesloten-register"><bdi class="secno">3.8.8 </bdi>SubOINs op basis van een aangesloten register</a></li><li class="tocline"><a class="tocxref" href="#opnemen-oin-in-pkioverheidscertificaat"><bdi class="secno">3.8.9 </bdi>Opnemen OIN in PKIoverheidscertificaat</a></li></ol></li><li class="tocline"><a class="tocxref" href="#centrale-oin-raadpleegvoorziening-cor"><bdi class="secno">3.9 </bdi>Centrale OIN Raadpleegvoorziening (COR)</a></li><li class="tocline"><a class="tocxref" href="#toezicht-uitoefenen"><bdi class="secno">3.10 </bdi>Toezicht uitoefenen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#naleving-voorwaarden-oin"><bdi class="secno">3.10.1 </bdi>Naleving Voorwaarden OIN</a></li><li class="tocline"><a class="tocxref" href="#naleving-overeenkomsten"><bdi class="secno">3.10.2 </bdi>Naleving overeenkomsten</a></li><li class="tocline"><a class="tocxref" href="#toezicht-bzk"><bdi class="secno">3.10.3 </bdi>Toezicht BZK</a></li></ol></li><li class="tocline"><a class="tocxref" href="#internationale-uitwisselingen"><bdi class="secno">3.11 </bdi>Internationale uitwisselingen</a></li><li class="tocline"><a class="tocxref" href="#oin-icd-code"><bdi class="secno">3.12 </bdi>OIN ICD Code</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#mapping-naar-de-iso-6523-standaard"><bdi class="secno">3.12.1 </bdi>Mapping naar de ISO 6523 standaard</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#applicatie-architectuur"><bdi class="secno">4. </bdi>Applicatie-architectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#gebruik-van-de-centrale-oin-raadpleegvoorziening"><bdi class="secno">4.1 </bdi>Gebruik van de Centrale OIN Raadpleegvoorziening</a></li><li class="tocline"><a class="tocxref" href="#publieke-raadpleegvoorziening"><bdi class="secno">4.2 </bdi>Publieke raadpleegvoorziening</a></li><li class="tocline"><a class="tocxref" href="#beheerfuncties"><bdi class="secno">4.3 </bdi>Beheerfuncties</a></li><li class="tocline"><a class="tocxref" href="#algemene-eisen-aan-de-centrale-oin-raadpleegvoorziening"><bdi class="secno">4.4 </bdi>Algemene eisen aan de Centrale OIN Raadpleegvoorziening</a></li><li class="tocline"><a class="tocxref" href="#centrale-oin-raadpleegvoorziening-cor-0"><bdi class="secno">4.5 </bdi>Centrale OIN Raadpleegvoorziening (<span data-link-type="dfn|abstract-op" class="formerLink">COR</span>)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#onderdelen-van-de-cor"><bdi class="secno">4.5.1 </bdi>Onderdelen van de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li><li class="tocline"><a class="tocxref" href="#toegang-tot-het-besloten-gedeelte-van-de-cor"><bdi class="secno">4.5.2 </bdi>Toegang tot het besloten gedeelte van de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li><li class="tocline"><a class="tocxref" href="#registratie-in-het-besloten-gedeelte-van-de-cor"><bdi class="secno">4.5.3 </bdi>Registratie in het besloten gedeelte van de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li><li class="tocline"><a class="tocxref" href="#publiceren-van-oin-en-suboins"><bdi class="secno">4.5.4 </bdi>Publiceren van OIN en SubOINs</a></li><li class="tocline"><a class="tocxref" href="#aansluiten-cor-op-overheidsregisters"><bdi class="secno">4.5.5 </bdi>Aansluiten <span data-link-type="dfn|abstract-op" class="formerLink">COR</span> op overheidsregisters</a></li><li class="tocline"><a class="tocxref" href="#gebruik-van-de-cor-api"><bdi class="secno">4.5.6 </bdi>Gebruik van de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span> API</a></li><li class="tocline"><a class="tocxref" href="#privacybescherming-en-informatiebeveiliging"><bdi class="secno">4.5.7 </bdi>Privacybescherming en informatiebeveiliging</a></li><li class="tocline"><a class="tocxref" href="#kwaliteitsborging"><bdi class="secno">4.5.8 </bdi>Kwaliteitsborging</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#het-beheer-van-suboins-in-de-cor"><bdi class="secno">5. </bdi>Het beheer van SubOINs in de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#suboins-uitgifte"><bdi class="secno">5.1 </bdi>SubOINs: uitgifte</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#regels-voor-uitgifte-suboins"><bdi class="secno">5.1.1 </bdi>Regels voor uitgifte SubOINs</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#aanmaken-suboins"><bdi class="secno">5.1.1.1 </bdi>Aanmaken SubOINs</a></li><li class="tocline"><a class="tocxref" href="#organisaties-in-andere-registers-dan-het-handelsregister"><bdi class="secno">5.1.1.2 </bdi>Organisaties in andere registers dan het Handelsregister</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanvragen-pkioverheidscertificaat"><bdi class="secno">5.1.2 </bdi>Aanvragen PKIoverheidscertificaat</a></li><li class="tocline"><a class="tocxref" href="#samenwerkingsverbanden"><bdi class="secno">5.1.3 </bdi>Samenwerkingsverbanden</a></li></ol></li><li class="tocline"><a class="tocxref" href="#suboins-beheer"><bdi class="secno">5.2 </bdi>SubOINs: beheer</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#mutaties-doorgeven-aan-de-cor"><bdi class="secno">5.2.1 </bdi>Mutaties doorgeven aan de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li><li class="tocline"><a class="tocxref" href="#intrekkingsplicht"><bdi class="secno">5.2.2 </bdi>Intrekkingsplicht</a></li><li class="tocline"><a class="tocxref" href="#beheerder-van-een-overheidsregister"><bdi class="secno">5.2.3 </bdi>Beheerder van een overheidsregister</a></li></ol></li><li class="tocline"><a class="tocxref" href="#suboins-geldigheidsduur-en-bewaartermijnen"><bdi class="secno">5.3 </bdi>SubOINs: geldigheidsduur en bewaartermijnen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#geldigheidsduur"><bdi class="secno">5.3.1 </bdi>Geldigheidsduur</a></li><li class="tocline"><a class="tocxref" href="#beeindigen"><bdi class="secno">5.3.2 </bdi>Beëindigen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#suboins-aanvraagformulieren"><bdi class="secno">5.4 </bdi>SubOINs: Aanvraagformulieren</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#registerhouders-van-overheidsregisters"><bdi class="secno">5.4.1 </bdi>Registerhouders van overheidsregisters</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#data-architectuur"><bdi class="secno">6. </bdi>Data Architectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#samenstelling-oin"><bdi class="secno">6.1 </bdi>Samenstelling OIN</a></li><li class="tocline"><a class="tocxref" href="#prefix-tabel"><bdi class="secno">6.2 </bdi>Prefix tabel</a></li><li class="tocline"><a class="tocxref" href="#voorbeeld-oin-structuur"><bdi class="secno">6.3 </bdi>Voorbeeld OIN structuur</a></li><li class="tocline"><a class="tocxref" href="#suboin-een-betekenisloos-nummer"><bdi class="secno">6.4 </bdi>SubOIN: een betekenisloos nummer</a></li><li class="tocline"><a class="tocxref" href="#voorbeelden-van-oin-weergave-in-cor-web-en-cor-api"><bdi class="secno">6.5 </bdi>Voorbeelden van OIN weergave in <span data-link-type="dfn|abstract-op" class="formerLink">COR</span> Web en <span data-link-type="dfn|abstract-op" class="formerLink">COR</span> API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#cor-web"><bdi class="secno">6.5.1 </bdi><span data-link-type="dfn|abstract-op" class="formerLink">COR</span> WEB</a></li><li class="tocline"><a class="tocxref" href="#cor-api"><bdi class="secno">6.5.2 </bdi><span data-link-type="dfn|abstract-op" class="formerLink">COR</span> API</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#technologie-architectuur"><bdi class="secno">7. </bdi>Technologie-architectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#schets-van-de-cor"><bdi class="secno">7.1 </bdi>Schets van de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#begrippen"><bdi class="secno">A. </bdi>Begrippen</a></li><li class="tocline"><a class="tocxref" href="#nuttige-links"><bdi class="secno">B. </bdi>Nuttige links</a></li><li class="tocline"><a class="tocxref" href="#invulling-oin-en-naam-in-het-pkioverheidcertificaat"><bdi class="secno">C. </bdi>Invulling OIN en Naam in het  PKIoverheidcertificaat</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-1"><bdi class="secno">C.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#voorbeelden-van-invulling"><bdi class="secno">C.1.1 </bdi>Voorbeelden van invulling</a></li><li class="tocline"><a class="tocxref" href="#voorbeelden-uit-de-praktijk"><bdi class="secno">C.1.2 </bdi>voorbeelden uit de praktijk</a></li><li class="tocline"><a class="tocxref" href="#raadplegen-oins-en-suboins-in-de-centrale-oin-raadpleegvoorziening-cor"><bdi class="secno">C.1.3 </bdi>Raadplegen OINs en SubOINS in de Centrale OIN Raadpleegvoorziening (COR)</a></li><li class="tocline"><a class="tocxref" href="#raadplegen-via-de-cor-api"><bdi class="secno">C.1.4 </bdi>Raadplegen via de COR API</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">D. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">E. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">F. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">F.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">F.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">G. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">G.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#het-oin-stelsel"><bdi class="secno">1.1 </bdi>Het OIN stelsel</a></li><li class="tocline"><a class="tocxref" href="#waarom-dit-document"><bdi class="secno">1.2 </bdi>Waarom dit document</a></li><li class="tocline"><a class="tocxref" href="#aanleiding-voor-een-nieuwe-versie-van-dit-document"><bdi class="secno">1.3 </bdi>Aanleiding voor een nieuwe versie van dit document</a></li><li class="tocline"><a class="tocxref" href="#doel-en-scope-van-document"><bdi class="secno">1.4 </bdi>Doel en scope van document</a></li><li class="tocline"><a class="tocxref" href="#historie-van-het-oin-en-vooruitblik"><bdi class="secno">1.5 </bdi>Historie van het OIN (en vooruitblik)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oin-en-pkioverheid"><bdi class="secno">1.5.1 </bdi>OIN en PKIoverheid</a></li><li class="tocline"><a class="tocxref" href="#overheids-identificatienummer"><bdi class="secno">1.5.2 </bdi><em>Overheids</em> Identificatienummer</a></li><li class="tocline"><a class="tocxref" href="#oin-en-hrn"><bdi class="secno">1.5.3 </bdi>OIN en HRN</a></li><li class="tocline"><a class="tocxref" href="#nieuw-handelsregister"><bdi class="secno">1.5.4 </bdi>Nieuw Handelsregister</a></li><li class="tocline"><a class="tocxref" href="#oin-2016-organisatie-identificatienummer"><bdi class="secno">1.5.5 </bdi>OIN 2016: <em>Organisatie</em> Identificatienummer</a></li><li class="tocline"><a class="tocxref" href="#doorontwikkeling-cor"><bdi class="secno">1.5.6 </bdi>Doorontwikkeling <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#leeswijzer"><bdi class="secno">1.6 </bdi>Leeswijzer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#architectuurvisie"><bdi class="secno">2. </bdi>Architectuurvisie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#doel-oin"><bdi class="secno">2.1 </bdi>Doel OIN</a></li><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">2.2 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#gebruik-van-het-oin"><bdi class="secno">2.3 </bdi>Gebruik van het OIN</a></li><li class="tocline"><a class="tocxref" href="#context-centrale-oin-raadpleegvoorziening-cor"><bdi class="secno">2.4 </bdi>Context Centrale OIN Raadpleegvoorziening (<span data-link-type="dfn|abstract-op" class="formerLink">COR</span>)</a></li><li class="tocline"><a class="tocxref" href="#kaders-en-bronnen"><bdi class="secno">2.5 </bdi>Kaders en bronnen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#businessarchitectuur"><bdi class="secno">3. </bdi>Businessarchitectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wat-is-het-oin"><bdi class="secno">3.1 </bdi>Wat is het OIN</a></li><li class="tocline"><a class="tocxref" href="#voor-wie-is-het-oin"><bdi class="secno">3.2 </bdi>Voor wie is het OIN</a></li><li class="tocline"><a class="tocxref" href="#op-welke-manier-kan-een-organisatie-een-oin-verkrijgen"><bdi class="secno">3.3 </bdi>Op welke manier kan een organisatie een OIN verkrijgen</a></li><li class="tocline"><a class="tocxref" href="#wat-is-een-suboin"><bdi class="secno">3.4 </bdi>Wat is een SubOIN</a></li><li class="tocline"><a class="tocxref" href="#voor-wie-is-het-suboin"><bdi class="secno">3.5 </bdi>Voor wie is het SubOIN</a></li><li class="tocline"><a class="tocxref" href="#wijzigingen-in-het-oin-stelsel-sinds-2006"><bdi class="secno">3.6 </bdi>Wijzigingen in het OIN Stelsel sinds 2006</a></li><li class="tocline"><a class="tocxref" href="#rollen-in-het-oin-stelsel"><bdi class="secno">3.7 </bdi>Rollen in het OIN stelsel</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#afnemer"><bdi class="secno">3.7.1 </bdi>Afnemer</a></li><li class="tocline"><a class="tocxref" href="#stakeholders"><bdi class="secno">3.7.2 </bdi>Stakeholders</a></li><li class="tocline"><a class="tocxref" href="#opdrachtgever"><bdi class="secno">3.7.3 </bdi>Opdrachtgever</a></li><li class="tocline"><a class="tocxref" href="#beheerder-oin-stelsel"><bdi class="secno">3.7.4 </bdi>Beheerder OIN-stelsel</a></li><li class="tocline"><a class="tocxref" href="#beheerder-cor"><bdi class="secno">3.7.5 </bdi>Beheerder COR</a></li><li class="tocline"><a class="tocxref" href="#registerhouder-overheidsregister"><bdi class="secno">3.7.6 </bdi>Registerhouder overheidsregister</a></li><li class="tocline"><a class="tocxref" href="#suboin-beheerder"><bdi class="secno">3.7.7 </bdi>SubOIN-beheerder</a></li><li class="tocline"><a class="tocxref" href="#certificatiedienstverlener-tsp"><bdi class="secno">3.7.8 </bdi>Certificatiedienstverlener (TSP)</a></li><li class="tocline"><a class="tocxref" href="#oin-houder"><bdi class="secno">3.7.9 </bdi>OIN-houder</a></li><li class="tocline"><a class="tocxref" href="#beheerder-pve-pkioverheid"><bdi class="secno">3.7.10 </bdi>Beheerder PvE PKIoverheid</a></li></ol></li><li class="tocline"><a class="tocxref" href="#juridische-structuur"><bdi class="secno">3.8 </bdi>Juridische structuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oin-voorwaarden-en-oin-formulieren"><bdi class="secno">3.8.1 </bdi>OIN-voorwaarden en OIN–formulieren</a></li><li class="tocline"><a class="tocxref" href="#identificatie"><bdi class="secno">3.8.2 </bdi>Identificatie</a></li><li class="tocline"><a class="tocxref" href="#handelsregister"><bdi class="secno">3.8.3 </bdi>Handelsregister</a></li><li class="tocline"><a class="tocxref" href="#rechtspersonen-en-samenwerkingsverbanden"><bdi class="secno">3.8.4 </bdi>Rechtspersonen en samenwerkingsverbanden</a></li><li class="tocline"><a class="tocxref" href="#buitenlandse-rechtspersonen-en-organisaties"><bdi class="secno">3.8.5 </bdi>Buitenlandse rechtspersonen en organisaties</a></li><li class="tocline"><a class="tocxref" href="#oin"><bdi class="secno">3.8.6 </bdi>OIN</a></li><li class="tocline"><a class="tocxref" href="#oin-houder-0"><bdi class="secno">3.8.7 </bdi>OIN-houder</a></li><li class="tocline"><a class="tocxref" href="#suboins-op-basis-van-een-aangesloten-register"><bdi class="secno">3.8.8 </bdi>SubOINs op basis van een aangesloten register</a></li><li class="tocline"><a class="tocxref" href="#opnemen-oin-in-pkioverheidscertificaat"><bdi class="secno">3.8.9 </bdi>Opnemen OIN in PKIoverheidscertificaat</a></li></ol></li><li class="tocline"><a class="tocxref" href="#centrale-oin-raadpleegvoorziening-cor"><bdi class="secno">3.9 </bdi>Centrale OIN Raadpleegvoorziening (COR)</a></li><li class="tocline"><a class="tocxref" href="#toezicht-uitoefenen"><bdi class="secno">3.10 </bdi>Toezicht uitoefenen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#naleving-voorwaarden-oin"><bdi class="secno">3.10.1 </bdi>Naleving Voorwaarden OIN</a></li><li class="tocline"><a class="tocxref" href="#naleving-overeenkomsten"><bdi class="secno">3.10.2 </bdi>Naleving overeenkomsten</a></li><li class="tocline"><a class="tocxref" href="#toezicht-bzk"><bdi class="secno">3.10.3 </bdi>Toezicht BZK</a></li></ol></li><li class="tocline"><a class="tocxref" href="#internationale-uitwisselingen"><bdi class="secno">3.11 </bdi>Internationale uitwisselingen</a></li><li class="tocline"><a class="tocxref" href="#oin-icd-code"><bdi class="secno">3.12 </bdi>OIN ICD Code</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#mapping-naar-de-iso-6523-standaard"><bdi class="secno">3.12.1 </bdi>Mapping naar de ISO 6523 standaard</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#applicatie-architectuur"><bdi class="secno">4. </bdi>Applicatie-architectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#gebruik-van-de-centrale-oin-raadpleegvoorziening"><bdi class="secno">4.1 </bdi>Gebruik van de Centrale OIN Raadpleegvoorziening</a></li><li class="tocline"><a class="tocxref" href="#publieke-raadpleegvoorziening"><bdi class="secno">4.2 </bdi>Publieke raadpleegvoorziening</a></li><li class="tocline"><a class="tocxref" href="#beheerfuncties"><bdi class="secno">4.3 </bdi>Beheerfuncties</a></li><li class="tocline"><a class="tocxref" href="#algemene-eisen-aan-de-centrale-oin-raadpleegvoorziening"><bdi class="secno">4.4 </bdi>Algemene eisen aan de Centrale OIN Raadpleegvoorziening</a></li><li class="tocline"><a class="tocxref" href="#centrale-oin-raadpleegvoorziening-cor-0"><bdi class="secno">4.5 </bdi>Centrale OIN Raadpleegvoorziening (<span data-link-type="dfn|abstract-op" class="formerLink">COR</span>)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#onderdelen-van-de-cor"><bdi class="secno">4.5.1 </bdi>Onderdelen van de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li><li class="tocline"><a class="tocxref" href="#toegang-tot-het-besloten-gedeelte-van-de-cor"><bdi class="secno">4.5.2 </bdi>Toegang tot het besloten gedeelte van de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li><li class="tocline"><a class="tocxref" href="#registratie-in-het-besloten-gedeelte-van-de-cor"><bdi class="secno">4.5.3 </bdi>Registratie in het besloten gedeelte van de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li><li class="tocline"><a class="tocxref" href="#publiceren-van-oin-en-suboins"><bdi class="secno">4.5.4 </bdi>Publiceren van OIN en SubOINs</a></li><li class="tocline"><a class="tocxref" href="#aansluiten-cor-op-overheidsregisters"><bdi class="secno">4.5.5 </bdi>Aansluiten <span data-link-type="dfn|abstract-op" class="formerLink">COR</span> op overheidsregisters</a></li><li class="tocline"><a class="tocxref" href="#gebruik-van-de-cor-api"><bdi class="secno">4.5.6 </bdi>Gebruik van de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span> API</a></li><li class="tocline"><a class="tocxref" href="#privacybescherming-en-informatiebeveiliging"><bdi class="secno">4.5.7 </bdi>Privacybescherming en informatiebeveiliging</a></li><li class="tocline"><a class="tocxref" href="#kwaliteitsborging"><bdi class="secno">4.5.8 </bdi>Kwaliteitsborging</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#het-beheer-van-suboins-in-de-cor"><bdi class="secno">5. </bdi>Het beheer van SubOINs in de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#suboins-uitgifte"><bdi class="secno">5.1 </bdi>SubOINs: uitgifte</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#regels-voor-uitgifte-suboins"><bdi class="secno">5.1.1 </bdi>Regels voor uitgifte SubOINs</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#aanmaken-suboins"><bdi class="secno">5.1.1.1 </bdi>Aanmaken SubOINs</a></li><li class="tocline"><a class="tocxref" href="#organisaties-in-andere-registers-dan-het-handelsregister"><bdi class="secno">5.1.1.2 </bdi>Organisaties in andere registers dan het Handelsregister</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanvragen-pkioverheidscertificaat"><bdi class="secno">5.1.2 </bdi>Aanvragen PKIoverheidscertificaat</a></li><li class="tocline"><a class="tocxref" href="#samenwerkingsverbanden"><bdi class="secno">5.1.3 </bdi>Samenwerkingsverbanden</a></li></ol></li><li class="tocline"><a class="tocxref" href="#suboins-beheer"><bdi class="secno">5.2 </bdi>SubOINs: beheer</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#mutaties-doorgeven-aan-de-cor"><bdi class="secno">5.2.1 </bdi>Mutaties doorgeven aan de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li><li class="tocline"><a class="tocxref" href="#intrekkingsplicht"><bdi class="secno">5.2.2 </bdi>Intrekkingsplicht</a></li><li class="tocline"><a class="tocxref" href="#beheerder-van-een-overheidsregister"><bdi class="secno">5.2.3 </bdi>Beheerder van een overheidsregister</a></li></ol></li><li class="tocline"><a class="tocxref" href="#suboins-geldigheidsduur-en-bewaartermijnen"><bdi class="secno">5.3 </bdi>SubOINs: geldigheidsduur en bewaartermijnen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#geldigheidsduur"><bdi class="secno">5.3.1 </bdi>Geldigheidsduur</a></li><li class="tocline"><a class="tocxref" href="#beeindigen"><bdi class="secno">5.3.2 </bdi>Beëindigen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#suboins-aanvraagformulieren"><bdi class="secno">5.4 </bdi>SubOINs: Aanvraagformulieren</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#registerhouders-van-overheidsregisters"><bdi class="secno">5.4.1 </bdi>Registerhouders van overheidsregisters</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#data-architectuur"><bdi class="secno">6. </bdi>Data Architectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#samenstelling-oin"><bdi class="secno">6.1 </bdi>Samenstelling OIN</a></li><li class="tocline"><a class="tocxref" href="#prefix-tabel"><bdi class="secno">6.2 </bdi>Prefix tabel</a></li><li class="tocline"><a class="tocxref" href="#voorbeeld-oin-structuur"><bdi class="secno">6.3 </bdi>Voorbeeld OIN structuur</a></li><li class="tocline"><a class="tocxref" href="#suboin-een-betekenisloos-nummer"><bdi class="secno">6.4 </bdi>SubOIN: een betekenisloos nummer</a></li><li class="tocline"><a class="tocxref" href="#voorbeelden-van-oin-weergave-in-cor-web-en-cor-api"><bdi class="secno">6.5 </bdi>Voorbeelden van OIN weergave in <span data-link-type="dfn|abstract-op" class="formerLink">COR</span> Web en <span data-link-type="dfn|abstract-op" class="formerLink">COR</span> API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#cor-web"><bdi class="secno">6.5.1 </bdi><span data-link-type="dfn|abstract-op" class="formerLink">COR</span> WEB</a></li><li class="tocline"><a class="tocxref" href="#cor-api"><bdi class="secno">6.5.2 </bdi><span data-link-type="dfn|abstract-op" class="formerLink">COR</span> API</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#technologie-architectuur"><bdi class="secno">7. </bdi>Technologie-architectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#schets-van-de-cor"><bdi class="secno">7.1 </bdi>Schets van de <span data-link-type="dfn|abstract-op" class="formerLink">COR</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#begrippen"><bdi class="secno">A. </bdi>Begrippen</a></li><li class="tocline"><a class="tocxref" href="#nuttige-links"><bdi class="secno">B. </bdi>Nuttige links</a></li><li class="tocline"><a class="tocxref" href="#invulling-oin-en-naam-in-het-pkioverheidcertificaat"><bdi class="secno">C. </bdi>Invulling OIN en Naam in het  PKIoverheidcertificaat</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-1"><bdi class="secno">C.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#voorbeelden-van-invulling"><bdi class="secno">C.1.1 </bdi>Voorbeelden van invulling</a></li><li class="tocline"><a class="tocxref" href="#voorbeelden-uit-de-praktijk"><bdi class="secno">C.1.2 </bdi>voorbeelden uit de praktijk</a></li><li class="tocline"><a class="tocxref" href="#raadplegen-oins-en-suboins-in-de-centrale-oin-raadpleegvoorziening-cor"><bdi class="secno">C.1.3 </bdi>Raadplegen OINs en SubOINS in de Centrale OIN Raadpleegvoorziening (COR)</a></li><li class="tocline"><a class="tocxref" href="#raadplegen-via-de-cor-api"><bdi class="secno">C.1.4 </bdi>Raadplegen via de COR API</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">D. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">E. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">F. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">F.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">F.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">G. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">G.1 </bdi>Normatieve referenties</a></li><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">G.2 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
   <section id="inleiding"><div class="header-wrapper"><h2 id="x1-inleiding"><bdi class="secno">1. </bdi>Inleiding</h2><a class="self-link" href="#inleiding" aria-label="Permalink for Section 1."></a></div>
 <section id="het-oin-stelsel"><div class="header-wrapper"><h3 id="x1-1-het-oin-stelsel"><bdi class="secno">1.1 </bdi>Het OIN stelsel</h3><a class="self-link" href="#het-oin-stelsel" aria-label="Permalink for Section 1.1"></a></div>
 <p>In dit document beschrijven we het doel en de werking van het OIN Stelsel. Het OIN is gestart als een noodzakelijk onderdeel van de Digikoppeling Standaard en is inmiddels een veel gebruikt identificatienummer binnen en maar ook buíten Digikoppeling. De regels van uitgifte en gebruik van het OIN staan beschreven in de <em>Voorwaarden Digikoppeling</em> en de <em>Gebruiksvoorwaarden Digikoppeling</em>. Daarnaast geeft Logius OINs en SubOINs uit en slaat de informatie hiervan op in het OIN register en ontsluit die met de <em><a data-link-type="dfn|abstract-op" href="#dfn-cor" class="internalDFN" id="ref-for-dfn-cor-1">COR</a></em>, de Centrale OIN Raadpleegvoorziening. Dit geheel van regels en uitvoering noemen we het <em>OIN stelsel</em>.</p>
@@ -924,7 +987,7 @@ Sinds de wijziging van 2016 staat de afkorting voor OIN voor <strong>Organisatie
 </ul>
 </section></section><section id="leeswijzer"><div class="header-wrapper"><h3 id="x1-6-leeswijzer"><bdi class="secno">1.6 </bdi>Leeswijzer</h3><a class="self-link" href="#leeswijzer" aria-label="Permalink for Section 1.6"></a></div>
 <p>De structuur van dit document is gebaseerd op de TOGAF standaard - TOGAF staat voor The Open Group Architecture Framework- .</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Hoofdstuk</th>
@@ -983,7 +1046,7 @@ Sinds de wijziging van 2016 staat de afkorting voor OIN voor <strong>Organisatie
 <li><p>Routering</p>
 </li>
 </ul>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th><strong>Functie</strong></th>
@@ -1045,9 +1108,9 @@ Sinds de wijziging van 2016 staat de afkorting voor OIN voor <strong>Organisatie
 <p>Het <a data-link-type="dfn|abstract-op" href="#dfn-oin" class="internalDFN" id="ref-for-dfn-oin-22">OIN</a> is voor organisaties die berichten uitwisselen met de overheid. Dit kunnen publieke en private organisaties zijn. Voorwaarde is dat zij staan ingeschreven in het handelsregister. Daarnaast kunnen ook een aantal organisaties die niet in het handelsregister zijn opgenomen een <a data-link-type="dfn|abstract-op" href="#dfn-oin" class="internalDFN" id="ref-for-dfn-oin-23">OIN</a> aanvragen. Dit zijn bijzondere organisaties met een publieke taak, colleges van advies en internationale organisaties met een rechtspersoonlijkheid.</p>
 <p>Het <a data-link-type="dfn|abstract-op" href="#dfn-oin" class="internalDFN" id="ref-for-dfn-oin-24">OIN</a> maakt een onderscheid in <a data-link-type="dfn|abstract-op" href="#dfn-gebruikers" class="internalDFN" id="ref-for-dfn-gebruikers-2">gebruikers</a> en <a data-link-type="dfn|abstract-op" href="#dfn-afnemers" class="internalDFN" id="ref-for-dfn-afnemers-2">afnemers</a>. Beiden kunnen het <a data-link-type="dfn|abstract-op" href="#dfn-oin" class="internalDFN" id="ref-for-dfn-oin-25">OIN</a> aanvragen. Deze begrippen komen uit de [<cite><a class="bibref" data-link-type="biblio" href="#bib-algemene voorwaarden logius" title="Algemene voorwaarden Logius">Algemene Voorwaarden Logius</a></cite>] voor <a data-link-type="dfn|abstract-op" href="#dfn-afnemers" class="internalDFN" id="ref-for-dfn-afnemers-3">afnemers</a> en zijn als volgt gedefinieerd:</p>
 <ul>
-<li><p><dfn data-lt="Afnemers|Afnemer" id="dfn-afnemers" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Afnemer</dfn>: een publiekrechtelijke of privaatrechtelijke organisatie, of college of een persoon met een publieke taak of bevoegdheid, die voor de uitoefening van die publieke taak elektronisch verkeer met andere overheden en burgers en/of bedrijven wenselijk acht en daarbij gebruik kan en mag maken van één of meer Diensten van Logius.</p>
+<li><p><dfn data-lt="Afnemers|Afnemer" id="dfn-afnemers" tabindex="0" aria-haspopup="dialog">Afnemer</dfn>: een publiekrechtelijke of privaatrechtelijke organisatie, of college of een persoon met een publieke taak of bevoegdheid, die voor de uitoefening van die publieke taak elektronisch verkeer met andere overheden en burgers en/of bedrijven wenselijk acht en daarbij gebruik kan en mag maken van één of meer Diensten van Logius.</p>
 </li>
-<li><p><dfn data-lt="Gebruikers|Gebruiker" id="dfn-gebruikers" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Gebruiker</dfn>: een overheidsorganisatie of onderneming of een rechtspersoon, die is ingeschreven in het Handelsregister of een natuurlijk persoon die is ingeschreven in de Gemeentelijke Basisadministratie persoonsgegevens (GBA), en in deze hoedanigheid gebruik maakt van de Diensten van Logius ten behoeve van het elektronisch verkeer met één of meerdere <a data-link-type="dfn|abstract-op" href="#dfn-afnemers" class="internalDFN" id="ref-for-dfn-afnemers-4">Afnemers</a>.</p>
+<li><p><dfn data-lt="Gebruikers|Gebruiker" id="dfn-gebruikers" tabindex="0" aria-haspopup="dialog">Gebruiker</dfn>: een overheidsorganisatie of onderneming of een rechtspersoon, die is ingeschreven in het Handelsregister of een natuurlijk persoon die is ingeschreven in de Gemeentelijke Basisadministratie persoonsgegevens (GBA), en in deze hoedanigheid gebruik maakt van de Diensten van Logius ten behoeve van het elektronisch verkeer met één of meerdere <a data-link-type="dfn|abstract-op" href="#dfn-afnemers" class="internalDFN" id="ref-for-dfn-afnemers-4">Afnemers</a>.</p>
 </li>
 </ul>
 </section><section id="op-welke-manier-kan-een-organisatie-een-oin-verkrijgen"><div class="header-wrapper"><h3 id="x3-3-op-welke-manier-kan-een-organisatie-een-oin-verkrijgen"><bdi class="secno">3.3 </bdi>Op welke manier kan een organisatie een OIN verkrijgen</h3><a class="self-link" href="#op-welke-manier-kan-een-organisatie-een-oin-verkrijgen" aria-label="Permalink for Section 3.3"></a></div>
@@ -1336,7 +1399,7 @@ Sinds de wijziging van 2016 staat de afkorting voor OIN voor <strong>Organisatie
   <section id="data-architectuur"><div class="header-wrapper"><h2 id="x6-data-architectuur"><bdi class="secno">6. </bdi>Data Architectuur</h2><a class="self-link" href="#data-architectuur" aria-label="Permalink for Section 6."></a></div>
 <section id="samenstelling-oin"><div class="header-wrapper"><h3 id="x6-1-samenstelling-oin"><bdi class="secno">6.1 </bdi>Samenstelling OIN</h3><a class="self-link" href="#samenstelling-oin" aria-label="Permalink for Section 6.1"></a></div>
 <p>De lengte van het <a data-link-type="dfn|abstract-op" href="#dfn-oin" class="internalDFN" id="ref-for-dfn-oin-62">OIN</a> is 20 posities, omdat dit wordt opgenomen in het <em>subject serial number</em> veld van het PKIoverheid certificaat. Het <a data-link-type="dfn|abstract-op" href="#dfn-oin" class="internalDFN" id="ref-for-dfn-oin-63">OIN</a> is opgebouwd uit de volgende elementen:</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th><strong>Element</strong></th>
@@ -1362,7 +1425,7 @@ Sinds de wijziging van 2016 staat de afkorting voor OIN voor <strong>Organisatie
 </tbody></table>
 </section><section id="prefix-tabel"><div class="header-wrapper"><h3 id="x6-2-prefix-tabel"><bdi class="secno">6.2 </bdi>Prefix tabel</h3><a class="self-link" href="#prefix-tabel" aria-label="Permalink for Section 6.2"></a></div>
 <p>Een aangesloten overheidsregister krijgt een prefix (per uniek nummer) als het register wordt toegevoegd aan het OIN-stelsel. Dit wordt ook een OIN register genoemd. De prefix tabel wordt als aparte lijst beheerd door de beheerder van het OIN-stelsel en wordt gepubliceerd op de website.</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th><strong>Prefix</strong></th>
@@ -1433,7 +1496,7 @@ Sinds de wijziging van 2016 staat de afkorting voor OIN voor <strong>Organisatie
 </section><section id="suboin-een-betekenisloos-nummer"><div class="header-wrapper"><h3 id="x6-4-suboin-een-betekenisloos-nummer"><bdi class="secno">6.4 </bdi>SubOIN: een betekenisloos nummer</h3><a class="self-link" href="#suboin-een-betekenisloos-nummer" aria-label="Permalink for Section 6.4"></a></div>
 <p>Een <a data-link-type="dfn|abstract-op" href="#dfn-suboins" class="internalDFN" id="ref-for-dfn-suboins-39">SubOIN</a> is een <em>betekenisloos</em> nummer dat wordt gegeneerd tijdens de registratie. Betekenisloos houdt in dat het nummer zelf geen aanwijsbare relatie heeft met het OIN van de <a data-link-type="dfn|abstract-op" href="#dfn-suboin-beheerders" class="internalDFN" id="ref-for-dfn-suboin-beheerders-13">SubOIN-beheerder</a>. De relatie is alleen te raadplegen via de <a data-link-type="dfn|abstract-op" href="#dfn-cor" class="internalDFN" id="ref-for-dfn-cor-80">COR</a> API. Een <a data-link-type="dfn|abstract-op" href="#dfn-suboins" class="internalDFN" id="ref-for-dfn-suboins-40">SubOIN</a> is een <a data-link-type="dfn|abstract-op" href="#dfn-oin" class="internalDFN" id="ref-for-dfn-oin-68">OIN</a> voor entiteiten zonder rechtspersoonlijkheid, zoals een organisatie die niet is ingeschreven in het Handelsregister, een organisatie-onderdeel of een voorziening. Het nummer van een organisatie dat voorkomt in een aangesloten register wordt ook beschouwd als een <a data-link-type="dfn|abstract-op" href="#dfn-oin" class="internalDFN" id="ref-for-dfn-oin-69">OIN</a>.</p>
 <p>Het prefix verwijst naar het OIN-register.</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th><strong>Element</strong></th>
@@ -1492,7 +1555,7 @@ Sinds de wijziging van 2016 staat de afkorting voor OIN voor <strong>Organisatie
   </div>
 Voorbeeldaanroep van de COR API:
 
-<pre><code aria-busy="false" class="hljs javascript">https:<span class="hljs-comment">//portaal.digikoppeling.nl/registers/api/v1/organisaties?naam=Digilevering Integrator</span>
+<pre><code aria-busy="false" class="hljs javascript"><span class="hljs-attr">https</span>:<span class="hljs-comment">//portaal.digikoppeling.nl/registers/api/v1/organisaties?naam=Digilevering Integrator</span>
 </code></pre>
 </aside>
  
@@ -1501,40 +1564,40 @@ Voorbeeldaanroep van de COR API:
   </div>
 Voorbeeldresultaat van de COR API:
 
-<pre><code class="JSON hljs json" aria-busy="false">{
-    <span class="hljs-attr">"_links"</span>: {
-        <span class="hljs-attr">"self"</span>: {
-            <span class="hljs-attr">"href"</span>: <span class="hljs-string">"https://portaal.digikoppeling.nl/registers/api/v1/organisaties?naam=Digilevering Integrator"</span>,
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"application/hal+json"</span>
-        }
-    },
-    <span class="hljs-attr">"organisaties"</span>: [{
-        <span class="hljs-attr">"_links"</span>: {
-            <span class="hljs-attr">"self"</span>: {
-                <span class="hljs-attr">"href"</span>: <span class="hljs-string">"https://portaal.digikoppeling.nl/registers/api/v1/organisaties/00000004194049711000"</span>,
-                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"application/hal+json"</span>
-            }
-        },
-        <span class="hljs-attr">"oin"</span>: <span class="hljs-string">"00000004194049711000"</span>,
-        <span class="hljs-attr">"naam"</span>: <span class="hljs-string">"Logius (Digilevering Integrator)"</span>,
-        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"Actief"</span>,
-        <span class="hljs-attr">"KVKNummer"</span>: <span class="hljs-literal">null</span>,
-        <span class="hljs-attr">"organisatieCode"</span>: <span class="hljs-literal">null</span>,
-        <span class="hljs-attr">"organisatieType"</span>: <span class="hljs-literal">null</span>,
-        <span class="hljs-attr">"afgifteDatum"</span>: <span class="hljs-string">"2017-08-23T22:00:00Z"</span>,
-        <span class="hljs-attr">"laatstAangepastDatum"</span>: <span class="hljs-string">"2017-08-24T09:57:11Z"</span>,
-        <span class="hljs-attr">"intrekDatum"</span>: <span class="hljs-literal">null</span>,
-        <span class="hljs-attr">"hoofdOIN"</span>: {
-            <span class="hljs-attr">"_links"</span>: {
-                <span class="hljs-attr">"self"</span>: {
-                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"https://portaal.digikoppeling.nl/registers/api/v1/organisaties/00000001822477348000"</span>,
-                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"application/hal+json"</span>
-                }
-            }
-        },
-        <span class="hljs-attr">"subOINs"</span>: <span class="hljs-literal">null</span>
-    }]
-}
+<pre><code class="JSON hljs json" aria-busy="false"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"_links"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"self"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"href"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://portaal.digikoppeling.nl/registers/api/v1/organisaties?naam=Digilevering Integrator"</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"application/hal+json"</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"organisaties"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"_links"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"self"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-attr">"href"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://portaal.digikoppeling.nl/registers/api/v1/organisaties/00000004194049711000"</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"application/hal+json"</span>
+            <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"oin"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"00000004194049711000"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"naam"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Logius (Digilevering Integrator)"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"status"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Actief"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"KVKNummer"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"organisatieCode"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"organisatieType"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"afgifteDatum"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"2017-08-23T22:00:00Z"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"laatstAangepastDatum"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"2017-08-24T09:57:11Z"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"intrekDatum"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"hoofdOIN"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"_links"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-attr">"self"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                    <span class="hljs-attr">"href"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://portaal.digikoppeling.nl/registers/api/v1/organisaties/00000001822477348000"</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"application/hal+json"</span>
+                <span class="hljs-punctuation">}</span>
+            <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"subOINs"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
 </code></pre>
 </aside></section></section></section>
   <section id="technologie-architectuur"><div class="header-wrapper"><h2 id="x7-technologie-architectuur"><bdi class="secno">7. </bdi>Technologie-architectuur</h2><a class="self-link" href="#technologie-architectuur" aria-label="Permalink for Section 7."></a></div>
@@ -1546,7 +1609,7 @@ Voorbeeldresultaat van de COR API:
         <figcaption><a class="self-link" href="#fig-architectuurschets-van-de-cor-en-de-door-haar-gebruikte-bronnen">Figuur <bdi class="figno">6</bdi></a> <span class="fig-title">Architectuurschets van de <a data-link-type="dfn|abstract-op" href="#dfn-cor" class="internalDFN" id="ref-for-dfn-cor-91">COR</a> en de door haar gebruikte bronnen</span></figcaption>
       </figure>
     <p></p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th><strong>#</strong></th>
@@ -1628,7 +1691,7 @@ Voorbeeldresultaat van de COR API:
 </tbody></table>
 </section></section>
   <section class="appendix" id="begrippen"><div class="header-wrapper"><h2 id="a-begrippen"><bdi class="secno">A. </bdi>Begrippen</h2><a class="self-link" href="#begrippen" aria-label="Permalink for Appendix A."></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>begrip</th>
@@ -1636,23 +1699,23 @@ Voorbeeldresultaat van de COR API:
 </tr>
 </thead>
 <tbody><tr>
-<td><strong><dfn id="dfn-oin" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">OIN</dfn></strong></td>
+<td><strong><dfn id="dfn-oin" tabindex="0" aria-haspopup="dialog">OIN</dfn></strong></td>
 <td>Het organisatie-identificatienummer (OIN) is het identificatienummer voor niet-natuurlijke personen ten behoeve van het digitale berichtenverkeer met de overheid. Het OIN fungeert als numeriek alternatief voor de organisatienaam van afnemer of gebruiker,</td>
 </tr>
 <tr>
-<td><strong><dfn data-lt="SubOINs|SubOIN" id="dfn-suboins" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">SubOIN</dfn></strong></td>
+<td><strong><dfn data-lt="SubOINs|SubOIN" id="dfn-suboins" tabindex="0" aria-haspopup="dialog">SubOIN</dfn></strong></td>
 <td>Sub-Organisatie-identificatienummer. Organisaties en organisatieonderdelen die niet in een aangesloten overheidsregister voorkomen, komen mogelijk in aanmerking voor een SubOIN. Het SubOIN is een afgeleide van het OIN en is opgesteld volgens de OIN nummersystematiek. Het SubOIN wordt gebruikt voor een organisatieonderdeel, samenwerkingsverband of voorziening dat niet zélf in het Handelsregister voorkomt. Een SubOIN valt altijd onder een <a data-link-type="dfn|abstract-op" href="#dfn-oin-houder" class="internalDFN" id="ref-for-dfn-oin-houder-17">OIN-houder</a>. Ook kan Logius op verzoek van een verantwoordelijke <a data-link-type="dfn|abstract-op" href="#dfn-suboin-beheerders" class="internalDFN" id="ref-for-dfn-suboin-beheerders-15">SubOIN-beheerder</a> een SubOIN toekennen aan een organisatie, instelling of buitenlandse rechtspersoon in zijn sectorregistratie.<br>Het SubOIN fungeert, net als een OIN, als numeriek alternatief voor de naam daarvan, ten behoeve van de identificatie, authenticatie, autorisatie, adressering en routering van digitaal berichtenverkeer met en binnen de overheid.<br> SubOINs worden geregistreerd in het SubOIN-register, onderdeel van het OIN-Register.<br> In eerdere publicaties over het OIN-beleid werd ook de term <em>OIN subnummer</em> gebruikt.</td>
 </tr>
 <tr>
-<td><strong><dfn id="dfn-hrn" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">HRN</dfn></strong></td>
+<td><strong><dfn id="dfn-hrn" tabindex="0" aria-haspopup="dialog">HRN</dfn></strong></td>
 <td>Het Handelsregisternummer. Het <a data-link-type="dfn|abstract-op" href="#dfn-hrn" class="internalDFN" id="ref-for-dfn-hrn-4">HRN</a> is een virtueel nummer. Bij de aanvraag van een PKIoverheid-certificaat zal de Trust Service Provider (<a data-link-type="dfn|abstract-op" href="#dfn-tsp" class="internalDFN" id="ref-for-dfn-tsp-11">TSP</a>), bij ontbreken van een OIN, het identificerend nummer bij de creatie van het certificaat zelf afleiden op basis van het KVK-nummer uit het Handelsregister op gelijke wijze als bij de afleiding van het OIN. Het <a data-link-type="dfn|abstract-op" href="#dfn-hrn" class="internalDFN" id="ref-for-dfn-hrn-5">HRN</a>  wordt echter niet vastgelegd in een publiek raadpleegbare registratie.</td>
 </tr>
 <tr>
-<td><strong><dfn data-lt="COR|Centrale OIN Raadpleegvoorziening" id="dfn-cor" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Centrale OIN Raadpleegvoorziening</dfn> (COR)</strong></td>
+<td><strong><dfn data-lt="COR|Centrale OIN Raadpleegvoorziening" id="dfn-cor" tabindex="0" aria-haspopup="dialog">Centrale OIN Raadpleegvoorziening</dfn> (COR)</strong></td>
 <td>De COR biedt een publiek deel voor online inzage in de identificerende nummers van organisaties en organisatieonderdelen en biedt een besloten omgeving met een beheermodule voor het registreren van OINs en SubOINs. Het OIN-register is onderdeel van de COR.</td>
 </tr>
 <tr>
-<td><strong><dfn id="dfn-tsp" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">TSP</dfn></strong></td>
+<td><strong><dfn id="dfn-tsp" tabindex="0" aria-haspopup="dialog">TSP</dfn></strong></td>
 <td>Certificatiedienstverlener (<em>Trust Service Provider</em>), marktpartijen die PKIoverheid certificaten verstrekken conform het Programma van Eisen van PKIoverheid. Voorheen CSP - Certificate Service provider-&nbsp; genoemd.</td>
 </tr>
 <tr>
@@ -1664,11 +1727,11 @@ Voorbeeldresultaat van de COR API:
 <td>Een authenticatiestelsel voor organisaties waarbij natuurlijke personen namens de organisatie worden gemachtigd om specifieke activiteiten te verrichten. Bijvoorbeeld eHerkenning, Idensys.</td>
 </tr>
 <tr>
-<td><strong><dfn data-lt="HR|Handelsregister" id="dfn-hr" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Handelsregister</dfn>(HR)</strong></td>
+<td><strong><dfn data-lt="HR|Handelsregister" id="dfn-hr" tabindex="0" aria-haspopup="dialog">Handelsregister</dfn>(HR)</strong></td>
 <td>Het Handelsregister is een bij wet ingestelde basisregistratie voor rechtspersonen en ondernemingen in Nederland. Het maakt deel uit van het stelsel van basisregistraties. Daarmee draagt het Handelsregister bij aan een efficiëntere overheid en aan een betere dienstverlening voor ondernemers. Zie <a href="http://www.digitaleoverheid.nl">http://www.digitaleoverheid.nl</a></td>
 </tr>
 <tr>
-<td><strong><dfn id="dfn-kvk-nummer" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KVK-nummer</dfn></strong></td>
+<td><strong><dfn id="dfn-kvk-nummer" tabindex="0" aria-haspopup="dialog">KVK-nummer</dfn></strong></td>
 <td>Het KVK-nummer is het inschrijvingsnummer van de onderneming in het Handelsregister. Elke onderneming of maatschappelijke activiteit krijgt in het handelsregister één KVK-nummer, dit KVK-nummer bestaat altijd uit 8 cijfers. Bij bedrijfsoverdracht houden ondernemingen wijzigt hun KVK-nummer.</td>
 </tr>
 <tr>
@@ -1676,11 +1739,11 @@ Voorbeeldresultaat van de COR API:
 <td>Een niet-natuurlijk persoon is een organisatie of samenwerkingsverband dat rechten en plichten heeft en wordt gedefinieerd aan de hand van het <a data-link-type="dfn|abstract-op" href="#dfn-rsin" class="internalDFN" id="ref-for-dfn-rsin-9">RSIN</a> (bron KVK).</td>
 </tr>
 <tr>
-<td><strong><dfn data-lt="SubOIN-beheerders|SubOIN-beheerder" id="dfn-suboin-beheerders" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">SubOIN-beheerder</dfn></strong></td>
+<td><strong><dfn data-lt="SubOIN-beheerders|SubOIN-beheerder" id="dfn-suboin-beheerders" tabindex="0" aria-haspopup="dialog">SubOIN-beheerder</dfn></strong></td>
 <td>Een overheidsorganisatie die door Logius de status is verleend om unieke identificerende nummers aan organisaties toe te kennen. Op basis van dat identificerende nummer wordt een SubOIN aangemaakt, vaak met een hiervoor specifiek gecreëerde prefix. SubOINs worden onder het Hoofd OIN van de SubOIN-Beheerder aangemaakt. De SubOIN-beheerder draagt zorg voor de registratie van SubOINs voor organisaties die niet in een aangesloten register voorkomen maar die wel bij een broninstantie of op basis van brondocumenten kunnen worden geïdentificeerd en geverifieerd. De SubOIN-beheerder stelt de identificatie van een partij vast aan de hand van bewijsstukken of zelfstandig onderzoek.</td>
 </tr>
 <tr>
-<td><strong><dfn id="dfn-oin-houder" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">OIN-houder</dfn></strong></td>
+<td><strong><dfn id="dfn-oin-houder" tabindex="0" aria-haspopup="dialog">OIN-houder</dfn></strong></td>
 <td>De OIN-houder is een rechtspersoon met een publieke taak, die gebruik maakt van het OIN. Alleen OIN-houders met rechtspersoonlijkheid kunnen een OIN aanvragen voor een organisatie of organisatieonderdeel die onder zijn juridische verantwoordelijkheid valt. Zij zijn verantwoordelijk voor de door hun aangevraagde SubOINs(s). De Voorwaarden Digikoppeling en Digikoppeling Gebruiksvoorwaarden heeft het niet over OIN-houders maar gebruiken de begrippen <em><a data-link-type="dfn|abstract-op" href="#dfn-afnemers" class="internalDFN" id="ref-for-dfn-afnemers-9">Afnemer</a></em> en <em>Gebruiker</em></td>
 </tr>
 <tr>
@@ -1712,7 +1775,7 @@ Voorbeeldresultaat van de COR API:
 <td>mapping tussen een unieke code en het identificerende nummer uit een bronregister (b.v. het <a data-link-type="dfn|abstract-op" href="#dfn-rsin" class="internalDFN" id="ref-for-dfn-rsin-10">RSIN</a> nummer).</td>
 </tr>
 <tr>
-<td><strong><dfn id="dfn-rsin" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">RSIN</dfn></strong></td>
+<td><strong><dfn id="dfn-rsin" tabindex="0" aria-haspopup="dialog">RSIN</dfn></strong></td>
 <td>Alle rechtspersonen en samenwerkingsverbanden, zoals bv's, verenigingen, stichtingen, vof's en maatschappen (eenmanszaken niet) krijgen bij inschrijving bij de KVK naast een KVK-nummer ook een Rechtspersonen en Samenwerkingsverbanden Informatienummer (RSIN). Dit nummer wordt gebruikt om gegevens uit te wisselen met andere (overheids)organisaties, zoals de Belastingdienst (bron KVK). Het <a data-link-type="dfn|abstract-op" href="#dfn-rsin" class="internalDFN" id="ref-for-dfn-rsin-11">RSIN</a> is identiek aan het fiscale nummer.</td>
 </tr>
 <tr>
@@ -1722,7 +1785,7 @@ Voorbeeldresultaat van de COR API:
 </tbody></table>
 </section>
   <section class="appendix" id="nuttige-links"><div class="header-wrapper"><h2 id="b-nuttige-links"><bdi class="secno">B. </bdi>Nuttige links</h2><a class="self-link" href="#nuttige-links" aria-label="Permalink for Appendix B."></a></div>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Documentatie</th>
@@ -1744,7 +1807,7 @@ Voorbeeldresultaat van de COR API:
 </tbody></table>
 <br>
 
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Voorziening</th>
@@ -1765,7 +1828,7 @@ Voorbeeldresultaat van de COR API:
 </tr>
 </tbody></table>
 </section>
-  <section class="appendix" id="invulling-oin-en-naam-in-het-pkioverheidcertificaat"><div class="header-wrapper"><h2 id="c-invulling-oin-en-naam-in-het-pkioverheidcertificaat"><bdi class="secno">C. </bdi>Invulling OIN en Naam in het  PKIoverheidcertificaat</h2><a class="self-link" href="#invulling-oin-en-naam-in-het-pkioverheidcertificaat" aria-label="Permalink for Appendix C."></a></div>
+  <section class="appendix informative" id="invulling-oin-en-naam-in-het-pkioverheidcertificaat"><div class="header-wrapper"><h2 id="c-invulling-oin-en-naam-in-het-pkioverheidcertificaat"><bdi class="secno">C. </bdi>Invulling OIN en Naam in het  PKIoverheidcertificaat</h2><a class="self-link" href="#invulling-oin-en-naam-in-het-pkioverheidcertificaat" aria-label="Permalink for Appendix C."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
 <div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-2" aria-level="3"><span>Noot</span></div><aside class="">
 
 <p>Onderstaande beschrijving is voorgelegd aan de TSP's voor verificatie.</p>
@@ -1773,7 +1836,7 @@ Voorbeeldresultaat van de COR API:
 
 <section id="inleiding-1"><div class="header-wrapper"><h3 id="c-1-inleiding"><bdi class="secno">C.1 </bdi>Inleiding</h3><a class="self-link" href="#inleiding-1" aria-label="Permalink for Appendix C.1"></a></div>
 <p>Dit hoofdstuk beschrijft Invulling (Sub)OIN en Organisatienaam, en –onderdeel/voorziening/samenwerking in velden van het PKIO certificaat, zie <cite><a data-matched-text="[[[PKIO-PvE]]]" href="https://por.pkioverheid.nl/">Certificate Policy/Programme of Requirements PKIoverheid</a></cite>.</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Field/Attribute</th>
@@ -1804,7 +1867,7 @@ Voorbeeldresultaat van de COR API:
 <p>*<span style="font-size:smaller">C=Criteria: V=Compulsory, O=Optional</span></p>
 <section id="voorbeelden-van-invulling"><div class="header-wrapper"><h4 id="c-1-1-voorbeelden-van-invulling"><bdi class="secno">C.1.1 </bdi>Voorbeelden van invulling</h4><a class="self-link" href="#voorbeelden-van-invulling" aria-label="Permalink for Appendix C.1.1"></a></div>
 <p>In onderstaande voorbeelden wordt uitgegaan van de volgende (werkelijke) combinaties OIN + Organisatienaam</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Organisatie</th>
@@ -1839,7 +1902,7 @@ Voorbeeldresultaat van de COR API:
   </div>
 
 <p><strong>HoofdOIN</strong></p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Subject.OrganizationName</th>
@@ -1854,7 +1917,7 @@ Voorbeeldresultaat van de COR API:
 </tr>
 </tbody></table>
 <p><strong>SubOIN (organisatieonderdeel)</strong></p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Subject.OrganizationName</th>
@@ -1869,7 +1932,7 @@ Voorbeeldresultaat van de COR API:
 </tr>
 </tbody></table>
 <p><strong>SubOIN (voorziening van een organisatie)</strong></p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Subject.OrganizationName</th>
@@ -1884,7 +1947,7 @@ Voorbeeldresultaat van de COR API:
 </tr>
 </tbody></table>
 <p><strong>SubOIN (samenwerking(niet in <a data-link-type="dfn|abstract-op" href="#dfn-hr" class="internalDFN" id="ref-for-dfn-hr-1">HR</a>) van meerdere organisaties,  met één verantwoordelijke partij)</strong></p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Subject.OrganizationName</th>
@@ -1899,7 +1962,7 @@ Voorbeeldresultaat van de COR API:
 </tr>
 </tbody></table>
 <p><strong>SubOIN (Buitenlandse bank, geen <a data-link-type="dfn|abstract-op" href="#dfn-hr" class="internalDFN" id="ref-for-dfn-hr-2">HR</a> registratie)</strong></p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Subject.OrganizationName</th>
@@ -1991,7 +2054,10 @@ Voorbeeldresultaat van de COR API:
       <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling"><cite>Gebruiksvoorwaarden Digikoppeling</cite></a>.  Logius. 1 januari 2021. URL: <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling">https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling</a>
     </dd><dt id="bib-dk-voorwaarden">[DK-Voorwaarden]</dt><dd>
       <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling"><cite>Voorwaarden Digikoppeling</cite></a>.  Logius. 1 januari 2021. URL: <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling">https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling</a>
-    </dd><dt id="bib-pkio-pve">[PKIO-PvE]</dt><dd>
+    </dd></dl>
+  </section><section id="informatieve-referenties">
+    <div class="header-wrapper"><h3 id="g-2-informatieve-referenties"><bdi class="secno">G.2 </bdi>Informatieve referenties</h3><a class="self-link" href="#informatieve-referenties" aria-label="Permalink for Appendix G.2"></a></div>
+    <dl class="bibliography"><dt id="bib-pkio-pve">[PKIO-PvE]</dt><dd>
       <a href="https://por.pkioverheid.nl/"><cite>Certificate Policy/Programme of Requirements PKIoverheid</cite></a>.  Logius. URL: <a href="https://por.pkioverheid.nl/">https://por.pkioverheid.nl/</a>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
@@ -2005,18 +2071,18 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-afnemers-1" title="§ 2.5 Kaders en bronnen">§ 2.5 Kaders en bronnen</a> 
-  </li><li>
-    <a href="#ref-for-dfn-afnemers-2" title="§ 3.2 Voor wie is het OIN">§ 3.2 Voor wie is het OIN</a> <a href="#ref-for-dfn-afnemers-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-afnemers-4" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-afnemers-5" title="§ 3.7.1 Afnemer">§ 3.7.1 Afnemer</a> <a href="#ref-for-dfn-afnemers-6" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-afnemers-7" title="§ 3.7.9 OIN-houder">§ 3.7.9 OIN-houder</a> 
-  </li><li>
-    <a href="#ref-for-dfn-afnemers-8" title="§ 3.8.7 OIN-houder">§ 3.8.7 OIN-houder</a> 
-  </li><li>
-    <a href="#ref-for-dfn-afnemers-9" title="§ A. Begrippen">§ A. Begrippen</a> 
-  </li>
+      <a href="#ref-for-dfn-afnemers-1" title="§ 2.5 Kaders en bronnen">§ 2.5 Kaders en bronnen</a> 
+    </li><li>
+      <a href="#ref-for-dfn-afnemers-2" title="§ 3.2 Voor wie is het OIN">§ 3.2 Voor wie is het OIN</a> <a href="#ref-for-dfn-afnemers-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-afnemers-4" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-afnemers-5" title="§ 3.7.1 Afnemer">§ 3.7.1 Afnemer</a> <a href="#ref-for-dfn-afnemers-6" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-afnemers-7" title="§ 3.7.9 OIN-houder">§ 3.7.9 OIN-houder</a> 
+    </li><li>
+      <a href="#ref-for-dfn-afnemers-8" title="§ 3.8.7 OIN-houder">§ 3.8.7 OIN-houder</a> 
+    </li><li>
+      <a href="#ref-for-dfn-afnemers-9" title="§ A. Begrippen">§ A. Begrippen</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-gebruikers" aria-label="Links in this document to definition: Gebruiker">
       <span class="caret"></span>
@@ -2027,12 +2093,12 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-gebruikers-1" title="§ 2.5 Kaders en bronnen">§ 2.5 Kaders en bronnen</a> 
-  </li><li>
-    <a href="#ref-for-dfn-gebruikers-2" title="§ 3.2 Voor wie is het OIN">§ 3.2 Voor wie is het OIN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-gebruikers-3" title="§ 3.7.9 OIN-houder">§ 3.7.9 OIN-houder</a> 
-  </li>
+      <a href="#ref-for-dfn-gebruikers-1" title="§ 2.5 Kaders en bronnen">§ 2.5 Kaders en bronnen</a> 
+    </li><li>
+      <a href="#ref-for-dfn-gebruikers-2" title="§ 3.2 Voor wie is het OIN">§ 3.2 Voor wie is het OIN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-gebruikers-3" title="§ 3.7.9 OIN-houder">§ 3.7.9 OIN-houder</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-oin" aria-label="Links in this document to definition: OIN">
       <span class="caret"></span>
@@ -2043,60 +2109,60 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-oin-1" title="§ 1.5.6 Doorontwikkeling COR">§ 1.5.6 Doorontwikkeling COR</a> <a href="#ref-for-dfn-oin-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-3" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-4" title="§ 2.1 Doel OIN">§ 2.1 Doel OIN</a> <a href="#ref-for-dfn-oin-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-6" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-7" title="§ 2.2 Inleiding">§ 2.2 Inleiding</a> <a href="#ref-for-dfn-oin-8" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-9" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-10" title="Reference 4">(4)</a> <a href="#ref-for-dfn-oin-11" title="Reference 5">(5)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-12" title="§ 2.3 Gebruik van het OIN">§ 2.3 Gebruik van het OIN</a> <a href="#ref-for-dfn-oin-13" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-14" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-15" title="Reference 4">(4)</a> <a href="#ref-for-dfn-oin-16" title="Reference 5">(5)</a> <a href="#ref-for-dfn-oin-17" title="Reference 6">(6)</a> <a href="#ref-for-dfn-oin-18" title="Reference 7">(7)</a> <a href="#ref-for-dfn-oin-19" title="Reference 8">(8)</a> <a href="#ref-for-dfn-oin-20" title="Reference 9">(9)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-21" title="§ 3.1 Wat is het OIN">§ 3.1 Wat is het OIN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-22" title="§ 3.2 Voor wie is het OIN">§ 3.2 Voor wie is het OIN</a> <a href="#ref-for-dfn-oin-23" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-24" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-25" title="Reference 4">(4)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-26" title="§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen">§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen</a> <a href="#ref-for-dfn-oin-27" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-28" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-29" title="Reference 4">(4)</a> <a href="#ref-for-dfn-oin-30" title="Reference 5">(5)</a> <a href="#ref-for-dfn-oin-31" title="Reference 6">(6)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-32" title="§ 3.4 Wat is een SubOIN">§ 3.4 Wat is een SubOIN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-33" title="§ 3.7.2 Stakeholders">§ 3.7.2 Stakeholders</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-34" title="§ 3.7.6 Registerhouder overheidsregister">§ 3.7.6 Registerhouder overheidsregister</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-35" title="§ 3.7.9 OIN-houder">§ 3.7.9 OIN-houder</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-36" title="§ 3.8.7 OIN-houder">§ 3.8.7 OIN-houder</a> <a href="#ref-for-dfn-oin-37" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-38" title="§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat">§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-39" title="§ 4.5.3 Registratie in het besloten gedeelte van de COR">§ 4.5.3 Registratie in het besloten gedeelte van de COR</a> <a href="#ref-for-dfn-oin-40" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-41" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-42" title="Reference 4">(4)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-43" title="§ 4.5.4 Publiceren van OIN en SubOINs">§ 4.5.4 Publiceren van OIN en SubOINs</a> <a href="#ref-for-dfn-oin-44" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-45" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-46" title="Reference 4">(4)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-47" title="§ 4.5.8 Kwaliteitsborging">§ 4.5.8 Kwaliteitsborging</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-48" title="§ 5.1.1.1 Aanmaken SubOINs">§ 5.1.1.1 Aanmaken SubOINs</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-49" title="§ 5.1.1.2 Organisaties in andere registers dan het Handelsregister">§ 5.1.1.2 Organisaties in andere registers dan het Handelsregister</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-50" title="§ 5.1.2 Aanvragen PKIoverheidscertificaat">§ 5.1.2 Aanvragen PKIoverheidscertificaat</a> <a href="#ref-for-dfn-oin-51" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-52" title="§ 5.1.3 Samenwerkingsverbanden">§ 5.1.3 Samenwerkingsverbanden</a> <a href="#ref-for-dfn-oin-53" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-54" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-55" title="§ 5.2.2 Intrekkingsplicht">§ 5.2.2 Intrekkingsplicht</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-56" title="§ 5.2.3 Beheerder van een overheidsregister">§ 5.2.3 Beheerder van een overheidsregister</a> <a href="#ref-for-dfn-oin-57" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-58" title="§ 5.3.2 Beëindigen">§ 5.3.2 Beëindigen</a> <a href="#ref-for-dfn-oin-59" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-60" title="§ 5.4 SubOINs: Aanvraagformulieren">§ 5.4 SubOINs: Aanvraagformulieren</a> <a href="#ref-for-dfn-oin-61" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-62" title="§ 6.1 Samenstelling OIN">§ 6.1 Samenstelling OIN</a> <a href="#ref-for-dfn-oin-63" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-64" title="§ 6.2 Prefix tabel">§ 6.2 Prefix tabel</a> <a href="#ref-for-dfn-oin-65" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-66" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-67" title="Reference 4">(4)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-68" title="§ 6.4 SubOIN: een betekenisloos nummer">§ 6.4 SubOIN: een betekenisloos nummer</a> <a href="#ref-for-dfn-oin-69" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-70" title="Reference 3">(3)</a> 
-  </li>
+      <a href="#ref-for-dfn-oin-1" title="§ 1.5.6 Doorontwikkeling COR">§ 1.5.6 Doorontwikkeling COR</a> <a href="#ref-for-dfn-oin-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-3" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-4" title="§ 2.1 Doel OIN">§ 2.1 Doel OIN</a> <a href="#ref-for-dfn-oin-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-6" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-7" title="§ 2.2 Inleiding">§ 2.2 Inleiding</a> <a href="#ref-for-dfn-oin-8" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-9" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-10" title="Reference 4">(4)</a> <a href="#ref-for-dfn-oin-11" title="Reference 5">(5)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-12" title="§ 2.3 Gebruik van het OIN">§ 2.3 Gebruik van het OIN</a> <a href="#ref-for-dfn-oin-13" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-14" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-15" title="Reference 4">(4)</a> <a href="#ref-for-dfn-oin-16" title="Reference 5">(5)</a> <a href="#ref-for-dfn-oin-17" title="Reference 6">(6)</a> <a href="#ref-for-dfn-oin-18" title="Reference 7">(7)</a> <a href="#ref-for-dfn-oin-19" title="Reference 8">(8)</a> <a href="#ref-for-dfn-oin-20" title="Reference 9">(9)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-21" title="§ 3.1 Wat is het OIN">§ 3.1 Wat is het OIN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-22" title="§ 3.2 Voor wie is het OIN">§ 3.2 Voor wie is het OIN</a> <a href="#ref-for-dfn-oin-23" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-24" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-25" title="Reference 4">(4)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-26" title="§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen">§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen</a> <a href="#ref-for-dfn-oin-27" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-28" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-29" title="Reference 4">(4)</a> <a href="#ref-for-dfn-oin-30" title="Reference 5">(5)</a> <a href="#ref-for-dfn-oin-31" title="Reference 6">(6)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-32" title="§ 3.4 Wat is een SubOIN">§ 3.4 Wat is een SubOIN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-33" title="§ 3.7.2 Stakeholders">§ 3.7.2 Stakeholders</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-34" title="§ 3.7.6 Registerhouder overheidsregister">§ 3.7.6 Registerhouder overheidsregister</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-35" title="§ 3.7.9 OIN-houder">§ 3.7.9 OIN-houder</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-36" title="§ 3.8.7 OIN-houder">§ 3.8.7 OIN-houder</a> <a href="#ref-for-dfn-oin-37" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-38" title="§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat">§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-39" title="§ 4.5.3 Registratie in het besloten gedeelte van de COR">§ 4.5.3 Registratie in het besloten gedeelte van de COR</a> <a href="#ref-for-dfn-oin-40" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-41" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-42" title="Reference 4">(4)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-43" title="§ 4.5.4 Publiceren van OIN en SubOINs">§ 4.5.4 Publiceren van OIN en SubOINs</a> <a href="#ref-for-dfn-oin-44" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-45" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-46" title="Reference 4">(4)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-47" title="§ 4.5.8 Kwaliteitsborging">§ 4.5.8 Kwaliteitsborging</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-48" title="§ 5.1.1.1 Aanmaken SubOINs">§ 5.1.1.1 Aanmaken SubOINs</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-49" title="§ 5.1.1.2 Organisaties in andere registers dan het Handelsregister">§ 5.1.1.2 Organisaties in andere registers dan het Handelsregister</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-50" title="§ 5.1.2 Aanvragen PKIoverheidscertificaat">§ 5.1.2 Aanvragen PKIoverheidscertificaat</a> <a href="#ref-for-dfn-oin-51" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-52" title="§ 5.1.3 Samenwerkingsverbanden">§ 5.1.3 Samenwerkingsverbanden</a> <a href="#ref-for-dfn-oin-53" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-54" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-55" title="§ 5.2.2 Intrekkingsplicht">§ 5.2.2 Intrekkingsplicht</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-56" title="§ 5.2.3 Beheerder van een overheidsregister">§ 5.2.3 Beheerder van een overheidsregister</a> <a href="#ref-for-dfn-oin-57" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-58" title="§ 5.3.2 Beëindigen">§ 5.3.2 Beëindigen</a> <a href="#ref-for-dfn-oin-59" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-60" title="§ 5.4 SubOINs: Aanvraagformulieren">§ 5.4 SubOINs: Aanvraagformulieren</a> <a href="#ref-for-dfn-oin-61" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-62" title="§ 6.1 Samenstelling OIN">§ 6.1 Samenstelling OIN</a> <a href="#ref-for-dfn-oin-63" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-64" title="§ 6.2 Prefix tabel">§ 6.2 Prefix tabel</a> <a href="#ref-for-dfn-oin-65" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-66" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-67" title="Reference 4">(4)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-68" title="§ 6.4 SubOIN: een betekenisloos nummer">§ 6.4 SubOIN: een betekenisloos nummer</a> <a href="#ref-for-dfn-oin-69" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-70" title="Reference 3">(3)</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-suboins" aria-label="Links in this document to definition: SubOIN">
       <span class="caret"></span>
@@ -2107,48 +2173,48 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-suboins-1" title="§ 2.3 Gebruik van het OIN">§ 2.3 Gebruik van het OIN</a> <a href="#ref-for-dfn-suboins-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-suboins-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-suboins-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-suboins-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-suboins-6" title="Reference 6">(6)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-7" title="§ 3.4 Wat is een SubOIN">§ 3.4 Wat is een SubOIN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-8" title="§ 3.5 Voor wie is het SubOIN">§ 3.5 Voor wie is het SubOIN</a> <a href="#ref-for-dfn-suboins-9" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-10" title="§ 3.7.2 Stakeholders">§ 3.7.2 Stakeholders</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-11" title="§ 3.7.7 SubOIN-beheerder">§ 3.7.7 SubOIN-beheerder</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-12" title="§ 3.7.9 OIN-houder">§ 3.7.9 OIN-houder</a> <a href="#ref-for-dfn-suboins-13" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-14" title="§ 3.8.6 OIN">§ 3.8.6 OIN</a> <a href="#ref-for-dfn-suboins-15" title="Reference 2">(2)</a> <a href="#ref-for-dfn-suboins-16" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-17" title="§ 3.8.7 OIN-houder">§ 3.8.7 OIN-houder</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-18" title="§ 3.8.8 SubOINs op basis van een aangesloten register">§ 3.8.8 SubOINs op basis van een aangesloten register</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-19" title="§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat">§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-20" title="§ 3.10.1 Naleving Voorwaarden OIN">§ 3.10.1 Naleving Voorwaarden OIN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-21" title="§ 4.2 Publieke raadpleegvoorziening">§ 4.2 Publieke raadpleegvoorziening</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-22" title="§ 4.3 Beheerfuncties">§ 4.3 Beheerfuncties</a> <a href="#ref-for-dfn-suboins-23" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-24" title="§ 4.4 Algemene eisen aan de Centrale OIN Raadpleegvoorziening">§ 4.4 Algemene eisen aan de Centrale OIN Raadpleegvoorziening</a> <a href="#ref-for-dfn-suboins-25" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-26" title="§ 4.5.3 Registratie in het besloten gedeelte van de COR">§ 4.5.3 Registratie in het besloten gedeelte van de COR</a> <a href="#ref-for-dfn-suboins-27" title="Reference 2">(2)</a> <a href="#ref-for-dfn-suboins-28" title="Reference 3">(3)</a> <a href="#ref-for-dfn-suboins-29" title="Reference 4">(4)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-30" title="§ 4.5.4 Publiceren van OIN en SubOINs">§ 4.5.4 Publiceren van OIN en SubOINs</a> <a href="#ref-for-dfn-suboins-31" title="Reference 2">(2)</a> <a href="#ref-for-dfn-suboins-32" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-33" title="§ 4.5.8 Kwaliteitsborging">§ 4.5.8 Kwaliteitsborging</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-34" title="§ 5.1.1.1 Aanmaken SubOINs">§ 5.1.1.1 Aanmaken SubOINs</a> <a href="#ref-for-dfn-suboins-35" title="Reference 2">(2)</a> <a href="#ref-for-dfn-suboins-36" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-37" title="§ 5.1.1.2 Organisaties in andere registers dan het Handelsregister">§ 5.1.1.2 Organisaties in andere registers dan het Handelsregister</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-38" title="§ 5.1.3 Samenwerkingsverbanden">§ 5.1.3 Samenwerkingsverbanden</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboins-39" title="§ 6.4 SubOIN: een betekenisloos nummer">§ 6.4 SubOIN: een betekenisloos nummer</a> <a href="#ref-for-dfn-suboins-40" title="Reference 2">(2)</a> 
-  </li>
+      <a href="#ref-for-dfn-suboins-1" title="§ 2.3 Gebruik van het OIN">§ 2.3 Gebruik van het OIN</a> <a href="#ref-for-dfn-suboins-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-suboins-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-suboins-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-suboins-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-suboins-6" title="Reference 6">(6)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-7" title="§ 3.4 Wat is een SubOIN">§ 3.4 Wat is een SubOIN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-8" title="§ 3.5 Voor wie is het SubOIN">§ 3.5 Voor wie is het SubOIN</a> <a href="#ref-for-dfn-suboins-9" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-10" title="§ 3.7.2 Stakeholders">§ 3.7.2 Stakeholders</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-11" title="§ 3.7.7 SubOIN-beheerder">§ 3.7.7 SubOIN-beheerder</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-12" title="§ 3.7.9 OIN-houder">§ 3.7.9 OIN-houder</a> <a href="#ref-for-dfn-suboins-13" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-14" title="§ 3.8.6 OIN">§ 3.8.6 OIN</a> <a href="#ref-for-dfn-suboins-15" title="Reference 2">(2)</a> <a href="#ref-for-dfn-suboins-16" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-17" title="§ 3.8.7 OIN-houder">§ 3.8.7 OIN-houder</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-18" title="§ 3.8.8 SubOINs op basis van een aangesloten register">§ 3.8.8 SubOINs op basis van een aangesloten register</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-19" title="§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat">§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-20" title="§ 3.10.1 Naleving Voorwaarden OIN">§ 3.10.1 Naleving Voorwaarden OIN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-21" title="§ 4.2 Publieke raadpleegvoorziening">§ 4.2 Publieke raadpleegvoorziening</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-22" title="§ 4.3 Beheerfuncties">§ 4.3 Beheerfuncties</a> <a href="#ref-for-dfn-suboins-23" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-24" title="§ 4.4 Algemene eisen aan de Centrale OIN Raadpleegvoorziening">§ 4.4 Algemene eisen aan de Centrale OIN Raadpleegvoorziening</a> <a href="#ref-for-dfn-suboins-25" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-26" title="§ 4.5.3 Registratie in het besloten gedeelte van de COR">§ 4.5.3 Registratie in het besloten gedeelte van de COR</a> <a href="#ref-for-dfn-suboins-27" title="Reference 2">(2)</a> <a href="#ref-for-dfn-suboins-28" title="Reference 3">(3)</a> <a href="#ref-for-dfn-suboins-29" title="Reference 4">(4)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-30" title="§ 4.5.4 Publiceren van OIN en SubOINs">§ 4.5.4 Publiceren van OIN en SubOINs</a> <a href="#ref-for-dfn-suboins-31" title="Reference 2">(2)</a> <a href="#ref-for-dfn-suboins-32" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-33" title="§ 4.5.8 Kwaliteitsborging">§ 4.5.8 Kwaliteitsborging</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-34" title="§ 5.1.1.1 Aanmaken SubOINs">§ 5.1.1.1 Aanmaken SubOINs</a> <a href="#ref-for-dfn-suboins-35" title="Reference 2">(2)</a> <a href="#ref-for-dfn-suboins-36" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-37" title="§ 5.1.1.2 Organisaties in andere registers dan het Handelsregister">§ 5.1.1.2 Organisaties in andere registers dan het Handelsregister</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-38" title="§ 5.1.3 Samenwerkingsverbanden">§ 5.1.3 Samenwerkingsverbanden</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboins-39" title="§ 6.4 SubOIN: een betekenisloos nummer">§ 6.4 SubOIN: een betekenisloos nummer</a> <a href="#ref-for-dfn-suboins-40" title="Reference 2">(2)</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-hrn" aria-label="Links in this document to definition: HRN">
       <span class="caret"></span>
@@ -2159,14 +2225,14 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-hrn-1" title="§ 1.5.3 OIN en HRN">§ 1.5.3 OIN en HRN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-hrn-2" title="§ 1.5.6 Doorontwikkeling COR">§ 1.5.6 Doorontwikkeling COR</a> 
-  </li><li>
-    <a href="#ref-for-dfn-hrn-3" title="§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen">§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen</a> 
-  </li><li>
-    <a href="#ref-for-dfn-hrn-4" title="§ A. Begrippen">§ A. Begrippen</a> <a href="#ref-for-dfn-hrn-5" title="Reference 2">(2)</a> 
-  </li>
+      <a href="#ref-for-dfn-hrn-1" title="§ 1.5.3 OIN en HRN">§ 1.5.3 OIN en HRN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-hrn-2" title="§ 1.5.6 Doorontwikkeling COR">§ 1.5.6 Doorontwikkeling COR</a> 
+    </li><li>
+      <a href="#ref-for-dfn-hrn-3" title="§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen">§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen</a> 
+    </li><li>
+      <a href="#ref-for-dfn-hrn-4" title="§ A. Begrippen">§ A. Begrippen</a> <a href="#ref-for-dfn-hrn-5" title="Reference 2">(2)</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-cor" aria-label="Links in this document to definition: Centrale OIN Raadpleegvoorziening">
       <span class="caret"></span>
@@ -2177,74 +2243,74 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-cor-1" title="§ 1.1 Het OIN stelsel">§ 1.1 Het OIN stelsel</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-2" title="§ 1.5.6 Doorontwikkeling COR">§ 1.5.6 Doorontwikkeling COR</a> <a href="#ref-for-dfn-cor-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-4" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-5" title="Reference 4">(4)</a> <a href="#ref-for-dfn-cor-6" title="Reference 5">(5)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-7" title="§ 1.6 Leeswijzer">§ 1.6 Leeswijzer</a> <a href="#ref-for-dfn-cor-8" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-9" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-10" title="§ 2.4 Context Centrale OIN Raadpleegvoorziening (COR)">§ 2.4 Context Centrale OIN Raadpleegvoorziening (COR)</a> <a href="#ref-for-dfn-cor-11" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-12" title="§ 3.6 Wijzigingen in het OIN Stelsel sinds 2006">§ 3.6 Wijzigingen in het OIN Stelsel sinds 2006</a> <a href="#ref-for-dfn-cor-13" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-14" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-15" title="Reference 4">(4)</a> <a href="#ref-for-dfn-cor-16" title="Reference 5">(5)</a> <a href="#ref-for-dfn-cor-17" title="Reference 6">(6)</a> <a href="#ref-for-dfn-cor-18" title="Reference 7">(7)</a> <a href="#ref-for-dfn-cor-19" title="Reference 8">(8)</a> <a href="#ref-for-dfn-cor-20" title="Reference 9">(9)</a> <a href="#ref-for-dfn-cor-21" title="Reference 10">(10)</a> <a href="#ref-for-dfn-cor-22" title="Reference 11">(11)</a> <a href="#ref-for-dfn-cor-23" title="Reference 12">(12)</a> <a href="#ref-for-dfn-cor-24" title="Reference 13">(13)</a> <a href="#ref-for-dfn-cor-25" title="Reference 14">(14)</a> <a href="#ref-for-dfn-cor-26" title="Reference 15">(15)</a> <a href="#ref-for-dfn-cor-27" title="Reference 16">(16)</a> <a href="#ref-for-dfn-cor-28" title="Reference 17">(17)</a> <a href="#ref-for-dfn-cor-29" title="Reference 18">(18)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-30" title="§ 3.7.2 Stakeholders">§ 3.7.2 Stakeholders</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-31" title="§ 3.7.5 Beheerder COR">§ 3.7.5 Beheerder COR</a> <a href="#ref-for-dfn-cor-32" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-33" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-34" title="Reference 4">(4)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-35" title="§ 3.7.8 Certificatiedienstverlener (TSP)">§ 3.7.8 Certificatiedienstverlener (TSP)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-36" title="§ 3.9 Centrale OIN Raadpleegvoorziening (COR)">§ 3.9 Centrale OIN Raadpleegvoorziening (COR)</a> <a href="#ref-for-dfn-cor-37" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-38" title="§ 4.1 Gebruik van de Centrale OIN Raadpleegvoorziening">§ 4.1 Gebruik van de Centrale OIN Raadpleegvoorziening</a> <a href="#ref-for-dfn-cor-39" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-40" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-41" title="Reference 4">(4)</a> <a href="#ref-for-dfn-cor-42" title="Reference 5">(5)</a> <a href="#ref-for-dfn-cor-43" title="Reference 6">(6)</a> <a href="#ref-for-dfn-cor-44" title="Reference 7">(7)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-45" title="§ 4.2 Publieke raadpleegvoorziening">§ 4.2 Publieke raadpleegvoorziening</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-46" title="§ 4.3 Beheerfuncties">§ 4.3 Beheerfuncties</a> <a href="#ref-for-dfn-cor-47" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-48" title="§ 4.5 Centrale OIN Raadpleegvoorziening (COR)">§ 4.5 Centrale OIN Raadpleegvoorziening (COR)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-49" title="§ 4.5.1 Onderdelen van de COR">§ 4.5.1 Onderdelen van de COR</a> <a href="#ref-for-dfn-cor-50" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-51" title="§ 4.5.2 Toegang tot het besloten gedeelte van de COR">§ 4.5.2 Toegang tot het besloten gedeelte van de COR</a> <a href="#ref-for-dfn-cor-52" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-53" title="§ 4.5.3 Registratie in het besloten gedeelte van de COR">§ 4.5.3 Registratie in het besloten gedeelte van de COR</a> <a href="#ref-for-dfn-cor-54" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-55" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-56" title="§ 4.5.4 Publiceren van OIN en SubOINs">§ 4.5.4 Publiceren van OIN en SubOINs</a> <a href="#ref-for-dfn-cor-57" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-58" title="§ 4.5.5 Aansluiten COR op overheidsregisters">§ 4.5.5 Aansluiten COR op overheidsregisters</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-59" title="§ 4.5.6 Gebruik van de COR API">§ 4.5.6 Gebruik van de COR API</a> <a href="#ref-for-dfn-cor-60" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-61" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-62" title="§ 4.5.7 Privacybescherming en informatiebeveiliging">§ 4.5.7 Privacybescherming en informatiebeveiliging</a> <a href="#ref-for-dfn-cor-63" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-64" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-65" title="§ 4.5.8 Kwaliteitsborging">§ 4.5.8 Kwaliteitsborging</a> <a href="#ref-for-dfn-cor-66" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-67" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-68" title="Reference 4">(4)</a> <a href="#ref-for-dfn-cor-69" title="Reference 5">(5)</a> <a href="#ref-for-dfn-cor-70" title="Reference 6">(6)</a> <a href="#ref-for-dfn-cor-71" title="Reference 7">(7)</a> <a href="#ref-for-dfn-cor-72" title="Reference 8">(8)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-73" title="§ 5. Het beheer van SubOINs in de COR">§ 5. Het beheer van SubOINs in de COR</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-74" title="§ 5.1.1.1 Aanmaken SubOINs">§ 5.1.1.1 Aanmaken SubOINs</a> <a href="#ref-for-dfn-cor-75" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-76" title="§ 5.2.1 Mutaties doorgeven aan de COR">§ 5.2.1 Mutaties doorgeven aan de COR</a> <a href="#ref-for-dfn-cor-77" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-78" title="§ 5.2.2 Intrekkingsplicht">§ 5.2.2 Intrekkingsplicht</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-79" title="§ 5.4.1 Registerhouders van overheidsregisters">§ 5.4.1 Registerhouders van overheidsregisters</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-80" title="§ 6.4 SubOIN: een betekenisloos nummer">§ 6.4 SubOIN: een betekenisloos nummer</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-81" title="§ 6.5 Voorbeelden van OIN weergave in COR Web en COR API">§ 6.5 Voorbeelden van OIN weergave in COR Web en COR API</a> <a href="#ref-for-dfn-cor-82" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-83" title="§ 6.5.1 COR WEB">§ 6.5.1 COR WEB</a> <a href="#ref-for-dfn-cor-84" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-85" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-86" title="Reference 4">(4)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-87" title="§ 6.5.2 COR API">§ 6.5.2 COR API</a> <a href="#ref-for-dfn-cor-88" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-89" title="§ 7.1 Schets van de COR">§ 7.1 Schets van de COR</a> <a href="#ref-for-dfn-cor-90" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-91" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-92" title="Reference 4">(4)</a> <a href="#ref-for-dfn-cor-93" title="Reference 5">(5)</a> <a href="#ref-for-dfn-cor-94" title="Reference 6">(6)</a> <a href="#ref-for-dfn-cor-95" title="Reference 7">(7)</a> <a href="#ref-for-dfn-cor-96" title="Reference 8">(8)</a> <a href="#ref-for-dfn-cor-97" title="Reference 9">(9)</a> <a href="#ref-for-dfn-cor-98" title="Reference 10">(10)</a> <a href="#ref-for-dfn-cor-99" title="Reference 11">(11)</a> <a href="#ref-for-dfn-cor-100" title="Reference 12">(12)</a> <a href="#ref-for-dfn-cor-101" title="Reference 13">(13)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-102" title="§ B. Nuttige links">§ B. Nuttige links</a> <a href="#ref-for-dfn-cor-103" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-104" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-105" title="§ C.1.3 Raadplegen OINs en SubOINS in de Centrale OIN Raadpleegvoorziening (COR)">§ C.1.3 Raadplegen OINs en SubOINS in de Centrale OIN Raadpleegvoorziening (COR)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-cor-106" title="§ C.1.4 Raadplegen via de COR API">§ C.1.4 Raadplegen via de COR API</a> 
-  </li>
+      <a href="#ref-for-dfn-cor-1" title="§ 1.1 Het OIN stelsel">§ 1.1 Het OIN stelsel</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-2" title="§ 1.5.6 Doorontwikkeling COR">§ 1.5.6 Doorontwikkeling COR</a> <a href="#ref-for-dfn-cor-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-4" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-5" title="Reference 4">(4)</a> <a href="#ref-for-dfn-cor-6" title="Reference 5">(5)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-7" title="§ 1.6 Leeswijzer">§ 1.6 Leeswijzer</a> <a href="#ref-for-dfn-cor-8" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-9" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-10" title="§ 2.4 Context Centrale OIN Raadpleegvoorziening (COR)">§ 2.4 Context Centrale OIN Raadpleegvoorziening (COR)</a> <a href="#ref-for-dfn-cor-11" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-12" title="§ 3.6 Wijzigingen in het OIN Stelsel sinds 2006">§ 3.6 Wijzigingen in het OIN Stelsel sinds 2006</a> <a href="#ref-for-dfn-cor-13" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-14" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-15" title="Reference 4">(4)</a> <a href="#ref-for-dfn-cor-16" title="Reference 5">(5)</a> <a href="#ref-for-dfn-cor-17" title="Reference 6">(6)</a> <a href="#ref-for-dfn-cor-18" title="Reference 7">(7)</a> <a href="#ref-for-dfn-cor-19" title="Reference 8">(8)</a> <a href="#ref-for-dfn-cor-20" title="Reference 9">(9)</a> <a href="#ref-for-dfn-cor-21" title="Reference 10">(10)</a> <a href="#ref-for-dfn-cor-22" title="Reference 11">(11)</a> <a href="#ref-for-dfn-cor-23" title="Reference 12">(12)</a> <a href="#ref-for-dfn-cor-24" title="Reference 13">(13)</a> <a href="#ref-for-dfn-cor-25" title="Reference 14">(14)</a> <a href="#ref-for-dfn-cor-26" title="Reference 15">(15)</a> <a href="#ref-for-dfn-cor-27" title="Reference 16">(16)</a> <a href="#ref-for-dfn-cor-28" title="Reference 17">(17)</a> <a href="#ref-for-dfn-cor-29" title="Reference 18">(18)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-30" title="§ 3.7.2 Stakeholders">§ 3.7.2 Stakeholders</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-31" title="§ 3.7.5 Beheerder COR">§ 3.7.5 Beheerder COR</a> <a href="#ref-for-dfn-cor-32" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-33" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-34" title="Reference 4">(4)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-35" title="§ 3.7.8 Certificatiedienstverlener (TSP)">§ 3.7.8 Certificatiedienstverlener (TSP)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-36" title="§ 3.9 Centrale OIN Raadpleegvoorziening (COR)">§ 3.9 Centrale OIN Raadpleegvoorziening (COR)</a> <a href="#ref-for-dfn-cor-37" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-38" title="§ 4.1 Gebruik van de Centrale OIN Raadpleegvoorziening">§ 4.1 Gebruik van de Centrale OIN Raadpleegvoorziening</a> <a href="#ref-for-dfn-cor-39" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-40" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-41" title="Reference 4">(4)</a> <a href="#ref-for-dfn-cor-42" title="Reference 5">(5)</a> <a href="#ref-for-dfn-cor-43" title="Reference 6">(6)</a> <a href="#ref-for-dfn-cor-44" title="Reference 7">(7)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-45" title="§ 4.2 Publieke raadpleegvoorziening">§ 4.2 Publieke raadpleegvoorziening</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-46" title="§ 4.3 Beheerfuncties">§ 4.3 Beheerfuncties</a> <a href="#ref-for-dfn-cor-47" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-48" title="§ 4.5 Centrale OIN Raadpleegvoorziening (COR)">§ 4.5 Centrale OIN Raadpleegvoorziening (COR)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-49" title="§ 4.5.1 Onderdelen van de COR">§ 4.5.1 Onderdelen van de COR</a> <a href="#ref-for-dfn-cor-50" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-51" title="§ 4.5.2 Toegang tot het besloten gedeelte van de COR">§ 4.5.2 Toegang tot het besloten gedeelte van de COR</a> <a href="#ref-for-dfn-cor-52" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-53" title="§ 4.5.3 Registratie in het besloten gedeelte van de COR">§ 4.5.3 Registratie in het besloten gedeelte van de COR</a> <a href="#ref-for-dfn-cor-54" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-55" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-56" title="§ 4.5.4 Publiceren van OIN en SubOINs">§ 4.5.4 Publiceren van OIN en SubOINs</a> <a href="#ref-for-dfn-cor-57" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-58" title="§ 4.5.5 Aansluiten COR op overheidsregisters">§ 4.5.5 Aansluiten COR op overheidsregisters</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-59" title="§ 4.5.6 Gebruik van de COR API">§ 4.5.6 Gebruik van de COR API</a> <a href="#ref-for-dfn-cor-60" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-61" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-62" title="§ 4.5.7 Privacybescherming en informatiebeveiliging">§ 4.5.7 Privacybescherming en informatiebeveiliging</a> <a href="#ref-for-dfn-cor-63" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-64" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-65" title="§ 4.5.8 Kwaliteitsborging">§ 4.5.8 Kwaliteitsborging</a> <a href="#ref-for-dfn-cor-66" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-67" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-68" title="Reference 4">(4)</a> <a href="#ref-for-dfn-cor-69" title="Reference 5">(5)</a> <a href="#ref-for-dfn-cor-70" title="Reference 6">(6)</a> <a href="#ref-for-dfn-cor-71" title="Reference 7">(7)</a> <a href="#ref-for-dfn-cor-72" title="Reference 8">(8)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-73" title="§ 5. Het beheer van SubOINs in de COR">§ 5. Het beheer van SubOINs in de COR</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-74" title="§ 5.1.1.1 Aanmaken SubOINs">§ 5.1.1.1 Aanmaken SubOINs</a> <a href="#ref-for-dfn-cor-75" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-76" title="§ 5.2.1 Mutaties doorgeven aan de COR">§ 5.2.1 Mutaties doorgeven aan de COR</a> <a href="#ref-for-dfn-cor-77" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-78" title="§ 5.2.2 Intrekkingsplicht">§ 5.2.2 Intrekkingsplicht</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-79" title="§ 5.4.1 Registerhouders van overheidsregisters">§ 5.4.1 Registerhouders van overheidsregisters</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-80" title="§ 6.4 SubOIN: een betekenisloos nummer">§ 6.4 SubOIN: een betekenisloos nummer</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-81" title="§ 6.5 Voorbeelden van OIN weergave in COR Web en COR API">§ 6.5 Voorbeelden van OIN weergave in COR Web en COR API</a> <a href="#ref-for-dfn-cor-82" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-83" title="§ 6.5.1 COR WEB">§ 6.5.1 COR WEB</a> <a href="#ref-for-dfn-cor-84" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-85" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-86" title="Reference 4">(4)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-87" title="§ 6.5.2 COR API">§ 6.5.2 COR API</a> <a href="#ref-for-dfn-cor-88" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-89" title="§ 7.1 Schets van de COR">§ 7.1 Schets van de COR</a> <a href="#ref-for-dfn-cor-90" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-91" title="Reference 3">(3)</a> <a href="#ref-for-dfn-cor-92" title="Reference 4">(4)</a> <a href="#ref-for-dfn-cor-93" title="Reference 5">(5)</a> <a href="#ref-for-dfn-cor-94" title="Reference 6">(6)</a> <a href="#ref-for-dfn-cor-95" title="Reference 7">(7)</a> <a href="#ref-for-dfn-cor-96" title="Reference 8">(8)</a> <a href="#ref-for-dfn-cor-97" title="Reference 9">(9)</a> <a href="#ref-for-dfn-cor-98" title="Reference 10">(10)</a> <a href="#ref-for-dfn-cor-99" title="Reference 11">(11)</a> <a href="#ref-for-dfn-cor-100" title="Reference 12">(12)</a> <a href="#ref-for-dfn-cor-101" title="Reference 13">(13)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-102" title="§ B. Nuttige links">§ B. Nuttige links</a> <a href="#ref-for-dfn-cor-103" title="Reference 2">(2)</a> <a href="#ref-for-dfn-cor-104" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-105" title="§ C.1.3 Raadplegen OINs en SubOINS in de Centrale OIN Raadpleegvoorziening (COR)">§ C.1.3 Raadplegen OINs en SubOINS in de Centrale OIN Raadpleegvoorziening (COR)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-cor-106" title="§ C.1.4 Raadplegen via de COR API">§ C.1.4 Raadplegen via de COR API</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-tsp" aria-label="Links in this document to definition: TSP">
       <span class="caret"></span>
@@ -2255,20 +2321,20 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-tsp-1" title="§ 1.5.3 OIN en HRN">§ 1.5.3 OIN en HRN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-tsp-2" title="§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen">§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen</a> <a href="#ref-for-dfn-tsp-3" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-tsp-4" title="§ 3.7.8 Certificatiedienstverlener (TSP)">§ 3.7.8 Certificatiedienstverlener (TSP)</a> <a href="#ref-for-dfn-tsp-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-tsp-6" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-tsp-7" title="§ 3.7.10 Beheerder PvE PKIoverheid">§ 3.7.10 Beheerder PvE PKIoverheid</a> 
-  </li><li>
-    <a href="#ref-for-dfn-tsp-8" title="§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat">§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat</a> 
-  </li><li>
-    <a href="#ref-for-dfn-tsp-9" title="§ 5.1.2 Aanvragen PKIoverheidscertificaat">§ 5.1.2 Aanvragen PKIoverheidscertificaat</a> <a href="#ref-for-dfn-tsp-10" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-tsp-11" title="§ A. Begrippen">§ A. Begrippen</a> 
-  </li>
+      <a href="#ref-for-dfn-tsp-1" title="§ 1.5.3 OIN en HRN">§ 1.5.3 OIN en HRN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-tsp-2" title="§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen">§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen</a> <a href="#ref-for-dfn-tsp-3" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-tsp-4" title="§ 3.7.8 Certificatiedienstverlener (TSP)">§ 3.7.8 Certificatiedienstverlener (TSP)</a> <a href="#ref-for-dfn-tsp-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-tsp-6" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-tsp-7" title="§ 3.7.10 Beheerder PvE PKIoverheid">§ 3.7.10 Beheerder PvE PKIoverheid</a> 
+    </li><li>
+      <a href="#ref-for-dfn-tsp-8" title="§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat">§ 3.8.9 Opnemen OIN in PKIoverheidscertificaat</a> 
+    </li><li>
+      <a href="#ref-for-dfn-tsp-9" title="§ 5.1.2 Aanvragen PKIoverheidscertificaat">§ 5.1.2 Aanvragen PKIoverheidscertificaat</a> <a href="#ref-for-dfn-tsp-10" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-tsp-11" title="§ A. Begrippen">§ A. Begrippen</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-hr" aria-label="Links in this document to definition: Handelsregister">
       <span class="caret"></span>
@@ -2279,8 +2345,8 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-hr-1" title="§ C.1.2 voorbeelden uit de praktijk">§ C.1.2 voorbeelden uit de praktijk</a> <a href="#ref-for-dfn-hr-2" title="Reference 2">(2)</a> 
-  </li>
+      <a href="#ref-for-dfn-hr-1" title="§ C.1.2 voorbeelden uit de praktijk">§ C.1.2 voorbeelden uit de praktijk</a> <a href="#ref-for-dfn-hr-2" title="Reference 2">(2)</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kvk-nummer" aria-label="Links in this document to definition: KVK-nummer">
       <span class="caret"></span>
@@ -2291,14 +2357,14 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-kvk-nummer-1" title="§ 3.7.6 Registerhouder overheidsregister">§ 3.7.6 Registerhouder overheidsregister</a> 
-  </li><li>
-    <a href="#ref-for-dfn-kvk-nummer-2" title="§ 6.1 Samenstelling OIN">§ 6.1 Samenstelling OIN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-kvk-nummer-3" title="§ 6.2 Prefix tabel">§ 6.2 Prefix tabel</a> <a href="#ref-for-dfn-kvk-nummer-4" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-kvk-nummer-5" title="§ 7.1 Schets van de COR">§ 7.1 Schets van de COR</a> 
-  </li>
+      <a href="#ref-for-dfn-kvk-nummer-1" title="§ 3.7.6 Registerhouder overheidsregister">§ 3.7.6 Registerhouder overheidsregister</a> 
+    </li><li>
+      <a href="#ref-for-dfn-kvk-nummer-2" title="§ 6.1 Samenstelling OIN">§ 6.1 Samenstelling OIN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-kvk-nummer-3" title="§ 6.2 Prefix tabel">§ 6.2 Prefix tabel</a> <a href="#ref-for-dfn-kvk-nummer-4" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-kvk-nummer-5" title="§ 7.1 Schets van de COR">§ 7.1 Schets van de COR</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-suboin-beheerders" aria-label="Links in this document to definition: SubOIN-beheerder">
       <span class="caret"></span>
@@ -2309,28 +2375,28 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-suboin-beheerders-1" title="§ 3.4 Wat is een SubOIN">§ 3.4 Wat is een SubOIN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboin-beheerders-2" title="§ 3.5 Voor wie is het SubOIN">§ 3.5 Voor wie is het SubOIN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboin-beheerders-3" title="§ 3.6 Wijzigingen in het OIN Stelsel sinds 2006">§ 3.6 Wijzigingen in het OIN Stelsel sinds 2006</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboin-beheerders-4" title="§ 3.7.7 SubOIN-beheerder">§ 3.7.7 SubOIN-beheerder</a> <a href="#ref-for-dfn-suboin-beheerders-5" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboin-beheerders-6" title="§ 3.8.5 Buitenlandse rechtspersonen en organisaties">§ 3.8.5 Buitenlandse rechtspersonen en organisaties</a> <a href="#ref-for-dfn-suboin-beheerders-7" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboin-beheerders-8" title="§ 5.1.1.1 Aanmaken SubOINs">§ 5.1.1.1 Aanmaken SubOINs</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboin-beheerders-9" title="§ 5.1.3 Samenwerkingsverbanden">§ 5.1.3 Samenwerkingsverbanden</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboin-beheerders-10" title="§ 5.3.1 Geldigheidsduur">§ 5.3.1 Geldigheidsduur</a> <a href="#ref-for-dfn-suboin-beheerders-11" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboin-beheerders-12" title="§ 6.2 Prefix tabel">§ 6.2 Prefix tabel</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboin-beheerders-13" title="§ 6.4 SubOIN: een betekenisloos nummer">§ 6.4 SubOIN: een betekenisloos nummer</a> <a href="#ref-for-dfn-suboin-beheerders-14" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-suboin-beheerders-15" title="§ A. Begrippen">§ A. Begrippen</a> 
-  </li>
+      <a href="#ref-for-dfn-suboin-beheerders-1" title="§ 3.4 Wat is een SubOIN">§ 3.4 Wat is een SubOIN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboin-beheerders-2" title="§ 3.5 Voor wie is het SubOIN">§ 3.5 Voor wie is het SubOIN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboin-beheerders-3" title="§ 3.6 Wijzigingen in het OIN Stelsel sinds 2006">§ 3.6 Wijzigingen in het OIN Stelsel sinds 2006</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboin-beheerders-4" title="§ 3.7.7 SubOIN-beheerder">§ 3.7.7 SubOIN-beheerder</a> <a href="#ref-for-dfn-suboin-beheerders-5" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboin-beheerders-6" title="§ 3.8.5 Buitenlandse rechtspersonen en organisaties">§ 3.8.5 Buitenlandse rechtspersonen en organisaties</a> <a href="#ref-for-dfn-suboin-beheerders-7" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboin-beheerders-8" title="§ 5.1.1.1 Aanmaken SubOINs">§ 5.1.1.1 Aanmaken SubOINs</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboin-beheerders-9" title="§ 5.1.3 Samenwerkingsverbanden">§ 5.1.3 Samenwerkingsverbanden</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboin-beheerders-10" title="§ 5.3.1 Geldigheidsduur">§ 5.3.1 Geldigheidsduur</a> <a href="#ref-for-dfn-suboin-beheerders-11" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboin-beheerders-12" title="§ 6.2 Prefix tabel">§ 6.2 Prefix tabel</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboin-beheerders-13" title="§ 6.4 SubOIN: een betekenisloos nummer">§ 6.4 SubOIN: een betekenisloos nummer</a> <a href="#ref-for-dfn-suboin-beheerders-14" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-suboin-beheerders-15" title="§ A. Begrippen">§ A. Begrippen</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-oin-houder" aria-label="Links in this document to definition: OIN-houder">
       <span class="caret"></span>
@@ -2341,24 +2407,24 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-oin-houder-1" title="§ 3.4 Wat is een SubOIN">§ 3.4 Wat is een SubOIN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-houder-2" title="§ 3.7.9 OIN-houder">§ 3.7.9 OIN-houder</a> <a href="#ref-for-dfn-oin-houder-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-houder-4" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-houder-5" title="§ 3.8.7 OIN-houder">§ 3.8.7 OIN-houder</a> <a href="#ref-for-dfn-oin-houder-6" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-houder-7" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-houder-8" title="Reference 4">(4)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-houder-9" title="§ 5.1.1.1 Aanmaken SubOINs">§ 5.1.1.1 Aanmaken SubOINs</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-houder-10" title="§ 5.1.2 Aanvragen PKIoverheidscertificaat">§ 5.1.2 Aanvragen PKIoverheidscertificaat</a> <a href="#ref-for-dfn-oin-houder-11" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-houder-12" title="Reference 3">(3)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-houder-13" title="§ 5.2.1 Mutaties doorgeven aan de COR">§ 5.2.1 Mutaties doorgeven aan de COR</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-houder-14" title="§ 5.2.2 Intrekkingsplicht">§ 5.2.2 Intrekkingsplicht</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-houder-15" title="§ 5.4 SubOINs: Aanvraagformulieren">§ 5.4 SubOINs: Aanvraagformulieren</a> <a href="#ref-for-dfn-oin-houder-16" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-oin-houder-17" title="§ A. Begrippen">§ A. Begrippen</a> 
-  </li>
+      <a href="#ref-for-dfn-oin-houder-1" title="§ 3.4 Wat is een SubOIN">§ 3.4 Wat is een SubOIN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-houder-2" title="§ 3.7.9 OIN-houder">§ 3.7.9 OIN-houder</a> <a href="#ref-for-dfn-oin-houder-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-houder-4" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-houder-5" title="§ 3.8.7 OIN-houder">§ 3.8.7 OIN-houder</a> <a href="#ref-for-dfn-oin-houder-6" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-houder-7" title="Reference 3">(3)</a> <a href="#ref-for-dfn-oin-houder-8" title="Reference 4">(4)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-houder-9" title="§ 5.1.1.1 Aanmaken SubOINs">§ 5.1.1.1 Aanmaken SubOINs</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-houder-10" title="§ 5.1.2 Aanvragen PKIoverheidscertificaat">§ 5.1.2 Aanvragen PKIoverheidscertificaat</a> <a href="#ref-for-dfn-oin-houder-11" title="Reference 2">(2)</a> <a href="#ref-for-dfn-oin-houder-12" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-houder-13" title="§ 5.2.1 Mutaties doorgeven aan de COR">§ 5.2.1 Mutaties doorgeven aan de COR</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-houder-14" title="§ 5.2.2 Intrekkingsplicht">§ 5.2.2 Intrekkingsplicht</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-houder-15" title="§ 5.4 SubOINs: Aanvraagformulieren">§ 5.4 SubOINs: Aanvraagformulieren</a> <a href="#ref-for-dfn-oin-houder-16" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-oin-houder-17" title="§ A. Begrippen">§ A. Begrippen</a> 
+    </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-rsin" aria-label="Links in this document to definition: RSIN">
       <span class="caret"></span>
@@ -2369,22 +2435,22 @@ Voorbeeldresultaat van de COR API:
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-rsin-1" title="§ 1.5.3 OIN en HRN">§ 1.5.3 OIN en HRN</a> 
-  </li><li>
-    <a href="#ref-for-dfn-rsin-2" title="§ 1.5.6 Doorontwikkeling COR">§ 1.5.6 Doorontwikkeling COR</a> 
-  </li><li>
-    <a href="#ref-for-dfn-rsin-3" title="§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen">§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen</a> <a href="#ref-for-dfn-rsin-4" title="Reference 2">(2)</a> 
-  </li><li>
-    <a href="#ref-for-dfn-rsin-5" title="§ 3.7.6 Registerhouder overheidsregister">§ 3.7.6 Registerhouder overheidsregister</a> 
-  </li><li>
-    <a href="#ref-for-dfn-rsin-6" title="§ 5.3.2 Beëindigen">§ 5.3.2 Beëindigen</a> 
-  </li><li>
-    <a href="#ref-for-dfn-rsin-7" title="§ 6.2 Prefix tabel">§ 6.2 Prefix tabel</a> 
-  </li><li>
-    <a href="#ref-for-dfn-rsin-8" title="§ 7.1 Schets van de COR">§ 7.1 Schets van de COR</a> 
-  </li><li>
-    <a href="#ref-for-dfn-rsin-9" title="§ A. Begrippen">§ A. Begrippen</a> <a href="#ref-for-dfn-rsin-10" title="Reference 2">(2)</a> <a href="#ref-for-dfn-rsin-11" title="Reference 3">(3)</a> 
-  </li>
+      <a href="#ref-for-dfn-rsin-1" title="§ 1.5.3 OIN en HRN">§ 1.5.3 OIN en HRN</a> 
+    </li><li>
+      <a href="#ref-for-dfn-rsin-2" title="§ 1.5.6 Doorontwikkeling COR">§ 1.5.6 Doorontwikkeling COR</a> 
+    </li><li>
+      <a href="#ref-for-dfn-rsin-3" title="§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen">§ 3.3 Op welke manier kan een organisatie een OIN verkrijgen</a> <a href="#ref-for-dfn-rsin-4" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-rsin-5" title="§ 3.7.6 Registerhouder overheidsregister">§ 3.7.6 Registerhouder overheidsregister</a> 
+    </li><li>
+      <a href="#ref-for-dfn-rsin-6" title="§ 5.3.2 Beëindigen">§ 5.3.2 Beëindigen</a> 
+    </li><li>
+      <a href="#ref-for-dfn-rsin-7" title="§ 6.2 Prefix tabel">§ 6.2 Prefix tabel</a> 
+    </li><li>
+      <a href="#ref-for-dfn-rsin-8" title="§ 7.1 Schets van de COR">§ 7.1 Schets van de COR</a> 
+    </li><li>
+      <a href="#ref-for-dfn-rsin-9" title="§ A. Begrippen">§ A. Begrippen</a> <a href="#ref-for-dfn-rsin-10" title="Reference 2">(2)</a> <a href="#ref-for-dfn-rsin-11" title="Reference 3">(3)</a> 
+    </li>
   </ul>
     </div><script id="respec-dfn-panel">(() => {
 // @ts-check
@@ -2608,4 +2674,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Handreiking - Vastgestelde versie</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Handreiking - Vastgestelde versie</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
