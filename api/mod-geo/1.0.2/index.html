@@ -1,15 +1,13 @@
 <!DOCTYPE html><html lang="en"><head>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 34.1.4">
+<meta name="generator" content="ReSpec 35.3.0">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
 div.illegal-example{color:red}
 div.illegal-example p{color:#000}
-:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
 aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-.example pre{background-color:rgba(0,0,0,.03)}
 </style>
 <style>
 .issue-label{text-transform:initial}
@@ -18,7 +16,7 @@ aside.example div.example{border-left-width:.1em;border-color:#999;background:#f
 span.warning{padding:.1em .5em .15em}
 .issue.closed span.issue-number{text-decoration:line-through}
 .issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
-.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
 .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
 li.task-list-item{list-style:none}
 input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
@@ -26,13 +24,13 @@ input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
 </style>
 <style>
 dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
 .dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
 .dfn-panel>div{display:flex}
 .dfn-panel a.self-link{font-weight:700;margin-right:auto}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
@@ -44,28 +42,23 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-    
-    
-    
+  
+  
+  
 <title>API Design Rules Module: Geospatial 1.0.2</title>
-    
-    
-    
-<script>
-        respecConfig = {...organisationConfig, ...respecConfig};
-    </script>
-    
+  
+  
+  
+  
 <link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon">
-    
-
+  
+ 
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
 a.bibref{text-decoration:none}
@@ -76,23 +69,11 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
-cite .bibref{font-style:normal}
+cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
 #issue-summary>ul{column-count:2}
 #issue-summary li{list-style:none;display:inline-block}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
@@ -116,19 +97,24 @@ dd{margin-left:0}
 }
 </style>
 <style id="respec-nlgov">
-img.license{float:left;padding-right:5px}
+img.license{float:left;padding-right:5px;background:0 0}
 </style>
+<meta name="color-scheme" content="light">
 <meta name="description" content="The API strategy consists of a core — a generic set of rules for all government APIs — and various modules that only pertain to a specific application. See API Strategie for a list of all parts of the API Strategy.">
 <style>
-.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
-.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
-.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
-.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
-.hljs-literal{color:#0b76c5}
-.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
-.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
-.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
-.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
 .hljs-emphasis{font-style:italic}
 .hljs-strong{font-weight:700}
 .hljs-link{text-decoration:underline}
@@ -159,14 +145,15 @@ img.license{float:left;padding-right:5px}
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
     "nl_organisationPublishURL",
     "pubDomain",
     "/",
-    "shortName"
+    "shortName",
+    "/"
   ],
   "thisVersion": [
     "nl_organisationPublishURL",
@@ -174,7 +161,8 @@ img.license{float:left;padding-right:5px}
     "/",
     "shortName",
     "/",
-    "publishVersion"
+    "publishVersion",
+    "/"
   ],
   "prevVersion": [
     "nl_organisationPublishURL",
@@ -182,7 +170,8 @@ img.license{float:left;padding-right:5px}
     "/",
     "shortName",
     "/",
-    "previousPublishVersion"
+    "previousPublishVersion",
+    "/"
   ],
   "useLogo": true,
   "useLabel": true,
@@ -387,9 +376,8 @@ img.license{float:left;padding-right:5px}
   "github": "https://github.com/Logius-standaarden/API-mod-geospatial/"
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
-
-<body class="h-entry informative toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+ <body class="h-entry informative"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">API Design Rules Module: Geospatial 1.0.2</h1>
     
     <h2>
@@ -399,16 +387,16 @@ img.license{float:left;padding-right:5px}
     </h2>
     <dl>
       <dt>This version:</dt><dd class="status">
-              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.2/">https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.2</a>
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.2/">https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.2/</a>
             </dd>
       <dt>Latest published version:</dt><dd>
-              <a href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/">https://gitdocumentatie.logius.nl/publicatie/api/mod-geo</a>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/">https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/</a>
             </dd>
       <dt>Latest editor's draft:</dt><dd><a href="https://logius-standaarden.github.io/API-mod-geospatial/">https://logius-standaarden.github.io/API-mod-geospatial/</a></dd>
       
       
       
-      <dt>Previous version:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.1/">https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.1</a></dd>
+      <dt>Previous version:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.1/">https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.1/</a></dd>
       
       <dt>Editor:</dt>
       <dd class="editor p-author h-card vcard">
@@ -440,17 +428,17 @@ img.license{float:left;padding-right:5px}
     
     
     <p class="copyright">
-          This document is licensed under 
-          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
-        </p>
+            This document is licensed under 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
     <hr title="Separator for header">
   </div>
-    <section id="abstract" class="introductory"><h2>Abstract</h2><p>The API strategy consists of a <em>core</em> — a generic set of rules for all government APIs — and various <em>modules</em> that only pertain to a specific application. See <a href="https://www.geonovum.nl/node/250#APIStrategie">API Strategie</a> for a list of all parts of the API Strategy.</p>
+  <section id="abstract" class="introductory"><h2>Abstract</h2><p>The API strategy consists of a <em>core</em> — a generic set of rules for all government APIs — and various <em>modules</em> that only pertain to a specific application. See <a href="https://www.geonovum.nl/node/250#APIStrategie">API Strategie</a> for a list of all parts of the API Strategy.</p>
 
 <p>This document describes the <em>Geospatial module</em>, containing rules for geospatial content and functions in APIs.</p>
 </section>
-    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#request-and-response"><bdi class="secno">2. </bdi>Request and response</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#geojson"><bdi class="secno">2.1 </bdi>GeoJSON</a></li><li class="tocline"><a class="tocxref" href="#call-requests"><bdi class="secno">2.2 </bdi>Call (requests)</a></li><li class="tocline"><a class="tocxref" href="#result-response"><bdi class="secno">2.3 </bdi>Result (response)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#coordinate-reference-system-crs"><bdi class="secno">3. </bdi>Coordinate Reference System (CRS)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#crs-discovery"><bdi class="secno">3.1 </bdi>CRS discovery</a></li><li class="tocline"><a class="tocxref" href="#crs-negotiation"><bdi class="secno">3.2 </bdi>CRS negotiation</a></li><li class="tocline"><a class="tocxref" href="#crs-transformation"><bdi class="secno">3.3 </bdi>CRS transformation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#inspire-requirements"><bdi class="secno">4. </bdi>INSPIRE requirements</a></li><li class="tocline"><a class="tocxref" href="#deprecated-rules"><bdi class="secno">A. </bdi>Deprecated rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#post-endpoint-for-geospatial-queries"><bdi class="secno">A.1 </bdi>POST endpoint for geospatial queries</a></li><li class="tocline"><a class="tocxref" href="#old-crs-negotiation-method"><bdi class="secno">A.2 </bdi>Old CRS negotiation method</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">B.1 </bdi>Informative references</a></li></ol></li></ol></nav>
-        <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
+  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#request-and-response"><bdi class="secno">2. </bdi>Request and response</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#geojson"><bdi class="secno">2.1 </bdi>GeoJSON</a></li><li class="tocline"><a class="tocxref" href="#call-requests"><bdi class="secno">2.2 </bdi>Call (requests)</a></li><li class="tocline"><a class="tocxref" href="#result-response"><bdi class="secno">2.3 </bdi>Result (response)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#coordinate-reference-system-crs"><bdi class="secno">3. </bdi>Coordinate Reference System (CRS)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#crs-discovery"><bdi class="secno">3.1 </bdi>CRS discovery</a></li><li class="tocline"><a class="tocxref" href="#crs-negotiation"><bdi class="secno">3.2 </bdi>CRS negotiation</a></li><li class="tocline"><a class="tocxref" href="#crs-transformation"><bdi class="secno">3.3 </bdi>CRS transformation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#inspire-requirements"><bdi class="secno">4. </bdi>INSPIRE requirements</a></li><li class="tocline"><a class="tocxref" href="#deprecated-rules"><bdi class="secno">A. </bdi>Deprecated rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#post-endpoint-for-geospatial-queries"><bdi class="secno">A.1 </bdi>POST endpoint for geospatial queries</a></li><li class="tocline"><a class="tocxref" href="#old-crs-negotiation-method"><bdi class="secno">A.2 </bdi>Old CRS negotiation method</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">B.1 </bdi>Informative references</a></li></ol></li></ol></nav>
+  <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
 <p>This document provides rules for publishing geospatial data using Web APIs. Spatial data is </p>
 <blockquote>
 <p>data that describes anything with spatial extent (i.e. size, shape or position). Spatial data is also known as location information. [<cite><a class="bibref" data-link-type="biblio" href="#bib-sdw-bp" title="Spatial Data on the Web Best Practices">sdw-bp</a></cite>]</p>
@@ -464,7 +452,7 @@ img.license{float:left;padding-right:5px}
 
 <p>The Geospatial Module provides rules for the structuring of geospatial payloads and for functions in APIs to handle geospatial data.</p>
 </section>
-        <section id="request-and-response"><div class="header-wrapper"><h2 id="x2-request-and-response"><bdi class="secno">2. </bdi>Request and response</h2><a class="self-link" href="#request-and-response" aria-label="Permalink for Section 2."></a></div>
+  <section id="request-and-response"><div class="header-wrapper"><h2 id="x2-request-and-response"><bdi class="secno">2. </bdi>Request and response</h2><a class="self-link" href="#request-and-response" aria-label="Permalink for Section 2."></a></div>
 <p>Providing requested resources is the essence of any API. This also applies to REST APIs that handle geospatial data. There are, however, some specific aspects when dealing with geospatial data in REST APIs. The most important aspects are described in this chapter: </p>
 <ul>
 <li>how to encode geometries in APIs</li>
@@ -491,48 +479,48 @@ GeoJSON does not cover all use cases. For example, it is not possible to store c
   <div class="example" id="example-1">
         <div class="marker">
     <a class="self-link" href="#example-1">Example<bdi> 1</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs">building:
-  type: object
-  required:
-    - geometry
-  properties:
-    geometry:
-      type: string
-      format: wkt</code></pre>
+  </div> <pre aria-busy="false"><code class="hljs yaml"><span class="hljs-attr">building:</span>
+  <span class="hljs-attr">type:</span> <span class="hljs-string">object</span>
+  <span class="hljs-attr">required:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">geometry</span>
+  <span class="hljs-attr">properties:</span>
+    <span class="hljs-attr">geometry:</span>
+      <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+      <span class="hljs-attr">format:</span> <span class="hljs-string">wkt</span></code></pre>
       </div>
 <p>Sample response:</p>
   <div class="example" id="example-2">
         <div class="marker">
     <a class="self-link" href="#example-2">Example<bdi> 2</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs json">{
-  <span class="hljs-attr">"building"</span>: {
-    <span class="hljs-attr">"geometry"</span>: <span class="hljs-string">"POLYGON Z((194174.445 465873.676 0, 194174.452 465872.291 0, 194158.154 465872.213 0, 194158.226 465856.695 0, 194223.89 465856.969 0, 194223.821 465872.48 0, 194207.529 465872.415 0, 194207.505 465882.528 0, 194207.498 465883.902 0, 194223.799 465883.967 0, 194223.732 465899.48 0, 194216.55 465899.45 0, 194215.15 465899.445 0, 194213.85 465899.439 0, 194158.068 465899.211 0, 194158.148 465883.685 0, 194174.42 465883.767 0, 194174.445 465873.676 0))"</span>
-  }
-}</code></pre>
+  </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"building"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"geometry"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"POLYGON Z((194174.445 465873.676 0, 194174.452 465872.291 0, 194158.154 465872.213 0, 194158.226 465856.695 0, 194223.89 465856.969 0, 194223.821 465872.48 0, 194207.529 465872.415 0, 194207.505 465882.528 0, 194207.498 465883.902 0, 194223.799 465883.967 0, 194223.732 465899.48 0, 194216.55 465899.45 0, 194215.15 465899.445 0, 194213.85 465899.439 0, 194158.068 465899.211 0, 194158.148 465883.685 0, 194174.42 465883.767 0, 194174.445 465873.676 0))"</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
       </div>
 
 <p>Example of embedding WKB in a JSON object using the following definition for a JSON object:</p>
   <div class="example" id="example-3">
         <div class="marker">
     <a class="self-link" href="#example-3">Example<bdi> 3</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs">building:
-  type: object
-  required:
-    - geometry
-  properties:
-    geometry:
-      type: string
-      format: wkb</code></pre>
+  </div> <pre aria-busy="false"><code class="hljs yaml"><span class="hljs-attr">building:</span>
+  <span class="hljs-attr">type:</span> <span class="hljs-string">object</span>
+  <span class="hljs-attr">required:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">geometry</span>
+  <span class="hljs-attr">properties:</span>
+    <span class="hljs-attr">geometry:</span>
+      <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+      <span class="hljs-attr">format:</span> <span class="hljs-string">wkb</span></code></pre>
       </div>
 <p>Sample response:</p>
   <div class="example" id="example-4">
         <div class="marker">
     <a class="self-link" href="#example-4">Example<bdi> 4</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs json">{
-  <span class="hljs-attr">"building"</span>: {
-    <span class="hljs-attr">"geometry"</span>: <span class="hljs-string">"01030000A0F71C00000100000012000000F6285C8FF3B30741105839B4466F1C4100000000000000000E2DB29DF3B307416DE7FB29416F1C4100000000000000001D5A643B71B3074108AC1CDA406F1C4100000000000000008716D9CE71B307417B14AEC7026F1C410000000000000000EC51B81E7FB50741378941E0036F1C410000000000000000B07268917EB50741B81E85EB416F1C4100000000000000001D5A643BFCB407418FC2F5A8416F1C410000000000000000A4703D0AFCB407413108AC1C6A6F1C4100000000000000008B6CE7FBFBB4074154E3A59B6F6F1C410000000000000000AC1C5A647EB507417D3F35DE6F6F1C410000000000000000E5D022DB7DB50741B81E85EBAD6F1C4100000000000000006666666644B50741CDCCCCCCAD6F1C4100000000000000003333333339B507417B14AEC7AD6F1C410000000000000000CDCCCCCC2EB507414C3789C1AD6F1C4100000000000000008195438B70B307414E6210D8AC6F1C410000000000000000BE9F1A2F71B30741D7A370BD6E6F1C410000000000000000C3F5285CF3B30741B07268116F6F1C410000000000000000F6285C8FF3B30741105839B4466F1C410000000000000000"</span>
-  }
-}</code></pre>
+  </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"building"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"geometry"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"01030000A0F71C00000100000012000000F6285C8FF3B30741105839B4466F1C4100000000000000000E2DB29DF3B307416DE7FB29416F1C4100000000000000001D5A643B71B3074108AC1CDA406F1C4100000000000000008716D9CE71B307417B14AEC7026F1C410000000000000000EC51B81E7FB50741378941E0036F1C410000000000000000B07268917EB50741B81E85EB416F1C4100000000000000001D5A643BFCB407418FC2F5A8416F1C410000000000000000A4703D0AFCB407413108AC1C6A6F1C4100000000000000008B6CE7FBFBB4074154E3A59B6F6F1C410000000000000000AC1C5A647EB507417D3F35DE6F6F1C410000000000000000E5D022DB7DB50741B81E85EBAD6F1C4100000000000000006666666644B50741CDCCCCCCAD6F1C4100000000000000003333333339B507417B14AEC7AD6F1C410000000000000000CDCCCCCC2EB507414C3789C1AD6F1C4100000000000000008195438B70B307414E6210D8AC6F1C410000000000000000BE9F1A2F71B30741D7A370BD6E6F1C410000000000000000C3F5285CF3B30741B07268116F6F1C410000000000000000F6285C8FF3B30741105839B4466F1C410000000000000000"</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
       </div>
 
 </section><section id="call-requests"><div class="header-wrapper"><h3 id="x2-2-call-requests"><bdi class="secno">2.2 </bdi>Call (requests)</h3><a class="self-link" href="#call-requests" aria-label="Permalink for Section 2.2"></a></div>
@@ -579,36 +567,36 @@ Spatial filtering is an extensive topic. There are use cases for geospatial oper
 <p><span name="api-38"></span></p>
 <div class="rule" id="/geo/geometric-context">
   <p class="rulelab"><b>/geo/geometric-context</b>: Place results of a global spatial query in the relevant geometric context</p>
-  <p>In case of a global query <code>/api/v1/_search</code>, results should be placed in the relevant geometric context, because results from different <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/#resources">collections</a>, i.e. different sets of resources of the same type, are retrieved. Express the name of the collection to which the results belong in the singular form using the property <code>type</code>. For example:</p>
+  <p>In case of a global query <code>/api/v1/_search</code>, results should be placed in the relevant geometric context, because results from different <a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/#resources">collections</a>, i.e. different sets of resources of the same type, are retrieved. Express the name of the collection to which the results belong in the singular form using the property <code>type</code>. For example:</p>
   <div class="example" id="example-6">
         <div class="marker">
     <a class="self-link" href="#example-6">Example<bdi> 6</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-comment">// POST /api/v1/_search:</span>
-{
-  <span class="hljs-attr">"currentPage"</span>: <span class="hljs-number">1</span>,
-  <span class="hljs-attr">"nextPage"</span>: <span class="hljs-number">2</span>,
-  <span class="hljs-attr">"pageSize"</span>: <span class="hljs-number">10</span>,
-  <span class="hljs-attr">"_embedded"</span>: {
-    <span class="hljs-attr">"items"</span>: [
-      {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"enkelbestemming"</span>,
-        <span class="hljs-attr">"_links"</span>: {
-          <span class="hljs-attr">"self"</span>: {
-            <span class="hljs-attr">"href"</span>: <span class="hljs-string">"https://api.example.org/v1/enkelbestemmingen/1234"</span>
-          }
-        }
-      },
-      {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"dubbelbestemming"</span>,
-        <span class="hljs-attr">"_links"</span>: {
-          <span class="hljs-attr">"self"</span>: {
-            <span class="hljs-attr">"href"</span>: <span class="hljs-string">"https://api.example.org/v1/dubbelbestemmingen/8765"</span>
-          }
-        }
-      }
-    ]
-  }
-}</code></pre>
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"currentPage"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"nextPage"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"pageSize"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"_embedded"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"items"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"enkelbestemming"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"_links"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">"self"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"href"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://api.example.org/v1/enkelbestemmingen/1234"</span>
+          <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"dubbelbestemming"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"_links"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">"self"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">"href"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://api.example.org/v1/dubbelbestemmingen/8765"</span>
+          <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
       </div>
   <div class="header-wrapper"><h4 class="rulelab" id="how-to-test-0">How to test</h4><a class="self-link" href="#/geo/geometric-context" aria-label="Permalink for this Section"></a></div>
   <ul>
@@ -629,13 +617,13 @@ Spatial filtering is an extensive topic. There are use cases for geospatial oper
   </div> <pre aria-busy="false"><code class="hljs css">// POST /collections/gebouwen/items   HTTP/<span class="hljs-number">1.1</span>
 // <span class="hljs-attribute">Content</span>-Type: application/geo+json
 {
-  <span class="hljs-string">"type"</span>: <span class="hljs-string">"Feature"</span>,
+  "type": <span class="hljs-string">"Feature"</span>,
   <span class="hljs-string">"geometry"</span>:  {
-    <span class="hljs-string">"type"</span>: <span class="hljs-string">"Point"</span>,
+    "type": <span class="hljs-string">"Point"</span>,
     <span class="hljs-string">"coordinates"</span>: [<span class="hljs-number">5.2795</span>,<span class="hljs-number">52.1933</span>]
   },
   "properties": {
-    <span class="hljs-string">"naam"</span>: <span class="hljs-string">"Paleis Soestdijk"</span>,
+    "naam": <span class="hljs-string">"Paleis Soestdijk"</span>,
     ...
   }
 }</code></pre>
@@ -647,16 +635,16 @@ Spatial filtering is an extensive topic. There are use cases for geospatial oper
   </div> <pre aria-busy="false"><code class="hljs css">// POST /collections   HTTP/<span class="hljs-number">1.1</span>
 // <span class="hljs-attribute">Content</span>-Type: application/geo+json
 {
-  <span class="hljs-string">"type"</span>: <span class="hljs-string">"FeatureCollection"</span>,
+  "type": <span class="hljs-string">"FeatureCollection"</span>,
   <span class="hljs-string">"features"</span>: [
   {
-    <span class="hljs-string">"type"</span>: <span class="hljs-string">"Feature"</span>,
+    "type": <span class="hljs-string">"Feature"</span>,
     <span class="hljs-string">"geometry"</span>:  {
-      <span class="hljs-string">"type"</span>: <span class="hljs-string">"Point"</span>,
+      "type": <span class="hljs-string">"Point"</span>,
       <span class="hljs-string">"coordinates"</span>: [<span class="hljs-number">5.2795</span>,<span class="hljs-number">52.1933</span>]
     },
     "properties": {
-      <span class="hljs-string">"naam"</span>: <span class="hljs-string">"Paleis Soestdijk"</span>,
+      "naam": <span class="hljs-string">"Paleis Soestdijk"</span>,
       ...
     }
   }]
@@ -682,13 +670,13 @@ In case a collection of resources is embedded in the request resource, the name 
     <a class="self-link" href="#example-9">Example<bdi> 9</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-comment">// POST /collections/gebouwen/items   HTTP/1.1</span>
 <span class="hljs-comment">// Content-Type: application/json</span>
-{
-  <span class="hljs-attr">"naam"</span>: <span class="hljs-string">"Paleis Soestdijk"</span>,
-  <span class="hljs-attr">"geometrie"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Point"</span>,
-    <span class="hljs-attr">"coordinates"</span>: [<span class="hljs-number">5.2795</span>,<span class="hljs-number">52.1933</span>]
-  }
-}</code></pre>
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"naam"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Paleis Soestdijk"</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"geometrie"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Point"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"coordinates"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">5.2795</span><span class="hljs-punctuation">,</span><span class="hljs-number">52.1933</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
       </div>
   Example: POST resource containing geometry collection
   <div class="example" id="example-10">
@@ -696,18 +684,18 @@ In case a collection of resources is embedded in the request resource, the name 
     <a class="self-link" href="#example-10">Example<bdi> 10</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-comment">// POST /collections/gebouwen/items   HTTP/1.1</span>
 <span class="hljs-comment">// Content-Type: application/json</span>
-{
-  <span class="hljs-attr">"naam"</span>: <span class="hljs-string">"Paleis Soestdijk"</span>,
-  <span class="hljs-attr">"geometrie"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"GeometryCollection"</span>,
-    <span class="hljs-attr">"geometries"</span>: [
-      {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Point"</span>,
-        <span class="hljs-attr">"coordinates"</span>: [<span class="hljs-number">5.2795</span>,<span class="hljs-number">52.1933</span>]
-      }
-    ]
-  }
-}</code></pre>
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"naam"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Paleis Soestdijk"</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"geometrie"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"GeometryCollection"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"geometries"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Point"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"coordinates"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">5.2795</span><span class="hljs-punctuation">,</span><span class="hljs-number">52.1933</span><span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
       </div>
 
   <div class="header-wrapper"><h4 class="rulelab" id="how-to-test-2">How to test</h4><a class="self-link" href="#/geo/embed-geojson-geometry-request" aria-label="Permalink for this Section"></a></div>
@@ -727,13 +715,13 @@ In case a collection of resources is embedded in the request resource, the name 
   <div class="example" id="example-11">
         <div class="marker">
     <a class="self-link" href="#example-11">Example<bdi> 11</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs javascript">  Request:
+  </div> <pre aria-busy="false"><code class="hljs javascript">  <span class="hljs-title class_">Request</span>:
   <span class="hljs-comment">// GET /collections/gebouwen/items/0308100000022041   HTTP 1.1</span>
   <span class="hljs-comment">// Content-type: application/geo+json</span>
 
 
 
-  Response:
+  <span class="hljs-title class_">Response</span>:
   {
     <span class="hljs-string">"type"</span>: <span class="hljs-string">"Feature"</span>,
     <span class="hljs-string">"id"</span>: <span class="hljs-string">"0308100000022041"</span>,
@@ -756,14 +744,14 @@ In case a collection of resources is embedded in the request resource, the name 
   </p><div class="example" id="example-12">
         <div class="marker">
     <a class="self-link" href="#example-12">Example<bdi> 12</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs javascript">  Request:
+  </div> <pre aria-busy="false"><code class="hljs javascript">  <span class="hljs-title class_">Request</span>:
   <span class="hljs-comment">// GET /collections/gebouwen   HTTP 1.1</span>
   <span class="hljs-comment">// Content-type: application/geo+json</span>
 
 
 
 
-  Response:
+  <span class="hljs-title class_">Response</span>:
   {
     <span class="hljs-string">"type"</span>: <span class="hljs-string">"FeatureCollection"</span>,
     <span class="hljs-string">"features"</span>: [
@@ -856,14 +844,14 @@ In case a collection of resources is returned, the name of the array containing 
   </p><div class="example" id="example-13">
         <div class="marker">
     <a class="self-link" href="#example-13">Example<bdi> 13</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs javascript">  Request:
+  </div> <pre aria-busy="false"><code class="hljs javascript">  <span class="hljs-title class_">Request</span>:
   <span class="hljs-comment">// GET /gebouwen/0308100000022041   HTTP 1.1</span>
   <span class="hljs-comment">// Content-type: application/hal+json</span>
 
 
 
 
-  Response:
+  <span class="hljs-title class_">Response</span>:
   {
     <span class="hljs-string">"identificatie"</span>: <span class="hljs-string">"0308100000022041"</span>,
     <span class="hljs-string">"naam"</span>: <span class="hljs-string">"Paleis Soestdijk"</span>,
@@ -883,14 +871,14 @@ In case a collection of resources is returned, the name of the array containing 
   </p><div class="example" id="example-14">
         <div class="marker">
     <a class="self-link" href="#example-14">Example<bdi> 14</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs javascript">  Request:
+  </div> <pre aria-busy="false"><code class="hljs javascript">  <span class="hljs-title class_">Request</span>:
   <span class="hljs-comment">// GET /gebouwen/0308100000022041   HTTP 1.1</span>
   <span class="hljs-comment">// Content-type: application/hal+json</span>
 
 
 
 
-  Response:
+  <span class="hljs-title class_">Response</span>:
   {
     <span class="hljs-string">"identificatie"</span>: <span class="hljs-string">"0308100000022041"</span>,
     <span class="hljs-string">"naam"</span>: <span class="hljs-string">"Paleis Soestdijk"</span>,
@@ -919,14 +907,14 @@ In case a collection of resources is returned, the name of the array containing 
   </p><div class="example" id="example-15">
         <div class="marker">
     <a class="self-link" href="#example-15">Example<bdi> 15</bdi></a>
-  </div> <pre aria-busy="false"><code class="hljs javascript">  Request:
+  </div> <pre aria-busy="false"><code class="hljs javascript">  <span class="hljs-title class_">Request</span>:
   <span class="hljs-comment">// GET /gebouwen   HTTP 1.1</span>
   <span class="hljs-comment">// Content-type: application/hal+json</span>
 
 
 
 
-  Response:
+  <span class="hljs-title class_">Response</span>:
   {
     <span class="hljs-string">"gebouwen"</span>: [
       {
@@ -1018,7 +1006,7 @@ In case a collection of resources is returned, the name of the array containing 
 </li></ul></div>
 
 </section></section>
-        <section id="coordinate-reference-system-crs"><div class="header-wrapper"><h2 id="x3-coordinate-reference-system-crs"><bdi class="secno">3. </bdi>Coordinate Reference System (CRS)</h2><a class="self-link" href="#coordinate-reference-system-crs" aria-label="Permalink for Section 3."></a></div>
+  <section id="coordinate-reference-system-crs"><div class="header-wrapper"><h2 id="x3-coordinate-reference-system-crs"><bdi class="secno">3. </bdi>Coordinate Reference System (CRS)</h2><a class="self-link" href="#coordinate-reference-system-crs" aria-label="Permalink for Section 3."></a></div>
 <p>A Coordinate Reference System (CRS) or Spatial Reference System (SRS) is a framework to measure locations on the earth surface as coordinates. Geometries consist of coordinates. To be able to measure the geometry's coordinates on the earth surface a CRS is required in conjunction with the coordinates.</p>
 <p>CRSs are uniquely identified by means of a Spatial Reference System Identifier (SRID).
 SRIDs may refer to different standards, for example EPSG Geodetic Parameter Dataset or Open Geospatial Consortium (OGC).</p>
@@ -1203,7 +1191,7 @@ When referring to a coordinate reference system using its code in the rest of th
 </div>
 
 <p>The API should be able to handle the following scenarios based on the rules stated above: </p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Scenario</th>
@@ -1236,7 +1224,7 @@ When referring to a coordinate reference system using its code in the rest of th
 </tr>
 </tbody></table>
 <p>Below is a list of the most commonly used CRSs in the Netherlands:</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>Name</th>
@@ -1353,7 +1341,7 @@ Officially, WGS 84 longitude-latitude (OGC:CRS84) is the only CRS allowed in Geo
 </section><section id="crs-transformation"><div class="header-wrapper"><h3 id="x3-3-crs-transformation"><bdi class="secno">3.3 </bdi>CRS transformation</h3><a class="self-link" href="#crs-transformation" aria-label="Permalink for Section 3.3"></a></div>
 <p>If the requested CRS is not the same as the storage CRS, a coordinate transformation is needed. Performance is increased when the dataset is transformed in multiple CRSs and stored in advance, and not transformed at the moment the request has arrived. In case of a transformation between RD and ETRS89, it is required that this transformation uses the latest version of the procedure of <a href="https://docs.geostandaarden.nl/crs/crs/#transformatie-en-conversie-tussen-rdnap-en-etrs89">RDNAPTRANS™</a>.</p>
 </section></section>
-        <section id="inspire-requirements"><div class="header-wrapper"><h2 id="x4-inspire-requirements"><bdi class="secno">4. </bdi>INSPIRE requirements</h2><a class="self-link" href="#inspire-requirements" aria-label="Permalink for Section 4."></a></div>
+  <section id="inspire-requirements"><div class="header-wrapper"><h2 id="x4-inspire-requirements"><bdi class="secno">4. </bdi>INSPIRE requirements</h2><a class="self-link" href="#inspire-requirements" aria-label="Permalink for Section 4."></a></div>
 <p><a href="https://inspire.ec.europa.eu/">INSPIRE</a> is a European directive that forces data providers of geospatial datasets that belong to one of the 34 INSPIRE themes to publish the metadata, a viewservice and a download service. These services can also be APIs.</p>
 <p>For the OGC-API Features, an endorsed good practice has been described in a <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md">document</a> that proposes a technical approach for implementing the requirements set out in the INSPIRE Implementing Rules for Network Services [<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02009R0976-20141231&amp;from=EN">IRs for NS</a>] based on the newly adopted <a href="http://docs.opengeospatial.org/is/17-069r3/17-069r3.html">OGC API - Features standard</a>.</p>
 <p>The extra requirements stated in this document concern:</p>
@@ -1368,7 +1356,7 @@ Officially, WGS 84 longitude-latitude (OGC:CRS84) is the only CRS allowed in Geo
 </ul>
 <p>These requirements should be met when an API serves features for an INSPIRE dataset.</p>
 </section>
-        <section class="appendix" id="deprecated-rules"><div class="header-wrapper"><h2 id="a-deprecated-rules"><bdi class="secno">A. </bdi>Deprecated rules</h2><a class="self-link" href="#deprecated-rules" aria-label="Permalink for Appendix A."></a></div>
+  <section class="appendix" id="deprecated-rules"><div class="header-wrapper"><h2 id="a-deprecated-rules"><bdi class="secno">A. </bdi>Deprecated rules</h2><a class="self-link" href="#deprecated-rules" aria-label="Permalink for Appendix A."></a></div>
 <p>This appendix contains some of the rules that were described in the <a href="https://docs.geostandaarden.nl/api/API-Strategie-ext/#geospatial">first version</a> of the "Geospatial Extension", which was never officially adopted as a standard. Only those rules that are still relevant in some situations or do not have a good replacement in the current Geospatial model are retained here. They are shown here only as information. </p>
 <section id="post-endpoint-for-geospatial-queries"><div class="header-wrapper"><h3 id="a-1-post-endpoint-for-geospatial-queries"><bdi class="secno">A.1 </bdi>POST endpoint for geospatial queries</h3><a class="self-link" href="#post-endpoint-for-geospatial-queries" aria-label="Permalink for Appendix A.1"></a></div>
 <div class="note" role="note" id="issue-container-generatedID-7"><div role="heading" class="note-title marker" id="h-note-7" aria-level="4"><span>Note</span></div><aside class="">Two rules related to using a POST endpoint for geospatial queries were deprecated because it is expected that a new API Design Rules module "Filtering" will address the issue of using POST for queries. Until then, the old rules may still be of use.
@@ -1381,12 +1369,12 @@ Officially, WGS 84 longitude-latitude (OGC:CRS84) is the only CRS allowed in Geo
 <p class="rulelab"><strong>Deprecated rule (was: API-36)</strong>: Provide a <code>POST</code> endpoint for geo queries</p>
 
 <p>Spatial queries are sent in a <code>POST</code> to a dedicated endpoint.
-  </p><pre aria-busy="false"><code class="hljs json"><span class="hljs-comment">// POST /api/v1/panden/_zoek with request body:</span>
+  </p><pre aria-busy="false"><code class="hljs css">// POST /api/v1/panden/_zoek with request <span class="hljs-selector-tag">body</span>:
 {
-  <span class="hljs-attr">"_geo"</span>: {
-    <span class="hljs-attr">"contains"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Point"</span>,
-      <span class="hljs-attr">"coordinates"</span>: [<span class="hljs-number">5.9623762</span>, <span class="hljs-number">52.2118093</span>]
+  "_geo": {
+    "contains": {
+      "type": <span class="hljs-string">"Point"</span>,
+      <span class="hljs-string">"coordinates"</span>: [<span class="hljs-number">5.9623762</span>, <span class="hljs-number">52.2118093</span>]
     }
   }
 }</code></pre><p></p>
@@ -1395,15 +1383,15 @@ Officially, WGS 84 longitude-latitude (OGC:CRS84) is the only CRS allowed in Geo
 <p class="rulelab"><strong>Deprecated rule (was: API-37)</strong>: Support mixed queries at <code>POST</code> endpoints</p>
 
 <p>The <code>POST</code> endpoint is preferably set up as a generic query endpoint to support combined queries:</p>
-  <pre aria-busy="false"><code class="hljs json"><span class="hljs-comment">// POST /api/v1/panden/_zoek with request body:</span>
+  <pre aria-busy="false"><code class="hljs css">// POST /api/v1/panden/_zoek with request <span class="hljs-selector-tag">body</span>:
 {
-  <span class="hljs-attr">"_geo"</span>: {
-    <span class="hljs-attr">"contains"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Point"</span>,
-      <span class="hljs-attr">"coordinates"</span>: [<span class="hljs-number">5.9623762</span>, <span class="hljs-number">52.2118093</span>]
+  "_geo": {
+    "contains": {
+      "type": <span class="hljs-string">"Point"</span>,
+      <span class="hljs-string">"coordinates"</span>: [<span class="hljs-number">5.9623762</span>, <span class="hljs-number">52.2118093</span>]
     }
   },
-  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"Actief"</span>
+  "status": <span class="hljs-string">"Actief"</span>
 }</code></pre>
 
 </section><section id="old-crs-negotiation-method"><div class="header-wrapper"><h3 id="a-2-old-crs-negotiation-method"><bdi class="secno">A.2 </bdi>Old CRS negotiation method</h3><a class="self-link" href="#old-crs-negotiation-method" aria-label="Permalink for Appendix A.2"></a></div>
@@ -1419,7 +1407,7 @@ Officially, WGS 84 longitude-latitude (OGC:CRS84) is the only CRS allowed in Geo
 <p>The coordinate reference system (CRS) for both the request and the response are passed as part of the request headers and response headers. In case this header is missing, send the HTTP status code <code>412 Precondition Failed</code>.</p>
 <p>The following headers are purely meant for negotiation between the client and the server. Depending on the application, the request not only contains geometries but also specific meta data, e.g. the original realization including the collection date.</p>
 <p>Request and response may be based on another coordinate reference system. This applies the HTTP-mechanism for content negotiation. The CRS of the geometry in the request (request body) is specified using the header <code>Content-Crs</code>.</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>HTTP header</th>
@@ -1449,7 +1437,7 @@ Officially, WGS 84 longitude-latitude (OGC:CRS84) is the only CRS allowed in Geo
 </tr>
 </tbody></table>
 <p>The preferred CRS for the geometry in the response (response body) is specified using the header <code>Accept-Crs</code>.</p>
-<table class="simple">
+<table>
 <thead>
 <tr>
 <th>HTTP header</th>
@@ -1482,7 +1470,7 @@ Officially, WGS 84 longitude-latitude (OGC:CRS84) is the only CRS allowed in Geo
 
 <p>The CRS for the geometry in the response body is defined using the <code>Accept-Crs</code> header. In case the API does not support the requested CRS, send the HTTP status code <code>406 Not Acceptable</code>.</p>
 </section></section>
-
+ 
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-references"><bdi class="secno">B. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="informative-references">
     <div class="header-wrapper"><h3 id="b-1-informative-references"><bdi class="secno">B.1 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix B.1"></a></div>
@@ -1501,7 +1489,7 @@ Officially, WGS 84 longitude-latitude (OGC:CRS84) is the only CRS allowed in Geo
     </dd><dt id="bib-rfc7946">[rfc7946]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc7946"><cite>The GeoJSON Format</cite></a>. H. Butler; M. Daly; A. Doyle; S. Gillies; S. Hagen; T. Schaub.  IETF. August 2016. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7946">https://www.rfc-editor.org/rfc/rfc7946</a>
     </dd><dt id="bib-sdw-bp">[sdw-bp]</dt><dd>
-      <a href="https://www.w3.org/TR/sdw-bp/"><cite>Spatial Data on the Web Best Practices</cite></a>. Payam Barnaghi; Jeremy Tandy; Linda van den Brink; Timo Homburg.  W3C. 19 September 2023. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/sdw-bp/">https://www.w3.org/TR/sdw-bp/</a>
+      <a href="https://www.w3.org/TR/sdw-bp/"><cite>Spatial Data on the Web Best Practices</cite></a>. Payam Barnaghi; Jeremy Tandy; Linda van den Brink; Timo Homburg.  W3C. 19 September 2023. DNOTE. URL: <a href="https://www.w3.org/TR/sdw-bp/">https://www.w3.org/TR/sdw-bp/</a>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
@@ -1727,4 +1715,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Guide - Definitive version</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Guide - Definitive version</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
