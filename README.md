@@ -202,6 +202,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [dk/watisdk/1.1.2/](https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/1.1.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/watisdk/1.1.2/ "Preview op GitHub Pages")
    - [dk/watisdk/def-hr-watisdk-20181007/](https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/def-hr-watisdk-20181007/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/watisdk/def-hr-watisdk-20181007/ "Preview op GitHub Pages")
 - [dk/wus/](https://gitdocumentatie.logius.nl/publicatie/dk/wus/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/wus/ "Preview op GitHub Pages")
+   - [dk/wus/3/](https://gitdocumentatie.logius.nl/publicatie/dk/wus/3/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/wus/3/ "Preview op GitHub Pages")
    - [dk/wus/3.8/](https://gitdocumentatie.logius.nl/publicatie/dk/wus/3.8/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/wus/3.8/ "Preview op GitHub Pages")
    - [dk/wus/3.8.1/](https://gitdocumentatie.logius.nl/publicatie/dk/wus/3.8.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/wus/3.8.1/ "Preview op GitHub Pages")
    - [dk/wus/def-st-wus-20201006/](https://gitdocumentatie.logius.nl/publicatie/dk/wus/def-st-wus-20201006/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/wus/def-st-wus-20201006/ "Preview op GitHub Pages")
