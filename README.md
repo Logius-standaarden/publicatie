@@ -67,6 +67,8 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [bomos/stelsels/](https://gitdocumentatie.logius.nl/publicatie/bomos/stelsels/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/stelsels/ "Preview op GitHub Pages")
    - [bomos/stelsels/3.0.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/stelsels/3.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/stelsels/3.0.0/ "Preview op GitHub Pages")
    - [bomos/stelsels/en/](https://gitdocumentatie.logius.nl/publicatie/bomos/stelsels/en/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/stelsels/en/ "Preview op GitHub Pages")
+      - [bomos/stelsels/en/3/](https://gitdocumentatie.logius.nl/publicatie/bomos/stelsels/en/3/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/stelsels/en/3/ "Preview op GitHub Pages")
+      - [bomos/stelsels/en/3.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/stelsels/en/3.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/stelsels/en/3.0/ "Preview op GitHub Pages")
       - [bomos/stelsels/en/3.0.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/stelsels/en/3.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/stelsels/en/3.0.0/ "Preview op GitHub Pages")
 - [bomos/verdieping/](https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/verdieping/ "Preview op GitHub Pages")
    - [bomos/verdieping/2i/](https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/2i/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/verdieping/2i/ "Preview op GitHub Pages")
