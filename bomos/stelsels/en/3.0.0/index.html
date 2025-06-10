@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.1.1">
+<meta name="generator" content="ReSpec 35.3.0">
 <style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
@@ -54,7 +54,7 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
-cite .bibref{font-style:normal}
+cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
@@ -82,8 +82,9 @@ dd{margin-left:0}
 }
 </style>
 <style id="respec-nlgov">
-img.license{float:left;padding-right:5px}
+img.license{float:left;padding-right:5px;background:0 0}
 </style>
+<meta name="color-scheme" content="light">
 <meta name="description" content="BOMOS (Beheer- en OntwikkelModel voor Open Standaarden) is een hulpmiddel
   van en voor de standaardisatiewereld. Dit deel bevat een aanvullende
   module voor stelsels. Stelsels vallen buiten scope van het de basis van BOMOS,
@@ -116,7 +117,7 @@ img.license{float:left;padding-right:5px}
       "id": "Logius",
       "height": 77,
       "width": 44,
-      "url": "https://www.logius.nl/standaarden"
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
   "latestVersion": [
@@ -135,15 +136,7 @@ img.license{float:left;padding-right:5px}
     "publishVersion",
     "/"
   ],
-  "prevVersion": [
-    "nl_organisationPublishURL",
-    "pubDomain",
-    "/",
-    "shortName",
-    "/",
-    "previousPublishVersion",
-    "/"
-  ],
+  "prevVersion": [],
   "useLogo": true,
   "useLabel": true,
   "license": "cc-by",
@@ -236,10 +229,18 @@ img.license{float:left;padding-right:5px}
         "Jasper Roes",
         "Joost Farla"
       ],
-      "date": "Juli 2020",
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
       "publisher": "Logius",
-      "title": "API Design Rules (Nederlandse API Strategie IIa)"
+      "title": "API Design Rules"
+    },
+    "ADR1": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0",
+      "publisher": "Logius",
+      "title": "API Design Rules"
     },
     "ADR-ext": {
       "authors": [
@@ -256,6 +257,12 @@ img.license{float:left;padding-right:5px}
       "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
+    },
+    "AuthZEN": {
+      "date": "6 September 2024 ",
+      "href": "https://openid.net/specs/authorization-api-1_0-01.html",
+      "publisher": "OpenID",
+      "title": "Authorization API 1.0 – draft 01"
     },
     "AVG": {
       "date": "27 april 2016",
@@ -496,6 +503,14 @@ img.license{float:left;padding-right:5px}
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
+    },
     "Introspection": {
       "authors": [
         "J. Richer"
@@ -720,6 +735,86 @@ img.license{float:left;padding-right:5px}
       ],
       "publisher": "Association of Computing Machinery (ACM)",
       "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "HEART.OAuth2": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "April 25, 2017",
+      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "Health Relationship Trust Profile for OAuth 2.0"
+    },
+    "JWS.JWE.Algs": {
+      "authors": [
+        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
+      ],
+      "date": "",
+      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
+      "publisher": "IANA",
+      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
+    },
+    "I-D.ietf-oauth-pop-architecture": {
+      "authors": [
+        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
+      ],
+      "date": "July 8, 2016",
+      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
+    },
+    "iGOV.OAuth2": {
+      "authors": [
+        "J. Richer, M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
+    },
+    "ietf-oauth-v2-1-10-refresh-token-grant": {
+      "authors": [
+        "Dick Hardt, Aaron Parecki, Torsten Lodderstedt"
+      ],
+      "date": "January 9, 2024",
+      "href": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-10#name-refresh-token-grant",
+      "publisher": "IETF",
+      "title": "The OAuth 2.1 Authorization Framework: Refresh Token Grant"
+    },
+    "OpenID.FAPI2.0": {
+      "authors": [
+        "D. Fett, D. Tonge, J. Heenan"
+      ],
+      "date": "February 22 2025",
+      "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
+      "publisher": "OpenID foundation",
+      "title": "FAPI 2.0 Security Profile"
     }
   },
   "alternateFormats": [
@@ -759,7 +854,7 @@ img.license{float:left;padding-right:5px}
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
  <body class="h-entry informative toc-inline"><div class="head">
-    <a class="logo" href="https://www.logius.nl/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">BOMOS: Frameworks 3.0.0</h1>
     
     <h2>
@@ -807,9 +902,9 @@ img.license{float:left;padding-right:5px}
           <a rel="alternate" href="BOMOS-Frameworks.pdf">pdf</a>
         </p>
     <p class="copyright">
-          This document is licensed under 
-          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
-        </p>
+            This document is licensed under 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
     <hr title="Separator for header">
   </div>
   <section id="abstract" class="introductory"><h2>Abstract</h2><p> BOMOS (Beheer- en OntwikkelModel voor Open Standaarden) is een hulpmiddel
@@ -820,7 +915,7 @@ img.license{float:left;padding-right:5px}
   van standaarden en stelsels veel overeenkomsten heeft.
  </p>
 </section>
-  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#purpose"><bdi class="secno">1.1 </bdi>Purpose</a></li><li class="tocline"><a class="tocxref" href="#bomos-structure"><bdi class="secno">1.2 </bdi>BOMOS Structure</a></li><li class="tocline"><a class="tocxref" href="#reading-guide"><bdi class="secno">1.3 </bdi>Reading guide</a></li></ol></li><li class="tocline"><a class="tocxref" href="#structure-of-bomos-for-the-management-of-trust-frameworks"><bdi class="secno">2. </bdi>Structure of BOMOS for the Management of Trust Frameworks</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-are-trust-frameworks"><bdi class="secno">2.1 </bdi>What are Trust Frameworks?</a></li><li class="tocline"><a class="tocxref" href="#contents-of-a-trust-framework"><bdi class="secno">2.2 </bdi>Contents of a Trust Framework</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#example-of-a-trust-framework-medmij"><bdi class="secno">2.2.1 </bdi>Example of a Trust Framework: Medmij</a></li></ol></li><li class="tocline"><a class="tocxref" href="#how-can-bomos-be-deployed-as-best-practice-for-the-management-of-trust-frameworks"><bdi class="secno">2.3 </bdi>How can BOMOS be deployed as Best Practice for the Management of Trust Frameworks?</a></li><li class="tocline"><a class="tocxref" href="#bomos-applied-to-trust-frameworks"><bdi class="secno">2.4 </bdi>BOMOS applied to Trust Frameworks</a></li><li class="tocline"><a class="tocxref" href="#strategy"><bdi class="secno">2.5 </bdi>Strategy</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#governance"><bdi class="secno">2.5.1 </bdi>Governance</a></li><li class="tocline"><a class="tocxref" href="#vision"><bdi class="secno">2.5.2 </bdi>Vision</a></li><li class="tocline"><a class="tocxref" href="#funding"><bdi class="secno">2.5.3 </bdi>Funding</a></li></ol></li><li class="tocline"><a class="tocxref" href="#tactical"><bdi class="secno">2.6 </bdi>Tactical</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#community"><bdi class="secno">2.6.1 </bdi>Community</a></li><li class="tocline"><a class="tocxref" href="#adoption-and-recognition"><bdi class="secno">2.6.2 </bdi>Adoption and Recognition</a></li></ol></li><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">2.7 </bdi>Architecture</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#trust-framework-risk-analysis-additional-activity"><bdi class="secno">2.7.1 </bdi>Trust Framework Risk Analysis (additional activity)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#operational"><bdi class="secno">2.8 </bdi>Operational</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wishes-requirements"><bdi class="secno">2.8.1 </bdi>Wishes &amp; Requirements</a></li><li class="tocline"><a class="tocxref" href="#documentation"><bdi class="secno">2.8.2 </bdi>Documentation</a></li><li class="tocline"><a class="tocxref" href="#operational-handbook-additional-activity"><bdi class="secno">2.8.3 </bdi>Operational Handbook (additional activity)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#implementation-support"><bdi class="secno">2.9 </bdi>Implementation Support</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#validation-certification"><bdi class="secno">2.9.1 </bdi>Validation &amp; Certification</a></li></ol></li><li class="tocline"><a class="tocxref" href="#communication"><bdi class="secno">2.10 </bdi>Communication</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#promotion"><bdi class="secno">2.10.1 </bdi>Promotion</a></li><li class="tocline"><a class="tocxref" href="#publication"><bdi class="secno">2.10.2 </bdi>Publication</a></li><li class="tocline"><a class="tocxref" href="#complaint-handling"><bdi class="secno">2.10.3 </bdi>Complaint Handling</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">3. </bdi>List of Figures</a></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#purpose"><bdi class="secno">1.1 </bdi>Purpose</a></li><li class="tocline"><a class="tocxref" href="#bomos-structure"><bdi class="secno">1.2 </bdi>BOMOS Structure</a></li><li class="tocline"><a class="tocxref" href="#reading-guide"><bdi class="secno">1.3 </bdi>Reading guide</a></li></ol></li><li class="tocline"><a class="tocxref" href="#structure-of-bomos-for-the-management-of-trust-frameworks"><bdi class="secno">2. </bdi>Structure of BOMOS for the Management of Trust Frameworks</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#what-are-trust-frameworks"><bdi class="secno">2.1 </bdi>What are Trust Frameworks?</a></li><li class="tocline"><a class="tocxref" href="#relationship-between-govtech-and-trust-frameworks"><bdi class="secno">2.2 </bdi>Relationship Between GovTech and Trust Frameworks</a></li><li class="tocline"><a class="tocxref" href="#contents-of-a-trust-framework"><bdi class="secno">2.3 </bdi>Contents of a Trust Framework</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#example-of-a-trust-framework-medmij"><bdi class="secno">2.3.1 </bdi>Example of a Trust Framework: Medmij</a></li></ol></li><li class="tocline"><a class="tocxref" href="#how-can-bomos-be-deployed-as-best-practice-for-the-management-of-trust-frameworks"><bdi class="secno">2.4 </bdi>How can BOMOS be deployed as Best Practice for the Management of Trust Frameworks?</a></li><li class="tocline"><a class="tocxref" href="#bomos-applied-to-trust-frameworks"><bdi class="secno">2.5 </bdi>BOMOS applied to Trust Frameworks</a></li><li class="tocline"><a class="tocxref" href="#strategy"><bdi class="secno">2.6 </bdi>Strategy</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#governance"><bdi class="secno">2.6.1 </bdi>Governance</a></li><li class="tocline"><a class="tocxref" href="#vision"><bdi class="secno">2.6.2 </bdi>Vision</a></li><li class="tocline"><a class="tocxref" href="#funding"><bdi class="secno">2.6.3 </bdi>Funding</a></li></ol></li><li class="tocline"><a class="tocxref" href="#tactical"><bdi class="secno">2.7 </bdi>Tactical</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#community"><bdi class="secno">2.7.1 </bdi>Community</a></li><li class="tocline"><a class="tocxref" href="#adoption-and-recognition"><bdi class="secno">2.7.2 </bdi>Adoption and Recognition</a></li></ol></li><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">2.8 </bdi>Architecture</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#trust-framework-risk-analysis-additional-activity"><bdi class="secno">2.8.1 </bdi>Trust Framework Risk Analysis (additional activity)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#operational"><bdi class="secno">2.9 </bdi>Operational</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wishes-requirements"><bdi class="secno">2.9.1 </bdi>Wishes &amp; Requirements</a></li><li class="tocline"><a class="tocxref" href="#documentation"><bdi class="secno">2.9.2 </bdi>Documentation</a></li><li class="tocline"><a class="tocxref" href="#operational-handbook-additional-activity"><bdi class="secno">2.9.3 </bdi>Operational Handbook (additional activity)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#implementation-support"><bdi class="secno">2.10 </bdi>Implementation Support</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#validation-certification"><bdi class="secno">2.10.1 </bdi>Validation &amp; Certification</a></li></ol></li><li class="tocline"><a class="tocxref" href="#communication"><bdi class="secno">2.11 </bdi>Communication</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#promotion"><bdi class="secno">2.11.1 </bdi>Promotion</a></li><li class="tocline"><a class="tocxref" href="#publication"><bdi class="secno">2.11.2 </bdi>Publication</a></li><li class="tocline"><a class="tocxref" href="#complaint-handling"><bdi class="secno">2.11.3 </bdi>Complaint Handling</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">3. </bdi>List of Figures</a></li></ol></nav>
   <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
 <table>
 <thead>
@@ -899,100 +994,112 @@ background and context. If however you are personally active in standardisation 
 </section></section>
   <section id="structure-of-bomos-for-the-management-of-trust-frameworks"><div class="header-wrapper"><h2 id="x2-structure-of-bomos-for-the-management-of-trust-frameworks"><bdi class="secno">2. </bdi>Structure of BOMOS for the Management of Trust Frameworks</h2><a class="self-link" href="#structure-of-bomos-for-the-management-of-trust-frameworks" aria-label="Permalink for Section 2."></a></div>
 <section id="what-are-trust-frameworks"><div class="header-wrapper"><h3 id="x2-1-what-are-trust-frameworks"><bdi class="secno">2.1 </bdi>What are Trust Frameworks?</h3><a class="self-link" href="#what-are-trust-frameworks" aria-label="Permalink for Section 2.1"></a></div>
-<p>Trust frameworks or in short ‘frameworks’ are close forms of cooperation between different stakeholders from business and industry, government and research, that supply products or services based on predetermined requirements.  </p>
-<p>Trust frameworks make clear to all participating parties the rules of play for the interaction between them and for the supply of a product or service. For the users of those services, they offer freedom of choice and a quality guarantee. For example: you can choose which party will assist you in submitting annual reports to the Nederlandse Bank via Standard Business Reporting (see: <a href="https://www.sbr-nl.nl/">SBR</a>), and all approved parties do what they have to do.</p>
-</section><section id="contents-of-a-trust-framework"><div class="header-wrapper"><h3 id="x2-2-contents-of-a-trust-framework"><bdi class="secno">2.2 </bdi>Contents of a Trust Framework</h3><a class="self-link" href="#contents-of-a-trust-framework" aria-label="Permalink for Section 2.2"></a></div>
-<p>The heart of a trust framework consists of the rules of play that every supplier or other stakeholder must comply with to take part or to supply a product or service.
-On the one hand these rules of play offer a guarantee to the user that the product or service can be securely and reliably used, while on the other hand they are mutual agreements that guarantee the success of the cooperation. Elinor Ostrom in the book Governing the Commons, describes the conditions for successful cooperation with regard to scarce common resources (otherwise known as the commons), such as the management of water wells. These principles can be recognised in cooperation within successful trust frameworks. These principles are:</p>
-<ul>
-<li>   Commons need to have clearly defined boundaries in terms of shared functionality/resources and a homogeneous user group.</li>
-<li>   Harmony and balance in benefits and costs for all stakeholders.</li>
-<li>   Everyone can contribute to improvements.</li>
-<li>   Monitoring of all stakeholders (based on transparency).</li>
-<li>   Graduated sanctions on violation of agreements are in place and implemented.</li>
-<li>   Differences of opinion can be quickly and effectively solved.</li>
-<li>   Participants in the framework have the right to self-governance.</li>
-<li>   Use systems of frameworks to keep individual frameworks simple.</li>
-</ul>
+<p>Defining precisely what constitutes a “trust framework” proves elusive.Notable examples of such frameworks in the Netherlands include eHerkenning, MedMij, KiK-V, and Standard Business Reporting.</p>
+<p>A review of the literature <a href="https://digicampus.tech/wp-content/uploads/2024/09/van-der-Peet-L.-Bharosa-N.-Dijkhuis-S.-Janssen-M.-2024-Understanding-trust-frameworks.pdf">(see understanding trust frameworks)</a> reveals that only a single paper offers a formal definition, originating from the National Institute of Standards and Technology (NIST): a trust framework is “a legally enforceable set of specifications, rules, and agreements governing a multilateral system, established for a common purpose, designed for specific transactions within a community of participants, and bound by common requirements”.</p>
+<p>A more pragmatic interpretation frames a trust framework as close forms of collaboration among stakeholders from business, government, and academia, who provide products or services in accordance with agreed-upon standards.</p>
+</section><section id="relationship-between-govtech-and-trust-frameworks"><div class="header-wrapper"><h3 id="x2-2-relationship-between-govtech-and-trust-frameworks"><bdi class="secno">2.2 </bdi>Relationship Between GovTech and Trust Frameworks</h3><a class="self-link" href="#relationship-between-govtech-and-trust-frameworks" aria-label="Permalink for Section 2.2"></a></div>
+<p>GovTech initiatives focus on leveraging technology to enhance the public sector and address societal challenges. These efforts frequently arise from collaborations between government, industry, and knowledge institutions, with technological innovation at their core. After all, the government does not always possess the capacity or expertise to independently respond to technological developments.</p>
+<p>The development of GovTech initiatives is closely intertwined with the emergence of trust frameworks as a <strong>governance mechanism</strong> for digital public infrastructure. These frameworks constitute an essential component of the government's digital transformation.</p>
+</section><section id="contents-of-a-trust-framework"><div class="header-wrapper"><h3 id="x2-3-contents-of-a-trust-framework"><bdi class="secno">2.3 </bdi>Contents of a Trust Framework</h3><a class="self-link" href="#contents-of-a-trust-framework" aria-label="Permalink for Section 2.3"></a></div>
+<p>The core of a trust framework consists of the rules of play that every supplier or other stakeholder must comply to before taking part in order to provide a service.
+These rules, on the one hand, guarantee for the user that products or services can be obtained safely and reliably; on the other hand, they are mutual agreements that underpin successful cooperation.</p>
+<p>Elinor Ostrom, in her book <em>Governing the Commons</em>, describes the conditions for successful collaboration around scarce common resources, such as the management of water wells. These principles can be recognised in the operation of successful trust frameworks. They are (loosely translated):
+-	Commons need to have clearly defined boundaries in terms of shared functionality/resources and a homogeneous user group.
+-	Harmony and balance in benefits and costs for all stakeholders.
+-	Everyone can contribute to improvements.
+-	Monitoring of all stakeholders (based on transparency).
+-	Graduated sanctions on violation of agreements are in place and implemented.
+-	Differences of opinion can be quickly and effectively solved.
+-	Participants in the framework have the right to self-governance.
+-	Use systems of frameworks to keep individual frameworks simple.</p>
 <p>These principles are the foundation of agreements and rules governing the following aspects that recur as elements of a trust framework:
 -	Information about rights and obligations of the stakeholders: such as definitions, liability, governing bodies, management and distribution of tasks.
 -	Financial: the management of a trust framework and organising its management cost money: what agreements have been reached on who pays for what?
 -	Operational: who solves incidents? Are operations carried out subject to a label or brand? Take for example communication, brand management and agreements on operational processes.
 -	Frameworks of standards: what requirements must suppliers products/services meet?
 -	Architecture and technical aspects: for example technical standards, use cases and interface descriptions.</p>
-<section id="example-of-a-trust-framework-medmij"><div class="header-wrapper"><h4 id="x2-2-1-example-of-a-trust-framework-medmij"><bdi class="secno">2.2.1 </bdi>Example of a Trust Framework: Medmij</h4><a class="self-link" href="#example-of-a-trust-framework-medmij" aria-label="Permalink for Section 2.2.1"></a></div>
+<p>This component diagram was developed by and based on the research of L. van der Peet and provides insight into the relevant components of a trust framework.
+
+      </p><figure id="fig-component-diagram-trust-frameworks">
+        <img src="images/components_diagram_EN.png" alt="componenten diagram trust framework">
+        <figcaption><a class="self-link" href="#fig-component-diagram-trust-frameworks">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">Component diagram Trust Frameworks</span></figcaption>
+      </figure>
+    <p></p>
+<section id="example-of-a-trust-framework-medmij"><div class="header-wrapper"><h4 id="x2-3-1-example-of-a-trust-framework-medmij"><bdi class="secno">2.3.1 </bdi>Example of a Trust Framework: Medmij</h4><a class="self-link" href="#example-of-a-trust-framework-medmij" aria-label="Permalink for Section 2.3.1"></a></div>
 <p>
       </p><figure id="fig-medmij-afsprakenstelsel-4-corner-model">
         <img src="images/medmij_afsprakenstelsel.png" alt="medmij afsprakenstelsel 4 cornermodel">
-        <figcaption><a class="self-link" href="#fig-medmij-afsprakenstelsel-4-corner-model">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">Medmij afsprakenstelsel 4 corner model</span></figcaption>
+        <figcaption><a class="self-link" href="#fig-medmij-afsprakenstelsel-4-corner-model">Figure <bdi class="figno">2</bdi></a> <span class="fig-title">Medmij afsprakenstelsel 4 corner model</span></figcaption>
       </figure>
     <p></p>
 <p>The Medmij trust framework (for more info: see <a href="https://medmij.nl/en/medmij-framework/">Medmij</a>) makes it possible for end users to securely and reliably share health-related information in their personal health environment with care providers such as a dispensing chemist or hospital. The end users select a party to supply the health environment and hospitals select a party they connect to the Medmij network. The trust framework provides the conditions for secure and reliable exchange and the technical facilities for practical operation. The scope of the trust framework is the area in which the service provider of the end user cooperates with the service provider and the care provider. There are multiple service providers on both sides and thanks to the framework, the complexity is restricted and the services and products work well together.  </p>
 <p>This layout is also known as the ‘four corner’ model. In this case, via their own broker, end users are connected to other participants in the framework. Remember: there are also other possible configurations within a trust framework, such as a central facility (3-corner) or an additional branch for example for transaction-driven accounting information (5-corner).</p>
-</section></section><section id="how-can-bomos-be-deployed-as-best-practice-for-the-management-of-trust-frameworks"><div class="header-wrapper"><h3 id="x2-3-how-can-bomos-be-deployed-as-best-practice-for-the-management-of-trust-frameworks"><bdi class="secno">2.3 </bdi>How can BOMOS be deployed as Best Practice for the Management of Trust Frameworks?</h3><a class="self-link" href="#how-can-bomos-be-deployed-as-best-practice-for-the-management-of-trust-frameworks" aria-label="Permalink for Section 2.3"></a></div>
+</section></section><section id="how-can-bomos-be-deployed-as-best-practice-for-the-management-of-trust-frameworks"><div class="header-wrapper"><h3 id="x2-4-how-can-bomos-be-deployed-as-best-practice-for-the-management-of-trust-frameworks"><bdi class="secno">2.4 </bdi>How can BOMOS be deployed as Best Practice for the Management of Trust Frameworks?</h3><a class="self-link" href="#how-can-bomos-be-deployed-as-best-practice-for-the-management-of-trust-frameworks" aria-label="Permalink for Section 2.4"></a></div>
 <p>Trust frameworks cannot existing without standards... Standards are the foundation on which interoperability and cooperation are made possible. It appears to be a combination of standards with one important addition: in the case of a framework, agreements are also reached on operational aspects of cooperation for the supply of a product or service.</p>
 <p>To a considerable extent, the management of a trust framework and of a standard are closely related, making BOMOS ideally applicable in this broader scope. The BOMOS activities are also clearly recognisable and usable within frameworks, with the occasional exception or deviation. As with the management of a standard, in trust frameworks there are activities aimed at organising the operation, further development and management of central provisions, support for connecting to the framework and promoting use.</p>
-<p>Based on this method, in collaboration with the ICTU, a tool has also been developed based on the BOMOS assessment, but specifically intended for trust frameworks. This can be obtained via Logius: <a href="https://logius.nl/contact">https://logius.nl/contact</a></p>
+<p>Logius has developed a tool to conduct a BOMOS assessment specifically aimed at trust frameworks. This assessment can be applied in several ways. When establishing a new framework, readers can quickly explore which components are most important to set up first. For an existing trust framework, the assessment is valuable for identifying, together with stakeholders, which components require additional attention. This tool is available (in English) online; see <a href="https://regelhulpenvoorbedrijven.nl/bomos-assessment-tool/">BOMOS assessment</a>.</p>
 <p>Experience has now been acquired in practice with the implementation of this specific BOMOS assessment for trust frameworks. These analyses clearly reveal the value of having a trust framework to provide structure, definitions, activities and tips and tricks. BOMOS supplies the common language and promotes understanding of each other’s roles and perceptions, thereby enabling constructive discussions.</p>
 <p>The result of any assessment helps in the short term to arrive at a target for professionalising management, as well as identifying the steps that need to be taken in that process. If you conduct an assessment together with the stakeholders, you automatically generate the support you need to put the changes into effect.</p>
 <p>The BOMOS foundation can be ideally used for structuring the management of new trust frameworks. In that situation, BOMOS helps to create a clear picture for a programme or for a client of the activities that need to be organised, and why. This picture then helps in setting the priorities for organising management activities and estimating the necessary resources.</p>
-</section><section id="bomos-applied-to-trust-frameworks"><div class="header-wrapper"><h3 id="x2-4-bomos-applied-to-trust-frameworks"><bdi class="secno">2.4 </bdi>BOMOS applied to Trust Frameworks</h3><a class="self-link" href="#bomos-applied-to-trust-frameworks" aria-label="Permalink for Section 2.4"></a></div>
+</section><section id="bomos-applied-to-trust-frameworks"><div class="header-wrapper"><h3 id="x2-5-bomos-applied-to-trust-frameworks"><bdi class="secno">2.5 </bdi>BOMOS applied to Trust Frameworks</h3><a class="self-link" href="#bomos-applied-to-trust-frameworks" aria-label="Permalink for Section 2.5"></a></div>
 <p>
       </p><figure id="fig-bomos-activiteiten">
         <img src="images/BOMOS-15_Bomos-activiteiten-blanco_EN.png" alt="BOMOS model">
-        <figcaption><a class="self-link" href="#fig-bomos-activiteiten">Figure <bdi class="figno">2</bdi></a> <span class="fig-title">BOMOS activiteiten</span></figcaption>
+        <figcaption><a class="self-link" href="#fig-bomos-activiteiten">Figure <bdi class="figno">3</bdi></a> <span class="fig-title">BOMOS activiteiten</span></figcaption>
       </figure>
     <p></p>
-</section><section id="strategy"><div class="header-wrapper"><h3 id="x2-5-strategy"><bdi class="secno">2.5 </bdi>Strategy</h3><a class="self-link" href="#strategy" aria-label="Permalink for Section 2.5"></a></div>
-<section id="governance"><div class="header-wrapper"><h4 id="x2-5-1-governance"><bdi class="secno">2.5.1 </bdi>Governance</h4><a class="self-link" href="#governance" aria-label="Permalink for Section 2.5.1"></a></div>
+</section><section id="strategy"><div class="header-wrapper"><h3 id="x2-6-strategy"><bdi class="secno">2.6 </bdi>Strategy</h3><a class="self-link" href="#strategy" aria-label="Permalink for Section 2.6"></a></div>
+<section id="governance"><div class="header-wrapper"><h4 id="x2-6-1-governance"><bdi class="secno">2.6.1 </bdi>Governance</h4><a class="self-link" href="#governance" aria-label="Permalink for Section 2.6.1"></a></div>
 <p>It is essential to reach structured agreements between the various stakeholders in a trust framework. These harmonised agreements are reached via the governance of the framework. This requires the description of the organisation structure, and forums for decision making and roles.
 The organisation structure clarifies the forums that exist in the framework of decision making and the types of decisions that are taken in each forum. The structure also clarifies how tasks, relationships and communication between the groups are safeguarded. This does however essentially require a distinction between a governing body and execution.</p>
 <p>Agreements on how decisions are taken, how to become a member of a decision-making forum and the scope of governance can be elements of the trust framework itself, but can also be outside the trust framework, in the form of an institutional decision or covenant.</p>
 <p>The role of watchdog is an additional role over and above the roles within standards: what organisation has been put in place to assess whether agreements are actually complied with, and what are the procedures and means of intervening if this is not the case. It is important that this task be occupied independently to avoid a situation in which the fox is set to guard the henhouse. This role is also responsible for taking appropriate measures in the case of non-compliance.</p>
-</section><section id="vision"><div class="header-wrapper"><h4 id="x2-5-2-vision"><bdi class="secno">2.5.2 </bdi>Vision</h4><a class="self-link" href="#vision" aria-label="Permalink for Section 2.5.2"></a></div>
+</section><section id="vision"><div class="header-wrapper"><h4 id="x2-6-2-vision"><bdi class="secno">2.6.2 </bdi>Vision</h4><a class="self-link" href="#vision" aria-label="Permalink for Section 2.6.2"></a></div>
 <p>The aim of any trust framework must be clear and concise. At its heart, the mission of any framework is the ‘wish to solve’ a problem that is too complex and too large to be solved independently and which requires the assistance of other organisations. These organisations join forces to arrive at the solution and to reach agreements on the approach to be followed. This is expressed in a positive business case. This mission and vision are reflected in the communication released by a trust framework and create a bond between the parties active within the framework.</p>
-</section><section id="funding"><div class="header-wrapper"><h4 id="x2-5-3-funding"><bdi class="secno">2.5.3 </bdi>Funding</h4><a class="self-link" href="#funding" aria-label="Permalink for Section 2.5.3"></a></div>
+</section><section id="funding"><div class="header-wrapper"><h4 id="x2-6-3-funding"><bdi class="secno">2.6.3 </bdi>Funding</h4><a class="self-link" href="#funding" aria-label="Permalink for Section 2.6.3"></a></div>
 <p>For those parties wishing to play an active role within a framework, it must be financially attractive as reflected in a positive business case if the framework is to have a future. This applies to private, public-private and public frameworks. The same business case is required to account for the fact that a management organisation needs to be established and funded over a longer period. The management organisation can be financed by the stakeholders, members of the framework or centrally, by the owner.</p>
 <p>Roadmapping (additional activity)
 Making and maintaining a multiyear roadmap brings together the strategic choices and the steps to be followed in arriving at the objective. It helps with adoption because the stakeholders know when specific functionalities will be delivered, which makes it attractive to use the products of the frameworks or to fulfil a role within the framework. Elaborating and upholding a common goal in the form of a roadmap also generates support. It describes the concrete steps that must be taken to bring about the vision.</p>
-</section></section><section id="tactical"><div class="header-wrapper"><h3 id="x2-6-tactical"><bdi class="secno">2.6 </bdi>Tactical</h3><a class="self-link" href="#tactical" aria-label="Permalink for Section 2.6"></a></div>
-<section id="community"><div class="header-wrapper"><h4 id="x2-6-1-community"><bdi class="secno">2.6.1 </bdi>Community</h4><a class="self-link" href="#community" aria-label="Permalink for Section 2.6.1"></a></div>
+</section></section><section id="tactical"><div class="header-wrapper"><h3 id="x2-7-tactical"><bdi class="secno">2.7 </bdi>Tactical</h3><a class="self-link" href="#tactical" aria-label="Permalink for Section 2.7"></a></div>
+<section id="community"><div class="header-wrapper"><h4 id="x2-7-1-community"><bdi class="secno">2.7.1 </bdi>Community</h4><a class="self-link" href="#community" aria-label="Permalink for Section 2.7.1"></a></div>
 <p>Within a trust framework, the term community is less commonplace but there are organisation forms that operate at tactical level, but more in the form of an expert group or working group. These groups are involved in substantive changes to a trust framework and in drawing up recommendations on innovations and architecture. The governance of a framework issues instructions to establish an expert group or working group, with a clear assignment.</p>
 <p>The composition of the working group will depend on the nature of the assignment. There are working groups that consist only of representatives of suppliers, but others are a combination of users and other stakeholders.</p>
-</section><section id="adoption-and-recognition"><div class="header-wrapper"><h4 id="x2-6-2-adoption-and-recognition"><bdi class="secno">2.6.2 </bdi>Adoption and Recognition</h4><a class="self-link" href="#adoption-and-recognition" aria-label="Permalink for Section 2.6.2"></a></div>
+</section><section id="adoption-and-recognition"><div class="header-wrapper"><h4 id="x2-7-2-adoption-and-recognition"><bdi class="secno">2.7.2 </bdi>Adoption and Recognition</h4><a class="self-link" href="#adoption-and-recognition" aria-label="Permalink for Section 2.7.2"></a></div>
 <p>To be active in the government domain, it is useful to have a formal status for the framework, in other words an obligation or recommendation to make use of the products of the framework. Another key factor is the development of critical mass in terms of use. This is often a chicken and egg problem in which many parties wait to see who will take the first steps, before themselves joining in after large implementing organisations for example make the switch. To ensure that these developments are well organised requires a strategy with support from the stakeholders.  This in turn increases the likelihood that suppliers will be able to draw up a positive business case and that new participants will join in. Governance is responsible for adoption.</p>
-</section></section><section id="architecture"><div class="header-wrapper"><h3 id="x2-7-architecture"><bdi class="secno">2.7 </bdi>Architecture</h3><a class="self-link" href="#architecture" aria-label="Permalink for Section 2.7"></a></div>
+</section></section><section id="architecture"><div class="header-wrapper"><h3 id="x2-8-architecture"><bdi class="secno">2.8 </bdi>Architecture</h3><a class="self-link" href="#architecture" aria-label="Permalink for Section 2.8"></a></div>
 <p>Architecture can be viewed in different ways or from different viewpoints (see Archimate): from the point of view of strategy, business, the applications or the underlying components. This variety of viewpoints often relates to the different roles the parties play within a a trust framework. In the ideal world, all those roles are described but in practice there are often differences in the level of elaboration in different frameworks. Having access to these models makes it easier to communicate together and to effectively estimate the impact and opportunities offered by changes. It also lowers the threshold for new parties wishing to become part of the trust framework.</p>
 <p>Interoperability also plays an important role within a trust framework, as reflected in the attention paid to the architecture of the technical interfaces between the various stakeholders.  Architecture also refers to the choices about which (technical) standards should be used within a trust framework, by the various participants.</p>
 <p>Operating and jointly defining the architectural principles for a trust framework (see NORA) is a valuable tool when it comes to assessing proposals for change.</p>
-<section id="trust-framework-risk-analysis-additional-activity"><div class="header-wrapper"><h4 id="x2-7-1-trust-framework-risk-analysis-additional-activity"><bdi class="secno">2.7.1 </bdi>Trust Framework Risk Analysis (additional activity)</h4><a class="self-link" href="#trust-framework-risk-analysis-additional-activity" aria-label="Permalink for Section 2.7.1"></a></div>
+<section id="trust-framework-risk-analysis-additional-activity"><div class="header-wrapper"><h4 id="x2-8-1-trust-framework-risk-analysis-additional-activity"><bdi class="secno">2.8.1 </bdi>Trust Framework Risk Analysis (additional activity)</h4><a class="self-link" href="#trust-framework-risk-analysis-additional-activity" aria-label="Permalink for Section 2.8.1"></a></div>
 <p>A trust framework is the foundation that enables secure and reliable data exchange between different parties. It is also essential for the governance to have a clear picture of the situation with regard to threats and risks to the framework itself. What could go wrong, what should I do to avoid potential risks, and if a threat does become reality: what steps should I take and who should I reach out to?</p>
-</section></section><section id="operational"><div class="header-wrapper"><h3 id="x2-8-operational"><bdi class="secno">2.8 </bdi>Operational</h3><a class="self-link" href="#operational" aria-label="Permalink for Section 2.8"></a></div>
-<section id="wishes-requirements"><div class="header-wrapper"><h4 id="x2-8-1-wishes-requirements"><bdi class="secno">2.8.1 </bdi>Wishes &amp; Requirements</h4><a class="self-link" href="#wishes-requirements" aria-label="Permalink for Section 2.8.1"></a></div>
+</section></section><section id="operational"><div class="header-wrapper"><h3 id="x2-9-operational"><bdi class="secno">2.9 </bdi>Operational</h3><a class="self-link" href="#operational" aria-label="Permalink for Section 2.9"></a></div>
+<section id="wishes-requirements"><div class="header-wrapper"><h4 id="x2-9-1-wishes-requirements"><bdi class="secno">2.9.1 </bdi>Wishes &amp; Requirements</h4><a class="self-link" href="#wishes-requirements" aria-label="Permalink for Section 2.9.1"></a></div>
 <p>Just like a standard, a trust framework also develops by meeting the wishes and requirements of users. This is yet another key element of changes that make a structural contribution to the business case, legislation and regulations and measures for facing up to (future) threats to security and reliability.  To manage all these aspects successfully, a trust framework contains rules on how changes must be initiated, descriptions of the decision-making process and how those changes are integrated in the trust framework and eventually implemented by the stakeholders. One key aspect in the implementation of changes in a trust framework is safeguarding continuity: ideally, you avoid scenarios in which changes are rolled out via a big bang approach; instead they are rolled out at their own pace. This can be organised by facilitating some form of backwards compatibility.</p>
-</section><section id="documentation"><div class="header-wrapper"><h4 id="x2-8-2-documentation"><bdi class="secno">2.8.2 </bdi>Documentation</h4><a class="self-link" href="#documentation" aria-label="Permalink for Section 2.8.2"></a></div>
+</section><section id="documentation"><div class="header-wrapper"><h4 id="x2-9-2-documentation"><bdi class="secno">2.9.2 </bdi>Documentation</h4><a class="self-link" href="#documentation" aria-label="Permalink for Section 2.9.2"></a></div>
 <p>The trust framework is freely available and accessible. This prevents the outside world viewing with suspicion what goes on within a trust framework as if it were a cartel. In the ideal world, the documents used are also publicly available. Transparency helps in generating support.  </p>
-</section><section id="operational-handbook-additional-activity"><div class="header-wrapper"><h4 id="x2-8-3-operational-handbook-additional-activity"><bdi class="secno">2.8.3 </bdi>Operational Handbook (additional activity)</h4><a class="self-link" href="#operational-handbook-additional-activity" aria-label="Permalink for Section 2.8.3"></a></div>
+</section><section id="operational-handbook-additional-activity"><div class="header-wrapper"><h4 id="x2-9-3-operational-handbook-additional-activity"><bdi class="secno">2.9.3 </bdi>Operational Handbook (additional activity)</h4><a class="self-link" href="#operational-handbook-additional-activity" aria-label="Permalink for Section 2.9.3"></a></div>
 <p>To a considerable extent, a trust framework consists of agreements on mutual cooperation. This deals with such issues as how you respond to wishes and requirements about the change process and how you can join, how disruptions and incidents are reported and corrected, the service windows of the various stakeholders and the reporting requirements to each other and to the governance.</p>
-</section></section><section id="implementation-support"><div class="header-wrapper"><h3 id="x2-9-implementation-support"><bdi class="secno">2.9 </bdi>Implementation Support</h3><a class="self-link" href="#implementation-support" aria-label="Permalink for Section 2.9"></a></div>
+</section></section><section id="implementation-support"><div class="header-wrapper"><h3 id="x2-10-implementation-support"><bdi class="secno">2.10 </bdi>Implementation Support</h3><a class="self-link" href="#implementation-support" aria-label="Permalink for Section 2.10"></a></div>
 <p>The extent to which implementation support is provided by the trust framework depends on the distribution of tasks between the participants within the framework and the framework governance organisation. It is logical, for example, that a party that enters into a contract with a supplier calls upon that same supplier for support in implementation (connection) and use. Within the framework itself, the management organisation is tasked with playing a role in issues relating to the interpretation of the framework specifications and for example connecting to the network.</p>
-<section id="validation-certification"><div class="header-wrapper"><h4 id="x2-9-1-validation-certification"><bdi class="secno">2.9.1 </bdi>Validation &amp; Certification</h4><a class="self-link" href="#validation-certification" aria-label="Permalink for Section 2.9.1"></a></div>
+<section id="validation-certification"><div class="header-wrapper"><h4 id="x2-10-1-validation-certification"><bdi class="secno">2.10.1 </bdi>Validation &amp; Certification</h4><a class="self-link" href="#validation-certification" aria-label="Permalink for Section 2.10.1"></a></div>
 <p>There are trust frameworks that provide validation tooling to support participants in testing their implementation. It is essential that the suppliers be involved in the realisation and assessment of these tools to avoid inconsistencies and uncertainties in the specifications only emerging at a late stage (during actual realisation).</p>
 <p>With regard to the inspection and certification, these are normally the task of the party that fulfils the role of watchdog. The watchdog observes to determine whether the agreed framework of standards has been correctly implemented by the supplier. There are clear agreements on when the supplier should actively inform the watchdog to carry out an assessment. For example changes to processes that relate closely to the framework of standards.</p>
-</section></section><section id="communication"><div class="header-wrapper"><h3 id="x2-10-communication"><bdi class="secno">2.10 </bdi>Communication</h3><a class="self-link" href="#communication" aria-label="Permalink for Section 2.10"></a></div>
-<section id="promotion"><div class="header-wrapper"><h4 id="x2-10-1-promotion"><bdi class="secno">2.10.1 </bdi>Promotion</h4><a class="self-link" href="#promotion" aria-label="Permalink for Section 2.10.1"></a></div>
+</section></section><section id="communication"><div class="header-wrapper"><h3 id="x2-11-communication"><bdi class="secno">2.11 </bdi>Communication</h3><a class="self-link" href="#communication" aria-label="Permalink for Section 2.11"></a></div>
+<section id="promotion"><div class="header-wrapper"><h4 id="x2-11-1-promotion"><bdi class="secno">2.11.1 </bdi>Promotion</h4><a class="self-link" href="#promotion" aria-label="Permalink for Section 2.11.1"></a></div>
 <p>The advantages offered by a product or service from a trust framework must be made clear to the broadest possible public. Operating a common brand or label can be useful in promoting the recognisability of the service. The trust framework contains  rules on drawing up generic expressions, brand management, what the management organisation should do and how much leeway suppliers are allowed. The suppliers are responsible for their own marketing and activities to expand their own market but are subject to the rules of the trust framework.  The management organisation has a role in promoting the benefits of the framework but not of the individual services or products of the suppliers that make up the framework.</p>
-</section><section id="publication"><div class="header-wrapper"><h4 id="x2-10-2-publication"><bdi class="secno">2.10.2 </bdi>Publication</h4><a class="self-link" href="#publication" aria-label="Permalink for Section 2.10.2"></a></div>
+</section><section id="publication"><div class="header-wrapper"><h4 id="x2-11-2-publication"><bdi class="secno">2.11.2 </bdi>Publication</h4><a class="self-link" href="#publication" aria-label="Permalink for Section 2.11.2"></a></div>
 <p>This includes maintaining a site that provides information about the trust framework, the use of social media and the sharing of information with specific user groups.</p>
-</section><section id="complaint-handling"><div class="header-wrapper"><h4 id="x2-10-3-complaint-handling"><bdi class="secno">2.10.3 </bdi>Complaint Handling</h4><a class="self-link" href="#complaint-handling" aria-label="Permalink for Section 2.10.3"></a></div>
+</section><section id="complaint-handling"><div class="header-wrapper"><h4 id="x2-11-3-complaint-handling"><bdi class="secno">2.11.3 </bdi>Complaint Handling</h4><a class="self-link" href="#complaint-handling" aria-label="Permalink for Section 2.11.3"></a></div>
 <p>As well as submitting a complaint to their own supplier, users may also feel the need to report their complaint to an independent party. A complaints committee can issue a binding judgement in situations where the two parties fail to arrive at an agreement.</p>
 </section></section></section>
   <section id="tof">
   <div class="header-wrapper"><h2 id="x3-list-of-figures"><bdi class="secno">3. </bdi>List of Figures</h2><a class="self-link" href="#tof" aria-label="Permalink for Section 3."></a></div><ul class="tof">
         <li class="tofline">
-    <a class="tocxref" href="#fig-medmij-afsprakenstelsel-4-corner-model"><span class="self-link">Figure <bdi class="figno">1</bdi></span> <span class="fig-title">Medmij afsprakenstelsel 4 corner model</span></a>
+    <a class="tocxref" href="#fig-component-diagram-trust-frameworks"><span class="self-link">Figure <bdi class="figno">1</bdi></span> <span class="fig-title">Component diagram Trust Frameworks</span></a>
   </li><li class="tofline">
-    <a class="tocxref" href="#fig-bomos-activiteiten"><span class="self-link">Figure <bdi class="figno">2</bdi></span> <span class="fig-title">BOMOS activiteiten</span></a>
+    <a class="tocxref" href="#fig-medmij-afsprakenstelsel-4-corner-model"><span class="self-link">Figure <bdi class="figno">2</bdi></span> <span class="fig-title">Medmij afsprakenstelsel 4 corner model</span></a>
+  </li><li class="tofline">
+    <a class="tocxref" href="#fig-bomos-activiteiten"><span class="self-link">Figure <bdi class="figno">3</bdi></span> <span class="fig-title">BOMOS activiteiten</span></a>
   </li>
       </ul></section>
  
@@ -1221,4 +1328,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Guide - Definitive version</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Guide - Definitive version</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
