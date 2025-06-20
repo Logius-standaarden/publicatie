@@ -412,7 +412,7 @@ var organisationConfig = {
             date: "June 2025",
             href: "https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05",
             publisher: "NCSC",
-            title: "Ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05"
+            title: "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
         },
         "NEN3610": {
             authors: [""],
