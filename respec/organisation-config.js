@@ -595,6 +595,11 @@ var organisationConfig = {
             href: "https://openid.net/specs/fapi-security-profile-2_0-final.html",
             publisher: "OpenID foundation",
             title: "FAPI 2.0 Security Profile"
+        },
+         "logboek-extensie-guideline": {
+            href: "https://logius-standaarden.github.io/logboek-extensie-template/",
+            publisher: "Logius",
+            title: "LDV Extensie Guideline"
         }
     }
 }
