@@ -1,3 +1,5 @@
 :root {
   --nlgov-rule-background: var(--borderedblock-bg);
+  --nlgov-rule-example-correct: #10d510;
+  --nlgov-rule-example-incorrect: #f74848;
 }
