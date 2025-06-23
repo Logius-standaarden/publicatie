@@ -600,6 +600,11 @@ var organisationConfig = {
             href: "https://logius-standaarden.github.io/logboek-extensie-template/",
             publisher: "Logius",
             title: "LDV Extensie Guideline"
+        },
+        "logboek dataverwerkingen": {
+            href: "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+            publisher: "Logius",
+            title: "Logboek Dataverwerkingen"
         }
     }
 }
