@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.2.2">
+<meta name="generator" content="ReSpec 35.3.0">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
@@ -56,8 +56,6 @@ dfn{cursor:pointer}
    respecConfig = {...organisationConfig, ...respecConfig};
   </script>
   
-  
-<link href="./media/style.css" rel="stylesheet" type="text/css">
  
 <style id="respec-mainstyle">
 @keyframes pop{
@@ -75,7 +73,7 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
-cite .bibref{font-style:normal}
+cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
@@ -282,10 +280,18 @@ img.license{float:left;padding-right:5px;background:0 0}
         "Jasper Roes",
         "Joost Farla"
       ],
-      "date": "Juli 2020",
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
       "publisher": "Logius",
-      "title": "API Design Rules (Nederlandse API Strategie IIa)"
+      "title": "API Design Rules"
+    },
+    "ADR1": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0",
+      "publisher": "Logius",
+      "title": "API Design Rules"
     },
     "ADR-ext": {
       "authors": [
@@ -302,6 +308,12 @@ img.license{float:left;padding-right:5px;background:0 0}
       "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
+    },
+    "AuthZEN": {
+      "date": "6 September 2024 ",
+      "href": "https://openid.net/specs/authorization-api-1_0-01.html",
+      "publisher": "OpenID",
+      "title": "Authorization API 1.0 – draft 01"
     },
     "AVG": {
       "date": "27 april 2016",
@@ -618,6 +630,12 @@ img.license{float:left;padding-right:5px;background:0 0}
       "publisher": "NCSC",
       "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
     },
+    "NCSC 2025": {
+      "date": "June 2025",
+      "href": "https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+    },
     "NEN3610": {
       "authors": [
         ""
@@ -802,6 +820,70 @@ img.license{float:left;padding-right:5px;background:0 0}
         "Pim Gaemers"
       ],
       "publisher": "Logius"
+    },
+    "HEART.OAuth2": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "April 25, 2017",
+      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "Health Relationship Trust Profile for OAuth 2.0"
+    },
+    "JWS.JWE.Algs": {
+      "authors": [
+        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
+      ],
+      "date": "",
+      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
+      "publisher": "IANA",
+      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
+    },
+    "I-D.ietf-oauth-pop-architecture": {
+      "authors": [
+        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
+      ],
+      "date": "July 8, 2016",
+      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
+    },
+    "iGOV.OAuth2": {
+      "authors": [
+        "J. Richer, M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
+    },
+    "ietf-oauth-v2-1-10-refresh-token-grant": {
+      "authors": [
+        "Dick Hardt, Aaron Parecki, Torsten Lodderstedt"
+      ],
+      "date": "January 9, 2024",
+      "href": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-10#name-refresh-token-grant",
+      "publisher": "IETF",
+      "title": "The OAuth 2.1 Authorization Framework: Refresh Token Grant"
+    },
+    "OpenID.FAPI2.0": {
+      "authors": [
+        "D. Fett, D. Tonge, J. Heenan"
+      ],
+      "date": "February 22 2025",
+      "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
+      "publisher": "OpenID foundation",
+      "title": "FAPI 2.0 Security Profile"
+    },
+    "logboek-extensie-guideline": {
+      "href": "https://logius-standaarden.github.io/logboek-extensie-template/",
+      "publisher": "Logius",
+      "title": "LDV Extensie Guideline"
+    },
+    "logboek dataverwerkingen": {
+      "href": "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      "publisher": "Logius",
+      "title": "Logboek Dataverwerkingen"
     }
   },
   "alternateFormats": [
@@ -992,7 +1074,7 @@ background and context. If however you are personally active in standardisation 
 <p>The BOMOS activities diagram summarises the various activities that can take place in a standardisation community. The <a href="#fig-organisationmodel">figure below</a> illustrates the outline organisation structure. One key starting point is the division between substantive activities in the implementing organisation and decision making by the governing body.</p>
 <p>
       </p><figure id="fig-organisationmodel">
-        <img src="images/BOMOS-1_Organisatiestructuur-blanco_EN.png" alt="Organisationmodel">
+        <img src="media/BOMOS-1_Organisatiestructuur-blanco_EN.png" alt="Organisationmodel">
         <figcaption><a class="self-link" href="#fig-organisationmodel">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">Organisationmodel</span></figcaption>
       </figure>
     <p></p>
@@ -1148,7 +1230,7 @@ At SETU, the organisation structure is as follows: The governing body consists o
 <p>The healthcare domain is a complex situation with stakeholders and parties all of whom have an interest in the development of standardisation. By establishing relationships between the roles and the way in which those roles are implemented with the names of the stakeholders/parties, a clear insight is created into the world of this healthcare standard. (source example: NEN 7522-2021)</p>
 <p>
       </p><figure id="fig-example-assign-roles-to-stakeholders">
-        <img src="images/BOMOS-16_Toewijzing-rollen-aan-stakeholders-blanco_EN.png" alt="Example assign roles to stakeholders">
+        <img src="media/BOMOS-16_Toewijzing-rollen-aan-stakeholders-blanco_EN.png" alt="Example assign roles to stakeholders">
         <figcaption><a class="self-link" href="#fig-example-assign-roles-to-stakeholders">Figure <bdi class="figno">2</bdi></a> <span class="fig-title">Example assign roles to stakeholders</span></figcaption>
       </figure>
     <p></p>
@@ -1158,7 +1240,7 @@ At SETU, the organisation structure is as follows: The governing body consists o
 <p>For the way in which management tasks are developed in an organisation structure, there are a number of different possibilities ranging from entrusting them to a standardisation organisation through to fully developing the structure within your own organisation. Creating and managing your own development organisation for every standard is not a goal in and of itself. Practice shows that few existing organisations are equipped to fulfil the complete package of tasks so that many standardisation communities have in fact decided to create their own organisation. A number of the tasks are then entrusted to their own organisation, but a number of other tasks can be entrusted to other types of organisations. The <a href="#fig-assigning-of-maintance-and-development-tasks">figure below</a> lists other standardisation organisations, research organisations and sectoral organisations.</p>
 <p>
       </p><figure id="fig-assigning-of-maintance-and-development-tasks">
-        <img src="images/BOMOS-3_Beleggen-van-beheer-en-ontwikkeltaken-blanco_EN.png" alt="Assigning of maintance and development tasks">
+        <img src="media/BOMOS-3_Beleggen-van-beheer-en-ontwikkeltaken-blanco_EN.png" alt="Assigning of maintance and development tasks">
         <figcaption><a class="self-link" href="#fig-assigning-of-maintance-and-development-tasks">Figure <bdi class="figno">3</bdi></a> <span class="fig-title">Assigning of maintance and development tasks</span></figcaption>
       </figure>
     <p></p>
@@ -1392,7 +1474,7 @@ Decision making on changes to a standard or about the strategy for a standard wi
 <p>In summary, service provision will be a source of income that as the standard becomes more mature will offer more opportunities for generating income. A source of income that does not occur commonly but which should not be excluded in the future is the donation. Above all structural donations are an attractive form of funding. This results in the following model:</p>
 <p>
       </p><figure id="fig-model-for-benefits">
-        <img src="images/BOMOS-4_Opbrengstmodel-blanco_EN.png" alt="Model for benefits">
+        <img src="media/BOMOS-4_Opbrengstmodel-blanco_EN.png" alt="Model for benefits">
         <figcaption><a class="self-link" href="#fig-model-for-benefits">Figure <bdi class="figno">4</bdi></a> <span class="fig-title">Model for benefits</span></figcaption>
       </figure>
     <p></p>
@@ -1473,7 +1555,7 @@ Decision making on changes to a standard or about the strategy for a standard wi
 <p>This is demonstrated in the figure for the primary stakeholder, the jeweller, in this example. Of course the intention of the implementation is to ensure that as many parties as possible arrive at future scenario 1 or 2, and start to use the standard.</p>
 <p>
       </p><figure id="fig-scenarios-jewellery-sector">
-        <img src="images/BOMOS-5_Scenarios-juweliersbranche-blanco_EN.png" alt="Scenarios juweliersbranche">
+        <img src="media/BOMOS-5_Scenarios-juweliersbranche-blanco_EN.png" alt="Scenarios juweliersbranche">
         <figcaption><a class="self-link" href="#fig-scenarios-jewellery-sector">Figure <bdi class="figno">5</bdi></a> <span class="fig-title">Scenarios jewellery sector</span></figcaption>
       </figure>
     <p></p>
@@ -1481,7 +1563,7 @@ Decision making on changes to a standard or about the strategy for a standard wi
 <p>In step 2, a cost-benefit model is drawn up. In generic terms, what are the one-off investments, the operating costs and the benefits in relation to the standard? For many standards they will be relatively equal. This makes it possible to start with the model from the jewellery sector, in which the necessary adjustments can be made. The model for the jewellery sector is reproduced below.</p>
 <p>
       </p><figure id="fig-benefits-jewellery-sector">
-        <img src="images/BOMOS-6_Batenmodel-juweliersbranche-blanco_EN.png" alt="Benefits jewelers sector">
+        <img src="media/BOMOS-6_Batenmodel-juweliersbranche-blanco_EN.png" alt="Benefits jewelers sector">
         <figcaption><a class="self-link" href="#fig-benefits-jewellery-sector">Figure <bdi class="figno">6</bdi></a> <span class="fig-title">Benefits jewellery sector</span></figcaption>
       </figure>
     <p></p>
@@ -1920,7 +2002,7 @@ Decision making on changes to a standard or about the strategy for a standard wi
 <p>A complex set of standards is needed to achieve interoperability (exchangeability) between organisations or systems. This makes the subject extremely complex, because it is no longer a question of selecting or managing a single standard, but a whole set of standards that are very closely related in certain areas. It is possible to make a distinction between standards for technical matters and standards for the semantics of information exchange. This is demonstrated by the interoperability framework (based on Jian, H., &amp; Zhao, H. (2003). A Conceptual Model for Comparative Analysis of Standardization of Vertical Industry Languages); the examples between brackets are somewhat outdated examples of standards that can be used for this structure.</p>
 <p>
       </p><figure id="fig-the-stratification-of-standards">
-        <img src="images/BOMOS-7_Gelaagdheid-van-standaarden_EN.png" alt="The stratification of standards">
+        <img src="media/BOMOS-7_Gelaagdheid-van-standaarden_EN.png" alt="The stratification of standards">
         <figcaption><a class="self-link" href="#fig-the-stratification-of-standards">Figure <bdi class="figno">7</bdi></a> <span class="fig-title">The stratification of standards</span></figcaption>
       </figure>
     <p></p>
@@ -2022,7 +2104,7 @@ The core of the solution is probably not a technical one, but lies with the mana
 </ul>
 <p>
       </p><figure id="fig-adoption-paths-of-a-standard">
-        <img src="images/BOMOS-8_Adoptiepaden_EN.png" alt="Adoption paths of a standard">
+        <img src="media/BOMOS-8_Adoptiepaden_EN.png" alt="Adoption paths of a standard">
         <figcaption><a class="self-link" href="#fig-adoption-paths-of-a-standard">Figure <bdi class="figno">8</bdi></a> <span class="fig-title">Adoption paths of a standard</span></figcaption>
       </figure>
     <p></p>
@@ -2179,7 +2261,7 @@ Over time we have seen shifts in attention within Floricode, based on architectu
 <p>As a rule, an average likelihood of individual adoption will result in a financial tool. The organisation needs a gentle nudge to encourage adoption of the standard. Where the likelihood of individual adoption is low, the most successful choice is a legal tool. Unless required to do so, the organisation is unlikely to take the decision to adopt the standard.</p>
 <p>
       </p><figure id="fig-choices-for-adoption">
-        <img src="images/BOMOS-9_Adoptiekeuzes-blanco_EN.png" alt="alt_text">
+        <img src="media/BOMOS-9_Adoptiekeuzes-blanco_EN.png" alt="alt_text">
         <figcaption><a class="self-link" href="#fig-choices-for-adoption">Figure <bdi class="figno">9</bdi></a> <span class="fig-title">Choices for adoption</span></figcaption>
       </figure>
     <p></p>
@@ -2247,13 +2329,13 @@ Some of these suggestions are more strategic in nature (e.g. transforming Floric
 <p>A study among 37 management organisations for standards (including international standards such as XBRL, HR-XML, ACORD and HL7 and national standards such as SETU, StUF and Aquo) reveals that more than 90 percent of the consulted developers of standards believe that the quality of their standard can be improved (see the figures below). A very large majority also believes that improving the quality of their standards would contribute to better interoperability.</p>
 <p>
       </p><figure id="fig-results-of-a-user-research-study-into-the-standardisation-process">
-        <img src="images/BOMOS-10_Resultaten-van-een-gebruikersonderzoek-naar-proces_EN.png" alt="Results of a user research study into the standardisation process">
+        <img src="media/BOMOS-10_Resultaten-van-een-gebruikersonderzoek-naar-proces_EN.png" alt="Results of a user research study into the standardisation process">
         <figcaption><a class="self-link" href="#fig-results-of-a-user-research-study-into-the-standardisation-process">Figure <bdi class="figno">10</bdi></a> <span class="fig-title">results of a user research study into the standardisation process</span></figcaption>
       </figure>
     <p></p>
 <p>
       </p><figure id="fig-results-of-a-user-research-study-into-the-quality-of-standardisation">
-        <img src="images/BOMOS-11_Resultaten-van-een-gebruikersonderzoek-naar-kwaliteit_EN.png" alt="Results of a user research study into the quality of standardisation">
+        <img src="media/BOMOS-11_Resultaten-van-een-gebruikersonderzoek-naar-kwaliteit_EN.png" alt="Results of a user research study into the quality of standardisation">
         <figcaption><a class="self-link" href="#fig-results-of-a-user-research-study-into-the-quality-of-standardisation">Figure <bdi class="figno">11</bdi></a> <span class="fig-title">Results of a user research study into the quality of standardisation</span></figcaption>
       </figure>
     <p></p>
@@ -2268,21 +2350,9 @@ Some of these suggestions are more strategic in nature (e.g. transforming Floric
 <p>The quality model as presented here is not the complete quality model. The complete quality model goes one level deeper with quality concepts, as well as providing suggestions for conducting the measurements, right through to a process model for the use of the quality model, so it can be deployed as an instrument. The complete quality model (and instrument) are part of the thesis <cite><a data-matched-text="[[[folmer2012]]]" href="https://research.utwente.nl/en/publications/quality-of-semantic-standards">Quality of Semantic Standards</a></cite>.</p>
 <figure id="qualitymodel">
 
-<pre><code class="mermaid hljs" aria-busy="false">graph TD;
-    quality(Quality model for semantic standard);
-    product(A. Product quality);
-    process(B. Process quality);
-    practice(C. Quality in practice);
-    standard((Measure within&lt;br&gt;content&lt;br&gt;&lt;i&gt;the standard&lt;/i&gt;));
-    organisation((Measure in&lt;br&gt;development and&lt;br&gt;maintenance&lt;br&gt;&lt;i&gt;de organisatie&lt;/i&gt;));
-    implementation((Measure in&lt;br&gt;application,&lt;br&gt;&lt;i&gt;de implementatie&lt;/i&gt;));
-    quality--&gt;product;
-    quality--&gt;process;
-    quality--&gt;practice;
-    product--&gt;standard;
-    process--&gt;organisation;
-    practice-&gt;implementation;
-</code></pre>
+<pre><svg id="diagram-1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="346.765625" style="max-width: 577.078125px;" viewBox="0 0 577.078125 346.765625"><style>
+#diagram-1 {font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#diagram-1 .error-icon{fill:#552222;}#diagram-1 .error-text{fill:#552222;stroke:#552222;}#diagram-1 .edge-thickness-normal{stroke-width:2px;}#diagram-1 .edge-thickness-thick{stroke-width:3.5px;}#diagram-1 .edge-pattern-solid{stroke-dasharray:0;}#diagram-1 .edge-pattern-dashed{stroke-dasharray:3;}#diagram-1 .edge-pattern-dotted{stroke-dasharray:2;}#diagram-1 .marker{fill:#333333;stroke:#333333;}#diagram-1 .marker.cross{stroke:#333333;}#diagram-1 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#diagram-1 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#diagram-1 .cluster-label text{fill:#333;}#diagram-1 .cluster-label span{color:#333;}#diagram-1 .label text,#diagram-1 span{fill:#333;color:#333;}#diagram-1 .node rect,#diagram-1 .node circle,#diagram-1 .node ellipse,#diagram-1 .node polygon,#diagram-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#diagram-1 .node .label{text-align:center;}#diagram-1 .node.clickable{cursor:pointer;}#diagram-1 .arrowheadPath{fill:#333333;}#diagram-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#diagram-1 .flowchart-link{stroke:#333333;fill:none;}#diagram-1 .edgeLabel{background-color:#e8e8e8;text-align:center;}#diagram-1 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#diagram-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#diagram-1 .cluster text{fill:#333;}#diagram-1 .cluster span{color:#333;}#diagram-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#diagram-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}
+</style><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-quality LE-product" id="L-quality-product" style="opacity: 1;"><path class="path" d="M185.34906914893617,52L167.9080784574468,56.166666666666664C150.46708776595744,60.333333333333336,115.58510638297872,68.66666666666667,98.14411569148938,77C80.703125,85.33333333333333,80.703125,93.66666666666667,80.703125,97.83333333333333L80.703125,102" marker-end="url(#arrowhead16)" style="fill:none"></path><defs><marker id="arrowhead16" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-quality LE-process" id="L-quality-process" style="opacity: 1;"><path class="path" d="M277.4375,52L277.4375,56.166666666666664C277.4375,60.333333333333336,277.4375,68.66666666666667,277.4375,77C277.4375,85.33333333333333,277.4375,93.66666666666667,277.4375,97.83333333333333L277.4375,102" marker-end="url(#arrowhead17)" style="fill:none"></path><defs><marker id="arrowhead17" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-quality LE-practice" id="L-quality-practice" style="opacity: 1;"><path class="path" d="M374.7224069148936,52L393.147578679078,56.166666666666664C411.57275044326235,60.333333333333336,448.4230939716312,68.66666666666667,466.84826573581563,77C485.2734375,85.33333333333333,485.2734375,93.66666666666667,485.2734375,97.83333333333333L485.2734375,102" marker-end="url(#arrowhead18)" style="fill:none"></path><defs><marker id="arrowhead18" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-product LE-standard" id="L-product-standard" style="opacity: 1;"><path class="path" d="M80.703125,146L80.703125,150.16666666666666C80.703125,154.33333333333334,80.703125,162.66666666666666,80.703125,172.26302083333334C80.703125,181.859375,80.703125,192.71875,80.703125,198.1484375L80.703125,203.578125" marker-end="url(#arrowhead19)" style="fill:none"></path><defs><marker id="arrowhead19" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-process LE-organisation" id="L-process-organisation" style="opacity: 1;"><path class="path" d="M277.4375,146L277.4375,150.16666666666666C277.4375,154.33333333333334,277.4375,162.66666666666666,277.4375,171C277.4375,179.33333333333334,277.4375,187.66666666666666,277.4375,191.83333333333334L277.4375,196" marker-end="url(#arrowhead20)" style="fill:none"></path><defs><marker id="arrowhead20" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-practice LE-implementation" id="L-practice-implementation" style="opacity: 1;"><path class="path" d="M485.2734375,146L485.2734375,150.16666666666666C485.2734375,154.33333333333334,485.2734375,162.66666666666666,485.2734375,171.07682291666666C485.2734375,179.48697916666666,485.2734375,187.97395833333334,485.2734375,192.21744791666666L485.2734375,196.4609375" marker-end="url(#arrowhead21)" style="fill:none"></path><defs><marker id="arrowhead21" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-quality-product" class="edgeLabel L-LS-quality' L-LE-product"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-quality-process" class="edgeLabel L-LS-quality' L-LE-process"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-quality-practice" class="edgeLabel L-LS-quality' L-LE-practice"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-product-standard" class="edgeLabel L-LS-product' L-LE-standard"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-process-organisation" class="edgeLabel L-LS-process' L-LE-organisation"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-practice-implementation" class="edgeLabel L-LS-practice' L-LE-implementation"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="flowchart-quality-19" transform="translate(277.4375,30)" style="opacity: 1;"><rect rx="5" ry="5" x="-138.0625" y="-22" width="276.125" height="44" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-128.0625,-12)"><foreignObject width="256.125" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Quality model for semantic standard</div></foreignObject></g></g></g><g class="node default" id="flowchart-product-20" transform="translate(80.703125,124)" style="opacity: 1;"><rect rx="5" ry="5" x="-72.703125" y="-22" width="145.40625" height="44" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-62.703125,-12)"><foreignObject width="125.40625" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">A. Product quality</div></foreignObject></g></g></g><g class="node default" id="flowchart-process-21" transform="translate(277.4375,124)" style="opacity: 1;"><rect rx="5" ry="5" x="-74.03125" y="-22" width="148.0625" height="44" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-64.03125,-12)"><foreignObject width="128.0625" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">B. Process quality</div></foreignObject></g></g></g><g class="node default" id="flowchart-practice-22" transform="translate(485.2734375,124)" style="opacity: 1;"><rect rx="5" ry="5" x="-83.8046875" y="-22" width="167.609375" height="44" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-73.8046875,-12)"><foreignObject width="147.609375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">C. Quality in practice</div></foreignObject></g></g></g><g class="node default" id="flowchart-standard-23" transform="translate(80.703125,267.3828125)" style="opacity: 1;"><circle x="-63.8046875" y="-46" r="63.8046875" class="label-container"></circle><g class="label" transform="translate(0,0)"><g transform="translate(-53.8046875,-36)"><foreignObject width="107.609375" height="72"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Measure within<br>content<br><i>the standard</i></div></foreignObject></g></g></g><g class="node default" id="flowchart-organisation-24" transform="translate(277.4375,267.3828125)" style="opacity: 1;"><circle x="-71.3828125" y="-58" r="71.3828125" class="label-container"></circle><g class="label" transform="translate(0,0)"><g transform="translate(-61.3828125,-48)"><foreignObject width="122.765625" height="96"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Measure in<br>development and<br>maintenance<br><i>de organisatie</i></div></foreignObject></g></g></g><g class="node default" id="flowchart-implementation-25" transform="translate(485.2734375,267.3828125)" style="opacity: 1;"><circle x="-70.921875" y="-46" r="70.921875" class="label-container"></circle><g class="label" transform="translate(0,0)"><g transform="translate(-60.921875,-36)"><foreignObject width="121.84375" height="72"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Measure in<br>application,<br><i>de implementatie</i></div></foreignObject></g></g></g></g></g></g></svg></pre>
   <figcaption><a class="self-link" href="#qualitymodel">Figure <bdi class="figno">12</bdi></a> <span class="fig-title">The quality model</span></figcaption>
 </figure>
 
@@ -2529,7 +2599,7 @@ layers for quality in use, including definitions and explanatory notes. </p>
 <p>The quality model summarised in the figure below can be a valuable tool in that process. If you choose to use it, we strongly recommend studying the complete instrument <cite><a data-matched-text="[[[folmer2012]]]" href="https://research.utwente.nl/en/publications/quality-of-semantic-standards">Quality of Semantic Standards</a></cite>, and even considering preparing a tailor-made instrument by making a careful selection from the quality model. </p>
 <p>
       </p><figure id="fig-quality-instruments">
-        <img src="images/BOMOS-12_Kwaliteitsinstrumenten-blanco_EN.png" alt="Quality instruments">
+        <img src="media/BOMOS-12_Kwaliteitsinstrumenten-blanco_EN.png" alt="Quality instruments">
         <figcaption><a class="self-link" href="#fig-quality-instruments">Figure <bdi class="figno">13</bdi></a> <span class="fig-title">Quality instruments</span></figcaption>
       </figure>
     <p></p>
@@ -3206,6 +3276,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Guide - Definitive version</div><div id="ddiagram-1"><svg id="diagram-1" width="400" xmlns="http://www.w3.org/2000/svg" height="100" viewBox="768 0 512 512"><style>
-#diagram-1 {font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#diagram-1 .error-icon{fill:#552222;}#diagram-1 .error-text{fill:#552222;stroke:#552222;}#diagram-1 .edge-thickness-normal{stroke-width:2px;}#diagram-1 .edge-thickness-thick{stroke-width:3.5px;}#diagram-1 .edge-pattern-solid{stroke-dasharray:0;}#diagram-1 .edge-pattern-dashed{stroke-dasharray:3;}#diagram-1 .edge-pattern-dotted{stroke-dasharray:2;}#diagram-1 .marker{fill:#333333;stroke:#333333;}#diagram-1 .marker.cross{stroke:#333333;}#diagram-1 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#diagram-1 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#diagram-1 .cluster-label text{fill:#333;}#diagram-1 .cluster-label span{color:#333;}#diagram-1 .label text,#diagram-1 span{fill:#333;color:#333;}#diagram-1 .node rect,#diagram-1 .node circle,#diagram-1 .node ellipse,#diagram-1 .node polygon,#diagram-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#diagram-1 .node .label{text-align:center;}#diagram-1 .node.clickable{cursor:pointer;}#diagram-1 .arrowheadPath{fill:#333333;}#diagram-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#diagram-1 .flowchart-link{stroke:#333333;fill:none;}#diagram-1 .edgeLabel{background-color:#e8e8e8;text-align:center;}#diagram-1 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#diagram-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#diagram-1 .cluster text{fill:#333;}#diagram-1 .cluster span{color:#333;}#diagram-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#diagram-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}
-</style><g></g><g><path class="error-icon" d="m411.313,123.313c6.25-6.25 6.25-16.375 0-22.625s-16.375-6.25-22.625,0l-32,32-9.375,9.375-20.688-20.688c-12.484-12.5-32.766-12.5-45.25,0l-16,16c-1.261,1.261-2.304,2.648-3.31,4.051-21.739-8.561-45.324-13.426-70.065-13.426-105.867,0-192,86.133-192,192s86.133,192 192,192 192-86.133 192-192c0-24.741-4.864-48.327-13.426-70.065 1.402-1.007 2.79-2.049 4.051-3.31l16-16c12.5-12.492 12.5-32.758 0-45.25l-20.688-20.688 9.375-9.375 32.001-31.999zm-219.313,100.687c-52.938,0-96,43.063-96,96 0,8.836-7.164,16-16,16s-16-7.164-16-16c0-70.578 57.422-128 128-128 8.836,0 16,7.164 16,16s-7.164,16-16,16z"></path><path class="error-icon" d="m459.02,148.98c-6.25-6.25-16.375-6.25-22.625,0s-6.25,16.375 0,22.625l16,16c3.125,3.125 7.219,4.688 11.313,4.688 4.094,0 8.188-1.563 11.313-4.688 6.25-6.25 6.25-16.375 0-22.625l-16.001-16z"></path><path class="error-icon" d="m340.395,75.605c3.125,3.125 7.219,4.688 11.313,4.688 4.094,0 8.188-1.563 11.313-4.688 6.25-6.25 6.25-16.375 0-22.625l-16-16c-6.25-6.25-16.375-6.25-22.625,0s-6.25,16.375 0,22.625l15.999,16z"></path><path class="error-icon" d="m400,64c8.844,0 16-7.164 16-16v-32c0-8.836-7.156-16-16-16-8.844,0-16,7.164-16,16v32c0,8.836 7.156,16 16,16z"></path><path class="error-icon" d="m496,96.586h-32c-8.844,0-16,7.164-16,16 0,8.836 7.156,16 16,16h32c8.844,0 16-7.164 16-16 0-8.836-7.156-16-16-16z"></path><path class="error-icon" d="m436.98,75.605c3.125,3.125 7.219,4.688 11.313,4.688 4.094,0 8.188-1.563 11.313-4.688l32-32c6.25-6.25 6.25-16.375 0-22.625s-16.375-6.25-22.625,0l-32,32c-6.251,6.25-6.251,16.375-0.001,22.625z"></path><text class="error-text" x="1240" y="250" font-size="150px" style="text-anchor: middle;">Syntax error in graph</text><text class="error-text" x="1050" y="400" font-size="100px" style="text-anchor: middle;">mermaid version 9.0.0</text></g></svg></div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Guide - Definitive version</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
