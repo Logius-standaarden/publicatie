@@ -53,6 +53,8 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [bomos/beheer/1.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/beheer/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/beheer/1.0/ "Preview op GitHub Pages")
 - [bomos/fundament/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/ "Preview op GitHub Pages")
    - [bomos/fundament/2i/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/2i/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/2i/ "Preview op GitHub Pages")
+   - [bomos/fundament/3/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/3/ "Preview op GitHub Pages")
+   - [bomos/fundament/3.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/3.0/ "Preview op GitHub Pages")
    - [bomos/fundament/3.0.0/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/3.0.0/ "Preview op GitHub Pages")
    - [bomos/fundament/3.0.1/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/3.0.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/3.0.1/ "Preview op GitHub Pages")
    - [bomos/fundament/en/](https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/en/) [:scroll:](https://logius-standaarden.github.io/publicatie/bomos/fundament/en/ "Preview op GitHub Pages")
