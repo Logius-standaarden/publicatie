@@ -465,6 +465,13 @@ const organisationConfig = {
       publisher: "Logius",
       title: "Aansluiten als Trust Service Provider"
     },
+    "PKI-Policy": {
+      href: "https://www.logius.nl/sites/default/files/public/bestanden/diensten/PKIoverheid/Deel2-eisen-voor-TSPs-v4.7.pdf",
+      title:
+        "Programma van Eisen deel 2: Toetreding tot en toezicht binnen de PKI voor de overheid",
+      date: "8 februari 2019",
+      publisher: "Logius",
+    },
     "PKIoverheid": {
       href: "https://www.logius.nl/domeinen/toegang/pkioverheid",
       publisher: "Logius",
