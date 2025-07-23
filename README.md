@@ -190,6 +190,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [dk/oin/2.1.0/](https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/oin/2.1.0/ "Preview op GitHub Pages")
    - [dk/oin/2.2/](https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/oin/2.2/ "Preview op GitHub Pages")
    - [dk/oin/2.2.0/](https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.2.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/oin/2.2.0/ "Preview op GitHub Pages")
+   - [dk/oin/2.2.1/](https://gitdocumentatie.logius.nl/publicatie/dk/oin/2.2.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/oin/2.2.1/ "Preview op GitHub Pages")
 - [dk/restapi/](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/restapi/ "Preview op GitHub Pages")
    - [dk/restapi/1.0/](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/restapi/1.0/ "Preview op GitHub Pages")
    - [dk/restapi/1.0-candidate/](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/1.0-candidate/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/restapi/1.0-candidate/ "Preview op GitHub Pages")
