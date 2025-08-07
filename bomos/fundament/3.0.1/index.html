@@ -36,11 +36,6 @@ dfn{cursor:pointer}
   
 <title>BOMOS, het fundament 3.0.1</title>
   
-  
-  
-  
-  
-<link href="./media/style.css" rel="stylesheet" type="text/css">
  
 <style id="respec-mainstyle">
 @keyframes pop{
@@ -125,6 +120,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
+  "useLogo": true,
   "latestVersion": [
     "nl_organisationPublishURL",
     "pubDomain",
@@ -150,9 +146,6 @@ img.license{float:left;padding-right:5px;background:0 0}
     "previousPublishVersion",
     "/"
   ],
-  "useLogo": true,
-  "useLabel": true,
-  "license": "cc-by",
   "addSectionLinks": true,
   "localizationStrings": {
     "en": {
@@ -216,6 +209,7 @@ img.license{float:left;padding-right:5px;background:0 0}
     "cv": "#000000",
     "vv": "#000000"
   },
+  "useLabel": true,
   "licenses": {
     "cc0": {
       "name": "Creative Commons 0 Public Domain Dedication",
@@ -236,6 +230,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
     }
   },
+  "license": "cc-by",
   "localBiblio": {
     "ADR": {
       "authors": [
@@ -855,14 +850,14 @@ img.license{float:left;padding-right:5px;background:0 0}
   "authors": [
     {
       "company": "HAN University of Applied Sciences",
-      "companyURL": "https://www.utwente.nl/",
+      "companyURL": "https://www.han.nl/",
       "name": "Erwin Folmer"
     }
   ],
   "editors": [
     {
       "company": "HAN University of Applied Sciences",
-      "companyURL": "https://www.utwente.nl/",
+      "companyURL": "https://www.han.nl/",
       "name": "Erwin Folmer"
     },
     {
@@ -872,7 +867,7 @@ img.license{float:left;padding-right:5px;background:0 0}
     },
     {
       "company": "Logius",
-      "companyURL": "http://www.logius.nl/",
+      "companyURL": "https://www.logius.nl/",
       "name": "Edwin Wisse"
     },
     {
@@ -918,17 +913,17 @@ img.license{float:left;padding-right:5px;background:0 0}
       
       <dt>Redacteurs:</dt>
       <dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.utwente.nl/">HAN University of Applied Sciences</a>)
+    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.han.nl/">HAN University of Applied Sciences</a>)
   </dd><dd class="editor p-author h-card vcard">
     <span class="p-name fn">Gül Işik</span> (<a class="p-org org h-org" href="https://www.logius.nl/">Logius</a>)
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Edwin Wisse</span> (<a class="p-org org h-org" href="http://www.logius.nl/">Logius</a>)
+    <span class="p-name fn">Edwin Wisse</span> (<a class="p-org org h-org" href="https://www.logius.nl/">Logius</a>)
   </dd><dd class="editor p-author h-card vcard">
     <span class="p-name fn">Wouter van den Berg</span> (<a class="p-org org h-org" href="https://www.tno.nl/nl/">TNO</a>)
   </dd>
       
       <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.utwente.nl/">HAN University of Applied Sciences</a>)
+    <span class="p-name fn">Erwin Folmer</span> (<a class="p-org org h-org" href="https://www.han.nl/">HAN University of Applied Sciences</a>)
   </dd>
       <dt>Doe mee:</dt><dd>
     <a href="https://github.com/Logius-standaarden/BOMOS-Fundament/">GitHub Logius-standaarden/BOMOS-Fundament</a>
@@ -1029,7 +1024,7 @@ BOMOS. Het heeft ook geleidt tot verschillende versies en variaties
 van BOMOS, wat het gebruik niet makkelijker maakt.</p>
 <p>
       </p><figure id="fig-strip-over-standaarden">
-        <img src="images/xkcd_standards.png" alt="xkcd comic about competing standards">
+        <img src="media/xkcd_standards.png" alt="xkcd comic about competing standards">
         <figcaption><a class="self-link" href="#fig-strip-over-standaarden">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Strip over standaarden</span></figcaption>
       </figure>
     <p></p>
@@ -1553,7 +1548,7 @@ open standaard.</p>
 </ul>
 <p>
       </p><figure id="fig-bomos-activiteitendiagram">
-        <img src="images/BOMOS-15_Bomos-activiteiten-blanco.png" alt="BOMOS Activiteitendiagram">
+        <img src="media/BOMOS-15_Bomos-activiteiten-blanco.png" alt="BOMOS Activiteitendiagram">
         <figcaption><a class="self-link" href="#fig-bomos-activiteitendiagram">Figuur <bdi class="figno">2</bdi></a> <span class="fig-title">BOMOS Activiteitendiagram</span></figcaption>
       </figure>
     <p></p>
@@ -1752,7 +1747,7 @@ beschrijving van de fasen van de standaardenlevenscyclus, zodat u kunt
 toetsen in welke fase uw standaard zich bevindt.</p>
 <p>
       </p><figure id="fig-levensfases-van-een-standaard">
-        <img src="images/BOMOS-17_Adoptie-Tijd-blanco.png" alt="Levensfases van een standaard. Een peil gaat van creatie, via introductie en volwassen naar uitfaseren. Een lus gaat van introductie en implementatie naar volwassen en weer terug">
+        <img src="media/BOMOS-17_Adoptie-Tijd-blanco.png" alt="Levensfases van een standaard. Een peil gaat van creatie, via introductie en volwassen naar uitfaseren. Een lus gaat van introductie en implementatie naar volwassen en weer terug">
         <figcaption><a class="self-link" href="#fig-levensfases-van-een-standaard">Figuur <bdi class="figno">3</bdi></a> <span class="fig-title">Levensfases van een standaard</span></figcaption>
       </figure>
     <p></p>
