@@ -1,3 +1,6 @@
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: false });
+
 /**
  * Use this function in the `postProcess` option of your Respec config.
  * Example:
