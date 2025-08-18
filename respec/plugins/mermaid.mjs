@@ -31,7 +31,7 @@ export async function generateMermaidFigures(config, document, utils) {
         figure.replaceWith(preElement);
         generatedFigures.push(preElement);
       } catch (e) {
-        utils.showError('Unable to generated Mermaid figure', {
+        utils.showError('Unable to generate Mermaid figure', {
           elements: [figure],
           cause: e,
         });
