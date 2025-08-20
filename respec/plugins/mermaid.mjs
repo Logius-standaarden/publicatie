@@ -26,10 +26,10 @@ export async function generateMermaidFigures(config, document, utils) {
     if (figureName) {
       try {
         const fetchSource = await fetch(`./media/${figureName}`);
-        const preElement = document.createElement('pre');
-        preElement.prepend(document.createTextNode(await fetchSource.text()));
-        figure.replaceWith(preElement);
-        generatedFigures.push(preElement);
+        const divElement = document.createElement('div');
+        divElement.prepend(document.createTextNode(await fetchSource.text()));
+        figure.replaceWith(divElement);
+        generatedFigures.push(divElement);
       } catch (e) {
         utils.showError('Unable to generate Mermaid figure', {
           elements: [figure],
