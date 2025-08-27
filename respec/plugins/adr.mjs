@@ -41,7 +41,8 @@ export function processRuleBlocks(config, document, utils, spectralConfiguration
   const technicalRules = [];
   for (const rule of document.querySelectorAll('.rule')) {
     if (!rule.id) {
-      throw new Error(`Missing id for rule: ${rule.outerHTML}`);
+      utils.showError(`Missing id for rule: ${rule.outerHTML}`);
+      continue;
     }
     const ruleId = rule.id;
 
@@ -61,7 +62,8 @@ export function processRuleBlocks(config, document, utils, spectralConfiguration
       if (spectralConfiguration?.includes(`#${ruleId}`)) {
         const lastDataListItem = rule.querySelector('dt:last-of-type');
         if (lastDataListItem.textContent !== 'How to test') {
-          throw new Error(`Last element should be the "How to test" section. Found ${lastDataListItem.outerHTML}`);
+          utils.showError(`Last element should be the "How to test" section. Found ${lastDataListItem.outerHTML}`);
+          continue;
         }
         const howToTest = rule.querySelector('dd:last-of-type');
         howToTest.innerHTML += `This rule can be automatically checked and an example test is shown in the <a href="#:~:text=${encodeURIComponent(`#${ruleId}`).replaceAll('-', '%2D')}">linter configuration</a>.`;
@@ -70,7 +72,8 @@ export function processRuleBlocks(config, document, utils, spectralConfiguration
       flagTitle = 'This is a functional design rule and hence cannot be tested automatically.';
       functionalRules.push(ruleLabElement);
     } else {
-      throw new Error(`Missing type for rule: ${rule.outerHTML}`);
+      utils.showError(`Missing type for rule: ${ruleId}`);
+      continue;
     }
 
     const flagElement = document.createElement('div');
@@ -81,6 +84,11 @@ export function processRuleBlocks(config, document, utils, spectralConfiguration
   }
 
   for (const [list, elementId] of [[functionalRules, '#functionalList'], [technicalRules, '#technicalList']]) {
+    if (list.length === 0) {
+      utils.showError(`This document does not specify any rules for ${elementId}. Remove the element.`);
+      continue;
+    }
+
     const listElement = document.querySelector(elementId);
 
     for (const ruleLabElement of list) {
