@@ -645,6 +645,24 @@ export function loadRespecWithConfiguration(localConfig) {
     ...localConfig.localBiblio,
   };
 
+  respecConfig.preProcess.push((config, document, utils) => {
+    if (!config.alternateFormats) {
+      config.alternateFormats = [];
+    }
+    const pdfName = `${config.pubDomain}-${config.shortName}-${config.publishVersion}.pdf`;
+    const existingFormat = config.alternateFormats.find(format => format.label === 'pdf');
+    if (existingFormat) {
+      if (existingFormat !== pdfName) {
+        utils.showError(`Invalid name for PDF format. Expected "${pdfName}", but got "${existingFormat}"`);
+      }
+      return;
+    }
+    config.alternateFormats.push({
+      label: 'pdf',
+      uri: pdfName,
+    });
+  })
+
   globalThis.respecConfig = respecConfig;
 
   import("https://logius-standaarden.github.io/publicatie/respec/builds/respec-nlgov.js");
