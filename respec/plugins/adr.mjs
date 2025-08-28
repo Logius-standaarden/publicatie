@@ -41,7 +41,8 @@ export function processRuleBlocks(config, document, utils, spectralConfiguration
   const technicalRules = [];
   for (const rule of document.querySelectorAll('.rule')) {
     if (!rule.id) {
-      throw new Error(`Missing id for rule: ${rule.outerHTML}`);
+      utils.showError(`Missing id for rule: ${rule.outerHTML}`);
+      continue;
     }
     const ruleId = rule.id;
 
@@ -61,7 +62,8 @@ export function processRuleBlocks(config, document, utils, spectralConfiguration
       if (spectralConfiguration?.includes(`#${ruleId}`)) {
         const lastDataListItem = rule.querySelector('dt:last-of-type');
         if (lastDataListItem.textContent !== 'How to test') {
-          throw new Error(`Last element should be the "How to test" section. Found ${lastDataListItem.outerHTML}`);
+          utils.showError(`Last element should be the "How to test" section. Found ${lastDataListItem.outerHTML}`);
+          continue;
         }
         const howToTest = rule.querySelector('dd:last-of-type');
         howToTest.innerHTML += `This rule can be automatically checked and an example test is shown in the <a href="#:~:text=${encodeURIComponent(`#${ruleId}`).replaceAll('-', '%2D')}">linter configuration</a>.`;
@@ -70,7 +72,8 @@ export function processRuleBlocks(config, document, utils, spectralConfiguration
       flagTitle = 'This is a functional design rule and hence cannot be tested automatically.';
       functionalRules.push(ruleLabElement);
     } else {
-      throw new Error(`Missing type for rule: ${rule.outerHTML}`);
+      utils.showError(`Missing type for rule: ${ruleId}`);
+      continue;
     }
 
     const flagElement = document.createElement('div');
@@ -80,13 +83,50 @@ export function processRuleBlocks(config, document, utils, spectralConfiguration
     rule.prepend(flagElement);
   }
 
-  for (const [list, elementId] of [[functionalRules, '#functionalList'], [technicalRules, '#technicalList']]) {
-    const listElement = document.querySelector(elementId);
+  const designRuleId = 'design-rule-summary';
+  const designRuleSummary = document.getElementById(designRuleId);
+
+  if (designRuleSummary === null) {
+    utils.showError(`Missing design summary. Ensure that an element with id "${designRuleId}" exists.`);
+    return;
+  }
+
+  let ruleSummary = '';
+
+  for (const [list, ruleType] of [[technicalRules, 'technical'], [functionalRules, 'functional']]) {
+    if (list.length === 0) {
+      continue;
+    }
+
+    if (ruleType === 'technical') {
+      ruleSummary += 'technical rules, which should be tested automatically'
+    } else {
+      if (ruleSummary !== '') {
+        ruleSummary += ', and '
+      }
+      ruleSummary += 'functional rules, which should be considered when designing and building the API'
+    }
+
+    const header = document.createElement('h3');
+    header.innerText = `List of ${ruleType} rules`;
+    header.id = `list-of-${ruleType}-rules`;
+    designRuleSummary.append(header);
+
+    const listElement = document.createElement('ul');
 
     for (const ruleLabElement of list) {
       const listItem = document.createElement('li');
       listItem.innerHTML = ruleLabElement.innerHTML;
       listElement.append(listItem);
     }
+
+    designRuleSummary.append(listElement);
   }
+
+  if (ruleSummary === '') {
+    utils.showError('There are no rules found. Are you sure you want to generate a summary?');
+    return;
+  }
+
+  designRuleSummary.prepend(document.createTextNode(`Design rules are ${ruleSummary}.`));
 }
