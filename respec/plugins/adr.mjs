@@ -91,6 +91,11 @@ export function processRuleBlocks(config, document, utils, spectralConfiguration
 
     const listElement = document.querySelector(elementId);
 
+    if (listElement === null) {
+      utils.showError(`No list exists with id ${elementId}, yet there are ${list.length} rules with that type.`);
+      continue;
+    }
+    
     for (const ruleLabElement of list) {
       const listItem = document.createElement('li');
       listItem.innerHTML = ruleLabElement.innerHTML;
