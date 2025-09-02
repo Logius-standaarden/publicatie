@@ -1,0 +1,2506 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta name="generator" content="ReSpec 35.3.0">
+<style>
+.issue-label{text-transform:initial}
+.warning>p:first-child{margin-top:0}
+.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+span.warning{padding:.1em .5em .15em}
+.issue.closed span.issue-number{text-decoration:line-through}
+.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
+.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
+.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+li.task-list-item{list-style:none}
+input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+  
+  
+  
+<meta name="color-scheme" content="light dark">
+  
+  
+<title>NLGov REST API Design Rules 2.1.0</title>
+  
+  
+<link href="./media/style.css" rel="stylesheet" type="text/css">
+  
+<link href="./media/dark.css" rel="stylesheet" type="text/css" media="(prefers-color-scheme: dark)">
+  
+  
+  
+  
+<link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon">
+  
+  
+  
+ 
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:italic}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<style id="respec-nlgov">
+img.license{float:left;padding-right:5px;background:0 0}
+</style>
+<meta name="description" content="This document contains a normative standard for designing APIs in the Dutch Public Sector.
+The Governance of this standard is described by the API-Standaarden beheermodel published by Logius.
+This document is part of the Nederlandse API Strategie, which consists of a set of documents.">
+<style>
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+
+  .sidelabel {
+    position: fixed;
+    -webkit-transform-origin: top right;
+    right: 100%;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+    padding: 4px 50px 4px 10px;
+    color: white;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: #154273;
+  }
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "nl_organisationName": "Logius",
+  "nl_organisationStylesURL": "https://gitdocumentatie.logius.nl/publicatie/respec/style/",
+  "nl_organisationPublishURL": "https://gitdocumentatie.logius.nl/publicatie/",
+  "logos": [
+    {
+      "src": "https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg",
+      "alt": "Logius",
+      "id": "Logius",
+      "height": 77,
+      "width": 44,
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
+    }
+  ],
+  "latestVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/"
+  ],
+  "thisVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "publishVersion",
+    "/"
+  ],
+  "prevVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "previousPublishVersion",
+    "/"
+  ],
+  "useLogo": true,
+  "useLabel": true,
+  "license": "cc-by",
+  "addSectionLinks": true,
+  "localizationStrings": {
+    "en": {
+      "wv": "Draft",
+      "cv": "Consultation version",
+      "vv": "Proposed version",
+      "def": "Definitive version",
+      "basis": "Document",
+      "eo": "Outdated version",
+      "tg": "Rescinded version",
+      "no": "Norm",
+      "st": "Standard",
+      "im": "Information model",
+      "pr": "Guideline",
+      "hr": "Guide",
+      "wa": "Proposed recommendation",
+      "al": "General",
+      "bd": "Governance documentation",
+      "bp": "Best practice"
+    },
+    "nl": {
+      "wv": "Werkversie",
+      "cv": "Consultatieversie",
+      "vv": "Versie ter vaststelling",
+      "def": "Vastgestelde versie",
+      "basis": "Document",
+      "eo": "Verouderde versie",
+      "tg": "Teruggetrokken versie",
+      "no": "Norm",
+      "st": "Standaard",
+      "im": "Informatiemodel",
+      "pr": "Praktijkrichtlijn",
+      "hr": "Handreiking",
+      "wa": "Werkafspraak",
+      "al": "Algemeen",
+      "bd": "Beheerdocumentatie",
+      "bp": "Best practice"
+    }
+  },
+  "sotdText": {
+    "nl": {
+      "sotd": "Status van dit document",
+      "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.",
+      "cv": "Dit is een door het TO goedgekeurde consultatieversie. Commentaar over dit document kan gestuurd worden naar digikoppeling@logius.nl",
+      "vv": "Dit is een definitief concept van de nieuwe versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "basis": "Dit is een document zonder officiële status."
+    },
+    "en": {
+      "sotd": "Status of This Document",
+      "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
+      "wv": "This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.",
+      "cv": "This is a proposed recommendation approved by TO. Comments regarding this document may be sent to api@logius.nl",
+      "vv": "This is the definitive concept of this document. Edits resulting from consultations have been applied.",
+      "basis": "This document has no official standing."
+    }
+  },
+  "labelColor": {
+    "def": "#154273",
+    "wv": "#39870c",
+    "cv": "#000000",
+    "vv": "#000000"
+  },
+  "licenses": {
+    "cc0": {
+      "name": "Creative Commons 0 Public Domain Dedication",
+      "short": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-zero.svg"
+    },
+    "cc-by": {
+      "name": "Creative Commons Attribution 4.0 International Public License",
+      "short": "CC-BY",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg"
+    },
+    "cc-by-nd": {
+      "name": "Creative Commons Naamsvermelding-GeenAfgeleideWerken 4.0 Internationaal",
+      "short": "CC-BY-ND",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/legalcode.nl",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
+    }
+  },
+  "localBiblio": {
+    "ADR": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
+      "publisher": "Logius",
+      "title": "API Design Rules"
+    },
+    "ADR1": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0",
+      "publisher": "Logius",
+      "title": "API Design Rules"
+    },
+    "ADR-ext": {
+      "authors": [
+        "Jasper Roes",
+        "Linda van den Brink"
+      ],
+      "date": "Januari 2020",
+      "href": "https://docs.geostandaarden.nl/api/API-Strategie-ext",
+      "publisher": "Geonovum/Kennisplatform APi's",
+      "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
+    },
+    "Algemene Voorwaarden Logius": {
+      "date": "12 juni 2018",
+      "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
+      "publisher": "Logius",
+      "title": "Algemene voorwaarden Logius"
+    },
+    "AuthZEN": {
+      "date": "6 September 2024 ",
+      "href": "https://openid.net/specs/authorization-api-1_0-01.html",
+      "publisher": "OpenID",
+      "title": "Authorization API 1.0 – draft 01"
+    },
+    "AVG": {
+      "date": "27 april 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
+    },
+    "BCP195": {
+      "authors": [
+        "Y. Sheffer",
+        "R. Holz",
+        "P. Saint-Andre"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/bcp195",
+      "publisher": "IETF",
+      "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"
+    },
+    "DK-beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "CloudEvents": {
+      "authors": [
+        "@@@"
+      ],
+      "date": "May 2011",
+      "href": "https://github.com/cloudevents/spec/blob/v1.0.1/spec.md",
+      "publisher": "@@@",
+      "title": "CloudEvents - Version 1.0.1"
+    },
+    "NLGOV-CloudEvents": {
+      "authors": [
+        "Werkgroep Berichtenstandaard (Project Notificatieservices)"
+      ],
+      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "publisher": "Logius",
+      "title": "NL GOV profile for CloudEvents"
+    },
+    "DK-CV": {
+      "href": "https://gitlab.com/logius/digikoppeling-compliance",
+      "publisher": "Logius",
+      "title": "Digikoppeling Compliance Voorziening"
+    },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
+    },
+    "Deployment Guide 1.1": {
+      "authors": [
+        "Pete Wenzel",
+        "Jacques Durand"
+      ],
+      "date": "June 2005",
+      "href": "http://www.oasis-open.org/apps/org/workgroup/ebxml-iic-deployment-profile-template-intro-100406.doc",
+      "publisher": "OASIS",
+      "title": "Deployment Profile Template For OASIS ebXML Message Service 2.0"
+    },
+    "DK": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
+      "publisher": "Logius",
+      "title": "Logius | Digikoppeling"
+    },
+    "DK-Doc": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
+      "publisher": "Logius",
+      "title": "Digikoppeling documentatie"
+    },
+    "DK-Beheermodel": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beheermodel"
+    },
+    "DK-BPebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices ebMS2"
+    },
+    "DK-BPGB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpgb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices Grote Berichten"
+    },
+    "DK-BPWUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpwus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices WUS"
+    },
+    "DK-Beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "DK-gbachtcert": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-ebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-GB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/gb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard Grote Berichten"
+    },
+    "DK-WUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/wus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard WUS"
+    },
+    "DK-RESTAPI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/restapi/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard REST-API"
+    },
+    "DK-Architectuur": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Architectuur"
+    },
+    "DK-IDAuth": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Identificatie en Authenticatie"
+    },
+    "DK-WI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/",
+      "publisher": "Logius",
+      "title": "Wat is Digikoppeling?"
+    },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
+    },
+    "ebCPP": {
+      "authors": [
+        "Oasis"
+      ],
+      "date": "september 2002",
+      "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "ebMS3": {
+      "authors": [
+        "Ian Jones",
+        "Pete Wenzel"
+      ],
+      "date": "October 2007",
+      "href": "https://docs.oasis-open.org/ebxml-msg/ebms/v3.0/core/os/ebms_core-3.0-spec-os.html",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "eDelivery API4IPS": {
+      "authors": [
+        "J. Dimitriou, V. Veduta, B. Dumitriu"
+      ],
+      "date": "sept 8 2022",
+      "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
+      "publisher": "OpenID foundation",
+      "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
+    },
+    "Expert": {
+      "authors": [
+        "@@@"
+      ],
+      "date": "@@@",
+      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
+      "publisher": "Forum Standaardisatie",
+      "title": "Expertadvies CloudEvents 1.0"
+    },
+    "folmer2011": {
+      "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
+      "title": "Management and Development Model for Open Standards (BOMOS) version 2",
+      "keywords": "IR-76837",
+      "authors": [
+        "ErwinFolmer",
+        "Matthijs Punter"
+      ],
+      "date": "2011",
+      "language": "English",
+      "publisher": "Programmabureau NOiV"
+    },
+    "folmer2012": {
+      "href": "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
+      "title": "Quality of Semantic Standards",
+      "authors": [
+        "Erwin Folmer"
+      ],
+      "date": "2012",
+      "publisher": "Universiteit Twente"
+    },
+    "DK-Gebruiksvoorwaarden": {
+      "date": "1 januari 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Gebruiksvoorwaarden Digikoppeling"
+    },
+    "ADR-GEO": {
+      "authors": [
+        "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
+      "publisher": "Geonovum",
+      "title": "API Design Rules Module: Geospatial",
+      "id": "adr-geo"
+    },
+    "HTTPS-factsheet NCSC": {
+      "date": "Nov 2014",
+      "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
+      "publisher": "NCSC",
+      "title": "Factsheet HTTPS kan een stuk veiliger"
+    },
+    "iGOV.OpenID": {
+      "authors": [
+        "M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
+    },
+    "Introspection": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "October 2015",
+      "href": "https://tools.ietf.org/html/rfc7662",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Token Introspection"
+    },
+    "JWA": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7518",
+      "publisher": "IETF",
+      "title": "JSON Web Algorithms (JWA)"
+    },
+    "JWE": {
+      "authors": [
+        "M. Jones, J. Hildebrand"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7516",
+      "publisher": "IETF",
+      "title": "JSON Web Encryption (JWE)"
+    },
+    "JWK": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7517",
+      "publisher": "IETF",
+      "title": "JSON Web Key (JWK))"
+    },
+    "JWS": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7515",
+      "publisher": "IETF",
+      "title": "JSON Web Signature (JWS)"
+    },
+    "JWT": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7519",
+      "publisher": "IETF",
+      "title": "JSON Web Token (JWT)"
+    },
+    "NCSC 2019": {
+      "date": "April 2019",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2019/mei/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-tls",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.0"
+    },
+    "NCSC 2021": {
+      "date": "Jan 2021",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1",
+      "id": "ncsc 2021"
+    },
+    "NCSC 2025": {
+      "date": "June 2025",
+      "href": "https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+    },
+    "NEN3610": {
+      "authors": [
+        ""
+      ],
+      "date": "Maart 2011",
+      "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
+      "publisher": "Nederlands Normalisatie-instituut",
+      "title": "Basismodel Geo-informatie - Termen, definities, relaties en algemene regels voor de uitwisseling van informatie over aan de aarde gerelateerde ruimtelijke objecten"
+    },
+    "no-Reliable-messaging": {
+      "authors": [
+        "Marc de Graauw"
+      ],
+      "date": "June 18, 2010",
+      "href": "https://www.infoq.com/articles/no-reliable-messaging/",
+      "publisher": "infoQ",
+      "title": "Nobody Needs Reliable Messaging"
+    },
+    "OAuth2": {
+      "authors": [
+        "D. Hardt"
+      ],
+      "date": "October 2012",
+      "href": "https://tools.ietf.org/html/rfc6749",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "The OAuth 2.0 Authorization Framework",
+      "id": "oauth2"
+    },
+    "OpenID.Core": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
+      ],
+      "date": "November 8 2014",
+      "href": "https://openid.net/specs/openid-connect-core-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Core 1.0"
+    },
+    "OpenID.Discovery": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, E. Jay"
+      ],
+      "date": "November 8 2014",
+      "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Discovery 1.0"
+    },
+    "Pas-toe-of-leg-uit": {
+      "href": "https://www.forumstandaardisatie.nl/open-standaarden/verplicht",
+      "publisher": "Forum Standaardisatie",
+      "title": "Lijst Verplichte standaarden"
+    },
+    "PKIO-PvE": {
+      "href": "https://por.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
+    },
+    "PKI-CA": {
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
+      "publisher": "Logius",
+      "title": "Aansluiten als Trust Service Provider"
+    },
+    "PKIoverheid": {
+      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
+      "publisher": "Logius",
+      "title": "PKIoverheid"
+    },
+    "PKIO-Cert": {
+      "href": "https://cert.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Overzicht PKIoverheid certificaten"
+    },
+    "SemVer": {
+      "authors": [
+        "T. Preston-Werner"
+      ],
+      "date": "June 2013",
+      "href": "https://semver.org",
+      "title": "Semantic Versioning 2.0.0",
+      "id": "semver"
+    },
+    "ADR-TS": {
+      "authors": [
+        ""
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
+      "publisher": "Kennisplatform API's",
+      "title": "API Design Rules Module: Transport Security"
+    },
+    "UMMR10": {
+      "authors": [
+        ""
+      ],
+      "date": "2001",
+      "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
+      "publisher": "UN/CEFACT",
+      "title": "UMM Revision 10"
+    },
+    "UMMUG": {
+      "authors": [
+        ""
+      ],
+      "date": "2003",
+      "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
+      "publisher": "UN/CEFACT",
+      "title": "UN/CEFACT Modeling Methodology (UMM) User Guide"
+    },
+    "UUID": {
+      "authors": [
+        "P. Leach",
+        "M. Mealling",
+        "R. Salz"
+      ],
+      "date": "July 2005",
+      "href": "https://tools.ietf.org/html/rfc4122",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "A Universally Unique IDentifier (UUID) URN Namespace"
+    },
+    "DK-Voorwaarden": {
+      "date": "1 januari 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Voorwaarden Digikoppeling"
+    },
+    "X520": {
+      "href": "https://www.iso.org/standard/43796.html",
+      "publisher": "ISO",
+      "title": "ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6"
+    },
+    "ADR-Validator": {
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
+      "authors": [
+        "H. Stijns"
+      ],
+      "publisher": "Geonovum",
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "HEART.OAuth2": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "April 25, 2017",
+      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "Health Relationship Trust Profile for OAuth 2.0"
+    },
+    "JWS.JWE.Algs": {
+      "authors": [
+        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
+      ],
+      "date": "",
+      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
+      "publisher": "IANA",
+      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
+    },
+    "I-D.ietf-oauth-pop-architecture": {
+      "authors": [
+        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
+      ],
+      "date": "July 8, 2016",
+      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
+    },
+    "iGOV.OAuth2": {
+      "authors": [
+        "J. Richer, M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
+    },
+    "ietf-oauth-v2-1-10-refresh-token-grant": {
+      "authors": [
+        "Dick Hardt, Aaron Parecki, Torsten Lodderstedt"
+      ],
+      "date": "January 9, 2024",
+      "href": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-10#name-refresh-token-grant",
+      "publisher": "IETF",
+      "title": "The OAuth 2.1 Authorization Framework: Refresh Token Grant"
+    },
+    "OpenID.FAPI2.0": {
+      "authors": [
+        "D. Fett, D. Tonge, J. Heenan"
+      ],
+      "date": "February 22 2025",
+      "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
+      "publisher": "OpenID foundation",
+      "title": "FAPI 2.0 Security Profile"
+    },
+    "logboek-extensie-guideline": {
+      "href": "https://logius-standaarden.github.io/logboek-extensie-template/",
+      "publisher": "Logius",
+      "title": "LDV Extensie Guideline"
+    },
+    "logboek dataverwerkingen": {
+      "href": "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      "publisher": "Logius",
+      "title": "Logboek Dataverwerkingen"
+    }
+  },
+  "authors": [
+    {
+      "company": "Het Kadaster",
+      "companyURL": "https://www.kadaster.nl",
+      "name": "Jasper Roes"
+    },
+    {
+      "company": "Het Kadaster",
+      "companyURL": "https://www.kadaster.nl",
+      "name": "Joost Farla"
+    }
+  ],
+  "editors": [
+    {
+      "company": "Geonovum",
+      "companyURL": "https://www.geonovum.nl",
+      "name": "Frank Terpstra"
+    },
+    {
+      "company": "Geonovum",
+      "companyURL": "https://www.geonovum.nl",
+      "name": "Jan van Gelder"
+    },
+    {
+      "company": "Logius",
+      "companyURL": "https://www.logius.nl",
+      "name": "Alexander Green"
+    },
+    {
+      "company": "Logius",
+      "companyURL": "https://www.logius.nl",
+      "name": "Martin van der Plas"
+    },
+    {
+      "company": "Logius",
+      "companyURL": "https://www.logius.nl",
+      "name": "Tim van der Lippe"
+    }
+  ],
+  "github": "https://github.com/Logius-standaarden/API-Design-Rules",
+  "pubDomain": "api",
+  "publishDate": "2025-08-27",
+  "publishVersion": "2.1.0",
+  "previousPublishDate": "2025-02-17",
+  "previousPublishVersion": "2.0.2",
+  "shortName": "adr",
+  "specStatus": "DEF",
+  "specType": "ST",
+  "pluralize": true,
+  "preProcess": [
+    null,
+    null
+  ],
+  "postProcess": [
+    null,
+    null
+  ]
+}</script>
+<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css">
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/dark.css"></head>
+ 
+ <body class="h-entry"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+  </a> <h1 id="title" class="title">NLGov REST API Design Rules 2.1.0</h1>
+    
+    <h2>
+      Logius Standard<br>
+      Definitive version
+      <time class="dt-published" datetime="2025-08-27">August 27, 2025</time>
+    </h2>
+    <dl>
+      <dt>This version:</dt><dd class="status">
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1.0/">https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1.0/</a>
+            </dd>
+      <dt>Latest published version:</dt><dd>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/">https://gitdocumentatie.logius.nl/publicatie/api/adr/</a>
+            </dd>
+      <dt>Latest editor's draft:</dt><dd><a href="https://logius-standaarden.github.io/API-Design-Rules/">https://logius-standaarden.github.io/API-Design-Rules/</a></dd>
+      
+      
+      
+      <dt>Previous version:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.2/">https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.2/</a></dd>
+      
+      <dt>Editors:</dt>
+      <dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Frank Terpstra</span> (<a class="p-org org h-org" href="https://www.geonovum.nl">Geonovum</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Jan van Gelder</span> (<a class="p-org org h-org" href="https://www.geonovum.nl">Geonovum</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Alexander Green</span> (<a class="p-org org h-org" href="https://www.logius.nl">Logius</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Martin van der Plas</span> (<a class="p-org org h-org" href="https://www.logius.nl">Logius</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Tim van der Lippe</span> (<a class="p-org org h-org" href="https://www.logius.nl">Logius</a>)
+  </dd>
+      
+      <dt>Authors:</dt><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Jasper Roes</span> (<a class="p-org org h-org" href="https://www.kadaster.nl">Het Kadaster</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Joost Farla</span> (<a class="p-org org h-org" href="https://www.kadaster.nl">Het Kadaster</a>)
+  </dd>
+      <dt>Participate:</dt><dd>
+    <a href="https://github.com/Logius-standaarden/API-Design-Rules/">GitHub Logius-standaarden/API-Design-Rules</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/API-Design-Rules/issues/">File an issue</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/API-Design-Rules/commits/">Commit history</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/API-Design-Rules/pulls/">Pull requests</a>
+  </dd>
+    </dl>
+    
+    
+    
+    <p class="copyright">
+            This document is licensed under 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
+    <hr title="Separator for header">
+  </div>
+  <section id="abstract" class="introductory"><h2>Abstract</h2><p>This document contains a normative standard for designing APIs in the Dutch Public Sector.
+The Governance of this standard is described by the <a href="https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/">API-Standaarden beheermodel</a> published by Logius.
+This document is part of the <em>Nederlandse API Strategie</em>, which consists of <a href="https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie">a set of documents</a>.</p>
+</section>
+  <section class="notoc" id="conformance"><div class="header-wrapper"><h2 id="conformance-0">Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+        The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>, <em class="rfc2119">NOT RECOMMENDED</em>, <em class="rfc2119">SHOULD</em>, and <em class="rfc2119">SHOULD NOT</em> in this document
+        are to be interpreted as described in
+        <a href="https://www.rfc-editor.org/info/bcp14">BCP 14</a>
+        [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
+        when, and only when, they appear in all capitals, as shown here.
+      </p>
+  </section>
+  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#goal"><bdi class="secno">1.1 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#status"><bdi class="secno">1.2 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#authors"><bdi class="secno">1.3 </bdi>Authors</a></li><li class="tocline"><a class="tocxref" href="#reading-guide"><bdi class="secno">1.4 </bdi>Reading Guide</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">1.5 </bdi>Extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#summary"><bdi class="secno">2. </bdi>Summary</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-design-rules"><bdi class="secno">2.1 </bdi>Normative Design Rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#list-of-functional-rules"><bdi class="secno">2.1.1 </bdi>List of functional rules</a></li><li class="tocline"><a class="tocxref" href="#list-of-technical-rules"><bdi class="secno">2.1.2 </bdi>List of technical rules</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#the-core-set-of-design-rules"><bdi class="secno">3. </bdi>The core set of Design Rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#resources"><bdi class="secno">3.1 </bdi>Resources</a></li><li class="tocline"><a class="tocxref" href="#http-methods"><bdi class="secno">3.2 </bdi>HTTP methods</a></li><li class="tocline"><a class="tocxref" href="#statelessness"><bdi class="secno">3.3 </bdi>Statelessness</a></li><li class="tocline"><a class="tocxref" href="#relationships"><bdi class="secno">3.4 </bdi>Relationships</a></li><li class="tocline"><a class="tocxref" href="#operations"><bdi class="secno">3.5 </bdi>Operations</a></li><li class="tocline"><a class="tocxref" href="#documentation"><bdi class="secno">3.6 </bdi>Documentation</a></li><li class="tocline"><a class="tocxref" href="#versioning"><bdi class="secno">3.7 </bdi>Versioning</a></li><li class="tocline"><a class="tocxref" href="#transport-security"><bdi class="secno">3.8 </bdi>Transport Security</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#http-level-security"><bdi class="secno">3.8.1 </bdi>HTTP-level Security</a></li><li class="tocline"><a class="tocxref" href="#browser-based-applications"><bdi class="secno">3.8.2 </bdi>Browser-based applications</a></li><li class="tocline"><a class="tocxref" href="#validate-content-types"><bdi class="secno">3.8.3 </bdi>Validate content types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#geospatial"><bdi class="secno">3.9 </bdi>Geospatial</a></li></ol></li><li class="tocline"><a class="tocxref" href="#glossary"><bdi class="secno">4. </bdi>Glossary</a></li><li class="tocline"><a class="tocxref" href="#spectral-linter-configuration"><bdi class="secno">A. </bdi>Spectral linter configuration</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">B.2 </bdi>Informative references</a></li></ol></li></ol></nav>
+  <div><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Version</th>
+<th>Changes summary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2020-07-09</td>
+<td><a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0">1.0</a></td>
+<td>Initial version based on input from Kennisplatform API's</td>
+</tr>
+<tr>
+<td>2024-03-07</td>
+<td><a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0.0">2.0.0</a></td>
+<td>Add Geospatial and Transport Security modules</td>
+</tr>
+<tr>
+<td>2025-08-27</td>
+<td><a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1.0">2.1.0</a></td>
+<td>Add <code>info.contact</code> rule and linter configuration</td>
+</tr>
+</tbody></table>
+</div>
+  
+  
+  
+  <section class="informative" id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
+<section id="goal"><div class="header-wrapper"><h3 id="x1-1-goal"><bdi class="secno">1.1 </bdi>Goal</h3><a class="self-link" href="#goal" aria-label="Permalink for Section 1.1"></a></div>
+<p>More and more governmental organizations offer REST APIs (henceforth abbreviated as APIs), in addition to existing interfaces like SOAP and WFS. These APIs aim to be developer-friendly and easy to implement. While this is a commendable aim, it does not shield a developer from a steep learning curve getting to know every new API, in particular when every individual API is designed using different patterns and conventions.</p>
+<p>This document aims to describe a widely applicable set of design rules for the unambiguous provisioning of REST APIs. The primary goal is to offer guidance for organizations designing new APIs, with the purpose of increasing developer experience (DX) and interoperability between APIs. Hopefully, many organizations will adopt these design rules in their corporate API strategies and provide feedback about exceptions and additions to subsequently improve these design rules.</p>
+</section><section id="status"><div class="header-wrapper"><h3 id="x1-2-status"><bdi class="secno">1.2 </bdi>Status</h3><a class="self-link" href="#status" aria-label="Permalink for Section 1.2"></a></div>
+<p>This version of the design rules has been submitted to Forum Standaardisatie for inclusion on the Comply or Explain list of mandatory standards in the Dutch Public Sector. This document originates from the document <a href="https://docs.geostandaarden.nl/api/vv-hr-API-Strategie-20190715/">API Strategie voor de Nederlandse Overheid</a>, which was recently split into separate sub-documents.</p>
+</section><section id="authors"><div class="header-wrapper"><h3 id="x1-3-authors"><bdi class="secno">1.3 </bdi>Authors</h3><a class="self-link" href="#authors" aria-label="Permalink for Section 1.3"></a></div>
+<p>Despite the fact that two authors are mentioned in the list of authors, this document is the result of a collaborative effort by the members of the <em>API Design Rules Working Group</em>.</p>
+</section><section id="reading-guide"><div class="header-wrapper"><h3 id="x1-4-reading-guide"><bdi class="secno">1.4 </bdi>Reading Guide</h3><a class="self-link" href="#reading-guide" aria-label="Permalink for Section 1.4"></a></div>
+<p>This document is part of the <em>Nederlandse API Strategie</em>.</p>
+<p>The Nederlandse API Strategie consists of <a href="https://www.geonovum.nl/themas/kennisplatform-apis#APIStrategie">a set of distinct documents</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Description &amp; Link</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Informative</td>
+<td><a href="https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Inleiding/">Inleiding NL API Strategie</a></td>
+</tr>
+<tr>
+<td>Informative</td>
+<td><a href="https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/">Architectuur NL API Strategie</a></td>
+</tr>
+<tr>
+<td>Informative</td>
+<td><a href="https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Gebruikerswensen/">Gebruikerswensen NL API Strategie</a></td>
+</tr>
+<tr>
+<td>Normative</td>
+<td><a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0/">API Design Rules (ADR v2.0)</a></td>
+</tr>
+<tr>
+<td>Normative</td>
+<td><a href="https://spec.openapis.org/oas/v3.0.1.html">Open API Specification (OAS 3.0)</a></td>
+</tr>
+<tr>
+<td>Normative</td>
+<td><a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">NL GOV OAuth profiel</a></td>
+</tr>
+<tr>
+<td>Normative</td>
+<td><a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/">Digikoppeling REST API koppelvlak specificatie</a></td>
+</tr>
+<tr>
+<td>Normative module</td>
+<td><a href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/1.0.2/">GEO module v1.0</a></td>
+</tr>
+<tr>
+<td>Normative module</td>
+<td><a href="https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/1.0.2/">Transport Security module v1.0</a></td>
+</tr>
+</tbody></table>
+<p>Before reading this document it is advised to gain knowledge of the informative documents, in particular the <a href="https://geonovum.github.io/KP-APIs/API-strategie-algemeen/Architectuur/">Architecture</a>.</p>
+<p>An overview of all current documents is available in this Dutch infographic:</p>
+<figure id="fig-nl-api-strategie-infographic">
+  <object data="https://geonovum.github.io/KP-APIs/media/API_infographic.svg" type="image/svg+xml" id="infographic" title="NL API Strategie Infographic"></object>
+  <figcaption><a class="self-link" href="#fig-nl-api-strategie-infographic">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">NL API Strategie Infographic</span></figcaption>
+</figure>
+
+</section><section id="extensions"><div class="header-wrapper"><h3 id="x1-5-extensions"><bdi class="secno">1.5 </bdi>Extensions</h3><a class="self-link" href="#extensions" aria-label="Permalink for Section 1.5"></a></div>
+<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><aside class="">
+In addition to this (normative) document, separate modules are being written to provide a set of extensions. These modules are all separate documents and exists in a <a href="https://geonovum.github.io/KP-APIs/">latest editor's draft</a> (<i>Werkversie</i> in Dutch). The latest editor's draft is actively being worked on and can be found on <a href="https://github.com/Geonovum/KP-APIs">GitHub</a>. It contains the most recent changes.
+</aside></div></section></section>
+  <section id="summary"><div class="header-wrapper"><h2 id="x2-summary"><bdi class="secno">2. </bdi>Summary</h2><a class="self-link" href="#summary" aria-label="Permalink for Section 2."></a></div>
+<section id="normative-design-rules"><div class="header-wrapper"><h3 id="x2-1-normative-design-rules"><bdi class="secno">2.1 </bdi>Normative Design Rules</h3><a class="self-link" href="#normative-design-rules" aria-label="Permalink for Section 2.1"></a></div>
+<p>Design rules can be technical rules, which should be tested automatically and functional rules which should be considered when designing and building the api.</p>
+<section id="list-of-functional-rules"><div class="header-wrapper"><h4 id="x2-1-1-list-of-functional-rules"><bdi class="secno">2.1.1 </bdi>List of functional rules</h4><a class="self-link" href="#list-of-functional-rules" aria-label="Permalink for Section 2.1.1"></a></div>
+<ul id="functionalList"><li><a href="#/core/naming-resources">/core/naming-resources</a>: Use nouns to name resources</li><li><a href="#/core/naming-collections">/core/naming-collections</a>: Use plural nouns to name collection resources</li><li><a href="#/core/interface-language">/core/interface-language</a>: Define interfaces in Dutch unless there is an official English glossary available</li><li><a href="#/core/hide-implementation">/core/hide-implementation</a>: Hide irrelevant implementation details</li><li><a href="#/core/http-safety">/core/http-safety</a>: Adhere to HTTP safety and idempotency semantics for operations</li><li><a href="#/core/http-response-code">/core/http-response-code</a>: Adhere to HTTP status codes to convey appropriate errors</li><li><a href="#/core/stateless">/core/stateless</a>: Do not maintain session state on the server</li><li><a href="#/core/nested-child">/core/nested-child</a>: Use nested URIs for child resources</li><li><a href="#/core/resource-operations">/core/resource-operations</a>: Model resource operations as a sub-resource or dedicated resource</li><li><a href="#/core/doc-language">/core/doc-language</a>: Publish documentation in Dutch unless there is existing documentation in English</li><li><a href="#/core/deprecation-schedule">/core/deprecation-schedule</a>: Include a deprecation schedule when deprecating features or versions</li><li><a href="#/core/transition-period">/core/transition-period</a>: Schedule a fixed transition period for a new major API version</li><li><a href="#/core/changelog">/core/changelog</a>: Publish a changelog for API changes between versions</li><li><a href="#/core/transport/no-sensitive-uris">/core/transport/no-sensitive-uris</a>: No sensitive information in URIs</li><li><a href="#/core/geospatial">/core/geospatial</a>: Apply the geospatial module for geospatial data</li></ul>
+
+</section><section id="list-of-technical-rules"><div class="header-wrapper"><h4 id="x2-1-2-list-of-technical-rules"><bdi class="secno">2.1.2 </bdi>List of technical rules</h4><a class="self-link" href="#list-of-technical-rules" aria-label="Permalink for Section 2.1.2"></a></div>
+<ul id="technicalList"><li><a href="#/core/no-trailing-slash">/core/no-trailing-slash</a>: Leave off trailing slashes from URIs</li><li><a href="#/core/http-methods">/core/http-methods</a>: Only apply standard HTTP methods</li><li><a href="#/core/doc-openapi">/core/doc-openapi</a>: Use OpenAPI Specification for documentation</li><li><a href="#/core/doc-openapi-contact">/core/doc-openapi-contact</a>: Document contact information for publicly available APIs</li><li><a href="#/core/publish-openapi">/core/publish-openapi</a>: Publish OAS document at a standard location in JSON-format</li><li><a href="#/core/uri-version">/core/uri-version</a>: Include the major version number in the URI</li><li><a href="#/core/semver">/core/semver</a>: Adhere to the Semantic Versioning model when releasing API changes</li><li><a href="#/core/version-header">/core/version-header</a>: Return the full version number in a response header</li><li><a href="#/core/transport/tls">/core/transport/tls</a>: Secure connections using TLS</li><li><a href="#/core/transport/security-headers">/core/transport/security-headers</a>: Use mandatory security headers in API all responses</li><li><a href="#/core/transport/cors">/core/transport/cors</a>: Use CORS to control access</li></ul></section></section></section>
+  <section id="the-core-set-of-design-rules"><div class="header-wrapper"><h2 id="x3-the-core-set-of-design-rules"><bdi class="secno">3. </bdi>The core set of Design Rules</h2><a class="self-link" href="#the-core-set-of-design-rules" aria-label="Permalink for Section 3."></a></div>
+<section id="resources"><div class="header-wrapper"><h3 id="x3-1-resources"><bdi class="secno">3.1 </bdi>Resources</h3><a class="self-link" href="#resources" aria-label="Permalink for Section 3.1"></a></div>
+<p>The REST architectural style is centered around the concept of a <a data-link-type="dfn|abstract-op" href="#dfn-resource" class="internalDFN" id="ref-for-dfn-resource-1">resource</a>. A resource is an abstraction of a conceptual entity, identified by a globally unique <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-1">URI</a>. It may correspond to anything from a physical object (e.g. a building or a person) to an abstract concept (e.g. a permit, an event or today's weather). Although a resource is not tied to any specific exchange format, its current state can be transferred to clients through one or more representations, such as JSON or XML.</p>
+<p><span id="api-05"></span></p>
+<div class="rule" id="/core/naming-resources" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+   <p class="rulelab"><a href="#/core/naming-resources">/core/naming-resources</a>: Use nouns to name resources</p>
+   <dl>
+   <dt>Statement</dt>
+   <dd>
+   Resources are referred to using nouns (instead of verbs) that represent entities meaningful to the API consumer.
+   <div class="example">
+      A few correct examples of nouns as part of a URI:
+      <ul>
+         <li>Gebouw</li>
+         <li>Vergunning</li>
+      </ul>
+      <p>This is different than RPC-style APIs, where verbs are often used to perform certain actions:</p>
+      <ul>
+         <li>Opvragen</li>
+         <li>Registreren</li>
+      </ul>
+   </div>
+   </dd>
+   <dt>Rationale</dt>
+   <dd>
+   Resources describe objects not actions.
+   </dd>
+</dl>
+</div>
+
+<p>A resource that corresponds to a single conceptual entity is referred to as a <a data-link-type="dfn|abstract-op" href="#dfn-singular-resource" class="internalDFN" id="ref-for-dfn-singular-resource-1">singular resource</a>. Resources can also be logically grouped into collections, which are themselves resources and typically support operations like paging, sorting, and filtering. While collection members are often of the same type, this is not strictly required. A collection resource contains references (URIs) to the individual singular resources it includes.</p>
+<p><span id="api-54"></span></p>
+<div class="rule" id="/core/naming-collections" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+   <p class="rulelab"><a href="#/core/naming-collections">/core/naming-collections</a>: Use plural nouns to name collection resources</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Collection resources are referred to using plural nouns.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The path segment describing the name of the collection resource <em class="rfc2119">MUST</em> be written in the plural form.
+         <div class="example">
+            <p>Example collection resources, describing a list of things:</p>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen<br>https://api.example.org/v1/vergunningen</pre>
+         </div>
+         <p>Singular resources contained within a collection resource are generally named by appending a path segment for the identification of each individual resource.</p>
+         <div class="example">
+            <p>Example singular resource, contained within a collection resource:</p>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen/3b9710c4-6614-467a-ab82-36822cf48db1<br>https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pre>
+         </div>
+         <p>Singular resources that stand on their own, i.e. which are not contained within a collection resource, <em class="rfc2119">MUST</em> be named with a path segment that is written in the singular form.</p>
+         <div class="example">
+            <p>Example singular resource describing the profile of the currently authenticated user:</p>
+            <pre class="nohighlight">https://api.example.org/v1/gebruikersprofiel</pre>
+         </div>
+      </dd>
+   </dl>
+</div>
+
+<p><span id="api-04"></span></p>
+<div class="rule" id="/core/interface-language" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+   <p class="rulelab"><a href="#/core/interface-language">/core/interface-language</a>: Define interfaces in Dutch unless there is an official English glossary available</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Resources and the underlying attributes <em class="rfc2119">SHOULD</em> be defined in the Dutch language unless there is an official English glossary available.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The exact meaning of concepts is often lost in translation. Publishing an API for an international audience might also be a reason to define interfaces in English.
+         Note that glossaries exist that define useful sets of attributes which <em class="rfc2119">SHOULD</em> preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
+      </dd>
+   </dl>
+</div>
+
+<p><span id="api-48"></span></p>
+<div class="rule" id="/core/no-trailing-slash" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+   <p class="rulelab"><a href="#/core/no-trailing-slash">/core/no-trailing-slash</a>: Leave off trailing slashes from URIs</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         A <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-2">URI</a> <em class="rfc2119">MUST</em> never contain a trailing slash. When requesting a resource including a trailing slash, this <em class="rfc2119">MUST</em> result in a <code>404</code> (not found) error response and not a redirect. This enforces API consumers to use the correct <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-3">URI</a>.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         Leaving off trailing slashes, and not implementing a redirect, enforces API consumers to use the correct URI. This avoids confusion and ambiguity.
+         <div class="example">
+            <p>URI without a trailing slash (correct):</p>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen</pre>
+            <p>URI with a trailing slash (incorrect):</p>
+            <pre class="nohighlight">https://api.example.org/v1/gebouwen/</pre>
+         </div>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Analyse all resource paths in the OpenAPI Description to confirm no resource paths end with a forward slash (<code>/</code>).
+      This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fno%2Dtrailing%2Dslash">linter configuration</a>.</dd>
+   </dl>
+</div>
+
+<p><span id="api-53"></span></p>
+<div class="rule" id="/core/hide-implementation" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+   <p class="rulelab"><a href="#/core/hide-implementation">/core/hide-implementation</a>: Hide irrelevant implementation details</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         An API <em class="rfc2119">SHOULD</em> not expose implementation details of the underlying application, development platforms/frameworks or database systems/persistence models.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <ul>
+            <li>The primary motivation behind this design rule is that an API design <em class="rfc2119">MUST</em> focus on usability for the client, regardless of the implementation details under the hood.</li>
+            <li>The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining backwards compatibility for APIs during an agile development process.</li>
+            <li>The API design of Convenience,- and Process API types (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) <em class="rfc2119">SHOULD</em> not be a 1-on-1 mapping of the underlying domain- or persistence model.</li>
+            <li>The API design of a System API type (as described in <a href="https://docs.geostandaarden.nl/api/def-hr-API-Strategie-20200204/#aanbeveling-2-analyseer-welke-api-s-je-aan-moet-bieden-welke-informatievragen-wil-je-beantwoorden">Aanbeveling 2</a> of the NL API Strategie) <em class="rfc2119">MAY</em> be a mapping of the underlying  persistence model.</li>
+            <li>The API <em class="rfc2119">SHOULD</em> not expose information about the technical components being used, such as development platforms/frameworks or database systems.</li>
+            <li>The API <em class="rfc2119">SHOULD</em> offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or serializations which might be cumbersome for consumption.</li>
+         </ul>
+      </dd>
+   </dl>
+</div>
+
+</section><section id="http-methods"><div class="header-wrapper"><h3 id="x3-2-http-methods"><bdi class="secno">3.2 </bdi>HTTP methods</h3><a class="self-link" href="#http-methods" aria-label="Permalink for Section 3.2"></a></div>
+<p>Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc9110" title="HTTP Semantics">rfc9110</a></cite>].</p>
+<p><span id="api-03"></span></p>
+<div class="rule" id="/core/http-methods" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+   <p class="rulelab"><a href="#/core/http-methods">/core/http-methods</a>: Only apply standard HTTP methods</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Resources <em class="rfc2119">MUST</em> be retrieved or manipulated using standard HTTP methods (GET/POST/PUT/PATCH/DELETE).
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The HTTP specifications offer a set of standard methods, where every method is designed with explicit semantics. Adhering to the HTTP specification is crucial, since HTTP clients and middleware applications rely on standardized characteristics.
+         <table>
+            <thead>
+               <tr>
+                  <th scope="col">Method</th>
+                  <th scope="col">Operation</th>
+                  <th scope="col">Description</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td><code>GET</code></td>
+                  <td>Read</td>
+                  <td>Retrieve a resource representation for the given <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-4">URI</a>. Data is only retrieved and never modified.</td>
+               </tr>
+               <tr>
+                  <td><code>POST</code></td>
+                  <td>Create</td>
+                  <td>Create a subresource as part of a collection resource. This operation is not relevant for singular resources. This method can also be used for <a href="#/core/resource-operations">exceptional cases</a>.</td>
+               </tr>
+               <tr>
+                  <td><code>PUT</code></td>
+                  <td>Create/update</td>
+                  <td>Create a resource with the given <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-5">URI</a> or replace (full update) a resource when the resource already exists.</td>
+               </tr>
+               <tr>
+                  <td><code>PATCH</code></td>
+                  <td>Update</td>
+                  <td>Partially updates an existing resource. The request only contains the resource modifications instead of the full resource representation.</td>
+               </tr>
+               <tr>
+                  <td><code>DELETE</code></td>
+                  <td>Delete</td>
+                  <td>Remove a resource with the given <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-6">URI</a>.</td>
+               </tr>
+            </tbody>
+         </table>
+         <div class="example">The following table shows some examples of the use of standard HTTP methods:
+      <table>
+      <thead>
+      <tr>
+      <th scope="col">
+      Request</th>
+      <th scope="col">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td><code>GET /rijksmonumenten</code></td>
+            <td>Retrieves a list of national monuments.</td>
+         </tr>
+         <tr>
+            <td><code>GET /rijksmonumenten/12</code></td>
+            <td>Retrieves an individual national monument.</td>
+         </tr>
+         <tr>
+            <td><code>POST /rijksmonumenten</code></td>
+            <td>Creates a new national monument.</td>
+         </tr>
+         <tr>
+            <td><code>PUT /rijksmonumenten/12</code></td>
+            <td>Modifies national monument #12 completely.</td>
+         </tr>
+         <tr>
+            <td><code>PATCH /rijksmonumenten/12</code></td>
+            <td>Modifies national monument #12 partially.</td>
+         </tr>
+         <tr>
+            <td><code>DELETE /rijksmonumenten/12</code></td>
+            <td>Deletes national monument #12.</td>
+         </tr>
+      </tbody>
+      </table>
+   </div>
+   <div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note-0" aria-level="4"><span>Note</span></div><p class="">The HTTP specification [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc9110" title="HTTP Semantics">rfc9110</a></cite>] offers a set of standard methods, where every method is designed with explicit semantics. HTTP also defines other methods, e.g. <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, and <code>CONNECT</code>.<br>
+   The OpenAPI Specification 3.0 <a href="https://spec.openapis.org/oas/v3.0.1#path-item-object">Path Item Object</a> also supports these methods, except for <code>CONNECT</code>.<br>
+  According to <a href="https://www.rfc-editor.org/rfc/rfc9110#name-overview">RFC 9110 9.1</a> the <code>GET</code> and <code>HEAD</code> HTTP methods <em class="rfc2119">MUST</em> be supported by the server, all other methods are optional.<br>
+  In addition to the standard HTTP methods, a server may support other optional methods as well, e.g. <code>PROPFIND</code>, <code>COPY</code>, <code>PURGE</code>, <code>VIEW</code>, <code>LINK</code>, <code>UNLINK</code>, <code>LOCK</code>, <code>UNLOCK</code>, etc.<br>
+  If an optional HTTP request method is sent to a server and the server does not support that HTTP method for the target resource, an HTTP status code <code>405 Method Not Allowed</code> shall be returned and a list of allowed methods for the target resource shall be provided in the <code>Allow</code> header in the response as stated in <a href="https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed">RFC 9110 15.5.6</a>.</p></div>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Analyse the OpenAPI Description to confirm all supported methods are either <code>post</code>, <code>put</code>, <code>get</code>, <code>delete</code>, or <code>patch</code>.
+      This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fhttp%2Dmethods">linter configuration</a>.</dd>
+   </dl>
+</div>
+
+<p><span id="api-01"></span></p>
+<div class="rule" id="/core/http-safety" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+   <p class="rulelab"><a href="#/core/http-safety">/core/http-safety</a>: Adhere to HTTP safety and idempotency semantics for operations</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         The following table describes which HTTP methods <em class="rfc2119">MUST</em> behave as safe and/or idempotent:<p></p>
+         <table>
+            <thead>
+               <tr>
+                  <th scope="col">Method</th>
+                  <th scope="col">Safe</th>
+                  <th scope="col">Idempotent</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td><code>GET</code></td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+               </tr>
+               <tr>
+                  <td><code>HEAD</code></td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+               </tr>
+               <tr>
+                  <td><code>OPTIONS</code></td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+               </tr>
+               <tr>
+                  <td><code>POST</code></td>
+                  <td>No</td>
+                  <td>No</td>
+               </tr>
+               <tr>
+                  <td><code>PUT</code></td>
+                  <td>No</td>
+                  <td>Yes</td>
+               </tr>
+               <tr>
+                  <td><code>PATCH</code></td>
+                  <td>No</td>
+                  <td>No</td>
+               </tr>
+               <tr>
+                  <td><code>DELETE</code></td>
+                  <td>No</td>
+                  <td>Yes</td>
+               </tr>
+            </tbody>
+         </table>
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>
+            The HTTP protocol [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc9110" title="HTTP Semantics">rfc9110</a></cite>] specifies whether an HTTP method <em class="rfc2119">SHOULD</em> be considered safe and/or idempotent. These characteristics are important for clients and middleware applications, because they <em class="rfc2119">SHOULD</em> be taken into account when implementing caching and fault tolerance strategies.
+         </p>
+         <p>
+            Request methods are considered <i>safe</i> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource. A request method is considered <i>idempotent</i> if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.
+         </p>
+      </dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/http-response-code" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+   <p class="rulelab"><a href="#/core/http-response-code">/core/http-response-code</a>: Adhere to HTTP status codes to convey appropriate errors</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Always use the semantically appropriate HTTP <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">status code</a> ([<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc9110" title="HTTP Semantics">rfc9110</a></cite>]) for the response.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>The server <em class="rfc2119">SHOULD NOT</em> only use <code>200</code> for success and <code>404</code> for error states. Use the semantically appropriate status code for success or failure.
+         </p><p>In case of an error, the server <em class="rfc2119">SHOULD NOT</em> pass technical details (e.g. call stacks or other internal hints) to the client. The error message <em class="rfc2119">SHOULD</em> be generic to avoid revealing additional details and expose internal information which can be used with malicious intent.
+      </p></dd>
+   </dl>
+</div>
+
+</section><section id="statelessness"><div class="header-wrapper"><h3 id="x3-3-statelessness"><bdi class="secno">3.3 </bdi>Statelessness</h3><a class="self-link" href="#statelessness" aria-label="Permalink for Section 3.3"></a></div>
+<p>One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorize previous requests. Session state must therefore reside entirely on the client.</p>
+<p>To properly understand this constraint, it's important to make a distinction between two different kinds of state:</p>
+<ul>
+<li><em>Session state</em>: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-Step registration process. Session state must reside entirely on the client (e.g. in the user's browser).</li>
+<li><em>Resource state</em>: information that is permanently stored on the server beyond the scope of a single user session, such as the user's profile, a product purchase or information about a building. Resource state is persisted on the server and must be exchanged between client and server (in both directions) using  representations as part of the request or response payload. This is actually where the term <em>REpresentational State Transfer (REST)</em> originates from.</li>
+</ul>
+<div class="note" role="note" id="issue-container-generatedID-1"><div role="heading" class="note-title marker" id="h-note-1" aria-level="4"><span>Note</span></div><p class="">It's a misconception that there should be no state at all. The stateless communication constraint should be seen from the server's point of view and states that the server should not be aware of any <em>session state</em>.</p></div>
+
+<p>Stateless communication offers many advantages, including:</p>
+<ul>
+<li><em>Simplicity</em> is increased because the server doesn't have to memorize or retrieve session state while processing requests</li>
+<li><em>Scalability</em> is improved because not having to incorporate session state across multiple requests enables higher concurrency and performance</li>
+<li><em>Observability</em> is improved since every request can be monitored or analyzed in isolation without having to incorporate session context from other requests</li>
+<li><em>Reliability</em> is improved because it eases the task of recovering from partial failures since the server doesn't have to maintain, update or communicate session state. One failing request does not influence other requests (depending on the nature of the failure of course).</li>
+</ul>
+<p><span id="api-02"></span></p>
+<div class="rule" id="/core/stateless" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+   <p class="rulelab"><a href="#/core/stateless">/core/stateless</a>: Do not maintain session state on the server</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         In the context of REST APIs, the server <em class="rfc2119">MUST</em> not maintain or require any notion of the functionality of the client application and the corresponding end user interactions.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         To achieve full decoupling between client and server, and to benefit from the advantages mentioned above, no session state <em class="rfc2119">MUST</em> reside on the server. Session state <em class="rfc2119">MUST</em> therefore reside entirely on the client.
+      </dd>
+   </dl>
+   <div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-2" aria-level="4"><span>Note</span></div><p class="">The client of a REST API could be a variety of applications such as a browser application, a mobile or desktop application and even another server serving as a backend component for another client. REST APIs should therefore be completely client-agnostic.</p></div>
+</div>
+
+</section><section id="relationships"><div class="header-wrapper"><h3 id="x3-4-relationships"><bdi class="secno">3.4 </bdi>Relationships</h3><a class="self-link" href="#relationships" aria-label="Permalink for Section 3.4"></a></div>
+<p>Resources are often interconnected by relationships. Relationships can be modelled in different ways depending on the cardinality, semantics and more importantly, the use cases and access patterns the REST API needs to support.</p>
+<p><span id="api-06"></span></p>
+<div class="rule" id="/core/nested-child" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+  <p class="rulelab"><a href="#/core/nested-child">/core/nested-child</a>: Use nested URIs for child resources</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         When having a child resource which can only exist in the context of a parent resource, the <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-7">URI</a> <em class="rfc2119">SHOULD</em> be nested.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         In this use case, the child resource does not necessarily have a top-level collection resource. The best way to explain this design rule is by example.
+         <div class="example">
+    <p>When modelling resources for a news platform including the ability for users to write comments, it might be a good strategy to model the <a data-link-type="dfn|abstract-op" href="#dfn-collection-resource" class="internalDFN" id="ref-for-dfn-collection-resource-1">collection resources</a> hierarchically:</p>
+    <pre class="nohighlight">https://api.example.org/v1/articles/123/comments</pre>
+    <p>The platform might also offer a photo section, where the same commenting functionality is offered. In the same way as for articles, the corresponding sub-collection resource might be published at:</p>
+    <pre class="nohighlight">https://api.example.org/v1/photos/456/comments</pre>
+    <p>These nested sub-collection resources can be used to post a new comment (<code>POST</code> method) and to retrieve a list of comments (<code>GET</code> method) belonging to the parent resource, i.e. the article or photo. An important consideration is that these comments could never have existed without the existence of the parent resource.</p>
+    <p>From the consumer's perspective, this approach makes logical sense, because the most obvious use case is to show comments below the parent article or photo (e.g. on the same web page) including the possibility to paginate through the comments. The process of posting a comment is separate from the process of publishing a new article. Another client use case might also be to show a global <em>latest comments</em> section in the sidebar. For this use case, an additional resource could be provided:</p>
+    <pre class="nohighlight">https://api.example.org/v1/comments</pre>
+    <p>If this would have not been a meaningful use case, this resource should not exist at all. Because it doesn't make sense to post a new comment from a global context, this resource would be read-only (only <code>GET</code> method is supported) and may possibly provide a more compact representation than the parent-specific sub-collections.</p>
+    <p>The <a data-link-type="dfn|abstract-op" href="#dfn-singular-resource" class="internalDFN" id="ref-for-dfn-singular-resource-2">singular resources</a> for comments, referenced from all 3 collections, could still be modelled on a higher level to avoid deep nesting of URIs (which might increase complexity or problems due to the URI length):</p>
+    <pre class="nohighlight">https://api.example.org/v1/comments/123<br>https://api.example.org/v1/comments/456</pre>
+    <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.</p>
+         </div>
+      </dd>
+</dl></div>
+
+</section><section id="operations"><div class="header-wrapper"><h3 id="x3-5-operations"><bdi class="secno">3.5 </bdi>Operations</h3><a class="self-link" href="#operations" aria-label="Permalink for Section 3.5"></a></div>
+<p><span id="api-10"></span></p>
+<div class="rule" id="/core/resource-operations" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+  <p class="rulelab"><a href="#/core/resource-operations">/core/resource-operations</a>: Model resource operations as a sub-resource or dedicated resource</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         Model resource operations as a sub-resource or dedicated resource.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         There are resource operations which might not seem to fit well in the CRUD interaction model. For example, approving of a submission or notifying a customer. Depending on the type of the operation, there are three possible approaches:
+      <ol>
+         <li>Re-model the resource to incorporate extra fields supporting the particular operation. For example, an approval operation can be modelled in a boolean attribute <code>goedgekeurd</code> that can be modified by issuing a <code>PATCH</code> request against the resource. Drawback of this approach is that the resource does not contain any metadata about the operation (when and by whom was the approval given? Was the submission declined in an earlier stage?). Furthermore, this requires a fine-grained authorization model, since approval might require a specific role.</li>
+         <li>Treat the operation as a sub-resource. For example, model a sub-collection resource <code>/inzendingen/12/beoordelingen</code> and add an approval or declination by issuing a <code>POST</code> request. To be able to retrieve the review history (and to consistently adhere to the REST principles), also support the <code>GET</code> method for this resource. The <code>/inzendingen/12</code> resource might still provide a <code>goedgekeurd</code> boolean attribute (same as approach 1) which gets automatically updated on the background after adding a review. This attribute <em class="rfc2119">SHOULD</em> however be read-only.</li>
+         <li>In exceptional cases, the approaches above still don't offer an appropriate solution. An example of such an operation is a global search across multiple resources. In this case, the creation of a dedicated resource, possibly nested under an existing resource, is the most obvious solution. Use the imperative mood of a verb, maybe even prefix it with a underscore to distinguish these resources from regular resources. For example: <code>/search</code> or <code>/_search</code>. Depending on the operation characteristics, <code>GET</code> and/or <code>POST</code> method <em class="rfc2119">MAY</em> be supported for such a resource.</li>
+      </ol>
+      </dd>
+   </dl>
+</div>
+
+</section><section id="documentation"><div class="header-wrapper"><h3 id="x3-6-documentation"><bdi class="secno">3.6 </bdi>Documentation</h3><a class="self-link" href="#documentation" aria-label="Permalink for Section 3.6"></a></div>
+<p>An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.</p>
+<p><span id="api-16"></span></p>
+<div class="rule" id="/core/doc-openapi" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+  <p class="rulelab"><a href="#/core/doc-openapi">/core/doc-openapi</a>: Use OpenAPI Specification for documentation</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         API documentation <em class="rfc2119">MUST</em> be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards).
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The OpenAPI Specification (OAS) [<cite><a class="bibref" data-link-type="biblio" href="#bib-openapis" title="OpenAPI Specification">OPENAPIS</a></cite>] defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
+         API documentation <em class="rfc2119">MUST</em> be provided in the form of an OpenAPI definition document which conforms to the OpenAPI Specification (from v3 onwards). As a result, a variety of tools can be used to render the documentation (e.g. Swagger UI or ReDoc) or automate tasks such as testing or code generation. The OAS document <em class="rfc2119">SHOULD</em> provide clear descriptions and examples.
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Parse the resource at the provided location as an OpenAPI Description and confirm all $refs are resolvable and paths are defined.
+      This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fdoc%2Dopenapi">linter configuration</a>.</dd>
+   </dl>
+</div>
+
+<div class="rule" id="/core/doc-openapi-contact" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+  <p class="rulelab"><a href="#/core/doc-openapi-contact">/core/doc-openapi-contact</a>: Document contact information for publicly available APIs</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         OpenAPI definition document <em class="rfc2119">SHOULD</em> include the <a href="https://spec.openapis.org/oas/v3.0.1.html#contact-object"><code>info.contact</code></a> object for publicly available APIs. Contact information <em class="rfc2119">SHOULD NOT</em> be a generic contact address for the whole organisation.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The OpenAPI Specification (OAS) [<cite><a class="bibref" data-link-type="biblio" href="#bib-openapis" title="OpenAPI Specification">OPENAPIS</a></cite>] can include contact information to make clear how to reach out to API owners in case of issues or questions. This is relevant for publicly available APIs (such as OData) where no pre-existing communication channel exists between provider and consumer of the API. For internal APIs (where communication channels such as chat or issue trackers are likely already known), the <code>info.contact</code> <em class="rfc2119">MAY</em> be provided.
+         <div class="example">
+            <p>Relevant contact information can include an email address and issue tracker.</p>
+            <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Gebouwen API beheerder"</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"url"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://www.github.com/ministerie/gebouwen/issues"</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"email"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"teamgebouwen@ministerie.nl"</span>
+<span class="hljs-punctuation">}</span></code></pre>
+         </div>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Parse the OpenAPI Description to confirm the <code>info.contact</code> object is present.
+      This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fdoc%2Dopenapi%2Dcontact">linter configuration</a>.</dd>
+   </dl>
+</div>
+
+<p><span id="api-17"></span></p>
+<div class="rule" id="/core/doc-language" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+  <p class="rulelab"><a href="#/core/doc-language">/core/doc-language</a>: Publish documentation in Dutch unless there is existing documentation in English</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         You <em class="rfc2119">SHOULD</em> write the OAS document in Dutch.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         In line with design rule <a href="#/core/interface-language">/core/interface-language</a>, the OAS document (e.g. descriptions and examples) <em class="rfc2119">SHOULD</em> be written in Dutch. If relevant, you <em class="rfc2119">MAY</em> refer to existing documentation written in English.
+      </dd>
+   </dl>
+</div>
+
+<p><span id="api-51"></span></p>
+<div class="rule" id="/core/publish-openapi" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+  <p class="rulelab"><a href="#/core/publish-openapi">/core/publish-openapi</a>: Publish OAS document at a standard location in JSON-format</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         To make the OAS document easy to find and to facilitate self-discovering clients, there <em class="rfc2119">SHOULD</em> be one standard location where the OAS document is available for download.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p> Clients (such as Swagger UI or ReDoc) <em class="rfc2119">MUST</em> be able to retrieve the document without having to authenticate. Furthermore, the CORS policy for this <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-8">URI</a> <em class="rfc2119">MUST</em> allow external domains to read the documentation from a browser environment.</p>
+         <p>The standard location for the OAS document is a URI called <code>openapi.json</code> or <code>openapi.yaml</code> within the base path of the API. This can be convenient, because OAS document updates can easily  become part of the CI/CD process.</p>
+         <p>At least the JSON format <em class="rfc2119">MUST</em> be supported. When having multiple (major) versions of an API, every API <em class="rfc2119">SHOULD</em> provide its own OAS document(s).</p>
+         <div class="example">
+            <p>An API having base path <code>https://api.example.org/v1</code> <em class="rfc2119">MUST</em> publish the OAS document at:</p>
+            <pre class="nohighlight">https://api.example.org/v1/openapi.json</pre>
+            <p>Optionally, the same OAS document <em class="rfc2119">MAY</em> be provided in YAML format:</p>
+            <pre class="nohighlight">https://api.example.org/v1/openapi.yaml</pre>
+         </div>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         <ul>
+            <li> Step 1: The API <em class="rfc2119">MUST</em> meet the prerequisets to be tested. These include that an OAS file (openapi.json) is publicly available, parsable, all $refs are resolvable and paths are defined.</li>
+            <li> Step 2: The openapi.yaml <em class="rfc2119">MAY</em> be available. If available it <em class="rfc2119">MUST</em> contain yaml, be readable and parsable.</li>
+            <li> Step 3: The openapi.yaml <em class="rfc2119">MUST</em> contain the same OpenAPI Description as the openapi.json.</li>
+            <li> Step 4: The CORS header Access-Control-Allow-Origin <em class="rfc2119">MUST</em> allow all origins.</li>
+         </ul>
+      This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fpublish%2Dopenapi">linter configuration</a>.</dd>
+   </dl>
+</div>
+
+</section><section id="versioning"><div class="header-wrapper"><h3 id="x3-7-versioning"><bdi class="secno">3.7 </bdi>Versioning</h3><a class="self-link" href="#versioning" aria-label="Permalink for Section 3.7"></a></div>
+<p>Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.</p>
+<p><span id="api-18"></span></p>
+<div class="rule" id="/core/deprecation-schedule" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+  <p class="rulelab"><a href="#/core/deprecation-schedule">/core/deprecation-schedule</a>: Include a deprecation schedule when deprecating features or versions</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Implement well documented and timely communicated deprecation schedules.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         Managing change is important. In general, well documented and timely communicated deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule <em class="rfc2119">MUST</em> be published. This document <em class="rfc2119">SHOULD</em> be published on a public web page. Furthermore, active clients <em class="rfc2119">SHOULD</em> be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
+      </dd>
+   </dl>
+</div>
+
+<p><span id="api-19"></span></p>
+<div class="rule" id="/core/transition-period" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+  <p class="rulelab"><a href="#/core/transition-period">/core/transition-period</a>: Schedule a fixed transition period for a new major API version</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Old versions <em class="rfc2119">MUST</em> remain available for a limited and fixed deprecation period.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         When releasing a new major API version, the old version <em class="rfc2119">MUST</em> remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions <em class="rfc2119">MAY</em> be published concurrently.
+      </dd>
+   </dl>
+</div>
+
+<p><span id="api-20"></span></p>
+<div class="rule" id="/core/uri-version" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+  <p class="rulelab"><a href="#/core/uri-version">/core/uri-version</a>: Include the major version number in the URI</p>
+    <dl>
+      <dt>Statement</dt>
+      <dd>
+         The <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-9">URI</a> of an API <em class="rfc2119">MUST</em> include the major version number.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         The <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-10">URI</a> of an API (base path) <em class="rfc2119">MUST</em> include the major version number, prefixed by the letter <code>v</code>. This allows the exploration of multiple versions of an API in the browser. The minor and patch version numbers are not part of the <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-11">URI</a> and <em class="rfc2119">MAY</em> not have any impact on existing client implementations.
+      <div class="example">
+         <p>An example of an <code class="nohighlight">openapi.yaml</code> for an API with a base path <code class="nohighlight">https://api.example.org/v1</code> and current version 1.0.2:</p>
+         <pre><code class="yaml hljs" aria-busy="false"><span class="hljs-attr">openapi:</span> <span class="hljs-number">3.0</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">info:</span>
+   <span class="hljs-attr">version:</span> <span class="hljs-string">'1.0.2'</span>
+<span class="hljs-attr">servers:</span>
+   <span class="hljs-bullet">-</span> <span class="hljs-attr">description:</span> <span class="hljs-string">test</span> <span class="hljs-string">environment</span>
+   <span class="hljs-attr">url:</span> <span class="hljs-string">https://api.test.example.org/v1</span>
+   <span class="hljs-bullet">-</span> <span class="hljs-attr">description:</span> <span class="hljs-string">production</span> <span class="hljs-string">environment</span>
+   <span class="hljs-attr">url:</span> <span class="hljs-string">https://api.example.org/v1</span></code></pre>
+      </div>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Parse the <code>url</code> field in the <code>servers</code> mentioned in the OpenAPI Description to confirm that a version number is present with prefix <code>v</code> and only contains the *major* version number.
+      This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Furi%2Dversion">linter configuration</a>.</dd>
+   </dl>
+</div>
+
+<p><span id="api-55"></span></p>
+<div class="rule" id="/core/changelog" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+  <p class="rulelab"><a href="#/core/changelog">/core/changelog</a>: Publish a changelog for API changes between versions</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Publish a changelog.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>When releasing new (major, minor or patch) versions, all API changes <em class="rfc2119">MUST</em> be documented properly in a publicly available changelog.</p>
+      </dd>
+   </dl>
+</div>
+
+<p><span id="api-56"></span></p>
+<div class="rule" id="/core/semver" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+  <p class="rulelab"><a href="#/core/semver">/core/semver</a>: Adhere to the Semantic Versioning model when releasing API changes</p>
+  <dl>
+      <dt>Statement</dt>
+      <dd>
+         Implement Semantic Versioning.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         Version numbering <em class="rfc2119">MUST</em> follow the Semantic Versioning [<cite><a class="bibref" data-link-type="biblio" href="#bib-semver" title="Semantic Versioning 2.0.0">SemVer</a></cite>] model to prevent breaking changes when releasing new API versions. Release versions are formatted using the <code>major.minor.patch</code> template (examples: 1.0.2, 1.11.0). Pre-release versions <em class="rfc2119">MAY</em> be denoted by appending a hyphen and a series of dot separated identifiers (examples: 1.0.2-rc.1, 2.0.0-beta.3). When releasing a new version which contains backwards-incompatible changes, a new major version <em class="rfc2119">MUST</em> be released. Minor and patch releases <em class="rfc2119">MAY</em> only contain backwards compatible changes (e.g. the addition of an endpoint or an optional attribute).
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         Parse the <code>info.version</code> field in the OpenAPI Description to confirm it adheres to the Semantic Versioning format.
+      </dd>
+   </dl>
+</div>
+
+<p><span id="api-57"></span></p>
+<div class="rule" id="/core/version-header" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+  <p class="rulelab"><a href="#/core/version-header">/core/version-header</a>: Return the full version number in a response header</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Return the API-Version header.
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Since the URI only contains the major version, it's useful to provide the full version number in the response headers for every API call. This information could then be used for logging, debugging or auditing purposes. In cases where an intermediate networking component returns an error response (e.g. a reverse proxy enforcing access policies), the version number <em class="rfc2119">MAY</em> be omitted.</p>
+         <p>The version number <em class="rfc2119">MUST</em> be returned in an HTTP response header named <code>API-Version</code> (case-insensitive) and <em class="rfc2119">SHOULD</em> not be prefixed.</p>
+         <div class="example">
+            <p>An example of an API version response header:</p>
+            <pre class="nohighlight">API-Version: 1.0.2</pre>
+         </div>
+      </dd>
+      <dt>How to test</dt>
+      <dd>
+         A response includes a header "API-Version" with a number matching the version number set in the <code>info.version</code> field of the OpenAPI Description.
+      This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fversion%2Dheader">linter configuration</a>.</dd>
+   </dl>
+</div>
+
+</section><section id="transport-security"><div class="header-wrapper"><h3 id="x3-8-transport-security"><bdi class="secno">3.8 </bdi>Transport Security</h3><a class="self-link" href="#transport-security" aria-label="Permalink for Section 3.8"></a></div>
+<p>This section describes security principles, concepts and technologies to apply when working with APIs.
+Controls need to be applied for the security objectives of integrity, confidentiality and availability of the API (which includes the services and data provided thereby).
+The <a href="https://docs.geostandaarden.nl/api/API-Strategie-architectuur/">architecture section of the API strategy</a> contains architecture patterns for implementing Transport security.</p>
+<p>The scope of this section is limited to generic security controls that directly influence the visible parts of an API.
+Effectively, only security standards directly applicable to interactions are discussed here.</p>
+<p>In order to meet the complete security objectives, every implementer <em class="rfc2119">MUST</em> also apply a range of controls not mentioned in this section.</p>
+<p>Note: security controls for signing and encrypting of application level messages are part of separate extensions: <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">Signing</a> and <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">Encryption</a>.</p>
+<p><span id="api-11"></span></p>
+<div class="rule" id="/core/transport/tls" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+  <p class="rulelab"><a href="#/core/transport/tls">/core/transport/tls</a>: Secure connections using TLS</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+      <p>One should secure all APIs assuming they can be accessed from any location on the internet. Information <em class="rfc2119">MUST</em> be exchanged over TLS-based secured connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
+      </p><p>One <em class="rfc2119">MUST</em> follow the latest NCSC guidelines [<cite><a class="bibref" data-link-type="biblio" href="#bib-ncsc 2021" title="ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1">NCSC 2021</a></cite>].
+    </p></dd>
+    <dt>Rationale</dt>
+    <dd>
+        <p>Since the connection is always secured, the access method can be straightforward. This allows the application of basic access tokens instead of encrypted access tokens.
+    </p></dd>
+    <dt>How to test</dt>
+    <dd>
+        <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers that are deemed insufficient or phased out by NCSC will lead to failure on the automated test. Both positive and negative scenarios are part of the test: testing that a subset of *Good* and *Sufficient* configurations are supported and configurations deemed  *Insufficient* or marked for *Phase out*. A manual exception to the automated test results can be made when configurations designated for *Phase out* are supported; The API provider will have to provide clear documentation regarding the phase out schedule.  
+    </p></dd>
+  </dl>
+</div>
+
+<p><span id="api-58"></span></p>
+<div class="rule" id="/core/transport/no-sensitive-uris" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+  <p class="rulelab"><a href="#/core/transport/no-sensitive-uris">/core/transport/no-sensitive-uris</a>: No sensitive information in URIs</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Do not put any sensitive information in URIs
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Even when using TLS connections, information in URIs is not secured. URIs can be cached and logged outside of the servers controlled by clients and servers. Any information contained in them should therefore be considered readable by anyone with access to the network (in the case of the internet, the whole world) and <em class="rfc2119">MUST NOT</em> contain any sensitive information. This includes client secrets used for authentication, privacy sensitive information suchs as BSNs or any other information which should not be shared.
+         </p><p>Be aware that queries (anything after the '?' in a URI) are also part of an URI.
+      </p></dd>
+   </dl>
+</div>
+
+<section id="http-level-security"><div class="header-wrapper"><h4 id="x3-8-1-http-level-security"><bdi class="secno">3.8.1 </bdi>HTTP-level Security</h4><a class="self-link" href="#http-level-security" aria-label="Permalink for Section 3.8.1"></a></div>
+<p>The guidelines and principles defined in this section are client agnostic.
+When implementing a client agnostic API, one <em class="rfc2119">SHOULD</em> at least facilitate that multi-purpose generic HTTP-clients like browsers are able to securely interact with the API.
+When implementing an API for a specific client it may be possible to limit measures as long as it ensures secure access for this specific client.
+Nevertheless it is advised to review the following security measures, which are mostly inspired by the <a href="https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html">OWASP REST Security Cheat Sheet</a>.</p>
+<p>Even while remaining client agnostic, clients can be classified in four major groups.
+This is in line with common practice in <cite><a data-matched-text="[[[?OAuth2]]]" href="https://tools.ietf.org/html/rfc6749">The OAuth 2.0 Authorization Framework</a></cite>.
+The groups are:</p>
+<ol>
+<li>Web applications.</li>
+<li>Native applications.</li>
+<li>Browser-based applications.</li>
+<li>System-to-system applications.</li>
+</ol>
+<p>This section contains elements that apply to the generic classes of clients listed above.
+Although not every client implementation has a need for all the specifications referenced below, a client agnostic API <em class="rfc2119">SHOULD</em> provide these to facilitate any client to implement relevant security controls.</p>
+<p>Most specifications referenced in this section are applicable to the first three classes of clients listed above.
+Security considerations for native applications are provided in <cite><a data-matched-text="[[[rfc8252]]]" href="https://www.rfc-editor.org/rfc/rfc8252">OAuth 2.0 for Native Apps</a></cite>, much of which can help non-OAuth2 based implementations as well.
+For browser-based applications a subsection is included with additional details and information.
+System-to-system (sometimes called machine-to-machine) may have a need for the listed specifications as well.
+Note that different usage patterns may be applicable in contexts with system-to-system clients, see above under Client Authentication.</p>
+<p>Realizations may rely on internal usage of HTTP-Headers.
+Information for processing requests and responses can be passed between components, that can have security implications.
+For instance, this is common practice between a reverse proxy or TLS-offloader and an application server.
+Additional HTTP headers are used in such example to pass an original IP-address or client certificate.</p>
+<p>Implementations <em class="rfc2119">MUST</em> consider filtering both inbound and outbound traffic for HTTP-headers used internally.
+Primary focus of inbound filtering is to prevent injection of malicious headers on requests.
+As for outbound filtering, the main concern is leaking of information.</p>
+<div class="rule" id="/core/transport/security-headers" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+  <p class="rulelab"><a href="#/core/transport/security-headers">/core/transport/security-headers</a>: Use mandatory security headers in API all responses</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Return API security headers in all server responses to instruct the client to act in a secure manner
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>There are a number of security related headers that can be returned in the HTTP responses to instruct browsers to act in specific ways. However, some of these headers are intended to be used with HTML responses, and as such may provide little or no security benefits on an API that does not return HTML. The following headers <em class="rfc2119">SHOULD</em> be included in all API responses:
+         </p><table>
+            <thead>
+               <tr>
+                  <th scope="col">Header</th>
+                  <th scope="col">Rationale</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>Header</td>
+                  <td>Rationale</td>
+               </tr>
+               <tr>
+                  <td><code>Cache-Control: no-store</code></td>
+                  <td>Prevent sensitive information from being cached.</td>
+               </tr>
+               <tr>
+                  <td><code>Content-Security-Policy: frame-ancestors 'none'</code></td>
+                  <td>To protect against drag-and-drop style clickjacking attacks.</td>
+               </tr>
+               <tr>
+                  <td><code>Content-Type</code></td>
+                  <td>To specify the content type of the response. This <em class="rfc2119">SHOULD</em> be <code>application/json</code> for JSON responses.</td>
+               </tr>
+               <tr>
+                  <td><code>Strict-Transport-Security</code></td>
+                  <td>To require connections over HTTPS and to protect against spoofed certificates.</td>
+               </tr>
+               <tr>
+                  <td><code>X-Content-Type-Options: nosniff</code></td>
+                  <td>To prevent browsers from performing MIME sniffing, and inappropriately interpreting responses as HTML.</td>
+               </tr>
+               <tr>
+                  <td><code>X-Frame-Options: DENY</code></td>
+                  <td>To protect against drag-and-drop style clickjacking attacks.</td>
+               </tr>
+               <tr>
+                  <td><code>Access-Control-Allow-Origin</code></td>
+                  <td>To relax the 'same origin' policy and allow cross-origin access. See CORS-policy below</td>
+               </tr>
+            </tbody>
+         </table>
+         <p>The headers below are only intended to provide additional security when responses are rendered as HTML. As such, if the API will never return HTML in responses, then these headers may not be necessary. You <em class="rfc2119">SHOULD</em> include the headers as part of a defense-in-depth approach if there is any uncertainty about the function of the headers, the types of information that the API returns or information it may return in the future.
+         </p><table>
+            <thead>
+               <tr>
+                  <th scope="col">Header</th>
+                  <th scope="col">Rationale</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td><code>Content-Security-Policy: default-src 'none'</code></td>
+                  <td>The majority of CSP functionality only affects pages rendered as HTML.</td>
+               </tr>
+               <tr>
+                  <td><code>Feature-Policy: 'none'</code></td>
+                  <td>Feature policies only affect pages rendered as HTML.</td>
+               </tr>
+               <tr>
+                  <td><code>Referrer-Policy: no-referrer</code></td>
+                  <td>Non-HTML responses <em class="rfc2119">SHOULD</em> not trigger additional requests.</td>
+               </tr>
+            </tbody>
+         </table>
+         <p>In addition to the above listed HTTP security headers, web- and browser-based applications <em class="rfc2119">SHOULD</em> apply <cite><a data-matched-text="[[[SRI]]]" href="https://www.w3.org/TR/SRI/">Subresource Integrity</a></cite>. When using third-party hosted contents, e.g. using a Content Delivery Network, this is even more relevant. While this is primarily a client implementation concern, it may affect the API when it is not strictly segregated or for example when shared supporting libraries are offered.
+      </p></dd>
+      <dt>How to test</dt>
+      <dd>
+         <p>The presense of the mandatory security headers can be tested in an automated way. A test client makes a call to the API root. The response is tested for the presense of mandatory headers.
+      </p></dd>
+   </dl>
+</div>
+
+<p><span id="api-50"></span></p>
+<div class="rule" id="/core/transport/cors" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+  <p class="rulelab"><a href="#/core/transport/cors">/core/transport/cors</a>: Use CORS to control access</p>
+   <dl>
+      <dt>Statement</dt>
+      <dd>
+         Use CORS to restrict access from other domains (if applicable).
+      </dd>
+      <dt>Rationale</dt>
+      <dd>
+         <p>Modern web browsers use Cross-Origin Resource Sharing (CORS) to minimize the risk associated with cross-site HTTP-requests. By default browsers only allow 'same origin' access to resources. This means that responses on requests to another <code>[scheme]://[hostname]:[port]</code> than the <code>Origin</code> request header of the initial request will not be processed by the browser. To enable cross-site requests API's can return a <code>Access-Control-Allow-Origin</code> response header. An allowlist <em class="rfc2119">SHOULD</em> be used to determine the validity of different cross-site request. To do this check the <code>Origin</code> header of the incoming request and check if the domain in this header is on the whitelist. If this is the case, set the incoming <code>Origin</code> header in the <code>Access-Control-Allow-Origin</code> response header.
+         </p><p>Using a wildcard <code>*</code> in the <code>Access-Control-Allow-Origin</code> response header is <em class="rfc2119">NOT RECOMMENDED</em>, because it disables CORS-security measures. Only for an open API which has to be accessed by numerous other websites this is appropriate.
+      </p></dd>
+      <dt>How to test</dt>
+      <dd>
+         <p>Tests of this design rule can only be performed when the intended client is known to the tester. A test can be performed when this information is provided by the API provider. Otherwise no conclusive test result can be reached.
+      </p></dd>
+   </dl>
+</div>
+
+</section><section id="browser-based-applications"><div class="header-wrapper"><h4 id="x3-8-2-browser-based-applications"><bdi class="secno">3.8.2 </bdi>Browser-based applications</h4><a class="self-link" href="#browser-based-applications" aria-label="Permalink for Section 3.8.2"></a></div>
+<p>A specific subclass of clients are browser-based applications, that require the presence of particular security controls to facilitate secure implementation.
+Clients in this class are also known as <em>user-agent-based</em> or <em>single-page-applications</em> (SPA).
+All browser-based application <em class="rfc2119">SHOULD</em> follow the best practices specified in <a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-22">OAuth 2.0 for Browser-Based Apps</a>.
+These applications can be split into three architectural patterns:</p>
+<ul>
+<li>JavaScript applications with a Backend; with this class of applications, the Backend is the confidential client and should intermediate any interaction, with tokens never ending up in the browser.
+Effectively, these are not different from regular web-application for this security facet, even though they leverage JavaScript for implementation.</li>
+<li>JavaScript applications that share a domain with the API (resource server); these can leverage cookies marked as HTTP-Only, Secure and SameSite.</li>
+<li>JavaScript applications without a Backend; these clients are considered public clients, are potentially more suspect to several types of attacks, including Cross-Site Scripting (XSS), Cross Site Request Forgery (CSRF) and OAuth token theft.
+In order to support these clients, the Cross-Origin Resource Sharing (CORS) policy mentioned above is critical and <em class="rfc2119">MUST</em> be supported.</li>
+</ul>
+</section><section id="validate-content-types"><div class="header-wrapper"><h4 id="x3-8-3-validate-content-types"><bdi class="secno">3.8.3 </bdi>Validate content types</h4><a class="self-link" href="#validate-content-types" aria-label="Permalink for Section 3.8.3"></a></div>
+<p>A REST request or response body <em class="rfc2119">SHOULD</em> match the intended content type in the header.
+Otherwise this could cause misinterpretation at the consumer/producer side and lead to code injection/execution.</p>
+<ul>
+<li>Reject requests containing unexpected or missing content type headers with HTTP response status <code>406 Not Acceptable</code> or <code>415 Unsupported Media Type</code>.</li>
+<li>Avoid accidentally exposing unintended content types by explicitly defining content types e.g. Jersey (Java) <code>@consumes("application/json"); @produces("application/json")</code>.
+This avoids XXE-attack vectors for example.</li>
+</ul>
+<p>It is common for REST services to allow multiple response types (e.g. <code>application/xml</code> or <code>application/json</code>, and the client specifies the preferred order of response types by the Accept header in the request.</p>
+<ul>
+<li>Do NOT simply copy the <code>Accept</code> header to the <code>Content-type</code> header of the response.</li>
+<li>Reject the request (ideally with a <code>406 Not Acceptable</code> response) if the Accept header does not specifically contain one of the allowable types.</li>
+</ul>
+<p>Services (potentially) including script code (e.g. JavaScript) in their responses <em class="rfc2119">MUST</em> be especially careful to defend against header injection attack.</p>
+<ul>
+<li>Ensure sending intended content type headers in your response matching your body content e.g. <code>application/json</code> and not <code>application/javascript</code>.</li>
+</ul>
+</section></section><section id="geospatial"><div class="header-wrapper"><h3 id="x3-9-geospatial"><bdi class="secno">3.9 </bdi>Geospatial</h3><a class="self-link" href="#geospatial" aria-label="Permalink for Section 3.9"></a></div>
+<p>Geospatial data refers to information that is associated with a physical location on Earth, often expressed by its 2D/3D coordinates.</p>
+<div class="rule" id="/core/geospatial" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+  <p class="rulelab"><a href="#/core/geospatial">/core/geospatial</a>: Apply the geospatial module for geospatial data</p>
+  <dl>
+    <dt>Statement</dt>
+    <dd>
+       The <cite><a data-matched-text="[[[ADR-GEO]]]" href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/">API Design Rules Module: Geospatial</a></cite> version 1.0.x <em class="rfc2119">MUST</em> be applied when providing geospatial data or functionality.
+    </dd>
+    <dt>Rationale</dt>
+    <dd>
+      The <cite><a data-matched-text="[[[ADR-GEO]]]" href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/">API Design Rules Module: Geospatial</a></cite> formalizes as set of rules regarding:
+      <ol>
+         <li>How to encode geospatial data in request and response payloads.</li>
+         <li>How resource collections can be filtered by a given bounding box.</li>
+         <li>How to deal with different coordinate systems (CRS).</li>
+      </ol>
+    </dd>
+  </dl>
+</div></section></section>
+  <section id="glossary"><div class="header-wrapper"><h2 id="x4-glossary"><bdi class="secno">4. </bdi>Glossary</h2><a class="self-link" href="#glossary" aria-label="Permalink for Section 4."></a></div>
+<dl>
+  <dt>
+    <dfn id="dfn-resource" tabindex="0" aria-haspopup="dialog">Resource</dfn>
+  </dt>
+  <dd>
+    A resource is an abstraction of a conceptual entity, identified by a globally unique <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-12">URI</a>, whose current state can be transferred to clients through one or more representations.
+  </dd>
+  <dt>
+    <dfn data-plurals="singular resources" id="dfn-singular-resource" tabindex="0" aria-haspopup="dialog">Singular resource</dfn>
+  </dt>
+  <dd>
+    A singular resource is a resource that corresponds to a single conceptual entity (e.g. a building, person or event).
+  </dd>
+  <dt>
+    <dfn data-plurals="collection resources" id="dfn-collection-resource" tabindex="0" aria-haspopup="dialog">Collection resource</dfn>
+  </dt>
+  <dd>
+    A collection resource is a resource that corresponds to a logical grouping of related resources and contains references (URIs) to the individual singular resources it includes. (e.g. a list of buildings).
+  </dd>
+  <dt>
+    <dfn id="dfn-uri" tabindex="0" aria-haspopup="dialog">URI</dfn>
+  </dt>
+  <dd>
+    A URI [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3986" title="Uniform Resource Identifier (URI): Generic Syntax">rfc3986</a></cite>] (Uniform Resource Identifier) is a string that identifies a resource. URIs are intended to be unique across the web, allowing resources to be unambiguously referenced.
+  </dd>
+  <dt>
+    <dfn id="dfn-ogc" tabindex="0" aria-haspopup="dialog">OGC</dfn>
+  </dt>
+  <dd>
+    The <a href="https://www.ogc.org/">Open Geospatial Consortium</a> (OGC) is a consortium of experts committed to improving access to geospatial, or location information.
+  </dd>
+</dl></section>
+  <section class="appendix informative" id="spectral-linter-configuration">
+    <div class="header-wrapper"><h2 id="a-spectral-linter-configuration"><bdi class="secno">A. </bdi>Spectral linter configuration</h2><a class="self-link" href="#spectral-linter-configuration" aria-label="Permalink for Appendix A."></a></div><p><em>This section is non-normative.</em></p>
+    <details class="spectral-yaml">
+      <pre><code><span class="hljs-comment"># Deze linter configuratie is geschreven voor Spectral. Voor meer informatie over</span>
+<span class="hljs-comment"># die tool, zie https://stoplight.io/open-source/spectral</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># De linter configuratie wordt tevens gehost op https://developer.overheid.nl (DON).</span>
+<span class="hljs-comment"># Deze kan worden gebruikt in onder andere CI systemen voor live updates van de</span>
+<span class="hljs-comment"># configuratie.</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Voor meer informatie hierover, zie de kennisbank van DON:</span>
+<span class="hljs-comment"># https://developer.overheid.nl/kennisbank/apis/tools/api-design-rules-linter</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Hierbij ook de ingevoegde instructies die kunnen worden gekopieerd om de linter</span>
+<span class="hljs-comment"># te draaien:</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># ```</span>
+<span class="hljs-comment"># npm install -g @stoplight/spectral-cli</span>
+<span class="hljs-comment"># curl -L https://static.developer.overheid.nl/adr/ruleset.yaml &gt; .spectral.yml</span>
+<span class="hljs-comment"># spectral lint -r .spectral.yml $OAS_URL_OR_FILE</span>
+<span class="hljs-comment"># ```</span>
+
+<span class="hljs-attr">extends:</span> <span class="hljs-string">spectral:oas</span>
+
+<span class="hljs-attr">rules:</span>
+  <span class="hljs-attr">oas3-api-servers:</span> <span class="hljs-string">error</span>
+
+  <span class="hljs-comment">#/core/doc-openapi</span>
+  <span class="hljs-attr">openapi3:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">error</span>
+    <span class="hljs-attr">given:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"$.['openapi']"</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">pattern</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">match:</span> <span class="hljs-string">"^3.0.*$"</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"Use OpenAPI Specification for documentation"</span>
+
+  <span class="hljs-comment">#/core/version-header</span>
+  <span class="hljs-attr">missing-version-header:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">error</span>
+    <span class="hljs-attr">given:</span> <span class="hljs-string">$..[responses][?(@property</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">@property.match(/(2|3)\d\d/))][headers]</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">or</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">properties:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">API-Version</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Api-Version</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Api-version</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">api-version</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">API-version</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"Return the full version number in a response header"</span>
+
+  <span class="hljs-attr">missing-header:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">error</span>
+    <span class="hljs-attr">given:</span> <span class="hljs-string">$..[responses][?(@property</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">@property.match(/(2|3)\d\d/))]</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">field:</span> <span class="hljs-string">headers</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">truthy</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"</span>
+
+  <span class="hljs-comment">#/core/uri-version</span>
+  <span class="hljs-attr">include-major-version-in-uri:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">error</span>
+    <span class="hljs-attr">given:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"$.servers[*]"</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">pattern</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">match:</span> <span class="hljs-string">"\\/v[\\d+]"</span>
+      <span class="hljs-attr">field:</span> <span class="hljs-string">url</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"/core/uri-version: Include the major version number in the URI: https://logius-standaarden.github.io/API-Design-Rules/#/core/uri-version"</span>
+
+  <span class="hljs-comment">#/core/no-trailing-slash</span>
+  <span class="hljs-attr">paths-no-trailing-slash:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">error</span>
+    <span class="hljs-attr">given:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"$.paths"</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">pattern</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">notMatch:</span> <span class="hljs-string">".+ \\/$"</span>
+      <span class="hljs-attr">field:</span> <span class="hljs-string">"@key"</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"/core/no-trailing-slash: Leave off trailing slashes from URIs: https://logius-standaarden.github.io/API-Design-Rules/#/core/no-trailing-slash"</span>
+
+  <span class="hljs-comment">#/core/publish-openapi</span>
+  <span class="hljs-attr">paths-open-api-json-resource-exists:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">error</span>
+    <span class="hljs-attr">given:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"$.paths"</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">truthy</span>
+      <span class="hljs-attr">field:</span> <span class="hljs-string">"/openapi.json"</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"There does not exist a resource `/openapi.json` that returns the OpenAPI specification document"</span>
+
+  <span class="hljs-attr">paths-open-api-json-resource-has-get:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">error</span>
+    <span class="hljs-attr">given:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"$.paths[/openapi.json]"</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">pattern</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">match:</span> <span class="hljs-string">"get"</span>
+      <span class="hljs-attr">field:</span> <span class="hljs-string">"@key"</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"There does not exist a GET method (and no other methods) for the `/openapi.json` resource"</span>
+
+  <span class="hljs-attr">paths-open-api-json-specify-cors-header:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">error</span>
+    <span class="hljs-attr">given:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">$.paths[/openapi.json].get.responses[?(@property</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">@property.match(/(2|3)\d\d/))].headers</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">truthy</span>
+      <span class="hljs-attr">field:</span> <span class="hljs-string">"access-control-allow-origin"</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"The response of the `/openapi.json` resource should set the `access-control-allow-origin` header with value `*`"</span>
+
+  <span class="hljs-comment">#/core/doc-openapi-contact</span>
+  <span class="hljs-comment"># This rule exists in the base oas spectral linter set</span>
+  <span class="hljs-attr">info-contact:</span> <span class="hljs-string">error</span>
+
+  <span class="hljs-attr">info-contact-fields-exist:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">error</span>
+    <span class="hljs-attr">given:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"$.info.contact"</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">schema</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">schema:</span>
+          <span class="hljs-attr">required:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">email</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">name</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">url</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"Missing fields in `info.contact` field. Must specify email, name and url."</span>
+
+  <span class="hljs-comment">#/core/http-methods</span>
+  <span class="hljs-attr">http-methods:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">error</span>
+    <span class="hljs-attr">given:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"$.paths[?(@property &amp;&amp; @property.match(/(description|summary)/i))]"</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">pattern</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">match:</span> <span class="hljs-string">"post|put|get|delete|patch|parameters"</span>
+      <span class="hljs-attr">field:</span> <span class="hljs-string">"@key"</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"/core/http-methods: Only apply standard HTTP methods: https://logius-standaarden.github.io/API-Design-Rules/#http-methods"</span>
+
+  <span class="hljs-attr">paths-kebab-case:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">warn</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"<span class="hljs-template-variable">{{property}}</span> is not kebab-case."</span>
+    <span class="hljs-attr">given:</span> <span class="hljs-string">$.paths[?(@property</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-type">!@property.match(/</span><span class="hljs-string">\/openapi\.json/))]~</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">pattern</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-comment"># Deze regex bestaat uit meerdere delen. Ter toelichting:</span>
+        <span class="hljs-comment"># - `\/` staat toe dat een pad enkel een `/` is (de landingspagina)</span>
+        <span class="hljs-comment"># - `\/_[a-z0-9]+` staat toe dat het laatste stuk van een pad mag beginnen met een `_`</span>
+        <span class="hljs-comment"># - ([a-z0-9\-]+|{[^}]+}) zijn kebab-case paden of met variabele notatie (`{id}`)</span>
+        <span class="hljs-comment"># - Paden mogen nesten, waardoor de twee groep genest wordt, gescheiden met een `/`</span>
+        <span class="hljs-comment"># - Een pad mag eindigen met een `/`. Dat is volgens een andere regel niet toegestaan, maar we willen niet twee errors genereren</span>
+        <span class="hljs-attr">match:</span> <span class="hljs-string">^(\/|(\/_[a-z0-9]+|\/(([a-z0-9\-]+|{[^}]+})(\/([a-z0-9\-\.]+|{[^}]+}))*)(\/_[a-z]+)?)\/?)$</span>
+
+  <span class="hljs-attr">schema-camel-case:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">warn</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"Schema name should be CamelCase in <span class="hljs-template-variable">{{path}}</span>"</span>
+    <span class="hljs-attr">given:</span> <span class="hljs-string">&gt;-
+      $.components.schemas[*]~
+</span>    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">casing</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">pascal</span>
+        <span class="hljs-attr">separator:</span>
+          <span class="hljs-attr">char:</span> <span class="hljs-string">""</span>
+
+  <span class="hljs-attr">servers-use-https:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">warn</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"Server URL <span class="hljs-template-variable">{{value}}</span> <span class="hljs-template-variable">{{error}}</span>."</span>
+    <span class="hljs-attr">given:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">$.servers[*]</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">$.paths..servers[*]</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">field:</span> <span class="hljs-string">url</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">pattern</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">match:</span> <span class="hljs-string">^https://.*</span>
+
+  <span class="hljs-attr">use-problem-schema:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">warn</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">"The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457."</span>
+    <span class="hljs-attr">given:</span> <span class="hljs-string">$..[responses][?(@property</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">@property.match(/(4|5)\d\d/))].content</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">schema</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">schema:</span>
+          <span class="hljs-attr">anyOf:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-attr">required:</span> [<span class="hljs-string">"application/problem+json"</span>]
+            <span class="hljs-bullet">-</span> <span class="hljs-attr">required:</span> [<span class="hljs-string">"application/problem+xml"</span>]
+
+  <span class="hljs-attr">property-casing:</span>
+    <span class="hljs-attr">severity:</span> <span class="hljs-string">warn</span>
+    <span class="hljs-attr">given:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"$.*.schemas[*].properties.[?(@property &amp;&amp; @property.match(/_links/i))]"</span>
+    <span class="hljs-attr">then:</span>
+      <span class="hljs-attr">function:</span> <span class="hljs-string">casing</span>
+      <span class="hljs-attr">functionOptions:</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">camel</span>
+      <span class="hljs-attr">field:</span> <span class="hljs-string">"@key"</span>
+    <span class="hljs-attr">message:</span> <span class="hljs-string">Properties</span> <span class="hljs-string">must</span> <span class="hljs-string">be</span> <span class="hljs-string">lowerCamelCase.</span>
+</code></pre>
+    </details>
+  </section>
+ 
+
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-references"><bdi class="secno">B. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normative-references">
+    <div class="header-wrapper"><h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix B.1"></a></div>
+    <dl class="bibliography"><dt id="bib-adr-geo">[ADR-GEO]</dt><dd>
+      <a href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/"><cite>API Design Rules Module: Geospatial</cite></a>. L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker.  Geonovum. March 07, 2024. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/">https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/</a>
+    </dd><dt id="bib-ncsc 2021">[NCSC 2021]</dt><dd>
+      <a href="https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1"><cite>ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1</cite></a>.  NCSC. Jan 2021. URL: <a href="https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1">https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1</a>
+    </dd><dt id="bib-openapis">[OPENAPIS]</dt><dd>
+      <a href="https://www.openapis.org/"><cite>OpenAPI Specification</cite></a>. Darrell Miller; Jason Harmon; Jeremy Whitlock; Marsh Gardiner; Mike Ralphson; Ron Ratovsky; Tony Tam; Uri Sarid.  OpenAPI Initiative. URL: <a href="https://www.openapis.org/">https://www.openapis.org/</a>
+    </dd><dt id="bib-rfc2119">[RFC2119]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
+    </dd><dt id="bib-rfc3986">[rfc3986]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc3986"><cite>Uniform Resource Identifier (URI): Generic Syntax</cite></a>. T. Berners-Lee; R. Fielding; L. Masinter.  IETF. January 2005. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a>
+    </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+    </dd><dt id="bib-rfc8252">[rfc8252]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8252"><cite>OAuth 2.0 for Native Apps</cite></a>. W. Denniss; J. Bradley.  IETF. October 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8252">https://www.rfc-editor.org/rfc/rfc8252</a>
+    </dd><dt id="bib-rfc9110">[rfc9110]</dt><dd>
+      <a href="https://httpwg.org/specs/rfc9110.html"><cite>HTTP Semantics</cite></a>. R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed. IETF. June 2022. Internet Standard. URL: <a href="https://httpwg.org/specs/rfc9110.html">https://httpwg.org/specs/rfc9110.html</a>
+    </dd><dt id="bib-semver">[SemVer]</dt><dd>
+      <a href="https://semver.org"><cite>Semantic Versioning 2.0.0</cite></a>. T. Preston-Werner. June 2013. URL: <a href="https://semver.org">https://semver.org</a>
+    </dd><dt id="bib-sri">[SRI]</dt><dd>
+      <a href="https://www.w3.org/TR/SRI/"><cite>Subresource Integrity</cite></a>. Devdatta Akhawe; Frederik Braun; Francois Marier; Joel Weinberger.  W3C. 23 June 2016. W3C Recommendation. URL: <a href="https://www.w3.org/TR/SRI/">https://www.w3.org/TR/SRI/</a>
+    </dd></dl>
+  </section><section id="informative-references">
+    <div class="header-wrapper"><h3 id="b-2-informative-references"><bdi class="secno">B.2 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix B.2"></a></div>
+    <dl class="bibliography"><dt id="bib-oauth2">[OAuth2]</dt><dd>
+      <a href="https://tools.ietf.org/html/rfc6749"><cite>The OAuth 2.0 Authorization Framework</cite></a>. D. Hardt.  The Internet Engineering Task Force. October 2012. URL: <a href="https://tools.ietf.org/html/rfc6749">https://tools.ietf.org/html/rfc6749</a>
+    </dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-resource" aria-label="Links in this document to definition: Resource">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-resource" aria-label="Permalink for definition: Resource. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-resource-1" title="§ 3.1 Resources">§ 3.1 Resources</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-singular-resource" aria-label="Links in this document to definition: Singular resource">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-singular-resource" aria-label="Permalink for definition: Singular resource. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-singular-resource-1" title="§ 3.1 Resources">§ 3.1 Resources</a> 
+    </li><li>
+      <a href="#ref-for-dfn-singular-resource-2" title="§ 3.4 Relationships">§ 3.4 Relationships</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-collection-resource" aria-label="Links in this document to definition: Collection resource">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-collection-resource" aria-label="Permalink for definition: Collection resource. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-collection-resource-1" title="§ 3.4 Relationships">§ 3.4 Relationships</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-uri" aria-label="Links in this document to definition: URI">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-uri" aria-label="Permalink for definition: URI. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-uri-1" title="§ 3.1 Resources">§ 3.1 Resources</a> <a href="#ref-for-dfn-uri-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-uri-3" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-uri-4" title="§ 3.2 HTTP methods">§ 3.2 HTTP methods</a> <a href="#ref-for-dfn-uri-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-uri-6" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-uri-7" title="§ 3.4 Relationships">§ 3.4 Relationships</a> 
+    </li><li>
+      <a href="#ref-for-dfn-uri-8" title="§ 3.6 Documentation">§ 3.6 Documentation</a> 
+    </li><li>
+      <a href="#ref-for-dfn-uri-9" title="§ 3.7 Versioning">§ 3.7 Versioning</a> <a href="#ref-for-dfn-uri-10" title="Reference 2">(2)</a> <a href="#ref-for-dfn-uri-11" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-uri-12" title="§ 4. Glossary">§ 4. Glossary</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-ogc" aria-label="Links in this document to definition: OGC">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-ogc" aria-label="Permalink for definition: OGC. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><div class="sidelabel">Logius Standard - Definitive version</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
