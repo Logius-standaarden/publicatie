@@ -38,6 +38,8 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [api/oauth-beheer/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-beheer/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-beheer/ "Preview op GitHub Pages")
    - [api/oauth-beheer/1.0/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-beheer/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-beheer/1.0/ "Preview op GitHub Pages")
 - [api/oauth-inleiding/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-inleiding/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-inleiding/ "Preview op GitHub Pages")
+   - [api/oauth-inleiding/0/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-inleiding/0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-inleiding/0/ "Preview op GitHub Pages")
+   - [api/oauth-inleiding/0.1/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-inleiding/0.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-inleiding/0.1/ "Preview op GitHub Pages")
    - [api/oauth-inleiding/0.1.0/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-inleiding/0.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-inleiding/0.1.0/ "Preview op GitHub Pages")
    - [api/oauth-inleiding/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/api/oauth-inleiding/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth-inleiding/1.0.0/ "Preview op GitHub Pages")
    - [api/oauth/1.0r/](https://gitdocumentatie.logius.nl/publicatie/api/oauth/1.0r/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/oauth/1.0r/ "Preview op GitHub Pages")
