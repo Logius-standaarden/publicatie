@@ -546,7 +546,7 @@ Components in the Group are configured to accept the same (Sub-) Certificate Aut
 When multiple TAs are used the TAs must ensure that the elements of the subject field used to identify a Peer are the same across the TAs. </p>
 <p>
       </p><figure id="fig-mtls-connections">
-        <img src="diagrams/seq-mtls-connections.svg" alt="mTLS Connections">
+        <img src="media/seq-mtls-connections.svg" alt="mTLS Connections">
         <figcaption><a class="self-link" href="#fig-mtls-connections">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">mTLS Connections</span></figcaption>
       </figure>
     <p></p>
@@ -556,7 +556,7 @@ Connections to Services are authorized by Contracts with ServiceConnectionGrants
 Contracts can contain multiple Peers. E.g. if a Peer wants a single Contract for an application, this Contract can contain all the connections required for that application.</p>
 <p>
       </p><figure id="fig-contract-management">
-        <img src="diagrams/seq-contract-management.svg" alt="Contract Management">
+        <img src="media/seq-contract-management.svg" alt="Contract Management">
         <figcaption><a class="self-link" href="#fig-contract-management">Figure <bdi class="figno">2</bdi></a> <span class="fig-title">Contract Management</span></figcaption>
       </figure>
     <p></p>
@@ -575,7 +575,7 @@ Contracts can contain multiple Peers. E.g. if a Peer wants a single Contract for
 <p>The content of a Contract is immutable. When the content of a Contract is subject to change, the Contract is invalidated and replaced by a new one.</p>
 <p>
       </p><figure id="fig-state-contract">
-        <img src="diagrams/state-contract.svg" alt="State Contract">
+        <img src="media/state-contract.svg" alt="State Contract">
         <figcaption><a class="self-link" href="#fig-state-contract">Figure <bdi class="figno">3</bdi></a> <span class="fig-title">State Contract</span></figcaption>
       </figure>
     <p></p>
@@ -589,7 +589,7 @@ Peers can make themselves known to a Directory by having their Manager call the 
 <p>Peers query the Directories to discover the Services available in the Group </p>
 <p>
       </p><figure id="fig-providing-a-service">
-        <img src="diagrams/seq-providing-a-service.svg" alt="Providing a Service">
+        <img src="media/seq-providing-a-service.svg" alt="Providing a Service">
         <figcaption><a class="self-link" href="#fig-providing-a-service">Figure <bdi class="figno">4</bdi></a> <span class="fig-title">Providing a Service</span></figcaption>
       </figure>
     <p></p>
@@ -606,7 +606,7 @@ The connection Grants contains information about the Service and the public key 
 <p>The Contract is distributed among the two Peers. Once the Contract is signed by all Peers, the Outway can connect to the Inway offering the Service.</p>
 <p>
       </p><figure id="fig-connecting-to-a-service">
-        <img src="diagrams/seq-create-an-authorization-to-connect.svg" alt="Create an authorization to connect">
+        <img src="media/seq-create-an-authorization-to-connect.svg" alt="Create an authorization to connect">
         <figcaption><a class="self-link" href="#fig-connecting-to-a-service">Figure <bdi class="figno">5</bdi></a> <span class="fig-title">Connecting to a Service</span></figcaption>
       </figure>
     <p></p>
@@ -621,7 +621,7 @@ The connection Grants contains information about the Service and the public key 
 Once the Contract is signed by all the Peers, the Outway can connect to the Inway offering the Service on behalf the Delegator. </p>
 <p>
       </p><figure id="fig-connecting-to-a-service-that-is-offered-on-behalf-of-another-peer">
-        <img src="diagrams/seq-create-an-authorization-to-connect-delegated-publication.svg" alt="Create an authorization to connect">
+        <img src="media/seq-create-an-authorization-to-connect-delegated-publication.svg" alt="Create an authorization to connect">
         <figcaption><a class="self-link" href="#fig-connecting-to-a-service-that-is-offered-on-behalf-of-another-peer">Figure <bdi class="figno">6</bdi></a> <span class="fig-title">Connecting to a Service that is offered on behalf of another Peer</span></figcaption>
       </figure>
     <p></p>
@@ -644,7 +644,7 @@ The connection Grants contains information about the Service, the public key of 
 <p>The Contract is distributed among the three Peers. Once the Contract is signed by all the Peers, the Outway of the Delegatee can connect to the Inway offering the Service on behalf the Delegator.</p>
 <p>
       </p><figure id="fig-delegate-a-connection-to-a-service">
-        <img src="diagrams/seq-delegate-connection.svg" alt="Delegate connection">
+        <img src="media/seq-delegate-connection.svg" alt="Delegate connection">
         <figcaption><a class="self-link" href="#fig-delegate-a-connection-to-a-service">Figure <bdi class="figno">7</bdi></a> <span class="fig-title">Delegate a connection to a Service</span></figcaption>
       </figure>
     <p></p>
@@ -665,7 +665,7 @@ The connection Grants contains information about the Service, the public key of 
 Once the Contract is signed by all the Peers, the Outway of the Delegatee can connect to the Inway offering the Service on behalf the Delegator.</p>
 <p>
       </p><figure id="fig-delegate-a-connection-to-a-service-that-is-offered-on-behalf-of-another-peer">
-        <img src="diagrams/seq-delegate-connection-delegated-publication.svg" alt="Delegate connection">
+        <img src="media/seq-delegate-connection-delegated-publication.svg" alt="Delegate connection">
         <figcaption><a class="self-link" href="#fig-delegate-a-connection-to-a-service-that-is-offered-on-behalf-of-another-peer">Figure <bdi class="figno">8</bdi></a> <span class="fig-title">Delegate a connection to a Service that is offered on behalf of another Peer</span></figcaption>
       </figure>
     <p></p>
@@ -695,7 +695,7 @@ The Outway proxies the request including the access token to the Inway.
 The Inway will validate the access token and proxy the request to the Service.</p>
 <p>
       </p><figure id="fig-consuming-a-service">
-        <img src="diagrams/seq-consuming-a-service.svg" alt="Consuming a Service">
+        <img src="media/seq-consuming-a-service.svg" alt="Consuming a Service">
         <figcaption><a class="self-link" href="#fig-consuming-a-service">Figure <bdi class="figno">9</bdi></a> <span class="fig-title">Consuming a Service</span></figcaption>
       </figure>
     <p></p>
@@ -1325,7 +1325,7 @@ The component retrieving the access token <em class="rfc2119">MUST</em> use an X
 The Manager <em class="rfc2119">MUST</em> verify this client certificate and issue a token bound to this client certificate according to <a href="https://www.rfc-editor.org/rfc/rfc8705#section-3">section 3</a>.</p>
 <p>
       </p><figure id="fig-obtaining-an-access-token">
-        <img src="diagrams/seq-obtaining-an-access-token.svg" alt="Obtaining access token">
+        <img src="media/seq-obtaining-an-access-token.svg" alt="Obtaining access token">
         <figcaption><a class="self-link" href="#fig-obtaining-an-access-token">Figure <bdi class="figno">10</bdi></a> <span class="fig-title">Obtaining an Access Token</span></figcaption>
       </figure>
     <p></p>
