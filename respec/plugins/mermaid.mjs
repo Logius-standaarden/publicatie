@@ -44,7 +44,16 @@ export async function generateMermaidFigures(config, document, utils) {
   if (generatedFigures.length == 0) {
     return;
   }
-  await mermaid.run({
-    nodes: generatedFigures,
-  });
+  for (const figure of generatedFigures) {
+    try {
+      await mermaid.run({
+        nodes: [figure],
+      });
+    } catch (e) {
+      utils.showError('Unable to generate Mermaid figure', {
+        elements: [figure],
+        cause: e,
+      });
+    }
+  }
 }
