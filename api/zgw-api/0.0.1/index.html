@@ -1,0 +1,1454 @@
+<!DOCTYPE html><html lang="nl"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta name="generator" content="ReSpec 35.3.0">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+  
+  
+  
+<meta name="color-scheme" content="light dark">
+  
+  
+<title>Zaakgericht Werken API</title>
+  
+<link rel="shortcut icon" type="image/x-icon" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico">
+  
+
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:italic}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<style id="respec-nlgov">
+img.license{float:left;padding-right:5px;background:0 0}
+</style>
+<meta name="description" content="De standaard &quot;API's voor Zaakgericht Werken&quot; bestaat uit een aantal API's.
+Per API is er een OAS3-specificatie en een beschrijving van het vereiste &quot;run-time&quot;-gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie.
+De OAS3-specificaties met beschrijvingen zijn normatief.
+De overige documentatie is ondersteunend en ter informatie.">
+<style>
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+
+  .sidelabel {
+    position: fixed;
+    -webkit-transform-origin: top right;
+    right: 100%;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+    padding: 4px 50px 4px 10px;
+    color: white;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: #39870c;
+  }
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "nl_organisationName": "Logius",
+  "nl_organisationStylesURL": "https://gitdocumentatie.logius.nl/publicatie/respec/style/",
+  "nl_organisationPublishURL": "https://gitdocumentatie.logius.nl/publicatie/",
+  "logos": [
+    {
+      "src": "https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg",
+      "alt": "Logius",
+      "id": "Logius",
+      "height": 77,
+      "width": 44,
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
+    }
+  ],
+  "useLogo": true,
+  "latestVersion": "https://github.com/logius-standaarden/zaakgericht-werken-api/",
+  "thisVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "publishVersion",
+    "/"
+  ],
+  "prevVersion": [],
+  "addSectionLinks": true,
+  "localizationStrings": {
+    "en": {
+      "wv": "Draft",
+      "cv": "Consultation version",
+      "vv": "Proposed version",
+      "def": "Definitive version",
+      "basis": "Document",
+      "eo": "Outdated version",
+      "tg": "Rescinded version",
+      "no": "Norm",
+      "st": "Standard",
+      "im": "Information model",
+      "pr": "Guideline",
+      "hr": "Guide",
+      "wa": "Proposed recommendation",
+      "al": "General",
+      "bd": "Governance documentation",
+      "bp": "Best practice"
+    },
+    "nl": {
+      "wv": "Werkversie",
+      "cv": "Consultatieversie",
+      "vv": "Versie ter vaststelling",
+      "def": "Vastgestelde versie",
+      "basis": "Document",
+      "eo": "Verouderde versie",
+      "tg": "Teruggetrokken versie",
+      "no": "Norm",
+      "st": "Standaard",
+      "im": "Informatiemodel",
+      "pr": "Praktijkrichtlijn",
+      "hr": "Handreiking",
+      "wa": "Werkafspraak",
+      "al": "Algemeen",
+      "bd": "Beheerdocumentatie",
+      "bp": "Best practice"
+    }
+  },
+  "sotdText": {
+    "nl": {
+      "sotd": "Status van dit document",
+      "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.",
+      "cv": "Dit is een door het TO goedgekeurde consultatieversie. Commentaar over dit document kan gestuurd worden naar digikoppeling@logius.nl",
+      "vv": "Dit is een definitief concept van de nieuwe versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "basis": "Dit is een document zonder officiële status."
+    },
+    "en": {
+      "sotd": "Status of This Document",
+      "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
+      "wv": "This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.",
+      "cv": "This is a proposed recommendation approved by TO. Comments regarding this document may be sent to api@logius.nl",
+      "vv": "This is the definitive concept of this document. Edits resulting from consultations have been applied.",
+      "basis": "This document has no official standing."
+    }
+  },
+  "labelColor": {
+    "def": "#154273",
+    "wv": "#39870c",
+    "cv": "#000000",
+    "vv": "#000000"
+  },
+  "useLabel": true,
+  "licenses": {
+    "cc0": {
+      "name": "Creative Commons 0 Public Domain Dedication",
+      "short": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-zero.svg"
+    },
+    "cc-by": {
+      "name": "Creative Commons Attribution 4.0 International Public License",
+      "short": "CC-BY",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg"
+    },
+    "cc-by-nd": {
+      "name": "Creative Commons Naamsvermelding-GeenAfgeleideWerken 4.0 Internationaal",
+      "short": "CC-BY-ND",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/legalcode.nl",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
+    }
+  },
+  "license": "cc-by",
+  "localBiblio": {
+    "ADR": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
+      "publisher": "Logius",
+      "title": "API Design Rules"
+    },
+    "ADR1": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0",
+      "publisher": "Logius",
+      "title": "API Design Rules"
+    },
+    "ADR-ext": {
+      "authors": [
+        "Jasper Roes",
+        "Linda van den Brink"
+      ],
+      "date": "Januari 2020",
+      "href": "https://docs.geostandaarden.nl/api/API-Strategie-ext",
+      "publisher": "Geonovum/Kennisplatform APi's",
+      "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
+    },
+    "Algemene Voorwaarden Logius": {
+      "date": "12 juni 2018",
+      "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
+      "publisher": "Logius",
+      "title": "Algemene voorwaarden Logius"
+    },
+    "AuthZEN": {
+      "date": "6 September 2024 ",
+      "href": "https://openid.net/specs/authorization-api-1_0-01.html",
+      "publisher": "OpenID",
+      "title": "Authorization API 1.0 – draft 01"
+    },
+    "AVG": {
+      "date": "27 april 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
+    },
+    "BCP195": {
+      "authors": [
+        "Y. Sheffer",
+        "R. Holz",
+        "P. Saint-Andre"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/bcp195",
+      "publisher": "IETF",
+      "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"
+    },
+    "DK-beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "CloudEvents": {
+      "authors": [
+        "@@@"
+      ],
+      "date": "May 2011",
+      "href": "https://github.com/cloudevents/spec/blob/v1.0.1/spec.md",
+      "publisher": "@@@",
+      "title": "CloudEvents - Version 1.0.1"
+    },
+    "NLGOV-CloudEvents": {
+      "authors": [
+        "Werkgroep Berichtenstandaard (Project Notificatieservices)"
+      ],
+      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "publisher": "Logius",
+      "title": "NL GOV profile for CloudEvents"
+    },
+    "DK-CV": {
+      "href": "https://gitlab.com/logius/digikoppeling-compliance",
+      "publisher": "Logius",
+      "title": "Digikoppeling Compliance Voorziening"
+    },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
+    },
+    "Deployment Guide 1.1": {
+      "authors": [
+        "Pete Wenzel",
+        "Jacques Durand"
+      ],
+      "date": "June 2005",
+      "href": "http://www.oasis-open.org/apps/org/workgroup/ebxml-iic-deployment-profile-template-intro-100406.doc",
+      "publisher": "OASIS",
+      "title": "Deployment Profile Template For OASIS ebXML Message Service 2.0"
+    },
+    "DK": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
+      "publisher": "Logius",
+      "title": "Logius | Digikoppeling"
+    },
+    "DK-Doc": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
+      "publisher": "Logius",
+      "title": "Digikoppeling documentatie"
+    },
+    "DK-Beheermodel": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beheermodel"
+    },
+    "DK-BPebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices ebMS2"
+    },
+    "DK-BPGB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpgb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices Grote Berichten"
+    },
+    "DK-BPWUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpwus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices WUS"
+    },
+    "DK-Beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "DK-gbachtcert": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-ebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-GB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/gb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard Grote Berichten"
+    },
+    "DK-WUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/wus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard WUS"
+    },
+    "DK-RESTAPI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/restapi/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard REST-API"
+    },
+    "DK-Architectuur": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Architectuur"
+    },
+    "DK-IDAuth": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Identificatie en Authenticatie"
+    },
+    "DK-WI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/",
+      "publisher": "Logius",
+      "title": "Wat is Digikoppeling?"
+    },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
+    },
+    "ebCPP": {
+      "authors": [
+        "Oasis"
+      ],
+      "date": "september 2002",
+      "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "ebMS3": {
+      "authors": [
+        "Ian Jones",
+        "Pete Wenzel"
+      ],
+      "date": "October 2007",
+      "href": "https://docs.oasis-open.org/ebxml-msg/ebms/v3.0/core/os/ebms_core-3.0-spec-os.html",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "eDelivery API4IPS": {
+      "authors": [
+        "J. Dimitriou, V. Veduta, B. Dumitriu"
+      ],
+      "date": "sept 8 2022",
+      "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
+      "publisher": "OpenID foundation",
+      "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
+    },
+    "Expert": {
+      "authors": [
+        "@@@"
+      ],
+      "date": "@@@",
+      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
+      "publisher": "Forum Standaardisatie",
+      "title": "Expertadvies CloudEvents 1.0"
+    },
+    "folmer2011": {
+      "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
+      "title": "Management and Development Model for Open Standards (BOMOS) version 2",
+      "keywords": "IR-76837",
+      "authors": [
+        "ErwinFolmer",
+        "Matthijs Punter"
+      ],
+      "date": "2011",
+      "language": "English",
+      "publisher": "Programmabureau NOiV"
+    },
+    "folmer2012": {
+      "href": "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
+      "title": "Quality of Semantic Standards",
+      "authors": [
+        "Erwin Folmer"
+      ],
+      "date": "2012",
+      "publisher": "Universiteit Twente"
+    },
+    "DK-Gebruiksvoorwaarden": {
+      "date": "1 januari 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Gebruiksvoorwaarden Digikoppeling"
+    },
+    "ADR-GEO": {
+      "authors": [
+        "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
+      "publisher": "Geonovum",
+      "title": "API Design Rules Module: Geospatial"
+    },
+    "HTTPS-factsheet NCSC": {
+      "date": "Nov 2014",
+      "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
+      "publisher": "NCSC",
+      "title": "Factsheet HTTPS kan een stuk veiliger"
+    },
+    "iGOV.OpenID": {
+      "authors": [
+        "M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
+    },
+    "Introspection": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "October 2015",
+      "href": "https://tools.ietf.org/html/rfc7662",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Token Introspection"
+    },
+    "JWA": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7518",
+      "publisher": "IETF",
+      "title": "JSON Web Algorithms (JWA)"
+    },
+    "JWE": {
+      "authors": [
+        "M. Jones, J. Hildebrand"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7516",
+      "publisher": "IETF",
+      "title": "JSON Web Encryption (JWE)"
+    },
+    "JWK": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7517",
+      "publisher": "IETF",
+      "title": "JSON Web Key (JWK))"
+    },
+    "JWS": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7515",
+      "publisher": "IETF",
+      "title": "JSON Web Signature (JWS)"
+    },
+    "JWT": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7519",
+      "publisher": "IETF",
+      "title": "JSON Web Token (JWT)"
+    },
+    "NCSC 2019": {
+      "date": "April 2019",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2019/mei/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-tls",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.0"
+    },
+    "NCSC 2021": {
+      "date": "Jan 2021",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+    },
+    "NCSC 2025": {
+      "date": "June 2025",
+      "href": "https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+    },
+    "NEN3610": {
+      "authors": [
+        ""
+      ],
+      "date": "Maart 2011",
+      "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
+      "publisher": "Nederlands Normalisatie-instituut",
+      "title": "Basismodel Geo-informatie - Termen, definities, relaties en algemene regels voor de uitwisseling van informatie over aan de aarde gerelateerde ruimtelijke objecten"
+    },
+    "no-Reliable-messaging": {
+      "authors": [
+        "Marc de Graauw"
+      ],
+      "date": "June 18, 2010",
+      "href": "https://www.infoq.com/articles/no-reliable-messaging/",
+      "publisher": "infoQ",
+      "title": "Nobody Needs Reliable Messaging"
+    },
+    "OAuth2": {
+      "authors": [
+        "D. Hardt"
+      ],
+      "date": "October 2012",
+      "href": "https://tools.ietf.org/html/rfc6749",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "The OAuth 2.0 Authorization Framework"
+    },
+    "OpenID.Core": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
+      ],
+      "date": "November 8 2014",
+      "href": "https://openid.net/specs/openid-connect-core-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Core 1.0"
+    },
+    "OpenID.Discovery": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, E. Jay"
+      ],
+      "date": "November 8 2014",
+      "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Discovery 1.0"
+    },
+    "Pas-toe-of-leg-uit": {
+      "href": "https://www.forumstandaardisatie.nl/open-standaarden/verplicht",
+      "publisher": "Forum Standaardisatie",
+      "title": "Lijst Verplichte standaarden"
+    },
+    "PKIO-PvE": {
+      "href": "https://por.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
+    },
+    "PKI-CA": {
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
+      "publisher": "Logius",
+      "title": "Aansluiten als Trust Service Provider"
+    },
+    "PKIoverheid": {
+      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
+      "publisher": "Logius",
+      "title": "PKIoverheid"
+    },
+    "PKIO-Cert": {
+      "href": "https://cert.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Overzicht PKIoverheid certificaten"
+    },
+    "SemVer": {
+      "authors": [
+        "T. Preston-Werner"
+      ],
+      "date": "June 2013",
+      "href": "https://semver.org",
+      "title": "Semantic Versioning 2.0.0"
+    },
+    "ADR-TS": {
+      "authors": [
+        ""
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
+      "publisher": "Kennisplatform API's",
+      "title": "API Design Rules Module: Transport Security"
+    },
+    "UMMR10": {
+      "authors": [
+        ""
+      ],
+      "date": "2001",
+      "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
+      "publisher": "UN/CEFACT",
+      "title": "UMM Revision 10"
+    },
+    "UMMUG": {
+      "authors": [
+        ""
+      ],
+      "date": "2003",
+      "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
+      "publisher": "UN/CEFACT",
+      "title": "UN/CEFACT Modeling Methodology (UMM) User Guide"
+    },
+    "UUID": {
+      "authors": [
+        "P. Leach",
+        "M. Mealling",
+        "R. Salz"
+      ],
+      "date": "July 2005",
+      "href": "https://tools.ietf.org/html/rfc4122",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "A Universally Unique IDentifier (UUID) URN Namespace"
+    },
+    "DK-Voorwaarden": {
+      "date": "1 januari 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Voorwaarden Digikoppeling"
+    },
+    "X520": {
+      "href": "https://www.iso.org/standard/43796.html",
+      "publisher": "ISO",
+      "title": "ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6"
+    },
+    "ADR-Validator": {
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
+      "authors": [
+        "H. Stijns"
+      ],
+      "publisher": "Geonovum",
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "HEART.OAuth2": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "April 25, 2017",
+      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "Health Relationship Trust Profile for OAuth 2.0"
+    },
+    "JWS.JWE.Algs": {
+      "authors": [
+        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
+      ],
+      "date": "",
+      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
+      "publisher": "IANA",
+      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
+    },
+    "I-D.ietf-oauth-pop-architecture": {
+      "authors": [
+        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
+      ],
+      "date": "July 8, 2016",
+      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
+    },
+    "iGOV.OAuth2": {
+      "authors": [
+        "J. Richer, M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
+    },
+    "ietf-oauth-v2-1-10-refresh-token-grant": {
+      "authors": [
+        "Dick Hardt, Aaron Parecki, Torsten Lodderstedt"
+      ],
+      "date": "January 9, 2024",
+      "href": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-10#name-refresh-token-grant",
+      "publisher": "IETF",
+      "title": "The OAuth 2.1 Authorization Framework: Refresh Token Grant"
+    },
+    "OpenID.FAPI2.0": {
+      "authors": [
+        "D. Fett, D. Tonge, J. Heenan"
+      ],
+      "date": "February 22 2025",
+      "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
+      "publisher": "OpenID foundation",
+      "title": "FAPI 2.0 Security Profile"
+    },
+    "logboek-extensie-guideline": {
+      "href": "https://logius-standaarden.github.io/logboek-extensie-template/",
+      "publisher": "Logius",
+      "title": "LDV Extensie Guideline"
+    },
+    "logboek dataverwerkingen": {
+      "href": "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      "publisher": "Logius",
+      "title": "Logboek Dataverwerkingen"
+    }
+  },
+  "specStatus": "WV",
+  "specType": "HR",
+  "pubDomain": "api",
+  "shortName": "zgw-api",
+  "publishVersion": "0.0.1",
+  "editors": [
+    {
+      "name": "Logius Standaarden",
+      "company": "Logius",
+      "companyURL": "https://logius.nl"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Logius Standaarden",
+      "company": "Logius",
+      "companyURL": "https://logius.nl"
+    }
+  ],
+  "github": "https://github.com/logius-standaarden/zaakgericht-werken-api",
+  "maxTocLevel": 3,
+  "preProcess": [
+    null
+  ]
+}</script>
+<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css">
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/dark.css"></head>
+
+<body class="h-entry"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+  </a> <h1 id="title" class="title">Zaakgericht Werken API</h1>
+    
+    <h2>
+      Logius Handreiking<br>
+      Werkversie
+      <time class="dt-published" datetime="2025-09-23">23 september 2025</time>
+    </h2>
+    <dl>
+      
+      
+      <dt>Laatste werkversie:</dt><dd><a href="https://logius-standaarden.github.io/zaakgericht-werken-api/">https://logius-standaarden.github.io/zaakgericht-werken-api/</a></dd>
+      
+      
+      
+      
+      
+      <dt>Redacteur:</dt>
+      <dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Logius Standaarden</span> (<a class="p-org org h-org" href="https://logius.nl">Logius</a>)
+  </dd>
+      
+      <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Logius Standaarden</span> (<a class="p-org org h-org" href="https://logius.nl">Logius</a>)
+  </dd>
+      <dt>Doe mee:</dt><dd>
+    <a href="https://github.com/logius-standaarden/zaakgericht-werken-api/">GitHub logius-standaarden/zaakgericht-werken-api</a>
+  </dd><dd>
+    <a href="https://github.com/logius-standaarden/zaakgericht-werken-api/issues/">Dien een melding in</a>
+  </dd><dd>
+    <a href="https://github.com/logius-standaarden/zaakgericht-werken-api/commits/">Revisiehistorie</a>
+  </dd><dd>
+    <a href="https://github.com/logius-standaarden/zaakgericht-werken-api/pulls/">Pull requests</a>
+  </dd>
+    </dl>
+    
+    
+    <p>
+          Dit document is ook beschikbaar in dit niet-normatieve formaat:
+          <a rel="alternate" href="api-zgw-api-0.0.1.pdf">pdf</a>
+        </p>
+    <p class="copyright">
+            Dit document valt onder de volgende licentie: 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
+    <hr title="Separator for header">
+  </div>
+  <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>De standaard "API's voor Zaakgericht Werken" bestaat uit een aantal API's.
+Per API is er een OAS3-specificatie en een beschrijving van het vereiste "run-time"-gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie.
+De OAS3-specificaties met beschrijvingen zijn normatief.
+De overige documentatie is ondersteunend en ter informatie.</p>
+<p>Deze standaardisatie zorgt vervolgens voor gegarandeerde interoperabiliteit tussen registraties (providers) en consumers die van de API's gebruik maken.</p>
+</section>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#zaken-api"><bdi class="secno">2. </bdi>Zaken API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#runtime-gedrag"><bdi class="secno">2.1 </bdi>Runtime gedrag</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#algemeen"><bdi class="secno">2.1.1 </bdi>Algemeen</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#archiveren"><bdi class="secno">2.1.2 </bdi>Archiveren</a><ol class="toc"></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
+  <section id="conformance"><div class="header-wrapper"><h2 id="x1-conformiteit"><bdi class="secno">1. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 1."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p><p>
+        De trefwoorden <em class="rfc2119">MAG</em>, <em class="rfc2119">MOET</em> en <em class="rfc2119">MOETEN</em> in dit
+        document moeten worden geïnterpreteerd als in
+        <a href="https://www.rfc-editor.org/info/bcp14">BCP 14</a>
+        [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
+        als, en alleen als deze in hoofdletters zijn weergegeven, zoals hier
+        getoond.
+      </p></section>
+  <section id="zaken-api"><div class="header-wrapper"><h2 id="x2-zaken-api"><bdi class="secno">2. </bdi>Zaken API</h2><a class="self-link" href="#zaken-api" aria-label="Permalink for Section 2."></a></div>
+<p>API voor het opslaan en ontsluiten van zaakgegevens.</p>
+<p>De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over alle gemeentelijke zaken, van elk type. Opslag vindt plaats conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn beschreven. Het bevat echter niet alle gegevens uit het RGBZ: documenten worden bijv. opgeslagen in de Documenten API, besluiten in de Besluiten API, etc. Vanuit zaken worden er dan ook relaties gelegd naar andere resources.</p>
+<section id="runtime-gedrag"><div class="header-wrapper"><h3 id="x2-1-runtime-gedrag"><bdi class="secno">2.1 </bdi>Runtime gedrag</h3><a class="self-link" href="#runtime-gedrag" aria-label="Permalink for Section 2.1"></a></div>
+<p>Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en <em class="rfc2119">MOETEN</em> zoals beschreven geïmplementeerd worden.</p>
+<section id="algemeen"><div class="header-wrapper"><h4 id="x2-1-1-algemeen"><bdi class="secno">2.1.1 </bdi>Algemeen</h4><a class="self-link" href="#algemeen" aria-label="Permalink for Section 2.1.1"></a></div>
+<p><span id="zrc-001"></span></p>
+<section id="valideren-zaaktype-op-de-zaak-resource-zrc-001"><div class="header-wrapper"><h5 id="x2-1-1-1-valideren-zaaktype-op-de-zaak-resource-zrc-001"><bdi class="secno">2.1.1.1 </bdi>Valideren <code>zaaktype</code> op de <code>Zaak</code>-resource (<a href="#zrc-001">zrc-001</a>)</h5><a class="self-link" href="#valideren-zaaktype-op-de-zaak-resource-zrc-001" aria-label="Permalink for Section 2.1.1.1"></a></div>
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>aangepast in versie 1.5.0</strong>
+</span>
+
+<p>Bij het aanmaken (<code>zaak_create</code>) of bijwerken (<code>zaak_update</code>, <code>zaak_partial_update</code>) van een zaak <em class="rfc2119">MOET</em> de URL-referentie naar het <code>zaaktype</code> gevalideerd worden op het bestaan. Indien het ophalen van het zaaktype niet (uiteindelijk) resulteert in een <code>HTTP 200</code> status code, <em class="rfc2119">MOET</em> het ZRC antwoorden met een <code>HTTP 400</code> foutbericht.</p>
+<p>De provider <em class="rfc2119">MOET</em> tevens valideren dat het opgehaalde zaaktype een zaaktype is conform de vigerende Catalogi API specificatie.</p>
+<p><span id="zrc-002"></span></p>
+</section><section id="garanderen-uniciteit-bronorganisatie-en-identificatie-op-de-zaak-resource-zrc-002"><div class="header-wrapper"><h5 id="x2-1-1-2-garanderen-uniciteit-bronorganisatie-en-identificatie-op-de-zaak-resource-zrc-002"><bdi class="secno">2.1.1.2 </bdi>Garanderen uniciteit <code>bronorganisatie</code> en <code>identificatie</code> op de <code>Zaak</code>-resource (<a href="#zrc-002">zrc-002</a>)</h5><a class="self-link" href="#garanderen-uniciteit-bronorganisatie-en-identificatie-op-de-zaak-resource-zrc-002" aria-label="Permalink for Section 2.1.1.2"></a></div>
+<p>Bij het aanmaken (<code>zaak_create</code>) en bijwerken (<code>zaak_update</code> en <code>zaak_partial_update</code>) <em class="rfc2119">MOET</em> gevalideerd worden dat de combinatie <code>identificatie</code> en <code>bronorganisatie</code> uniek is, indien de <code>identificatie</code> door de consumer meegestuurd wordt.</p>
+<p>Indien de identificatie niet door de consumer gestuurd wordt, dan <em class="rfc2119">MOET</em> het ZRC de identificatie genereren op een manier die garandeert dat de identificatie uniek is binnen de bronorganisatie.</p>
+<p><span id="zrc-003"></span></p>
+</section><section id="valideren-informatieobject-op-de-zaakinformatieobject-resource-zrc-003"><div class="header-wrapper"><h5 id="x2-1-1-3-valideren-informatieobject-op-de-zaakinformatieobject-resource-zrc-003"><bdi class="secno">2.1.1.3 </bdi>Valideren <code>informatieobject</code> op de <code>ZaakInformatieObject</code>-resource (<a href="#zrc-003">zrc-003</a>)</h5><a class="self-link" href="#valideren-informatieobject-op-de-zaakinformatieobject-resource-zrc-003" aria-label="Permalink for Section 2.1.1.3"></a></div>
+<p>Bij het aanmaken (<code>zaakinformatieobject_create</code>) <em class="rfc2119">MOET</em> de URL-referentie naar het <code>informatieobject</code> gevalideerd worden op het bestaan. Indien het ophalen van het object niet (uiteindelijk) resulteert in een <code>HTTP 200</code> status code, <em class="rfc2119">MOET</em> het ZRC antwoorden met een <code>HTTP 400</code> foutbericht.</p>
+<p><span id="zrc-004"></span></p>
+</section><section id="valideren-relatieinformatie-op-zaakinformatieobject-resource-zrc-004"><div class="header-wrapper"><h5 id="x2-1-1-4-valideren-relatieinformatie-op-zaakinformatieobject-resource-zrc-004"><bdi class="secno">2.1.1.4 </bdi>Valideren relatieinformatie op <code>ZaakInformatieObject</code>-resource (<a href="#zrc-004">zrc-004</a>)</h5><a class="self-link" href="#valideren-relatieinformatie-op-zaakinformatieobject-resource-zrc-004" aria-label="Permalink for Section 2.1.1.4"></a></div>
+<p>Op basis van het <code>objectType</code> <em class="rfc2119">MOET</em> de <code>aardRelatie</code> gezet worden conform het RGBZ. Omdat het <code>objectType</code> <code>zaak</code> is, moet <code>aardRelatie</code> gelijk zijn aan <code>"hoort_bij"</code>.</p>
+<p>De <code>registratiedatum</code> <em class="rfc2119">MOET</em> door het systeem gezet worden op het moment van aanmaken.</p>
+<p>Bij het updaten (<code>zaakinformatieobject_update</code> en <code>zaakinformatieobject_partial_update</code>) is het NIET TOEGESTAAN om de relatie te wijzingen. Bij andere waardes voor de attributen <code>zaak</code>, en <code>informatieobject</code> <em class="rfc2119">MOET</em> het ZRC antwoorden met een <code>HTTP 400</code> foutbericht.</p>
+<p><span id="zrc-005"></span></p>
+</section><section id="synchroniseren-relaties-met-informatieobjecten-zrc-005"><div class="header-wrapper"><h5 id="x2-1-1-5-synchroniseren-relaties-met-informatieobjecten-zrc-005"><bdi class="secno">2.1.1.5 </bdi>Synchroniseren relaties met informatieobjecten (<a href="#zrc-005">zrc-005</a>)</h5><a class="self-link" href="#synchroniseren-relaties-met-informatieobjecten-zrc-005" aria-label="Permalink for Section 2.1.1.5"></a></div>
+<p>Wanneer een relatie tussen een <code>INFORMATIEOBJECT</code> en een <code>ZAAK</code> gemaakt of bijgewerkt wordt, dan <em class="rfc2119">MOET</em> het ZRC in het DRC ook deze relatie aanmaken/bijwerken.</p>
+<p>Een voorbeeld:</p>
+<ol>
+<li><p>Een informatieobject wordt gerelateerd aan een zaak door een consumer:</p>
+<pre><code class="http hljs" aria-busy="false"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://zrc.nl/api/v1/zaakinformatieobjecten</span> <span class="hljs-meta">HTTP/1.0</span>
+
+<span class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"informatieobject"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"zaak"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://zrc.nl/api/v1/zaken/456789"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"titel"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">""</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"beschrijving"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">""</span>
+<span class="hljs-punctuation">}</span>
+</span></code></pre>
+</li>
+<li><p>Het ZRC <em class="rfc2119">MOET</em> de relatie spiegelen in het DRC:</p>
+<pre><code class="http hljs" aria-busy="false"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://drc.nl/api/v1/objectinformatieobjecten</span> <span class="hljs-meta">HTTP/1.0</span>
+
+<span class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"informatieobject"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"object"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://zrc.nl/api/v1/zaken/456789"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"objectType"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"zaak"</span>
+<span class="hljs-punctuation">}</span>
+</span></code></pre>
+</li>
+</ol>
+<p>Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken via de API. Indien elders (bijvoorbeeld via een admininterface) een relatie tot stand kan komen, dan <em class="rfc2119">MOET</em> deze ook gesynchroniseerd worden.</p>
+<p><span id="zrc-006"></span></p>
+</section><section id="data-filteren-bij-de-bron-op-basis-van-zaaktypes-zrc-006"><div class="header-wrapper"><h5 id="x2-1-1-6-data-filteren-bij-de-bron-op-basis-van-zaaktypes-zrc-006"><bdi class="secno">2.1.1.6 </bdi>Data filteren bij de bron op basis van zaaktypes (<a href="#zrc-006">zrc-006</a>)</h5><a class="self-link" href="#data-filteren-bij-de-bron-op-basis-van-zaaktypes-zrc-006" aria-label="Permalink for Section 2.1.1.6"></a></div>
+<p>Het AC legt op het niveau van <code>zaaktype</code> vast welke operaties mogelijk zijn en wat de maximale vertrouwelijkheidaanduiding is voor een consumer.</p>
+<p>Het ZRC <em class="rfc2119">MAG</em> ENKEL zaken ontsluiten waarvan:</p>
+<ul>
+<li>het zaaktype voorkomt in de autorisaties van de consumer.</li>
+<li>de vertrouwelijkheidaanduiding lager of gelijk aan de maximale vertrouwelijkheidaanduiding is voor het betreffende zaaktype.</li>
+</ul>
+<p>De API-specificatie legt vast welke scopes nodig zijn voor welke operaties. Een provider <em class="rfc2119">MOET</em> operaties blokkeren op zaken waarvan de nodige scopes niet toegekend zijn voor het zaaktype van de betreffende zaak.</p>
+<p>Indien een operatie niet toegelaten is, dan <em class="rfc2119">MOET</em> de provider met een <code>HTTP 403</code> foutbericht antwoorden.</p>
+<p>Een consumer is verbonden aan het concept <code>Applicatie</code>, waarop <code>autorisaties</code> gedefinieerd worden. Het is mogelijk om op het niveau van <code>Applicatie</code> de vlag <code>heeftAlleAutorisaties</code> te zetten. Indien deze gezet is, dan <em class="rfc2119">MOET</em> de provider alle operaties voor deze consumer toelaten, op alle zaken.</p>
+<p><span id="zrc-007"></span></p>
+</section><section id="afsluiten-zaak-zrc-007"><div class="header-wrapper"><h5 id="x2-1-1-7-afsluiten-zaak-zrc-007"><bdi class="secno">2.1.1.7 </bdi>Afsluiten zaak (<a href="#zrc-007">zrc-007</a>)</h5><a class="self-link" href="#afsluiten-zaak-zrc-007" aria-label="Permalink for Section 2.1.1.7"></a></div>
+<p>Een zaak wordt afgesloten door een eindstatus toe te kennen aan een <code>Zaak</code>. Elk <code>ZaakType</code> <em class="rfc2119">MOET</em> minimaal één <code>StatusType</code> kennen. De eindstatus binnen een <code>ZaakType</code> is het <code>StatusType</code> met het hoogste <code>volgnummer</code>.</p>
+<p>Een <code>Zaak</code> <em class="rfc2119">MOET</em> een <code>Resultaat</code> hebben voor deze afgesloten kan worden.</p>
+<p>De <code>Zaak.einddatum</code> <em class="rfc2119">MOET</em> logisch afgeleid worden uit het toekennen van de eindstatus via de <code>Status.datumStatusGezet</code>.</p>
+<p>Als een <code>Zaak</code> een eindstatus heeft dan is de zaak afgesloten en mogen gegevens van de zaak niet meer aangepast worden (behalve om redenen van correctie). Dit <em class="rfc2119">MOET</em> beveiligd worden met de scope <code>zds.scopes.zaken.geforceerd-bijwerken</code>. "Gegevens van de zaak" omvat hier ook de gerelateerde gegevens zoals klantcontacten, resultaat, rollen, statussen, zaakinformatieobjecten, zaakobjecten, zaakbesluiten en zaakeigenschappen.</p>
+<p>Bij het afsluiten van een <code>Zaak</code> <em class="rfc2119">MOET</em> het ZRC het <code>Informatieobject.indicatieGebruiksrecht</code> controleren van alle gerelateerde informatieobjecten. Deze <em class="rfc2119">MAG</em> NIET <code>null</code> zijn, maar <em class="rfc2119">MOET</em> <code>true</code> of <code>false</code> zijn. Indien dit niet het geval is, dan dient het ZRC een validatiefout te genereren met code <code>indicatiegebruiksrecht-unset</code>.</p>
+<p><span id="zrc-009"></span></p>
+</section><section id="heropenen-zaak-zrc-008"><div class="header-wrapper"><h5 id="x2-1-1-8-heropenen-zaak-zrc-008"><bdi class="secno">2.1.1.8 </bdi>Heropenen zaak (<a href="#zrc-008">zrc-008</a>)</h5><a class="self-link" href="#heropenen-zaak-zrc-008" aria-label="Permalink for Section 2.1.1.8"></a></div>
+<p>Bij het heropenen van een <code>Zaak</code> <em class="rfc2119">MOET</em> de client een andere status toevoegen aan de zaak dan een eindstatus. Hiervoor <em class="rfc2119">MOET</em> de client de scope <code>zds.scopes.zaken.heropenen</code> hebben.</p>
+<p>Tevens <em class="rfc2119">MOET</em> de provider de volgende velden op <code>null</code> zetten zodra een eindstatus wordt gewijzigd in een andere status:</p>
+<ul>
+<li><code>Zaak.einddatum</code></li>
+<li><code>Zaak.archiefactiedatum</code></li>
+<li><code>Zaak.archiefnominatie</code></li>
+</ul>
+<p><span id="zrc-009"></span></p>
+</section><section id="vertrouwelijkheidaanduiding-van-een-zaak-zrc-009"><div class="header-wrapper"><h5 id="x2-1-1-9-vertrouwelijkheidaanduiding-van-een-zaak-zrc-009"><bdi class="secno">2.1.1.9 </bdi>Vertrouwelijkheidaanduiding van een zaak (<a href="#zrc-009">zrc-009</a>)</h5><a class="self-link" href="#vertrouwelijkheidaanduiding-van-een-zaak-zrc-009" aria-label="Permalink for Section 2.1.1.9"></a></div>
+<p>Indien de client een <code>vertrouwelijkheidaanduiding</code> meegeeft bij het aanmaken of bewerken van een zaak, dan <em class="rfc2119">MOET</em> de provider deze waarde toekennen. Indien de client deze niet expliciet toekent, dan <em class="rfc2119">MOET</em> deze afgeleid worden uit <code>Zaak.ZaakType.vertrouwelijkheidaanduiding</code>.</p>
+<p>Een <code>Zaak</code> response van de provider <em class="rfc2119">MOET</em> altijd een geldige waarde voor <code>vertrouwelijkheidaanduiding</code> bevatten. Een client <em class="rfc2119">MAG</em> een waarde voor <code>vertrouwelijkheidaanduiding</code> meesturen.</p>
+<p><span id="zrc-010"></span></p>
+</section><section id="valideren-communicatiekanaal-op-de-zaak-resource-zrc-010"><div class="header-wrapper"><h5 id="x2-1-1-10-valideren-communicatiekanaal-op-de-zaak-resource-zrc-010"><bdi class="secno">2.1.1.10 </bdi>Valideren <code>communicatiekanaal</code> op de <code>Zaak</code> resource (<a href="#zrc-010">zrc-010</a>)</h5><a class="self-link" href="#valideren-communicatiekanaal-op-de-zaak-resource-zrc-010" aria-label="Permalink for Section 2.1.1.10"></a></div>
+<p>Bij het aanmaken (<code>zaak_create</code>) en bijwerken (<code>zaak_update</code> en <code>zaak_partial_update</code>) <em class="rfc2119">MOET</em> de URL-referentie naar het <code>communicatiekanaal</code> gevalideerd worden op het bestaan. Indien het ophalen van het zaaktype niet (uiteindelijk) resulteert in een <code>HTTP 200</code> status code, <em class="rfc2119">MOET</em> het ZRC antwoorden met een <code>HTTP 400</code> foutbericht.</p>
+<p>Het ophalen van deze resource moet een JSON-document zijn met de vorm van een communicatiekanaal zoals gedocumenteerd op de <a href="https://referentielijsten-api.vng.cloud/api/v1/schema/#operation/communicatiekanaal_read">referentielijsten-api</a>:</p>
+<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"url"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"http://example.com"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"naam"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"string"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"omschrijving"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"string"</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><span id="zrc-011"></span></p>
+</section><section id="valideren-relevanteanderezaken-op-de-zaak-resource-zrc-011"><div class="header-wrapper"><h5 id="x2-1-1-11-valideren-relevanteanderezaken-op-de-zaak-resource-zrc-011"><bdi class="secno">2.1.1.11 </bdi>Valideren <code>relevanteAndereZaken</code> op de <code>Zaak</code>-resource (<a href="#zrc-011">zrc-011</a>)</h5><a class="self-link" href="#valideren-relevanteanderezaken-op-de-zaak-resource-zrc-011" aria-label="Permalink for Section 2.1.1.11"></a></div>
+<p>De lijst <code>relevanteAndereZaken</code> bevat URL-referenties naar andere zaken. Elke URL-referentie <em class="rfc2119">MOET</em> gevalideerd worden op het bestaan. Indien het ophalen van de url niet (uiteindelijk) resulteert in een <code>HTTP 200</code> status code, <em class="rfc2119">MOET</em> het ZRC antwoorden met een <code>HTTP 400</code> foutbericht.</p>
+<p>In het foutbericht <em class="rfc2119">MOET</em> de naam binnen <code>invalid-params</code> dan <code>relevanteAndereZaken.&lt;index&gt;</code> zijn, waarbij index start bij 0.</p>
+<p><span id="zrc-012"></span></p>
+</section><section id="gegevensgroepen-zrc-012"><div class="header-wrapper"><h5 id="x2-1-1-12-gegevensgroepen-zrc-012"><bdi class="secno">2.1.1.12 </bdi>Gegevensgroepen (<a href="#zrc-012">zrc-012</a>)</h5><a class="self-link" href="#gegevensgroepen-zrc-012" aria-label="Permalink for Section 2.1.1.12"></a></div>
+<p>De client <em class="rfc2119">MAG</em> gegevensgroepen zoals <code>Zaak.verlenging</code> en <code>Zaak.opschorting</code> meesturen met een waarde <code>null</code> om aan te geven dat er geen waarde gezet is. Dit is equivalent aan het niet-meesturen van de key in de request body. Als de client een (genest) object meestuurt, dan <em class="rfc2119">MOET</em> de provider hierop de validatie van de gegevensgroep toepassen.</p>
+<p>De provider <em class="rfc2119">MOET</em> altijd de geneste structuur van de gegevensgroep antwoorden.</p>
+<p><span id="zrc-013"></span></p>
+</section><section id="valideren-hoofdzaak-op-de-zaak-resource-zrc-013"><div class="header-wrapper"><h5 id="x2-1-1-13-valideren-hoofdzaak-op-de-zaak-resource-zrc-013"><bdi class="secno">2.1.1.13 </bdi>Valideren <code>hoofdzaak</code> op de <code>Zaak</code>-resource (<a href="#zrc-013">zrc-013</a>)</h5><a class="self-link" href="#valideren-hoofdzaak-op-de-zaak-resource-zrc-013" aria-label="Permalink for Section 2.1.1.13"></a></div>
+<p>Bij het aanmaken of bewerken van een <code>Zaak</code> kan de <code>hoofdzaak</code> aangegeven worden. Dit <em class="rfc2119">MOET</em> een geldige URL-referentie naar een <code>Zaak</code> zijn, indien opgegeven.</p>
+<p>Indien de client een <code>hoofdzaak</code> opgeeft die zelf een deelzaak is (i.e. <code>Zaak.hoofdzaak</code> != <code>null</code>), dan moet het ZRC antwoorden met een <code>HTTP 400</code> foutbericht (deelzaken van deelzaken zijn NIET toegestaan).</p>
+<p>Indien de client een zaak bewerkt en diezelfde zaak als URL-referentie meegeeft als <code>hoofdzaak</code>, dan moet het ZRC antwoorden met een <code>HTTP 400</code> foutbericht (een zaak <em class="rfc2119">MAG</em> GEEN deelzaak van zichzelf zijn).</p>
+<p><span id="zrc-014"></span></p>
+</section><section id="zaak-betalingsindicatie-en-zaak-laatstebetaaldatum-zrc-014"><div class="header-wrapper"><h5 id="x2-1-1-14-zaak-betalingsindicatie-en-zaak-laatstebetaaldatum-zrc-014"><bdi class="secno">2.1.1.14 </bdi><code>Zaak.betalingsindicatie</code> en <code>Zaak.laatsteBetaaldatum</code> (<a href="#zrc-014">zrc-014</a>)</h5><a class="self-link" href="#zaak-betalingsindicatie-en-zaak-laatstebetaaldatum-zrc-014" aria-label="Permalink for Section 2.1.1.14"></a></div>
+<p>Indien de betalingsindicatie de waarde <code>"nvt"</code> heeft en een waarde gegeven is voor <code>laatsteBetaaldatum</code>, dan <em class="rfc2119">MOET</em> het ZRC antwoorden met een <code>HTTP 400</code> foutbericht. Bij alle andere waarden van <code>betalingsindicatie</code> <em class="rfc2119">MAG</em> een waarde opgegeven worden voor <code>laatsteBetaaldatum</code>.</p>
+<p>Indien een waarde ingevuld is voor <code>laatsteBetaaldatum</code> en de betalingsindicatie wordt gewijzigd naar <code>"nvt"</code>, dan <em class="rfc2119">MOET</em> de <code>laatsteBetaaldatum</code> op <code>null</code> gezet worden.</p>
+<p><span id="zrc-015"></span></p>
+</section><section id="valideren-van-producten-en-of-diensten-bij-een-zaak-zrc-015"><div class="header-wrapper"><h5 id="x2-1-1-15-valideren-van-producten-en-of-diensten-bij-een-zaak-zrc-015"><bdi class="secno">2.1.1.15 </bdi>Valideren van producten en/of diensten bij een <code>Zaak</code> (<a href="#zrc-015">zrc-015</a>)</h5><a class="self-link" href="#valideren-van-producten-en-of-diensten-bij-een-zaak-zrc-015" aria-label="Permalink for Section 2.1.1.15"></a></div>
+<p>Bij het aanmaken (<code>zaak_create</code>) en bijwerken (<code>zaak_update</code> en <code>zaak_partial_update</code>) <em class="rfc2119">MOET</em> de collectie <code>productenOfDiensten</code> worden getoetst tegen het <code>Zaaktype.productenOfDiensten</code> van het betreffende zaaktype. De producten en/of diensten van de zaak <em class="rfc2119">MOETEN</em> een subset van de producten en/of diensten op het zaaktype zijn.</p>
+</section><section id="valideren-tegen-de-catalogus-en-bijhorende-typen"><div class="header-wrapper"><h5 id="x2-1-1-16-valideren-tegen-de-catalogus-en-bijhorende-typen"><bdi class="secno">2.1.1.16 </bdi>Valideren tegen de catalogus en bijhorende typen</h5><a class="self-link" href="#valideren-tegen-de-catalogus-en-bijhorende-typen" aria-label="Permalink for Section 2.1.1.16"></a></div>
+<p>Het zaaktype van een zaak legt vast wat de mogelijke waarden zijn voor gerelateerde resources aan zaken. Dit <em class="rfc2119">MOET</em> gevalideerd worden door een provider.</p>
+<p><span id="zrc-015"></span></p>
+</section><section id="valideren-dat-het-statustype-van-een-status-bij-het-zaak-zaaktype-hoort-zrc-016"><div class="header-wrapper"><h5 id="x2-1-1-17-valideren-dat-het-statustype-van-een-status-bij-het-zaak-zaaktype-hoort-zrc-016"><bdi class="secno">2.1.1.17 </bdi>Valideren dat het <code>statustype</code> van een <code>Status</code> bij het <code>Zaak.zaaktype</code> hoort (<a href="#zrc-016">zrc-016</a>)</h5><a class="self-link" href="#valideren-dat-het-statustype-van-een-status-bij-het-zaak-zaaktype-hoort-zrc-016" aria-label="Permalink for Section 2.1.1.17"></a></div>
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+<p>Wanneer een <code>Status</code> bij een <code>Zaak</code> toegevoegd wordt, dan <em class="rfc2119">MOET</em> het <code>Status.statustype</code> voorkomen in de <code>Status.zaak.zaaktype.statustypen</code>.</p>
+<p><span id="zrc-015"></span></p>
+</section><section id="valideren-dat-het-informatieobjecttype-van-een-zaakinformatieobject-informatieobject-bij-het-zaak-zaaktype-hoort-zrc-017"><div class="header-wrapper"><h5 id="x2-1-1-18-valideren-dat-het-informatieobjecttype-van-een-zaakinformatieobject-informatieobject-bij-het-zaak-zaaktype-hoort-zrc-017"><bdi class="secno">2.1.1.18 </bdi>Valideren dat het <code>informatieobjecttype</code> van een <code>ZaakInformatieObject.informatieobject</code> bij het <code>Zaak.zaaktype</code> hoort (<a href="#zrc-017">zrc-017</a>)</h5><a class="self-link" href="#valideren-dat-het-informatieobjecttype-van-een-zaakinformatieobject-informatieobject-bij-het-zaak-zaaktype-hoort-zrc-017" aria-label="Permalink for Section 2.1.1.18"></a></div>
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+<p>Wanneer een <code>ZaakInformatieObject</code> bij een <code>Zaak</code> toegevoegd wordt, dan <em class="rfc2119">MOET</em> het <code>ZaakInformatieObject.informatieobject.informatieobjecttype</code> voorkomen in de <code>ZaakInformatieObject.zaak.zaaktype.informatieobjecttypen</code>.</p>
+<p><span id="zrc-015"></span></p>
+</section><section id="valideren-dat-de-eigenschap-van-een-zaakeigenschap-bij-het-zaak-zaaktype-hoort-zrc-018"><div class="header-wrapper"><h5 id="x2-1-1-19-valideren-dat-de-eigenschap-van-een-zaakeigenschap-bij-het-zaak-zaaktype-hoort-zrc-018"><bdi class="secno">2.1.1.19 </bdi>Valideren dat de <code>eigenschap</code> van een <code>ZaakEigenschap</code> bij het <code>Zaak.zaaktype</code> hoort (<a href="#zrc-018">zrc-018</a>)</h5><a class="self-link" href="#valideren-dat-de-eigenschap-van-een-zaakeigenschap-bij-het-zaak-zaaktype-hoort-zrc-018" aria-label="Permalink for Section 2.1.1.19"></a></div>
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+<p>Wanneer een <code>ZaakEigenschap</code> bij een <code>Zaak</code> toegevoegd wordt, dan <em class="rfc2119">MOET</em> de <code>ZaakEigenschap.eigenschap</code> voorkomen in de <code>ZaakEigenschap.zaak.zaaktype.eigenschappen</code>.</p>
+<p>TODO: <a href="https://github.com/VNG-Realisatie/gemma-zaken/issues/1476">fix in ZRC</a></p>
+<p><span id="zrc-015"></span></p>
+</section><section id="valideren-dat-het-roltype-van-een-rol-bij-het-zaak-zaaktype-hoort-zrc-019"><div class="header-wrapper"><h5 id="x2-1-1-20-valideren-dat-het-roltype-van-een-rol-bij-het-zaak-zaaktype-hoort-zrc-019"><bdi class="secno">2.1.1.20 </bdi>Valideren dat het <code>roltype</code> van een <code>Rol</code> bij het <code>Zaak.zaaktype</code> hoort (<a href="#zrc-019">zrc-019</a>)</h5><a class="self-link" href="#valideren-dat-het-roltype-van-een-rol-bij-het-zaak-zaaktype-hoort-zrc-019" aria-label="Permalink for Section 2.1.1.20"></a></div>
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+<p>Wanneer een <code>Rol</code> bij een <code>Zaak</code> toegevoegd wordt, dan <em class="rfc2119">MOET</em> het <code>Rol.roltype</code> voorkomen in de <code>Rol.zaak.zaaktype.roltypen</code>.</p>
+<p><span id="zrc-015"></span></p>
+</section><section id="valideren-dat-het-resultaattype-van-een-resultaat-bij-het-zaak-zaaktype-hoort-zrc-020"><div class="header-wrapper"><h5 id="x2-1-1-21-valideren-dat-het-resultaattype-van-een-resultaat-bij-het-zaak-zaaktype-hoort-zrc-020"><bdi class="secno">2.1.1.21 </bdi>Valideren dat het <code>resultaattype</code> van een <code>Resultaat</code> bij het <code>Zaak.zaaktype</code> hoort (<a href="#zrc-020">zrc-020</a>)</h5><a class="self-link" href="#valideren-dat-het-resultaattype-van-een-resultaat-bij-het-zaak-zaaktype-hoort-zrc-020" aria-label="Permalink for Section 2.1.1.21"></a></div>
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+<p>Wanneer een <code>Resultaat</code> bij een <code>Zaak</code> toegevoegd wordt, dan <em class="rfc2119">MOET</em> het <code>Resultaat.resultaattype</code> voorkomen in de <code>Resultaat.zaak.zaaktype.resultaattypen</code>.</p>
+</section></section><section id="archiveren"><div class="header-wrapper"><h4 id="x2-1-2-archiveren"><bdi class="secno">2.1.2 </bdi>Archiveren</h4><a class="self-link" href="#archiveren" aria-label="Permalink for Section 2.1.2"></a></div>
+<p><span id="zrc-015"></span></p>
+<section id="afleiden-van-archiveringsparameters-zrc-021"><div class="header-wrapper"><h5 id="x2-1-2-1-afleiden-van-archiveringsparameters-zrc-021"><bdi class="secno">2.1.2.1 </bdi>Afleiden van archiveringsparameters (<a href="#zrc-021">zrc-021</a>)</h5><a class="self-link" href="#afleiden-van-archiveringsparameters-zrc-021" aria-label="Permalink for Section 2.1.2.1"></a></div>
+<p>Het resultaat van een zaak is bepalend voor het archiefregime. Bij het afsluiten van een zaak <em class="rfc2119">MOETEN</em> de attributen <code>Zaak.archiefnominatie</code> en <code>Zaak.archiefactiedatum</code> bepaald worden uit het <code>Zaak.Resultaat</code> als volgt:</p>
+<ol>
+<li>Indien de zaak geen <code>archiefnominatie</code> heeft, dan <em class="rfc2119">MOET</em> deze overgenomen worden uit <code>Resultaat.Resultaattype.archiefnominatie</code></li>
+<li>Indien <code>Resultaat.Resultaattype.archiefactietermijn</code> gevuld is:<ol>
+<li>Bepaal de <code>brondatum</code> van de archiefprocedure<ol>
+<li>Consulteer het groepattribuut <code>Resultaat.Resultaattype.brondatumArchiefprocedure</code></li>
+<li>Afhankelijk van de waarde van <code>afleidingswijze</code>:<ul>
+<li><code>afgehandeld</code> -&gt; gebruik <code>Zaak.einddatum</code></li>
+<li><code>hoofdzaak</code> -&gt; gebruik <code>Zaak.hoofdzaak.einddatum</code></li>
+<li><code>eigenschap</code> -&gt; gebruik de waarde van de eigenschap met als naam de waarde van <code>Resultaat.Resultaattype.brondatumArchiefprocedure.datumkenmerk</code></li>
+<li><code>ander_datumkenmerk</code> -&gt; <code>Zaak.archiefactiedatum</code> <em class="rfc2119">MOET</em> handmatig afgeleid en gezet worden</li>
+<li><code>zaakobject</code> -&gt; zoek de gerelateerde objecten van type <code>Resultaat.Resultaattype.brondatumArchiefprocedure.objecttype</code>.Lees van elk object het attribuut met de naam  <code>Resultaat.Resultaattype.brondatumArchiefprocedure.datumkenmerk</code> en gebruik de maximale waarde.</li>
+<li><code>termijn</code> -&gt; <code>Zaak.einddatum</code> + <code>Resultaat.Resultaattype.brondatumArchiefprocedure.procestermijn</code></li>
+<li><code>gerelateerde_zaak</code> -&gt; maximale <code>Zaak.einddatum</code> van alle gerelateerde zaken</li>
+<li><code>ingangsdatum_besluit</code> -&gt; maximale <code>Besluit.ingangsdatum</code> van alle gerelateerde besluiten</li>
+<li><code>vervaldatum_besluit</code> -&gt; maximale <code>Besluit.vervaldatum</code> van alle gerelateerde besluiten</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Zet <code>Zaak.archiefactiedatum</code> als <code>brondatum + Resultaat.Resultaattype.archiefactietermijn</code></li>
+</ol>
+</li>
+</ol>
+<p>Indien de archiefactiedatum niet bepaald kan worden, dan <em class="rfc2119">MAG</em> er geen datum gezet worden. Dit kan voorkomen als de brondatum niet bepaald kan worden of de archiefactietermijn niet beschikbaar is.</p>
+<p><span id="zrc-015"></span></p>
+</section><section id="zetten-zaak-archiefstatus-zrc-022"><div class="header-wrapper"><h5 id="x2-1-2-2-zetten-zaak-archiefstatus-zrc-022"><bdi class="secno">2.1.2.2 </bdi>Zetten <code>Zaak.archiefstatus</code> (<a href="#zrc-022">zrc-022</a>)</h5><a class="self-link" href="#zetten-zaak-archiefstatus-zrc-022" aria-label="Permalink for Section 2.1.2.2"></a></div>
+<p>De standaardwaarde voor archiefstatus is <code>nog_te_archiveren</code>. Indien een andere waarde gezet wordt, dan <em class="rfc2119">MOETEN</em> alle gerelateerde informatieobjecten de status <code>gearchiveerd</code> hebben.</p>
+<p>De attributen <code>Zaak.archiefnominatie</code> en <code>Zaak.archiefactiedatum</code> <em class="rfc2119">MOETEN</em> een waarde krijgen als de de archiefstatus een waarde krijgt anders dan <code>nog_te_archiveren</code>.</p>
+<p>Indien deze voorwaarden niet voldaan zijn, dan <em class="rfc2119">MOET</em> het ZRC met een <code>HTTP 400</code> foutbericht antwoorden.</p>
+<p><span id="zrc-015"></span></p>
+</section><section id="vernietigen-van-zaken-zrc-023"><div class="header-wrapper"><h5 id="x2-1-2-3-vernietigen-van-zaken-zrc-023"><bdi class="secno">2.1.2.3 </bdi>Vernietigen van zaken (<a href="#zrc-023">zrc-023</a>)</h5><a class="self-link" href="#vernietigen-van-zaken-zrc-023" aria-label="Permalink for Section 2.1.2.3"></a></div>
+<p>Bij het verwijderen van een <code>Zaak</code> <em class="rfc2119">MOETEN</em> de zaak en gerelateerde objecten daadwerkelijk uit de opslag verwijderd worden. Zogenaamde "soft-deletes" zijn NIET TOEGESTAAN. Onder gerelateerde objecten wordt begrepen:</p>
+<ul>
+<li><code>zaak</code> - de deelzaken van de verwijderde hoofzaak</li>
+<li><code>status</code> - alle statussen van de verwijderde zaak</li>
+<li><code>resultaat</code> - het resultaat van de verwijderde zaak</li>
+<li><code>rol</code> - alle rollen bij de zaak</li>
+<li><code>zaakobject</code> - alle zaakobjecten bij de zaak</li>
+<li><code>zaakeigenschap</code> - alle eigenschappen van de zaak</li>
+<li><code>zaakkenmerk</code> - alle kenmerken van de zaak</li>
+<li><code>zaakinformatieobject</code> - relatie naar enkelvoudige informatieobjecten *</li>
+<li><code>zaakverzoek</code> - relatie naar een zaak verzoek (<strong>nieuw in 1.1.0</strong>)</li>
+<li><code>zaakcontactmoment</code> - relatie naar een zaak contactmoment (<strong>nieuw in 1.1.0</strong>)</li>
+<li><code>klantcontact</code> - alle klantcontacten bij een zaak</li>
+<li><code>audittrail</code> - de geschiedenis van het object</li>
+</ul>
+<p>Een deelzaak KAN vernietigd worden zonder dat de hoofdzaak vernietigd wordt.</p>
+<p>* Het verwijderen van een <code>zaakinformatieobject</code> in het ZRC leidt er toe dat het <code>objectinformatieobject</code> in het DRC ook verwijderd wordt indien dit kan.</p>
+<p><span id="zrc-015"></span></p>
+</section><section id="bewaren-van-zaken-zrc-026"><div class="header-wrapper"><h5 id="x2-1-2-4-bewaren-van-zaken-zrc-026"><bdi class="secno">2.1.2.4 </bdi>Bewaren van zaken (<a href="#zrc-026">zrc-026</a>)</h5><a class="self-link" href="#bewaren-van-zaken-zrc-026" aria-label="Permalink for Section 2.1.2.4"></a></div>
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Nieuw in 1.3.0</strong>
+</span>
+
+
+<p>De 'Startdatum bewaartermijn' markeert het einde van de Selectielijst-procestermijn en het begin van de Selectielijst-bewaartermijn. De periode waarover een zaakdossier na afronding van de zaak gearchiveerd blijft, bestaat in de Selectieljst uit twee gedeelten: achtereenvolgens de Procestermijn en de Bewaartermijn. De procestermijn eindigt bij het vervallen van het procesobject waarop de zaak betrekking heeft (zie attribuutsoort Procesobjectaard). Dit is het startmoment van de bewaartermijn d.w.z. van de periode waarover het zaakdossier vervolgens bewaard dient te blijven.</p>
+<p>De attribuutsoort wordt alleen van een waarde voorzien voor te vernietigen zaakdossiers. Voor altijd te bewaren zaakdossiers start de bewaartermijn op de datum van afronding van de zaak.
+De waarde van de attribuutsoort wordt zoveel als mogelijk bepaald gedurende de behandeling van de zaak, teneinde de archiefactiedatum (cq. datum vernietiging) te kunnen bepalen bij afronding van de zaak. In sommige gevallen is evenwel van het vervallen van het procesobject pas sprake nadat de zaak afgerond is. Een dergelijk procesobject moet gevolgd worden (m.b.v. de waarden van de groepattribuutsoort 'Procesobject') teneinde het vervallen daarvan te constateren en alsnog de waarde van 'Startdatum bewaartermijn' te kunnen bepalen.</p>
+</section><section id="http-caching"><div class="header-wrapper"><h5 id="x2-1-2-5-http-caching"><bdi class="secno">2.1.2.5 </bdi>HTTP-Caching</h5><a class="self-link" href="#http-caching" aria-label="Permalink for Section 2.1.2.5"></a></div>
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+<p>De Zaken API moet HTTP-Caching ondersteunen op basis van de <code>ETag</code> header. In de API spec staat beschreven voor welke resources dit van toepassing is.</p>
+<p>De <code>ETag</code> <em class="rfc2119">MOET</em> worden berekend op de JSON-weergave van de resource. Verschillende, maar equivalente weergaves (bijvoorbeeld dezelfde API ontsloten wel/niet via NLX) <em class="rfc2119">MOETEN</em> verschillende waarden voor de <code>ETag</code> hebben.</p>
+<p>Indien de consumer een <code>HEAD</code> verzoek uitvooert op deze resources, dan <em class="rfc2119">MOET</em> de provider antwoorden met dezelfde headers als bij een normale <code>GET</code>, dus inclusief de <code>ETag</code> header. Er <em class="rfc2119">MAG</em> GEEN response body voorkomen.</p>
+<p>Indien de consumer gebruik maakt van de <code>If-None-Match</code> header, met één of meerdere waarden voor de <code>ETag</code>, dan <em class="rfc2119">MOET</em> de provider antwoorden met een <code>HTTP 304</code> bericht indien de huidige <code>ETag</code> waarde van de resource hierin voorkomt. Als de huidige <code>ETag</code> waarde hier niet in voorkomt, dan <em class="rfc2119">MOET</em> de provider een normale <code>HTTP 200</code> response sturen.</p>
+</section><section id="todo-synchroniseren-zaakcontactmomenten"><div class="header-wrapper"><h5 id="x2-1-2-6-todo-synchroniseren-zaakcontactmomenten"><bdi class="secno">2.1.2.6 </bdi>TODO: synchroniseren zaakcontactmomenten</h5><a class="self-link" href="#todo-synchroniseren-zaakcontactmomenten" aria-label="Permalink for Section 2.1.2.6"></a></div>
+<p><span id="zrc-024"></span></p>
+</section><section id="synchroniseren-relaties-met-verzoeken-zrc-024"><div class="header-wrapper"><h5 id="x2-1-2-7-synchroniseren-relaties-met-verzoeken-zrc-024"><bdi class="secno">2.1.2.7 </bdi>Synchroniseren relaties met verzoeken (<a href="#zrc-024">zrc-024</a>)</h5><a class="self-link" href="#synchroniseren-relaties-met-verzoeken-zrc-024" aria-label="Permalink for Section 2.1.2.7"></a></div>
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+<p>Wanneer een relatie tussen een <code>VERZOEK</code> en een <code>ZAAK</code> gemaakt of bijgewerkt wordt, dan <em class="rfc2119">MOET</em> het ZRC in de Verzoeken API ook deze relatie aanmaken/bijwerken.</p>
+<p>Een voorbeeld:</p>
+<ol>
+<li><p>Een verzoek wordt gerelateerd aan een zaak door een consumer:</p>
+<pre><code class="http hljs" aria-busy="false"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://zrc.nl/api/v1/zaakverzoeken</span> <span class="hljs-meta">HTTP/1.0</span>
+
+<span class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"verzoek"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://vrc.nl/api/v1/verzoeken/1234"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"zaak"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://zrc.nl/api/v1/zaken/456789"</span><span class="hljs-punctuation">,</span>
+<span class="hljs-punctuation">}</span>
+</span></code></pre>
+</li>
+<li><p>Het ZRC <em class="rfc2119">MOET</em> de relatie spiegelen in de Verzoeken API:</p>
+<pre><code class="http hljs" aria-busy="false"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://vrc.nl/api/v1/objectverzoeken</span> <span class="hljs-meta">HTTP/1.0</span>
+
+<span class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"verzoek"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://vrc.nl/api/v1/verzoeken/1234"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"object"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://zrc.nl/api/v1/zaken/456789"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"objectType"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"zaak"</span>
+<span class="hljs-punctuation">}</span>
+</span></code></pre>
+</li>
+</ol>
+<p>Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken via de API. Indien elders (bijvoorbeeld via een admininterface) een relatie tot stand kan komen, dan <em class="rfc2119">MOET</em> deze ook gesynchroniseerd worden.</p>
+<p><span id="zrc-025"></span></p>
+</section><section id="synchroniseren-relaties-met-contactmomenten-zrc-025"><div class="header-wrapper"><h5 id="x2-1-2-8-synchroniseren-relaties-met-contactmomenten-zrc-025"><bdi class="secno">2.1.2.8 </bdi>Synchroniseren relaties met contactmomenten (<a href="#zrc-025">zrc-025</a>)</h5><a class="self-link" href="#synchroniseren-relaties-met-contactmomenten-zrc-025" aria-label="Permalink for Section 2.1.2.8"></a></div>
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+<p>Wanneer een relatie tussen een <code>CONTACTMOMENT</code> en een <code>ZAAK</code> gemaakt of bijgewerkt wordt, dan <em class="rfc2119">MOET</em> het ZRC in het CRC ook deze relatie aanmaken/bijwerken.</p>
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.5.0</strong>
+</span>
+
+<p><span id="zrc-025"></span></p>
+</section><section id="reikwijdte-expand-parameters-zrc-025"><div class="header-wrapper"><h5 id="x2-1-2-9-reikwijdte-expand-parameters-zrc-025"><bdi class="secno">2.1.2.9 </bdi>Reikwijdte expand parameters (<a href="#zrc-025">zrc-025</a>)</h5><a class="self-link" href="#reikwijdte-expand-parameters-zrc-025" aria-label="Permalink for Section 2.1.2.9"></a></div>
+<p>Indien een verzoek één of meer expand parameters bevat <em class="rfc2119">MOET</em> deze parameter alleen informatie uit de Zaken API of gerelateerde informatie uit de Catalogi API bevatten. Indien een expand parameter om informatie uit andere bronnen vraagt moet een foutmelding (http 406?) worden teruggegeven.</p>
+<p><span id="zrc-026"></span></p>
+</section><section id="diepte-uitvoeren-expand-parameters-zrc-026"><div class="header-wrapper"><h5 id="x2-1-2-10-diepte-uitvoeren-expand-parameters-zrc-026"><bdi class="secno">2.1.2.10 </bdi>Diepte uitvoeren expand parameters (<a href="#zrc-026">zrc-026</a>)</h5><a class="self-link" href="#diepte-uitvoeren-expand-parameters-zrc-026" aria-label="Permalink for Section 2.1.2.10"></a></div>
+<p>Indien een verzoek één of meer expand parameters bevat <em class="rfc2119">MOET</em> de expand niet dieper gaan dan maximaal 3 niveaus diep. Wanneer een consumer een diepere expand opgeeft <em class="rfc2119">MOET</em> het antwoord maximaal de 3 niveaus diep gaan. Hiermee kan de volgende informatie in een response opgenomen worden:</p>
+<pre><code aria-busy="false" class="hljs">Zaak
+    zaaktype
+    status
+        statustype
+    gerelateerdeZaak
+        zaaktype
+        status
+            statustype
+</code></pre>
+<p><span id="zrc-026"></span></p>
+</section><section id="expand-parameter-onderdeel-van-opgevraagde-resource-zrc-026"><div class="header-wrapper"><h5 id="x2-1-2-11-expand-parameter-onderdeel-van-opgevraagde-resource-zrc-026"><bdi class="secno">2.1.2.11 </bdi>Expand parameter onderdeel van opgevraagde resource (<a href="#zrc-026">zrc-026</a>)</h5><a class="self-link" href="#expand-parameter-onderdeel-van-opgevraagde-resource-zrc-026" aria-label="Permalink for Section 2.1.2.11"></a></div>
+<p>Indien een verzoek één of meer expand parameters bevat <em class="rfc2119">MOET</em> het attribuut onderdeel zijn van de opgevraagde resource. Indien een expand parameter geen geldig attribuut is van de opgevraagde resource moet een foutmelding (http 404) worden teruggegeven.</p>
+<p><span id="zrc-026"></span></p>
+</section><section id="gedrag-bij-fouten-in-expand-parameters-zrc-027"><div class="header-wrapper"><h5 id="x2-1-2-12-gedrag-bij-fouten-in-expand-parameters-zrc-027"><bdi class="secno">2.1.2.12 </bdi>Gedrag bij fouten in expand parameters (<a href="#zrc-027">zrc-027</a>)</h5><a class="self-link" href="#gedrag-bij-fouten-in-expand-parameters-zrc-027" aria-label="Permalink for Section 2.1.2.12"></a></div>
+<p>Op een verzoek <em class="rfc2119">MOET</em> een geldige response zoals deze opgevraagd is opleveren. Indien een verzoek één of meer expand parameters bevat <em class="rfc2119">MOET</em> ook de te expanderen informatie opgehaald en teruggegeven kunnen worden. Indien geen geldige response kan worden teruggegeven moet een foutmelding (http 404) worden teruggegeven.</p>
+</section></section></section></section>
+  <section id="tof"></section>
+
+
+
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-referenties"><bdi class="secno">A. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normatieve-referenties">
+    <div class="header-wrapper"><h3 id="a-1-normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</h3><a class="self-link" href="#normatieve-referenties" aria-label="Permalink for Appendix A.1"></a></div>
+    <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
+    </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+    </dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><div class="sidelabel">Logius Handreiking - Werkversie</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
