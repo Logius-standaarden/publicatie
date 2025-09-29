@@ -13,9 +13,10 @@ const organisationConfig = {
   }],
   useLogo: true,
 
-  latestVersion: ["nl_organisationPublishURL", "pubDomain", "/", "shortName", "/"],
-  thisVersion: ["nl_organisationPublishURL", "pubDomain", "/", "shortName", "/", "publishVersion", "/"],
-  prevVersion: ["nl_organisationPublishURL", "pubDomain", "/", "shortName", "/", "previousPublishVersion", "/"],
+  fileName: "",
+  latestVersion: ["nl_organisationPublishURL", "pubDomain", "/", "shortName", "/", "fileName"],
+  thisVersion: ["nl_organisationPublishURL", "pubDomain", "/", "shortName", "/", "publishVersion", "/", "fileName"],
+  prevVersion: ["nl_organisationPublishURL", "pubDomain", "/", "shortName", "/", "previousPublishVersion", "/", "fileName"],
 
   addSectionLinks: true,
 
