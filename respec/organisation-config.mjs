@@ -653,7 +653,7 @@ export function loadRespecWithConfiguration(localConfig) {
         config.alternateFormats = [];
       }
       const pdfName = `${config.pubDomain}-${config.shortName}-${config.publishVersion}.pdf`;
-      const existingFormat = config.alternateFormats.find(format => format.label === 'pdf');
+      const existingFormat = config.alternateFormats.find(format => format.label.toLowerCase() === 'pdf');
       if (existingFormat) {
         if (existingFormat.uri !== pdfName) {
           utils.showError(`Invalid name for PDF format. Expected "${pdfName}", but got "${existingFormat.uri}".
@@ -662,7 +662,7 @@ export function loadRespecWithConfiguration(localConfig) {
         return;
       }
       config.alternateFormats.push({
-        label: 'pdf',
+        label: 'PDF',
         uri: pdfName,
       });
     }
