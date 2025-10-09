@@ -584,6 +584,11 @@ const organisationConfig = {
       publisher: "OpenID foundation",
       title: "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
+    "NLGOV.OAuth2": {
+      href: "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
+      publisher: "Logius",
+      title: "NL GOV Assurance profile for OAuth 2.0"
+    },
     "ietf-oauth-v2-1-10-refresh-token-grant": {
       authors: ["Dick Hardt, Aaron Parecki, Torsten Lodderstedt"],
       date: "January 9, 2024",
