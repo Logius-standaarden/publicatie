@@ -616,6 +616,16 @@ const organisationConfig = {
   }
 };
 
+function prependSectionToBodyAndCreateIfNotExists(document, sectionId) {
+  let section = document.getElementById(sectionId);
+  if (section === null) {
+    section = document.createElement('section');
+    section.id = sectionId;
+  }
+  section.classList.add('introductory');
+  document.body.prepend(section);
+}
+
 /**
  * Laad Respec met een `localConfig`, waarbij default waarden uit een
  * `organisationConfig` object komen. Tevens worden de `localBiblio`
@@ -653,6 +663,13 @@ export function loadRespecWithConfiguration(localConfig) {
 
   respecConfig.preProcess = [
     ...(localConfig.preProcess || []),
+    (config, document) => {
+      // Secties worden toegevoegd in omgekeerde volgorde. Dus de
+      // sectie die hier als laatste staat, komt als eerste voor
+      // in het document.
+      prependSectionToBodyAndCreateIfNotExists(document, 'conformance');
+      prependSectionToBodyAndCreateIfNotExists(document, 'sotd');
+    },
     (config, document, utils) => {
       if (!config.alternateFormats) {
         config.alternateFormats = [];
