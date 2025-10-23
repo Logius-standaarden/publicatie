@@ -1,0 +1,48 @@
+%% Herziene versie nu in vorm van flowchart (ipv architecture-beta)
+%% Theme: dark-friendly, readable, grouped with colors
+
+flowchart TD
+    %% Define styling
+    classDef gov fill:#2b4c7e,stroke:#1c355c,color:#fff
+    classDef id fill:#3b7a57,stroke:#2c5941,color:#fff
+    classDef not fill:#444,stroke:#222,color:#fff
+    classDef service fill:#555,stroke:#222,color:#fff,stroke-width:1px
+    classDef cloud fill:#4a6fa5,color:#fff
+    classDef database fill:#6a4c93,color:#fff
+    classDef server fill:#3b8ea5,color:#fff
+    classDef disk fill:#b56576,color:#fff
+    classDef internet fill:#2a9d8f,color:#fff
+
+    %% Groups / Layers
+    subgraph NOT["Messaging Laag 📨"]
+        subgraph GOVA["Gov Org A 🏛️"]
+            s1[☁️ AMQP Broker A]:::cloud
+        end
+        subgraph GOVB["Gov Org B 🏛️"]
+            s2[☁️ AMQP Broker B]:::cloud
+        end
+        ce1[💻 CloudEvents Event Producer]:::server
+        ce2[💻 CloudEvents Event Consumer]:::server
+        a1[🗄️ AuthN/AuthZ]:::database
+        a2[🗄️ AuthN/AuthZ]:::database
+    end
+    class NOT,GOVA,GOVB not
+
+    subgraph GOV["Governance & Policy Laag ⚖️"]
+        g1[📜 RBAC / ABAC Policies]:::database
+        g2[💾 Audit Logging]:::disk
+        g3[🖥️ Compliance Monitoring]:::server
+    end
+    class GOV gov
+
+    subgraph ID["Federated Identity Provider 🔐"]
+        i1[🌐 OAuth / OIDC]:::internet
+    end
+    class ID id
+
+    %% Relationships
+    s1 <--> s2
+    ce1 --> s1
+    ce2 --> s2
+    a1 --> ce1
+    a2 --> ce2

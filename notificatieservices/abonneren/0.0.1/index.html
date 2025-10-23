@@ -1,0 +1,1452 @@
+<!DOCTYPE html><html lang="nl"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta name="generator" content="ReSpec 35.4.1">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+  
+  
+  
+<meta name="color-scheme" content="light dark">
+  
+<link rel="shortcut icon" type="image/x-icon" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico">
+  
+<title>Notitie Abonneren binnen Notificeren in FDS context</title>
+  
+
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:italic}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<style id="respec-nlgov">
+img.license{float:left;padding-right:5px;background:0 0}
+</style>
+<style>
+ul.index{columns:30ch;column-gap:1.5em}
+ul.index li{list-style:inherit}
+ul.index li span{color:inherit;cursor:pointer;white-space:normal}
+#index-defined-here ul.index li{font-size:.9rem}
+ul.index code{color:inherit}
+#index-defined-here .print-only{display:none}
+@media print{
+#index-defined-here .print-only{display:initial}
+}
+</style>
+<meta name="description" content="Dit is een notitie naar aanleiding van een onderzoek over mogelijkheden voor abonneren in een notificatielanschap, geschreven voor BZK/FDS.">
+<style>
+
+  .sidelabel {
+    position: fixed;
+    -webkit-transform-origin: top right;
+    right: 100%;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+    padding: 4px 50px 4px 10px;
+    color: white;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: #39870c;
+  }
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "nl_organisationName": "Logius",
+  "nl_organisationStylesURL": "https://gitdocumentatie.logius.nl/publicatie/respec/style/",
+  "nl_organisationPublishURL": "https://gitdocumentatie.logius.nl/publicatie/",
+  "logos": [
+    {
+      "src": "https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg",
+      "alt": "Logius",
+      "id": "Logius",
+      "height": 77,
+      "width": 44,
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
+    }
+  ],
+  "useLogo": true,
+  "fileName": "",
+  "latestVersion": "https://github.com/logius-standaarden/abonneren",
+  "thisVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "publishVersion",
+    "/",
+    "fileName"
+  ],
+  "prevVersion": [],
+  "addSectionLinks": true,
+  "localizationStrings": {
+    "en": {
+      "wv": "Draft",
+      "cv": "Consultation version",
+      "vv": "Proposed version",
+      "def": "Definitive version",
+      "basis": "Document",
+      "eo": "Outdated version",
+      "tg": "Rescinded version",
+      "no": "Norm",
+      "st": "Standard",
+      "im": "Information model",
+      "pr": "Guideline",
+      "hr": "Guide",
+      "wa": "Proposed recommendation",
+      "al": "General",
+      "bd": "Governance documentation",
+      "bp": "Best practice"
+    },
+    "nl": {
+      "wv": "Werkversie",
+      "cv": "Consultatieversie",
+      "vv": "Versie ter vaststelling",
+      "def": "Vastgestelde versie",
+      "basis": "Document",
+      "eo": "Verouderde versie",
+      "tg": "Teruggetrokken versie",
+      "no": "Norm",
+      "st": "Standaard",
+      "im": "Informatiemodel",
+      "pr": "Praktijkrichtlijn",
+      "hr": "Handreiking",
+      "wa": "Werkafspraak",
+      "al": "Algemeen",
+      "bd": "Beheerdocumentatie",
+      "bp": "Best practice"
+    }
+  },
+  "sotdText": {
+    "nl": {
+      "sotd": "Status van dit document",
+      "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.",
+      "cv": "Dit is een door het TO goedgekeurde consultatieversie. Commentaar over dit document kan gestuurd worden naar digikoppeling@logius.nl",
+      "vv": "Dit is een definitief concept van de nieuwe versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "basis": "Dit is een document zonder officiële status."
+    },
+    "en": {
+      "sotd": "Status of This Document",
+      "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
+      "wv": "This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.",
+      "cv": "This is a proposed recommendation approved by TO. Comments regarding this document may be sent to api@logius.nl",
+      "vv": "This is the definitive concept of this document. Edits resulting from consultations have been applied.",
+      "basis": "This document has no official standing."
+    }
+  },
+  "labelColor": {
+    "def": "#154273",
+    "wv": "#39870c",
+    "cv": "#000000",
+    "vv": "#000000"
+  },
+  "useLabel": true,
+  "licenses": {
+    "cc0": {
+      "name": "Creative Commons 0 Public Domain Dedication",
+      "short": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-zero.svg"
+    },
+    "cc-by": {
+      "name": "Creative Commons Attribution 4.0 International Public License",
+      "short": "CC-BY",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg"
+    },
+    "cc-by-nd": {
+      "name": "Creative Commons Naamsvermelding-GeenAfgeleideWerken 4.0 Internationaal",
+      "short": "CC-BY-ND",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/legalcode.nl",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
+    }
+  },
+  "license": "cc-by",
+  "localBiblio": {
+    "ADR": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
+      "publisher": "Logius",
+      "title": "API Design Rules"
+    },
+    "ADR1": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0",
+      "publisher": "Logius",
+      "title": "API Design Rules"
+    },
+    "ADR-ext": {
+      "authors": [
+        "Jasper Roes",
+        "Linda van den Brink"
+      ],
+      "date": "Januari 2020",
+      "href": "https://docs.geostandaarden.nl/api/API-Strategie-ext",
+      "publisher": "Geonovum/Kennisplatform APi's",
+      "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
+    },
+    "Algemene Voorwaarden Logius": {
+      "date": "12 juni 2018",
+      "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
+      "publisher": "Logius",
+      "title": "Algemene voorwaarden Logius"
+    },
+    "AuthZEN": {
+      "date": "6 September 2024 ",
+      "href": "https://openid.net/specs/authorization-api-1_0-01.html",
+      "publisher": "OpenID",
+      "title": "Authorization API 1.0 – draft 01"
+    },
+    "AVG": {
+      "date": "27 april 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
+    },
+    "BCP195": {
+      "authors": [
+        "Y. Sheffer",
+        "R. Holz",
+        "P. Saint-Andre"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/bcp195",
+      "publisher": "IETF",
+      "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"
+    },
+    "DK-beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "CloudEvents": {
+      "authors": [
+        "@@@"
+      ],
+      "date": "May 2011",
+      "href": "https://github.com/cloudevents/spec/blob/v1.0.1/spec.md",
+      "publisher": "@@@",
+      "title": "CloudEvents - Version 1.0.1"
+    },
+    "NLGOV-CloudEvents": {
+      "authors": [
+        "Werkgroep Berichtenstandaard (Project Notificatieservices)"
+      ],
+      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "publisher": "Logius",
+      "title": "NL GOV profile for CloudEvents"
+    },
+    "DK-CV": {
+      "href": "https://gitlab.com/logius/digikoppeling-compliance",
+      "publisher": "Logius",
+      "title": "Digikoppeling Compliance Voorziening"
+    },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
+    },
+    "Deployment Guide 1.1": {
+      "authors": [
+        "Pete Wenzel",
+        "Jacques Durand"
+      ],
+      "date": "June 2005",
+      "href": "http://www.oasis-open.org/apps/org/workgroup/ebxml-iic-deployment-profile-template-intro-100406.doc",
+      "publisher": "OASIS",
+      "title": "Deployment Profile Template For OASIS ebXML Message Service 2.0"
+    },
+    "DK": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
+      "publisher": "Logius",
+      "title": "Logius | Digikoppeling"
+    },
+    "DK-Doc": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
+      "publisher": "Logius",
+      "title": "Digikoppeling documentatie"
+    },
+    "DK-Beheermodel": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beheermodel"
+    },
+    "DK-BPebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices ebMS2"
+    },
+    "DK-BPGB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpgb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices Grote Berichten"
+    },
+    "DK-BPWUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpwus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices WUS"
+    },
+    "DK-Beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "DK-gbachtcert": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-ebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-GB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/gb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard Grote Berichten"
+    },
+    "DK-WUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/wus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard WUS"
+    },
+    "DK-RESTAPI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/restapi/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard REST-API"
+    },
+    "DK-Architectuur": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Architectuur"
+    },
+    "DK-IDAuth": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Identificatie en Authenticatie"
+    },
+    "DK-WI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/",
+      "publisher": "Logius",
+      "title": "Wat is Digikoppeling?"
+    },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
+    },
+    "ebCPP": {
+      "authors": [
+        "Oasis"
+      ],
+      "date": "september 2002",
+      "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "ebMS3": {
+      "authors": [
+        "Ian Jones",
+        "Pete Wenzel"
+      ],
+      "date": "October 2007",
+      "href": "https://docs.oasis-open.org/ebxml-msg/ebms/v3.0/core/os/ebms_core-3.0-spec-os.html",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "eDelivery API4IPS": {
+      "authors": [
+        "J. Dimitriou, V. Veduta, B. Dumitriu"
+      ],
+      "date": "sept 8 2022",
+      "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
+      "publisher": "OpenID foundation",
+      "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
+    },
+    "Expert": {
+      "authors": [
+        "@@@"
+      ],
+      "date": "@@@",
+      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
+      "publisher": "Forum Standaardisatie",
+      "title": "Expertadvies CloudEvents 1.0"
+    },
+    "folmer2011": {
+      "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
+      "title": "Management and Development Model for Open Standards (BOMOS) version 2",
+      "keywords": "IR-76837",
+      "authors": [
+        "ErwinFolmer",
+        "Matthijs Punter"
+      ],
+      "date": "2011",
+      "language": "English",
+      "publisher": "Programmabureau NOiV"
+    },
+    "folmer2012": {
+      "href": "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
+      "title": "Quality of Semantic Standards",
+      "authors": [
+        "Erwin Folmer"
+      ],
+      "date": "2012",
+      "publisher": "Universiteit Twente"
+    },
+    "DK-Gebruiksvoorwaarden": {
+      "date": "1 januari 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Gebruiksvoorwaarden Digikoppeling"
+    },
+    "ADR-GEO": {
+      "authors": [
+        "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
+      "publisher": "Geonovum",
+      "title": "API Design Rules Module: Geospatial"
+    },
+    "HTTPS-factsheet NCSC": {
+      "date": "Nov 2014",
+      "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
+      "publisher": "NCSC",
+      "title": "Factsheet HTTPS kan een stuk veiliger"
+    },
+    "iGOV.OpenID": {
+      "authors": [
+        "M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLGOV.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "OpenID NLGov"
+    },
+    "Introspection": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "October 2015",
+      "href": "https://tools.ietf.org/html/rfc7662",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Token Introspection"
+    },
+    "JWA": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7518",
+      "publisher": "IETF",
+      "title": "JSON Web Algorithms (JWA)"
+    },
+    "JWE": {
+      "authors": [
+        "M. Jones, J. Hildebrand"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7516",
+      "publisher": "IETF",
+      "title": "JSON Web Encryption (JWE)"
+    },
+    "JWK": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7517",
+      "publisher": "IETF",
+      "title": "JSON Web Key (JWK))"
+    },
+    "JWS": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7515",
+      "publisher": "IETF",
+      "title": "JSON Web Signature (JWS)"
+    },
+    "JWT": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "may 2015",
+      "href": "https://tools.ietf.org/html/rfc7519",
+      "publisher": "IETF",
+      "title": "JSON Web Token (JWT)"
+    },
+    "NCSC 2019": {
+      "date": "April 2019",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2019/mei/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-tls",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.0"
+    },
+    "NCSC 2021": {
+      "date": "Jan 2021",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+    },
+    "NCSC 2025": {
+      "date": "June 2025",
+      "href": "https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+    },
+    "NEN3610": {
+      "authors": [
+        ""
+      ],
+      "date": "Maart 2011",
+      "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
+      "publisher": "Nederlands Normalisatie-instituut",
+      "title": "Basismodel Geo-informatie - Termen, definities, relaties en algemene regels voor de uitwisseling van informatie over aan de aarde gerelateerde ruimtelijke objecten"
+    },
+    "no-Reliable-messaging": {
+      "authors": [
+        "Marc de Graauw"
+      ],
+      "date": "June 18, 2010",
+      "href": "https://www.infoq.com/articles/no-reliable-messaging/",
+      "publisher": "infoQ",
+      "title": "Nobody Needs Reliable Messaging"
+    },
+    "OAuth2": {
+      "authors": [
+        "D. Hardt"
+      ],
+      "date": "October 2012",
+      "href": "https://tools.ietf.org/html/rfc6749",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "The OAuth 2.0 Authorization Framework"
+    },
+    "OpenID.Core": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
+      ],
+      "date": "November 8 2014",
+      "href": "https://openid.net/specs/openid-connect-core-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Core 1.0"
+    },
+    "OpenID.Discovery": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, E. Jay"
+      ],
+      "date": "November 8 2014",
+      "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Discovery 1.0"
+    },
+    "Pas-toe-of-leg-uit": {
+      "href": "https://www.forumstandaardisatie.nl/open-standaarden/verplicht",
+      "publisher": "Forum Standaardisatie",
+      "title": "Lijst Verplichte standaarden"
+    },
+    "PKIO-PvE": {
+      "href": "https://por.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
+    },
+    "PKI-CA": {
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
+      "publisher": "Logius",
+      "title": "Aansluiten als Trust Service Provider"
+    },
+    "PKIoverheid": {
+      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
+      "publisher": "Logius",
+      "title": "PKIoverheid"
+    },
+    "PKIO-Cert": {
+      "href": "https://cert.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Overzicht PKIoverheid certificaten"
+    },
+    "SemVer": {
+      "authors": [
+        "T. Preston-Werner"
+      ],
+      "date": "June 2013",
+      "href": "https://semver.org",
+      "title": "Semantic Versioning 2.0.0"
+    },
+    "ADR-TS": {
+      "authors": [
+        ""
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
+      "publisher": "Kennisplatform API's",
+      "title": "API Design Rules Module: Transport Security"
+    },
+    "UMMR10": {
+      "authors": [
+        ""
+      ],
+      "date": "2001",
+      "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
+      "publisher": "UN/CEFACT",
+      "title": "UMM Revision 10"
+    },
+    "UMMUG": {
+      "authors": [
+        ""
+      ],
+      "date": "2003",
+      "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
+      "publisher": "UN/CEFACT",
+      "title": "UN/CEFACT Modeling Methodology (UMM) User Guide"
+    },
+    "UUID": {
+      "authors": [
+        "P. Leach",
+        "M. Mealling",
+        "R. Salz"
+      ],
+      "date": "July 2005",
+      "href": "https://tools.ietf.org/html/rfc4122",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "A Universally Unique IDentifier (UUID) URN Namespace"
+    },
+    "DK-Voorwaarden": {
+      "date": "1 januari 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Voorwaarden Digikoppeling"
+    },
+    "X520": {
+      "href": "https://www.iso.org/standard/43796.html",
+      "publisher": "ISO",
+      "title": "ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6"
+    },
+    "ADR-Validator": {
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
+      "authors": [
+        "H. Stijns"
+      ],
+      "publisher": "Geonovum",
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "HEART.OAuth2": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "April 25, 2017",
+      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "Health Relationship Trust Profile for OAuth 2.0"
+    },
+    "JWS.JWE.Algs": {
+      "authors": [
+        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
+      ],
+      "date": "",
+      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
+      "publisher": "IANA",
+      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
+    },
+    "I-D.ietf-oauth-pop-architecture": {
+      "authors": [
+        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
+      ],
+      "date": "July 8, 2016",
+      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
+    },
+    "iGOV.OAuth2": {
+      "authors": [
+        "J. Richer, M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
+    },
+    "NLGOV.OAuth2": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
+      "publisher": "Logius",
+      "title": "NL GOV Assurance profile for OAuth 2.0"
+    },
+    "ietf-oauth-v2-1-10-refresh-token-grant": {
+      "authors": [
+        "Dick Hardt, Aaron Parecki, Torsten Lodderstedt"
+      ],
+      "date": "January 9, 2024",
+      "href": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-10#name-refresh-token-grant",
+      "publisher": "IETF",
+      "title": "The OAuth 2.1 Authorization Framework: Refresh Token Grant"
+    },
+    "OpenID.FAPI2.0": {
+      "authors": [
+        "D. Fett, D. Tonge, J. Heenan"
+      ],
+      "date": "February 22 2025",
+      "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
+      "publisher": "OpenID foundation",
+      "title": "FAPI 2.0 Security Profile"
+    },
+    "logboek-extensie-guideline": {
+      "href": "https://logius-standaarden.github.io/logboek-extensie-template/",
+      "publisher": "Logius",
+      "title": "LDV Extensie Guideline"
+    },
+    "logboek dataverwerkingen": {
+      "href": "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      "publisher": "Logius",
+      "title": "Logboek Dataverwerkingen"
+    }
+  },
+  "specStatus": "wv",
+  "specType": "basis",
+  "pubDomain": "notificatieservices",
+  "shortName": "abonneren",
+  "publishDate": "2025-06-30",
+  "publishVersion": "0.0.1",
+  "editors": [
+    {
+      "name": "Logius Standaarden",
+      "company": "Logius",
+      "companyURL": "https://logius.nl"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Logius Standaarden",
+      "company": "Logius",
+      "companyURL": "https://logius.nl"
+    }
+  ],
+  "postProcess": [
+    null
+  ],
+  "preProcess": [
+    null,
+    null
+  ]
+}</script>
+<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css">
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/dark.css"></head>
+
+<body class="h-entry toc-inline"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+  </a> <h1 id="title" class="title">Notitie Abonneren binnen Notificeren in FDS context</h1>
+    
+    <h2>
+      Logius Document<br>
+      Werkversie
+      <time class="dt-published" datetime="2025-06-30">23 oktober 2025</time>
+    </h2>
+    <dl>
+      
+      <dt>Laatst gepubliceerde versie:</dt><dd>
+              <a href="https://github.com/logius-standaarden/abonneren">https://github.com/logius-standaarden/abonneren</a>
+            </dd>
+      
+      
+      
+      
+      
+      
+      <dt>Redacteur:</dt>
+      <dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Logius Standaarden</span> (<a class="p-org org h-org" href="https://logius.nl">Logius</a>)
+  </dd>
+      
+      <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Logius Standaarden</span> (<a class="p-org org h-org" href="https://logius.nl">Logius</a>)
+  </dd>
+      
+    </dl>
+    
+    
+    <p>
+          Dit document is ook beschikbaar in dit niet-normatieve formaat:
+          <a rel="alternate" href="notificatieservices-abonneren-0.0.1.pdf">PDF</a>
+        </p>
+    <p class="copyright">
+            Dit document valt onder de volgende licentie: 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
+    <hr title="Separator for header">
+  </div><section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#wat-is-het-federatief-datastelsel"><bdi class="secno">1. </bdi>Wat is het Federatief Datastelsel?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wat-betekent-notificeren-binnen-het-fds"><bdi class="secno">1.1 </bdi>Wat betekent "notificeren" binnen het FDS?</a></li><li class="tocline"><a class="tocxref" href="#waarom-zou-je-abonneren"><bdi class="secno">1.2 </bdi>Waarom zou je abonneren?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#x1-event-driven-architectuur-eda"><bdi class="secno">1.2.1 </bdi>1. <strong>Event-driven architectuur</strong> (EDA)</a></li><li class="tocline"><a class="tocxref" href="#x2-schaalbaarheid-en-efficientie"><bdi class="secno">1.2.2 </bdi>2. <strong>Schaalbaarheid en efficiëntie</strong></a></li><li class="tocline"><a class="tocxref" href="#x3-ontkoppeling-van-systemen"><bdi class="secno">1.2.3 </bdi>3. <strong>Ontkoppeling van systemen</strong></a></li><li class="tocline"><a class="tocxref" href="#x4-betrouwbare-levering-via-message-brokers"><bdi class="secno">1.2.4 </bdi>4. <strong>Betrouwbare levering via message brokers</strong></a></li><li class="tocline"><a class="tocxref" href="#x5-behoefte-aan-selectieve-notificaties"><bdi class="secno">1.2.5 </bdi>5. <strong>Behoefte aan selectieve notificaties</strong></a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">2. </bdi>Use-cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#x1-burgergerichte-notificaties-dienstverlening"><bdi class="secno">2.1 </bdi>1. <strong>Burgergerichte notificaties (Dienstverlening)</strong></a></li><li class="tocline"><a class="tocxref" href="#x2-interne-overheidsprocessen-backoffice-integratie"><bdi class="secno">2.2 </bdi>2. <strong>Interne overheidsprocessen (Backoffice-integratie)</strong></a></li><li class="tocline"><a class="tocxref" href="#x3-bedrijfsleven-en-maatschappelijke-partners"><bdi class="secno">2.3 </bdi>3. <strong>Bedrijfsleven en maatschappelijke partners</strong></a></li></ol></li><li class="tocline"><a class="tocxref" href="#technische-en-functionele-voor-en-nadelen"><bdi class="secno">3. </bdi>Technische en functionele voor- en nadelen</a></li><li class="tocline"><a class="tocxref" href="#technologieen"><bdi class="secno">4. </bdi>Technologieën</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overzicht-van-belangrijke-technologieen-die-relevant-zijn-voor-de-fds-use-case"><bdi class="secno">4.1 </bdi>Overzicht van belangrijke technologieën die relevant zijn voor de FDS use-case</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanbevelingen"><bdi class="secno">5. </bdi>Aanbevelingen:</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#x1-amqp-cloudevents-subscription-api-0-0-x"><bdi class="secno">5.1 </bdi>1) AMQP + CloudEvents + Subscription API 0.0.X</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#aandachtspunten"><bdi class="secno">5.1.1 </bdi>Aandachtspunten:</a></li></ol></li><li class="tocline"><a class="tocxref" href="#x2-digilevering-basis-cloudevents-solace-pubsub"><bdi class="secno">5.2 </bdi>2) Digilevering basis + CloudEvents + Solace PubSub+</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#toelichting"><bdi class="secno">5.2.1 </bdi>Toelichting</a></li><li class="tocline"><a class="tocxref" href="#voordelen"><bdi class="secno">5.2.2 </bdi>Voordelen</a></li><li class="tocline"><a class="tocxref" href="#aandachtspunten-nadelen"><bdi class="secno">5.2.3 </bdi>Aandachtspunten / nadelen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#x3-digikoppeling-rest-profiel-cloudevents-maatwerk"><bdi class="secno">5.3 </bdi>3) Digikoppeling REST-profiel + CloudEvents + maatwerk</a></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">6. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformiteit">Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
+  
+  <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit is een notitie naar aanleiding van een onderzoek over mogelijkheden voor abonneren in een notificatielanschap, geschreven voor BZK/FDS.</p>
+<p>Beknopte samenvatting wordt nog uitgewerkd en komt <strong>hier</strong> te staan.</p>
+</section>
+  <section id="wat-is-het-federatief-datastelsel"><div class="header-wrapper"><h2 id="x1-wat-is-het-federatief-datastelsel"><bdi class="secno">1. </bdi>Wat is het Federatief Datastelsel?</h2><a class="self-link" href="#wat-is-het-federatief-datastelsel" aria-label="Permalink for Section 1."></a></div>
+<p>Het Federatief Datastelsel (FDS) is een architectuurprincipe voor het <strong>ontsluiten van data bij de bron</strong> tussen verschillende overheidsorganisaties, zonder dat centrale opslag nodig is. Data blijven waar ze horen (bij de bron), en worden via gestandaardiseerde interfaces toegankelijk gemaakt.</p>
+<section id="wat-betekent-notificeren-binnen-het-fds"><div class="header-wrapper"><h3 id="x1-1-wat-betekent-notificeren-binnen-het-fds"><bdi class="secno">1.1 </bdi>Wat betekent "notificeren" binnen het FDS?</h3><a class="self-link" href="#wat-betekent-notificeren-binnen-het-fds" aria-label="Permalink for Section 1.1"></a></div>
+<p>Notificeren betekent dat een overheidspartij (bijv. een gemeente, het CBS of de Belastingdienst) <strong>op de hoogte wordt gebracht</strong> van relevante wijzigingen in datasets van andere partijen, <strong>zonder dat die partij actief hoeft te poll-en</strong> (periodiek opvragen).</p>
+</section><section id="waarom-zou-je-abonneren"><div class="header-wrapper"><h3 id="x1-2-waarom-zou-je-abonneren"><bdi class="secno">1.2 </bdi>Waarom zou je abonneren?</h3><a class="self-link" href="#waarom-zou-je-abonneren" aria-label="Permalink for Section 1.2"></a></div>
+<p>Ongeacht of we het hebben over het huidige landschap met centrale voorzieningen of ons proberen in te beelden hoe de toekomstige gedistribueerde omgeving van FDS er uit moet komen te zien, zal je hoe dan ook afspraken moeten maken om notificeren mogelijk te maken.</p>
+<p>Een daarvan is een <strong>abonneringsfunctie</strong>. De kern:<br> <em>"Een partij (burger, bedrijf of overheidsorganisatie) wordt automatisch op de hoogte gesteld van relevante wijzigingen of gebeurtenissen."</em></p>
+<p>In <strong>alle domeinen waarin tijdige en gerichte informatie cruciaal is</strong>, vervult zo’n mechanisme een noodzakelijke rol.</p>
+<p>Zonder een abonneringsfunctie moet een partij telkens zelf controleren of er iets is veranderd — inefficiënt en belastend. Hier zijn de technische redenen waarom een <strong>subscription mechanisme</strong> nodig is:</p>
+<section id="x1-event-driven-architectuur-eda"><div class="header-wrapper"><h4 id="x1-2-1-1-event-driven-architectuur-eda"><bdi class="secno">1.2.1 </bdi>1. <strong>Event-driven architectuur</strong> (EDA)</h4><a class="self-link" href="#x1-event-driven-architectuur-eda" aria-label="Permalink for Section 1.2.1"></a></div>
+<ul>
+<li><p>Het FDS leunt op principes van een event-driven architectuur: in plaats van pull (ophalen), is het wenselijk om push (versturen bij verandering) methodiek te gebruiken.</p>
+</li>
+<li><p>Een abonneringsfunctie maakt het mogelijk om <em>asynchroon</em> op events te reageren: zodra er een wijziging optreedt bij een databron, worden abonnees automatisch geïnformeerd.</p>
+</li>
+</ul>
+</section><section id="x2-schaalbaarheid-en-efficientie"><div class="header-wrapper"><h4 id="x1-2-2-2-schaalbaarheid-en-efficientie"><bdi class="secno">1.2.2 </bdi>2. <strong>Schaalbaarheid en efficiëntie</strong></h4><a class="self-link" href="#x2-schaalbaarheid-en-efficientie" aria-label="Permalink for Section 1.2.2"></a></div>
+<ul>
+<li><p>Bij duizenden dataconsumenten is het niet schaalbaar als elke consument continu de data opvraagt.</p>
+</li>
+<li><p>Abonneren op notificaties reduceert netwerkverkeer en belasting op (vaak geraadpleegde) bronregistraties.</p>
+</li>
+</ul>
+</section><section id="x3-ontkoppeling-van-systemen"><div class="header-wrapper"><h4 id="x1-2-3-3-ontkoppeling-van-systemen"><bdi class="secno">1.2.3 </bdi>3. <strong>Ontkoppeling van systemen</strong></h4><a class="self-link" href="#x3-ontkoppeling-van-systemen" aria-label="Permalink for Section 1.2.3"></a></div>
+<ul>
+<li><p>Met een abonneringsfunctie kunnen producer en consumer onafhankelijk opereren. Dit vermindert de nood voor allerlei koppelingen tussen de verschillende systemen, zeker als er ook een eenduidige berichtenvormaat/standaard wordt gehanteerd.</p>
+</li>
+<li><p>De dataleverancier hoeft niet te weten wie precies de data gebruikt, alleen dat iemand zich heeft geabonneerd.</p>
+</li>
+</ul>
+</section><section id="x4-betrouwbare-levering-via-message-brokers"><div class="header-wrapper"><h4 id="x1-2-4-4-betrouwbare-levering-via-message-brokers"><bdi class="secno">1.2.4 </bdi>4. <strong>Betrouwbare levering via message brokers</strong></h4><a class="self-link" href="#x4-betrouwbare-levering-via-message-brokers" aria-label="Permalink for Section 1.2.4"></a></div>
+<ul>
+<li><p>Via technologieën als <strong>webhooks</strong>, <strong>Message Queues (bijv. Kafka, AMQP)</strong> of <strong>Pub/Sub</strong> kan je notificaties betrouwbaar afleveren.</p>
+</li>
+<li><p>De abonneringsfunctie registreert endpoints, bewaakt levering en ondersteunt retries bij storingen.</p>
+</li>
+</ul>
+</section><section id="x5-behoefte-aan-selectieve-notificaties"><div class="header-wrapper"><h4 id="x1-2-5-5-behoefte-aan-selectieve-notificaties"><bdi class="secno">1.2.5 </bdi>5. <strong>Behoefte aan selectieve notificaties</strong></h4><a class="self-link" href="#x5-behoefte-aan-selectieve-notificaties" aria-label="Permalink for Section 1.2.5"></a></div>
+<ul>
+<li><p>Afhankelijk van de gekozen technologie, zouden abonnees kunnen aangeven <strong>op welke events of data-attributen</strong> ze willen worden geattendeerd.</p>
+</li>
+<li><p>Denk aan: “Stuur mij een notificatie als het woonadres van een persoon verandert binnen gemeente X.”</p>
+</li>
+</ul>
+</section></section></section>
+  <section id="use-cases"><div class="header-wrapper"><h2 id="x2-use-cases"><bdi class="secno">2. </bdi>Use-cases</h2><a class="self-link" href="#use-cases" aria-label="Permalink for Section 2."></a></div>
+<p>Hieronder volgen een aantal use-cases waaruit blijkt dat een abonneringsfunctie wenselijk is.</p>
+<section id="x1-burgergerichte-notificaties-dienstverlening"><div class="header-wrapper"><h3 id="x2-1-1-burgergerichte-notificaties-dienstverlening"><bdi class="secno">2.1 </bdi>1. <strong>Burgergerichte notificaties (Dienstverlening)</strong></h3><a class="self-link" href="#x1-burgergerichte-notificaties-dienstverlening" aria-label="Permalink for Section 2.1"></a></div>
+<p>Bijvoorbeeld via MijnOverheid of overheidsapps.</p>
+<ul>
+<li><p><strong>Verhuizen:</strong> Een burger meldt een verhuizing. Andere overheidsinstanties (zoals de Belastingdienst, DUO) moeten op de hoogte worden gebracht.</p>
+</li>
+<li><p><strong>Aanvraagstatussen:</strong> Notificatie bij statusveranderingen van vergunningaanvragen, subsidies, bezwaarprocedures.</p>
+</li>
+<li><p><strong>Herinneringen:</strong> Tijdige melding van verlopen rijbewijs, paspoort, APK of vaccinaties.</p>
+</li>
+</ul>
+<p><strong>Waarom abonnement?</strong> Omdat burgers en systemen gebaat zijn bij <em>passieve ontvangst</em>, i.p.v. actief controleren (polling of inloggen).</p>
+<hr>
+</section><section id="x2-interne-overheidsprocessen-backoffice-integratie"><div class="header-wrapper"><h3 id="x2-2-2-interne-overheidsprocessen-backoffice-integratie"><bdi class="secno">2.2 </bdi>2. <strong>Interne overheidsprocessen (Backoffice-integratie)</strong></h3><a class="self-link" href="#x2-interne-overheidsprocessen-backoffice-integratie" aria-label="Permalink for Section 2.2"></a></div>
+<p>Bijvoorbeeld tussen gemeenten, uitvoeringsorganisaties en ketenpartners.</p>
+<ul>
+<li><p><strong>Ketensamenwerking:</strong> Wmo-meldingen, jeugdzorg, schulddienstverlening — betrokken organisaties moeten snel geïnformeerd worden over elkaars acties.</p>
+</li>
+<li><p><strong>Risico-gestuurd toezicht:</strong> Inspectiediensten willen notificaties bij risicosignalen (zoals bepaalde KvK-inschrijvingen, of veranderingen in BRP-gegevens).</p>
+</li>
+</ul>
+<p><strong>Waarom abonnement?</strong> Om <em>proactief ketenpartners</em> te informeren, zonder vertraging of periodieke raadpleging van databronnen.</p>
+<hr>
+</section><section id="x3-bedrijfsleven-en-maatschappelijke-partners"><div class="header-wrapper"><h3 id="x2-3-3-bedrijfsleven-en-maatschappelijke-partners"><bdi class="secno">2.3 </bdi>3. <strong>Bedrijfsleven en maatschappelijke partners</strong></h3><a class="self-link" href="#x3-bedrijfsleven-en-maatschappelijke-partners" aria-label="Permalink for Section 2.3"></a></div>
+<p>Bijvoorbeeld toegang tot overheidsdata voor bedrijven of NGO’s.</p>
+<ul>
+<li><p><strong>Publicatie van regelgeving:</strong> MKB abonneert zich op wijzigingen in wet- en regelgeving in hun sector (via KOOP of wetten.overheid.nl).</p>
+</li>
+<li><p><strong>Omgevingsdata:</strong> Waterschappen, landbouwbedrijven, en bouwbedrijven willen meldingen bij weersveranderingen of vergunningwijzigingen.</p>
+</li>
+</ul>
+<p><strong>Waarom abonnement?</strong> Bedrijven willen <em>real-time inzicht</em>, niet zoeken in datahubs of zelf scraping toepassen.</p>
+</section></section>
+  <section id="technische-en-functionele-voor-en-nadelen"><div class="header-wrapper"><h2 id="x3-technische-en-functionele-voor-en-nadelen"><bdi class="secno">3. </bdi>Technische en functionele voor- en nadelen</h2><a class="self-link" href="#technische-en-functionele-voor-en-nadelen" aria-label="Permalink for Section 3."></a></div>
+<table>
+<thead>
+<tr>
+<th>Kenmerk</th>
+<th>Voordelen</th>
+<th>Nadelen / aandachtspunten</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Push-model</strong></td>
+<td>Directe notificaties bij verandering; geen onnodige polling nodig</td>
+<td>Vereist <strong>bereikbare endpoints</strong> bij de ontvanger (webhooks, queues), extra beheercomplexiteit</td>
+</tr>
+<tr>
+<td><strong>Asynchroon</strong></td>
+<td>Ontkoppeling van systemen in tijd (Niet wachten op polling-cycli of batchjobs)</td>
+<td>Moeilijker te debuggen; kan leiden tot <strong>verzonden maar niet verwerkte</strong> notificaties</td>
+</tr>
+<tr>
+<td><strong>Schaalbaar</strong></td>
+<td>Eén wijziging → veel ontvangers kunnen tegelijk geïnformeerd worden</td>
+<td><strong>Fan-out</strong> van events vereist robuuste infrastructuur (event-brokers, retry-mechanismen)</td>
+</tr>
+<tr>
+<td><strong>Filterbaar</strong></td>
+<td>Alleen relevante notificaties voor specifieke abonnees, minder belasting</td>
+<td>Complexiteit in beheer van <strong>filterregels, abonnementsvoorwaarden</strong> en selecties</td>
+</tr>
+<tr>
+<td><strong>Gebeurtenisgericht</strong></td>
+<td>Past in moderne event-driven architecturen (EDA), geschikt voor microservices</td>
+<td>Niet elk bronsysteem is ingericht op het <strong>genereren en publiceren van events</strong></td>
+</tr>
+<tr>
+<td><strong>Realtime inzichten</strong></td>
+<td>Versnelt processen (bijv. ketensamenwerking, risicomeldingen)</td>
+<td>Verhoogt afhankelijkheid van <strong>notificatiebetrouwbaarheid en leverzekerheid</strong></td>
+</tr>
+<tr>
+<td><strong>Decoupling</strong></td>
+<td>Producer en consumer hoeven niets van elkaars implementatie te weten</td>
+<td>Risico op <strong>verlies van context of volgorde</strong> zonder extra transactionele garanties</td>
+</tr>
+<tr>
+<td><strong>Automatisering</strong></td>
+<td>Mogelijkheid tot automatische opvolging in processen</td>
+<td>Kan leiden tot <strong>ongewenste automatische acties</strong> bij foute of onduidelijke notificaties</td>
+</tr>
+</tbody></table>
+<p>Conclusie is dat een abonneringsfunctie niet altijd <strong>verplicht</strong> wordt geacht, maar vaak wel:</p>
+<ul>
+<li><p>Functioneel <strong>noodzakelijk</strong> is, als tijdigheid en relevantie van informatie doorslaggevend zijn.</p>
+</li>
+<li><p>Technisch <strong>essentieel</strong> om schaalbaar en efficiënt notificaties af te handelen in moderne, gedistribueerde overheidsarchitecturen.</p>
+</li>
+</ul>
+</section>
+  <section id="technologieen"><div class="header-wrapper"><h2 id="x4-technologieen"><bdi class="secno">4. </bdi>Technologieën</h2><a class="self-link" href="#technologieen" aria-label="Permalink for Section 4."></a></div>
+<p>In het kader van <strong>notificeren</strong> in een&nbsp;<strong>federatief datastelsel</strong>, zouden de volgende aspecten sterk naar voren moeten komen wat Logius betreft:</p>
+<ul>
+<li><p><strong>Interoperabiliteit over diverse systemen</strong></p>
+</li>
+<li><p><strong>Sterke focus op security and governance (authenticatie, authorisatie, audit mogelijkheden)</strong></p>
+</li>
+<li><p><strong>Schaalbaarheid, robuustheid betrouwbaarheid over heel overheids/rijks-domein</strong></p>
+</li>
+<li><p><strong>Voorkeur voor standaardisatie en leveranciersonafhankelijkheid</strong></p>
+</li>
+<li><p><strong>Mogelijkheid tot fine-grained access control en data minimalisering</strong></p>
+</li>
+</ul>
+<p>Wij als Logius, hebben onderzoek gedaan naar de meest actuele technologieën, met oog voor de bovenstaande criteria. Deze hebben wij verzameld in een lijst hieronder:</p>
+<section id="overzicht-van-belangrijke-technologieen-die-relevant-zijn-voor-de-fds-use-case"><div class="header-wrapper"><h3 id="x4-1-overzicht-van-belangrijke-technologieen-die-relevant-zijn-voor-de-fds-use-case"><bdi class="secno">4.1 </bdi>Overzicht van belangrijke technologieën die relevant zijn voor de FDS use-case</h3><a class="self-link" href="#overzicht-van-belangrijke-technologieen-die-relevant-zijn-voor-de-fds-use-case" aria-label="Permalink for Section 4.1"></a></div>
+<table>
+<thead>
+<tr>
+<th>Technologie / Standaard</th>
+<th>Toepassingsgeschiktheid</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>AMQP (OASIS-standaard)</strong></td>
+<td>Enterprise-grade, breed ondersteund, met sterke beveiliging (SASL, TLS). Goede ondersteuning voor gefedereerde brokers. Bewezen effectief in complexe omgevingen met meerdere organisaties.</td>
+</tr>
+<tr>
+<td><strong>CNCF CloudEvents + Subscription API</strong></td>
+<td>Gestandaardiseerde eventstructuur + abonnementsbeheer, bevordert interoperabiliteit en leveranciersonafhankelijke, cloud-native eventafhandeling. Uitbreidbaar met beveiliging en filtering. Opkomende interesse bij overheid.</td>
+</tr>
+<tr>
+<td><strong>WS-Notification / WS-Eventing</strong></td>
+<td>Volwassen, XML-gebaseerde SOAP-standaarden met uitgebreid abonnementsbeheer en duurzame abonnementen. Goed inzetbaar in bestaande webservices-ecosystemen bij de overheid. Implementatie kan onnodig zwaar zijn.</td>
+</tr>
+<tr>
+<td><br><strong>WebSub (W3C Recommendation)</strong><br></td>
+<td>Web-gebaseerd publish/subscribe-protocol op basis van HTTP en webhooks. Eenvoudig te implementeren, geschikt voor federatieve omgevingen met lichte notificatiebehoefte. Beperkt in geavanceerd abonnementsbeheer, filtering en security. Laatste update was begin 2018 - project Notificatie services heeft hier ook eerder naar gekeken en besloten om een andere standaard te zoeken.</td>
+</tr>
+<tr>
+<td><strong>Kafka met Confluent Security &amp; Federation</strong></td>
+<td>Hoge doorvoersnelheid en schaalbare eventstreaming met ondersteuning voor fijnmazige toegangscontrole (ACL), encryptie, multi-tenant clusters. Sterk ecosysteem, maar vereist meer operationele expertise. Geschikt voor grootschalige datadeling.</td>
+</tr>
+<tr>
+<td><strong>AsyncAPI (specificatie, geen transportlaag)</strong></td>
+<td>Handig voor het ontwerpen en documenteren van event-driven API’s en abonnementen. Bevordert standaardisatie tussen heterogene systemen. Te combineren met andere protocollen. Zie ook ontwikkelingen met Open API Spec + ADR.</td>
+</tr>
+<tr>
+<td><strong>NATS (JetStream)</strong></td>
+<td>Lichtgewicht, cloud-native messaging met duurzame abonnementen en ondersteuning voor multitenancy. Goed passend in moderne, microservices-gebaseerde overheidsarchitecturen. Nog in ontwikkeling voor grootschalige federaties.</td>
+</tr>
+<tr>
+<td><strong>DigiKoppeling REST API-profiel</strong></td>
+<td>Nederlandse overheidsstandaard voor REST-koppelingen. Geschikt voor betrouwbare, gestandaardiseerde communicatie tussen overheidsdiensten. Minder geschikt voor hoge frequentie of real-time push zonder uitbreiding met event-infrastructuur.</td>
+</tr>
+<tr>
+<td><strong>MQTT (OASIS-standaard)</strong></td>
+<td>Lichtgewicht en ontworpen voor IoT/sensornetwerken; minder geschikt voor complexe datagovernance of federatieve samenwerking op overheidsniveau.</td>
+</tr>
+<tr>
+<td><strong>GraphQL Subscriptions</strong></td>
+<td>Zeer geschikt voor real-time data in frontend-applicaties, maar niet ontworpen voor federatieve gegevensdeling over organisatiegrenzen heen op grote schaal.</td>
+</tr>
+</tbody></table>
+</section></section>
+  <section id="aanbevelingen"><div class="header-wrapper"><h2 id="x5-aanbevelingen"><bdi class="secno">5. </bdi>Aanbevelingen:</h2><a class="self-link" href="#aanbevelingen" aria-label="Permalink for Section 5."></a></div>
+<section id="x1-amqp-cloudevents-subscription-api-0-0-x"><div class="header-wrapper"><h3 id="x5-1-1-amqp-cloudevents-subscription-api-0-0-x"><bdi class="secno">5.1 </bdi>1) AMQP + CloudEvents + Subscription API 0.0.X</h3><a class="self-link" href="#x1-amqp-cloudevents-subscription-api-0-0-x" aria-label="Permalink for Section 5.1"></a></div>
+<p><strong>AMQP</strong> en <strong>CNCF CloudEvents met Subscription API</strong> vormen samen op dit moment de meest zekere en toekomstbestendige combinatie voor federatieve gegevensdeling binnen de overheid:</p>
+<ul>
+<li><p><strong>AMQP (Advanced Message Queuing Protocol)</strong> biedt een volwassen, veilig en interoperabel fundament voor berichtenverkeer. Veel organisaties gebruiken AMQP al binnen enterprise-integraties. Het ondersteunt federatie van message brokers over administratieve domeinen heen, met robuuste beveiligingsmechanismen zoals <strong>mutual TLS</strong>, <strong>SASL-authenticatie</strong> en <strong>fijnmazige toegangscontrole</strong>. Dit maakt het geschikt voor omgevingen waar betrouwbaarheid, auditability en governance centraal staan.</p>
+</li>
+<li><p><strong>CloudEvents</strong> is een <strong>leveranciersneutraal en gestandaardiseerd eventformaat</strong>, ontworpen om interoperabiliteit tussen heterogene systemen te vereenvoudigen. In combinatie met de <strong>Subscription API-specificatie</strong> biedt het een uniforme manier om abonnementen uit te drukken en te beheren. Hierdoor kunnen overheidsorganisaties onderling heldere afspraken maken over <strong>hoe gebeurtenissen worden gedefinieerd, geabonneerd en geconsumeerd</strong>, ongeacht de gebruikte technologie of leverancier.</p>
+</li>
+<li><p>Hoewel AMQP krachtig is, vereist het wel specifieke operationele kennis voor het opzetten van brokerfederaties. CloudEvents biedt daarentegen juist eenvoud en flexibiliteit aan de randen van het stelsel, bijvoorbeeld voor toepassingen in microservices of cloud-native architecturen. Samen dekken ze zowel de robuuste back-endbehoefte als de moderne front-end use-cases binnen een federatieve overheid.</p>
+</li>
+</ul>
+<p>Deze combinatie ondersteunt zowel de technische als organisatorische doelen van het <strong>Federatief Datastelsel</strong>, zoals:</p>
+<ul>
+<li><p><strong>Losse koppeling</strong> tussen datasystemen;</p>
+</li>
+<li><p><strong>Event-gedreven samenwerking</strong>;</p>
+</li>
+<li><p><strong>Beheersbaarheid en schaalbaarheid</strong> in een multi-domeinomgeving.</p>
+</li>
+</ul>
+<figure id="fig-voorbeeld-van-amqp-based-messaging-in-fds">
+    <div data-processed="true"><svg id="mermaid-1761208186488" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 2039.34375px;" viewBox="0 0 2039.34375 348" role="graphics-document document" aria-roledescription="flowchart-v2"><style>
+#mermaid-1761208186488{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-1761208186488 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-1761208186488 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-1761208186488 .error-icon{fill:#552222;}#mermaid-1761208186488 .error-text{fill:#552222;stroke:#552222;}#mermaid-1761208186488 .edge-thickness-normal{stroke-width:1px;}#mermaid-1761208186488 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1761208186488 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1761208186488 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-1761208186488 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1761208186488 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1761208186488 .marker{fill:#333333;stroke:#333333;}#mermaid-1761208186488 .marker.cross{stroke:#333333;}#mermaid-1761208186488 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1761208186488 p{margin:0;}#mermaid-1761208186488 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-1761208186488 .cluster-label text{fill:#333;}#mermaid-1761208186488 .cluster-label span{color:#333;}#mermaid-1761208186488 .cluster-label span p{background-color:transparent;}#mermaid-1761208186488 .label text,#mermaid-1761208186488 span{fill:#333;color:#333;}#mermaid-1761208186488 .node rect,#mermaid-1761208186488 .node circle,#mermaid-1761208186488 .node ellipse,#mermaid-1761208186488 .node polygon,#mermaid-1761208186488 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1761208186488 .rough-node .label text,#mermaid-1761208186488 .node .label text,#mermaid-1761208186488 .image-shape .label,#mermaid-1761208186488 .icon-shape .label{text-anchor:middle;}#mermaid-1761208186488 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-1761208186488 .rough-node .label,#mermaid-1761208186488 .node .label,#mermaid-1761208186488 .image-shape .label,#mermaid-1761208186488 .icon-shape .label{text-align:center;}#mermaid-1761208186488 .node.clickable{cursor:pointer;}#mermaid-1761208186488 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-1761208186488 .arrowheadPath{fill:#333333;}#mermaid-1761208186488 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1761208186488 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1761208186488 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-1761208186488 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-1761208186488 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-1761208186488 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-1761208186488 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1761208186488 .cluster text{fill:#333;}#mermaid-1761208186488 .cluster span{color:#333;}#mermaid-1761208186488 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1761208186488 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1761208186488 rect.text{fill:none;stroke-width:0;}#mermaid-1761208186488 .icon-shape,#mermaid-1761208186488 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-1761208186488 .icon-shape p,#mermaid-1761208186488 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-1761208186488 .icon-shape rect,#mermaid-1761208186488 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-1761208186488 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-1761208186488 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-1761208186488 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-1761208186488 .gov&gt;*{fill:#2b4c7e!important;stroke:#1c355c!important;color:#fff!important;}#mermaid-1761208186488 .gov span{fill:#2b4c7e!important;stroke:#1c355c!important;color:#fff!important;}#mermaid-1761208186488 .gov tspan{fill:#fff!important;}#mermaid-1761208186488 .id&gt;*{fill:#3b7a57!important;stroke:#2c5941!important;color:#fff!important;}#mermaid-1761208186488 .id span{fill:#3b7a57!important;stroke:#2c5941!important;color:#fff!important;}#mermaid-1761208186488 .id tspan{fill:#fff!important;}#mermaid-1761208186488 .not&gt;*{fill:#444!important;stroke:#222!important;color:#fff!important;}#mermaid-1761208186488 .not span{fill:#444!important;stroke:#222!important;color:#fff!important;}#mermaid-1761208186488 .not tspan{fill:#fff!important;}#mermaid-1761208186488 .service&gt;*{fill:#555!important;stroke:#222!important;color:#fff!important;stroke-width:1px!important;}#mermaid-1761208186488 .service span{fill:#555!important;stroke:#222!important;color:#fff!important;stroke-width:1px!important;}#mermaid-1761208186488 .service tspan{fill:#fff!important;}#mermaid-1761208186488 .cloud&gt;*{fill:#4a6fa5!important;color:#fff!important;}#mermaid-1761208186488 .cloud span{fill:#4a6fa5!important;color:#fff!important;}#mermaid-1761208186488 .cloud tspan{fill:#fff!important;}#mermaid-1761208186488 .database&gt;*{fill:#6a4c93!important;color:#fff!important;}#mermaid-1761208186488 .database span{fill:#6a4c93!important;color:#fff!important;}#mermaid-1761208186488 .database tspan{fill:#fff!important;}#mermaid-1761208186488 .server&gt;*{fill:#3b8ea5!important;color:#fff!important;}#mermaid-1761208186488 .server span{fill:#3b8ea5!important;color:#fff!important;}#mermaid-1761208186488 .server tspan{fill:#fff!important;}#mermaid-1761208186488 .disk&gt;*{fill:#b56576!important;color:#fff!important;}#mermaid-1761208186488 .disk span{fill:#b56576!important;color:#fff!important;}#mermaid-1761208186488 .disk tspan{fill:#fff!important;}#mermaid-1761208186488 .internet&gt;*{fill:#2a9d8f!important;color:#fff!important;}#mermaid-1761208186488 .internet span{fill:#2a9d8f!important;color:#fff!important;}#mermaid-1761208186488 .internet tspan{fill:#fff!important;}
+</style><g><marker id="mermaid-1761208186488_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1761208186488_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1761208186488_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1761208186488_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1761208186488_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1761208186488_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"></g><g class="edgeLabels"></g><g class="nodes"><g class="root" transform="translate(0, 104)"><g class="clusters"><g class="cluster id" id="ID" data-look="classic"><rect style="fill:#3b7a57 !important;stroke:#2c5941 !important" x="8" y="8" width="258.109375" height="124"></rect><g class="cluster-label" transform="translate(37.0546875, 8)"><foreignObject width="200" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel" style="color:#fff !important"><p>Federated Identity Provider 🔐</p></span></div></foreignObject></g></g></g><g class="edgePaths"></g><g class="edgeLabels"></g><g class="nodes"><g class="node default internet" id="flowchart-i1-9" transform="translate(137.0546875, 70)"><rect class="basic label-container" style="fill:#2a9d8f !important" x="-91.5546875" y="-27" width="183.109375" height="54"></rect><g class="label" style="color:#fff !important" transform="translate(-61.5546875, -12)"><rect></rect><foreignObject width="123.109375" height="24"><div style="color: rgb(255, 255, 255) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span style="color:#fff !important" class="nodeLabel"><p>🌐 OAuth / OIDC</p></span></div></foreignObject></g></g></g></g><g class="root" transform="translate(308.109375, 0)"><g class="clusters"><g class="cluster gov" id="GOV" data-look="classic"><rect style="fill:#2b4c7e !important;stroke:#1c355c !important" x="8" y="8" width="323.046875" height="332"></rect><g class="cluster-label" transform="translate(69.5234375, 8)"><foreignObject width="200" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel" style="color:#fff !important"><p>Governance &amp; Policy Laag ⚖️</p></span></div></foreignObject></g></g></g><g class="edgePaths"></g><g class="edgeLabels"></g><g class="nodes"><g class="node default database" id="flowchart-g1-6" transform="translate(169.5234375, 70)"><rect class="basic label-container" style="fill:#6a4c93 !important" x="-122.234375" y="-27" width="244.46875" height="54"></rect><g class="label" style="color:#fff !important" transform="translate(-92.234375, -12)"><rect></rect><foreignObject width="184.46875" height="24"><div style="color: rgb(255, 255, 255) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span style="color:#fff !important" class="nodeLabel"><p>📜 RBAC / ABAC Policies</p></span></div></foreignObject></g></g><g class="node default disk" id="flowchart-g2-7" transform="translate(169.5234375, 174)"><rect class="basic label-container" style="fill:#b56576 !important" x="-90.6953125" y="-27" width="181.390625" height="54"></rect><g class="label" style="color:#fff !important" transform="translate(-60.6953125, -12)"><rect></rect><foreignObject width="121.390625" height="24"><div style="color: rgb(255, 255, 255) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span style="color:#fff !important" class="nodeLabel"><p>💾 Audit Logging</p></span></div></foreignObject></g></g><g class="node default server" id="flowchart-g3-8" transform="translate(169.5234375, 278)"><rect class="basic label-container" style="fill:#3b8ea5 !important" x="-124.0234375" y="-27" width="248.046875" height="54"></rect><g class="label" style="color:#fff !important" transform="translate(-94.0234375, -12)"><rect></rect><foreignObject width="188.046875" height="24"><div style="color: rgb(255, 255, 255) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span style="color:#fff !important" class="nodeLabel"><p>🖥️ Compliance Monitoring</p></span></div></foreignObject></g></g></g></g><g class="root" transform="translate(681.15625, 18)"><g class="clusters"><g class="cluster not" id="NOT" data-look="classic"><rect style="fill:#444 !important;stroke:#222 !important" x="8" y="8" width="1342.1875" height="296"></rect><g class="cluster-label" transform="translate(608.1796875, 8)"><foreignObject width="141.828125" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel" style="color:#fff !important"><p>Messaging Laag 📨</p></span></div></foreignObject></g></g><g class="cluster not" id="GOVB" data-look="classic"><rect style="fill:#444 !important;stroke:#222 !important" x="1040.640625" y="39" width="272.046875" height="228"></rect><g class="cluster-label" transform="translate(1126.6640625, 39)"><foreignObject width="100" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel" style="color:#fff !important"><p>Gov Org B 🏛️</p></span></div></foreignObject></g></g><g class="cluster not" id="GOVA" data-look="classic"><rect style="fill:#444 !important;stroke:#222 !important" x="630.640625" y="28" width="335" height="124"></rect><g class="cluster-label" transform="translate(749.0234375, 28)"><foreignObject width="98.234375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel" style="color:#fff !important"><p>Gov Org A 🏛️</p></span></div></foreignObject></g></g></g><g class="edgePaths"><path d="M900.227,90L911.129,90C922.031,90,943.836,90,960.988,90C978.141,90,990.641,90,1003.141,90C1015.641,90,1028.141,90,1047.463,96.535C1066.786,103.07,1092.931,116.141,1106.004,122.676L1119.077,129.211" id="L_s1_s2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_s1_s2_0" data-points="W3sieCI6ODk2LjIyNjU2MjUsInkiOjkwfSx7IngiOjk2NS42NDA2MjUsInkiOjkwfSx7IngiOjEwMDMuMTQwNjI1LCJ5Ijo5MH0seyJ4IjoxMDQwLjY0MDYyNSwieSI6OTB9LHsieCI6MTEyMi42NTQ3NTY0MzM4MjM0LCJ5IjoxMzF9XQ==" marker-start="url(#mermaid-1761208186488_flowchart-v2-pointStart)" marker-end="url(#mermaid-1761208186488_flowchart-v2-pointEnd)"></path><path d="M555.641,90L561.891,90C568.141,90,580.641,90,593.141,90C605.641,90,618.141,90,635.293,90C652.445,90,674.25,90,685.152,90L696.055,90" id="L_ce1_s1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_ce1_s1_0" data-points="W3sieCI6NTU1LjY0MDYyNSwieSI6OTB9LHsieCI6NTkzLjE0MDYyNSwieSI6OTB9LHsieCI6NjMwLjY0MDYyNSwieSI6OTB9LHsieCI6NzAwLjA1NDY4NzUsInkiOjkwfV0=" marker-end="url(#mermaid-1761208186488_flowchart-v2-pointEnd)"></path><path d="M928.141,226L934.391,226C940.641,226,953.141,226,965.641,226C978.141,226,990.641,226,1003.141,226C1015.641,226,1028.141,226,1047.463,219.465C1066.786,212.93,1092.931,199.859,1106.004,193.324L1119.077,186.789" id="L_ce2_s2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_ce2_s2_0" data-points="W3sieCI6OTI4LjE0MDYyNSwieSI6MjI2fSx7IngiOjk2NS42NDA2MjUsInkiOjIyNn0seyJ4IjoxMDAzLjE0MDYyNSwieSI6MjI2fSx7IngiOjEwNDAuNjQwNjI1LCJ5IjoyMjZ9LHsieCI6MTEyMi42NTQ3NTY0MzM4MjM0LCJ5IjoxODV9XQ==" marker-end="url(#mermaid-1761208186488_flowchart-v2-pointEnd)"></path><path d="M220.641,90L226.891,90C233.141,90,245.641,90,257.474,90C269.307,90,280.474,90,286.057,90L291.641,90" id="L_a1_ce1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_a1_ce1_0" data-points="W3sieCI6MjIwLjY0MDYyNSwieSI6OTB9LHsieCI6MjU4LjE0MDYyNSwieSI6OTB9LHsieCI6Mjk1LjY0MDYyNSwieSI6OTB9XQ==" marker-end="url(#mermaid-1761208186488_flowchart-v2-pointEnd)"></path><path d="M513.211,226L526.533,226C539.854,226,566.497,226,586.069,226C605.641,226,618.141,226,629.974,226C641.807,226,652.974,226,658.557,226L664.141,226" id="L_a2_ce2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_a2_ce2_0" data-points="W3sieCI6NTEzLjIxMDkzNzUsInkiOjIyNn0seyJ4Ijo1OTMuMTQwNjI1LCJ5IjoyMjZ9LHsieCI6NjMwLjY0MDYyNSwieSI6MjI2fSx7IngiOjY2OC4xNDA2MjUsInkiOjIyNn1d" marker-end="url(#mermaid-1761208186488_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_s1_s2_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_ce1_s1_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_ce2_s2_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_a1_ce1_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_a2_ce2_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default cloud" id="flowchart-s2-1" transform="translate(1176.6640625, 158)"><rect class="basic label-container" style="fill:#4a6fa5 !important" x="-98.5234375" y="-27" width="197.046875" height="54"></rect><g class="label" style="color:#fff !important" transform="translate(-68.5234375, -12)"><rect></rect><foreignObject width="137.046875" height="24"><div style="color: rgb(255, 255, 255) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span style="color:#fff !important" class="nodeLabel"><p>☁️ AMQP Broker B</p></span></div></foreignObject></g></g><g class="node default cloud" id="flowchart-s1-0" transform="translate(798.140625, 90)"><rect class="basic label-container" style="fill:#4a6fa5 !important" x="-98.0859375" y="-27" width="196.171875" height="54"></rect><g class="label" style="color:#fff !important" transform="translate(-68.0859375, -12)"><rect></rect><foreignObject width="136.171875" height="24"><div style="color: rgb(255, 255, 255) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span style="color:#fff !important" class="nodeLabel"><p>☁️ AMQP Broker A</p></span></div></foreignObject></g></g><g class="node default server" id="flowchart-ce1-2" transform="translate(425.640625, 90)"><rect class="basic label-container" style="fill:#3b8ea5 !important" x="-130" y="-39" width="260" height="78"></rect><g class="label" style="color:#fff !important" transform="translate(-100, -24)"><rect></rect><foreignObject width="200" height="48"><div style="color: rgb(255, 255, 255) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span style="color:#fff !important" class="nodeLabel"><p>💻 CloudEvents Event Producer</p></span></div></foreignObject></g></g><g class="node default server" id="flowchart-ce2-3" transform="translate(798.140625, 226)"><rect class="basic label-container" style="fill:#3b8ea5 !important" x="-130" y="-39" width="260" height="78"></rect><g class="label" style="color:#fff !important" transform="translate(-100, -24)"><rect></rect><foreignObject width="200" height="48"><div style="color: rgb(255, 255, 255) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span style="color:#fff !important" class="nodeLabel"><p>💻 CloudEvents Event Consumer</p></span></div></foreignObject></g></g><g class="node default database" id="flowchart-a1-4" transform="translate(133.0703125, 90)"><rect class="basic label-container" style="fill:#6a4c93 !important" x="-87.5703125" y="-27" width="175.140625" height="54"></rect><g class="label" style="color:#fff !important" transform="translate(-57.5703125, -12)"><rect></rect><foreignObject width="115.140625" height="24"><div style="color: rgb(255, 255, 255) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span style="color:#fff !important" class="nodeLabel"><p>🗄️ AuthN/AuthZ</p></span></div></foreignObject></g></g><g class="node default database" id="flowchart-a2-5" transform="translate(425.640625, 226)"><rect class="basic label-container" style="fill:#6a4c93 !important" x="-87.5703125" y="-27" width="175.140625" height="54"></rect><g class="label" style="color:#fff !important" transform="translate(-57.5703125, -12)"><rect></rect><foreignObject width="115.140625" height="24"><div style="color: rgb(255, 255, 255) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span style="color:#fff !important" class="nodeLabel"><p>🗄️ AuthN/AuthZ</p></span></div></foreignObject></g></g></g></g></g></g></g></svg></div>
+    <figcaption><a class="self-link" href="#fig-voorbeeld-van-amqp-based-messaging-in-fds">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Voorbeeld van AMQP based messaging in FDS</span></figcaption>
+</figure>
+
+
+<section id="aandachtspunten"><div class="header-wrapper"><h4 id="x5-1-1-aandachtspunten"><bdi class="secno">5.1.1 </bdi>Aandachtspunten:</h4><a class="self-link" href="#aandachtspunten" aria-label="Permalink for Section 5.1.1"></a></div>
+<ul>
+<li><p><strong>Security &amp; Identity:</strong>&nbsp;Integration with federated identity and authorization frameworks (e.g., OAuth 2.0 / OIDC for authentication, fine-grained RBAC/ABAC policies) is crucial to govern who can subscribe and consume what data.</p>
+</li>
+<li><p><strong>Auditability &amp; Compliance:</strong>&nbsp;The protocol must support traceability of subscriptions and message consumption to comply with government regulations.</p>
+</li>
+<li><p><strong>Interoperability:</strong>&nbsp;Favor open standards and protocols with broad tooling support and community adoption.</p>
+</li>
+<li><p><strong>Operational Complexity:</strong>&nbsp;Consider operational burden; cloud-native solutions (e.g., Kubernetes-based deployments using CNCF projects) may help reduce overhead.</p>
+</li>
+</ul>
+<hr>
+</section></section><section id="x2-digilevering-basis-cloudevents-solace-pubsub"><div class="header-wrapper"><h3 id="x5-2-2-digilevering-basis-cloudevents-solace-pubsub"><bdi class="secno">5.2 </bdi>2) Digilevering basis + CloudEvents + Solace PubSub+</h3><a class="self-link" href="#x2-digilevering-basis-cloudevents-solace-pubsub" aria-label="Permalink for Section 5.2"></a></div>
+<p>Bas kooij heeft een uigebreid onderzoek uitgevoerd naar toepasbaarheid van Solace binnen Digilevering. Als er vooralsnog kan worden gewerkt met (centrale) dienstverleners dan zou je het volgende kunnen aanhouden:</p>
+<img src="./media/notificeren_architecture_logius.png">
+
+<p>Maak gebruik van een bestaand commercieel event-streamingplatform zoals <strong>Solace PubSub+</strong> als centrale broker voor het realiseren van een notificatiefunctie binnen het Federatief Datastelsel (FDS). Deze oplossing sluit aan bij scenario 2a van de PSA ("centrale broker voor notificatie op maat van gegevensuitwisseling") en maakt het mogelijk om direct te werken met de CloudEvents-standaard (inclusief NL GOV-profiel).</p>
+<section id="toelichting"><div class="header-wrapper"><h4 id="x5-2-1-toelichting"><bdi class="secno">5.2.1 </bdi>Toelichting</h4><a class="self-link" href="#toelichting" aria-label="Permalink for Section 5.2.1"></a></div>
+<p>Solace biedt een <strong>volwassen, schaalbare en feature-rijke oplossing</strong> voor event-notificaties en integreert goed met de bestaande technologieën van Logius. In tegenstelling tot maatwerk of open source oplossingen, is deze benadering gericht op <strong>snelle implementatie, betrouwbaarheid en ondersteuning op enterprise-niveau</strong>.</p>
+<p>De oplossing ondersteunt <strong>CloudEvents</strong> out-of-the-box en biedt functies als:</p>
+<ul>
+<li><p>Throttling, filtering, retry-mechanismen, metrics</p>
+</li>
+<li><p>Ondersteuning voor AMQP, MQTT, REST, JMS, WebSockets</p>
+</li>
+<li><p>Abonnementenbeheer via API/CLI</p>
+</li>
+<li><p>Hybrid deployments: public cloud, private cloud of on-premise</p>
+</li>
+</ul>
+</section><section id="voordelen"><div class="header-wrapper"><h4 id="x5-2-2-voordelen"><bdi class="secno">5.2.2 </bdi>Voordelen</h4><a class="self-link" href="#voordelen" aria-label="Permalink for Section 5.2.2"></a></div>
+<ul>
+<li><p><strong>Volledige functionaliteit direct beschikbaar</strong>, inclusief monitoring, retry, foutafhandeling, filtering, en throttling</p>
+</li>
+<li><p><strong>Snellere doorlooptijd tot productie</strong> dan zelfbouw, door gebruik van bestaande tools en SDK’s</p>
+</li>
+<li><p><strong>Schaalbare performance</strong> tot honderden berichten per seconde, met uitbreidmogelijkheid</p>
+</li>
+<li><p><strong>CloudEvents ondersteuning</strong> volgens NL GOV-profiel</p>
+</li>
+<li><p>Goede <strong>integratie met bestaande Logius-systemen</strong> (Java, Kubernetes, REST, etc.)</p>
+</li>
+<li><p>Mogelijk gebruik in hybride scenario’s: eigen datacenters in combinatie met Solace Cloud</p>
+</li>
+<li><p><strong>Commerciële support en training</strong> beschikbaar</p>
+</li>
+</ul>
+</section><section id="aandachtspunten-nadelen"><div class="header-wrapper"><h4 id="x5-2-3-aandachtspunten-nadelen"><bdi class="secno">5.2.3 </bdi>Aandachtspunten / nadelen</h4><a class="self-link" href="#aandachtspunten-nadelen" aria-label="Permalink for Section 5.2.3"></a></div>
+<ul>
+<li><p><strong>Licentie- en supportkosten</strong>: geschat tussen de €50.000 - €100.000 per jaar bij volledige OTAP-uitrol</p>
+</li>
+<li><p><strong>Afhankelijkheid van leverancier (closed source)</strong> en mogelijk maatwerk op onderdelen</p>
+</li>
+<li><p><strong>Geen directe abonnementsgoedkeuring</strong> zoals Digilevering dat nu kent – maatwerk vereist</p>
+</li>
+<li><p>Beheerlast blijft bestaan, met extra training voor personeel op het platform</p>
+</li>
+<li><p><strong>Sommige beheertools alleen beschikbaar via Solace Cloud</strong>, ook bij private cloud gebruik</p>
+</li>
+</ul>
+<p>Solace scoort hoog op integratie, performance en functionaliteit. De oplossing is vooral aantrekkelijk <strong>bij opschaling of uitbreiding naar meerdere bron- en afnemersystemen</strong>, en bij organisaties die op korte termijn een robuuste notificatievoorziening nodig hebben.</p>
+<p>Bij beperkte schaal of als volledige controle over de codebase essentieel is, kan zelfbouw of een open source-oplossing aantrekkelijker zijn (zie oplossingsrichting 1).</p>
+<hr>
+</section></section><section id="x3-digikoppeling-rest-profiel-cloudevents-maatwerk"><div class="header-wrapper"><h3 id="x5-3-3-digikoppeling-rest-profiel-cloudevents-maatwerk"><bdi class="secno">5.3 </bdi>3) Digikoppeling REST-profiel + CloudEvents + maatwerk</h3><a class="self-link" href="#x3-digikoppeling-rest-profiel-cloudevents-maatwerk" aria-label="Permalink for Section 5.3"></a></div>
+<p>Zie spike ARTGG-2662 (helaas onzichtbaar voor iedereen buiten Logius)</p>
+</section></section>
+  <section id="tof"><div class="header-wrapper"><h2 id="x6-lijst-met-figuren"><bdi class="secno">6. </bdi>Lijst met figuren</h2><a class="self-link" href="#tof" aria-label="Permalink for Section 6."></a></div><ul class="tof">
+        <li class="tofline">
+    <a class="tocxref" href="#fig-voorbeeld-van-amqp-based-messaging-in-fds"><span class="self-link">Figuur <bdi class="figno">1</bdi></span> <span class="fig-title">Voorbeeld van AMQP based messaging in FDS</span></a>
+  </li>
+      </ul></section>
+  <section id="index" class="appendix"><div class="header-wrapper"><h2 id="a-index"><bdi class="secno">A. </bdi>Index</h2><a class="self-link" href="#index" aria-label="Permalink for Appendix A."></a></div><section id="index-defined-here">
+    <div class="header-wrapper"><h3 id="a-1-begrippen-gedefinieerd-door-deze-specificatie"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</h3><a class="self-link" href="#index-defined-here" aria-label="Permalink for Appendix A.1"></a></div>
+    <ul class="index">
+    
+  </ul>
+  </section><section id="index-defined-elsewhere">
+    <div class="header-wrapper"><h3 id="a-2-begrippen-gedefinieerd-door-verwijzing"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</h3><a class="self-link" href="#index-defined-elsewhere" aria-label="Permalink for Appendix A.2"></a></div>
+    <ul class="index">
+    
+  </ul>
+  </section></section>
+
+
+
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><div class="sidelabel">Logius Document - Werkversie</div><div class="mermaidTooltip" style="opacity: 0;"></div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
