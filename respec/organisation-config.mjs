@@ -457,7 +457,7 @@ const organisationConfig = {
       title: "Lijst Verplichte standaarden"
     },
     "PKIO-PvE": {
-      href: "https://por.pkioverheid.nl/",
+      href: "https://cp.pkioverheid.nl/",
       publisher: "Logius",
       title: "Certificate Policy/Programme of Requirements PKIoverheid"
     },
