@@ -270,7 +270,9 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 ### notificatieservices
 
 - [notificatieservices/CloudEvents-NL/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/CloudEvents-NL/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/CloudEvents-NL/ "Preview op GitHub Pages")
+   - [notificatieservices/CloudEvents-NL/1/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/CloudEvents-NL/1/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/CloudEvents-NL/1/ "Preview op GitHub Pages")
    - [notificatieservices/CloudEvents-NL/1.0/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/CloudEvents-NL/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/CloudEvents-NL/1.0/ "Preview op GitHub Pages")
+   - [notificatieservices/CloudEvents-NL/1.1/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/CloudEvents-NL/1.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/CloudEvents-NL/1.1/ "Preview op GitHub Pages")
 - [notificatieservices/abonneren/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/abonneren/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/abonneren/ "Preview op GitHub Pages")
    - [notificatieservices/abonneren/0/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/abonneren/0/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/abonneren/0/ "Preview op GitHub Pages")
    - [notificatieservices/abonneren/0.0/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/abonneren/0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/abonneren/0.0/ "Preview op GitHub Pages")
