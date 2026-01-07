@@ -159,10 +159,9 @@ const organisationConfig = {
       title: "Digikoppeling Beveiligingsstandaarden en voorschriften"
     },
     "CloudEvents": {
-      authors: ["@@@"],
       date: "May 2011",
       href: "https://github.com/cloudevents/spec/blob/v1.0.1/spec.md",
-      publisher: "@@@",
+      publisher: "CNCF Serverless Working Group",
       title: "CloudEvents - Version 1.0.1"
     },
     "NLGOV-CloudEvents": {
