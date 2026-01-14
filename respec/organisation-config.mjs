@@ -111,7 +111,7 @@ const organisationConfig = {
   localBiblio: {
     "ADR": {
       authors: ["Jasper Roes", "Joost Farla"],
-      href: "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
+      href: "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1",
       publisher: "Logius",
       title: "API Design Rules"
     },
