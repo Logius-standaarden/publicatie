@@ -656,6 +656,24 @@ export function loadRespecWithConfiguration(localConfig) {
 
   respecConfig.preProcess = [
     ...(localConfig.preProcess || []),
+    (config, document, utils) => {
+      if (config.specStatus.toLowerCase() === 'cv') {
+        const EMAIL_TO_DOMAIN_MAPPING = {
+          "api@logius.nl": ['api', 'logboek', 'notificatieservices'],
+          "digikoppeling@logius.nl": ['dk', 'fsc'],
+        };
+        const email = Object.entries(EMAIL_TO_DOMAIN_MAPPING)
+                            .filter(([_, value]) => value.includes(respecConfig.pubDomain))
+                            .map(([key, _]) => key);
+        if (email.length !== 1) {
+          utils.showError(`Could not find related email for "${respecConfig.pubDomain}". Is it in EMAIL_TO_DOMAIN_MAPPING?`);
+          return;
+        }
+        for (const texts of Object.values(respecConfig.sotdText)) {
+          texts.cv = texts.cv.replace(/\w+@logius\.nl/, email[0]);
+        }
+      }
+    },
     (config, document) => {
       // Secties worden toegevoegd in omgekeerde volgorde. Dus de
       // sectie die hier als laatste staat, komt als eerste voor
