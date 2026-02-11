@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Redirecting to v1.0.0</title>
+<noscript>
+<meta http-equiv="refresh" content="0; URL=../1.0.0/">
+</noscript>
+<link rel="canonical" href="../1.0.0/">
+<script>
+    const redirect = new URL("../1.0.0/", window.location);
+    redirect.hash = window.location.hash;
+    window.location = redirect;
+</script>
