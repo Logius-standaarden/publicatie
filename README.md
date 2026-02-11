@@ -266,6 +266,10 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 
 ### logboek
 
+- [logboek/dataverwerkingen/](https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/) [:scroll:](https://logius-standaarden.github.io/publicatie/logboek/dataverwerkingen/ "Preview op GitHub Pages")
+   - [logboek/dataverwerkingen/0/](https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/0/) [:scroll:](https://logius-standaarden.github.io/publicatie/logboek/dataverwerkingen/0/ "Preview op GitHub Pages")
+   - [logboek/dataverwerkingen/0.8/](https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/0.8/) [:scroll:](https://logius-standaarden.github.io/publicatie/logboek/dataverwerkingen/0.8/ "Preview op GitHub Pages")
+   - [logboek/dataverwerkingen/0.8.0/](https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/0.8.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/logboek/dataverwerkingen/0.8.0/ "Preview op GitHub Pages")
 - [logboek/logboek-extensie-template/](https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/) [:scroll:](https://logius-standaarden.github.io/publicatie/logboek/logboek-extensie-template/ "Preview op GitHub Pages")
    - [logboek/logboek-extensie-template/0.9/](https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/0.9/) [:scroll:](https://logius-standaarden.github.io/publicatie/logboek/logboek-extensie-template/0.9/ "Preview op GitHub Pages")
 
