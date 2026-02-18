@@ -662,8 +662,8 @@ export function loadRespecWithConfiguration(localConfig) {
         utils.showError(`Invalid pubDomain. Must be one of ${ACCEPTED_DOMAINS}, but was "${config.pubDomain}"`);
         return;
       }
-      if (!/^[a-z]+$/.test(config.shortName)) {
-        utils.showError(`Invalid shortName. Must consist of only lowercase letters, but was "${config.shortName}"`);
+      if (!/^[a-z]+(-[a-z]+)*$/.test(config.shortName)) {
+        utils.showError(`Invalid shortName. Must be in kebab-case (only lowercase letters and potentially separated by dashes), but was "${config.shortName}"`);
         return;
       }
     },
