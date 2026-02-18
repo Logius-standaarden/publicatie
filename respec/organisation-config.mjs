@@ -657,16 +657,28 @@ export function loadRespecWithConfiguration(localConfig) {
   respecConfig.preProcess = [
     ...(localConfig.preProcess || []),
     (config, document, utils) => {
+      const ACCEPTED_DOMAINS = ['api', 'bomos', 'dk', 'fsc', 'logboek', 'notificatieservices'];
+      if (!ACCEPTED_DOMAINS.includes(config.pubDomain)) {
+        utils.showError(`Invalid pubDomain. Must be one of ${ACCEPTED_DOMAINS}, but was "${config.pubDomain}"`);
+        return;
+      }
+      if (!/^[a-z]+(-[a-z]+)*$/.test(config.shortName)) {
+        utils.showError(`Invalid shortName. Must be in kebab-case (only lowercase letters and potentially separated by dashes), but was "${config.shortName}"`);
+        return;
+      }
+    },
+    (config, document, utils) => {
       if (config.specStatus.toLowerCase() === 'cv') {
         const EMAIL_TO_DOMAIN_MAPPING = {
           "api@logius.nl": ['api', 'logboek', 'notificatieservices'],
+          "bomos@logius.nl": ['bomos'],
           "digikoppeling@logius.nl": ['dk', 'fsc'],
         };
         const email = Object.entries(EMAIL_TO_DOMAIN_MAPPING)
-                            .filter(([_, value]) => value.includes(respecConfig.pubDomain))
+                            .filter(([_, value]) => value.includes(config.pubDomain))
                             .map(([key, _]) => key);
         if (email.length !== 1) {
-          utils.showError(`Could not find related email for "${respecConfig.pubDomain}". Is it in EMAIL_TO_DOMAIN_MAPPING?`);
+          utils.showError(`Could not find related email for "${config.pubDomain}". Is it in EMAIL_TO_DOMAIN_MAPPING?`);
           return;
         }
         for (const texts of Object.values(respecConfig.sotdText)) {
