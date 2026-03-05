@@ -668,23 +668,40 @@ export function loadRespecWithConfiguration(localConfig) {
       }
     },
     (config, document, utils) => {
-      if (config.specStatus.toLowerCase() === 'cv') {
-        const EMAIL_TO_DOMAIN_MAPPING = {
-          "api@logius.nl": ['api', 'logboek', 'notificatieservices'],
-          "bomos@logius.nl": ['bomos'],
-          "digikoppeling@logius.nl": ['dk', 'fsc'],
-        };
-        const email = Object.entries(EMAIL_TO_DOMAIN_MAPPING)
-                            .filter(([_, value]) => value.includes(config.pubDomain))
-                            .map(([key, _]) => key);
-        if (email.length !== 1) {
-          utils.showError(`Could not find related email for "${config.pubDomain}". Is it in EMAIL_TO_DOMAIN_MAPPING?`);
-          return;
-        }
-        for (const texts of Object.values(respecConfig.sotdText)) {
-          texts.cv = texts.cv.replace(/\w+@logius\.nl/, email[0]);
+      if (config.specStatus.toLowerCase() !== 'cv') {
+        return;
+      }
+      let email;
+      let overleg;
+
+      if (['dk', 'fsc'].includes(config.pubDomain)) {
+        email = "digikoppeling@logius.nl";
+        overleg = "Digikoppeling";
+      } else if (config.pubDomain === "bomos") {
+        email = "bomos@logius.nl";
+        overleg = "BOMOS-klankbord";
+      } else {
+        email = "api@logius.nl";
+
+        if (respecConfig.pubDomain === "notificatieservices") {
+          overleg = "Notificeren";
+        } else if (respecConfig.pubDomain === "logboek") {
+          overleg = "LDV";
+        } else if (respecConfig.shortName.startsWith("oauth") || respecConfig.shortName === "oidc") {
+          overleg = "OAuth";
+        } else {
+          overleg = "API";
         }
       }
+
+      for (const texts of Object.values(config.sotdText)) {
+        texts.cv = texts.cv.replace(/\w+@logius\.nl/, email);
+      }
+      // Zodat het kan worden uitgelezen bij het aanmaken van de consultatie README
+      utils.amendConfiguration({
+        emailForConsultation: email,
+        technischOverleg: overleg,
+      });
     },
     (config, document) => {
       // Secties worden toegevoegd in omgekeerde volgorde. Dus de
