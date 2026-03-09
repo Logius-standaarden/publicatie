@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.3.0">
+<meta name="generator" content="ReSpec 35.6.1">
 <style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
@@ -22,9 +22,6 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-  
-  
-  
   
   
   
@@ -110,12 +107,15 @@ img.license{float:left;padding-right:5px;background:0 0}
       "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
+  "useLogo": true,
+  "fileName": "",
   "latestVersion": [
     "nl_organisationPublishURL",
     "pubDomain",
     "/",
     "shortName",
-    "/"
+    "/",
+    "fileName"
   ],
   "thisVersion": [
     "nl_organisationPublishURL",
@@ -124,7 +124,8 @@ img.license{float:left;padding-right:5px;background:0 0}
     "shortName",
     "/",
     "publishVersion",
-    "/"
+    "/",
+    "fileName"
   ],
   "prevVersion": [
     "nl_organisationPublishURL",
@@ -133,11 +134,9 @@ img.license{float:left;padding-right:5px;background:0 0}
     "shortName",
     "/",
     "previousPublishVersion",
-    "/"
+    "/",
+    "fileName"
   ],
-  "useLogo": true,
-  "useLabel": true,
-  "license": "cc-by",
   "addSectionLinks": true,
   "localizationStrings": {
     "en": {
@@ -201,6 +200,7 @@ img.license{float:left;padding-right:5px;background:0 0}
     "cv": "#000000",
     "vv": "#000000"
   },
+  "useLabel": true,
   "licenses": {
     "cc0": {
       "name": "Creative Commons 0 Public Domain Dedication",
@@ -221,13 +221,14 @@ img.license{float:left;padding-right:5px;background:0 0}
       "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
     }
   },
+  "license": "cc-by",
   "localBiblio": {
     "ADR": {
       "authors": [
         "Jasper Roes",
         "Joost Farla"
       ],
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1",
       "publisher": "Logius",
       "title": "API Design Rules"
     },
@@ -285,12 +286,9 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
     },
     "CloudEvents": {
-      "authors": [
-        "@@@"
-      ],
       "date": "May 2011",
       "href": "https://github.com/cloudevents/spec/blob/v1.0.1/spec.md",
-      "publisher": "@@@",
+      "publisher": "CNCF Serverless Working Group",
       "title": "CloudEvents - Version 1.0.1"
     },
     "NLGOV-CloudEvents": {
@@ -563,17 +561,17 @@ img.license{float:left;padding-right:5px;background:0 0}
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
     },
-    "NCSC 2019": {
-      "date": "April 2019",
-      "href": "https://www.ncsc.nl/documenten/publicaties/2019/mei/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-tls",
-      "publisher": "NCSC",
-      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.0"
-    },
     "NCSC 2021": {
       "date": "Jan 2021",
       "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
       "publisher": "NCSC",
       "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+    },
+    "NCSC 2025": {
+      "date": "June 2025",
+      "href": "https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05",
+      "publisher": "NCSC",
+      "title": "Transport Layer Security (TLS) richtlijnen 2025-05"
     },
     "NEN3610": {
       "authors": [
@@ -626,7 +624,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "Lijst Verplichte standaarden"
     },
     "PKIO-PvE": {
-      "href": "https://por.pkioverheid.nl/",
+      "href": "https://cp.pkioverheid.nl/",
       "publisher": "Logius",
       "title": "Certificate Policy/Programme of Requirements PKIoverheid"
     },
@@ -735,7 +733,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "date": "March 2002"
     },
     "FSC-Core": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/2.0.0/",
       "title": "FSC - Core",
       "authors": [
         "Eelco Hotting",
@@ -748,7 +746,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "publisher": "Logius"
     },
     "FSC-Logging": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.1.0/",
       "title": "FSC - Logging",
       "authors": [
         "Eelco Hotting",
@@ -759,6 +757,75 @@ img.license{float:left;padding-right:5px;background:0 0}
         "Pim Gaemers"
       ],
       "publisher": "Logius"
+    },
+    "HEART.OAuth2": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "April 25, 2017",
+      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "Health Relationship Trust Profile for OAuth 2.0"
+    },
+    "JWS.JWE.Algs": {
+      "authors": [
+        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
+      ],
+      "date": "",
+      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
+      "publisher": "IANA",
+      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
+    },
+    "I-D.ietf-oauth-pop-architecture": {
+      "authors": [
+        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
+      ],
+      "date": "July 8, 2016",
+      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
+    },
+    "iGOV.OAuth2": {
+      "authors": [
+        "J. Richer, M. Varley, P. Grassi"
+      ],
+      "date": "October 5 2018",
+      "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
+    },
+    "NLGOV.OAuth2": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
+      "publisher": "Logius",
+      "title": "NL GOV Assurance profile for OAuth 2.0"
+    },
+    "ietf-oauth-v2-1-10-refresh-token-grant": {
+      "authors": [
+        "Dick Hardt, Aaron Parecki, Torsten Lodderstedt"
+      ],
+      "date": "January 9, 2024",
+      "href": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-10#name-refresh-token-grant",
+      "publisher": "IETF",
+      "title": "The OAuth 2.1 Authorization Framework: Refresh Token Grant"
+    },
+    "OpenID.FAPI2.0": {
+      "authors": [
+        "D. Fett, D. Tonge, J. Heenan"
+      ],
+      "date": "February 22 2025",
+      "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
+      "publisher": "OpenID foundation",
+      "title": "FAPI 2.0 Security Profile"
+    },
+    "logboek-extensie-guideline": {
+      "href": "https://logius-standaarden.github.io/logboek-extensie-template/",
+      "publisher": "Logius",
+      "title": "LDV Extensie Guideline"
+    },
+    "logboek dataverwerkingen": {
+      "href": "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      "publisher": "Logius",
+      "title": "Logboek Dataverwerkingen"
     }
   },
   "specStatus": "DEF",
@@ -783,16 +850,15 @@ img.license{float:left;padding-right:5px;background:0 0}
     }
   ],
   "github": "https://github.com/Logius-standaarden/Digikoppeling-Algemeen",
-  "alternateFormats": [
-    {
-      "label": "pdf",
-      "uri": "roadmap.pdf"
-    }
+  "preProcess": [
+    null,
+    null,
+    null
   ]
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
 
-<body class="h-entry informative toc-inline"><div class="head">
+<body class="h-entry toc-inline"><div class="head">
     <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">Digikoppeling Roadmap 2024-2025</h1>
     
@@ -836,14 +902,14 @@ img.license{float:left;padding-right:5px;background:0 0}
     
     <p>
           Dit document is ook beschikbaar in dit niet-normatieve formaat:
-          <a rel="alternate" href="roadmap.pdf">pdf</a>
+          <a rel="alternate" href="dk-roadmap-2024-2025.pdf">PDF</a>
         </p>
     <p class="copyright">
             Dit document valt onder de volgende licentie: 
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
           </p>
     <hr title="Separator for header">
-  </div>
+  </div><section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#achtergrond"><bdi class="secno">1. </bdi>Achtergrond</a></li><li class="tocline"><a class="tocxref" href="#doel-roadmap"><bdi class="secno">2. </bdi>Doel roadmap</a></li><li class="tocline"><a class="tocxref" href="#totstandkoming-roadmap"><bdi class="secno">3. </bdi>Totstandkoming Roadmap</a></li><li class="tocline"><a class="tocxref" href="#positionering-digikoppeling"><bdi class="secno">4. </bdi>Positionering Digikoppeling</a></li><li class="tocline"><a class="tocxref" href="#onderwerpen-digikoppeling-standaarden"><bdi class="secno">5. </bdi>Onderwerpen Digikoppeling Standaarden</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#digikoppeling-rest-api-profiel-baseren-op-adr-2-0"><bdi class="secno">5.1 </bdi>Digikoppeling REST API profiel baseren op ADR 2.0</a></li><li class="tocline"><a class="tocxref" href="#signing-encryptie-toevoegen-aan-restful-api-profiel"><bdi class="secno">5.2 </bdi>Signing &amp; Encryptie toevoegen aan RESTful API profiel</a></li><li class="tocline"><a class="tocxref" href="#implementatie-invoering-edelivery-ebms3-as4"><bdi class="secno">5.3 </bdi>Implementatie invoering eDelivery/ebMS3/AS4</a></li><li class="tocline"><a class="tocxref" href="#best-practice-gebruik-oauth-icm-digikoppeling-rest_api"><bdi class="secno">5.4 </bdi>Best practice Gebruik OAuth icm Digikoppeling REST_API</a></li><li class="tocline"><a class="tocxref" href="#periodiek-actualiseren-architectuur"><bdi class="secno">5.5 </bdi>Periodiek actualiseren architectuur</a></li><li class="tocline"><a class="tocxref" href="#periodiek-actualiseren-beveiligingsvoorschriften"><bdi class="secno">5.6 </bdi>Periodiek actualiseren beveiligingsvoorschriften</a></li><li class="tocline"><a class="tocxref" href="#tijdlijn-roadmap-digikoppeling-standaarden"><bdi class="secno">5.7 </bdi>Tijdlijn Roadmap Digikoppeling Standaarden</a></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformiteit">Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document beschrijft de roadmap Digikoppeling 2024-2025.</p>
 <ul>
 <li>Digikoppeling REST API profiel baseren op ADR 2.0</li>
@@ -854,7 +920,7 @@ img.license{float:left;padding-right:5px;background:0 0}
 <li>Periodiek actualiseren beveiligingsvoorschriften</li>
 </ul>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#achtergrond"><bdi class="secno">1. </bdi>Achtergrond</a></li><li class="tocline"><a class="tocxref" href="#doel-roadmap"><bdi class="secno">2. </bdi>Doel roadmap</a></li><li class="tocline"><a class="tocxref" href="#totstandkoming-roadmap"><bdi class="secno">3. </bdi>Totstandkoming Roadmap</a></li><li class="tocline"><a class="tocxref" href="#positionering-digikoppeling"><bdi class="secno">4. </bdi>Positionering Digikoppeling</a></li><li class="tocline"><a class="tocxref" href="#onderwerpen-digikoppeling-standaarden"><bdi class="secno">5. </bdi>Onderwerpen Digikoppeling Standaarden</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#digikoppeling-rest-api-profiel-baseren-op-adr-2-0"><bdi class="secno">5.1 </bdi>Digikoppeling REST API profiel baseren op ADR 2.0</a></li><li class="tocline"><a class="tocxref" href="#signing-encryptie-toevoegen-aan-restful-api-profiel"><bdi class="secno">5.2 </bdi>Signing &amp; Encryptie toevoegen aan RESTful API profiel</a></li><li class="tocline"><a class="tocxref" href="#implementatie-invoering-edelivery-ebms3-as4"><bdi class="secno">5.3 </bdi>Implementatie invoering eDelivery/ebMS3/AS4</a></li><li class="tocline"><a class="tocxref" href="#best-practice-gebruik-oauth-icm-digikoppeling-rest_api"><bdi class="secno">5.4 </bdi>Best practice Gebruik OAuth icm Digikoppeling REST_API</a></li><li class="tocline"><a class="tocxref" href="#periodiek-actualiseren-architectuur"><bdi class="secno">5.5 </bdi>Periodiek actualiseren architectuur</a></li><li class="tocline"><a class="tocxref" href="#periodiek-actualiseren-beveiligingsvoorschriften"><bdi class="secno">5.6 </bdi>Periodiek actualiseren beveiligingsvoorschriften</a></li><li class="tocline"><a class="tocxref" href="#tijdlijn-roadmap-digikoppeling-standaarden"><bdi class="secno">5.7 </bdi>Tijdlijn Roadmap Digikoppeling Standaarden</a></li></ol></li></ol></nav>
+  
   <section id="achtergrond"><div class="header-wrapper"><h2 id="x1-achtergrond"><bdi class="secno">1. </bdi>Achtergrond</h2><a class="self-link" href="#achtergrond" aria-label="Permalink for Section 1."></a></div>
 <p>Digikoppeling bevordert interoperabiliteit door digitale gegevensuitwisseling te standaardiseren. Hierbij maakt Digikoppeling gebruik van internationale open standaarden. Daarmee is Digikoppeling een belangrijke pijler voor de Generieke Digitale Infrastructuur (GDI) die publieke dienstverlening en uitvoering mogelijk maakt.</p>
 <p>Digikoppeling bestaat uit een set standaarden die het mogelijk maakt om berichten tussen overheidsinstellingen en organisaties die met of binnen de overheid digitaal informatie willen uitwisselen, op gestandaardiseerde wijze veilig uit te wisselen. Gebruik van deze standaarden wordt ondersteund door de Digikoppeling voorzieningen; de Centrale OIN Raadpleegvoorziening, de Compliance voorzieningen en het CPA Register. Dit ten behoeve van ontwikkeling en implementatie van systemen die Digikoppeling toepassen. Daarmee is Digikoppeling de invulling van de servicegerichte architectuur die de Nederlandse Overheid Referentie Architectuur (NORA) voorschrijft.</p>
@@ -1029,7 +1095,7 @@ Het eDelivery ebMS3/AS4 profiel is in principe geschikt bevonden bij deze verken
 
 
 <p role="navigation" id="back-to-top">
-    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+    <a href="#title"><abbr title="Terug naar boven">↑</abbr></a>
   </p><script id="respec-dfn-panel">(() => {
 // @ts-check
 if (document.respec) {
