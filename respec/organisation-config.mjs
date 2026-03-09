@@ -663,8 +663,8 @@ export function loadRespecWithConfiguration(localConfig) {
           "digikoppeling@logius.nl": ['dk', 'fsc'],
         };
         const email = Object.entries(EMAIL_TO_DOMAIN_MAPPING)
-                            .filter(([_, value]) => value.includes(respecConfig.pubDomain))
-                            .map(([key, _]) => key);
+          .filter(([_, value]) => value.includes(respecConfig.pubDomain))
+          .map(([key, _]) => key);
         if (email.length !== 1) {
           utils.showError(`Could not find related email for "${respecConfig.pubDomain}". Is it in EMAIL_TO_DOMAIN_MAPPING?`);
           return;
@@ -672,6 +672,21 @@ export function loadRespecWithConfiguration(localConfig) {
         for (const texts of Object.values(respecConfig.sotdText)) {
           texts.cv = texts.cv.replace(/\w+@logius\.nl/, email[0]);
         }
+        // Zodat het kan worden uitgelezen bij het aanmaken van de consultatie README
+        config.emailForConsultation = email[0];
+        const OVERLEG_TO_DOMAIN_MAPPING = {
+          "API": ['api/adr'],
+          "Digikoppeling": ['dk'],
+          "Notificeren": ['notificatieservices/cloudevents-nl'],
+        };
+        const overleg = Object.entries(OVERLEG_TO_DOMAIN_MAPPING)
+          .filter(([_, value]) => value.includes(respecConfig.pubDomain) || value.includes(`${respecConfig.pubDomain}/${respecConfig.shortName}`))
+          .map(([key, _]) => key);
+        if (overleg.length !== 1) {
+          utils.showError(`Could not find related overleg for "${respecConfig.pubDomain}/${respecConfig.shortName}". Is it in OVERLEG_TO_DOMAIN_MAPPING?`);
+          return;
+        }
+        config.technischOverleg = overleg[0];
       }
     },
     (config, document) => {
