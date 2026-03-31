@@ -619,6 +619,10 @@ function prependSectionToBodyAndCreateIfNotExists(document, sectionId) {
   document.body.prepend(section);
 }
 
+function missingOrIsEmpty(persons) {
+  return persons === undefined || persons.length === 0;
+}
+
 /**
  * Laad Respec met een `localConfig`, waarbij default waarden uit een
  * `organisationConfig` object komen. Tevens worden de `localBiblio`
@@ -660,11 +664,26 @@ export function loadRespecWithConfiguration(localConfig) {
       const ACCEPTED_DOMAINS = ['api', 'bomos', 'dk', 'fsc', 'ftv', 'logboek', 'notificatieservices'];
       if (!ACCEPTED_DOMAINS.includes(config.pubDomain)) {
         utils.showError(`Invalid pubDomain. Must be one of ${ACCEPTED_DOMAINS}, but was "${config.pubDomain}"`);
-        return;
       }
       if (!/^[a-z]+(-[a-z]+)*$/.test(config.shortName)) {
         utils.showError(`Invalid shortName. Must be in kebab-case (only lowercase letters and potentially separated by dashes), but was "${config.shortName}"`);
-        return;
+      }
+      if (missingOrIsEmpty(config.github)) {
+        utils.showError('No github link specified in configuration.');
+      }
+      if (missingOrIsEmpty(config.editors)) {
+        utils.showError('No editors specified in configuration.');
+      }
+      if (missingOrIsEmpty(config.authors)) {
+        utils.showError('No authors specified in configuration.');
+      }
+      for (const person of [...(config.editors || []), ...(config.authors || [])]) {
+        if (person.companyURL.includes("logius.nl") && person.companyURL !== "https://logius.nl") {
+          utils.showError(`companyURL of an editor/author of Logius must be "https://logius.nl", instead it was "${person.companyURL}"`);
+        }
+        if (person.companyURL.includes("github.com")) {
+          utils.showError(`companyURL of an editor/author must link to a website of an organisation (not GitHub), instead it was ${person.companyURL}`);
+        }
       }
     },
     (config, document, utils) => {
