@@ -683,11 +683,11 @@ export function loadRespecWithConfiguration(localConfig) {
       } else {
         email = "api@logius.nl";
 
-        if (respecConfig.pubDomain === "notificatieservices") {
+        if (config.pubDomain === "notificatieservices") {
           overleg = "Notificeren";
-        } else if (respecConfig.pubDomain === "logboek") {
+        } else if (config.pubDomain === "logboek") {
           overleg = "LDV";
-        } else if (respecConfig.shortName.startsWith("oauth") || respecConfig.shortName === "oidc") {
+        } else if (config.shortName.startsWith("oauth") || config.shortName === "oidc") {
           overleg = "OAuth";
         } else {
           overleg = "API";
