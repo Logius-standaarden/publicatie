@@ -678,6 +678,9 @@ export function loadRespecWithConfiguration(localConfig) {
         utils.showError('No authors specified in configuration.');
       }
       for (const person of [...(config.editors || []), ...(config.authors || [])]) {
+        if (!('companyURL' in person)) {
+          continue;
+        }
         if (person.companyURL.includes("logius.nl") && person.companyURL !== "https://logius.nl") {
           utils.showError(`companyURL of an editor/author of Logius must be "https://logius.nl", instead it was "${person.companyURL}"`);
         }
