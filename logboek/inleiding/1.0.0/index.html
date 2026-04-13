@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.4.1">
+<meta name="generator" content="ReSpec 35.8.0">
 <style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
@@ -93,7 +93,7 @@ img.license{float:left;padding-right:5px;background:0 0}
     color: white;
     white-space: nowrap;
     z-index: 1;
-    background-color: #000000;
+    background-color: #154273;
   }
 </style>
 <script id="initialUserConfig" type="application/json">{
@@ -823,11 +823,11 @@ img.license{float:left;padding-right:5px;background:0 0}
     }
   },
   "maxTocLevel": 2,
-  "specStatus": "VV",
+  "specStatus": "def",
   "specType": "PR",
   "pubDomain": "logboek",
   "shortName": "inleiding",
-  "publishDate": "2026-02-11",
+  "publishDate": "2026-04-09",
   "publishVersion": "1.0.0",
   "edDraftURI": "https://logius-standaarden.github.io/logboek-dataverwerkingen-inleiding/",
   "editors": [
@@ -868,6 +868,7 @@ img.license{float:left;padding-right:5px;background:0 0}
   "preProcess": [
     null,
     null,
+    null,
     null
   ]
 }</script>
@@ -880,8 +881,8 @@ img.license{float:left;padding-right:5px;background:0 0}
     
     <h2>
       Logius Praktijkrichtlijn<br>
-      Versie ter vaststelling
-      <time class="dt-published" datetime="2026-02-11">11 februari 2026</time>
+      Vastgestelde versie
+      <time class="dt-published" datetime="2026-04-09">09 april 2026</time>
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
@@ -933,7 +934,7 @@ img.license{float:left;padding-right:5px;background:0 0}
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
           </p>
     <hr title="Separator for header">
-  </div><section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een definitief concept van de nieuwe versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#feedback">Feedback en Issues</a></li><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#context-bij-de-standaard">Context bij de standaard</a></li><li class="tocline"><a class="tocxref" href="#verwijzingen">Verwijzingen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanleiding-en-context-van-logboek-dataverwerkingen"><bdi class="secno">1. </bdi>Aanleiding en context van Logboek dataverwerkingen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#standaard-als-technisch-middel"><bdi class="secno">1.1 </bdi>Standaard als technisch middel</a></li><li class="tocline"><a class="tocxref" href="#scope-van-de-standaard-logboek-dataverwerkingen"><bdi class="secno">1.2 </bdi>Scope van de Standaard Logboek dataverwerkingen</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#totstandkoming-van-de-standaard"><bdi class="secno">1.3 </bdi>Totstandkoming van de standaard</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#relaties-met-andere-standaarden"><bdi class="secno">1.4 </bdi>Relaties met andere standaarden</a></li></ol></li><li class="tocline"><a class="tocxref" href="#architectuur"><bdi class="secno">2. </bdi>Architectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#bedrijfsarchitectuur"><bdi class="secno">2.1 </bdi>Bedrijfsarchitectuur</a></li><li class="tocline"><a class="tocxref" href="#informatie-architectuur"><bdi class="secno">2.2 </bdi>Informatie­architectuur</a></li><li class="tocline"><a class="tocxref" href="#technische-architectuur"><bdi class="secno">2.3 </bdi>Technische architectuur</a></li><li class="tocline"><a class="tocxref" href="#software-architectuur"><bdi class="secno">2.4 </bdi>Software architectuur</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#relaties-gdi-architectuurprincipes-en-de-standaard"><bdi class="secno">2.5 </bdi>Relaties GDI architectuurprincipes  en de standaard</a></li></ol></li><li class="tocline"><a class="tocxref" href="#de-relatie-tussen-logboekelementen-waarom-eigenlijk"><bdi class="secno">3. </bdi>De relatie tussen logboekelementen, waarom eigenlijk?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#welke-relatiedata-moeten-er-dan-worden-opgeslagen-per-logregel"><bdi class="secno">3.1 </bdi>Welke relatiedata moeten er dan worden opgeslagen per Logregel?</a></li><li class="tocline"><a class="tocxref" href="#het-logboek-en-het-register-van-verwerkingsactiviteiten"><bdi class="secno">3.2 </bdi>Het logboek en het Register van Verwerkingsactiviteiten</a></li><li class="tocline"><a class="tocxref" href="#trace_id-als-grootste-gemene-deler"><bdi class="secno">3.3 </bdi>trace_id als grootste gemene deler</a></li><li class="tocline"><a class="tocxref" href="#relatie-tussen-sub-operations"><bdi class="secno">3.4 </bdi>Relatie tussen (sub)Operations</a></li><li class="tocline"><a class="tocxref" href="#voorbeeld-van-een-traceringsconstructie"><bdi class="secno">3.5 </bdi>Voorbeeld van een traceringsconstructie</a><ol class="toc"></ol></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformiteit">Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
+  </div><section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#feedback">Feedback en Issues</a></li><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#context-bij-de-standaard">Context bij de standaard</a></li><li class="tocline"><a class="tocxref" href="#verwijzingen">Verwijzingen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanleiding-en-context-van-logboek-dataverwerkingen"><bdi class="secno">1. </bdi>Aanleiding en context van Logboek dataverwerkingen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#standaard-als-technisch-middel"><bdi class="secno">1.1 </bdi>Standaard als technisch middel</a></li><li class="tocline"><a class="tocxref" href="#scope-van-de-standaard-logboek-dataverwerkingen"><bdi class="secno">1.2 </bdi>Scope van de Standaard Logboek dataverwerkingen</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#totstandkoming-van-de-standaard"><bdi class="secno">1.3 </bdi>Totstandkoming van de standaard</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#relaties-met-andere-standaarden"><bdi class="secno">1.4 </bdi>Relaties met andere standaarden</a></li></ol></li><li class="tocline"><a class="tocxref" href="#architectuur"><bdi class="secno">2. </bdi>Architectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#bedrijfsarchitectuur"><bdi class="secno">2.1 </bdi>Bedrijfsarchitectuur</a></li><li class="tocline"><a class="tocxref" href="#informatie-architectuur"><bdi class="secno">2.2 </bdi>Informatie­architectuur</a></li><li class="tocline"><a class="tocxref" href="#technische-architectuur"><bdi class="secno">2.3 </bdi>Technische architectuur</a></li><li class="tocline"><a class="tocxref" href="#software-architectuur"><bdi class="secno">2.4 </bdi>Software architectuur</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#relaties-gdi-architectuurprincipes-en-de-standaard"><bdi class="secno">2.5 </bdi>Relaties GDI architectuurprincipes  en de standaard</a></li></ol></li><li class="tocline"><a class="tocxref" href="#de-relatie-tussen-logboekelementen-waarom-eigenlijk"><bdi class="secno">3. </bdi>De relatie tussen logboekelementen, waarom eigenlijk?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#welke-relatiedata-moeten-er-dan-worden-opgeslagen-per-logregel"><bdi class="secno">3.1 </bdi>Welke relatiedata moeten er dan worden opgeslagen per Logregel?</a></li><li class="tocline"><a class="tocxref" href="#het-logboek-en-het-register-van-verwerkingsactiviteiten"><bdi class="secno">3.2 </bdi>Het logboek en het Register van Verwerkingsactiviteiten</a></li><li class="tocline"><a class="tocxref" href="#trace_id-als-grootste-gemene-deler"><bdi class="secno">3.3 </bdi>trace_id als grootste gemene deler</a></li><li class="tocline"><a class="tocxref" href="#relatie-tussen-sub-operations"><bdi class="secno">3.4 </bdi>Relatie tussen (sub)Operations</a></li><li class="tocline"><a class="tocxref" href="#voorbeeld-van-een-traceringsconstructie"><bdi class="secno">3.5 </bdi>Voorbeeld van een traceringsconstructie</a><ol class="toc"></ol></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformiteit">Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>Naast onderdelen die als niet-normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet-normatief. Verder is alles in dit document normatief.</p></section>
   
   
   <section id="feedback" class="introductory">
@@ -1318,7 +1319,7 @@ De <code>trace_id</code> is identiek bij beide organisaties, waardoor er een rel
 
 
 <p role="navigation" id="back-to-top">
-    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+    <a href="#title"><abbr title="Terug naar boven">↑</abbr></a>
   </p><script id="respec-dfn-panel">(() => {
 // @ts-check
 if (document.respec) {
@@ -1541,4 +1542,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Praktijkrichtlijn - Versie ter vaststelling</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Praktijkrichtlijn - Vastgestelde versie</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
