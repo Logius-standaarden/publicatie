@@ -681,7 +681,7 @@ export function loadRespecWithConfiguration(localConfig) {
         if (!('companyURL' in person)) {
           continue;
         }
-        if (person.companyURL.includes("logius.nl") && person.companyURL !== "https://logius.nl") {
+        if (person.companyURL.includes("logius.nl") && person.companyURL !== "https://logius.nl" && person.companyURL !== "https://www.logius.nl") {
           utils.showError(`companyURL of an editor/author of Logius must be "https://logius.nl", instead it was "${person.companyURL}"`);
         }
         if (person.companyURL.includes("github.com")) {
