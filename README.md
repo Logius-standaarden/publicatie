@@ -220,6 +220,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 - [dk/roadmap/](https://gitdocumentatie.logius.nl/publicatie/dk/roadmap/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/roadmap/ "Preview op GitHub Pages")
    - [dk/roadmap/2022-2023/](https://gitdocumentatie.logius.nl/publicatie/dk/roadmap/2022-2023/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/roadmap/2022-2023/ "Preview op GitHub Pages")
    - [dk/roadmap/2024-2025/](https://gitdocumentatie.logius.nl/publicatie/dk/roadmap/2024-2025/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/roadmap/2024-2025/ "Preview op GitHub Pages")
+   - [dk/roadmap/2026-2027/](https://gitdocumentatie.logius.nl/publicatie/dk/roadmap/2026-2027/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/roadmap/2026-2027/ "Preview op GitHub Pages")
 - [dk/template/](https://gitdocumentatie.logius.nl/publicatie/dk/template/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/template/ "Preview op GitHub Pages")
    - [dk/template/0/](https://gitdocumentatie.logius.nl/publicatie/dk/template/0/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/template/0/ "Preview op GitHub Pages")
    - [dk/template/0.0/](https://gitdocumentatie.logius.nl/publicatie/dk/template/0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/template/0.0/ "Preview op GitHub Pages")
