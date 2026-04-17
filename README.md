@@ -262,6 +262,8 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [fsc/core/1.1.0/](https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/core/1.1.0/ "Preview op GitHub Pages")
    - [fsc/core/1.1.1/](https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.1.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/core/1.1.1/ "Preview op GitHub Pages")
    - [fsc/core/1.1.2/](https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.1.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/core/1.1.2/ "Preview op GitHub Pages")
+   - [fsc/core/2/](https://gitdocumentatie.logius.nl/publicatie/fsc/core/2/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/core/2/ "Preview op GitHub Pages")
+   - [fsc/core/2.0/](https://gitdocumentatie.logius.nl/publicatie/fsc/core/2.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/core/2.0/ "Preview op GitHub Pages")
    - [fsc/core/2.0.0/](https://gitdocumentatie.logius.nl/publicatie/fsc/core/2.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/core/2.0.0/ "Preview op GitHub Pages")
 - [fsc/ext/](https://gitdocumentatie.logius.nl/publicatie/fsc/ext/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/ext/ "Preview op GitHub Pages")
    - [fsc/ext/1/](https://gitdocumentatie.logius.nl/publicatie/fsc/ext/1/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/ext/1/ "Preview op GitHub Pages")
