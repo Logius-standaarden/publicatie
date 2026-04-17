@@ -107,6 +107,8 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [dk/actueel/1.12.0/](https://gitdocumentatie.logius.nl/publicatie/dk/actueel/1.12.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/actueel/1.12.0/ "Preview op GitHub Pages")
    - [dk/actueel/1.12.1/](https://gitdocumentatie.logius.nl/publicatie/dk/actueel/1.12.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/actueel/1.12.1/ "Preview op GitHub Pages")
    - [dk/actueel/1.12.2/](https://gitdocumentatie.logius.nl/publicatie/dk/actueel/1.12.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/actueel/1.12.2/ "Preview op GitHub Pages")
+   - [dk/actueel/1.13/](https://gitdocumentatie.logius.nl/publicatie/dk/actueel/1.13/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/actueel/1.13/ "Preview op GitHub Pages")
+   - [dk/actueel/1.13.0/](https://gitdocumentatie.logius.nl/publicatie/dk/actueel/1.13.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/actueel/1.13.0/ "Preview op GitHub Pages")
    - [dk/actueel/1.7/](https://gitdocumentatie.logius.nl/publicatie/dk/actueel/1.7/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/actueel/1.7/ "Preview op GitHub Pages")
    - [dk/actueel/1.8/](https://gitdocumentatie.logius.nl/publicatie/dk/actueel/1.8/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/actueel/1.8/ "Preview op GitHub Pages")
    - [dk/actueel/1.9.0/](https://gitdocumentatie.logius.nl/publicatie/dk/actueel/1.9.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/dk/actueel/1.9.0/ "Preview op GitHub Pages")
