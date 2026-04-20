@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.3.0">
+<meta name="generator" content="ReSpec 35.8.0">
 <style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
@@ -108,12 +108,14 @@ img.license{float:left;padding-right:5px;background:0 0}
     }
   ],
   "useLogo": true,
+  "fileName": "",
   "latestVersion": [
     "nl_organisationPublishURL",
     "pubDomain",
     "/",
     "shortName",
-    "/"
+    "/",
+    "fileName"
   ],
   "thisVersion": [
     "nl_organisationPublishURL",
@@ -122,7 +124,8 @@ img.license{float:left;padding-right:5px;background:0 0}
     "shortName",
     "/",
     "publishVersion",
-    "/"
+    "/",
+    "fileName"
   ],
   "prevVersion": [],
   "addSectionLinks": true,
@@ -216,7 +219,7 @@ img.license{float:left;padding-right:5px;background:0 0}
         "Jasper Roes",
         "Joost Farla"
       ],
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1",
       "publisher": "Logius",
       "title": "API Design Rules"
     },
@@ -274,12 +277,9 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
     },
     "CloudEvents": {
-      "authors": [
-        "@@@"
-      ],
       "date": "May 2011",
       "href": "https://github.com/cloudevents/spec/blob/v1.0.1/spec.md",
-      "publisher": "@@@",
+      "publisher": "CNCF Serverless Working Group",
       "title": "CloudEvents - Version 1.0.1"
     },
     "NLGOV-CloudEvents": {
@@ -552,12 +552,6 @@ img.license{float:left;padding-right:5px;background:0 0}
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
     },
-    "NCSC 2019": {
-      "date": "April 2019",
-      "href": "https://www.ncsc.nl/documenten/publicaties/2019/mei/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-tls",
-      "publisher": "NCSC",
-      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.0"
-    },
     "NCSC 2021": {
       "date": "Jan 2021",
       "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
@@ -568,7 +562,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "date": "June 2025",
       "href": "https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05",
       "publisher": "NCSC",
-      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+      "title": "Transport Layer Security (TLS) richtlijnen 2025-05"
     },
     "NEN3610": {
       "authors": [
@@ -621,7 +615,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "Lijst Verplichte standaarden"
     },
     "PKIO-PvE": {
-      "href": "https://por.pkioverheid.nl/",
+      "href": "https://cp.pkioverheid.nl/",
       "publisher": "Logius",
       "title": "Certificate Policy/Programme of Requirements PKIoverheid"
     },
@@ -730,7 +724,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "date": "March 2002"
     },
     "FSC-Core": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/2.0.0/",
       "title": "FSC - Core",
       "authors": [
         "Eelco Hotting",
@@ -743,7 +737,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "publisher": "Logius"
     },
     "FSC-Logging": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.1.0/",
       "title": "FSC - Logging",
       "authors": [
         "Eelco Hotting",
@@ -791,6 +785,11 @@ img.license{float:left;padding-right:5px;background:0 0}
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
+    "NLGOV.OAuth2": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
+      "publisher": "Logius",
+      "title": "NL GOV Assurance profile for OAuth 2.0"
+    },
     "ietf-oauth-v2-1-10-refresh-token-grant": {
       "authors": [
         "Dick Hardt, Aaron Parecki, Torsten Lodderstedt"
@@ -828,33 +827,36 @@ img.license{float:left;padding-right:5px;background:0 0}
   "publishVersion": "0.1.0",
   "editors": [
     {
-      "name": "Logius Standaarden",
+      "name": "Stas Mironov",
       "company": "Logius",
-      "companyURL": "https://logius.nl"
+      "companyURL": "https://www.logius.nl"
     }
   ],
   "authors": [
     {
       "name": "Martin van der Plas",
       "company": "Logius",
-      "companyURL": "https://logius.nl"
+      "companyURL": "https://www.logius.nl"
     }
   ],
   "github": "https://github.com/Logius-standaarden/OAuth-Inleiding",
   "preProcess": [
+    null,
+    null,
+    null,
     null
   ]
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
 
-<body class="h-entry informative toc-inline"><div class="head">
+<body class="h-entry toc-inline"><div class="head">
     <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">Algemene Inleiding Open Authenticatie (OAuth)</h1>
     
     <h2>
       Logius Praktijkrichtlijn<br>
       Werkversie
-      <time class="dt-published" datetime="2024-11-16">08 september 2025</time>
+      <time class="dt-published" datetime="2024-11-16">20 april 2026</time>
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
@@ -871,11 +873,11 @@ img.license{float:left;padding-right:5px;background:0 0}
       
       <dt>Redacteur:</dt>
       <dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Logius Standaarden</span> (<a class="p-org org h-org" href="https://logius.nl">Logius</a>)
+    <span class="p-name fn">Stas Mironov</span> (<a class="p-org org h-org" href="https://www.logius.nl">Logius</a>)
   </dd>
       
       <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Martin van der Plas</span> (<a class="p-org org h-org" href="https://logius.nl">Logius</a>)
+    <span class="p-name fn">Martin van der Plas</span> (<a class="p-org org h-org" href="https://www.logius.nl">Logius</a>)
   </dd>
       <dt>Doe mee:</dt><dd>
     <a href="https://github.com/Logius-standaarden/OAuth-Inleiding/">GitHub Logius-standaarden/OAuth-Inleiding</a>
@@ -891,18 +893,18 @@ img.license{float:left;padding-right:5px;background:0 0}
     
     <p>
           Dit document is ook beschikbaar in dit niet-normatieve formaat:
-          <a rel="alternate" href="api-oauth-inleiding-0.1.0.pdf">pdf</a>
+          <a rel="alternate" href="api-oauth-inleiding-0.1.0.pdf">PDF</a>
         </p>
     <p class="copyright">
             Dit document valt onder de volgende licentie: 
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
           </p>
     <hr title="Separator for header">
-  </div>
+  </div><section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#inleiding-document"><bdi class="secno">1. </bdi>Inleiding document</a></li><li class="tocline"><a class="tocxref" href="#oauth-de-basis"><bdi class="secno">2. </bdi>OAuth - De basis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#context"><bdi class="secno">2.2 </bdi>Context</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-onderstaand-schema-zijn-de-vier-bovenstaande-elementen-en-de-onderlinge-flow-weergegeven"><bdi class="secno">2.2.1 </bdi>In onderstaand schema zijn de vier bovenstaande elementen en de onderlinge flow weergegeven:</a></li><li class="tocline"><a class="tocxref" href="#de-flow-is-dan-als-volgt"><bdi class="secno">2.2.2 </bdi>De flow is dan als volgt:</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voorbeeld"><bdi class="secno">2.3 </bdi>Voorbeeld</a></li><li class="tocline"><a class="tocxref" href="#architectuur"><bdi class="secno">2.4 </bdi>Architectuur</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">2.5 </bdi>Referenties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#oauth-samenvatting-van-de-oauth-nl-standaard"><bdi class="secno">3. </bdi>OAuth - Samenvatting van de OAuth-NL standaard</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">3.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#schematische-weergave-van-de-flow-van-de-standaard"><bdi class="secno">3.1.1 </bdi>Schematische weergave van de flow van de standaard</a></li></ol></li><li class="tocline"><a class="tocxref" href="#vereisten"><bdi class="secno">3.2 </bdi>Vereisten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#x1-introductie"><bdi class="secno">3.2.1 </bdi>1. Introductie</a></li><li class="tocline"><a class="tocxref" href="#x2-client-profiel"><bdi class="secno">3.2.2 </bdi>2. Client profiel</a></li><li class="tocline"><a class="tocxref" href="#x3-authorization-server-profiel"><bdi class="secno">3.2.3 </bdi>3. Authorization Server profiel</a></li><li class="tocline"><a class="tocxref" href="#x4-protected-resource-api-profiel"><bdi class="secno">3.2.4 </bdi>4. Protected Resource (API) profiel</a></li><li class="tocline"><a class="tocxref" href="#x6-security-overwegingen"><bdi class="secno">3.2.5 </bdi>6. Security overwegingen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#disclaimer"><bdi class="secno">3.3 </bdi>!! Disclaimer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">4. </bdi>Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#use-case-digital-system-environmental-law"><bdi class="secno">4.1 </bdi>Use Case Digital System Environmental Law</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">4.1.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner"><bdi class="secno">4.1.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client"><bdi class="secno">4.1.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server"><bdi class="secno">4.1.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server"><bdi class="secno">4.1.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims"><bdi class="secno">4.1.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale"><bdi class="secno">4.1.7 </bdi>Rationale</a></li></ol></li><li class="tocline"><a class="tocxref" href="#rights-delegation-key-registry-buildings-adresses"><bdi class="secno">4.2 </bdi>Rights delegation key registry Buildings &amp; adresses</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview-0"><bdi class="secno">4.2.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner-0"><bdi class="secno">4.2.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client-0"><bdi class="secno">4.2.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server-0"><bdi class="secno">4.2.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server-0"><bdi class="secno">4.2.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims-0"><bdi class="secno">4.2.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale-0"><bdi class="secno">4.2.7 </bdi>Rationale</a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview-1"><bdi class="secno">4.3 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#rights-delegation-air-sensors-network"><bdi class="secno">4.4 </bdi>Rights delegation Air sensors network</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview-2"><bdi class="secno">4.4.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner-1"><bdi class="secno">4.4.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client-1"><bdi class="secno">4.4.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server-1"><bdi class="secno">4.4.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server-1"><bdi class="secno">4.4.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims-1"><bdi class="secno">4.4.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale-1"><bdi class="secno">4.4.7 </bdi>Rationale</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#detail-onderwerpen-oauth"><bdi class="secno">5. </bdi>Detail onderwerpen OAuth</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oauth-details"><bdi class="secno">5.1 </bdi>OAuth details</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#token-exchange"><bdi class="secno">5.1.1 </bdi>Token exchange</a></li></ol></li><li class="tocline"><a class="tocxref" href="#oin-en-pkio-in-relatie-tot-oauth-nlgov-profiel"><bdi class="secno">5.2 </bdi>OIN en PKIO in relatie tot OAuth NLGov profiel</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-1"><bdi class="secno">5.2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#context-0"><bdi class="secno">5.2.2 </bdi>Context:</a></li><li class="tocline"><a class="tocxref" href="#pki-referenties-de-standaard-heeft-de-volgende-relevante-verwijzingen-naar-pki-die-hieronder-verder-worden-toegelicht"><bdi class="secno">5.2.3 </bdi><strong>PKI referenties</strong>
+De standaard heeft de volgende relevante verwijzingen naar PKI die hieronder verder worden toegelicht:</a></li><li class="tocline"><a class="tocxref" href="#intenties"><bdi class="secno">5.2.4 </bdi>Intenties:</a></li><li class="tocline"><a class="tocxref" href="#conclusie"><bdi class="secno">5.2.5 </bdi>Conclusie:</a></li><li class="tocline"><a class="tocxref" href="#achtergrondinformatie"><bdi class="secno">5.2.6 </bdi>Achtergrondinformatie:</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vragen-duo"><bdi class="secno">5.2.6.1 </bdi>Vragen DUO:</a></li><li class="tocline"><a class="tocxref" href="#interpretatie-kennisnet"><bdi class="secno">5.2.6.2 </bdi>Interpretatie Kennisnet:</a></li><li class="tocline"><a class="tocxref" href="#links"><bdi class="secno">5.2.6.3 </bdi>Links:</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#orkestratie"><bdi class="secno">6. </bdi>Orkestratie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-2"><bdi class="secno">6.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wat-is-api-orkestratie"><bdi class="secno">6.1.1 </bdi>Wat is API Orkestratie?</a></li><li class="tocline"><a class="tocxref" href="#uitgangspunten"><bdi class="secno">6.1.2 </bdi>Uitgangspunten</a></li><li class="tocline"><a class="tocxref" href="#use-cases-0"><bdi class="secno">6.1.3 </bdi>Use cases</a></li><li class="tocline"><a class="tocxref" href="#aandachtsgebieden-van-orkestratie"><bdi class="secno">6.1.4 </bdi>Aandachtsgebieden van Orkestratie</a></li><li class="tocline"><a class="tocxref" href="#imx"><bdi class="secno">6.1.5 </bdi>IMX</a></li><li class="tocline"><a class="tocxref" href="#arazzo"><bdi class="secno">6.1.6 </bdi>Arazzo</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#belangrijkste-kenmerken"><bdi class="secno">6.1.6.1 </bdi>Belangrijkste Kenmerken</a></li><li class="tocline"><a class="tocxref" href="#relatie-met-openapi"><bdi class="secno">6.1.6.2 </bdi>Relatie met OpenAPI</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#orkestratie-beveiliging"><bdi class="secno">6.2 </bdi>Orkestratie beveiliging</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#context-1"><bdi class="secno">6.2.1 </bdi>Context</a></li><li class="tocline"><a class="tocxref" href="#use-cases-1"><bdi class="secno">6.2.2 </bdi>Use cases</a></li><li class="tocline"><a class="tocxref" href="#begrippen"><bdi class="secno">6.2.3 </bdi>Begrippen</a></li><li class="tocline"><a class="tocxref" href="#implicit-identity-reuse-token-based"><bdi class="secno">6.2.4 </bdi>Implicit Identity reuse - token based</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#rationale-2"><bdi class="secno">6.2.4.1 </bdi>Rationale</a></li><li class="tocline"><a class="tocxref" href="#identity"><bdi class="secno">6.2.4.2 </bdi>Identity</a></li><li class="tocline"><a class="tocxref" href="#authenticiteit"><bdi class="secno">6.2.4.3 </bdi>Authenticiteit</a></li><li class="tocline"><a class="tocxref" href="#autorisatie"><bdi class="secno">6.2.4.4 </bdi>Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#implicaties"><bdi class="secno">6.2.4.5 </bdi>Implicaties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#identity-propagation-token-based"><bdi class="secno">6.2.5 </bdi>Identity propagation - token based</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#rationale-3"><bdi class="secno">6.2.5.1 </bdi>Rationale</a></li><li class="tocline"><a class="tocxref" href="#identity-0"><bdi class="secno">6.2.5.2 </bdi>Identity</a></li><li class="tocline"><a class="tocxref" href="#authenticiteit-0"><bdi class="secno">6.2.5.3 </bdi>Authenticiteit</a></li><li class="tocline"><a class="tocxref" href="#autorisatie-0"><bdi class="secno">6.2.5.4 </bdi>Autorisatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#variatie-federated-identity-propagation"><bdi class="secno">6.2.6 </bdi>Variatie - Federated Identity Propagation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#implicaties-identity-propagation"><bdi class="secno">6.2.6.1 </bdi>Implicaties Identity propagation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conclusies-en-adviezen"><bdi class="secno">6.2.7 </bdi>Conclusies en Adviezen</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformiteit">Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>Naast onderdelen die als niet-normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet-normatief. Verder is alles in dit document normatief.</p></section>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document geeft een inleiding op Open Authentication, kortweg OAuth. De laatste werkversie van de OAuth.NLGov standaard is <a href="https://logius-standaarden.github.io/OAuth-NL-profiel/">gepubliceerd op github.io</a>, de laatste vastgestelde versie is <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">gepubliceerd op Logius.nl</a> en de bronbestanden staan in <a href="https://github.com/search?q=topic%3Aoauth+org%3ALogius-standaarden+fork%3Atrue&amp;type=repositories">de github repositories van Logius standaarden die zijn gemarkeerd met het topic "oauth"</a></p>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#inleiding-document"><bdi class="secno">1. </bdi>Inleiding document</a></li><li class="tocline"><a class="tocxref" href="#oauth-de-basis"><bdi class="secno">2. </bdi>OAuth - De basis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#context"><bdi class="secno">2.2 </bdi>Context</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-onderstaand-schema-zijn-de-vier-bovenstaande-elementen-en-de-onderlinge-flow-weergegeven"><bdi class="secno">2.2.1 </bdi>In onderstaand schema zijn de vier bovenstaande elementen en de onderlinge flow weergegeven:</a></li><li class="tocline"><a class="tocxref" href="#de-flow-is-dan-als-volgt"><bdi class="secno">2.2.2 </bdi>De flow is dan als volgt:</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voorbeeld"><bdi class="secno">2.3 </bdi>Voorbeeld</a></li><li class="tocline"><a class="tocxref" href="#architectuur"><bdi class="secno">2.4 </bdi>Architectuur</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">2.5 </bdi>Referenties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#oauth-samenvatting-van-de-oauth-nl-standaard"><bdi class="secno">3. </bdi>OAuth - Samenvatting van de OAuth-NL standaard</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">3.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#schematische-weergave-van-de-flow-van-de-standaard"><bdi class="secno">3.1.1 </bdi>Schematische weergave van de flow van de standaard</a></li></ol></li><li class="tocline"><a class="tocxref" href="#vereisten"><bdi class="secno">3.2 </bdi>Vereisten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#x1-introductie"><bdi class="secno">3.2.1 </bdi>1. Introductie</a></li><li class="tocline"><a class="tocxref" href="#x2-client-profiel"><bdi class="secno">3.2.2 </bdi>2. Client profiel</a></li><li class="tocline"><a class="tocxref" href="#x3-authorization-server-profiel"><bdi class="secno">3.2.3 </bdi>3. Authorization Server profiel</a></li><li class="tocline"><a class="tocxref" href="#x4-protected-resource-api-profiel"><bdi class="secno">3.2.4 </bdi>4. Protected Resource (API) profiel</a></li><li class="tocline"><a class="tocxref" href="#x6-security-overwegingen"><bdi class="secno">3.2.5 </bdi>6. Security overwegingen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#disclaimer"><bdi class="secno">3.3 </bdi>!! Disclaimer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">4. </bdi>Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#use-case-digital-system-environmental-law"><bdi class="secno">4.1 </bdi>Use Case Digital System Environmental Law</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">4.1.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner"><bdi class="secno">4.1.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client"><bdi class="secno">4.1.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server"><bdi class="secno">4.1.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server"><bdi class="secno">4.1.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims"><bdi class="secno">4.1.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale"><bdi class="secno">4.1.7 </bdi>Rationale</a></li></ol></li><li class="tocline"><a class="tocxref" href="#rights-delegation-key-registry-buildings-adresses"><bdi class="secno">4.2 </bdi>Rights delegation key registry Buildings &amp; adresses</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview-0"><bdi class="secno">4.2.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner-0"><bdi class="secno">4.2.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client-0"><bdi class="secno">4.2.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server-0"><bdi class="secno">4.2.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server-0"><bdi class="secno">4.2.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims-0"><bdi class="secno">4.2.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale-0"><bdi class="secno">4.2.7 </bdi>Rationale</a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview-1"><bdi class="secno">4.3 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#rights-delegation-air-sensors-network"><bdi class="secno">4.4 </bdi>Rights delegation Air sensors network</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview-2"><bdi class="secno">4.4.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner-1"><bdi class="secno">4.4.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client-1"><bdi class="secno">4.4.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server-1"><bdi class="secno">4.4.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server-1"><bdi class="secno">4.4.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims-1"><bdi class="secno">4.4.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale-1"><bdi class="secno">4.4.7 </bdi>Rationale</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#detail-onderwerpen-oauth"><bdi class="secno">5. </bdi>Detail onderwerpen OAuth</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oauth-details"><bdi class="secno">5.1 </bdi>OAuth details</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#token-exchange"><bdi class="secno">5.1.1 </bdi>Token exchange</a></li></ol></li><li class="tocline"><a class="tocxref" href="#oin-en-pkio-in-relatie-tot-oauth-nlgov-profiel"><bdi class="secno">5.2 </bdi>OIN en PKIO in relatie tot OAuth NLGov profiel</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-1"><bdi class="secno">5.2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#context-0"><bdi class="secno">5.2.2 </bdi>Context:</a></li><li class="tocline"><a class="tocxref" href="#pki-referenties-de-standaard-heeft-de-volgende-relevante-verwijzingen-naar-pki-die-hieronder-verder-worden-toegelicht"><bdi class="secno">5.2.3 </bdi><strong>PKI referenties</strong>
-De standaard heeft de volgende relevante verwijzingen naar PKI die hieronder verder worden toegelicht:</a></li><li class="tocline"><a class="tocxref" href="#intenties"><bdi class="secno">5.2.4 </bdi>Intenties:</a></li><li class="tocline"><a class="tocxref" href="#conclusie"><bdi class="secno">5.2.5 </bdi>Conclusie:</a></li><li class="tocline"><a class="tocxref" href="#achtergrondinformatie"><bdi class="secno">5.2.6 </bdi>Achtergrondinformatie:</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vragen-duo"><bdi class="secno">5.2.6.1 </bdi>Vragen DUO:</a></li><li class="tocline"><a class="tocxref" href="#interpretatie-kennisnet"><bdi class="secno">5.2.6.2 </bdi>Interpretatie Kennisnet:</a></li><li class="tocline"><a class="tocxref" href="#links"><bdi class="secno">5.2.6.3 </bdi>Links:</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#orkestratie"><bdi class="secno">6. </bdi>Orkestratie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-2"><bdi class="secno">6.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wat-is-api-orkestratie"><bdi class="secno">6.1.1 </bdi>Wat is API Orkestratie?</a></li><li class="tocline"><a class="tocxref" href="#uitgangspunten"><bdi class="secno">6.1.2 </bdi>Uitgangspunten</a></li><li class="tocline"><a class="tocxref" href="#use-cases-0"><bdi class="secno">6.1.3 </bdi>Use cases</a></li><li class="tocline"><a class="tocxref" href="#aandachtsgebieden-van-orkestratie"><bdi class="secno">6.1.4 </bdi>Aandachtsgebieden van Orkestratie</a></li><li class="tocline"><a class="tocxref" href="#imx"><bdi class="secno">6.1.5 </bdi>IMX</a></li><li class="tocline"><a class="tocxref" href="#arazzo"><bdi class="secno">6.1.6 </bdi>Arazzo</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#belangrijkste-kenmerken"><bdi class="secno">6.1.6.1 </bdi>Belangrijkste Kenmerken</a></li><li class="tocline"><a class="tocxref" href="#relatie-met-openapi"><bdi class="secno">6.1.6.2 </bdi>Relatie met OpenAPI</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#orkestratie-beveiliging"><bdi class="secno">6.2 </bdi>Orkestratie beveiliging</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#context-1"><bdi class="secno">6.2.1 </bdi>Context</a></li><li class="tocline"><a class="tocxref" href="#use-cases-1"><bdi class="secno">6.2.2 </bdi>Use cases</a></li><li class="tocline"><a class="tocxref" href="#begrippen"><bdi class="secno">6.2.3 </bdi>Begrippen</a></li><li class="tocline"><a class="tocxref" href="#implicit-identity-reuse-token-based"><bdi class="secno">6.2.4 </bdi>Implicit Identity reuse - token based</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#rationale-2"><bdi class="secno">6.2.4.1 </bdi>Rationale</a></li><li class="tocline"><a class="tocxref" href="#identity"><bdi class="secno">6.2.4.2 </bdi>Identity</a></li><li class="tocline"><a class="tocxref" href="#authenticiteit"><bdi class="secno">6.2.4.3 </bdi>Authenticiteit</a></li><li class="tocline"><a class="tocxref" href="#autorisatie"><bdi class="secno">6.2.4.4 </bdi>Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#implicaties"><bdi class="secno">6.2.4.5 </bdi>Implicaties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#identity-propagation-token-based"><bdi class="secno">6.2.5 </bdi>Identity propagation - token based</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#rationale-3"><bdi class="secno">6.2.5.1 </bdi>Rationale</a></li><li class="tocline"><a class="tocxref" href="#identity-0"><bdi class="secno">6.2.5.2 </bdi>Identity</a></li><li class="tocline"><a class="tocxref" href="#authenticiteit-0"><bdi class="secno">6.2.5.3 </bdi>Authenticiteit</a></li><li class="tocline"><a class="tocxref" href="#autorisatie-0"><bdi class="secno">6.2.5.4 </bdi>Autorisatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#variatie-federated-identity-propagation"><bdi class="secno">6.2.6 </bdi>Variatie - Federated Identity Propagation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#implicaties-identity-propagation"><bdi class="secno">6.2.6.1 </bdi>Implicaties Identity propagation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conclusies-en-adviezen"><bdi class="secno">6.2.7 </bdi>Conclusies en Adviezen</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">A.1 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
+  
   <section id="inleiding-document"><div class="header-wrapper"><h2 id="x1-inleiding-document"><bdi class="secno">1. </bdi>Inleiding document</h2><a class="self-link" href="#inleiding-document" aria-label="Permalink for Section 1."></a></div>
 <p>Dit document biedt een introductie in de OAuth standaard en met name het OAuth NLGov profiel wat op op de lijst verplichte standaarden is opgenomen van het Bureau Forum Standaardisatie <a href="https://forumstandaardisatie.gov.nl/open-standaarden/nl-gov-assurance-profile-oauth-20">link</a></p>
 <p>Het begrijpen en doorgronden van de implicaties van de OAuth standaarden en de profielen daarop blijken een steile leercurve te hebben en de technisch inhoudelijke documenten zijn niet geschikt voor een brede doelgroep die geen specialistische ICT kennis bezit van APIs, Authorisatie en security. Vandaar dit document waarmee we een algemeen beeld willen schetsen van de standaard. Dit doen we aan de hand van een praktijkvoorbeeld, een samenvatting van het profiel, een schets van de context en architectuur en verschillende use cases.
@@ -1212,7 +1214,7 @@ De standaard heeft de volgende relevante verwijzingen naar PKI die hieronder ver
 </section><section id="imx"><div class="header-wrapper"><h4 id="x6-1-5-imx"><bdi class="secno">6.1.5 </bdi>IMX</h4><a class="self-link" href="#imx" aria-label="Permalink for Section 6.1.5"></a></div>
 <p>Kadaster heeft in samenwerking met Geonovum het IMX initiatief gestart. Dit initiatief heeft als ambitie om basisregistraties (en andere bronnen) in samenhang te kunnen bevragen door middel van API orkestratie. Om op een efficiënte manier te kunnen orkestreren moeten bron API’s voldoen aan diverse randvoorwaarden. De uitdaging is om te onderzoeken welke randvoorwaarden dit zijn en op welke manier deze gestandaardiseerd zouden kunnen worden als design rules.</p>
 </section><section id="arazzo"><div class="header-wrapper"><h4 id="x6-1-6-arazzo"><bdi class="secno">6.1.6 </bdi>Arazzo</h4><a class="self-link" href="#arazzo" aria-label="Permalink for Section 6.1.6"></a></div>
-<p>De <a href="https://www.openapis.org/arazzo">Arazzo-specificatie</a> is een nieuwe, door de gemeenschap gedreven  standaard die is ontwikkeld onder het OpenAPI-initiatief, met als doel  de documentatie en interactie van API's te verbeteren. Het biedt een <strong>programmeertaal-onafhankelijk</strong> kader om reeksen API-aanroepen en hun afhankelijkheden te definiëren, waardoor de communicatie van workflows duidelijker wordt.</p>
+<p>De <a href="https://spec.openapis.org/arazzo/latest.html">Arazzo-specificatie</a> is een nieuwe, door de gemeenschap gedreven  standaard die is ontwikkeld onder het OpenAPI-initiatief, met als doel  de documentatie en interactie van API's te verbeteren. Het biedt een <strong>programmeertaal-onafhankelijk</strong> kader om reeksen API-aanroepen en hun afhankelijkheden te definiëren, waardoor de communicatie van workflows duidelijker wordt.</p>
 <p>Dit project bevindt zich echter nog in een vroeg stadium. Ook is het maar de vraag in hoeverre (commerciële) software vendors erbij gebaat zouden zijn een dergelijke standaard te implenteren. Verder wordt de kanttekening geplaatst dat benodigde stappen bij orkestratie ook dynamisch kunnen worden berekend, zoals bij IMX wordt gedaan. In dat geval is het specificeren van een workflow niet relevant.</p>
 <section id="belangrijkste-kenmerken"><div class="header-wrapper"><h5 id="x6-1-6-1-belangrijkste-kenmerken"><bdi class="secno">6.1.6.1 </bdi>Belangrijkste Kenmerken</h5><a class="self-link" href="#belangrijkste-kenmerken" aria-label="Permalink for Section 6.1.6.1"></a></div>
 <ul>
@@ -1352,13 +1354,13 @@ De standaard heeft de volgende relevante verwijzingen naar PKI die hieronder ver
 
 
 
-<section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-referenties"><bdi class="secno">A. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="informatieve-referenties">
-    <div class="header-wrapper"><h3 id="a-1-informatieve-referenties"><bdi class="secno">A.1 </bdi>Informatieve referenties</h3><a class="self-link" href="#informatieve-referenties" aria-label="Permalink for Appendix A.1"></a></div>
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-referenties"><bdi class="secno">A. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normatieve-referenties">
+    <div class="header-wrapper"><h3 id="a-1-normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</h3><a class="self-link" href="#normatieve-referenties" aria-label="Permalink for Appendix A.1"></a></div>
     <dl class="bibliography"><dt id="bib-rfc8693">[rfc8693]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc8693"><cite>OAuth 2.0 Token Exchange</cite></a>. M. Jones; A. Nadalin; B. Campbell, Ed.; J. Bradley; C. Mortimore.  IETF. January 2020. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8693">https://www.rfc-editor.org/rfc/rfc8693</a>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
-    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+    <a href="#title"><abbr title="Terug naar boven">↑</abbr></a>
   </p><script id="respec-dfn-panel">(() => {
 // @ts-check
 if (document.respec) {
