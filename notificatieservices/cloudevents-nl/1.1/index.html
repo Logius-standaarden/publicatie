@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.6.1">
+<meta name="generator" content="ReSpec 35.8.0">
 <style>
 .issue-label{text-transform:initial}
 .warning>p:first-child{margin-top:0}
@@ -882,12 +882,12 @@ The Governance of this standard is described by the API-Standaarden beheermodel 
     {
       "company": "Logius",
       "name": "Alexander Green",
-      "url": "https://logius.nl/standaarden"
+      "url": "https://www.logius.nl"
     },
     {
       "company": "Logius",
       "name": "Stas Mironov",
-      "url": "https://logius.nl/standaarden"
+      "url": "https://www.logius.nl"
     }
   ],
   "github": "https://github.com/Logius-standaarden/NL-GOV-profile-for-CloudEvents",
@@ -932,9 +932,9 @@ The Governance of this standard is described by the API-Standaarden beheermodel 
       
       <dt>Editors:</dt>
       <dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://logius.nl/standaarden">Alexander Green</a> (<span class="p-org org h-org">Logius</span>)
+    <a class="u-url url p-name fn" href="https://www.logius.nl">Alexander Green</a> (<span class="p-org org h-org">Logius</span>)
   </dd><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://logius.nl/standaarden">Stas Mironov</a> (<span class="p-org org h-org">Logius</span>)
+    <a class="u-url url p-name fn" href="https://www.logius.nl">Stas Mironov</a> (<span class="p-org org h-org">Logius</span>)
   </dd>
       
       <dt>Authors:</dt><dd class="editor p-author h-card vcard">
@@ -1003,8 +1003,7 @@ The Governance of this standard is described by the API-Standaarden beheermodel 
    </p>
   </aside></div>
   
-  <section id="abstract" class="introductory"><h2>Abstract</h2><h1>Abstract</h1>
-<p>CloudEvents is a vendor neutral specification for defining the format of event data. This specification profiles the CloudEvents specification to standardize the automated exchange of information about events, specifically applicable to the Dutch government.
+  <section id="abstract" class="introductory"><h2>Abstract</h2><p>CloudEvents is a vendor neutral specification for defining the format of event data. This specification profiles the CloudEvents specification to standardize the automated exchange of information about events, specifically applicable to the Dutch government.
 The Governance of this standard is described by the <a href="https://gitdocumentatie.logius.nl/publicatie/api/beheermodel/">API-Standaarden beheermodel</a> published by Logius.</p>
 </section>
   
@@ -1017,10 +1016,10 @@ It should be considered a fork of this profile as the CloudEvents specification 
 
 <p>Starting with chapter <a href="#introduction">Introduction</a> we follow the structure of the CloudEvents profile. Where we do not use content from CloudEvents we use <del>strikethrough</del> to indicate it is not part of CloudEvents-NL. Where we have added more specific requirements for the Dutch situation this is indicated with the <strong>CloudEvents-NL</strong> tag.</p>
 <section><div class="header-wrapper"><h3 id="usecases">Usecases</h3><a class="self-link" href="#usecases" aria-label="Permalink for this Section"></a></div>
- <figure id="authorization_code">
-    <img alt="Pubsub image" src="media/use-case-pubsub1.png" width="600">
-    <figcaption><a class="self-link" href="#authorization_code">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">Publish-subscribe pattern</span></figcaption>
- </figure>
+<figure id="authorization_code">
+  <img alt="Pubsub image" src="media/use-case-pubsub1.png" width="600">
+  <figcaption><a class="self-link" href="#authorization_code">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">Publish-subscribe pattern</span></figcaption>
+</figure>
 
 </section><section><div class="header-wrapper"><h3 id="introduction">Introduction</h3><a class="self-link" href="#introduction" aria-label="Permalink for this Section"></a></div>
 <p>The basic pattern for use cases describes a (public/governmental) application in the role of '<a href="#producer">producer</a>' that publishes '<a href="#event">events</a>': data records expressing an occurrence and its context. Published events can be consumed by applications in the role of '<a href="#consumer">consumer</a>'. Consumers subscribe to certain types of events. There may be one or more applications in the role of '<a href="#intermediary">intermediary</a>' that take care of routing events to consumers based on contextual information. This is akin to the <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">publish-subscribe pattern</a>.</p>
@@ -1060,8 +1059,7 @@ prepared for the situation where a consumer ignores that feature. An
 <p>This specification defines the following terms:</p>
 <section id="data-schema"><div class="header-wrapper"><h4 id="x2-2-1-data-schema"><bdi class="secno">2.2.1 </bdi>Data Schema</h4><a class="self-link" href="#data-schema" aria-label="Permalink for Section 2.2.1"></a></div>
 <p>The "dataschema" refers to the technical specification of the attributes in a given event. Currently <a href="https://github.com/cloudevents/spec/tree/v1.0.2/cloudevents/formats">v1.0.2 of CloudEvents</a> specifies various different formats for documenting the dataschema.</p>
-<p>"Dataschema" attribute is expected to be informational, largely to be used during development and by tooling that is able to provide diagnostic information over arbitrary CloudEvents with a data content type understood by that tooling. For further specifications, see <a href="#dataschema" data-matched-text="[[[#dataschema]]]" class="sec-ref"><bdi class="secno">3.4.2 </bdi>dataschema</a>.
-]</p>
+<p>"Dataschema" attribute is expected to be informational, largely to be used during development and by tooling that is able to provide diagnostic information over arbitrary CloudEvents with a data content type understood by that tooling. For further specifications, see <a href="#dataschema" data-matched-text="[[[#dataschema]]]" class="sec-ref"><bdi class="secno">3.4.2 </bdi>dataschema</a>.</p>
 </section><section id="occurrence"><div class="header-wrapper"><h4 id="x2-2-2-occurrence"><bdi class="secno">2.2.2 </bdi>Occurrence</h4><a class="self-link" href="#occurrence" aria-label="Permalink for Section 2.2.2"></a></div>
 <p>An "occurrence" is the capture of a statement of fact during the operation of a
 software system. This might occur because of a signal raised by the system or a
@@ -1243,11 +1241,11 @@ Events with identical <code>source</code> and <code>id</code> are duplicates.</l
 </li>
 </ul>
 <aside class=" addition">
-<b>CloudEvents-NL: Additional content</b><br>  
+<b>CloudEvents-NL: Additional content</b><br>
 
 <ul>
 <li>Constraints:<ul>
-<li>If an ID is available that can persistently identify the event, producers <em class="rfc2119">MUST</em> 
+<li>If an ID is available that can persistently identify the event, producers <em class="rfc2119">MUST</em>
 use that ID. For example so that consumers may use <code>id</code> to request information
 about the event from the source.</li>
 <li>If no ID is available that can persistently identify the event producers <em class="rfc2119">SHOULD</em> use a random ID:<ul>
@@ -1259,10 +1257,12 @@ about the event from the source.</li>
 </li>
 <li>Examples:<ul>
 <li>'doc2021033441' (ID of the document created as a result of an event that occurred).</li>
-<li>'f3dce042-cd6e-4977-844d-05be8dce7cea' (UUID generated with the sole function of 
-being able to uniquely identify the event.</li></ul></li></ul></aside>
-
-
+<li>'f3dce042-cd6e-4977-844d-05be8dce7cea' (UUID generated with the sole function of
+being able to uniquely identify the event.</li>
+</ul>
+</li>
+</ul>
+</aside>
 
 </section><section id="source-0"><div class="header-wrapper"><h4 id="x3-3-2-source"><bdi class="secno">3.3.2 </bdi>source</h4><a class="self-link" href="#source-0" aria-label="Permalink for Section 3.3.2"></a></div>
 <ul>
@@ -1309,7 +1309,7 @@ collaborate to ensure that <code>source</code> + <code>id</code> is unique for e
 </li>
 </ul>
 <aside class=" addition">
-<b>CloudEvents-NL: Additional content</b><br> 
+<b>CloudEvents-NL: Additional content</b><br>
 
 <ul>
 <li>Constraints:<ul>
@@ -1337,10 +1337,12 @@ national, European or worldwide)</li>
 <li>urn:nld:oin:00000001823288444000:systeem:BRP-component</li>
 <li>urn:nld:kvknr:09220932.burgerzakensysteem</li>
 <li>urn:nld:gemeente-nijmegen.burgerzakensysteem</li>
-<li>urn:nld:gemeente-Bergen%20%28L%29.burgerzakensysteem
-<strong><em>Comment</em></strong>: The use of (unique) descriptions increases recognisability, but also has disadvantages such as occurred changes or required encoding (like in the above example where "Bergen (L)" requires encoding).</li></ul></li></ul></aside>
-
-
+<li>urn:nld:gemeente-Bergen%20%28L%29.burgerzakensysteem</li>
+</ul>
+</li>
+</ul>
+<p><strong><em>Comment</em></strong>: The use of (unique) descriptions increases recognisability, but also has disadvantages such as occurred changes or required encoding (like in the above example where "Bergen (L)" requires encoding).</p>
+</aside>
 
 </section><section id="specversion"><div class="header-wrapper"><h4 id="x3-3-3-specversion"><bdi class="secno">3.3.3 </bdi>specversion</h4><a class="self-link" href="#specversion" aria-label="Permalink for Section 3.3.3"></a></div>
 <ul>
@@ -1387,7 +1389,7 @@ organization which defines the semantics of this event type.</li>
 </li>
 </ul>
 <aside class=" addition">
-<b>CloudEvents-NL: Additional content</b><br> 
+<b>CloudEvents-NL: Additional content</b><br>
 
 <p>Constraints:</p>
 <ul>
@@ -1409,7 +1411,6 @@ organization which defines the semantics of this event type.</li>
 <li>Names of organizations <em class="rfc2119">SHOULD NOT</em> be used (because they are not time invariant).</li>
 </ul>
 </aside>
-
 
 </section></section><section id="optional-attributes"><div class="header-wrapper"><h3 id="x3-4-optional-attributes"><bdi class="secno">3.4 </bdi><em class="rfc2119">OPTIONAL</em> Attributes</h3><a class="self-link" href="#optional-attributes" aria-label="Permalink for Section 3.4"></a></div>
 <p>The following attributes are <em class="rfc2119">OPTIONAL</em> to appear in CloudEvents. See the
@@ -1458,8 +1459,8 @@ set explicitly to the implied <code>datacontenttype</code> of the source.</p>
 <p>Constraints:</p>
 <ul>
 <li>JSON-format <em class="rfc2119">SHOULD</em> be used (see <cite><a data-matched-text="[[[ADR]]]" href="https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1">API Design Rules</a></cite>). Part of this is the intention to
-name JSON as the primary representation format for APIs. Because APIs play an 
-important role in communicating events (e.g., when using the webhook pattern) the JSON format is 
+name JSON as the primary representation format for APIs. Because APIs play an
+important role in communicating events (e.g., when using the webhook pattern) the JSON format is
 preferred to use for payload data.</li>
 </ul>
 </aside>
@@ -1483,9 +1484,9 @@ for more information.</li>
 <p>Constraints:</p>
 <ul>
 <li>It <em class="rfc2119">SHOULD</em> be prevented that different schedules arise for the same data.</li>
-<li>The dataschema attribute is expected to be informational, largely to be used 
-during development and by tooling that is able to provide diagnostic information 
-over arbitrary CloudEvents with a data content type understood by that tooling 
+<li>The dataschema attribute is expected to be informational, largely to be used
+during development and by tooling that is able to provide diagnostic information
+over arbitrary CloudEvents with a data content type understood by that tooling
 (see: <a href="https://github.com/cloudevents/spec/blob/v1.0.1/primer.md#the-role-of-the-dataschema-attribute-within-versioning">The role of the dataschema attribute within versioning</a></li>
 </ul>
 </aside>
@@ -1533,7 +1534,7 @@ the name of the newly created blob is carried in <code>subject</code>:<ul>
 
 <p>Constraints:</p>
 <ul>
-<li>Decision on whether or not to use the attribute and/or the exact interpretation is postponed. 
+<li>Decision on whether or not to use the attribute and/or the exact interpretation is postponed.
 To be determined partly on the basis of future agreements about subscription and filtering.</li>
 </ul>
 <p>Example:</p>
@@ -1564,12 +1565,12 @@ the same algorithm to determine the value used.</li>
 <b>CloudEvents-NL: Additional content</b><br>
 
 <ul>
-<li>The time the event was logged <em class="rfc2119">SHOULD</em> be used (in many cases this is the only 
+<li>The time the event was logged <em class="rfc2119">SHOULD</em> be used (in many cases this is the only
 time that can be determined unambiguously).</li>
 <li>The exact meaning of <code>time</code> <em class="rfc2119">MUST</em> be clearly documented.</li>
-<li>The time when an event occurred in reality <em class="rfc2119">SHOULD NOT</em> be used (if there is a need for this 
+<li>The time when an event occurred in reality <em class="rfc2119">SHOULD NOT</em> be used (if there is a need for this
 among consumers, this can be included in payload data).</li>
-<li>If the time when an event occurred in reality is needed for things like 
+<li>If the time when an event occurred in reality is needed for things like
 routing or filtering, it can be included as a context attribute by the producer.</li>
 </ul>
 </aside>
@@ -1616,15 +1617,15 @@ events.</p>
 <b>CloudEvents-NL: Additional content</b><br>
 
 <ul>
-<li>Two of the extension attributes included by CloudEvents ('dataref' and 
-'sequence') are included as optional attributes in the CloudEvents-NL profile 
+<li>Two of the extension attributes included by CloudEvents ('dataref' and
+'sequence') are included as optional attributes in the CloudEvents-NL profile
 because it is foreseen that there is often a need to use these attributes.</li>
-<li>Extension attributes should be kept minimal to ensure the CloudEvent can be 
-properly serialized and transported (e.g. when using HTTP-headers most HTTP 
+<li>Extension attributes should be kept minimal to ensure the CloudEvent can be
+properly serialized and transported (e.g. when using HTTP-headers most HTTP
 servers will reject requests with excessive HTTP header data).</li>
 </ul>
 </aside>
-  
+
 </section><section id="dataref"><div class="header-wrapper"><h4 id="x3-4-7-dataref"><bdi class="secno">3.4.7 </bdi>dataref</h4><a class="self-link" href="#dataref" aria-label="Permalink for Section 3.4.7"></a></div>
 <ul>
 <li><p>Type: <code>URI-reference</code></p>
@@ -1672,11 +1673,11 @@ both <code>data</code> and <code>dataref</code> (serialized as JSON):</p>
 <b>CloudEvents-NL: Additional content</b><br>
 
 <ul>
-<li><em class="rfc2119">MAY</em> be used to reference an external data location (for example: a link back to 
+<li><em class="rfc2119">MAY</em> be used to reference an external data location (for example: a link back to
 the producer of the event that can be queried for more information about the event).</li>
-<li><em class="rfc2119">MAY</em> be used to implenment 'informatiearm notificeren' where the consumer of the 
-event receives some minimal information on the nature of the event, but then has 
-to issue a request back to the producer to obtain additional information (the time 
+<li><em class="rfc2119">MAY</em> be used to implenment 'informatiearm notificeren' where the consumer of the
+event receives some minimal information on the nature of the event, but then has
+to issue a request back to the producer to obtain additional information (the time
 aspect may deserve attention because changes may occur in the period that consumers
 are notified and the time of requesting additional information).</li>
 </ul>
@@ -1727,11 +1728,13 @@ subsequent value (i.e. be contiguous and monotonically increasing).</li>
 <b>CloudEvents-NL: Additional content</b><br>
 
 <ul>
-<li>Attribute 'sequence' can be helpful in situations where:</li>
-<li>a form of 'pull mechanism' is used ((e.g. periodically fetching events by consumers 
-  via HTTP request)) or</li>
-<li>where there is a need for (re)synchronization (e.g. 
+<li>Attribute 'sequence' can be helpful in situations where:<ul>
+<li>a form of 'pull mechanism' is used ((e.g. periodically fetching events by consumers
+via HTTP request)) or</li>
+<li>where there is a need for (re)synchronization (e.g.
 after errors have occurred).</li>
+</ul>
+</li>
 </ul>
 </aside></section></section></section></section></section>
   <section id="event-data"><div class="header-wrapper"><h2 id="x4-event-data"><bdi class="secno">4. </bdi>Event Data</h2><a class="self-link" href="#event-data" aria-label="Permalink for Section 4."></a></div>
@@ -1823,9 +1826,11 @@ exchange of CloudEvents.</p>
     <span class="hljs-attr">"data"</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">"&lt;much wow=\"xml\"/&gt;"</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-<p><strong>CloudEvents-NL</strong></p>
+<aside class=" addition">
+<b>CloudEvents-NL: Additional content</b><br>
+
 <p>In the example below, a number of agreements are visible as they apply within the CloudEvents-NL profile.
-In order to show as much things as possible, this is done in the form of a very extensive message. 
+In order to show as much things as possible, this is done in the form of a very extensive message.
 In minimal form, a message contains only four mandatory attributes: <code>id</code>, <code>source</code>, <code>specversion</code> and <code>type</code>.
 For more information about a particular attribute, see the detailed attribute description.</p>
 <pre><code class="JSON hljs json" aria-busy="false"><span class="hljs-punctuation">{</span>
@@ -1910,10 +1915,10 @@ For more information about a particular attribute, see the detailed attribute de
 </tbody></table>
 <p>Attribute names meet the CloudEvents specification requirements:</p>
 <ul>
-<li><em class="rfc2119">MUST</em> consist of lower-case letters ('a' to 'z') or digits ('0' to '9') from the ASCII character set. </li>
+<li><em class="rfc2119">MUST</em> consist of lower-case letters ('a' to 'z') or digits ('0' to '9') from the ASCII character set.</li>
 <li><em class="rfc2119">SHOULD</em> be descriptive and terse and <em class="rfc2119">SHOULD NOT</em> exceed 20 characters in length.</li>
 </ul>
-</section>
+</aside></section>
   <section class="appendix" id="use-of-json-http-and-webhook"><div class="header-wrapper"><h2 id="a-use-of-json-http-and-webhook"><bdi class="secno">A. </bdi>Use of JSON, HTTP and Webhook</h2><a class="self-link" href="#use-of-json-http-and-webhook" aria-label="Permalink for Appendix A."></a></div>
 <p>This appendix describes how the CloudEvent-NL profile can be applied when using the JSON format, the HTTP protocol and the Webhook pattern.</p>
 <p>The CloudEvent-NL message format can be used when using different formats and protocols. CloudEvents has a <a href="https://github.com/cloudevents/spec/blob/v1.0.1/primer.md#architecture">layered architecture</a> for this. In order to be able to use the GOV-NL profile properly in practice, agreements must also be made when a certain format and/or protocol is used.</p>
