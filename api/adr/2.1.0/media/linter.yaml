@@ -6,15 +6,15 @@
 # configuratie.
 #
 # Voor meer informatie hierover, zie de kennisbank van DON:
-# https://developer.overheid.nl/kennisbank/apis/api-design-rules/api-design-rules-linter
+# https://developer.overheid.nl/kennisbank/apis/tools/api-design-rules-linter
 #
 # Hierbij ook de ingevoegde instructies die kunnen worden gekopieerd om de linter
 # te draaien:
 #
 # ```
 # npm install -g @stoplight/spectral-cli
-# curl -L https://static.developer.overheid.nl/adr/ruleset.yaml > .linter.yml
-# spectral lint -r .linter.yml $OAS_URL_OR_FILE
+# curl -L https://static.developer.overheid.nl/adr/ruleset.yaml > .spectral.yml
+# spectral lint -r .spectral.yml $OAS_URL_OR_FILE
 # ```
 
 extends: spectral:oas
@@ -23,25 +23,18 @@ rules:
   oas3-api-servers: error
 
   #/core/doc-openapi
-  nlgov:openapi3:
+  openapi3:
     severity: error
-    given: $.['openapi']
+    given:
+      - "$.['openapi']"
     then:
       function: pattern
       functionOptions:
-        match: '^3(.\d+){1,2}$'
-    message: "The OpenAPI Specification is versioned using a `major.minor.patch` versioning scheme. Use a version 3 OpenAPI Specification for documentation."
-
-  nlgov:openapi-root-exists:
-    severity: error
-    given: $
-    then:
-      field: openapi
-      function: truthy
-    message: "The root of the document must contain the `openapi` property."
+        match: "^3.0.*$"
+    message: "Use OpenAPI Specification for documentation"
 
   #/core/version-header
-  nlgov:missing-version-header:
+  missing-version-header:
     severity: error
     given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))][headers]
     then:
@@ -53,20 +46,18 @@ rules:
           - Api-version
           - api-version
           - API-version
-    message: "Return the full version number in a response header."
-    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/version-header"
+    message: "Return the full version number in a response header"
 
-  nlgov:missing-header:
+  missing-header:
     severity: error
     given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))]
     then:
       field: headers
       function: truthy
-    message: "Return the full version number in a response header."
-    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/version-header"
+    message: "/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
 
   #/core/uri-version
-  nlgov:include-major-version-in-uri:
+  include-major-version-in-uri:
     severity: error
     given:
       - "$.servers[*]"
@@ -75,11 +66,10 @@ rules:
       functionOptions:
         match: "\\/v[\\d+]"
       field: url
-    message: "Include the major version number in the URI."
-    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/uri-version"
+    message: "/core/uri-version: Include the major version number in the URI: https://logius-standaarden.github.io/API-Design-Rules/#/core/uri-version"
 
   #/core/no-trailing-slash
-  nlgov:paths-no-trailing-slash:
+  paths-no-trailing-slash:
     severity: error
     given:
       - "$.paths"
@@ -88,21 +78,43 @@ rules:
       functionOptions:
         notMatch: ".+ \\/$"
       field: "@key"
-    message: "Leave off trailing slashes from URIs."
-    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/no-trailing-slash"
+    message: "/core/no-trailing-slash: Leave off trailing slashes from URIs: https://logius-standaarden.github.io/API-Design-Rules/#/core/no-trailing-slash"
 
-  #/core/doc-openapi-contact
-  info-contact:
+  #/core/publish-openapi
+  paths-open-api-json-resource-exists:
     severity: error
     given:
-      - "$"
+      - "$.paths"
     then:
-      field: "info.contact"
       function: truthy
-    message: 'Info object must have "contact" object.'
-    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/doc-openapi-contact"
+      field: "/openapi.json"
+    message: "There does not exist a resource `/openapi.json` that returns the OpenAPI specification document"
 
-  nlgov:info-contact-fields-exist:
+  paths-open-api-json-resource-has-get:
+    severity: error
+    given:
+      - "$.paths[/openapi.json]"
+    then:
+      function: pattern
+      functionOptions:
+        match: "get"
+      field: "@key"
+    message: "There does not exist a GET method (and no other methods) for the `/openapi.json` resource"
+
+  paths-open-api-json-specify-cors-header:
+    severity: error
+    given:
+      - $.paths[/openapi.json].get.responses[?(@property && @property.match(/(2|3)\d\d/))].headers
+    then:
+      function: truthy
+      field: "access-control-allow-origin"
+    message: "The response of the `/openapi.json` resource should set the `access-control-allow-origin` header with value `*`"
+
+  #/core/doc-openapi-contact
+  # This rule exists in the base oas spectral linter set
+  info-contact: error
+
+  info-contact-fields-exist:
     severity: error
     given:
       - "$.info.contact"
@@ -115,10 +127,9 @@ rules:
             - name
             - url
     message: "Missing fields in `info.contact` field. Must specify email, name and url."
-    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/doc-openapi-contact"
 
   #/core/http-methods
-  nlgov:http-methods:
+  http-methods:
     severity: error
     given:
       - "$.paths[?(@property && @property.match(/(description|summary)/i))]"
@@ -127,12 +138,10 @@ rules:
       functionOptions:
         match: "post|put|get|delete|patch|parameters"
       field: "@key"
-    message: "Only apply standard HTTP methods."
-    documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/http-methods"
+    message: "/core/http-methods: Only apply standard HTTP methods: https://logius-standaarden.github.io/API-Design-Rules/#http-methods"
 
-  #/core/path-segments-kebab-case
-  nlgov:paths-kebab-case:
-    severity: error
+  paths-kebab-case:
+    severity: warn
     message: "{{property}} is not kebab-case."
     given: $.paths[?(@property && !@property.match(/\/openapi\.json/))]~
     then:
@@ -146,22 +155,9 @@ rules:
         # - Een pad mag eindigen met een `/`. Dat is volgens een andere regel niet toegestaan, maar we willen niet twee errors genereren
         match: ^(\/|(\/_[a-z0-9]+|\/(([a-z0-9\-]+|{[^}]+})(\/([a-z0-9\-\.]+|{[^}]+}))*)(\/_[a-z]+)?)\/?)$
 
-  #/core/query-keys-camel-case
-  nlgov:query-keys-camel-case:
-    severity: error
-    message: "{{value}} is not lower camelCase."
-    given:
-      - $.paths.*.*.parameters[?(@.in=='query')]
-      - $.components.securitySchemes[?(@.in=='query')]
-    then:
-      function: pattern
-      field: name
-      functionOptions:
-        match: ^\$?[a-z][a-z\d]*([A-Z][a-z\d]*)*$
-
-  nlgov:schema-camel-case:
+  schema-camel-case:
     severity: warn
-    message: "Schema name should be UpperCamelCase in {{path}}"
+    message: "Schema name should be CamelCase in {{path}}"
     given: >-
       $.components.schemas[*]~
     then:
@@ -171,7 +167,7 @@ rules:
         separator:
           char: ""
 
-  nlgov:servers-use-https:
+  servers-use-https:
     severity: warn
     message: "Server URL {{value}} {{error}}."
     given:
@@ -183,7 +179,7 @@ rules:
       functionOptions:
         match: ^https://.*
 
-  nlgov:use-problem-schema:
+  use-problem-schema:
     severity: warn
     message: "The content type of an error response should be application/problem+json or application/problem+xml to match RFC 9457."
     given: $..[responses][?(@property && @property.match(/(4|5)\d\d/))].content
@@ -195,7 +191,7 @@ rules:
             - required: ["application/problem+json"]
             - required: ["application/problem+xml"]
 
-  nlgov:property-casing:
+  property-casing:
     severity: warn
     given:
       - "$.*.schemas[*].properties.[?(@property && @property.match(/_links/i))]"
@@ -205,12 +201,3 @@ rules:
         type: camel
       field: "@key"
     message: Properties must be lowerCamelCase.
-
-  nlgov:semver:
-    severity: error
-    message: "Version {{value}} is not in semver format."
-    given: $.info.version
-    then:
-      function: pattern
-      functionOptions:
-        match: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
