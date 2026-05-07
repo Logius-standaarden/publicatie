@@ -604,7 +604,11 @@ const organisationConfig = {
     "logboek dataverwerkingen": {
       href: "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
       publisher: "Logius",
-      title: "Logboek Dataverwerkingen"
+      title: "Logboek Dataverwerkingen",
+      "logboek dataverwerkingen beleidskader": {
+      href: "https://logius-standaarden.github.io/logboek-dataverwerkingen-juridisch-beleidskader/",
+      publisher: "Logius",
+      title: "Logboek Dataverwerkingen Beleidskader"
     }
   }
 };
