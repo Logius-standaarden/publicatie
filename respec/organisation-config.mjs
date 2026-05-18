@@ -164,11 +164,11 @@ const organisationConfig = {
       publisher: "CNCF Serverless Working Group",
       title: "CloudEvents - Version 1.0.1"
     },
-    "NLGOV-CloudEvents": {
+    "NLgov.CloudEvents": {
       authors: ["Werkgroep Berichtenstandaard (Project Notificatieservices)"],
-      href: "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      href: "https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/",
       publisher: "Logius",
-      title: "NL GOV profile for CloudEvents"
+      title: "NLgov profile for CloudEvents"
     },
     "DK-CV": {
       href: "https://gitlab.com/logius/digikoppeling-compliance",
@@ -349,11 +349,11 @@ const organisationConfig = {
       publisher: "OpenID foundation",
       title: "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
-    "NLGOV.OpenID": {
+    "NLgov.OpenID": {
       authors: ["Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"],
       href: "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
       publisher: "Logius",
-      title: "OpenID NLGov"
+      title: "NLgov Assurance profile for OpenID Connect 1.0"
     },
     "Introspection": {
       authors: ["J. Richer"],
@@ -597,12 +597,16 @@ const organisationConfig = {
       title: "FAPI 2.0 Security Profile"
     },
     "logboek-extensie-guideline": {
-      href: "https://logius-standaarden.github.io/logboek-extensie-template/",
+      authors: ["Nil Barua", "Tim van der Lippe"],
+      date: "April 9 2026",
+      href: "https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/",
       publisher: "Logius",
-      title: "LDV Extensie Guideline"
+      title: "Logboek Dataverwerkingen Extensie Guidelines"
     },
     "logboek dataverwerkingen": {
-      href: "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      authors: ["Eelco Hotting", "Vedran Bilanovic"],
+      date: "April 9 2026",
+      href: "https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/",
       publisher: "Logius",
       title: "Logboek Dataverwerkingen"
     }
