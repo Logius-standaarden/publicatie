@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.3.0">
+<meta name="generator" content="ReSpec 37.0.0">
 <style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
@@ -16,6 +16,7 @@ dfn{cursor:pointer}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
 .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
 .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
 .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
 .dfn-panel a[href]:hover{border-bottom-width:1px}
 .dfn-panel ul{padding:0}
@@ -28,12 +29,6 @@ dfn{cursor:pointer}
 <link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon">
   
 <title>BOMOS aanvullende modules: Stelsels</title>
-  
-  
-  
-<script>
-   respecConfig = {...organisationConfig, ...respecConfig};
-  </script>
   
  
 <style id="respec-mainstyle">
@@ -52,13 +47,17 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
 cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
 #issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
+#issue-summary li{list-style:none}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
 details.respec-tests-details>*{padding-right:2em}
 details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
@@ -67,7 +66,8 @@ details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
 :is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
 :is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
 :is(h2,h3)+a.self-link{top:-.2em}
@@ -78,6 +78,8 @@ dd{margin-left:0}
 @media print{
 .removeOnSave{display:none}
 }
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
 <style id="respec-nlgov">
 img.license{float:left;padding-right:5px;background:0 0}
@@ -118,12 +120,15 @@ img.license{float:left;padding-right:5px;background:0 0}
       "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
     }
   ],
+  "useLogo": true,
+  "fileName": "",
   "latestVersion": [
     "nl_organisationPublishURL",
     "pubDomain",
     "/",
     "shortName",
-    "/"
+    "/",
+    "fileName"
   ],
   "thisVersion": [
     "nl_organisationPublishURL",
@@ -132,12 +137,10 @@ img.license{float:left;padding-right:5px;background:0 0}
     "shortName",
     "/",
     "publishVersion",
-    "/"
+    "/",
+    "fileName"
   ],
   "prevVersion": [],
-  "useLogo": true,
-  "useLabel": true,
-  "license": "cc-by",
   "addSectionLinks": true,
   "localizationStrings": {
     "en": {
@@ -201,6 +204,7 @@ img.license{float:left;padding-right:5px;background:0 0}
     "cv": "#000000",
     "vv": "#000000"
   },
+  "useLabel": true,
   "licenses": {
     "cc0": {
       "name": "Creative Commons 0 Public Domain Dedication",
@@ -221,13 +225,14 @@ img.license{float:left;padding-right:5px;background:0 0}
       "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
     }
   },
+  "license": "cc-by",
   "localBiblio": {
     "ADR": {
       "authors": [
         "Jasper Roes",
         "Joost Farla"
       ],
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.0",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
       "publisher": "Logius",
       "title": "API Design Rules"
     },
@@ -251,19 +256,19 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
     },
     "Algemene Voorwaarden Logius": {
-      "date": "12 juni 2018",
+      "date": "12 juni, 2018",
       "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
     "AuthZEN": {
-      "date": "6 September 2024 ",
+      "date": "September 6, 2024 ",
       "href": "https://openid.net/specs/authorization-api-1_0-01.html",
       "publisher": "OpenID",
       "title": "Authorization API 1.0 – draft 01"
     },
     "AVG": {
-      "date": "27 april 2016",
+      "date": "April 27, 2016",
       "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
       "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
       "title": "Algemene Verordening Gegevensbescherming"
@@ -285,21 +290,18 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
     },
     "CloudEvents": {
-      "authors": [
-        "@@@"
-      ],
       "date": "May 2011",
       "href": "https://github.com/cloudevents/spec/blob/v1.0.1/spec.md",
-      "publisher": "@@@",
+      "publisher": "CNCF Serverless Working Group",
       "title": "CloudEvents - Version 1.0.1"
     },
-    "NLGOV-CloudEvents": {
+    "NLgov.CloudEvents": {
       "authors": [
         "Werkgroep Berichtenstandaard (Project Notificatieservices)"
       ],
-      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/",
       "publisher": "Logius",
-      "title": "NL GOV profile for CloudEvents"
+      "title": "NLgov profile for CloudEvents"
     },
     "DK-CV": {
       "href": "https://gitlab.com/logius/digikoppeling-compliance",
@@ -417,7 +419,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "Oasis"
       ],
-      "date": "september 2002",
+      "date": "September 2002",
       "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
       "publisher": "Oasis",
       "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
@@ -436,19 +438,10 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "J. Dimitriou, V. Veduta, B. Dumitriu"
       ],
-      "date": "sept 8 2022",
+      "date": "September 8, 2022",
       "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
       "publisher": "OpenID foundation",
       "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
-    },
-    "Expert": {
-      "authors": [
-        "@@@"
-      ],
-      "date": "@@@",
-      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
-      "publisher": "Forum Standaardisatie",
-      "title": "Expertadvies CloudEvents 1.0"
     },
     "folmer2011": {
       "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
@@ -472,7 +465,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "publisher": "Universiteit Twente"
     },
     "DK-Gebruiksvoorwaarden": {
-      "date": "1 januari 2021",
+      "date": "Januari 1, 2021",
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Gebruiksvoorwaarden Digikoppeling"
@@ -487,7 +480,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
-      "date": "Nov 2014",
+      "date": "November 2014",
       "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       "publisher": "NCSC",
       "title": "Factsheet HTTPS kan een stuk veiliger"
@@ -496,18 +489,19 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Varley, P. Grassi"
       ],
-      "date": "October 5 2018",
+      "date": "October 5, 2018",
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
-    "NLGOV.OpenID": {
+    "NLgov.OpenID": {
       "authors": [
         "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
       ],
+      "date": "September 18, 2023",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
       "publisher": "Logius",
-      "title": "OpenID NLGov"
+      "title": "NLgov Assurance profile for OpenID Connect 1.0"
     },
     "Introspection": {
       "authors": [
@@ -522,7 +516,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Jones"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7518",
       "publisher": "IETF",
       "title": "JSON Web Algorithms (JWA)"
@@ -531,7 +525,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Jones, J. Hildebrand"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7516",
       "publisher": "IETF",
       "title": "JSON Web Encryption (JWE)"
@@ -540,7 +534,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Jones"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7517",
       "publisher": "IETF",
       "title": "JSON Web Key (JWK))"
@@ -549,7 +543,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7515",
       "publisher": "IETF",
       "title": "JSON Web Signature (JWS)"
@@ -558,19 +552,13 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7519",
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
     },
-    "NCSC 2019": {
-      "date": "April 2019",
-      "href": "https://www.ncsc.nl/documenten/publicaties/2019/mei/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-tls",
-      "publisher": "NCSC",
-      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.0"
-    },
     "NCSC 2021": {
-      "date": "Jan 2021",
+      "date": "January 2021",
       "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
       "publisher": "NCSC",
       "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
@@ -579,12 +567,9 @@ img.license{float:left;padding-right:5px;background:0 0}
       "date": "June 2025",
       "href": "https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05",
       "publisher": "NCSC",
-      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+      "title": "Transport Layer Security (TLS) richtlijnen 2025-05"
     },
     "NEN3610": {
-      "authors": [
-        ""
-      ],
       "date": "Maart 2011",
       "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
       "publisher": "Nederlands Normalisatie-instituut",
@@ -612,7 +597,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
       ],
-      "date": "November 8 2014",
+      "date": "November 8, 2014",
       "href": "https://openid.net/specs/openid-connect-core-1_0.html",
       "publisher": "OpenID foundation",
       "title": "OpenID Connect Core 1.0"
@@ -621,7 +606,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "N. Sakimura, J. Bradley, M. Jones, E. Jay"
       ],
-      "date": "November 8 2014",
+      "date": "November 8, 2014",
       "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
       "publisher": "OpenID foundation",
       "title": "OpenID Connect Discovery 1.0"
@@ -632,7 +617,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "Lijst Verplichte standaarden"
     },
     "PKIO-PvE": {
-      "href": "https://por.pkioverheid.nl/",
+      "href": "https://cp.pkioverheid.nl/",
       "publisher": "Logius",
       "title": "Certificate Policy/Programme of Requirements PKIoverheid"
     },
@@ -660,27 +645,18 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "Semantic Versioning 2.0.0"
     },
     "ADR-TS": {
-      "authors": [
-        ""
-      ],
       "date": "March 07, 2024",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       "publisher": "Kennisplatform API's",
       "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
-      "authors": [
-        ""
-      ],
       "date": "2001",
       "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
       "publisher": "UN/CEFACT",
       "title": "UMM Revision 10"
     },
     "UMMUG": {
-      "authors": [
-        ""
-      ],
       "date": "2003",
       "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
       "publisher": "UN/CEFACT",
@@ -698,7 +674,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "A Universally Unique IDentifier (UUID) URN Namespace"
     },
     "DK-Voorwaarden": {
-      "date": "1 januari 2021",
+      "date": "Januari 1, 2021",
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Voorwaarden Digikoppeling"
@@ -741,7 +717,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "date": "March 2002"
     },
     "FSC-Core": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/2.0.0/",
       "title": "FSC - Core",
       "authors": [
         "Eelco Hotting",
@@ -754,7 +730,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "publisher": "Logius"
     },
     "FSC-Logging": {
-      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.1.0/",
       "title": "FSC - Logging",
       "authors": [
         "Eelco Hotting",
@@ -779,7 +755,6 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
       ],
-      "date": "",
       "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
       "publisher": "IANA",
       "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
@@ -797,10 +772,27 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "J. Richer, M. Varley, P. Grassi"
       ],
-      "date": "October 5 2018",
+      "date": "October 5, 2018",
       "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
+    },
+    "NLgov.OAuth2": {
+      "authors": [
+        "Jaron Azaria",
+        "Martin Borgman",
+        "Marc Fleischeuers",
+        "Peter Haasnoot",
+        "Leon van der Ree",
+        "Bob te Riele",
+        "Remco Schaar",
+        "Frank Terpstra",
+        "Jan Jaap Zoutendijk"
+      ],
+      "date": "December 3, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
+      "publisher": "Logius",
+      "title": "NLgov Assurance profile for OAuth 2.0"
     },
     "ietf-oauth-v2-1-10-refresh-token-grant": {
       "authors": [
@@ -815,44 +807,48 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "D. Fett, D. Tonge, J. Heenan"
       ],
-      "date": "February 22 2025",
+      "date": "February 22, 2025",
       "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
       "publisher": "OpenID foundation",
       "title": "FAPI 2.0 Security Profile"
     },
     "logboek-extensie-guideline": {
-      "href": "https://logius-standaarden.github.io/logboek-extensie-template/",
+      "authors": [
+        "Nil Barua",
+        "Tim van der Lippe"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/",
       "publisher": "Logius",
-      "title": "LDV Extensie Guideline"
+      "title": "Logboek Dataverwerkingen Extensie Guidelines"
     },
     "logboek dataverwerkingen": {
-      "href": "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      "authors": [
+        "Eelco Hotting",
+        "Vedran Bilanovic"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/",
       "publisher": "Logius",
       "title": "Logboek Dataverwerkingen"
     }
   },
-  "alternateFormats": [
-    {
-      "label": "pdf",
-      "uri": "BOMOS-Stelsels.pdf"
-    }
-  ],
   "authors": [
     {
       "company": "Logius",
-      "companyURL": "http://www.logius.nl/",
+      "companyURL": "https://www.logius.nl",
       "name": "Sander Boer"
     }
   ],
   "editors": [
     {
       "company": "Logius",
-      "companyURL": "https://www.logius.nl/",
+      "companyURL": "https://www.logius.nl",
       "name": "Gül Işik"
     },
     {
       "company": "Logius",
-      "companyURL": "https://www.logius.nl/",
+      "companyURL": "https://www.logius.nl",
       "name": "Edwin Wisse"
     }
   ],
@@ -864,17 +860,23 @@ img.license{float:left;padding-right:5px;background:0 0}
   "publishVersion": "3.0.0",
   "shortName": "stelsels",
   "specStatus": "WV",
-  "specType": "HR"
+  "specType": "HR",
+  "preProcess": [
+    null,
+    null,
+    null,
+    null
+  ]
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
- <body class="h-entry informative toc-inline"><div class="head">
+ <body class="h-entry"><div class="head">
     <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">BOMOS aanvullende modules: Stelsels</h1>
     
     <h2>
       Logius Handreiking<br>
       Werkversie
-      <time class="dt-published" datetime="2022-06-07">08 juli 2025</time>
+      <time class="dt-published" datetime="2022-06-07">19 mei 2026</time>
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
@@ -891,18 +893,20 @@ img.license{float:left;padding-right:5px;background:0 0}
       
       <dt>Redacteurs:</dt>
       <dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Gül Işik</span> (<a class="p-org org h-org" href="https://www.logius.nl/">Logius</a>)
+    <span class="p-name fn">Gül Işik</span> (<a class="p-org org h-org" href="https://www.logius.nl">Logius</a>)
   </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Edwin Wisse</span> (<a class="p-org org h-org" href="https://www.logius.nl/">Logius</a>)
+    <span class="p-name fn">Edwin Wisse</span> (<a class="p-org org h-org" href="https://www.logius.nl">Logius</a>)
   </dd>
       
       <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Sander Boer</span> (<a class="p-org org h-org" href="http://www.logius.nl/">Logius</a>)
+    <span class="p-name fn">Sander Boer</span> (<a class="p-org org h-org" href="https://www.logius.nl">Logius</a>)
   </dd>
       <dt>Doe mee:</dt><dd>
     <a href="https://github.com/Logius-standaarden/BOMOS-Stelsels/">GitHub Logius-standaarden/BOMOS-Stelsels</a>
   </dd><dd>
-    <a href="https://github.com/Logius-standaarden/BOMOS-Stelsels/issues/">Dien een melding in</a>
+    <a href="https://github.com/Logius-standaarden/BOMOS-Stelsels/issues/">All issues</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/BOMOS-Stelsels/issues/new/choose">Dien een melding in</a>
   </dd><dd>
     <a href="https://github.com/Logius-standaarden/BOMOS-Stelsels/commits/">Revisiehistorie</a>
   </dd><dd>
@@ -913,14 +917,14 @@ img.license{float:left;padding-right:5px;background:0 0}
     
     <p>
           Dit document is ook beschikbaar in dit niet-normatieve formaat:
-          <a rel="alternate" href="BOMOS-Stelsels.pdf">pdf</a>
+          <a rel="alternate" href="bomos-stelsels-3.0.0.pdf">PDF</a>
         </p>
     <p class="copyright">
             Dit document valt onder de volgende licentie: 
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
           </p>
     <hr title="Separator for header">
-  </div>
+  </div><section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#structuur-bomos"><bdi class="secno">1.1 </bdi>Structuur BOMOS</a></li><li class="tocline"><a class="tocxref" href="#leeswijzer"><bdi class="secno">1.2 </bdi>Leeswijzer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#invulling-van-bomos-voor-het-beheer-van-afsprakenstelsels"><bdi class="secno">2. </bdi>Invulling van BOMOS voor het beheer van afsprakenstelsels</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wat-zijn-afsprakenstelsels"><bdi class="secno">2.1 </bdi>Wat zijn afsprakenstelsels?</a></li><li class="tocline"><a class="tocxref" href="#govtech-als-katalysator-voor-samenwerking"><bdi class="secno">2.2 </bdi>GovTech als katalysator voor samenwerking</a></li><li class="tocline"><a class="tocxref" href="#inhoud-van-een-afsprakenstelsel"><bdi class="secno">2.3 </bdi>Inhoud van een afsprakenstelsel</a></li><li class="tocline"><a class="tocxref" href="#hoe-is-bomos-als-best-practice-inzetbaar-voor-het-beheer-van-afsprakenstelsels"><bdi class="secno">2.4 </bdi>Hoe is BOMOS als best practice inzetbaar voor het beheer van afsprakenstelsels?</a></li><li class="tocline"><a class="tocxref" href="#bomos-toegepast-op-afsprakenstelsels"><bdi class="secno">2.5 </bdi>BOMOS toegepast op afsprakenstelsels</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#strategie"><bdi class="secno">2.5.1 </bdi>Strategie</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#tactiek"><bdi class="secno">2.5.2 </bdi>Tactiek</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#operationeel"><bdi class="secno">2.5.3 </bdi>Operationeel</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#implementatieondersteuning"><bdi class="secno">2.5.4 </bdi>Implementatieondersteuning</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#communicatie"><bdi class="secno">2.5.5 </bdi>Communicatie</a><ol class="toc"></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">3. </bdi>Lijst met figuren</a></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformiteit">Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>Naast onderdelen die als niet-normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet-normatief. Verder is alles in dit document normatief.</p></section>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p> BOMOS (Beheer- en OntwikkelModel voor Open Standaarden) is een hulpmiddel
   van en voor de standaardisatiewereld. Dit deel bevat een aanvullende
   module voor stelsels. Stelsels vallen buiten scope van het de basis van BOMOS,
@@ -929,7 +933,7 @@ img.license{float:left;padding-right:5px;background:0 0}
   van standaarden en stelsels veel overeenkomsten heeft.
  </p>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">1. </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#structuur-bomos"><bdi class="secno">1.1 </bdi>Structuur BOMOS</a></li><li class="tocline"><a class="tocxref" href="#leeswijzer"><bdi class="secno">1.2 </bdi>Leeswijzer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#invulling-van-bomos-voor-het-beheer-van-afsprakenstelsels"><bdi class="secno">2. </bdi>Invulling van BOMOS voor het beheer van afsprakenstelsels</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wat-zijn-afsprakenstelsels"><bdi class="secno">2.1 </bdi>Wat zijn afsprakenstelsels?</a></li><li class="tocline"><a class="tocxref" href="#govtech-als-katalysator-voor-samenwerking"><bdi class="secno">2.2 </bdi>GovTech als katalysator voor samenwerking</a></li><li class="tocline"><a class="tocxref" href="#inhoud-van-een-afsprakenstelsel"><bdi class="secno">2.3 </bdi>Inhoud van een afsprakenstelsel</a></li><li class="tocline"><a class="tocxref" href="#hoe-is-bomos-als-best-practice-inzetbaar-voor-het-beheer-van-afsprakenstelsels"><bdi class="secno">2.4 </bdi>Hoe is BOMOS als best practice inzetbaar voor het beheer van afsprakenstelsels?</a></li><li class="tocline"><a class="tocxref" href="#bomos-toegepast-op-afsprakenstelsels"><bdi class="secno">2.5 </bdi>BOMOS toegepast op afsprakenstelsels</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#strategie"><bdi class="secno">2.5.1 </bdi>Strategie</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#tactiek"><bdi class="secno">2.5.2 </bdi>Tactiek</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#operationeel"><bdi class="secno">2.5.3 </bdi>Operationeel</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#implementatieondersteuning"><bdi class="secno">2.5.4 </bdi>Implementatieondersteuning</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#communicatie"><bdi class="secno">2.5.5 </bdi>Communicatie</a><ol class="toc"></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">3. </bdi>Lijst met figuren</a></li></ol></nav>
+  
   <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
 <table>
 <thead>
@@ -1001,10 +1005,12 @@ eigen naam, eigen doelgroep, eigen beheer, etc. In het
 <a href="#het-beheer-en-ontwikkelmodel-onderwerpen-voor-ontwikkeling-en-beheer">beheerproces van BOMOS</a>
 wordt ook beschreven welke eisen er gesteld worden voordat
 iets opgenomen wordt als BOMOS aanvullende module.</p>
-<p> De eerste twee aanvullende modules zijn:
--	<a href="https://logius-standaarden.github.io/BOMOS-LinkedData">Linked Data &amp; Ontologieën</a>:
-  het specifieke gebruik van Linked Data voor semantische standaarden.
--	Invulling van <a href="https://logius-standaarden.github.io/BOMOS-Stelsels">BOMOS voor het beheer van afsprakenstelsel</a>: het gebruik van BOMOS in de specifieke situatie rond stelsels.</p>
+<p> De eerste twee aanvullende modules zijn:</p>
+<ul>
+<li><a href="https://logius-standaarden.github.io/BOMOS-LinkedData">Linked Data &amp; Ontologieën</a>:
+  het specifieke gebruik van Linked Data voor semantische standaarden.</li>
+<li>Invulling van <a href="https://logius-standaarden.github.io/BOMOS-Stelsels">BOMOS voor het beheer van afsprakenstelsel</a>: het gebruik van BOMOS in de specifieke situatie rond stelsels.</li>
+</ul>
 <p>De aanvullende modules zijn nauw verbonden met BOMOS en hebben tegelijkertijd een eigen governancestructuur. Zo wordt er binnen de context van het bredere BOMOS-kader duidelijk gemaakt dat de genoemde modules hun eigen governancestructuur hebben. Dit biedt transparantie en verduidelijking aan de betrokken partijen en stakeholders, zodat zij begrijpen dat hoewel er een verbinding bestaat met BOMOS, deze modules afzonderlijk worden beheerd en bestuurd.</p>
 </section><section id="leeswijzer"><div class="header-wrapper"><h3 id="x1-2-leeswijzer"><bdi class="secno">1.2 </bdi>Leeswijzer</h3><a class="self-link" href="#leeswijzer" aria-label="Permalink for Section 1.2"></a></div>
 <p>Bent u vanuit een beleidsmakende of besturende rol alleen op
@@ -1022,11 +1028,10 @@ toepasbaar op meer dan (semantische) standaarden alleen.</p>
   <section id="invulling-van-bomos-voor-het-beheer-van-afsprakenstelsels"><div class="header-wrapper"><h2 id="x2-invulling-van-bomos-voor-het-beheer-van-afsprakenstelsels"><bdi class="secno">2. </bdi>Invulling van BOMOS voor het beheer van afsprakenstelsels</h2><a class="self-link" href="#invulling-van-bomos-voor-het-beheer-van-afsprakenstelsels" aria-label="Permalink for Section 2."></a></div>
 <section id="wat-zijn-afsprakenstelsels"><div class="header-wrapper"><h3 id="x2-1-wat-zijn-afsprakenstelsels"><bdi class="secno">2.1 </bdi>Wat zijn afsprakenstelsels?</h3><a class="self-link" href="#wat-zijn-afsprakenstelsels" aria-label="Permalink for Section 2.1"></a></div>
 <p>Het is lastig om een eenduidige definitie te geven van wat een afsprakenstelsel precies is. Het is de Nederlandse vertaling van Trust Framework. Andere benamingen voor een afsprakenstelsel is een vertrouwensraamwerk. In Nederland zijn eHerkenning, Medmij, KIK-V, iDIN voorbeelden van een afsprakenstelsel.</p>
-<p>Uit literatuuronderzoek <a href="https://digicampus.tech/wp-content/uploads/2024/09/van-der-Peet-L.-Bharosa-N.-Dijkhuis-S.-Janssen-M.-2024-Understanding-trust-frameworks.pdf">(zie understanding trust frameworks)</a> 
-blijkt dat slechts één paper een definitie bevat, afkomstig van het National Institute of Standards and Technology (NIST):"een juridisch afdwingbare set specificaties, regels en overeenkomsten die een meerzijdig systeem regelen, opgezet voor een gemeenschappelijk doel, ontworpen voor specifieke transacties binnen een gemeenschap van deelnemers, en gebonden aan gemeenschappelijke vereisten."</p>
-<p>Een afsprakenstelsel is een samenwerkingsstructuur. Het regelt belangrijke zaken rondom vertrouwen en interoperabiliteit en bevat afspraken over het besturen van deze samenwerking. 
-Een van de belangrijke eigenschappen van een afsprakenstelsel is dat het een oplossing is voor het schalingsvraagstuk. Afsprakenstelsels faciliteren positieve netwerkeffecten waarbij de waarde van het netwerk toeneemt naarmate meer partijen deelnemen. </p>
-<p>Een afsprakenstelsel biedt voordelen van marktwerking voor de afnemers van diensten - er is concurrentie op innovatie en prijs. Ook biedt het verbeteringen rond beschikbaarheid doordat afnemers kunnen kiezen uit meerdere aanbieders en ook tegelijkertijd die diensten kunnen afneme </p>
+<p>Uit literatuuronderzoek <a href="https://digicampus.tech/wp-content/uploads/2024/09/van-der-Peet-L.-Bharosa-N.-Dijkhuis-S.-Janssen-M.-2024-Understanding-trust-frameworks.pdf">(zie understanding trust frameworks)</a> blijkt dat slechts één paper een definitie bevat, afkomstig van het National Institute of Standards and Technology (NIST): "een juridisch afdwingbare set specificaties, regels en overeenkomsten die een meerzijdig systeem regelen, opgezet voor een gemeenschappelijk doel, ontworpen voor specifieke transacties binnen een gemeenschap van deelnemers, en gebonden aan gemeenschappelijke vereisten."</p>
+<p>Een afsprakenstelsel is een samenwerkingsstructuur <a href="https://begrippen.stelselcatalogus.nl/sbb/begrippenkader/detail?iri=http:%2F%2Fpurl.stelselcatalogus.nl%2Fid%2Fsbb%2F5a1a17d7-34d4-46b1-8d69-4c92b59287c3">(zie Begrippencatalogus)</a>. Het regelt belangrijke zaken rondom vertrouwen en interoperabiliteit en bevat afspraken over het besturen van deze samenwerking.</p>
+<p>Een van de belangrijke eigenschappen van een afsprakenstelsel is dat het een oplossing is voor het schalingsvraagstuk. Afsprakenstelsels faciliteren positieve netwerkeffecten waarbij de waarde van het netwerk toeneemt naarmate meer partijen deelnemen.</p>
+<p>Een afsprakenstelsel biedt voordelen van marktwerking voor de afnemers van diensten - er is concurrentie op innovatie en prijs. Ook biedt het verbeteringen rond beschikbaarheid doordat afnemers kunnen kiezen uit meerdere aanbieders en ook tegelijkertijd die diensten kunnen afnemen.</p>
 </section><section id="govtech-als-katalysator-voor-samenwerking"><div class="header-wrapper"><h3 id="x2-2-govtech-als-katalysator-voor-samenwerking"><bdi class="secno">2.2 </bdi>GovTech als katalysator voor samenwerking</h3><a class="self-link" href="#govtech-als-katalysator-voor-samenwerking" aria-label="Permalink for Section 2.2"></a></div>
 <p>GovTech is een op technologie gebaseerde samenwerking tussen actoren uit de openbare én private sector om de  digitale transformatie van de overheidssector te ondersteunen.</p>
 <p>GovTech ontstaat uit de erkenning dat de overheid niet de capaciteit en ervaring heeft om zelfstandig in te spelen op technologische ontwikkelingen en innovaties. Het vormt de basis voor initiatieven waarbij bedrijfsleven, overheid en maatschappelijk veld elkaar vinden om gezamenlijk maatschappelijke vraagstukken op te lossen met behulp van technologie. Deze samenwerking begint vaak rommelig (denk aan een hackathon) met de focus op technologie. Dat groeit bij succes door naar pilots om aan te tonen dat technologie toepasbaar en nuttig is.</p>
@@ -1034,21 +1039,25 @@ Een van de belangrijke eigenschappen van een afsprakenstelsel is dat het een opl
 </section><section id="inhoud-van-een-afsprakenstelsel"><div class="header-wrapper"><h3 id="x2-3-inhoud-van-een-afsprakenstelsel"><bdi class="secno">2.3 </bdi>Inhoud van een afsprakenstelsel</h3><a class="self-link" href="#inhoud-van-een-afsprakenstelsel" aria-label="Permalink for Section 2.3"></a></div>
 <p>"Goede afspraken maken goede vrienden". De kern van een afsprakenstelsel ligt in het organiseren van vertrouwen en interoperabiliteit tussen meerdere partijen om gezamenlijk een doel te realiseren dat te complex of te groot is om individueel aan te pakken. </p>
 <p>Een afsprakenstelsel vormt een gestructureerde samenwerkingsovereenkomst die barrières wegneemt en schaalbare samenwerking mogelijk maakt.</p>
-<p>Elinor Ostrom beschrijft in het boek Governing the Commons de voorwaarden voor succesvolle samenwerking rond schaarse gemeenschappelijke voorzieningen zoals het beheer van waterputten. Deze principes zijn te herkennen in de samenwerking van succesvolle afsprakenstelsels. Deze zijn (vrij vertaald):
--	Er zijn duidelijke grenzen op gebied van homogene functionaliteit/middelen en een homogene gebruikersgroep.
--	Overeenstemming en balans in baten en lasten voor alle betrokkenen.
--	Iedereen kan bijdragen aan verbeteringen.
--	Controle (door transparantie) op alle betrokkenen.
--	Graduele sancties op overtreden afspraken zijn aanwezig en worden uitgevoerd.
--	Verschillen van inzicht kunnen snel en effectief opgelost worden.
--	Stelsel (deelnemers) heeft mandaat om zichzelf te organiseren.
--	Gebruik stelsels van stelsels om de individuele stelsels eenvoudig te houden.</p>
-<p>Deze principes staan aan de basis van de afspraken en regels over de onderstaande aspecten die terugkomen als onderdelen binnen een afsprakenstelsel:
--	Informatie over rechten en plichten van deelnemende partijen: zoals definities, aansprakelijkheid, organen, besturing en taakverdeling.
--	Financiën: het beheren van een afsprakenstelsel en het organiseren van besturing kost geld: wat zijn de afspraken over wie wat betaalt?
--	Operatie: wie lost incidenten op? Wordt er gewerkt onder een label of merk? Denk aan communicatie, merkbeheer en afspraken over de operationele processen.
--	Normenkaders: aan welke eisen moeten de diensten/producten van leveranciers voldoen?
--	Architectuur en techniek: denk hierbij aan technische standaarden, use-cases en interface beschrijvingen.</p>
+<p>Elinor Ostrom beschrijft in het boek Governing the Commons de voorwaarden voor succesvolle samenwerking rond schaarse gemeenschappelijke voorzieningen zoals het beheer van waterputten. Deze principes zijn te herkennen in de samenwerking van succesvolle afsprakenstelsels. Deze zijn (vrij vertaald):</p>
+<ul>
+<li>Er zijn duidelijke grenzen op gebied van homogene functionaliteit/middelen en een homogene gebruikersgroep.</li>
+<li>Overeenstemming en balans in baten en lasten voor alle betrokkenen.</li>
+<li>Iedereen kan bijdragen aan verbeteringen.</li>
+<li>Controle (door transparantie) op alle betrokkenen.</li>
+<li>Graduele sancties op overtreden afspraken zijn aanwezig en worden uitgevoerd.</li>
+<li>Verschillen van inzicht kunnen snel en effectief opgelost worden.</li>
+<li>Stelsel (deelnemers) heeft mandaat om zichzelf te organiseren.</li>
+<li>Gebruik stelsels van stelsels om de individuele stelsels eenvoudig te houden.</li>
+</ul>
+<p>Deze principes staan aan de basis van de afspraken en regels over de onderstaande aspecten die terugkomen als onderdelen binnen een afsprakenstelsel:</p>
+<ul>
+<li>Informatie over rechten en plichten van deelnemende partijen: zoals definities, aansprakelijkheid, organen, besturing en taakverdeling.</li>
+<li>Financiën: het beheren van een afsprakenstelsel en het organiseren van besturing kost geld: wat zijn de afspraken over wie wat betaalt?</li>
+<li>Operatie: wie lost incidenten op? Wordt er gewerkt onder een label of merk? Denk aan communicatie, merkbeheer en afspraken over de operationele processen.</li>
+<li>Normenkaders: aan welke eisen moeten de diensten/producten van leveranciers voldoen?</li>
+<li>Architectuur en techniek: denk hierbij aan technische standaarden, use-cases en interface beschrijvingen.</li>
+</ul>
 <p>Dit componentendiagram is ontwikkeld door en op basis van het onderzoek van L. van der Peet en geeft inzicht in de decompositie van relevante componenten van een afsprakenstelsel.  </p>
 <p>
       </p><figure id="fig-componenten-diagram-afsprakenstelsels">
@@ -1124,7 +1133,7 @@ Rond inspectie en certificatie: dit is normaliter een taak van de partij die de 
       </ul></section>
  
 <p role="navigation" id="back-to-top">
-    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+    <a href="#title"><abbr title="Terug naar boven">↑</abbr></a>
   </p><script id="respec-dfn-panel">(() => {
 // @ts-check
 if (document.respec) {
@@ -1140,8 +1149,11 @@ function setupPanel() {
 }
 
 function panelListener() {
-  /** @type {HTMLElement} */
+  /** @type {HTMLElement | null} */
   let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
   return event => {
     const { target, type } = event;
 
@@ -1149,24 +1161,34 @@ function panelListener() {
 
     // For keys, we only care about Enter key to activate the panel
     // otherwise it's activated via a click.
-    if (type === "keydown" && event.key !== "Enter") return;
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
 
     const action = deriveAction(event);
 
     switch (action) {
       case "show": {
         hidePanel(panel);
-        /** @type {HTMLElement} */
+        /** @type {HTMLElement | null} */
         const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
         panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
-        const coords = deriveCoordinates(event);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
         displayPanel(dfn, panel, coords);
         break;
       }
       case "dock": {
-        panel.style.left = null;
-        panel.style.top = null;
-        panel.classList.add("docked");
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
         break;
       }
       case "hide": {
@@ -1217,7 +1239,8 @@ function deriveAction(event) {
     if (hitALink) {
       return target.classList.contains("self-link") ? "hide" : "dock";
     }
-    const panel = target.closest(".dfn-panel");
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
     return panel.classList.contains("docked") ? "hide" : "none";
   }
   if (document.querySelector(".dfn-panel:not([hidden])")) {
@@ -1261,9 +1284,9 @@ function displayPanel(dfn, panel, { x, y }) {
     const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
     const newCaretOffset = left - newLeft;
     panel.style.left = `${newLeft}px`;
-    /** @type {HTMLElement} */
+    /** @type {HTMLElement | null} */
     const caret = panel.querySelector(".caret");
-    caret.style.left = `${newCaretOffset}px`;
+    if (caret) caret.style.left = `${newCaretOffset}px`;
   }
 
   // As it's a dialog, we trap focus.
@@ -1312,6 +1335,9 @@ function trapFocus(panel, dfn) {
 function createTrapListener(anchors, panel, dfn) {
   const lastIndex = anchors.length - 1;
   let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
   return event => {
     switch (event.key) {
       // Hitting "Tab" traps us in a nice loop around elements.
@@ -1341,7 +1367,7 @@ function createTrapListener(anchors, panel, dfn) {
   };
 }
 
-/** @param {HTMLElement} panel */
+/** @param {HTMLElement | null} panel */
 function hidePanel(panel) {
   if (!panel) return;
   panel.hidden = true;
