@@ -111,7 +111,7 @@ const organisationConfig = {
   localBiblio: {
     "ADR": {
       authors: ["Jasper Roes", "Joost Farla"],
-      href: "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1",
+      href: "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
       publisher: "Logius",
       title: "API Design Rules"
     },
@@ -129,19 +129,19 @@ const organisationConfig = {
       title: "API Designrules Extensions (Nederlandse API Strategie IIb)"
     },
     "Algemene Voorwaarden Logius": {
-      date: "12 juni 2018",
+      date: "12 juni, 2018",
       href: "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
       publisher: "Logius",
       title: "Algemene voorwaarden Logius"
     },
     "AuthZEN": {
-      date: "6 September 2024 ",
+      date: "September 6, 2024 ",
       href: "https://openid.net/specs/authorization-api-1_0-01.html",
       publisher: "OpenID",
       title: "Authorization API 1.0 – draft 01"
     },
     "AVG": {
-      date: "27 april 2016",
+      date: "April 27, 2016",
       href: "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
       publisher: "Verordening (EU) 2016/679 van het Europees Parlement",
       title: "Algemene Verordening Gegevensbescherming"
@@ -281,7 +281,7 @@ const organisationConfig = {
     },
     "ebCPP": {
       authors: ["Oasis"],
-      date: "september 2002",
+      date: "September 2002",
       href: "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
       publisher: "Oasis",
       title: "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
@@ -295,17 +295,10 @@ const organisationConfig = {
     },
     "eDelivery API4IPS": {
       authors: ["J. Dimitriou, V. Veduta, B. Dumitriu"],
-      date: "sept 8 2022",
+      date: "September 8, 2022",
       href: "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
       publisher: "OpenID foundation",
       title: "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
-    },
-    "Expert": {
-      authors: ["@@@"],
-      date: "@@@",
-      href: "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
-      publisher: "Forum Standaardisatie",
-      title: "Expertadvies CloudEvents 1.0"
     },
     folmer2011: {
       href: "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
@@ -324,7 +317,7 @@ const organisationConfig = {
       publisher: "Universiteit Twente",
     },
     "DK-Gebruiksvoorwaarden": {
-      date: "1 januari 2021",
+      date: "Januari 1, 2021",
       href: "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
       publisher: "Logius",
       title: "Gebruiksvoorwaarden Digikoppeling"
@@ -337,20 +330,21 @@ const organisationConfig = {
       title: "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
-      date: "Nov 2014",
+      date: "November 2014",
       href: "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       publisher: "NCSC",
       title: "Factsheet HTTPS kan een stuk veiliger"
     },
     "iGOV.OpenID": {
       authors: ["M. Varley, P. Grassi"],
-      date: "October 5 2018",
+      date: "October 5, 2018",
       href: "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       publisher: "OpenID foundation",
       title: "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
     "NLgov.OpenID": {
       authors: ["Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"],
+      date: "September 18, 2023",
       href: "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
       publisher: "Logius",
       title: "NLgov Assurance profile for OpenID Connect 1.0"
@@ -364,41 +358,41 @@ const organisationConfig = {
     },
     "JWA": {
       authors: ["M. Jones"],
-      date: "may 2015",
+      date: "May 2015",
       href: "https://tools.ietf.org/html/rfc7518",
       publisher: "IETF",
       title: "JSON Web Algorithms (JWA)"
     },
     "JWE": {
       authors: ["M. Jones, J. Hildebrand"],
-      date: "may 2015",
+      date: "May 2015",
       href: "https://tools.ietf.org/html/rfc7516",
       publisher: "IETF",
       title: "JSON Web Encryption (JWE)"
     },
     "JWK": {
       authors: ["M. Jones"],
-      date: "may 2015",
+      date: "May 2015",
       href: "https://tools.ietf.org/html/rfc7517",
       publisher: "IETF",
       title: "JSON Web Key (JWK))"
     },
     "JWS": {
       authors: ["M. Jones, J. Bradley, N. Sakimura"],
-      date: "may 2015",
+      date: "May 2015",
       href: "https://tools.ietf.org/html/rfc7515",
       publisher: "IETF",
       title: "JSON Web Signature (JWS)"
     },
     "JWT": {
       authors: ["M. Jones, J. Bradley, N. Sakimura"],
-      date: "may 2015",
+      date: "May 2015",
       href: "https://tools.ietf.org/html/rfc7519",
       publisher: "IETF",
       title: "JSON Web Token (JWT)"
     },
     "NCSC 2021": {
-      date: "Jan 2021",
+      date: "January 2021",
       href: "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
       publisher: "NCSC",
       title: "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
@@ -410,7 +404,6 @@ const organisationConfig = {
       title: "Transport Layer Security (TLS) richtlijnen 2025-05"
     },
     "NEN3610": {
-      authors: [""],
       date: "Maart 2011",
       href: "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
       publisher: "Nederlands Normalisatie-instituut",
@@ -432,14 +425,14 @@ const organisationConfig = {
     },
     "OpenID.Core": {
       authors: ["N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"],
-      date: "November 8 2014",
+      date: "November 8, 2014",
       href: "https://openid.net/specs/openid-connect-core-1_0.html",
       publisher: "OpenID foundation",
       title: "OpenID Connect Core 1.0"
     },
     "OpenID.Discovery": {
       authors: ["N. Sakimura, J. Bradley, M. Jones, E. Jay"],
-      date: "November 8 2014",
+      date: "November 8, 2014",
       href: "https://openid.net/specs/openid-connect-discovery-1_0.html",
       publisher: "OpenID foundation",
       title: "OpenID Connect Discovery 1.0"
@@ -476,21 +469,18 @@ const organisationConfig = {
       title: "Semantic Versioning 2.0.0"
     },
     "ADR-TS": {
-      authors: [""],
       date: "March 07, 2024",
       href: "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       publisher: "Kennisplatform API's",
       title: "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
-      authors: [""],
       date: "2001",
       href: "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
       publisher: "UN/CEFACT",
       title: "UMM Revision 10"
     },
     "UMMUG": {
-      authors: [""],
       date: "2003",
       href: "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
       publisher: "UN/CEFACT",
@@ -504,7 +494,7 @@ const organisationConfig = {
       title: "A Universally Unique IDentifier (UUID) URN Namespace"
     },
     "DK-Voorwaarden": {
-      date: "1 januari 2021",
+      date: "Januari 1, 2021",
       href: "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
       publisher: "Logius",
       title: "Voorwaarden Digikoppeling"
@@ -558,7 +548,6 @@ const organisationConfig = {
     },
     "JWS.JWE.Algs": {
       authors: ["Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"],
-      date: "",
       href: "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
       publisher: "IANA",
       title: "IANA JSON Web Signatures and Encryption Algorithms registry"
@@ -572,15 +561,17 @@ const organisationConfig = {
     },
     "iGOV.OAuth2": {
       authors: ["J. Richer, M. Varley, P. Grassi"],
-      date: "October 5 2018",
+      date: "October 5, 2018",
       href: "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
       publisher: "OpenID foundation",
       title: "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
-    "NLGOV.OAuth2": {
+    "NLgov.OAuth2": {
+      authors: ["Jaron Azaria", "Martin Borgman", "Marc Fleischeuers", "Peter Haasnoot", "Leon van der Ree", "Bob te Riele", "Remco Schaar", "Frank Terpstra", "Jan Jaap Zoutendijk"],
+      date: "December 3, 2024",
       href: "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
       publisher: "Logius",
-      title: "NL GOV Assurance profile for OAuth 2.0"
+      title: "NLgov Assurance profile for OAuth 2.0"
     },
     "ietf-oauth-v2-1-10-refresh-token-grant": {
       authors: ["Dick Hardt, Aaron Parecki, Torsten Lodderstedt"],
@@ -591,21 +582,21 @@ const organisationConfig = {
     },
     "OpenID.FAPI2.0": {
       authors: ["D. Fett, D. Tonge, J. Heenan"],
-      date: "February 22 2025",
+      date: "February 22, 2025",
       href: "https://openid.net/specs/fapi-security-profile-2_0-final.html",
       publisher: "OpenID foundation",
       title: "FAPI 2.0 Security Profile"
     },
     "logboek-extensie-guideline": {
       authors: ["Nil Barua", "Tim van der Lippe"],
-      date: "April 9 2026",
+      date: "April 9, 2026",
       href: "https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/",
       publisher: "Logius",
       title: "Logboek Dataverwerkingen Extensie Guidelines"
     },
     "logboek dataverwerkingen": {
       authors: ["Eelco Hotting", "Vedran Bilanovic"],
-      date: "April 9 2026",
+      date: "April 9, 2026",
       href: "https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/",
       publisher: "Logius",
       title: "Logboek Dataverwerkingen"
