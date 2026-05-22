@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.8.0">
+<meta name="generator" content="ReSpec 37.0.0">
 <style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
@@ -16,6 +16,7 @@ dfn{cursor:pointer}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
 .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
 .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
 .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
 .dfn-panel a[href]:hover{border-bottom-width:1px}
 .dfn-panel ul{padding:0}
@@ -46,13 +47,17 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
 cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
 #issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
+#issue-summary li{list-style:none}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
 details.respec-tests-details>*{padding-right:2em}
 details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
@@ -61,7 +66,8 @@ details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
 :is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
 :is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
 :is(h2,h3)+a.self-link{top:-.2em}
@@ -72,12 +78,14 @@ dd{margin-left:0}
 @media print{
 .removeOnSave{display:none}
 }
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
 <style id="respec-nlgov">
 img.license{float:left;padding-right:5px;background:0 0}
 </style>
 <meta name="color-scheme" content="light">
-<meta name="description" content="Dit document geeft een inleiding op Open Authentication, kortweg OAuth. De laatste werkversie van de OAuth.NLGov standaard is gepubliceerd op github.io, de laatste vastgestelde versie is gepubliceerd op Logius.nl en de bronbestanden staan in de github repositories van Logius standaarden die zijn gemarkeerd met het topic &quot;oauth&quot;">
+<meta name="description" content="Dit document geeft een inleiding op Open Authentication, kortweg OAuth. De laatste werkversie van de NLgov Assurance profile for OAuth 2.0 is gepubliceerd op github.io, de laatste vastgestelde versie is gepubliceerd op Logius.nl en de bronbestanden staan in de github repositories van Logius standaarden die zijn gemarkeerd met het topic &quot;oauth&quot;">
 <style>
 
   .sidelabel {
@@ -219,7 +227,7 @@ img.license{float:left;padding-right:5px;background:0 0}
         "Jasper Roes",
         "Joost Farla"
       ],
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
       "publisher": "Logius",
       "title": "API Design Rules"
     },
@@ -243,19 +251,19 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
     },
     "Algemene Voorwaarden Logius": {
-      "date": "12 juni 2018",
+      "date": "12 juni, 2018",
       "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
     "AuthZEN": {
-      "date": "6 September 2024 ",
+      "date": "September 6, 2024 ",
       "href": "https://openid.net/specs/authorization-api-1_0-01.html",
       "publisher": "OpenID",
       "title": "Authorization API 1.0 – draft 01"
     },
     "AVG": {
-      "date": "27 april 2016",
+      "date": "April 27, 2016",
       "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
       "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
       "title": "Algemene Verordening Gegevensbescherming"
@@ -282,13 +290,13 @@ img.license{float:left;padding-right:5px;background:0 0}
       "publisher": "CNCF Serverless Working Group",
       "title": "CloudEvents - Version 1.0.1"
     },
-    "NLGOV-CloudEvents": {
+    "NLgov.CloudEvents": {
       "authors": [
         "Werkgroep Berichtenstandaard (Project Notificatieservices)"
       ],
-      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/",
       "publisher": "Logius",
-      "title": "NL GOV profile for CloudEvents"
+      "title": "NLgov profile for CloudEvents"
     },
     "DK-CV": {
       "href": "https://gitlab.com/logius/digikoppeling-compliance",
@@ -406,7 +414,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "Oasis"
       ],
-      "date": "september 2002",
+      "date": "September 2002",
       "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
       "publisher": "Oasis",
       "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
@@ -425,19 +433,10 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "J. Dimitriou, V. Veduta, B. Dumitriu"
       ],
-      "date": "sept 8 2022",
+      "date": "September 8, 2022",
       "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
       "publisher": "OpenID foundation",
       "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
-    },
-    "Expert": {
-      "authors": [
-        "@@@"
-      ],
-      "date": "@@@",
-      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
-      "publisher": "Forum Standaardisatie",
-      "title": "Expertadvies CloudEvents 1.0"
     },
     "folmer2011": {
       "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
@@ -461,7 +460,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "publisher": "Universiteit Twente"
     },
     "DK-Gebruiksvoorwaarden": {
-      "date": "1 januari 2021",
+      "date": "Januari 1, 2021",
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Gebruiksvoorwaarden Digikoppeling"
@@ -476,7 +475,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
-      "date": "Nov 2014",
+      "date": "November 2014",
       "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       "publisher": "NCSC",
       "title": "Factsheet HTTPS kan een stuk veiliger"
@@ -485,18 +484,19 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Varley, P. Grassi"
       ],
-      "date": "October 5 2018",
+      "date": "October 5, 2018",
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
-    "NLGOV.OpenID": {
+    "NLgov.OpenID": {
       "authors": [
         "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
       ],
+      "date": "September 18, 2023",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
       "publisher": "Logius",
-      "title": "OpenID NLGov"
+      "title": "NLgov Assurance profile for OpenID Connect 1.0"
     },
     "Introspection": {
       "authors": [
@@ -511,7 +511,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Jones"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7518",
       "publisher": "IETF",
       "title": "JSON Web Algorithms (JWA)"
@@ -520,7 +520,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Jones, J. Hildebrand"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7516",
       "publisher": "IETF",
       "title": "JSON Web Encryption (JWE)"
@@ -529,7 +529,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Jones"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7517",
       "publisher": "IETF",
       "title": "JSON Web Key (JWK))"
@@ -538,7 +538,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7515",
       "publisher": "IETF",
       "title": "JSON Web Signature (JWS)"
@@ -547,13 +547,13 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7519",
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
     },
     "NCSC 2021": {
-      "date": "Jan 2021",
+      "date": "January 2021",
       "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
       "publisher": "NCSC",
       "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
@@ -565,9 +565,6 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "Transport Layer Security (TLS) richtlijnen 2025-05"
     },
     "NEN3610": {
-      "authors": [
-        ""
-      ],
       "date": "Maart 2011",
       "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
       "publisher": "Nederlands Normalisatie-instituut",
@@ -595,7 +592,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
       ],
-      "date": "November 8 2014",
+      "date": "November 8, 2014",
       "href": "https://openid.net/specs/openid-connect-core-1_0.html",
       "publisher": "OpenID foundation",
       "title": "OpenID Connect Core 1.0"
@@ -604,7 +601,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "N. Sakimura, J. Bradley, M. Jones, E. Jay"
       ],
-      "date": "November 8 2014",
+      "date": "November 8, 2014",
       "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
       "publisher": "OpenID foundation",
       "title": "OpenID Connect Discovery 1.0"
@@ -643,27 +640,18 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "Semantic Versioning 2.0.0"
     },
     "ADR-TS": {
-      "authors": [
-        ""
-      ],
       "date": "March 07, 2024",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       "publisher": "Kennisplatform API's",
       "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
-      "authors": [
-        ""
-      ],
       "date": "2001",
       "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
       "publisher": "UN/CEFACT",
       "title": "UMM Revision 10"
     },
     "UMMUG": {
-      "authors": [
-        ""
-      ],
       "date": "2003",
       "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
       "publisher": "UN/CEFACT",
@@ -681,7 +669,7 @@ img.license{float:left;padding-right:5px;background:0 0}
       "title": "A Universally Unique IDentifier (UUID) URN Namespace"
     },
     "DK-Voorwaarden": {
-      "date": "1 januari 2021",
+      "date": "Januari 1, 2021",
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Voorwaarden Digikoppeling"
@@ -762,7 +750,6 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
       ],
-      "date": "",
       "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
       "publisher": "IANA",
       "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
@@ -780,15 +767,27 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "J. Richer, M. Varley, P. Grassi"
       ],
-      "date": "October 5 2018",
+      "date": "October 5, 2018",
       "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
-    "NLGOV.OAuth2": {
+    "NLgov.OAuth2": {
+      "authors": [
+        "Jaron Azaria",
+        "Martin Borgman",
+        "Marc Fleischeuers",
+        "Peter Haasnoot",
+        "Leon van der Ree",
+        "Bob te Riele",
+        "Remco Schaar",
+        "Frank Terpstra",
+        "Jan Jaap Zoutendijk"
+      ],
+      "date": "December 3, 2024",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
       "publisher": "Logius",
-      "title": "NL GOV Assurance profile for OAuth 2.0"
+      "title": "NLgov Assurance profile for OAuth 2.0"
     },
     "ietf-oauth-v2-1-10-refresh-token-grant": {
       "authors": [
@@ -803,18 +802,28 @@ img.license{float:left;padding-right:5px;background:0 0}
       "authors": [
         "D. Fett, D. Tonge, J. Heenan"
       ],
-      "date": "February 22 2025",
+      "date": "February 22, 2025",
       "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
       "publisher": "OpenID foundation",
       "title": "FAPI 2.0 Security Profile"
     },
     "logboek-extensie-guideline": {
-      "href": "https://logius-standaarden.github.io/logboek-extensie-template/",
+      "authors": [
+        "Nil Barua",
+        "Tim van der Lippe"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/",
       "publisher": "Logius",
-      "title": "LDV Extensie Guideline"
+      "title": "Logboek Dataverwerkingen Extensie Guidelines"
     },
     "logboek dataverwerkingen": {
-      "href": "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      "authors": [
+        "Eelco Hotting",
+        "Vedran Bilanovic"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/",
       "publisher": "Logius",
       "title": "Logboek Dataverwerkingen"
     }
@@ -849,14 +858,14 @@ img.license{float:left;padding-right:5px;background:0 0}
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
 
-<body class="h-entry toc-inline"><div class="head">
+<body class="h-entry"><div class="head">
     <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">Algemene Inleiding Open Authenticatie (OAuth)</h1>
     
     <h2>
       Logius Praktijkrichtlijn<br>
       Werkversie
-      <time class="dt-published" datetime="2024-11-16">20 april 2026</time>
+      <time class="dt-published" datetime="2024-11-16">22 mei 2026</time>
     </h2>
     <dl>
       <dt>Deze versie:</dt><dd class="status">
@@ -882,7 +891,9 @@ img.license{float:left;padding-right:5px;background:0 0}
       <dt>Doe mee:</dt><dd>
     <a href="https://github.com/Logius-standaarden/OAuth-Inleiding/">GitHub Logius-standaarden/OAuth-Inleiding</a>
   </dd><dd>
-    <a href="https://github.com/Logius-standaarden/OAuth-Inleiding/issues/">Dien een melding in</a>
+    <a href="https://github.com/Logius-standaarden/OAuth-Inleiding/issues/">All issues</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/OAuth-Inleiding/issues/new/choose">Dien een melding in</a>
   </dd><dd>
     <a href="https://github.com/Logius-standaarden/OAuth-Inleiding/commits/">Revisiehistorie</a>
   </dd><dd>
@@ -900,13 +911,13 @@ img.license{float:left;padding-right:5px;background:0 0}
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
           </p>
     <hr title="Separator for header">
-  </div><section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#inleiding-document"><bdi class="secno">1. </bdi>Inleiding document</a></li><li class="tocline"><a class="tocxref" href="#oauth-de-basis"><bdi class="secno">2. </bdi>OAuth - De basis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#context"><bdi class="secno">2.2 </bdi>Context</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-onderstaand-schema-zijn-de-vier-bovenstaande-elementen-en-de-onderlinge-flow-weergegeven"><bdi class="secno">2.2.1 </bdi>In onderstaand schema zijn de vier bovenstaande elementen en de onderlinge flow weergegeven:</a></li><li class="tocline"><a class="tocxref" href="#de-flow-is-dan-als-volgt"><bdi class="secno">2.2.2 </bdi>De flow is dan als volgt:</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voorbeeld"><bdi class="secno">2.3 </bdi>Voorbeeld</a></li><li class="tocline"><a class="tocxref" href="#architectuur"><bdi class="secno">2.4 </bdi>Architectuur</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">2.5 </bdi>Referenties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#oauth-samenvatting-van-de-oauth-nl-standaard"><bdi class="secno">3. </bdi>OAuth - Samenvatting van de OAuth-NL standaard</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">3.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#schematische-weergave-van-de-flow-van-de-standaard"><bdi class="secno">3.1.1 </bdi>Schematische weergave van de flow van de standaard</a></li></ol></li><li class="tocline"><a class="tocxref" href="#vereisten"><bdi class="secno">3.2 </bdi>Vereisten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#x1-introductie"><bdi class="secno">3.2.1 </bdi>1. Introductie</a></li><li class="tocline"><a class="tocxref" href="#x2-client-profiel"><bdi class="secno">3.2.2 </bdi>2. Client profiel</a></li><li class="tocline"><a class="tocxref" href="#x3-authorization-server-profiel"><bdi class="secno">3.2.3 </bdi>3. Authorization Server profiel</a></li><li class="tocline"><a class="tocxref" href="#x4-protected-resource-api-profiel"><bdi class="secno">3.2.4 </bdi>4. Protected Resource (API) profiel</a></li><li class="tocline"><a class="tocxref" href="#x6-security-overwegingen"><bdi class="secno">3.2.5 </bdi>6. Security overwegingen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#disclaimer"><bdi class="secno">3.3 </bdi>!! Disclaimer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">4. </bdi>Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#use-case-digital-system-environmental-law"><bdi class="secno">4.1 </bdi>Use Case Digital System Environmental Law</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">4.1.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner"><bdi class="secno">4.1.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client"><bdi class="secno">4.1.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server"><bdi class="secno">4.1.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server"><bdi class="secno">4.1.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims"><bdi class="secno">4.1.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale"><bdi class="secno">4.1.7 </bdi>Rationale</a></li></ol></li><li class="tocline"><a class="tocxref" href="#rights-delegation-key-registry-buildings-adresses"><bdi class="secno">4.2 </bdi>Rights delegation key registry Buildings &amp; adresses</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview-0"><bdi class="secno">4.2.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner-0"><bdi class="secno">4.2.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client-0"><bdi class="secno">4.2.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server-0"><bdi class="secno">4.2.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server-0"><bdi class="secno">4.2.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims-0"><bdi class="secno">4.2.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale-0"><bdi class="secno">4.2.7 </bdi>Rationale</a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview-1"><bdi class="secno">4.3 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#rights-delegation-air-sensors-network"><bdi class="secno">4.4 </bdi>Rights delegation Air sensors network</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview-2"><bdi class="secno">4.4.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner-1"><bdi class="secno">4.4.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client-1"><bdi class="secno">4.4.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server-1"><bdi class="secno">4.4.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server-1"><bdi class="secno">4.4.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims-1"><bdi class="secno">4.4.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale-1"><bdi class="secno">4.4.7 </bdi>Rationale</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#detail-onderwerpen-oauth"><bdi class="secno">5. </bdi>Detail onderwerpen OAuth</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oauth-details"><bdi class="secno">5.1 </bdi>OAuth details</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#token-exchange"><bdi class="secno">5.1.1 </bdi>Token exchange</a></li></ol></li><li class="tocline"><a class="tocxref" href="#oin-en-pkio-in-relatie-tot-oauth-nlgov-profiel"><bdi class="secno">5.2 </bdi>OIN en PKIO in relatie tot OAuth NLGov profiel</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-1"><bdi class="secno">5.2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#context-0"><bdi class="secno">5.2.2 </bdi>Context:</a></li><li class="tocline"><a class="tocxref" href="#pki-referenties-de-standaard-heeft-de-volgende-relevante-verwijzingen-naar-pki-die-hieronder-verder-worden-toegelicht"><bdi class="secno">5.2.3 </bdi><strong>PKI referenties</strong>
+  </div><section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#inleiding-document"><bdi class="secno">1. </bdi>Inleiding document</a></li><li class="tocline"><a class="tocxref" href="#oauth-de-basis"><bdi class="secno">2. </bdi>OAuth - De basis</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding"><bdi class="secno">2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#context"><bdi class="secno">2.2 </bdi>Context</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-onderstaand-schema-zijn-de-vier-bovenstaande-elementen-en-de-onderlinge-flow-weergegeven"><bdi class="secno">2.2.1 </bdi>In onderstaand schema zijn de vier bovenstaande elementen en de onderlinge flow weergegeven:</a></li><li class="tocline"><a class="tocxref" href="#de-flow-is-dan-als-volgt"><bdi class="secno">2.2.2 </bdi>De flow is dan als volgt:</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voorbeeld"><bdi class="secno">2.3 </bdi>Voorbeeld</a></li><li class="tocline"><a class="tocxref" href="#architectuur"><bdi class="secno">2.4 </bdi>Architectuur</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">2.5 </bdi>Referenties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#oauth-samenvatting-van-het-nlgov-assurance-profile-for-oauth-2-0"><bdi class="secno">3. </bdi>OAuth - Samenvatting van het NLgov Assurance profile for OAuth 2.0</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-0"><bdi class="secno">3.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#schematische-weergave-van-de-flow-van-de-standaard"><bdi class="secno">3.1.1 </bdi>Schematische weergave van de flow van de standaard</a></li></ol></li><li class="tocline"><a class="tocxref" href="#vereisten"><bdi class="secno">3.2 </bdi>Vereisten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#x1-introductie"><bdi class="secno">3.2.1 </bdi>1. Introductie</a></li><li class="tocline"><a class="tocxref" href="#x2-client-profiel"><bdi class="secno">3.2.2 </bdi>2. Client profiel</a></li><li class="tocline"><a class="tocxref" href="#x3-authorization-server-profiel"><bdi class="secno">3.2.3 </bdi>3. Authorization Server profiel</a></li><li class="tocline"><a class="tocxref" href="#x4-protected-resource-api-profiel"><bdi class="secno">3.2.4 </bdi>4. Protected Resource (API) profiel</a></li><li class="tocline"><a class="tocxref" href="#x6-security-overwegingen"><bdi class="secno">3.2.5 </bdi>6. Security overwegingen</a></li></ol></li><li class="tocline"><a class="tocxref" href="#disclaimer"><bdi class="secno">3.3 </bdi>!! Disclaimer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">4. </bdi>Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#use-case-digital-system-environmental-law"><bdi class="secno">4.1 </bdi>Use Case Digital System Environmental Law</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">4.1.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner"><bdi class="secno">4.1.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client"><bdi class="secno">4.1.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server"><bdi class="secno">4.1.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server"><bdi class="secno">4.1.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims"><bdi class="secno">4.1.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale"><bdi class="secno">4.1.7 </bdi>Rationale</a></li></ol></li><li class="tocline"><a class="tocxref" href="#rights-delegation-key-registry-buildings-adresses"><bdi class="secno">4.2 </bdi>Rights delegation key registry Buildings &amp; adresses</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview-0"><bdi class="secno">4.2.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner-0"><bdi class="secno">4.2.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client-0"><bdi class="secno">4.2.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server-0"><bdi class="secno">4.2.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server-0"><bdi class="secno">4.2.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims-0"><bdi class="secno">4.2.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale-0"><bdi class="secno">4.2.7 </bdi>Rationale</a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview-1"><bdi class="secno">4.3 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#rights-delegation-air-sensors-network"><bdi class="secno">4.4 </bdi>Rights delegation Air sensors network</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview-2"><bdi class="secno">4.4.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#resource-owner-1"><bdi class="secno">4.4.2 </bdi>Resource owner</a></li><li class="tocline"><a class="tocxref" href="#client-1"><bdi class="secno">4.4.3 </bdi>Client</a></li><li class="tocline"><a class="tocxref" href="#authorization-server-1"><bdi class="secno">4.4.4 </bdi>Authorization server</a></li><li class="tocline"><a class="tocxref" href="#resource-server-1"><bdi class="secno">4.4.5 </bdi>Resource server</a></li><li class="tocline"><a class="tocxref" href="#scopes-claims-1"><bdi class="secno">4.4.6 </bdi>Scopes &amp; claims</a></li><li class="tocline"><a class="tocxref" href="#rationale-1"><bdi class="secno">4.4.7 </bdi>Rationale</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#detail-onderwerpen-oauth"><bdi class="secno">5. </bdi>Detail onderwerpen OAuth</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#oauth-details"><bdi class="secno">5.1 </bdi>OAuth details</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#token-exchange"><bdi class="secno">5.1.1 </bdi>Token exchange</a></li></ol></li><li class="tocline"><a class="tocxref" href="#oin-en-pkio-in-relatie-tot-oauth-nlgov-profiel"><bdi class="secno">5.2 </bdi>OIN en PKIO in relatie tot OAuth NLgov profiel</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-1"><bdi class="secno">5.2.1 </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#context-0"><bdi class="secno">5.2.2 </bdi>Context:</a></li><li class="tocline"><a class="tocxref" href="#pki-referenties-de-standaard-heeft-de-volgende-relevante-verwijzingen-naar-pki-die-hieronder-verder-worden-toegelicht"><bdi class="secno">5.2.3 </bdi><strong>PKI referenties</strong>
 De standaard heeft de volgende relevante verwijzingen naar PKI die hieronder verder worden toegelicht:</a></li><li class="tocline"><a class="tocxref" href="#intenties"><bdi class="secno">5.2.4 </bdi>Intenties:</a></li><li class="tocline"><a class="tocxref" href="#conclusie"><bdi class="secno">5.2.5 </bdi>Conclusie:</a></li><li class="tocline"><a class="tocxref" href="#achtergrondinformatie"><bdi class="secno">5.2.6 </bdi>Achtergrondinformatie:</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vragen-duo"><bdi class="secno">5.2.6.1 </bdi>Vragen DUO:</a></li><li class="tocline"><a class="tocxref" href="#interpretatie-kennisnet"><bdi class="secno">5.2.6.2 </bdi>Interpretatie Kennisnet:</a></li><li class="tocline"><a class="tocxref" href="#links"><bdi class="secno">5.2.6.3 </bdi>Links:</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#orkestratie"><bdi class="secno">6. </bdi>Orkestratie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inleiding-2"><bdi class="secno">6.1 </bdi>Inleiding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#wat-is-api-orkestratie"><bdi class="secno">6.1.1 </bdi>Wat is API Orkestratie?</a></li><li class="tocline"><a class="tocxref" href="#uitgangspunten"><bdi class="secno">6.1.2 </bdi>Uitgangspunten</a></li><li class="tocline"><a class="tocxref" href="#use-cases-0"><bdi class="secno">6.1.3 </bdi>Use cases</a></li><li class="tocline"><a class="tocxref" href="#aandachtsgebieden-van-orkestratie"><bdi class="secno">6.1.4 </bdi>Aandachtsgebieden van Orkestratie</a></li><li class="tocline"><a class="tocxref" href="#imx"><bdi class="secno">6.1.5 </bdi>IMX</a></li><li class="tocline"><a class="tocxref" href="#arazzo"><bdi class="secno">6.1.6 </bdi>Arazzo</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#belangrijkste-kenmerken"><bdi class="secno">6.1.6.1 </bdi>Belangrijkste Kenmerken</a></li><li class="tocline"><a class="tocxref" href="#relatie-met-openapi"><bdi class="secno">6.1.6.2 </bdi>Relatie met OpenAPI</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#orkestratie-beveiliging"><bdi class="secno">6.2 </bdi>Orkestratie beveiliging</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#context-1"><bdi class="secno">6.2.1 </bdi>Context</a></li><li class="tocline"><a class="tocxref" href="#use-cases-1"><bdi class="secno">6.2.2 </bdi>Use cases</a></li><li class="tocline"><a class="tocxref" href="#begrippen"><bdi class="secno">6.2.3 </bdi>Begrippen</a></li><li class="tocline"><a class="tocxref" href="#implicit-identity-reuse-token-based"><bdi class="secno">6.2.4 </bdi>Implicit Identity reuse - token based</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#rationale-2"><bdi class="secno">6.2.4.1 </bdi>Rationale</a></li><li class="tocline"><a class="tocxref" href="#identity"><bdi class="secno">6.2.4.2 </bdi>Identity</a></li><li class="tocline"><a class="tocxref" href="#authenticiteit"><bdi class="secno">6.2.4.3 </bdi>Authenticiteit</a></li><li class="tocline"><a class="tocxref" href="#autorisatie"><bdi class="secno">6.2.4.4 </bdi>Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#implicaties"><bdi class="secno">6.2.4.5 </bdi>Implicaties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#identity-propagation-token-based"><bdi class="secno">6.2.5 </bdi>Identity propagation - token based</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#rationale-3"><bdi class="secno">6.2.5.1 </bdi>Rationale</a></li><li class="tocline"><a class="tocxref" href="#identity-0"><bdi class="secno">6.2.5.2 </bdi>Identity</a></li><li class="tocline"><a class="tocxref" href="#authenticiteit-0"><bdi class="secno">6.2.5.3 </bdi>Authenticiteit</a></li><li class="tocline"><a class="tocxref" href="#autorisatie-0"><bdi class="secno">6.2.5.4 </bdi>Autorisatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#variatie-federated-identity-propagation"><bdi class="secno">6.2.6 </bdi>Variatie - Federated Identity Propagation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#implicaties-identity-propagation"><bdi class="secno">6.2.6.1 </bdi>Implicaties Identity propagation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conclusies-en-adviezen"><bdi class="secno">6.2.7 </bdi>Conclusies en Adviezen</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">A.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformiteit">Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>Naast onderdelen die als niet-normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet-normatief. Verder is alles in dit document normatief.</p></section>
-  <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document geeft een inleiding op Open Authentication, kortweg OAuth. De laatste werkversie van de OAuth.NLGov standaard is <a href="https://logius-standaarden.github.io/OAuth-NL-profiel/">gepubliceerd op github.io</a>, de laatste vastgestelde versie is <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">gepubliceerd op Logius.nl</a> en de bronbestanden staan in <a href="https://github.com/search?q=topic%3Aoauth+org%3ALogius-standaarden+fork%3Atrue&amp;type=repositories">de github repositories van Logius standaarden die zijn gemarkeerd met het topic "oauth"</a></p>
+  <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document geeft een inleiding op Open Authentication, kortweg OAuth. De laatste werkversie van de NLgov Assurance profile for OAuth 2.0 is <a href="https://logius-standaarden.github.io/OAuth-NL-profiel/">gepubliceerd op github.io</a>, de laatste vastgestelde versie is <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">gepubliceerd op Logius.nl</a> en de bronbestanden staan in <a href="https://github.com/search?q=topic%3Aoauth+org%3ALogius-standaarden+fork%3Atrue&amp;type=repositories">de github repositories van Logius standaarden die zijn gemarkeerd met het topic "oauth"</a></p>
 </section>
   
   <section id="inleiding-document"><div class="header-wrapper"><h2 id="x1-inleiding-document"><bdi class="secno">1. </bdi>Inleiding document</h2><a class="self-link" href="#inleiding-document" aria-label="Permalink for Section 1."></a></div>
-<p>Dit document biedt een introductie in de OAuth standaard en met name het OAuth NLGov profiel wat op op de lijst verplichte standaarden is opgenomen van het Bureau Forum Standaardisatie <a href="https://forumstandaardisatie.gov.nl/open-standaarden/nl-gov-assurance-profile-oauth-20">link</a></p>
+<p>Dit document biedt een introductie in de OAuth standaard en met name het OAuth NLgov profiel wat op op de lijst verplichte standaarden is opgenomen van het Bureau Forum Standaardisatie <a href="https://forumstandaardisatie.gov.nl/open-standaarden/nl-gov-assurance-profile-oauth-20">link</a></p>
 <p>Het begrijpen en doorgronden van de implicaties van de OAuth standaarden en de profielen daarop blijken een steile leercurve te hebben en de technisch inhoudelijke documenten zijn niet geschikt voor een brede doelgroep die geen specialistische ICT kennis bezit van APIs, Authorisatie en security. Vandaar dit document waarmee we een algemeen beeld willen schetsen van de standaard. Dit doen we aan de hand van een praktijkvoorbeeld, een samenvatting van het profiel, een schets van de context en architectuur en verschillende use cases.
 Het document is zo opgebouwd dat alle hoofdstukken afzonderlijk kunne nwordn gelezen en voor verdieping wordt veelvuldig verwezen naar de standaard. Ook wordt er vanuit de standaard weer verwezen naar dit document voor meer algemene context.</p>
 </section>
@@ -957,7 +968,7 @@ Het document is zo opgebouwd dat alle hoofdstukken afzonderlijk kunne nwordn gel
 <p>[Het JWT token kan  men eenvoudig decoden/inspecteren op]</p>
 <p><a href="http://jwt.io">http://jwt.io</a></p>
 </section></section>
-  <section id="oauth-samenvatting-van-de-oauth-nl-standaard"><div class="header-wrapper"><h2 id="x3-oauth-samenvatting-van-de-oauth-nl-standaard"><bdi class="secno">3. </bdi>OAuth - Samenvatting van de OAuth-NL standaard</h2><a class="self-link" href="#oauth-samenvatting-van-de-oauth-nl-standaard" aria-label="Permalink for Section 3."></a></div>
+  <section id="oauth-samenvatting-van-het-nlgov-assurance-profile-for-oauth-2-0"><div class="header-wrapper"><h2 id="x3-oauth-samenvatting-van-het-nlgov-assurance-profile-for-oauth-2-0"><bdi class="secno">3. </bdi>OAuth - Samenvatting van het NLgov Assurance profile for OAuth 2.0</h2><a class="self-link" href="#oauth-samenvatting-van-het-nlgov-assurance-profile-for-oauth-2-0" aria-label="Permalink for Section 3."></a></div>
 <blockquote>
 <p>link naar de standaard: <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0">https://gitdocumentatie.logius.nl/publicatie/api/oauth/v1.0</a>
 Versie 1.0 vastgesteld op 09 juli 2020</p>
@@ -1093,15 +1104,15 @@ Since not all data may be open or public, access to certain data must be restric
 <p>• Delegation. Een gebruiker (vertegenwoordigd door een actor token) acteert namens een andere gebruiker (subject token).</p>
 <p>@@@ [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8693" title="OAuth 2.0 Token Exchange">rfc8693</a></cite>] distinguishes impersonation and delegation scenarios.</p>
 </section></section>
-    <section id="oin-en-pkio-in-relatie-tot-oauth-nlgov-profiel"><div class="header-wrapper"><h3 id="x5-2-oin-en-pkio-in-relatie-tot-oauth-nlgov-profiel"><bdi class="secno">5.2 </bdi>OIN en PKIO in relatie tot OAuth NLGov profiel</h3><a class="self-link" href="#oin-en-pkio-in-relatie-tot-oauth-nlgov-profiel" aria-label="Permalink for Section 5.2"></a></div>
+    <section id="oin-en-pkio-in-relatie-tot-oauth-nlgov-profiel"><div class="header-wrapper"><h3 id="x5-2-oin-en-pkio-in-relatie-tot-oauth-nlgov-profiel"><bdi class="secno">5.2 </bdi>OIN en PKIO in relatie tot OAuth NLgov profiel</h3><a class="self-link" href="#oin-en-pkio-in-relatie-tot-oauth-nlgov-profiel" aria-label="Permalink for Section 5.2"></a></div>
 <blockquote>
 <p>Concept beschrijving dd 22-08-2024 - door Martin van der Plas</p>
 </blockquote>
 <section id="inleiding-1"><div class="header-wrapper"><h4 id="x5-2-1-inleiding"><bdi class="secno">5.2.1 </bdi>Inleiding</h4><a class="self-link" href="#inleiding-1" aria-label="Permalink for Section 5.2.1"></a></div>
-<p>De nieuwe versie van het OAuth NL profiel voegt onder meer het Client credentials profiel toe. 
+<p>De nieuwe versie van het NLgov-profiel voegt onder meer het Client credentials profiel toe. 
 Zie ook v1.1.0-rc.2 op :  <a href="https://logius-standaarden.github.io/OAuth-NL-profiel/">https://logius-standaarden.github.io/OAuth-NL-profiel/</a> </p>
-<p>Op basis van deze toevoeging kwamen, na vaststelling door de werkgroep en de publieke consultatie, aanvullende vragen over het gebruik van PKIO certificaten en het OIN vanuit het onderwijs domein. De Edukoppeling werkgroep gebruikt voor het definiëren van een aantal OAuth best practices[1] ook het NL GOV Assurance profile for OAuth 2.0 (NL GOV). </p>
-<p>Aangezien het NLGov OAuth profiel is opgesteld op basis van het iGov profiel is het soms wat lastig om te doorgronden wat de precieze vereisten zijn. Ook is de materie inzake oauth relatief complex en wordt er nogal eens wat impliciete voorkennis verondersteld. Dit atikel dient dan ook niet als vervanging van de standaard of als aanvulling daarop maar meer als richtlijn of toelichting. </p>
+<p>Op basis van deze toevoeging kwamen, na vaststelling door de werkgroep en de publieke consultatie, aanvullende vragen over het gebruik van PKIO certificaten en het OIN vanuit het onderwijs domein. De Edukoppeling werkgroep gebruikt voor het definiëren van een aantal OAuth best practices[1] ook het NLgov Assurance profile for OAuth 2.0.</p>
+<p>Aangezien het NLgov OAuth profiel is opgesteld op basis van het iGov profiel is het soms wat lastig om te doorgronden wat de precieze vereisten zijn. Ook is de materie inzake oauth relatief complex en wordt er nogal eens wat impliciete voorkennis verondersteld. Dit atikel dient dan ook niet als vervanging van de standaard of als aanvulling daarop maar meer als richtlijn of toelichting.</p>
 </section><section id="context-0"><div class="header-wrapper"><h4 id="x5-2-2-context"><bdi class="secno">5.2.2 </bdi>Context:</h4><a class="self-link" href="#context-0" aria-label="Permalink for Section 5.2.2"></a></div>
 <p><strong>OIN refenties</strong>
 De standaard heeft de volgende relevante verwijzingen naar het OIN die hieronder verder worden toegelicht</p>
@@ -1124,7 +1135,7 @@ De standaard heeft de volgende relevante verwijzingen naar PKI die hieronder ver
 </ul>
 </section><section id="achtergrondinformatie"><div class="header-wrapper"><h4 id="x5-2-6-achtergrondinformatie"><bdi class="secno">5.2.6 </bdi>Achtergrondinformatie:</h4><a class="self-link" href="#achtergrondinformatie" aria-label="Permalink for Section 5.2.6"></a></div>
 <section id="vragen-duo"><div class="header-wrapper"><h5 id="x5-2-6-1-vragen-duo"><bdi class="secno">5.2.6.1 </bdi>Vragen DUO:</h5><a class="self-link" href="#vragen-duo" aria-label="Permalink for Section 5.2.6.1"></a></div>
-<p>De stapjes binnen Edustandaard over het toepassen van OAUTH gaan langzamer dan ik zou willen, maar zeker wel de goede kant op. Ondertussen heb ik ook een nieuwe 'proposed' versie van NL-GOV (10 juli 2024) gezien.  (Terzijde,  er is ook een versie van 13 mei  vindbaar, zonder dat duidelijk is dat die is vervangen, dat kan verwarrend zijn).  Ook in deze nieuwe versie zit iets of juist niet, wat DUO denkt nodig hebben. Vandaar dat ik er een vraag over stel.</p>
+<p>De stapjes binnen Edustandaard over het toepassen van OAUTH gaan langzamer dan ik zou willen, maar zeker wel de goede kant op. Ondertussen heb ik ook een nieuwe 'proposed' versie van NLgov (10 juli 2024) gezien.  (Terzijde,  er is ook een versie van 13 mei  vindbaar, zonder dat duidelijk is dat die is vervangen, dat kan verwarrend zijn).  Ook in deze nieuwe versie zit iets of juist niet, wat DUO denkt nodig hebben. Vandaar dat ik er een vraag over stel.</p>
 <p>Eén van de requirements is redelijk scherp,  "de identiteit (OIN) van de client wordt onomstotelijk vastgesteld".</p>
 <p>In deze versie lees ik dit:</p>
 <p>2.3.3 In addition to private_key_jwt, the client authentication method tls_client_auth [rfc8705<a href="https://logius-standaarden.github.io/OAuth-NL-profiel/#bib-rfc8705%5D">https://logius-standaarden.github.io/OAuth-NL-profiel/#bib-rfc8705]</a> MAY also be used. 2.3.4 Clients using the authorization code grant type or direct access clients using the client credentials grant type MUST have a public and private key pair for use in authentication to the token endpoint. These clients MUST register their public keys in their client registration metadata by either sending the public key directly in the jwks field or by registering a jwks_uri that MUST be reachable by the authorization server 2.3.4 In case the Authorization Server, Resource Server and client are not operated under responsibility of the same organisation, each party MUST use PKIoverheid certificates with OIN.</p>
@@ -1132,13 +1143,13 @@ De standaard heeft de volgende relevante verwijzingen naar PKI die hieronder ver
 <ul>
 <li><p>Bij mTLS wel. - De server leest de metadata van het PKI certificaat uit. Haalt daaruit het root - certificaat (NL overheid) en ook het OIN (het SSN-veld) van de certificaat-houder.</p>
 </li>
-<li><p>Bij private_key_jwt niet. - De publieke sleutel wordt uitgelezen met het  jwks- of jwks_uri-veld. Deze versie van NL-GOV beschrijft een JSON Web Key Set (JWK set) van metagegevens dat daarmee toegankelijk is.  Dus wel de publieke sleutel, maar niet het root-certificaat en  het SSN-veld met OIN.  Een kwaadwillende kan met een self signed certificaat een legitieme client faken.</p>
+<li><p>Bij private_key_jwt niet. - De publieke sleutel wordt uitgelezen met het  jwks- of jwks_uri-veld. Deze versie van NLgov beschrijft een JSON Web Key Set (JWK set) van metagegevens dat daarmee toegankelijk is.  Dus wel de publieke sleutel, maar niet het root-certificaat en  het SSN-veld met OIN.  Een kwaadwillende kan met een self signed certificaat een legitieme client faken.</p>
 </li>
 </ul>
 <p>Als dat inderdaad zo is, dan is private-key-jwt ongeschikt voor client credentials en hoort het niet thuis in dit deel van deze standaard.</p>
 <hr>
 </section><section id="interpretatie-kennisnet"><div class="header-wrapper"><h5 id="x5-2-6-2-interpretatie-kennisnet"><bdi class="secno">5.2.6.2 </bdi>Interpretatie Kennisnet:</h5><a class="self-link" href="#interpretatie-kennisnet" aria-label="Permalink for Section 5.2.6.2"></a></div>
-<p>Mijn interpretatie bij de toepassing van een aantal NL GOV aspecten is als volgt:</p>
+<p>Mijn interpretatie bij de toepassing van een aantal NLgov aspecten is als volgt:</p>
 <p><strong>Toepassing private_key_jwt voor client authenticatie en PKIo certificaat voor ondertekening:</strong></p>
 <ol>
 <li>De ondertekening is de jwt. De bij registratie opgenomen client_id en public key van client maken het mogelijk voor AS om ondertekening te verifiëren[2].</li>
@@ -1148,25 +1159,25 @@ De standaard heeft de volgende relevante verwijzingen naar PKI die hieronder ver
 </ul>
 <p><strong>Toepassing PKIo (client en AS/RS niet onder beheer van dezelfde partij)</strong></p>
 <ol>
-<li>Omdat client niet door dezelfde partij wordt beheerd als AS/RS schrijven we conform NL GOV OAuth voor dat PKIo gebruikt moet worden.</li>
+<li>Omdat client niet door dezelfde partij wordt beheerd als AS/RS schrijven we conform NLgov OAuth voor dat PKIo gebruikt moet worden.</li>
 </ol>
 <ul>
 <li>In combinatie met toepassing van private_key_jwt client authenticatie (en dus geen mTLS) betekent dit dus dat ondertekening van privat_key_jwt met PKIo certificaat wordt toegepast.   2.  Het PKIo certificaat authenticeerd de rechtspersoon. Met het OIN in certificaat kan de rechtspersoon geïdentificeerd worden.  Met het door de AS uitgegeven client_id kan een client (als onderdeel van het applicatielandschap van rechtspersoon) geïdentificeerd worden.</li>
-<li>Er is dus identificatie op 2 niveaus, OIN en client_id. NL GOV OAuth vereist niet dat de client_id het OIN is. Dit wordt echter niet expliciet aangegeven. Binnen het onderwijs biedt het voordelen op verschillende niveaus te kunnen identificeren, maar toepasbaarheid is onduidelijk. Ook onduidelijk of op dit niveau niet uniformiteit/standaardisatie wenselijk is.</li>
+<li>Er is dus identificatie op 2 niveaus, OIN en client_id. NLgov OAuth vereist niet dat de client_id het OIN is. Dit wordt echter niet expliciet aangegeven. Binnen het onderwijs biedt het voordelen op verschillende niveaus te kunnen identificeren, maar toepasbaarheid is onduidelijk. Ook onduidelijk of op dit niveau niet uniformiteit/standaardisatie wenselijk is.</li>
 </ul>
 <ol start="3">
 <li>Voor AS server geldt bij toepassing van private_key_jwt dus GEEN mTLS maar wel toepassing van PKIo voor serverbeveiliging (SSL/TLS) en bepaalde TLS versie.</li>
 </ol>
 <ul>
-<li>In NL GOV staat bij paragraaf 2.4.1 Requests to the Protected Resource: Authorized requests MUST be made over TLS, and clients MUST validate the protected resource server's certificate. Ik neem aan dat dit ook voor requests naar AS geldt als client authenticatie obv private_key_jwt wordt toegepast.</li>
+<li>In NLgov staat bij paragraaf 2.4.1 Requests to the Protected Resource: Authorized requests MUST be made over TLS, and clients MUST validate the protected resource server's certificate. Ik neem aan dat dit ook voor requests naar AS geldt als client authenticatie obv private_key_jwt wordt toegepast.</li>
 <li>In deze situatie wordt AS en RS serverbeveiliging vereist op basis van TLS en PKIo. Er gelden dan ook aanvullende eisen rond TLS versie en ciphert suites (NCSC/DK) die expliciet aangegeven moeten worden.</li>
 </ul>
 <p><strong>Discovery</strong></p>
 <ol>
-<li>NL GOV OAuth - Discovery (paragraaf 3.1.5) stelt :"The authorization server MUST provide an [OpenID Connect service discovery] [OpenID.Discovery] endpoint listing the components relevant to the OAuth protocol".  \</li>
+<li>NLgov OAuth - Discovery (paragraaf 3.1.5) stelt :"The authorization server MUST provide an [OpenID Connect service discovery] [OpenID.Discovery] endpoint listing the components relevant to the OAuth protocol".  \</li>
 </ol>
 <ul>
-<li>Er is onduidelijkheid wat de exacte scope / betekenis is van discovery. In het NL GOV OAuth profiel lijkt dit expliciet betrekking te hebben op de AS meta data. Het is onduidelijk of discovery ook betrekking heeft op meta data van client (het toepassen van een uri in plaats van opname in een jwks veld). Bij client authenticatie op basis van private_key_jwt kan zowel een jwks_uri gebruikt worden als een jwks veld. Is met het toepassen van discovery de toepassing van een jwks_uri logisch en de toepassing van private_key_jwt het jwks veld[3] onlogisch (en visa versa indien discovery juist niet vereist wordt zoals bij Edukoppeling OAuth Best Practices)?</li>
+<li>Er is onduidelijkheid wat de exacte scope / betekenis is van discovery. In het NLgov OAuth profiel lijkt dit expliciet betrekking te hebben op de AS meta data. Het is onduidelijk of discovery ook betrekking heeft op meta data van client (het toepassen van een uri in plaats van opname in een jwks veld). Bij client authenticatie op basis van private_key_jwt kan zowel een jwks_uri gebruikt worden als een jwks veld. Is met het toepassen van discovery de toepassing van een jwks_uri logisch en de toepassing van private_key_jwt het jwks veld[3] onlogisch (en visa versa indien discovery juist niet vereist wordt zoals bij Edukoppeling OAuth Best Practices)?</li>
 </ul>
 <hr>
 </section><section id="links"><div class="header-wrapper"><h5 id="x5-2-6-3-links"><bdi class="secno">5.2.6.3 </bdi>Links:</h5><a class="self-link" href="#links" aria-label="Permalink for Section 5.2.6.3"></a></div>
@@ -1186,7 +1197,7 @@ De standaard heeft de volgende relevante verwijzingen naar PKI die hieronder ver
 <p>Met betrekking tot security zijn er diverse aandachtspunten:</p>
 <ul>
 <li>Data integriteit. Dmv signing zou van individuele gegevens kunnen worden aangetoond wat de authentieke bron is en of dat deze identiek zijn aan de authentieke gegevens. Interessant vraagstuk is wat dit betekent als gegevens tijdens het orkestreren worden getransformeerd. Mogelijk raakvlakken met de <a href="https://www.w3.org/TR/rdf-canon/">RDF Dataset Canonicalization</a> standaard.</li>
-<li>Authenticatie/autorisatie. Bij orkestratie worden verschillende requests uitgevoerd vanuit mogelijk verschillende identiteiten, verschillende identity stores en verschillende scopes/audiences. Hierbij kan zowel een transparant als niet-transparant model worden toegepast. Deze willen we beiden beschrijven. Relevante standaarden zijn <a href="https://commonground.gitlab.io/standards/fsc/">FSC</a> en <a href="https://datatracker.ietf.org/doc/html/rfc8693">OAuth Token Exchange</a>.</li>
+<li>Authenticatie/autorisatie. Bij orkestratie worden verschillende requests uitgevoerd vanuit mogelijk verschillende identiteiten, verschillende identity stores en verschillende scopes/audiences. Hierbij kan zowel een transparant als niet-transparant model worden toegepast. Deze willen we beiden beschrijven. Relevante standaarden zijn <a href="https://fsc-standaard.nl/">FSC</a> en <a href="https://datatracker.ietf.org/doc/html/rfc8693">OAuth Token Exchange</a>.</li>
 </ul>
 </section><section id="use-cases-0"><div class="header-wrapper"><h4 id="x6-1-3-use-cases"><bdi class="secno">6.1.3 </bdi>Use cases</h4><a class="self-link" href="#use-cases-0" aria-label="Permalink for Section 6.1.3"></a></div>
 <p>Er zijn reeds enkele voorbeelde van uwe cases waarbij orkestratie een belangrijke rol speelt:</p>
@@ -1376,8 +1387,11 @@ function setupPanel() {
 }
 
 function panelListener() {
-  /** @type {HTMLElement} */
+  /** @type {HTMLElement | null} */
   let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
   return event => {
     const { target, type } = event;
 
@@ -1385,24 +1399,34 @@ function panelListener() {
 
     // For keys, we only care about Enter key to activate the panel
     // otherwise it's activated via a click.
-    if (type === "keydown" && event.key !== "Enter") return;
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
 
     const action = deriveAction(event);
 
     switch (action) {
       case "show": {
         hidePanel(panel);
-        /** @type {HTMLElement} */
+        /** @type {HTMLElement | null} */
         const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
         panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
-        const coords = deriveCoordinates(event);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
         displayPanel(dfn, panel, coords);
         break;
       }
       case "dock": {
-        panel.style.left = null;
-        panel.style.top = null;
-        panel.classList.add("docked");
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
         break;
       }
       case "hide": {
@@ -1453,7 +1477,8 @@ function deriveAction(event) {
     if (hitALink) {
       return target.classList.contains("self-link") ? "hide" : "dock";
     }
-    const panel = target.closest(".dfn-panel");
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
     return panel.classList.contains("docked") ? "hide" : "none";
   }
   if (document.querySelector(".dfn-panel:not([hidden])")) {
@@ -1497,9 +1522,9 @@ function displayPanel(dfn, panel, { x, y }) {
     const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
     const newCaretOffset = left - newLeft;
     panel.style.left = `${newLeft}px`;
-    /** @type {HTMLElement} */
+    /** @type {HTMLElement | null} */
     const caret = panel.querySelector(".caret");
-    caret.style.left = `${newCaretOffset}px`;
+    if (caret) caret.style.left = `${newCaretOffset}px`;
   }
 
   // As it's a dialog, we trap focus.
@@ -1548,6 +1573,9 @@ function trapFocus(panel, dfn) {
 function createTrapListener(anchors, panel, dfn) {
   const lastIndex = anchors.length - 1;
   let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
   return event => {
     switch (event.key) {
       // Hitting "Tab" traps us in a nice loop around elements.
@@ -1577,7 +1605,7 @@ function createTrapListener(anchors, panel, dfn) {
   };
 }
 
-/** @param {HTMLElement} panel */
+/** @param {HTMLElement | null} panel */
 function hidePanel(panel) {
   if (!panel) return;
   panel.hidden = true;
