@@ -656,7 +656,7 @@ export function loadRespecWithConfiguration(localConfig) {
   respecConfig.preProcess = [
     ...(localConfig.preProcess || []),
     (config, document, utils) => {
-      const ACCEPTED_DOMAINS = ['api', 'bomos', 'dk', 'digimelding', 'fsc', 'ftv', 'logboek', 'notificatieservices'];
+      const ACCEPTED_DOMAINS = ['api', 'bomos', 'dk', 'digimelding', 'fsc', 'ftv', 'logboek', 'notificatieservices', 'st'];
       if (!ACCEPTED_DOMAINS.includes(config.pubDomain)) {
         utils.showError(`Invalid pubDomain. Must be one of ${ACCEPTED_DOMAINS}, but was "${config.pubDomain}"`);
       }
