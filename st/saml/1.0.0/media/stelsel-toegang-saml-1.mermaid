@@ -1,0 +1,13 @@
+flowchart LR
+  classDef InScope color:black,font-weight:bold,fill:#ddd,stroke-width:3px,stroke:#111;
+  classDef OutScope color:#888,font-weight:bold,fill:#444,stroke-width:3px,stroke:#777;
+
+  DV:::InScope ==> LC:::InScope
+  DV:::InScope ==>|Single| RD:::InScope;
+  LC:::InScope ==>|Clustered| RD:::InScope;
+  RD ---|out of scope|DigiD:::OutScope;
+  RD ---|out of scope|BVD_DDM:::OutScope;
+  RD:::InScope ==> BVD_OG:::InScope;
+
+  linkStyle 3 stroke:#444444,stroke-width:4px,anything;
+  linkStyle 4 stroke:#444444,stroke-width:4px,anything;

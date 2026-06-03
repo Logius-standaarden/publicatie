@@ -1,0 +1,39 @@
+%%{init: {
+    "themeVariables": {"fontSize": "24px"},
+    "sequence": {"boxMargin": 20}
+}}%%
+sequenceDiagram
+autonumber
+participant A as User Agent
+participant B as DV / LC
+participant C as RD <br /> front-channel
+participant D as RD <br /> back-channel
+participant E as AD/BVD <br /> front-channel
+participant F as AD/BVD <br /> back-channel
+rect rgba(75, 75, 75, .4)
+    Note over B,C: See DV#8594;RD
+    A->>B:
+    B-->>A:
+    A->>C:
+end
+C-->>A: AuthnRequest
+A->>E: AuthnRequest
+rect rgba(75, 75, 75, .4)
+    Note over C,E: Out of Scope - Authentication or representation interactions
+    E-->>A:
+    A->>E:
+end
+E-->>A: artifact
+A->>C: artifact
+C->>F: ArtifactResolve
+F-->>C: ArtifactResponse
+rect rgba(75, 75, 75, .4)
+rect rgba(75, 75, 75, .4)
+    Note over C,D: See DV#8594;RD
+    C-->>A:
+    A->>B:
+    B->>D:
+    D-->>B:
+    B-->>A:
+end
+end

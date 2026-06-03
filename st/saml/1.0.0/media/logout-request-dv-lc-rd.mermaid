@@ -1,0 +1,26 @@
+%%{init: {
+    "themeVariables": {"fontSize": "24px"},
+    "sequence": {"boxMargin": 20}
+}}%%
+sequenceDiagram
+autonumber
+participant A as User Agent
+participant B as DV / LC
+participant C as RD <br /> front-channel-channel
+participant D as RD <br /> back-channel-channel
+participant E as AD
+A->>B: local logout
+rect rgba(255,0,0,.1)
+    B-->>A: LogoutRequest
+    A->>C: LogoutRequest
+end
+rect rgba(75, 75, 75,.4)
+rect rgba(75, 75, 75,.4)
+    Note over D,E:  Out of Scope: see RD#8594;AD/BVD
+    C->>E:
+    E->>E:
+    E-->>C:
+end
+end
+C-->>A: LogoutResponse
+A->>B: LogoutResponse

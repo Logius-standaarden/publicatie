@@ -1,0 +1,28 @@
+%%{init: {
+    "themeVariables": {"fontSize": "24px"},
+    "sequence": {"boxMargin": 20}
+}}%%
+sequenceDiagram
+autonumber
+participant A as UA
+participant B as DV / LC
+participant C as RD
+participant E as AD
+rect rgba(75, 75, 75,.4)
+    Note over B,C: See DV#8594;RD
+    A->>B:
+    B-->>A:
+    A->>C:
+end
+C-->>A: LogoutRequest!
+A->>E: LogoutRequest
+E->>E: terminate SSO session
+E-->>A: LogoutResponse
+A->>C: LogoutResponse
+rect rgba(75, 75, 75, .4)
+rect rgba(75, 75, 75, .4)
+    Note over B,C: See DV#8594;RD
+    C-->>A:
+    A->>B:
+end
+end
