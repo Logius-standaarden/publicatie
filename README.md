@@ -338,6 +338,13 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [notificatieservices/guidelines/0.3/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/guidelines/0.3/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/guidelines/0.3/ "Preview op GitHub Pages")
    - [notificatieservices/guidelines/1.0/](https://gitdocumentatie.logius.nl/publicatie/notificatieservices/guidelines/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/notificatieservices/guidelines/1.0/ "Preview op GitHub Pages")
 
+### st
+
+- [st/saml/](https://gitdocumentatie.logius.nl/publicatie/st/saml/) [:scroll:](https://logius-standaarden.github.io/publicatie/st/saml/ "Preview op GitHub Pages")
+   - [st/saml/1/](https://gitdocumentatie.logius.nl/publicatie/st/saml/1/) [:scroll:](https://logius-standaarden.github.io/publicatie/st/saml/1/ "Preview op GitHub Pages")
+   - [st/saml/1.0/](https://gitdocumentatie.logius.nl/publicatie/st/saml/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/st/saml/1.0/ "Preview op GitHub Pages")
+   - [st/saml/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/st/saml/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/st/saml/1.0.0/ "Preview op GitHub Pages")
+
 ### testing
 
 - [testing/test/](https://gitdocumentatie.logius.nl/publicatie/testing/test/) [:scroll:](https://logius-standaarden.github.io/publicatie/testing/test/ "Preview op GitHub Pages")
