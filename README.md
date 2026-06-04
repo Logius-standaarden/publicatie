@@ -287,10 +287,6 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [fsc/logging/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/logging/1.0.0/ "Preview op GitHub Pages")
    - [fsc/logging/1.1/](https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/logging/1.1/ "Preview op GitHub Pages")
    - [fsc/logging/1.1.0/](https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/logging/1.1.0/ "Preview op GitHub Pages")
-- [fsc/properties/](https://gitdocumentatie.logius.nl/publicatie/fsc/properties/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/properties/ "Preview op GitHub Pages")
-   - [fsc/properties/1/](https://gitdocumentatie.logius.nl/publicatie/fsc/properties/1/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/properties/1/ "Preview op GitHub Pages")
-   - [fsc/properties/1.0/](https://gitdocumentatie.logius.nl/publicatie/fsc/properties/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/properties/1.0/ "Preview op GitHub Pages")
-   - [fsc/properties/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/fsc/properties/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/fsc/properties/1.0.0/ "Preview op GitHub Pages")
 
 ### logboek
 
