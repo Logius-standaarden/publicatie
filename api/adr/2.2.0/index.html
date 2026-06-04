@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.8.0">
+<meta name="generator" content="ReSpec 37.0.0">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
@@ -36,6 +36,7 @@ dfn{cursor:pointer}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
 .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
 .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
 .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
 .dfn-panel a[href]:hover{border-bottom-width:1px}
 .dfn-panel ul{padding:0}
@@ -72,13 +73,17 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
 cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
 #issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
+#issue-summary li{list-style:none}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
 details.respec-tests-details>*{padding-right:2em}
 details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
@@ -87,7 +92,8 @@ details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
 :is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
 :is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
 :is(h2,h3)+a.self-link{top:-.2em}
@@ -98,6 +104,8 @@ dd{margin-left:0}
 @media print{
 .removeOnSave{display:none}
 }
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
 <style id="respec-nlgov">
 img.license{float:left;padding-right:5px;background:0 0}
@@ -106,9 +114,36 @@ img.license{float:left;padding-right:5px;background:0 0}
 The Governance of this standard is described by the API-Standaarden beheermodel published by Logius.
 This document is part of the Nederlandse API Strategie, which consists of a set of documents.">
 <style>
-.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+.hljs,body:has(input[name=color-scheme][value=light]:checked) .hljs,head:not(:has(meta[name=color-scheme][content~=dark]))+body .hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
 @media (prefers-color-scheme:dark){
-.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+.hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
+}
+}
+body:has(input[name=color-scheme][value=dark]:checked) .hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
 }
 .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
 .hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
@@ -135,7 +170,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
     color: white;
     white-space: nowrap;
     z-index: 1;
-    background-color: #000000;
+    background-color: #154273;
   }
 </style>
 <script id="initialUserConfig" type="application/json">{
@@ -273,7 +308,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
         "Jasper Roes",
         "Joost Farla"
       ],
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
       "publisher": "Logius",
       "title": "API Design Rules"
     },
@@ -297,19 +332,19 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
     },
     "Algemene Voorwaarden Logius": {
-      "date": "12 juni 2018",
+      "date": "12 juni, 2018",
       "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
     "AuthZEN": {
-      "date": "6 September 2024 ",
+      "date": "September 6, 2024 ",
       "href": "https://openid.net/specs/authorization-api-1_0-01.html",
       "publisher": "OpenID",
       "title": "Authorization API 1.0 – draft 01"
     },
     "AVG": {
-      "date": "27 april 2016",
+      "date": "April 27, 2016",
       "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
       "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
       "title": "Algemene Verordening Gegevensbescherming"
@@ -336,13 +371,13 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "publisher": "CNCF Serverless Working Group",
       "title": "CloudEvents - Version 1.0.1"
     },
-    "NLGOV-CloudEvents": {
+    "NLgov.CloudEvents": {
       "authors": [
         "Werkgroep Berichtenstandaard (Project Notificatieservices)"
       ],
-      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/",
       "publisher": "Logius",
-      "title": "NL GOV profile for CloudEvents"
+      "title": "NLgov profile for CloudEvents"
     },
     "DK-CV": {
       "href": "https://gitlab.com/logius/digikoppeling-compliance",
@@ -460,7 +495,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "Oasis"
       ],
-      "date": "september 2002",
+      "date": "September 2002",
       "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
       "publisher": "Oasis",
       "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
@@ -479,19 +514,10 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "J. Dimitriou, V. Veduta, B. Dumitriu"
       ],
-      "date": "sept 8 2022",
+      "date": "September 8, 2022",
       "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
       "publisher": "OpenID foundation",
       "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
-    },
-    "Expert": {
-      "authors": [
-        "@@@"
-      ],
-      "date": "@@@",
-      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
-      "publisher": "Forum Standaardisatie",
-      "title": "Expertadvies CloudEvents 1.0"
     },
     "folmer2011": {
       "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
@@ -515,7 +541,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "publisher": "Universiteit Twente"
     },
     "DK-Gebruiksvoorwaarden": {
-      "date": "1 januari 2021",
+      "date": "Januari 1, 2021",
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Gebruiksvoorwaarden Digikoppeling"
@@ -531,7 +557,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "id": "adr-geo"
     },
     "HTTPS-factsheet NCSC": {
-      "date": "Nov 2014",
+      "date": "November 2014",
       "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       "publisher": "NCSC",
       "title": "Factsheet HTTPS kan een stuk veiliger"
@@ -540,18 +566,19 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "M. Varley, P. Grassi"
       ],
-      "date": "October 5 2018",
+      "date": "October 5, 2018",
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
-    "NLGOV.OpenID": {
+    "NLgov.OpenID": {
       "authors": [
         "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
       ],
+      "date": "September 18, 2023",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
       "publisher": "Logius",
-      "title": "OpenID NLGov"
+      "title": "NLgov Assurance profile for OpenID Connect 1.0"
     },
     "Introspection": {
       "authors": [
@@ -566,7 +593,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "M. Jones"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7518",
       "publisher": "IETF",
       "title": "JSON Web Algorithms (JWA)"
@@ -575,7 +602,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "M. Jones, J. Hildebrand"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7516",
       "publisher": "IETF",
       "title": "JSON Web Encryption (JWE)"
@@ -584,7 +611,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "M. Jones"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7517",
       "publisher": "IETF",
       "title": "JSON Web Key (JWK))"
@@ -593,7 +620,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7515",
       "publisher": "IETF",
       "title": "JSON Web Signature (JWS)"
@@ -602,13 +629,13 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7519",
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
     },
     "NCSC 2021": {
-      "date": "Jan 2021",
+      "date": "January 2021",
       "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
       "publisher": "NCSC",
       "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
@@ -621,9 +648,6 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "id": "ncsc 2025"
     },
     "NEN3610": {
-      "authors": [
-        ""
-      ],
       "date": "Maart 2011",
       "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
       "publisher": "Nederlands Normalisatie-instituut",
@@ -652,7 +676,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
       ],
-      "date": "November 8 2014",
+      "date": "November 8, 2014",
       "href": "https://openid.net/specs/openid-connect-core-1_0.html",
       "publisher": "OpenID foundation",
       "title": "OpenID Connect Core 1.0"
@@ -661,7 +685,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "N. Sakimura, J. Bradley, M. Jones, E. Jay"
       ],
-      "date": "November 8 2014",
+      "date": "November 8, 2014",
       "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
       "publisher": "OpenID foundation",
       "title": "OpenID Connect Discovery 1.0"
@@ -701,27 +725,18 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "id": "semver"
     },
     "ADR-TS": {
-      "authors": [
-        ""
-      ],
       "date": "March 07, 2024",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       "publisher": "Kennisplatform API's",
       "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
-      "authors": [
-        ""
-      ],
       "date": "2001",
       "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
       "publisher": "UN/CEFACT",
       "title": "UMM Revision 10"
     },
     "UMMUG": {
-      "authors": [
-        ""
-      ],
       "date": "2003",
       "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
       "publisher": "UN/CEFACT",
@@ -739,7 +754,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "title": "A Universally Unique IDentifier (UUID) URN Namespace"
     },
     "DK-Voorwaarden": {
-      "date": "1 januari 2021",
+      "date": "Januari 1, 2021",
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Voorwaarden Digikoppeling"
@@ -820,7 +835,6 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
       ],
-      "date": "",
       "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
       "publisher": "IANA",
       "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
@@ -838,15 +852,27 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "J. Richer, M. Varley, P. Grassi"
       ],
-      "date": "October 5 2018",
+      "date": "October 5, 2018",
       "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
-    "NLGOV.OAuth2": {
+    "NLgov.OAuth2": {
+      "authors": [
+        "Jaron Azaria",
+        "Martin Borgman",
+        "Marc Fleischeuers",
+        "Peter Haasnoot",
+        "Leon van der Ree",
+        "Bob te Riele",
+        "Remco Schaar",
+        "Frank Terpstra",
+        "Jan Jaap Zoutendijk"
+      ],
+      "date": "December 3, 2024",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
       "publisher": "Logius",
-      "title": "NL GOV Assurance profile for OAuth 2.0"
+      "title": "NLgov Assurance profile for OAuth 2.0"
     },
     "ietf-oauth-v2-1-10-refresh-token-grant": {
       "authors": [
@@ -861,18 +887,28 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       "authors": [
         "D. Fett, D. Tonge, J. Heenan"
       ],
-      "date": "February 22 2025",
+      "date": "February 22, 2025",
       "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
       "publisher": "OpenID foundation",
       "title": "FAPI 2.0 Security Profile"
     },
     "logboek-extensie-guideline": {
-      "href": "https://logius-standaarden.github.io/logboek-extensie-template/",
+      "authors": [
+        "Nil Barua",
+        "Tim van der Lippe"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/",
       "publisher": "Logius",
-      "title": "LDV Extensie Guideline"
+      "title": "Logboek Dataverwerkingen Extensie Guidelines"
     },
     "logboek dataverwerkingen": {
-      "href": "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      "authors": [
+        "Eelco Hotting",
+        "Vedran Bilanovic"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/",
       "publisher": "Logius",
       "title": "Logboek Dataverwerkingen"
     },
@@ -943,7 +979,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
   "previousPublishDate": "2025-08-27",
   "previousPublishVersion": "2.1.0",
   "shortName": "adr",
-  "specStatus": "VV",
+  "specStatus": "DEF",
   "specType": "ST",
   "pluralize": true,
   "preProcess": [
@@ -962,13 +998,13 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css">
 <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/dark.css"></head>
- <body class="h-entry toc-inline"><div class="head">
+ <body class="h-entry"><div class="head">
     <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">NLGov REST API Design Rules 2.2.0</h1>
     
     <h2>
       Logius Standard<br>
-      Proposed version
+      Definitive version
       <time class="dt-published" datetime="2026-06-02">June 02, 2026</time>
     </h2>
     <dl>
@@ -1005,7 +1041,9 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
       <dt>Participate:</dt><dd>
     <a href="https://github.com/Logius-standaarden/API-Design-Rules/">GitHub Logius-standaarden/API-Design-Rules</a>
   </dd><dd>
-    <a href="https://github.com/Logius-standaarden/API-Design-Rules/issues/">File an issue</a>
+    <a href="https://github.com/Logius-standaarden/API-Design-Rules/issues/">All issues</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/API-Design-Rules/issues/new/choose">File an issue</a>
   </dd><dd>
     <a href="https://github.com/Logius-standaarden/API-Design-Rules/commits/">Commit history</a>
   </dd><dd>
@@ -1023,7 +1061,7 @@ This document is part of the Nederlandse API Strategie, which consists of a set 
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
           </p>
     <hr title="Separator for header">
-  </div><section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive concept of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#goal"><bdi class="secno">1.1 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#status"><bdi class="secno">1.2 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#authors"><bdi class="secno">1.3 </bdi>Authors</a></li><li class="tocline"><a class="tocxref" href="#reading-guide"><bdi class="secno">1.4 </bdi>Reading Guide</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">1.5 </bdi>Extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#the-core-set-of-design-rules"><bdi class="secno">2. </bdi>The core set of Design Rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#summary"><bdi class="secno">2.1 </bdi>Summary</a></li><li class="tocline"><a class="tocxref" href="#resources"><bdi class="secno">2.2 </bdi>Resources</a></li><li class="tocline"><a class="tocxref" href="#date-and-time"><bdi class="secno">2.3 </bdi>Date and time</a></li><li class="tocline"><a class="tocxref" href="#http-methods"><bdi class="secno">2.4 </bdi>HTTP methods</a></li><li class="tocline"><a class="tocxref" href="#statelessness"><bdi class="secno">2.5 </bdi>Statelessness</a></li><li class="tocline"><a class="tocxref" href="#relationships"><bdi class="secno">2.6 </bdi>Relationships</a></li><li class="tocline"><a class="tocxref" href="#operations"><bdi class="secno">2.7 </bdi>Operations</a></li><li class="tocline"><a class="tocxref" href="#error-handling"><bdi class="secno">2.8 </bdi>Error handling</a></li><li class="tocline"><a class="tocxref" href="#documentation"><bdi class="secno">2.9 </bdi>Documentation</a></li><li class="tocline"><a class="tocxref" href="#versioning"><bdi class="secno">2.10 </bdi>Versioning</a></li><li class="tocline"><a class="tocxref" href="#transport-security"><bdi class="secno">2.11 </bdi>Transport Security</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#http-level-security"><bdi class="secno">2.11.1 </bdi>HTTP-level Security</a></li><li class="tocline"><a class="tocxref" href="#browser-based-applications"><bdi class="secno">2.11.2 </bdi>Browser-based applications</a></li><li class="tocline"><a class="tocxref" href="#validate-content-types"><bdi class="secno">2.11.3 </bdi>Validate content types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#normative-modules"><bdi class="secno">2.12 </bdi>Normative modules</a></li></ol></li><li class="tocline"><a class="tocxref" href="#glossary"><bdi class="secno">3. </bdi>Glossary</a></li><li class="tocline"><a class="tocxref" href="#linter-configuration"><bdi class="secno">A. </bdi>Linter configuration</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">B.2 </bdi>Informative references</a></li></ol></li></ol></nav><section class="notoc introductory" id="conformance"><div class="header-wrapper"><h2 id="conformance-0">Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+  </div><section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#goal"><bdi class="secno">1.1 </bdi>Goal</a></li><li class="tocline"><a class="tocxref" href="#status"><bdi class="secno">1.2 </bdi>Status</a></li><li class="tocline"><a class="tocxref" href="#authors"><bdi class="secno">1.3 </bdi>Authors</a></li><li class="tocline"><a class="tocxref" href="#reading-guide"><bdi class="secno">1.4 </bdi>Reading Guide</a></li><li class="tocline"><a class="tocxref" href="#extensions"><bdi class="secno">1.5 </bdi>Extensions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#the-core-set-of-design-rules"><bdi class="secno">2. </bdi>The core set of Design Rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#summary"><bdi class="secno">2.1 </bdi>Summary</a></li><li class="tocline"><a class="tocxref" href="#resources"><bdi class="secno">2.2 </bdi>Resources</a></li><li class="tocline"><a class="tocxref" href="#date-and-time"><bdi class="secno">2.3 </bdi>Date and time</a></li><li class="tocline"><a class="tocxref" href="#http-methods"><bdi class="secno">2.4 </bdi>HTTP methods</a></li><li class="tocline"><a class="tocxref" href="#statelessness"><bdi class="secno">2.5 </bdi>Statelessness</a></li><li class="tocline"><a class="tocxref" href="#relationships"><bdi class="secno">2.6 </bdi>Relationships</a></li><li class="tocline"><a class="tocxref" href="#operations"><bdi class="secno">2.7 </bdi>Operations</a></li><li class="tocline"><a class="tocxref" href="#error-handling"><bdi class="secno">2.8 </bdi>Error handling</a></li><li class="tocline"><a class="tocxref" href="#documentation"><bdi class="secno">2.9 </bdi>Documentation</a></li><li class="tocline"><a class="tocxref" href="#versioning"><bdi class="secno">2.10 </bdi>Versioning</a></li><li class="tocline"><a class="tocxref" href="#transport-security"><bdi class="secno">2.11 </bdi>Transport Security</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#http-level-security"><bdi class="secno">2.11.1 </bdi>HTTP-level Security</a></li><li class="tocline"><a class="tocxref" href="#browser-based-applications"><bdi class="secno">2.11.2 </bdi>Browser-based applications</a></li><li class="tocline"><a class="tocxref" href="#validate-content-types"><bdi class="secno">2.11.3 </bdi>Validate content types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#normative-modules"><bdi class="secno">2.12 </bdi>Normative modules</a></li></ol></li><li class="tocline"><a class="tocxref" href="#glossary"><bdi class="secno">3. </bdi>Glossary</a></li><li class="tocline"><a class="tocxref" href="#linter-configuration"><bdi class="secno">A. </bdi>Linter configuration</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">B.2 </bdi>Informative references</a></li></ol></li></ol></nav><section class="notoc introductory" id="conformance"><div class="header-wrapper"><h2 id="conformance-0">Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
         The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>, <em class="rfc2119">NOT RECOMMENDED</em>, <em class="rfc2119">SHOULD</em>, and <em class="rfc2119">SHOULD NOT</em> in this document
         are to be interpreted as described in
         <a href="https://www.rfc-editor.org/info/bcp14">BCP 14</a>
@@ -1126,17 +1164,13 @@ This document is part of the <em>Nederlandse API Strategie</em>, which consists 
 <figure id="fig-nl-api-strategie-infographic">
   <object data="https://geonovum.github.io/KP-APIs/media/API_infographic.svg" type="image/svg+xml" id="infographic" title="NL API Strategie Infographic"></object>
   <figcaption><a class="self-link" href="#fig-nl-api-strategie-infographic">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">NL API Strategie Infographic</span></figcaption>
-</figure>
-
-</section><section id="extensions"><div class="header-wrapper"><h3 id="x1-5-extensions"><bdi class="secno">1.5 </bdi>Extensions</h3><a class="self-link" href="#extensions" aria-label="Permalink for Section 1.5"></a></div>
+</figure></section><section id="extensions"><div class="header-wrapper"><h3 id="x1-5-extensions"><bdi class="secno">1.5 </bdi>Extensions</h3><a class="self-link" href="#extensions" aria-label="Permalink for Section 1.5"></a></div>
 <div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><aside class="">
 In addition to this (normative) document, separate modules are being written to provide a set of extensions. These modules are all separate documents and exists in a <a href="https://geonovum.github.io/KP-APIs/">latest editor's draft</a> (<i>Werkversie</i> in Dutch). The latest editor's draft is actively being worked on and can be found on <a href="https://github.com/Geonovum/KP-APIs">GitHub</a>. It contains the most recent changes.
 </aside></div></section></section>
   <section id="the-core-set-of-design-rules"><div class="header-wrapper"><h2 id="x2-the-core-set-of-design-rules"><bdi class="secno">2. </bdi>The core set of Design Rules</h2><a class="self-link" href="#the-core-set-of-design-rules" aria-label="Permalink for Section 2."></a></div>
 <section id="summary"><div class="header-wrapper"><h3 id="x2-1-summary"><bdi class="secno">2.1 </bdi>Summary</h3><a class="self-link" href="#summary" aria-label="Permalink for Section 2.1"></a></div>
-<div id="design-rule-summary">Design rules are technical rules, which should be tested automatically, and functional rules, which should be considered when designing and building the API.<h3 id="list-of-technical-rules">List of technical rules</h3><ul><li><a href="#/core/no-trailing-slash">/core/no-trailing-slash</a>: Leave off trailing slashes from URIs</li><li><a href="#/core/path-segments-kebab-case">/core/path-segments-kebab-case</a>: Use kebab-case in path segments</li><li><a href="#/core/query-keys-camel-case">/core/query-keys-camel-case</a>: Use camelCase in query keys</li><li><a href="#/core/date-time/format">/core/date-time/format</a>: Use standard format for date, datetime and time</li><li><a href="#/core/date-time/date-omit-time-portion">/core/date-time/date-omit-time-portion</a>: Omit time portion for date fields</li><li><a href="#/core/error-handling/problem-details">/core/error-handling/problem-details</a>: Use problem details for error responses</li><li><a href="#/core/error-handling/invalid-input">/core/error-handling/invalid-input</a>: Use status code 400 for invalid input</li><li><a href="#/core/doc-openapi">/core/doc-openapi</a>: Use OpenAPI Specification for documentation</li><li><a href="#/core/doc-openapi-contact">/core/doc-openapi-contact</a>: Document contact information for publicly available APIs</li><li><a href="#/core/publish-openapi">/core/publish-openapi</a>: Publish OAS document at a standard location in JSON-format</li><li><a href="#/core/uri-version">/core/uri-version</a>: Include the major version number in the URI</li><li><a href="#/core/semver">/core/semver</a>: Adhere to the Semantic Versioning model when releasing API changes</li><li><a href="#/core/version-header">/core/version-header</a>: Return the full version number in a response header</li><li><a href="#/core/transport/tls">/core/transport/tls</a>: Secure connections using TLS</li><li><a href="#/core/transport/security-headers">/core/transport/security-headers</a>: Use mandatory security headers in all API responses</li><li><a href="#/core/transport/cors">/core/transport/cors</a>: Use CORS to control access</li></ul><h3 id="list-of-functional-rules">List of functional rules</h3><ul><li><a href="#/core/naming-resources">/core/naming-resources</a>: Use nouns to name resources</li><li><a href="#/core/naming-collections">/core/naming-collections</a>: Use plural nouns to name collection resources</li><li><a href="#/core/interface-language">/core/interface-language</a>: Define interfaces in Dutch unless there is an official English glossary available</li><li><a href="#/core/hide-implementation">/core/hide-implementation</a>: Hide irrelevant implementation details</li><li><a href="#/core/date-time/timezone">/core/date-time/timezone</a>: Allow all timezone offsets in requests and use UTC in responses</li><li><a href="#/core/http-methods">/core/http-methods</a>: Only apply standard HTTP methods</li><li><a href="#/core/http-safety">/core/http-safety</a>: Adhere to HTTP safety and idempotency semantics for operations</li><li><a href="#/core/http-response-code">/core/http-response-code</a>: Adhere to HTTP status codes to convey appropriate errors</li><li><a href="#/core/stateless">/core/stateless</a>: Do not maintain session state on the server</li><li><a href="#/core/nested-child">/core/nested-child</a>: Use nested URIs for child resources</li><li><a href="#/core/resource-operations">/core/resource-operations</a>: Model resource operations as a sub-resource or dedicated resource</li><li><a href="#/core/error-handling/all-errors">/core/error-handling/all-errors</a>: Return all errors together for bad requests</li><li><a href="#/core/doc-language">/core/doc-language</a>: Publish documentation in Dutch unless there is existing documentation in English</li><li><a href="#/core/deprecation-schedule">/core/deprecation-schedule</a>: Include a deprecation schedule when deprecating features or versions</li><li><a href="#/core/transition-period">/core/transition-period</a>: Schedule a fixed transition period for a new major API version</li><li><a href="#/core/changelog">/core/changelog</a>: Publish a changelog for API changes between versions</li><li><a href="#/core/transport/no-sensitive-uris">/core/transport/no-sensitive-uris</a>: No sensitive information in URIs</li><li><a href="#/core/modules/geospatial">/core/modules/geospatial</a>: Apply the geospatial module for geospatial data</li><li><a href="#/core/modules/signing">/core/modules/signing</a>: Apply the signing module for signing payloads</li><li><a href="#/core/modules/encryption">/core/modules/encryption</a>: Apply the encryption module for encrypting payloads</li></ul></div>
-
-</section><section id="resources"><div class="header-wrapper"><h3 id="x2-2-resources"><bdi class="secno">2.2 </bdi>Resources</h3><a class="self-link" href="#resources" aria-label="Permalink for Section 2.2"></a></div>
+<div id="design-rule-summary">Design rules are technical rules, which should be tested automatically, and functional rules, which should be considered when designing and building the API.<h3 id="list-of-technical-rules">List of technical rules</h3><ul><li><a href="#/core/no-trailing-slash">/core/no-trailing-slash</a>: Leave off trailing slashes from URIs</li><li><a href="#/core/path-segments-kebab-case">/core/path-segments-kebab-case</a>: Use kebab-case in path segments</li><li><a href="#/core/query-keys-camel-case">/core/query-keys-camel-case</a>: Use camelCase in query keys</li><li><a href="#/core/date-time/format">/core/date-time/format</a>: Use standard format for date, datetime and time</li><li><a href="#/core/date-time/date-omit-time-portion">/core/date-time/date-omit-time-portion</a>: Omit time portion for date fields</li><li><a href="#/core/error-handling/problem-details">/core/error-handling/problem-details</a>: Use problem details for error responses</li><li><a href="#/core/error-handling/invalid-input">/core/error-handling/invalid-input</a>: Use status code 400 for invalid input</li><li><a href="#/core/doc-openapi">/core/doc-openapi</a>: Use OpenAPI Specification for documentation</li><li><a href="#/core/doc-openapi-contact">/core/doc-openapi-contact</a>: Document contact information for publicly available APIs</li><li><a href="#/core/publish-openapi">/core/publish-openapi</a>: Publish OAS document at a standard location in JSON-format</li><li><a href="#/core/uri-version">/core/uri-version</a>: Include the major version number in the URI</li><li><a href="#/core/semver">/core/semver</a>: Adhere to the Semantic Versioning model when releasing API changes</li><li><a href="#/core/version-header">/core/version-header</a>: Return the full version number in a response header</li><li><a href="#/core/transport/tls">/core/transport/tls</a>: Secure connections using TLS</li><li><a href="#/core/transport/security-headers">/core/transport/security-headers</a>: Use mandatory security headers in all API responses</li><li><a href="#/core/transport/cors">/core/transport/cors</a>: Use CORS to control access</li></ul><h3 id="list-of-functional-rules">List of functional rules</h3><ul><li><a href="#/core/naming-resources">/core/naming-resources</a>: Use nouns to name resources</li><li><a href="#/core/naming-collections">/core/naming-collections</a>: Use plural nouns to name collection resources</li><li><a href="#/core/interface-language">/core/interface-language</a>: Define interfaces in Dutch unless there is an official English glossary available</li><li><a href="#/core/hide-implementation">/core/hide-implementation</a>: Hide irrelevant implementation details</li><li><a href="#/core/date-time/timezone">/core/date-time/timezone</a>: Allow all timezone offsets in requests and use UTC in responses</li><li><a href="#/core/http-methods">/core/http-methods</a>: Only apply standard HTTP methods</li><li><a href="#/core/http-safety">/core/http-safety</a>: Adhere to HTTP safety and idempotency semantics for operations</li><li><a href="#/core/http-response-code">/core/http-response-code</a>: Adhere to HTTP status codes to convey appropriate errors</li><li><a href="#/core/stateless">/core/stateless</a>: Do not maintain session state on the server</li><li><a href="#/core/nested-child">/core/nested-child</a>: Use nested URIs for child resources</li><li><a href="#/core/resource-operations">/core/resource-operations</a>: Model resource operations as a sub-resource or dedicated resource</li><li><a href="#/core/error-handling/all-errors">/core/error-handling/all-errors</a>: Return all errors together for bad requests</li><li><a href="#/core/doc-language">/core/doc-language</a>: Publish documentation in Dutch unless there is existing documentation in English</li><li><a href="#/core/deprecation-schedule">/core/deprecation-schedule</a>: Include a deprecation schedule when deprecating features or versions</li><li><a href="#/core/transition-period">/core/transition-period</a>: Schedule a fixed transition period for a new major API version</li><li><a href="#/core/changelog">/core/changelog</a>: Publish a changelog for API changes between versions</li><li><a href="#/core/transport/no-sensitive-uris">/core/transport/no-sensitive-uris</a>: No sensitive information in URIs</li><li><a href="#/core/modules/geospatial">/core/modules/geospatial</a>: Apply the geospatial module for geospatial data</li><li><a href="#/core/modules/signing">/core/modules/signing</a>: Apply the signing module for signing payloads</li><li><a href="#/core/modules/encryption">/core/modules/encryption</a>: Apply the encryption module for encrypting payloads</li></ul></div></section><section id="resources"><div class="header-wrapper"><h3 id="x2-2-resources"><bdi class="secno">2.2 </bdi>Resources</h3><a class="self-link" href="#resources" aria-label="Permalink for Section 2.2"></a></div>
 <p>The REST architectural style is centered around the concept of a <a data-link-type="dfn|abstract-op" href="#dfn-resource" class="internalDFN" id="ref-for-dfn-resource-1">resource</a>. A resource is an abstraction of a conceptual entity, identified by a globally unique <a data-link-type="dfn|abstract-op" href="#dfn-uri" class="internalDFN" id="ref-for-dfn-uri-1">URI</a>. It may correspond to anything from a physical object (e.g. a building or a person) to an abstract concept (e.g. a permit, an event or today's weather). Although a resource is not tied to any specific exchange format, its current state can be transferred to clients through one or more representations, such as JSON or XML.</p>
 <p><span id="api-05"></span></p>
 <div class="rule" id="/core/naming-resources" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
@@ -1165,9 +1199,7 @@ In addition to this (normative) document, separate modules are being written to 
    Resources describe objects, not actions.
    </dd>
 </dl>
-</div>
-
-<p>A resource that corresponds to a single conceptual entity is referred to as a <a data-link-type="dfn|abstract-op" href="#dfn-singular-resource" class="internalDFN" id="ref-for-dfn-singular-resource-1">singular resource</a>. Resources can also be logically grouped into collections, which are themselves resources and typically support operations like paging, sorting, and filtering. While collection members are often of the same type, this is not strictly required. A collection resource contains references (URIs) to the individual singular resources it includes.</p>
+</div><p>A resource that corresponds to a single conceptual entity is referred to as a <a data-link-type="dfn|abstract-op" href="#dfn-singular-resource" class="internalDFN" id="ref-for-dfn-singular-resource-1">singular resource</a>. Resources can also be logically grouped into collections, which are themselves resources and typically support operations like paging, sorting, and filtering. While collection members are often of the same type, this is not strictly required. A collection resource contains references (URIs) to the individual singular resources it includes.</p>
 <p><span id="api-54"></span></p>
 <div class="rule" id="/core/naming-collections" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
    <p class="rulelab"><a href="#/core/naming-collections">/core/naming-collections</a>: Use plural nouns to name collection resources</p>
@@ -1195,9 +1227,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          </aside>
       </dd>
    </dl>
-</div>
-
-<p><span id="api-04"></span></p>
+</div><p><span id="api-04"></span></p>
 <div class="rule" id="/core/interface-language" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
    <p class="rulelab"><a href="#/core/interface-language">/core/interface-language</a>: Define interfaces in Dutch unless there is an official English glossary available</p>
    <dl>
@@ -1212,9 +1242,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          </p><p>Note that glossaries exist that define useful sets of attributes which <em class="rfc2119">SHOULD</em> preferably be reused. Examples can be found at <a href="http://schema.org/docs/schemas.html">schema.org</a>.
       </p></dd>
    </dl>
-</div>
-
-<p><span id="api-48"></span></p>
+</div><p><span id="api-48"></span></p>
 <div class="rule" id="/core/no-trailing-slash" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
    <p class="rulelab"><a href="#/core/no-trailing-slash">/core/no-trailing-slash</a>: Leave off trailing slashes from URIs</p>
    <dl>
@@ -1244,9 +1272,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          Analyse all resource paths (except the root resource path) in the OpenAPI Description to confirm no resource paths end with a forward slash (<code>/</code>).
       This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fno%2Dtrailing%2Dslash">linter configuration</a>.</dd>
    </dl>
-</div>
-
-<div class="rule" id="/core/path-segments-kebab-case" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+</div><div class="rule" id="/core/path-segments-kebab-case" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
    <p class="rulelab"><a href="#/core/path-segments-kebab-case">/core/path-segments-kebab-case</a>: Use kebab-case in path segments</p>
    <dl>
       <dt>Statement</dt>
@@ -1298,9 +1324,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          </aside>
       This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fpath%2Dsegments%2Dkebab%2Dcase">linter configuration</a>.</dd>
    </dl>
-</div>
-
-<div class="rule" id="/core/query-keys-camel-case" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+</div><div class="rule" id="/core/query-keys-camel-case" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
    <p class="rulelab"><a href="#/core/query-keys-camel-case">/core/query-keys-camel-case</a>: Use camelCase in query keys</p>
    <dl>
       <dt>Statement</dt>
@@ -1333,9 +1357,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          </aside>
       This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fquery%2Dkeys%2Dcamel%2Dcase">linter configuration</a>.</dd>
    </dl>
-</div>
-
-<p><span id="api-53"></span></p>
+</div><p><span id="api-53"></span></p>
 <div class="rule" id="/core/hide-implementation" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
    <p class="rulelab"><a href="#/core/hide-implementation">/core/hide-implementation</a>: Hide irrelevant implementation details</p>
    <dl>
@@ -1355,18 +1377,14 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          </ul>
       </dd>
    </dl>
-</div>
-
-</section><section id="date-and-time"><div class="header-wrapper"><h3 id="x2-3-date-and-time"><bdi class="secno">2.3 </bdi>Date and time</h3><a class="self-link" href="#date-and-time" aria-label="Permalink for Section 2.3"></a></div>
+</div></section><section id="date-and-time"><div class="header-wrapper"><h3 id="x2-3-date-and-time"><bdi class="secno">2.3 </bdi>Date and time</h3><a class="self-link" href="#date-and-time" aria-label="Permalink for Section 2.3"></a></div>
 <p>Handling date and time is tricky and can lead to confusion among clients. The date-time rules remove ambiguity and provide clarity in the API contract between servers and clients.</p>
 <aside class="example" id="example-8"><div class="marker">
     <a class="self-link" href="#example-8">Example<bdi> 8</bdi></a>
   </div>
    <p>A child is born on March 20th 2025 in The Netherlands. If a client sends a request with value <code>2025-03-20T00:00:00+01:00</code>, timezone conversion would result in <code>2025-03-19T23:00:00Z</code>. When the client receives this value in a response and incorrectly converts it to a date (by removing the time portion), this would result in <code>2025-03-19</code>.
    </p><p>Ambiguous date and time handling can therefore lead to misinterpretation and changes of days/months/years depending on which component performs which incorrect conversion. Clients could incorrectly remove a time portion from a datetime value if the value should have been a date in the first place. By specifying which formats are allowed in which fields, the odds of invalid conversion are reduced.
-</p></aside>
-
-<div class="rule" id="/core/date-time/format" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+</p></aside><div class="rule" id="/core/date-time/format" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
    <p class="rulelab"><a href="#/core/date-time/format">/core/date-time/format</a>: Use standard format for date, datetime and time</p>
    <dl>
       <dt>Statement</dt>
@@ -1415,9 +1433,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          Analyse all fields and if the field represents a date, date-time or time, ensure it has the correct format according to the table above.
       </dd>
    </dl>
-</div>
-
-<div class="rule" id="/core/date-time/timezone" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+</div><div class="rule" id="/core/date-time/timezone" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
    <p class="rulelab"><a href="#/core/date-time/timezone">/core/date-time/timezone</a>: Allow all timezone offsets in requests and use UTC in responses</p>
    <dl>
       <dt>Statement</dt>
@@ -1442,9 +1458,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          </p><div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-2" aria-level="4"><span>Note</span></div><p class="">While storage formats are outside the scope of this specification, it is recommended to use appropriate temporal datatypes (such as <code>DATE</code> and <code>TIMESTAMPTZ</code>). Many database systems store these values internally in UTC and handle timezone conversion automatically on read/write.
       </p></div></dd>
    </dl>
-</div>
-
-<div class="rule" id="/core/date-time/date-omit-time-portion" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+</div><div class="rule" id="/core/date-time/date-omit-time-portion" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
    <p class="rulelab"><a href="#/core/date-time/date-omit-time-portion">/core/date-time/date-omit-time-portion</a>: Omit time portion for date fields</p>
    <dl>
       <dt>Statement</dt>
@@ -1461,9 +1475,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          Analyse all fields that set format to "date-time" and ensure that the fields do not represent solely a date.
       This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fdate%2Dtime%2Fdate%2Domit%2Dtime%2Dportion">linter configuration</a>.</dd>
    </dl>
-</div>
-
-</section><section id="http-methods"><div class="header-wrapper"><h3 id="x2-4-http-methods"><bdi class="secno">2.4 </bdi>HTTP methods</h3><a class="self-link" href="#http-methods" aria-label="Permalink for Section 2.4"></a></div>
+</div></section><section id="http-methods"><div class="header-wrapper"><h3 id="x2-4-http-methods"><bdi class="secno">2.4 </bdi>HTTP methods</h3><a class="self-link" href="#http-methods" aria-label="Permalink for Section 2.4"></a></div>
 <p>Although the REST architectural style does not impose a specific protocol, REST APIs are typically implemented using HTTP [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc9110" title="HTTP Semantics">RFC9110</a></cite>].</p>
 <p><span id="api-03"></span></p>
 <div class="rule" id="/core/http-methods" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
@@ -1562,9 +1574,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          Analyse the OpenAPI Description to confirm all supported methods are either <code>post</code>, <code>put</code>, <code>get</code>, <code>delete</code>, or <code>patch</code>.
       </dd>
    </dl>
-</div>
-
-<p><span id="api-01"></span></p>
+</div><p><span id="api-01"></span></p>
 <div class="rule" id="/core/http-safety" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
    <p class="rulelab"><a href="#/core/http-safety">/core/http-safety</a>: Adhere to HTTP safety and idempotency semantics for operations</p>
    <dl>
@@ -1628,9 +1638,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          </p>
       </dd>
    </dl>
-</div>
-
-<div class="rule" id="/core/http-response-code" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+</div><div class="rule" id="/core/http-response-code" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
    <p class="rulelab"><a href="#/core/http-response-code">/core/http-response-code</a>: Adhere to HTTP status codes to convey appropriate errors</p>
    <dl>
       <dt>Statement</dt>
@@ -1643,18 +1651,14 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
          </p><p>In case of an error, the server <em class="rfc2119">SHOULD NOT</em> pass technical details (e.g. call stacks or other internal hints) to the client. The error message <em class="rfc2119">SHOULD</em> be generic to avoid revealing additional details and expose internal information which can be used with malicious intent.
       </p></dd>
    </dl>
-</div>
-
-</section><section id="statelessness"><div class="header-wrapper"><h3 id="x2-5-statelessness"><bdi class="secno">2.5 </bdi>Statelessness</h3><a class="self-link" href="#statelessness" aria-label="Permalink for Section 2.5"></a></div>
+</div></section><section id="statelessness"><div class="header-wrapper"><h3 id="x2-5-statelessness"><bdi class="secno">2.5 </bdi>Statelessness</h3><a class="self-link" href="#statelessness" aria-label="Permalink for Section 2.5"></a></div>
 <p>One of the key constraints of the REST architectural style is stateless communication between client and server. It means that every request from client to server must contain all of the information necessary to understand the request. The server cannot take advantage of any stored session context on the server as it didn’t memorize previous requests. Session state must therefore reside entirely on the client.</p>
 <p>To properly understand this constraint, it is important to make a distinction between two different kinds of state:</p>
 <ul>
 <li><em>Session state</em>: information about the interactions of an end user with a particular client application within the same user session, such as the last page being viewed, the login state or form data in a multi-step registration process. Session state must reside entirely on the client (e.g. in the user's browser).</li>
 <li><em>Resource state</em>: information that is permanently stored on the server beyond the scope of a single user session, such as the user's profile, a product purchase or information about a building. Resource state is persisted on the server and must be exchanged between client and server (in both directions) using  representations as part of the request or response payload. This is actually where the term <em>REpresentational State Transfer (REST)</em> originates from.</li>
 </ul>
-<div class="note" role="note" id="issue-container-generatedID-5"><div role="heading" class="note-title marker" id="h-note-5" aria-level="4"><span>Note</span></div><p class="">It is a misconception that there should be no state at all. The stateless communication constraint should be seen from the server's point of view and states that the server should not be aware of any <em>session state</em>.</p></div>
-
-<p>Stateless communication offers many advantages, including:</p>
+<div class="note" role="note" id="issue-container-generatedID-5"><div role="heading" class="note-title marker" id="h-note-5" aria-level="4"><span>Note</span></div><p class="">It is a misconception that there should be no state at all. The stateless communication constraint should be seen from the server's point of view and states that the server should not be aware of any <em>session state</em>.</p></div><p>Stateless communication offers many advantages, including:</p>
 <ul>
 <li><em>Simplicity</em> is increased because the server does not have to memorize or retrieve session state while processing requests</li>
 <li><em>Scalability</em> is improved because not having to incorporate session state across multiple requests enables higher concurrency and performance</li>
@@ -1675,9 +1679,7 @@ https://api.example.org/v1/vergunningen/d285e05c-6b01-45c3-92d8-5e19a946b66f</pr
       </dd>
    </dl>
    <div class="note" role="note" id="issue-container-generatedID-6"><div role="heading" class="note-title marker" id="h-note-6" aria-level="4"><span>Note</span></div><p class="">The client of a REST API could be a variety of applications such as a browser application, a mobile or desktop application and even another server serving as a backend component for another client. REST APIs should therefore be completely client-agnostic.</p></div>
-</div>
-
-</section><section id="relationships"><div class="header-wrapper"><h3 id="x2-6-relationships"><bdi class="secno">2.6 </bdi>Relationships</h3><a class="self-link" href="#relationships" aria-label="Permalink for Section 2.6"></a></div>
+</div></section><section id="relationships"><div class="header-wrapper"><h3 id="x2-6-relationships"><bdi class="secno">2.6 </bdi>Relationships</h3><a class="self-link" href="#relationships" aria-label="Permalink for Section 2.6"></a></div>
 <p>Resources are often interconnected by relationships. Relationships can be modelled in different ways depending on the cardinality, semantics and more importantly, the use cases and access patterns the REST API needs to support.</p>
 <p><span id="api-06"></span></p>
 <div class="rule" id="/core/nested-child" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
@@ -1707,9 +1709,7 @@ https://api.example.org/v1/comments/456</pre>
             <p>Although this approach might seem counterintuitive from a technical perspective (we simply could have modelled a single <code>/comments</code> resource with optional filters for article and photo) and might introduce partially redundant functionality, it makes perfect sense from the perspective of the consumer, which increases developer experience.
          </p></aside>
       </dd>
-</dl></div>
-
-</section><section id="operations"><div class="header-wrapper"><h3 id="x2-7-operations"><bdi class="secno">2.7 </bdi>Operations</h3><a class="self-link" href="#operations" aria-label="Permalink for Section 2.7"></a></div>
+</dl></div></section><section id="operations"><div class="header-wrapper"><h3 id="x2-7-operations"><bdi class="secno">2.7 </bdi>Operations</h3><a class="self-link" href="#operations" aria-label="Permalink for Section 2.7"></a></div>
 <p><span id="api-10"></span></p>
 <div class="rule" id="/core/resource-operations" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
   <p class="rulelab"><a href="#/core/resource-operations">/core/resource-operations</a>: Model resource operations as a sub-resource or dedicated resource</p>
@@ -1728,9 +1728,7 @@ https://api.example.org/v1/comments/456</pre>
       </ol>
       </dd>
    </dl>
-</div>
-
-</section><section id="error-handling"><div class="header-wrapper"><h3 id="x2-8-error-handling"><bdi class="secno">2.8 </bdi>Error handling</h3><a class="self-link" href="#error-handling" aria-label="Permalink for Section 2.8"></a></div>
+</div></section><section id="error-handling"><div class="header-wrapper"><h3 id="x2-8-error-handling"><bdi class="secno">2.8 </bdi>Error handling</h3><a class="self-link" href="#error-handling" aria-label="Permalink for Section 2.8"></a></div>
 <div class="rule" id="/core/error-handling/problem-details" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
    <p class="rulelab"><a href="#/core/error-handling/problem-details">/core/error-handling/problem-details</a>: Use problem details for error responses</p>
    <dl>
@@ -1760,9 +1758,7 @@ https://api.example.org/v1/comments/456</pre>
          Verify all responses with status code <code>4xx</code> or <code>5xx</code> have <code>Content-Type</code> set to <code>application/problem+json</code> or <code>application/problem+xml</code> and the body contains fields <code>status</code>, <code>title</code>, and <code>detail</code>.
       This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Ferror%2Dhandling%2Fproblem%2Ddetails">linter configuration</a>.</dd>
    </dl>
-</div>
-
-<div class="rule" id="/core/error-handling/invalid-input" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+</div><div class="rule" id="/core/error-handling/invalid-input" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
   <p class="rulelab"><a href="#/core/error-handling/invalid-input">/core/error-handling/invalid-input</a>: Use status code 400 for invalid input</p>
   <dl>
     <dt>Statement</dt>
@@ -1780,9 +1776,7 @@ https://api.example.org/v1/comments/456</pre>
       Verify that operations accepting query parameters and/or a request body contain a response with status code <code>400</code>.
     This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Ferror%2Dhandling%2Finvalid%2Dinput">linter configuration</a>.</dd>
   </dl>
-</div>
-
-<div class="rule" id="/core/error-handling/all-errors" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+</div><div class="rule" id="/core/error-handling/all-errors" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
   <p class="rulelab"><a href="#/core/error-handling/all-errors">/core/error-handling/all-errors</a>: Return all errors together for bad requests</p>
   <dl>
     <dt>Statement</dt>
@@ -1798,9 +1792,7 @@ https://api.example.org/v1/comments/456</pre>
       In these cases, include the additional validation errors together with other errors whenever feasible.
     </p></dd>
   </dl>
-</div>
-
-</section><section id="documentation"><div class="header-wrapper"><h3 id="x2-9-documentation"><bdi class="secno">2.9 </bdi>Documentation</h3><a class="self-link" href="#documentation" aria-label="Permalink for Section 2.9"></a></div>
+</div></section><section id="documentation"><div class="header-wrapper"><h3 id="x2-9-documentation"><bdi class="secno">2.9 </bdi>Documentation</h3><a class="self-link" href="#documentation" aria-label="Permalink for Section 2.9"></a></div>
 <p>An API is as good as the accompanying documentation. The documentation has to be easily findable, searchable and publicly accessible. Most developers will first read the documentation before they start implementing. Hiding the technical documentation in PDF documents and/or behind a login creates a barrier for both developers and search engines.</p>
 <p><span id="api-16"></span></p>
 <div class="rule" id="/core/doc-openapi" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
@@ -1820,9 +1812,7 @@ https://api.example.org/v1/comments/456</pre>
          Parse the resource at the provided location as an OpenAPI Description and confirm all $refs are resolvable and paths are defined.
       This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fdoc%2Dopenapi">linter configuration</a>.</dd>
    </dl>
-</div>
-
-<div class="rule" id="/core/doc-openapi-contact" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
+</div><div class="rule" id="/core/doc-openapi-contact" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
   <p class="rulelab"><a href="#/core/doc-openapi-contact">/core/doc-openapi-contact</a>: Document contact information for publicly available APIs</p>
   <dl>
       <dt>Statement</dt>
@@ -1848,9 +1838,7 @@ https://api.example.org/v1/comments/456</pre>
          Parse the OpenAPI Description to confirm the <code>info.contact</code> object is present.
       This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fdoc%2Dopenapi%2Dcontact">linter configuration</a>.</dd>
    </dl>
-</div>
-
-<p><span id="api-17"></span></p>
+</div><p><span id="api-17"></span></p>
 <div class="rule" id="/core/doc-language" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
   <p class="rulelab"><a href="#/core/doc-language">/core/doc-language</a>: Publish documentation in Dutch unless there is existing documentation in English</p>
   <dl>
@@ -1863,9 +1851,7 @@ https://api.example.org/v1/comments/456</pre>
          In line with design rule <a href="#/core/interface-language">/core/interface-language</a>, the OAS document (e.g. descriptions and examples) <em class="rfc2119">SHOULD</em> be written in Dutch. If relevant, you <em class="rfc2119">MAY</em> refer to existing documentation written in English.
       </dd>
    </dl>
-</div>
-
-<p><span id="api-51"></span></p>
+</div><p><span id="api-51"></span></p>
 <div class="rule" id="/core/publish-openapi" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
   <p class="rulelab"><a href="#/core/publish-openapi">/core/publish-openapi</a>: Publish OAS document at a standard location in JSON-format</p>
    <dl>
@@ -1897,9 +1883,7 @@ https://api.example.org/v1/comments/456</pre>
          </ul>
       This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fpublish%2Dopenapi">linter configuration</a>.</dd>
    </dl>
-</div>
-
-</section><section id="versioning"><div class="header-wrapper"><h3 id="x2-10-versioning"><bdi class="secno">2.10 </bdi>Versioning</h3><a class="self-link" href="#versioning" aria-label="Permalink for Section 2.10"></a></div>
+</div></section><section id="versioning"><div class="header-wrapper"><h3 id="x2-10-versioning"><bdi class="secno">2.10 </bdi>Versioning</h3><a class="self-link" href="#versioning" aria-label="Permalink for Section 2.10"></a></div>
 <p>Changes in APIs are inevitable. APIs should therefore always be versioned, facilitating the transition between changes.</p>
 <p><span id="api-18"></span></p>
 <div class="rule" id="/core/deprecation-schedule" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
@@ -1914,9 +1898,7 @@ https://api.example.org/v1/comments/456</pre>
          Managing change is important. In general, good documentation and timely communication regarding deprecation schedules are the most important for API users. When deprecating features or versions, a deprecation schedule <em class="rfc2119">MUST</em> be published. This document <em class="rfc2119">SHOULD</em> be published on a public web page. Furthermore, active clients <em class="rfc2119">SHOULD</em> be informed by e-mail once the schedule has been updated or when versions have reached end-of-life.
       </dd>
    </dl>
-</div>
-
-<p><span id="api-19"></span></p>
+</div><p><span id="api-19"></span></p>
 <div class="rule" id="/core/transition-period" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
   <p class="rulelab"><a href="#/core/transition-period">/core/transition-period</a>: Schedule a fixed transition period for a new major API version</p>
    <dl>
@@ -1929,9 +1911,7 @@ https://api.example.org/v1/comments/456</pre>
          When releasing a new major API version, the old version <em class="rfc2119">MUST</em> remain available for a limited and fixed deprecation period. Offering a deprecation period allows clients to carefully plan and execute the migration from the old to the new API version, as long as they do this prior to the end of the deprecation period. A maximum of 2 major API versions <em class="rfc2119">MAY</em> be published concurrently.
       </dd>
    </dl>
-</div>
-
-<p><span id="api-20"></span></p>
+</div><p><span id="api-20"></span></p>
 <div class="rule" id="/core/uri-version" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
   <p class="rulelab"><a href="#/core/uri-version">/core/uri-version</a>: Include the major version number in the URI</p>
     <dl>
@@ -1961,9 +1941,7 @@ https://api.example.org/v1/comments/456</pre>
          Parse the <code>url</code> field in the <code>servers</code> mentioned in the OpenAPI Description to confirm that a version number is present with prefix <code>v</code> and only contains the *major* version number.
       This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Furi%2Dversion">linter configuration</a>.</dd>
    </dl>
-</div>
-
-<p><span id="api-55"></span></p>
+</div><p><span id="api-55"></span></p>
 <div class="rule" id="/core/changelog" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
   <p class="rulelab"><a href="#/core/changelog">/core/changelog</a>: Publish a changelog for API changes between versions</p>
    <dl>
@@ -1976,9 +1954,7 @@ https://api.example.org/v1/comments/456</pre>
          <p>When releasing new (major, minor or patch) versions, all API changes <em class="rfc2119">MUST</em> be documented properly in a publicly available changelog.</p>
       </dd>
    </dl>
-</div>
-
-<p><span id="api-56"></span></p>
+</div><p><span id="api-56"></span></p>
 <div class="rule" id="/core/semver" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
   <p class="rulelab"><a href="#/core/semver">/core/semver</a>: Adhere to the Semantic Versioning model when releasing API changes</p>
   <dl>
@@ -1995,9 +1971,7 @@ https://api.example.org/v1/comments/456</pre>
          Parse the <code>info.version</code> field in the OpenAPI Description to confirm it adheres to the Semantic Versioning format.
       </dd>
    </dl>
-</div>
-
-<p><span id="api-57"></span></p>
+</div><p><span id="api-57"></span></p>
 <div class="rule" id="/core/version-header" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
   <p class="rulelab"><a href="#/core/version-header">/core/version-header</a>: Return the full version number in a response header</p>
    <dl>
@@ -2021,9 +1995,7 @@ https://api.example.org/v1/comments/456</pre>
          A response includes a header "API-Version" with a number matching the version number set in the <code>info.version</code> field of the OpenAPI Description.
       This rule can be automatically checked and an example test is shown in the <a href="#:~:text=%23%2Fcore%2Fversion%2Dheader">linter configuration</a>.</dd>
    </dl>
-</div>
-
-</section><section id="transport-security"><div class="header-wrapper"><h3 id="x2-11-transport-security"><bdi class="secno">2.11 </bdi>Transport Security</h3><a class="self-link" href="#transport-security" aria-label="Permalink for Section 2.11"></a></div>
+</div></section><section id="transport-security"><div class="header-wrapper"><h3 id="x2-11-transport-security"><bdi class="secno">2.11 </bdi>Transport Security</h3><a class="self-link" href="#transport-security" aria-label="Permalink for Section 2.11"></a></div>
 <p>This section describes security principles, concepts and technologies to apply when working with APIs.
 Controls need to be applied for the security objectives of integrity, confidentiality and availability of the API (which includes the services and data provided thereby).
 The <a href="https://docs.geostandaarden.nl/api/API-Strategie-architectuur/">architecture section of the API strategy</a> contains architecture patterns for implementing transport security.</p>
@@ -2038,7 +2010,7 @@ Effectively, only security standards directly applicable to interactions are dis
     <dt>Statement</dt>
     <dd>
       <p>Information exchanged by APIs <em class="rfc2119">MUST</em> be secured using TLS-based connections. No exceptions, so everywhere and always. This is <a href="https://wetten.overheid.nl/BWBR0048156/2023-07-01">required by law</a>.
-      </p><p>One <em class="rfc2119">MUST</em> follow the latest NCSC guidelines [<cite><a class="bibref" data-link-type="biblio" href="#bib-ncsc 2025" title="Transport Layer Security (TLS) richtlijnen 2025-05">NCSC 2025</a></cite>].
+      </p><p>One <em class="rfc2119">MUST</em> follow the latest NCSC guidelines [<cite><a class="bibref" data-link-type="biblio" href="#bib-ncsc-2025" title="Transport Layer Security (TLS) richtlijnen 2025-05">NCSC 2025</a></cite>].
     </p></dd>
     <dt>Rationale</dt>
     <dd>
@@ -2049,9 +2021,7 @@ Effectively, only security standards directly applicable to interactions are dis
         <p>The usage of TLS is machine testable. Follow the latest NCSC guidelines on what is required to test. The serverside is what will be tested, only control over the server is assumed for testing. A testing client will be employed to test adherence of the server. Supporting any protocols, algorithms, key sizes, options or ciphers that are deemed insufficient or phased out by NCSC will lead to failure on the automated test. Both positive and negative scenarios are part of the test: testing that a subset of *Good* and *Sufficient* configurations are supported and configurations deemed  *Insufficient* or marked for *Phase out*. A manual exception to the automated test results can be made when configurations designated for *Phase out* are supported; The API provider will have to provide clear documentation regarding the phase out schedule.  
     </p></dd>
   </dl>
-</div>
-
-<p><span id="api-58"></span></p>
+</div><p><span id="api-58"></span></p>
 <div class="rule" id="/core/transport/no-sensitive-uris" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
   <p class="rulelab"><a href="#/core/transport/no-sensitive-uris">/core/transport/no-sensitive-uris</a>: No sensitive information in URIs</p>
    <dl>
@@ -2074,9 +2044,7 @@ Effectively, only security standards directly applicable to interactions are dis
          </p><p>For REST API's that are only used for system-to-system integration on closed networks where all systems are under control of the organizations involved in the exchange, do not put client secrets used for authentication in the URI and be careful to put sensitive information in the URI. Intermediate network components that terminate and newly initiate TLS could log or otherwise store URIs. Consider the consequences, advantages and disadvantages of using sensitive information in the URI and be deliberate about which information is logged, for which purposes and who has access.
       </p></dd>
    </dl>
-</div>
-
-<section id="http-level-security"><div class="header-wrapper"><h4 id="x2-11-1-http-level-security"><bdi class="secno">2.11.1 </bdi>HTTP-level Security</h4><a class="self-link" href="#http-level-security" aria-label="Permalink for Section 2.11.1"></a></div>
+</div><section id="http-level-security"><div class="header-wrapper"><h4 id="x2-11-1-http-level-security"><bdi class="secno">2.11.1 </bdi>HTTP-level Security</h4><a class="self-link" href="#http-level-security" aria-label="Permalink for Section 2.11.1"></a></div>
 <p>The guidelines and principles defined in this section are client agnostic.
 When implementing a client agnostic API, one <em class="rfc2119">SHOULD</em> at least facilitate that multi-purpose generic HTTP-clients like browsers are able to securely interact with the API.
 When implementing an API for a specific client it may be possible to limit measures as long as it ensures secure access for this specific client.
@@ -2182,9 +2150,7 @@ For outbound filtering, the main concern is leaking of information.</p>
          <p>The presence of the mandatory security headers can be tested in an automated way. A test client makes a call to the API root. The response is tested for the presence of mandatory headers.
       </p></dd>
    </dl>
-</div>
-
-<p><span id="api-50"></span></p>
+</div><p><span id="api-50"></span></p>
 <div class="rule" id="/core/transport/cors" data-type="technical"><div title="This is a technical design rule and hence should be tested automatically." class="flag">technical</div>
   <p class="rulelab"><a href="#/core/transport/cors">/core/transport/cors</a>: Use CORS to control access</p>
    <dl>
@@ -2212,9 +2178,7 @@ For outbound filtering, the main concern is leaking of information.</p>
          <p>Tests of this design rule can only be performed when the intended client is known to the tester. A test can be performed when this information is provided by the API provider. Otherwise no conclusive test result can be reached.
       </p></dd>
    </dl>
-</div>
-
-</section><section id="browser-based-applications"><div class="header-wrapper"><h4 id="x2-11-2-browser-based-applications"><bdi class="secno">2.11.2 </bdi>Browser-based applications</h4><a class="self-link" href="#browser-based-applications" aria-label="Permalink for Section 2.11.2"></a></div>
+</div></section><section id="browser-based-applications"><div class="header-wrapper"><h4 id="x2-11-2-browser-based-applications"><bdi class="secno">2.11.2 </bdi>Browser-based applications</h4><a class="self-link" href="#browser-based-applications" aria-label="Permalink for Section 2.11.2"></a></div>
 <p>A specific subclass of clients are browser-based applications, that require the presence of particular security controls to facilitate secure implementation.
 Clients in this class are also known as <em>user-agent-based</em> or <em>single-page-applications</em> (SPA).
 All browser-based applications <em class="rfc2119">SHOULD</em> follow the best practices specified in <a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-22">OAuth 2.0 for Browser-Based Apps</a>.
@@ -2262,9 +2226,7 @@ This avoids XXE-attack vectors for example.</li>
       </ol>
     </dd>
   </dl>
-</div>
-
-<div class="rule" id="/core/modules/signing" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+</div><div class="rule" id="/core/modules/signing" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
   <p class="rulelab"><a href="#/core/modules/signing">/core/modules/signing</a>: Apply the signing module for signing payloads</p>
   <dl>
     <dt>Statement</dt>
@@ -2283,9 +2245,7 @@ This avoids XXE-attack vectors for example.</li>
       </ol>
     </dd>
   </dl>
-</div>
-
-<div class="rule" id="/core/modules/encryption" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
+</div><div class="rule" id="/core/modules/encryption" data-type="functional"><div title="This is a functional design rule and hence cannot be tested automatically." class="flag">functional</div>
   <p class="rulelab"><a href="#/core/modules/encryption">/core/modules/encryption</a>: Apply the encryption module for encrypting payloads</p>
   <dl>
     <dt>Statement</dt>
@@ -2304,13 +2264,11 @@ This avoids XXE-attack vectors for example.</li>
       </ol>
     </dd>
   </dl>
-</div>
-
-<p>If both the signing and encryption modules apply, use the following flow of operations:</p>
+</div><p>If both the signing and encryption modules apply, use the following flow of operations:</p>
 <figure id="fig-signing-in-combination-with-encryption">
-   <div data-processed="true"><svg id="mermaid-1778145994750" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 636px;" viewBox="0 0 636 1466" role="graphics-document document" aria-roledescription="flowchart-v2"><style>
-#mermaid-1778145994750{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-1778145994750 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-1778145994750 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-1778145994750 .error-icon{fill:#552222;}#mermaid-1778145994750 .error-text{fill:#552222;stroke:#552222;}#mermaid-1778145994750 .edge-thickness-normal{stroke-width:1px;}#mermaid-1778145994750 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1778145994750 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1778145994750 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-1778145994750 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1778145994750 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1778145994750 .marker{fill:#333333;stroke:#333333;}#mermaid-1778145994750 .marker.cross{stroke:#333333;}#mermaid-1778145994750 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1778145994750 p{margin:0;}#mermaid-1778145994750 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-1778145994750 .cluster-label text{fill:#333;}#mermaid-1778145994750 .cluster-label span{color:#333;}#mermaid-1778145994750 .cluster-label span p{background-color:transparent;}#mermaid-1778145994750 .label text,#mermaid-1778145994750 span{fill:#333;color:#333;}#mermaid-1778145994750 .node rect,#mermaid-1778145994750 .node circle,#mermaid-1778145994750 .node ellipse,#mermaid-1778145994750 .node polygon,#mermaid-1778145994750 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1778145994750 .rough-node .label text,#mermaid-1778145994750 .node .label text,#mermaid-1778145994750 .image-shape .label,#mermaid-1778145994750 .icon-shape .label{text-anchor:middle;}#mermaid-1778145994750 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-1778145994750 .rough-node .label,#mermaid-1778145994750 .node .label,#mermaid-1778145994750 .image-shape .label,#mermaid-1778145994750 .icon-shape .label{text-align:center;}#mermaid-1778145994750 .node.clickable{cursor:pointer;}#mermaid-1778145994750 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-1778145994750 .arrowheadPath{fill:#333333;}#mermaid-1778145994750 .edgePath .path{stroke:#333333;stroke-width:1px;}#mermaid-1778145994750 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1778145994750 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-1778145994750 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-1778145994750 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-1778145994750 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-1778145994750 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1778145994750 .cluster text{fill:#333;}#mermaid-1778145994750 .cluster span{color:#333;}#mermaid-1778145994750 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1778145994750 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1778145994750 rect.text{fill:none;stroke-width:0;}#mermaid-1778145994750 .icon-shape,#mermaid-1778145994750 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-1778145994750 .icon-shape p,#mermaid-1778145994750 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-1778145994750 .icon-shape .label rect,#mermaid-1778145994750 .image-shape .label rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-1778145994750 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-1778145994750 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-1778145994750 .node .neo-node{stroke:#9370DB;}#mermaid-1778145994750 [data-look="neo"].node rect,#mermaid-1778145994750 [data-look="neo"].cluster rect,#mermaid-1778145994750 [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mermaid-1778145994750 [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#mermaid-1778145994750 [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mermaid-1778145994750 [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#mermaid-1778145994750 [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mermaid-1778145994750 [data-look="neo"].node circle .state-start{fill:#000000;}#mermaid-1778145994750 [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mermaid-1778145994750 [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mermaid-1778145994750 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-1778145994750 .sc&gt;*{fill:#f96!important;}#mermaid-1778145994750 .sc span{fill:#f96!important;}
-</style><g><marker id="mermaid-1778145994750_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1778145994750_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1778145994750_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1778145994750_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></polygon></marker><marker id="mermaid-1778145994750_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1778145994750_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1778145994750_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1778145994750_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1778145994750_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1778145994750_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1778145994750_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"></path></marker><marker id="mermaid-1778145994750_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"><g class="cluster" id="mermaid-1778145994750-subGraph1" data-look="classic"><rect style="" x="8" y="8" width="300" height="1450"></rect><g class="cluster-label" transform="translate(92.1875, 8)"><foreignObject width="131.625" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5;"><span class="nodeLabel"><p>Service Requester</p></span></div></foreignObject></g></g><g class="cluster" id="mermaid-1778145994750-subGraph0" data-look="classic"><rect style="" x="328" y="433" width="300" height="600"></rect><g class="cluster-label" transform="translate(419.3125, 433)"><foreignObject width="117.375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5;"><span class="nodeLabel"><p>Service Provider</p></span></div></foreignObject></g></g></g><g class="edgePaths"><path d="M158,87L158,93.167C158,99.333,158,111.667,158,123.333C158,135,158,146,158,151.5L158,157" id="mermaid-1778145994750-L_Request_SignA_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_Request_SignA_0" data-points="W3sieCI6MTU4LCJ5Ijo4N30seyJ4IjoxNTgsInkiOjEyNH0seyJ4IjoxNTgsInkiOjE2MX1d" data-look="classic" marker-end="url(#mermaid-1778145994750_flowchart-v2-pointEnd)"></path><path d="M158,359L158,365.167C158,371.333,158,383.667,158,396C158,408.333,158,420.667,191.53,437.312C225.061,453.956,292.121,474.913,325.652,485.391L359.182,495.869" id="mermaid-1778145994750-L_SignA_SignB_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_SignA_SignB_0" data-points="W3sieCI6MTU4LCJ5IjozNTl9LHsieCI6MTU4LCJ5IjozOTZ9LHsieCI6MTU4LCJ5Ijo0MzN9LHsieCI6MzYzLCJ5Ijo0OTcuMDYyNX1d" data-look="classic" marker-end="url(#mermaid-1778145994750_flowchart-v2-pointEnd)"></path><path d="M478,608L478,614.167C478,620.333,478,632.667,478,644.333C478,656,478,667,478,672.5L478,678" id="mermaid-1778145994750-L_SignB_Proc_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_SignB_Proc_0" data-points="W3sieCI6NDc4LCJ5Ijo2MDh9LHsieCI6NDc4LCJ5Ijo2NDV9LHsieCI6NDc4LCJ5Ijo2ODJ9XQ==" data-look="classic" marker-end="url(#mermaid-1778145994750_flowchart-v2-pointEnd)"></path><path d="M478,736L478,742.167C478,748.333,478,760.667,478,772.333C478,784,478,795,478,800.5L478,806" id="mermaid-1778145994750-L_Proc_SignC_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_Proc_SignC_0" data-points="W3sieCI6NDc4LCJ5Ijo3MzZ9LHsieCI6NDc4LCJ5Ijo3NzN9LHsieCI6NDc4LCJ5Ijo4MTB9XQ==" data-look="classic" marker-end="url(#mermaid-1778145994750_flowchart-v2-pointEnd)"></path><path d="M478,1008L478,1012.167C478,1016.333,478,1024.667,424.667,1035C371.333,1045.333,264.667,1057.667,211.333,1069.333C158,1081,158,1092,158,1097.5L158,1103" id="mermaid-1778145994750-L_SignC_SignD_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_SignC_SignD_0" data-points="W3sieCI6NDc4LCJ5IjoxMDA4fSx7IngiOjQ3OCwieSI6MTAzM30seyJ4IjoxNTgsInkiOjEwNzB9LHsieCI6MTU4LCJ5IjoxMTA3fV0=" data-look="classic" marker-end="url(#mermaid-1778145994750_flowchart-v2-pointEnd)"></path><path d="M158,1305L158,1311.167C158,1317.333,158,1329.667,158,1341.333C158,1353,158,1364,158,1369.5L158,1375" id="mermaid-1778145994750-L_SignD_Response_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_SignD_Response_0" data-points="W3sieCI6MTU4LCJ5IjoxMzA1fSx7IngiOjE1OCwieSI6MTM0Mn0seyJ4IjoxNTgsInkiOjEzNzl9XQ==" data-look="classic" marker-end="url(#mermaid-1778145994750_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(158, 124)"><g class="label" data-id="L_Request_SignA_0" transform="translate(-54.6875, -12)"><foreignObject width="109.375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JSON(payload)</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(158, 396)"><g class="label" data-id="L_SignA_SignB_0" transform="translate(-99.1171875, -12)"><foreignObject width="198.234375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JWE(JWS(JSON(payload)))</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(478, 645)"><g class="label" data-id="L_SignB_Proc_0" transform="translate(-54.6875, -12)"><foreignObject width="109.375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JSON(payload)</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(478, 773)"><g class="label" data-id="L_Proc_SignC_0" transform="translate(-54.6875, -12)"><foreignObject width="109.375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JSON(payload)</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(158, 1070)"><g class="label" data-id="L_SignC_SignD_0" transform="translate(-99.1171875, -12)"><foreignObject width="198.234375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JWS(JWE(JSON(payload)))</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(158, 1342)"><g class="label" data-id="L_SignD_Response_0" transform="translate(-54.6875, -12)"><foreignObject width="109.375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JSON(payload)</p></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default sc" id="mermaid-1778145994750-flowchart-Request-0" data-look="classic" transform="translate(158, 60)"><rect class="basic label-container" style="fill:#f96 !important" x="-59.796875" y="-27" width="119.59375" height="54"></rect><g class="label" style="" transform="translate(-29.796875, -12)"><rect></rect><foreignObject width="59.59375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Request</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1778145994750-flowchart-SignA-1" data-look="classic" transform="translate(158, 260)"><rect class="basic label-container" style="" rx="5" ry="5" x="-115" y="-99" width="230" height="198"></rect><g class="label" style="" transform="translate(-100, -84)"><rect></rect><foreignObject width="200" height="168"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Sign with Requester private key<br><br>-----------------------<br><br>Encrypt with Provider public key</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1778145994750-flowchart-SignB-3" data-look="classic" transform="translate(478, 533)"><rect class="basic label-container" style="" rx="5" ry="5" x="-115" y="-75" width="230" height="150"></rect><g class="label" style="" transform="translate(-100, -60)"><rect></rect><foreignObject width="200" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Decrypt with Provider private key<br><br>Verify signature with Requester public key</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1778145994750-flowchart-Proc-5" data-look="classic" transform="translate(478, 709)"><rect class="basic label-container" style="" rx="5" ry="5" x="-75.921875" y="-27" width="151.84375" height="54"></rect><g class="label" style="" transform="translate(-60.921875, -12)"><rect></rect><foreignObject width="121.84375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Process Request</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1778145994750-flowchart-SignC-7" data-look="classic" transform="translate(478, 909)"><rect class="basic label-container" style="" rx="5" ry="5" x="-115" y="-99" width="230" height="198"></rect><g class="label" style="" transform="translate(-100, -84)"><rect></rect><foreignObject width="200" height="168"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Sign with Provider private key <br><br>-----------------------<br><br>Encrypt with Requester public key</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1778145994750-flowchart-SignD-9" data-look="classic" transform="translate(158, 1206)"><rect class="basic label-container" style="" rx="5" ry="5" x="-115" y="-99" width="230" height="198"></rect><g class="label" style="" transform="translate(-100, -84)"><rect></rect><foreignObject width="200" height="168"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Decrypt with Requester private key <br><br>-----------------------<br><br>Verify signature with Provider public key</p></span></div></foreignObject></g></g><g class="node default sc" id="mermaid-1778145994750-flowchart-Response-11" data-look="classic" transform="translate(158, 1406)"><rect class="basic label-container" style="fill:#f96 !important" x="-66.0234375" y="-27" width="132.046875" height="54"></rect><g class="label" style="" transform="translate(-36.0234375, -12)"><rect></rect><foreignObject width="72.046875" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Response</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="mermaid-1778145994750-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs><defs><filter id="mermaid-1778145994750-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs></svg></div>
+   <div data-processed="true"><svg id="mermaid-1780566242253" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 636px;" viewBox="0 0 636 1466" role="graphics-document document" aria-roledescription="flowchart-v2"><style>
+#mermaid-1780566242253{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-1780566242253 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-1780566242253 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-1780566242253 .error-icon{fill:#552222;}#mermaid-1780566242253 .error-text{fill:#552222;stroke:#552222;}#mermaid-1780566242253 .edge-thickness-normal{stroke-width:1px;}#mermaid-1780566242253 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1780566242253 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1780566242253 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-1780566242253 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1780566242253 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1780566242253 .marker{fill:#333333;stroke:#333333;}#mermaid-1780566242253 .marker.cross{stroke:#333333;}#mermaid-1780566242253 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1780566242253 p{margin:0;}#mermaid-1780566242253 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-1780566242253 .cluster-label text{fill:#333;}#mermaid-1780566242253 .cluster-label span{color:#333;}#mermaid-1780566242253 .cluster-label span p{background-color:transparent;}#mermaid-1780566242253 .label text,#mermaid-1780566242253 span{fill:#333;color:#333;}#mermaid-1780566242253 .node rect,#mermaid-1780566242253 .node circle,#mermaid-1780566242253 .node ellipse,#mermaid-1780566242253 .node polygon,#mermaid-1780566242253 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1780566242253 .rough-node .label text,#mermaid-1780566242253 .node .label text,#mermaid-1780566242253 .image-shape .label,#mermaid-1780566242253 .icon-shape .label{text-anchor:middle;}#mermaid-1780566242253 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-1780566242253 .rough-node .label,#mermaid-1780566242253 .node .label,#mermaid-1780566242253 .image-shape .label,#mermaid-1780566242253 .icon-shape .label{text-align:center;}#mermaid-1780566242253 .node.clickable{cursor:pointer;}#mermaid-1780566242253 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-1780566242253 .arrowheadPath{fill:#333333;}#mermaid-1780566242253 .edgePath .path{stroke:#333333;stroke-width:1px;}#mermaid-1780566242253 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1780566242253 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-1780566242253 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-1780566242253 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-1780566242253 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-1780566242253 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1780566242253 .cluster text{fill:#333;}#mermaid-1780566242253 .cluster span{color:#333;}#mermaid-1780566242253 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1780566242253 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1780566242253 rect.text{fill:none;stroke-width:0;}#mermaid-1780566242253 .icon-shape,#mermaid-1780566242253 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-1780566242253 .icon-shape p,#mermaid-1780566242253 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-1780566242253 .icon-shape .label rect,#mermaid-1780566242253 .image-shape .label rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-1780566242253 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-1780566242253 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-1780566242253 .node .neo-node{stroke:#9370DB;}#mermaid-1780566242253 [data-look="neo"].node rect,#mermaid-1780566242253 [data-look="neo"].cluster rect,#mermaid-1780566242253 [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mermaid-1780566242253 [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#mermaid-1780566242253 [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mermaid-1780566242253 [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#mermaid-1780566242253 [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mermaid-1780566242253 [data-look="neo"].node circle .state-start{fill:#000000;}#mermaid-1780566242253 [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mermaid-1780566242253 [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mermaid-1780566242253 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-1780566242253 .sc&gt;*{fill:rgb(255, 153, 102)!important;}#mermaid-1780566242253 .sc span{fill:rgb(255, 153, 102)!important;}
+</style><g><marker id="mermaid-1780566242253_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1780566242253_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1780566242253_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1780566242253_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></polygon></marker><marker id="mermaid-1780566242253_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1780566242253_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1780566242253_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1780566242253_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1780566242253_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1780566242253_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1780566242253_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"></path></marker><marker id="mermaid-1780566242253_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"><g class="cluster" id="mermaid-1780566242253-subGraph1" data-look="classic"><rect style="" x="8" y="8" width="300" height="1450"></rect><g class="cluster-label" transform="translate(92.1875, 8)"><foreignObject width="131.625" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5;"><span class="nodeLabel"><p>Service Requester</p></span></div></foreignObject></g></g><g class="cluster" id="mermaid-1780566242253-subGraph0" data-look="classic"><rect style="" x="328" y="433" width="300" height="600"></rect><g class="cluster-label" transform="translate(419.3125, 433)"><foreignObject width="117.375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5;"><span class="nodeLabel"><p>Service Provider</p></span></div></foreignObject></g></g></g><g class="edgePaths"><path d="M158,87L158,93.167C158,99.333,158,111.667,158,123.333C158,135,158,146,158,151.5L158,157" id="mermaid-1780566242253-L_Request_SignA_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_Request_SignA_0" data-points="W3sieCI6MTU4LCJ5Ijo4N30seyJ4IjoxNTgsInkiOjEyNH0seyJ4IjoxNTgsInkiOjE2MX1d" data-look="classic" marker-end="url(#mermaid-1780566242253_flowchart-v2-pointEnd)"></path><path d="M158,359L158,365.167C158,371.333,158,383.667,158,396C158,408.333,158,420.667,191.53,437.312C225.061,453.956,292.121,474.913,325.652,485.391L359.182,495.869" id="mermaid-1780566242253-L_SignA_SignB_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_SignA_SignB_0" data-points="W3sieCI6MTU4LCJ5IjozNTl9LHsieCI6MTU4LCJ5IjozOTZ9LHsieCI6MTU4LCJ5Ijo0MzN9LHsieCI6MzYzLCJ5Ijo0OTcuMDYyNX1d" data-look="classic" marker-end="url(#mermaid-1780566242253_flowchart-v2-pointEnd)"></path><path d="M478,608L478,614.167C478,620.333,478,632.667,478,644.333C478,656,478,667,478,672.5L478,678" id="mermaid-1780566242253-L_SignB_Proc_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_SignB_Proc_0" data-points="W3sieCI6NDc4LCJ5Ijo2MDh9LHsieCI6NDc4LCJ5Ijo2NDV9LHsieCI6NDc4LCJ5Ijo2ODJ9XQ==" data-look="classic" marker-end="url(#mermaid-1780566242253_flowchart-v2-pointEnd)"></path><path d="M478,736L478,742.167C478,748.333,478,760.667,478,772.333C478,784,478,795,478,800.5L478,806" id="mermaid-1780566242253-L_Proc_SignC_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_Proc_SignC_0" data-points="W3sieCI6NDc4LCJ5Ijo3MzZ9LHsieCI6NDc4LCJ5Ijo3NzN9LHsieCI6NDc4LCJ5Ijo4MTB9XQ==" data-look="classic" marker-end="url(#mermaid-1780566242253_flowchart-v2-pointEnd)"></path><path d="M478,1008L478,1012.167C478,1016.333,478,1024.667,424.667,1035C371.333,1045.333,264.667,1057.667,211.333,1069.333C158,1081,158,1092,158,1097.5L158,1103" id="mermaid-1780566242253-L_SignC_SignD_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_SignC_SignD_0" data-points="W3sieCI6NDc4LCJ5IjoxMDA4fSx7IngiOjQ3OCwieSI6MTAzM30seyJ4IjoxNTgsInkiOjEwNzB9LHsieCI6MTU4LCJ5IjoxMTA3fV0=" data-look="classic" marker-end="url(#mermaid-1780566242253_flowchart-v2-pointEnd)"></path><path d="M158,1305L158,1311.167C158,1317.333,158,1329.667,158,1341.333C158,1353,158,1364,158,1369.5L158,1375" id="mermaid-1780566242253-L_SignD_Response_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_SignD_Response_0" data-points="W3sieCI6MTU4LCJ5IjoxMzA1fSx7IngiOjE1OCwieSI6MTM0Mn0seyJ4IjoxNTgsInkiOjEzNzl9XQ==" data-look="classic" marker-end="url(#mermaid-1780566242253_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(158, 124)"><g class="label" data-id="L_Request_SignA_0" transform="translate(-54.6875, -12)"><foreignObject width="109.375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JSON(payload)</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(158, 396)"><g class="label" data-id="L_SignA_SignB_0" transform="translate(-99.1171875, -12)"><foreignObject width="198.234375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JWE(JWS(JSON(payload)))</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(478, 645)"><g class="label" data-id="L_SignB_Proc_0" transform="translate(-54.6875, -12)"><foreignObject width="109.375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JSON(payload)</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(478, 773)"><g class="label" data-id="L_Proc_SignC_0" transform="translate(-54.6875, -12)"><foreignObject width="109.375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JSON(payload)</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(158, 1070)"><g class="label" data-id="L_SignC_SignD_0" transform="translate(-99.1171875, -12)"><foreignObject width="198.234375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JWS(JWE(JSON(payload)))</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(158, 1342)"><g class="label" data-id="L_SignD_Response_0" transform="translate(-54.6875, -12)"><foreignObject width="109.375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>JSON(payload)</p></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default sc" id="mermaid-1780566242253-flowchart-Request-0" data-look="classic" transform="translate(158, 60)"><rect class="basic label-container" style="fill:#f96 !important" x="-59.796875" y="-27" width="119.59375" height="54"></rect><g class="label" style="" transform="translate(-29.796875, -12)"><rect></rect><foreignObject width="59.59375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Request</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1780566242253-flowchart-SignA-1" data-look="classic" transform="translate(158, 260)"><rect class="basic label-container" style="" rx="5" ry="5" x="-115" y="-99" width="230" height="198"></rect><g class="label" style="" transform="translate(-100, -84)"><rect></rect><foreignObject width="200" height="168"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Sign with Requester private key<br><br>-----------------------<br><br>Encrypt with Provider public key</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1780566242253-flowchart-SignB-3" data-look="classic" transform="translate(478, 533)"><rect class="basic label-container" style="" rx="5" ry="5" x="-115" y="-75" width="230" height="150"></rect><g class="label" style="" transform="translate(-100, -60)"><rect></rect><foreignObject width="200" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Decrypt with Provider private key<br><br>Verify signature with Requester public key</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1780566242253-flowchart-Proc-5" data-look="classic" transform="translate(478, 709)"><rect class="basic label-container" style="" rx="5" ry="5" x="-75.921875" y="-27" width="151.84375" height="54"></rect><g class="label" style="" transform="translate(-60.921875, -12)"><rect></rect><foreignObject width="121.84375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Process Request</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1780566242253-flowchart-SignC-7" data-look="classic" transform="translate(478, 909)"><rect class="basic label-container" style="" rx="5" ry="5" x="-115" y="-99" width="230" height="198"></rect><g class="label" style="" transform="translate(-100, -84)"><rect></rect><foreignObject width="200" height="168"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Sign with Provider private key <br><br>-----------------------<br><br>Encrypt with Requester public key</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1780566242253-flowchart-SignD-9" data-look="classic" transform="translate(158, 1206)"><rect class="basic label-container" style="" rx="5" ry="5" x="-115" y="-99" width="230" height="198"></rect><g class="label" style="" transform="translate(-100, -84)"><rect></rect><foreignObject width="200" height="168"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Decrypt with Requester private key <br><br>-----------------------<br><br>Verify signature with Provider public key</p></span></div></foreignObject></g></g><g class="node default sc" id="mermaid-1780566242253-flowchart-Response-11" data-look="classic" transform="translate(158, 1406)"><rect class="basic label-container" style="fill:#f96 !important" x="-66.0234375" y="-27" width="132.046875" height="54"></rect><g class="label" style="" transform="translate(-36.0234375, -12)"><rect></rect><foreignObject width="72.046875" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>Response</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="mermaid-1780566242253-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs><defs><filter id="mermaid-1780566242253-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs></svg></div>
    <figcaption><a class="self-link" href="#fig-signing-in-combination-with-encryption">Figure <bdi class="figno">2</bdi></a> <span class="fig-title">Signing in combination with encryption</span></figcaption>
 </figure></section></section>
   <section id="glossary"><div class="header-wrapper"><h2 id="x3-glossary"><bdi class="secno">3. </bdi>Glossary</h2><a class="self-link" href="#glossary" aria-label="Permalink for Section 3."></a></div>
@@ -2678,7 +2636,7 @@ This avoids XXE-attack vectors for example.</li>
       <a href="https://logius-standaarden.github.io/API-mod-signing/"><cite>API Design Rules Module: Signing</cite></a>. P. Haasnoot.  Logius. Draft. URL: <a href="https://logius-standaarden.github.io/API-mod-signing/">https://logius-standaarden.github.io/API-mod-signing/</a>
     </dd><dt id="bib-iso8601-1">[ISO8601-1]</dt><dd>
       <a href="https://www.iso.org/standard/70907.html"><cite>Date and time — Representations for information interchange — Part 1: Basic rules. ISO 8601-1:2019.</cite></a>.  International Organization for Standardization (ISO). 2019. ISO 8601-1:2019. URL: <a href="https://www.iso.org/standard/70907.html">https://www.iso.org/standard/70907.html</a>
-    </dd><dt id="bib-ncsc 2025">[NCSC 2025]</dt><dd>
+    </dd><dt id="bib-ncsc-2025">[NCSC 2025]</dt><dd>
       <a href="https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05"><cite>Transport Layer Security (TLS) richtlijnen 2025-05</cite></a>.  NCSC. June 2025. URL: <a href="https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05">https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05</a>
     </dd><dt id="bib-openapis">[OPENAPIS]</dt><dd>
       <a href="https://www.openapis.org/"><cite>OpenAPI Specification</cite></a>. Darrell Miller; Jason Harmon; Jeremy Whitlock; Marsh Gardiner; Mike Ralphson; Ron Ratovsky; Tony Tam; Uri Sarid.  OpenAPI Initiative. URL: <a href="https://www.openapis.org/">https://www.openapis.org/</a>
@@ -2713,6 +2671,7 @@ This avoids XXE-attack vectors for example.</li>
       <div>
         <a class="self-link" href="#dfn-resource" aria-label="Permalink for definition: Resource. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2725,6 +2684,7 @@ This avoids XXE-attack vectors for example.</li>
       <div>
         <a class="self-link" href="#dfn-singular-resource" aria-label="Permalink for definition: Singular resource. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2739,6 +2699,7 @@ This avoids XXE-attack vectors for example.</li>
       <div>
         <a class="self-link" href="#dfn-collection-resource" aria-label="Permalink for definition: Collection resource. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2751,6 +2712,7 @@ This avoids XXE-attack vectors for example.</li>
       <div>
         <a class="self-link" href="#dfn-uri" aria-label="Permalink for definition: URI. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2773,6 +2735,7 @@ This avoids XXE-attack vectors for example.</li>
       <div>
         <a class="self-link" href="#dfn-ogc" aria-label="Permalink for definition: OGC. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2793,8 +2756,11 @@ function setupPanel() {
 }
 
 function panelListener() {
-  /** @type {HTMLElement} */
+  /** @type {HTMLElement | null} */
   let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
   return event => {
     const { target, type } = event;
 
@@ -2802,24 +2768,34 @@ function panelListener() {
 
     // For keys, we only care about Enter key to activate the panel
     // otherwise it's activated via a click.
-    if (type === "keydown" && event.key !== "Enter") return;
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
 
     const action = deriveAction(event);
 
     switch (action) {
       case "show": {
         hidePanel(panel);
-        /** @type {HTMLElement} */
+        /** @type {HTMLElement | null} */
         const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
         panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
-        const coords = deriveCoordinates(event);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
         displayPanel(dfn, panel, coords);
         break;
       }
       case "dock": {
-        panel.style.left = null;
-        panel.style.top = null;
-        panel.classList.add("docked");
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
         break;
       }
       case "hide": {
@@ -2870,7 +2846,8 @@ function deriveAction(event) {
     if (hitALink) {
       return target.classList.contains("self-link") ? "hide" : "dock";
     }
-    const panel = target.closest(".dfn-panel");
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
     return panel.classList.contains("docked") ? "hide" : "none";
   }
   if (document.querySelector(".dfn-panel:not([hidden])")) {
@@ -2914,9 +2891,9 @@ function displayPanel(dfn, panel, { x, y }) {
     const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
     const newCaretOffset = left - newLeft;
     panel.style.left = `${newLeft}px`;
-    /** @type {HTMLElement} */
+    /** @type {HTMLElement | null} */
     const caret = panel.querySelector(".caret");
-    caret.style.left = `${newCaretOffset}px`;
+    if (caret) caret.style.left = `${newCaretOffset}px`;
   }
 
   // As it's a dialog, we trap focus.
@@ -2965,6 +2942,9 @@ function trapFocus(panel, dfn) {
 function createTrapListener(anchors, panel, dfn) {
   const lastIndex = anchors.length - 1;
   let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
   return event => {
     switch (event.key) {
       // Hitting "Tab" traps us in a nice loop around elements.
@@ -2994,10 +2974,10 @@ function createTrapListener(anchors, panel, dfn) {
   };
 }
 
-/** @param {HTMLElement} panel */
+/** @param {HTMLElement | null} panel */
 function hidePanel(panel) {
   if (!panel) return;
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Standard - Proposed version</div><div class="mermaidTooltip" style="opacity: 0; position: absolute; text-align: center; max-width: 200px; padding: 2px; font-size: 12px; background: rgb(255, 255, 222); border: 1px solid rgb(51, 51, 51); border-radius: 2px; pointer-events: none; z-index: 100;"></div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Standard - Definitive version</div><div class="mermaidTooltip" style="opacity: 0; position: absolute; text-align: center; max-width: 200px; padding: 2px; font-size: 12px; background: rgb(255, 255, 222); border: 1px solid rgb(51, 51, 51); border-radius: 2px; pointer-events: none; z-index: 100;"></div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
