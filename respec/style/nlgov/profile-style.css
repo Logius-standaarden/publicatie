@@ -16,51 +16,52 @@
   --nlgov-del-border:  #dc3545;
 }
 
-/* ---------- Block-level additions (whole paragraphs) ---------- */
+* ---------- Sharde colors + text decoration ---------- */
+ 
+.nlgov-add {
+  background-color: var(--nlgov-add-bg);
+  color:            var(--nlgov-add-color);
+}
+ 
+.nlgov-del {
+  background-color:  var(--nlgov-del-bg);
+  color:             var(--nlgov-del-color);
+  text-decoration:   line-through;
+}
 
+* ---------- Block-level additions + deletions ---------- */
+ 
 p.nlgov-add,
 div.nlgov-add,
 li.nlgov-add,
 blockquote.nlgov-add {
-  background-color: var(--nlgov-add-bg);
-  color:            var(--nlgov-add-color);
-  border-left:      3px solid var(--nlgov-add-border);
-  padding:          0.5em 0.75em;
-  margin-block:     0.5em;
+  border-left:  3px solid var(--nlgov-add-border);
+  padding:      0.5em 0.75em;
+  margin-block: 0.5em;
 }
-
-/* ---------- Block-level deletions (whole paragraphs) ---------- */
-
+ 
 p.nlgov-del,
 div.nlgov-del,
 li.nlgov-del,
 blockquote.nlgov-del {
-  background-color:  var(--nlgov-del-bg);
-  color:             var(--nlgov-del-color);
-  border-left:       3px solid var(--nlgov-del-border);
-  text-decoration:   line-through;
-  padding:           0.5em 0.75em;
-  margin-block:      0.5em;
+  border-left:  3px solid var(--nlgov-del-border);
+  padding:      0.5em 0.75em;
+  margin-block: 0.5em;
 }
 
 /* ---------- Inline additions (<ins>) ---------- */
-
+ 
 ins.nlgov-add {
-  background-color:        var(--nlgov-add-bg);
-  color:                   var(--nlgov-add-color);
-  text-decoration:         underline;
-  text-decoration-style:   dotted;
-  text-decoration-color:   var(--nlgov-add-border);
-  padding:                 0 0.15em;
+  text-decoration:       underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--nlgov-add-border);
+  padding:               0 0.15em;
 }
-
+ 
 /* ---------- Inline deletions (<del>) ---------- */
-
+ 
 del.nlgov-del {
-  background-color:  var(--nlgov-del-bg);
-  color:             var(--nlgov-del-color);
-  text-decoration:   line-through;
-  padding:           0 0.15em;
+  padding: 0 0.15em;
 }
 
 /* ---------- Section-changed marker (▲ in headings + ToC) ---------- */
