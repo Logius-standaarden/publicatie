@@ -23,6 +23,7 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [api/adr/2.1.0/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.1.0/ "Preview op GitHub Pages")
    - [api/adr/2.2/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.2/ "Preview op GitHub Pages")
    - [api/adr/2.2.0/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.2.0/ "Preview op GitHub Pages")
+   - [api/adr/2.2.1/](https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.1/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/adr/2.2.1/ "Preview op GitHub Pages")
 - [api/authzen/](https://gitdocumentatie.logius.nl/publicatie/api/authzen/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/authzen/ "Preview op GitHub Pages")
    - [api/authzen/1/](https://gitdocumentatie.logius.nl/publicatie/api/authzen/1/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/authzen/1/ "Preview op GitHub Pages")
    - [api/authzen/1.0/](https://gitdocumentatie.logius.nl/publicatie/api/authzen/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/api/authzen/1.0/ "Preview op GitHub Pages")
