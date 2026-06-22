@@ -62,6 +62,8 @@ blockquote.nlgov-del {
 /* ---------- Inline additions (<ins>) ---------- */
  
 ins.nlgov-add {
+  background-color:      var(--nlgov-add-bg);
+  color:                 var(--nlgov-add-color);
   text-decoration:       underline;
   text-decoration-style: dotted;
   text-decoration-color: var(--nlgov-add-border);
@@ -71,7 +73,10 @@ ins.nlgov-add {
 /* ---------- Inline deletions (<del>) ---------- */
  
 del.nlgov-del {
-  padding: 0 0.15em;
+  background-color: var(--nlgov-del-bg);
+  color:            var(--nlgov-del-color);
+  text-decoration:  line-through;
+  padding:          0 0.15em;
 }
 
 /* ---------- Section-changed marker (▲ in headings + ToC) ---------- */
