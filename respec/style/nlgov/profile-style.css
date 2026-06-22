@@ -6,7 +6,7 @@
 :root {
   /* Additions – green palette */
   --nlgov-add-bg:      #d4edda;
-  --nlgov-add-color:   #155724;
+  --nlgov-add-color:   inherit;
   --nlgov-add-border:  #28a745;
   --nlgov-add-marker:  #2e9e48;
 
@@ -28,6 +28,16 @@
   color:             var(--nlgov-del-color);
   text-decoration:   line-through;
 }
+
+/* ---------- Section-level additions (whole NLgov sections) ----------*/
+
+section.nlgov-add,
+.nlgov-add-section {
+  border-left:      4px dashed var(--nlgov-add-border);
+  padding-left:     1em;
+  margin-left:      0.25em;
+}
+
 
 * ---------- Block-level additions + deletions ---------- */
  
@@ -68,7 +78,7 @@ del.nlgov-del {
 
 .nlgov-changed-marker {
   color:          var(--nlgov-add-marker);
-  font-size:      0.7em;
+  font-size:      1em;
   vertical-align: super;
   margin-left:    0.3em;
   font-style:     normal;
