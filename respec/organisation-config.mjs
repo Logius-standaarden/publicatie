@@ -747,6 +747,30 @@ export function loadRespecWithConfiguration(localConfig) {
     }
   ];
 
+  respecConfig.postProcess = [
+    ...(localConfig.postProcess || []),
+    (config, document) => {
+      if (!config.spellcheck) {
+        return;
+      }
+      const removableElements = [
+        // Contains author and editor names that don't match any dictionary
+        document.querySelector('.head'),
+        // Contain name of standards and their authors, which don't match
+        // any dictionary
+        document.getElementById('references'),
+        ...document.getElementsByClassName('bibref'),
+        ...document.querySelectorAll('[data-cite]'),
+        // Any particular part of a standard that is custom and doesn't need
+        // checking, such as Dutch context in an English standard
+        ...document.getElementsByClassName('remove-for-spellcheck'),
+      ];
+      for (const element of removableElements) {
+        element?.remove();
+      }
+    }
+  ];
+
   globalThis.respecConfig = respecConfig;
 
   import("https://logius-standaarden.github.io/publicatie/respec/builds/respec-nlgov.js");
