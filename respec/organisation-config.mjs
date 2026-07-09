@@ -749,7 +749,7 @@ export function loadRespecWithConfiguration(localConfig) {
 
   respecConfig.postProcess = [
     ...(localConfig.postProcess || []),
-    (config, document) {
+    (config, document) => {
       if (!config.spellcheck) {
         return;
       }
