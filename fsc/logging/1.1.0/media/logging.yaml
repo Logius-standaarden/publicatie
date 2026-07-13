@@ -186,6 +186,10 @@ components:
               DESTINATION_TYPE_DELEGATED_DESTINATION: "#/components/schemas/destinationDelegated"
         service_name:
           $ref: "#/components/schemas/serviceName"
+        additional_data:
+          description: Optional JSON object with arbitrary key-value pairs
+          additionalProperties: true
+          type: object
         created_at:
           $ref: "#/components/schemas/timestamp"
       required:
