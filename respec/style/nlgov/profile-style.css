@@ -5,77 +5,29 @@
 
 :root {
   /* Additions – green palette */
-  --nlgov-add-bg: #d4edda;
-  --nlgov-add-color: inherit;
   --nlgov-add-border: #28a745;
-  --nlgov-add-marker: #2e9e48;
 
   /* Deletions – red palette | no marker */
-  --nlgov-del-bg: #f8d7da;
-  --nlgov-del-color: #721c24;
   --nlgov-del-border: #dc3545;
 }
 
-* ---------- Sharde colors+text decoration ---------- */ .nlgov-add {
-  background-color: var(--nlgov-add-bg);
-  color: var(--nlgov-add-color);
-}
-
-.nlgov-del {
-  background-color: var(--nlgov-del-bg);
-  color: var(--nlgov-del-color);
-  text-decoration: line-through;
-}
-
-/* ---------- Section-level additions (whole NLgov sections) ----------*/
-
-section.nlgov-add,
-.nlgov-add-section {
-  border-left: 4px dashed var(--nlgov-add-border);
+:is(.nlgov-add, .nlgov-del) > *:not(.header-wrapper,section) {
   padding-left: 1em;
   margin-left: 0.25em;
 }
 
+/* ---------- Section-level additions (whole NLgov sections) ----------*/
+
+.nlgov-add {
+  border-style: dashed;
+  padding-left: 15px;
+  border-color: var(--nlgov-add-border);
+  border-width: 4px 0 0 4px;
+}
 
 /* ---------- Block-level deletions (keep solid red as a good visual cue) ---------- */
 
-p.nlgov-del,
-div.nlgov-del,
-li.nlgov-del {
+section.nlgov-del > *:not(.header-wrapper,section) {
   border-left: 4px solid var(--nlgov-del-border);
-  background-color: var(--nlgov-del-bg);
-  color: var(--nlgov-del-color);
   text-decoration: line-through;
-  padding: 0.5em 0.75em;
-  margin-block: 0.5em;
-}
-
-/* ---------- Inline additions (<ins>) ---------- */
-
-ins.nlgov-add {
-  background-color: var(--nlgov-add-bg);
-  color: var(--nlgov-add-color);
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-decoration-color: var(--nlgov-add-border);
-  padding: 0 0.15em;
-}
-
-/* ---------- Inline deletions (<del>) ---------- */
-
-del.nlgov-del {
-  background-color: var(--nlgov-del-bg);
-  color: var(--nlgov-del-color);
-  text-decoration: line-through;
-  padding: 0 0.15em;
-}
-
-/* ---------- Section-changed marker (▲ in headings + ToC) ---------- */
-
-.nlgov-changed-marker {
-  color: var(--nlgov-add-marker);
-  font-size: 1em;
-  vertical-align: super;
-  margin-left: 0.3em;
-  font-style: normal;
 }
