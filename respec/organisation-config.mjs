@@ -661,7 +661,7 @@ export function loadRespecWithConfiguration(localConfig) {
         utils.showError(`Invalid pubDomain. Must be one of ${ACCEPTED_DOMAINS}, but was "${config.pubDomain}"`);
       }
       // Alleen fundament heeft een Engelse versie die we toestaan als sub-shortname
-      if (!/^[a-z][a-z0-9]*(-[a-z0-9]+)*$/.test(config.shortName) || config.shortName === "fundament/en") {
+      if (!/^[a-z][a-z0-9]*(-[a-z0-9]+)*$/.test(config.shortName) && config.shortName !== "fundament/en") {
         utils.showError(`Invalid shortName. Must be in kebab-case (only lowercase letters and potentially separated by dashes), but was "${config.shortName}"`);
       }
       if (missingOrIsEmpty(config.github)) {
