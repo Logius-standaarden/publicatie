@@ -6,6 +6,7 @@
 :root {
   /* Additions – green palette */
   --nlgov-add-border: #28a745;
+  --nlgov-add-bg: #effbf3;
 
   /* Deletions – red palette | no marker */
   --nlgov-del-border: #dc3545;
@@ -22,7 +23,8 @@
   border-style: dashed;
   padding-left: 15px;
   border-color: var(--nlgov-add-border);
-  border-width: 4px 0 0 4px;
+  border-width: 0 0 0 4px;
+  background-color: var(--nlgov-add-bg);
 }
 
 /* ---------- Block-level deletions (keep solid red as a good visual cue) ---------- */
