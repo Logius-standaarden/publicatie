@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.8.0">
+<meta name="generator" content="ReSpec 37.2.0">
 <style>
 span.example-title{text-transform:none}
 :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
@@ -36,6 +36,7 @@ dfn{cursor:pointer}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
 .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
 .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
 .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
 .dfn-panel a[href]:hover{border-bottom-width:1px}
 .dfn-panel ul{padding:0}
@@ -49,21 +50,13 @@ dfn{cursor:pointer}
   
 <title>NLgov Profile for OpenID AuthZEN Authorization API 1.0.0</title>
   
+<link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/nlgov/profile-style.css" rel="stylesheet" type="text/css">
+  
+<link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/nlgov/profile-dark.css" rel="stylesheet" type="text/css" media="(prefers-color-scheme: dark)">
+  
 <link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon">
   
-  
-<style>
 
-    .nlgov-add {
-      background-color: lightgreen;
-    }
-    .nlgov-del {
-      background-color: lightcoral;
-      text-decoration: line-through;
-    }
-  
-</style> 
- 
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
@@ -80,13 +73,17 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
 cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
 #issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
+#issue-summary li{list-style:none}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
 details.respec-tests-details>*{padding-right:2em}
 details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
@@ -95,7 +92,8 @@ details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
 :is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
 :is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
 :is(h2,h3)+a.self-link{top:-.2em}
@@ -106,6 +104,8 @@ dd{margin-left:0}
 @media print{
 .removeOnSave{display:none}
 }
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
 <style id="respec-nlgov">
 img.license{float:left;padding-right:5px;background:0 0}
@@ -123,9 +123,36 @@ ul.index code{color:inherit}
 </style>
 <meta name="description" content="The Authorization API enables Policy Decision Points (PDPs) and Policy Enforcement Points (PEPs) to communicate authorization requests and decisions to each other without requiring knowledge of each other's inner workings. The Authorization API is served by the PDP and is called by the PEP. The Authorization API includes evaluation endpoints, which provide specific access decisions, and search endpoints for discovering permissible subjects, resources, or actions.">
 <style>
-.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+.hljs,body:has(input[name=color-scheme][value=light]:checked) .hljs,head:not(:has(meta[name=color-scheme][content~=dark]))+body .hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
 @media (prefers-color-scheme:dark){
-.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+.hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
+}
+}
+body:has(input[name=color-scheme][value=dark]:checked) .hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
 }
 .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
 .hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
@@ -281,7 +308,7 @@ ul.index code{color:inherit}
         "Jasper Roes",
         "Joost Farla"
       ],
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
       "publisher": "Logius",
       "title": "API Design Rules",
       "id": "adr"
@@ -306,19 +333,19 @@ ul.index code{color:inherit}
       "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
     },
     "Algemene Voorwaarden Logius": {
-      "date": "12 juni 2018",
+      "date": "12 juni, 2018",
       "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
     "AuthZEN": {
-      "date": "6 September 2024 ",
+      "date": "September 6, 2024 ",
       "href": "https://openid.net/specs/authorization-api-1_0-01.html",
       "publisher": "OpenID",
       "title": "Authorization API 1.0 – draft 01"
     },
     "AVG": {
-      "date": "27 april 2016",
+      "date": "April 27, 2016",
       "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
       "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
       "title": "Algemene Verordening Gegevensbescherming"
@@ -345,13 +372,13 @@ ul.index code{color:inherit}
       "publisher": "CNCF Serverless Working Group",
       "title": "CloudEvents - Version 1.0.1"
     },
-    "NLGOV-CloudEvents": {
+    "NLgov.CloudEvents": {
       "authors": [
         "Werkgroep Berichtenstandaard (Project Notificatieservices)"
       ],
-      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/",
       "publisher": "Logius",
-      "title": "NL GOV profile for CloudEvents"
+      "title": "NLgov profile for CloudEvents"
     },
     "DK-CV": {
       "href": "https://gitlab.com/logius/digikoppeling-compliance",
@@ -469,7 +496,7 @@ ul.index code{color:inherit}
       "authors": [
         "Oasis"
       ],
-      "date": "september 2002",
+      "date": "September 2002",
       "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
       "publisher": "Oasis",
       "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
@@ -488,19 +515,10 @@ ul.index code{color:inherit}
       "authors": [
         "J. Dimitriou, V. Veduta, B. Dumitriu"
       ],
-      "date": "sept 8 2022",
+      "date": "September 8, 2022",
       "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
       "publisher": "OpenID foundation",
       "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
-    },
-    "Expert": {
-      "authors": [
-        "@@@"
-      ],
-      "date": "@@@",
-      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
-      "publisher": "Forum Standaardisatie",
-      "title": "Expertadvies CloudEvents 1.0"
     },
     "folmer2011": {
       "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
@@ -524,7 +542,7 @@ ul.index code{color:inherit}
       "publisher": "Universiteit Twente"
     },
     "DK-Gebruiksvoorwaarden": {
-      "date": "1 januari 2021",
+      "date": "Januari 1, 2021",
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Gebruiksvoorwaarden Digikoppeling"
@@ -539,7 +557,7 @@ ul.index code{color:inherit}
       "title": "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
-      "date": "Nov 2014",
+      "date": "November 2014",
       "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       "publisher": "NCSC",
       "title": "Factsheet HTTPS kan een stuk veiliger"
@@ -548,18 +566,19 @@ ul.index code{color:inherit}
       "authors": [
         "M. Varley, P. Grassi"
       ],
-      "date": "October 5 2018",
+      "date": "October 5, 2018",
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
-    "NLGOV.OpenID": {
+    "NLgov.OpenID": {
       "authors": [
         "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
       ],
+      "date": "September 18, 2023",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
       "publisher": "Logius",
-      "title": "OpenID NLGov"
+      "title": "NLgov Assurance profile for OpenID Connect 1.0"
     },
     "Introspection": {
       "authors": [
@@ -574,7 +593,7 @@ ul.index code{color:inherit}
       "authors": [
         "M. Jones"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7518",
       "publisher": "IETF",
       "title": "JSON Web Algorithms (JWA)"
@@ -583,7 +602,7 @@ ul.index code{color:inherit}
       "authors": [
         "M. Jones, J. Hildebrand"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7516",
       "publisher": "IETF",
       "title": "JSON Web Encryption (JWE)"
@@ -592,7 +611,7 @@ ul.index code{color:inherit}
       "authors": [
         "M. Jones"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7517",
       "publisher": "IETF",
       "title": "JSON Web Key (JWK))"
@@ -601,7 +620,7 @@ ul.index code{color:inherit}
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7515",
       "publisher": "IETF",
       "title": "JSON Web Signature (JWS)"
@@ -610,13 +629,13 @@ ul.index code{color:inherit}
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7519",
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
     },
     "NCSC 2021": {
-      "date": "Jan 2021",
+      "date": "January 2021",
       "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
       "publisher": "NCSC",
       "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
@@ -628,9 +647,6 @@ ul.index code{color:inherit}
       "title": "Transport Layer Security (TLS) richtlijnen 2025-05"
     },
     "NEN3610": {
-      "authors": [
-        ""
-      ],
       "date": "Maart 2011",
       "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
       "publisher": "Nederlands Normalisatie-instituut",
@@ -658,7 +674,7 @@ ul.index code{color:inherit}
       "authors": [
         "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
       ],
-      "date": "November 8 2014",
+      "date": "November 8, 2014",
       "href": "https://openid.net/specs/openid-connect-core-1_0.html",
       "publisher": "OpenID foundation",
       "title": "OpenID Connect Core 1.0"
@@ -667,7 +683,7 @@ ul.index code{color:inherit}
       "authors": [
         "N. Sakimura, J. Bradley, M. Jones, E. Jay"
       ],
-      "date": "November 8 2014",
+      "date": "November 8, 2014",
       "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
       "publisher": "OpenID foundation",
       "title": "OpenID Connect Discovery 1.0"
@@ -706,27 +722,18 @@ ul.index code{color:inherit}
       "title": "Semantic Versioning 2.0.0"
     },
     "ADR-TS": {
-      "authors": [
-        ""
-      ],
       "date": "March 07, 2024",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       "publisher": "Kennisplatform API's",
       "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
-      "authors": [
-        ""
-      ],
       "date": "2001",
       "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
       "publisher": "UN/CEFACT",
       "title": "UMM Revision 10"
     },
     "UMMUG": {
-      "authors": [
-        ""
-      ],
       "date": "2003",
       "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
       "publisher": "UN/CEFACT",
@@ -744,7 +751,7 @@ ul.index code{color:inherit}
       "title": "A Universally Unique IDentifier (UUID) URN Namespace"
     },
     "DK-Voorwaarden": {
-      "date": "1 januari 2021",
+      "date": "Januari 1, 2021",
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Voorwaarden Digikoppeling"
@@ -825,7 +832,6 @@ ul.index code{color:inherit}
       "authors": [
         "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
       ],
-      "date": "",
       "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
       "publisher": "IANA",
       "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
@@ -843,15 +849,27 @@ ul.index code{color:inherit}
       "authors": [
         "J. Richer, M. Varley, P. Grassi"
       ],
-      "date": "October 5 2018",
+      "date": "October 5, 2018",
       "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
-    "NLGOV.OAuth2": {
+    "NLgov.OAuth2": {
+      "authors": [
+        "Jaron Azaria",
+        "Martin Borgman",
+        "Marc Fleischeuers",
+        "Peter Haasnoot",
+        "Leon van der Ree",
+        "Bob te Riele",
+        "Remco Schaar",
+        "Frank Terpstra",
+        "Jan Jaap Zoutendijk"
+      ],
+      "date": "December 3, 2024",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
       "publisher": "Logius",
-      "title": "NL GOV Assurance profile for OAuth 2.0"
+      "title": "NLgov Assurance profile for OAuth 2.0"
     },
     "ietf-oauth-v2-1-10-refresh-token-grant": {
       "authors": [
@@ -866,18 +884,28 @@ ul.index code{color:inherit}
       "authors": [
         "D. Fett, D. Tonge, J. Heenan"
       ],
-      "date": "February 22 2025",
+      "date": "February 22, 2025",
       "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
       "publisher": "OpenID foundation",
       "title": "FAPI 2.0 Security Profile"
     },
     "logboek-extensie-guideline": {
-      "href": "https://logius-standaarden.github.io/logboek-extensie-template/",
+      "authors": [
+        "Nil Barua",
+        "Tim van der Lippe"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/",
       "publisher": "Logius",
-      "title": "LDV Extensie Guideline"
+      "title": "Logboek Dataverwerkingen Extensie Guidelines"
     },
     "logboek dataverwerkingen": {
-      "href": "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      "authors": [
+        "Eelco Hotting",
+        "Vedran Bilanovic"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/",
       "publisher": "Logius",
       "title": "Logboek Dataverwerkingen"
     },
@@ -940,11 +968,15 @@ ul.index code{color:inherit}
     null,
     null,
     null
+  ],
+  "postProcess": [
+    null
   ]
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css">
 <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/dark.css"></head>
- <body class="h-entry toc-inline"><div class="head">
+
+<body class="h-entry"><div class="head">
     <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
   </a> <h1 id="title" class="title">NLgov Profile for OpenID AuthZEN Authorization API 1.0.0</h1>
     
@@ -979,7 +1011,9 @@ ul.index code{color:inherit}
       <dt>Participate:</dt><dd>
     <a href="https://github.com/Logius-standaarden/authzen-nlgov/">GitHub Logius-standaarden/authzen-nlgov</a>
   </dd><dd>
-    <a href="https://github.com/Logius-standaarden/authzen-nlgov/issues/">File an issue</a>
+    <a href="https://github.com/Logius-standaarden/authzen-nlgov/issues/">All issues</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/authzen-nlgov/issues/new/choose">File an issue</a>
   </dd><dd>
     <a href="https://github.com/Logius-standaarden/authzen-nlgov/commits/">Commit history</a>
   </dd><dd>
@@ -997,7 +1031,7 @@ ul.index code{color:inherit}
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
           </p>
     <hr title="Separator for header">
-  </div><section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive concept of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformance</a></li><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#dutch-government-profile-for-openid-authzen-authorization-api">Dutch government profile for OpenID AuthZEN Authorization API</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#model"><bdi class="secno">2. </bdi>Model</a></li><li class="tocline"><a class="tocxref" href="#features"><bdi class="secno">3. </bdi>Features</a></li><li class="tocline"><a class="tocxref" href="#api-version"><bdi class="secno">4. </bdi>API Version</a></li><li class="tocline"><a class="tocxref" href="#information-model"><bdi class="secno">5. </bdi>Information Model</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#subject"><bdi class="secno">5.1 </bdi>Subject</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#subject-properties"><bdi class="secno">5.1.1 </bdi>Subject Properties</a></li><li class="tocline"><a class="tocxref" href="#subject-examples"><bdi class="secno">5.1.2 </bdi>Examples (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#resource"><bdi class="secno">5.2 </bdi>Resource</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#resource-properties"><bdi class="secno">5.2.1 </bdi>Resource Properties</a></li><li class="tocline"><a class="tocxref" href="#resource-examples"><bdi class="secno">5.2.2 </bdi>Examples (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#action"><bdi class="secno">5.3 </bdi>Action</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#action-properties"><bdi class="secno">5.3.1 </bdi>Action Properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#processing-activity-identifier"><bdi class="secno">5.3.1.1 </bdi><span class="nlgov-add">Processing Activity identifier</span></a></li><li class="tocline"><a class="tocxref" href="#algorithm-identifier"><bdi class="secno">5.3.1.2 </bdi><span class="nlgov-add">Algorithm identifier</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#action-examples"><bdi class="secno">5.3.2 </bdi>Examples (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#context"><bdi class="secno">5.4 </bdi>Context</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#context-properties"><bdi class="secno">5.4.1 </bdi><span class="nlgov-add">Context Properties</span></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#time"><bdi class="secno">5.4.1.1 </bdi><span class="nlgov-add">Time</span></a></li><li class="tocline"><a class="tocxref" href="#w3c-trace-context"><bdi class="secno">5.4.1.2 </bdi><span class="nlgov-add">W3C Trace Context</span></a></li><li class="tocline"><a class="tocxref" href="#verifiable-claims"><bdi class="secno">5.4.1.3 </bdi><span class="nlgov-add">Verifiable claims</span></a></li><li class="tocline"><a class="tocxref" href="#context-mim"><bdi class="secno">5.4.1.4 </bdi><span class="nlgov-add">Meta-information Model</span></a></li><li class="tocline"><a class="tocxref" href="#context-ld"><bdi class="secno">5.4.1.5 </bdi><span class="nlgov-add">Linked Data context</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#context-examples"><bdi class="secno">5.4.2 </bdi>Examples (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#decision"><bdi class="secno">5.5 </bdi>Decision</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#decision-context"><bdi class="secno">5.5.1 </bdi>Decision Context</a></li><li class="tocline"><a class="tocxref" href="#decision-examples"><bdi class="secno">5.5.2 </bdi>Examples (non-normative)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#non-normative-example-1-conveying-decision-reasons"><bdi class="secno">5.5.2.1 </bdi>Non-normative Example 1: conveying decision Reasons</a></li><li class="tocline"><a class="tocxref" href="#non-normative-example-2-conveying-metadata-and-environmental-elements"><bdi class="secno">5.5.2.2 </bdi>Non-normative Example 2: conveying metadata and environmental elements</a></li><li class="tocline"><a class="tocxref" href="#non-normative-example-3-requesting-step-up-authentication"><bdi class="secno">5.5.2.3 </bdi>Non-normative Example 3: requesting step-up authentication</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#access-evaluation-api"><bdi class="secno">6. </bdi>Access Evaluation API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#access-evaluation-request"><bdi class="secno">6.1 </bdi>The Access Evaluation API Request</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#example-non-normative"><bdi class="secno">6.1.1 </bdi>Example (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#access-evaluation-response"><bdi class="secno">6.2 </bdi>The Access Evaluation API Response</a></li></ol></li><li class="tocline"><a class="tocxref" href="#access-evaluations-api"><bdi class="secno">7. </bdi>Access Evaluations API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#access-evaluations-request"><bdi class="secno">7.1 </bdi>The Access Evaluations API Request</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#default-values"><bdi class="secno">7.1.1 </bdi>Default values</a></li><li class="tocline"><a class="tocxref" href="#evaluations-options"><bdi class="secno">7.1.2 </bdi>Evaluations options</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#evaluations-semantics"><bdi class="secno">7.1.2.1 </bdi>Evaluations semantics</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#example-evaluate-read-action-for-three-documents-using-all-three-semantics"><bdi class="secno">7.1.2.1.1 </bdi>Example: Evaluate <code>read</code> action for three documents using all three semantics</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#access-evaluations-response"><bdi class="secno">7.2 </bdi>The Access Evaluations API Response</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#errors"><bdi class="secno">7.2.1 </bdi>Errors</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#search"><bdi class="secno">8. </bdi>Search APIs</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#search-semantics"><bdi class="secno">8.1 </bdi>Semantics</a></li><li class="tocline"><a class="tocxref" href="#search-pagination"><bdi class="secno">8.2 </bdi>Pagination</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#search-pagination-request"><bdi class="secno">8.2.1 </bdi>Paginated Requests</a></li><li class="tocline"><a class="tocxref" href="#search-pagination-response"><bdi class="secno">8.2.2 </bdi>Paginated Responses</a></li><li class="tocline"><a class="tocxref" href="#search-pagination-examples"><bdi class="secno">8.2.3 </bdi>Examples (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#search-response"><bdi class="secno">8.3 </bdi>The Search API Response</a></li><li class="tocline"><a class="tocxref" href="#subject-search-api"><bdi class="secno">8.4 </bdi>Subject Search API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#subject-search-request"><bdi class="secno">8.4.1 </bdi>The Subject Search API Request</a></li><li class="tocline"><a class="tocxref" href="#example-non-normative-subject-search-example"><bdi class="secno">8.4.2 </bdi>Example (non-normative) {#subject-search-example"}</a></li></ol></li><li class="tocline"><a class="tocxref" href="#resource-search-api"><bdi class="secno">8.5 </bdi>Resource Search API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#resource-search-request"><bdi class="secno">8.5.1 </bdi>The Resource Search API Request</a></li><li class="tocline"><a class="tocxref" href="#example-non-normative-resource-search-example"><bdi class="secno">8.5.2 </bdi>Example (non-normative) {#resource-search-example"}</a></li></ol></li><li class="tocline"><a class="tocxref" href="#action-search-api"><bdi class="secno">8.6 </bdi>Action Search API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#action-search-request"><bdi class="secno">8.6.1 </bdi>The Action Search API Request</a></li><li class="tocline"><a class="tocxref" href="#example-non-normative-action-search-example"><bdi class="secno">8.6.2 </bdi>Example (non-normative) {#action-search-example"}</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#pdp-metadata"><bdi class="secno">9. </bdi>Policy Decision Point Metadata</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pdp-metadata-data"><bdi class="secno">9.1 </bdi>Data structure</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pdp-metadata-data-endpoint"><bdi class="secno">9.1.1 </bdi>Endpoint Parameters</a></li><li class="tocline"><a class="tocxref" href="#pdp-metadata-data-capabilities"><bdi class="secno">9.1.2 </bdi>Capabilities Parameters</a></li><li class="tocline"><a class="tocxref" href="#pdp-metadata-data-sig"><bdi class="secno">9.1.3 </bdi>Signature Parameter</a></li></ol></li><li class="tocline"><a class="tocxref" href="#pdp-metadata-access"><bdi class="secno">9.2 </bdi>Obtaining Policy Decision Point Metadata</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pdp-metadata-access-request"><bdi class="secno">9.2.1 </bdi>Policy Decision Point Metadata Request</a></li><li class="tocline"><a class="tocxref" href="#pdp-metadata-access-response"><bdi class="secno">9.2.2 </bdi>Policy Decision Point Metadata Response</a></li><li class="tocline"><a class="tocxref" href="#pdp-metadata-data-endpoint-validation"><bdi class="secno">9.2.3 </bdi>Policy Decision Point Metadata Validation</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">10. </bdi>Transport</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#transport-https-json"><bdi class="secno">10.1 </bdi>HTTPS JSON Binding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#transport-https-json-serialization"><bdi class="secno">10.1.1 </bdi>JSON Serialization</a></li><li class="tocline"><a class="tocxref" href="#error-responses"><bdi class="secno">10.1.2 </bdi>Error Responses</a></li><li class="tocline"><a class="tocxref" href="#request-identification"><bdi class="secno">10.1.3 </bdi>Request Identification</a></li><li class="tocline"><a class="tocxref" href="#examples-non-normative-5"><bdi class="secno">10.1.4 </bdi>Examples (non-normative)</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#Security"><bdi class="secno">11. </bdi>Security Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#security-integrity-confidentiality"><bdi class="secno">11.1 </bdi>Communication Integrity and Confidentiality</a></li><li class="tocline"><a class="tocxref" href="#security-confidentiality-authn"><bdi class="secno">11.2 </bdi>Policy Confidentiality and Sender Authentication</a></li><li class="tocline"><a class="tocxref" href="#security-sender-authentn-fail"><bdi class="secno">11.3 </bdi>Sender Authentication Failure</a></li><li class="tocline"><a class="tocxref" href="#security-trust"><bdi class="secno">11.4 </bdi>Trust</a></li><li class="tocline"><a class="tocxref" href="#security-json"><bdi class="secno">11.5 </bdi>JSON Payload Considerations</a></li><li class="tocline"><a class="tocxref" href="#security-authorization-response-integrity"><bdi class="secno">11.6 </bdi>Authorization Response Integrity</a></li><li class="tocline"><a class="tocxref" href="#availability-denial-of-service-security-avail-dos"><bdi class="secno">11.7 </bdi>Availability &amp; Denial of Service {#security-avail-dos}}</a></li><li class="tocline"><a class="tocxref" href="#security-metadata-sig"><bdi class="secno">11.8 </bdi>Differences between Unsigned and Signed Metadata</a></li><li class="tocline"><a class="tocxref" href="#security-metadata-caching"><bdi class="secno">11.9 </bdi>Metadata Caching</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana"><bdi class="secno">12. </bdi>IANA Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#iana-pdp-metadata-registry"><bdi class="secno">12.1 </bdi>AuthZEN Policy Decision Point Metadata Registry</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#registry-definition"><bdi class="secno">12.1.1 </bdi>Registry Definition</a></li><li class="tocline"><a class="tocxref" href="#iana-pdp-metadata-template"><bdi class="secno">12.1.2 </bdi>Registration Template</a></li><li class="tocline"><a class="tocxref" href="#iana-pdp-metadata-initial"><bdi class="secno">12.1.3 </bdi>Initial Registrations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana-wk-registry"><bdi class="secno">12.2 </bdi>Well-Known URI Registry</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#iana-wk-contents"><bdi class="secno">12.2.1 </bdi>Registry Contents</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana-pdp-capabilities-registry"><bdi class="secno">12.3 </bdi>AuthZEN Policy Decision Point Capabilities Registry</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#iana-pdp-capabilities-definition"><bdi class="secno">12.3.1 </bdi>Registry Definition</a></li><li class="tocline"><a class="tocxref" href="#iana-pdp-capabilities-template"><bdi class="secno">12.3.2 </bdi>Registration Template</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana-urn-namespace"><bdi class="secno">12.4 </bdi>Registration of "authzen" URN Sub-namespace</a></li></ol></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">A. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#Acknowledgements"><bdi class="secno">B. </bdi>Acknowledgements</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">C. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">C.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">C.2 </bdi>Terms defined by reference</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">D. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">D.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">D.2 </bdi>Informative references</a></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformance-0">Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+  </div><section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive concept of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformance</a></li><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#dutch-government-profile-for-openid-authzen-authorization-api">Dutch government profile for OpenID AuthZEN Authorization API</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#model"><bdi class="secno">2. </bdi>Model</a></li><li class="tocline"><a class="tocxref" href="#features"><bdi class="secno">3. </bdi>Features</a></li><li class="tocline"><a class="tocxref" href="#api-version"><bdi class="secno">4. </bdi>API Version</a></li><li class="tocline"><a class="tocxref" href="#information-model"><bdi class="secno">5. </bdi>Information Model</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#subject"><bdi class="secno">5.1 </bdi>Subject</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#subject-properties"><bdi class="secno">5.1.1 </bdi>Subject Properties</a></li><li class="tocline"><a class="tocxref" href="#subject-examples"><bdi class="secno">5.1.2 </bdi>Examples (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#resource"><bdi class="secno">5.2 </bdi>Resource</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#resource-properties"><bdi class="secno">5.2.1 </bdi>Resource Properties</a></li><li class="tocline"><a class="tocxref" href="#resource-examples"><bdi class="secno">5.2.2 </bdi>Examples (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#action"><bdi class="secno">5.3 </bdi>Action</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#action-properties"><bdi class="secno">5.3.1 </bdi>Action Properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#processing-activity-identifier"><bdi class="secno">5.3.1.1 </bdi>Processing Activity identifier</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#algorithm-identifier"><bdi class="secno">5.3.1.1.1 </bdi>Algorithm identifier</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#action-examples"><bdi class="secno">5.3.2 </bdi>Examples (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#context"><bdi class="secno">5.4 </bdi>Context</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#context-properties"><bdi class="secno">5.4.1 </bdi>Context Properties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#time"><bdi class="secno">5.4.1.1 </bdi>Time</a></li><li class="tocline"><a class="tocxref" href="#w3c-trace-context"><bdi class="secno">5.4.1.2 </bdi>W3C Trace Context</a></li><li class="tocline"><a class="tocxref" href="#verifiable-claims"><bdi class="secno">5.4.1.3 </bdi>Verifiable claims</a></li><li class="tocline"><a class="tocxref" href="#context-mim"><bdi class="secno">5.4.1.4 </bdi>Meta-information Model</a></li><li class="tocline"><a class="tocxref" href="#context-ld"><bdi class="secno">5.4.1.5 </bdi>Linked Data context</a></li></ol></li><li class="tocline"><a class="tocxref" href="#context-examples"><bdi class="secno">5.4.2 </bdi>Examples (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#decision"><bdi class="secno">5.5 </bdi>Decision</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#decision-context"><bdi class="secno">5.5.1 </bdi>Decision Context</a></li><li class="tocline"><a class="tocxref" href="#decision-examples"><bdi class="secno">5.5.2 </bdi>Examples (non-normative)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#non-normative-example-1-conveying-decision-reasons"><bdi class="secno">5.5.2.1 </bdi>Non-normative Example 1: conveying decision Reasons</a></li><li class="tocline"><a class="tocxref" href="#non-normative-example-2-conveying-metadata-and-environmental-elements"><bdi class="secno">5.5.2.2 </bdi>Non-normative Example 2: conveying metadata and environmental elements</a></li><li class="tocline"><a class="tocxref" href="#non-normative-example-3-requesting-step-up-authentication"><bdi class="secno">5.5.2.3 </bdi>Non-normative Example 3: requesting step-up authentication</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#access-evaluation-api"><bdi class="secno">6. </bdi>Access Evaluation API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#access-evaluation-request"><bdi class="secno">6.1 </bdi>The Access Evaluation API Request</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#example-non-normative"><bdi class="secno">6.1.1 </bdi>Example (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#access-evaluation-response"><bdi class="secno">6.2 </bdi>The Access Evaluation API Response</a></li></ol></li><li class="tocline"><a class="tocxref" href="#access-evaluations-api"><bdi class="secno">7. </bdi>Access Evaluations API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#access-evaluations-request"><bdi class="secno">7.1 </bdi>The Access Evaluations API Request</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#default-values"><bdi class="secno">7.1.1 </bdi>Default values</a></li><li class="tocline"><a class="tocxref" href="#evaluations-options"><bdi class="secno">7.1.2 </bdi>Evaluations options</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#evaluations-semantics"><bdi class="secno">7.1.2.1 </bdi>Evaluations semantics</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#example-evaluate-read-action-for-three-documents-using-all-three-semantics"><bdi class="secno">7.1.2.1.1 </bdi>Example: Evaluate <code>read</code> action for three documents using all three semantics</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#access-evaluations-response"><bdi class="secno">7.2 </bdi>The Access Evaluations API Response</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#errors"><bdi class="secno">7.2.1 </bdi>Errors</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#search"><bdi class="secno">8. </bdi>Search APIs</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#search-semantics"><bdi class="secno">8.1 </bdi>Semantics</a></li><li class="tocline"><a class="tocxref" href="#search-pagination"><bdi class="secno">8.2 </bdi>Pagination</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#search-pagination-request"><bdi class="secno">8.2.1 </bdi>Paginated Requests</a></li><li class="tocline"><a class="tocxref" href="#search-pagination-response"><bdi class="secno">8.2.2 </bdi>Paginated Responses</a></li><li class="tocline"><a class="tocxref" href="#search-pagination-examples"><bdi class="secno">8.2.3 </bdi>Examples (non-normative)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#search-response"><bdi class="secno">8.3 </bdi>The Search API Response</a></li><li class="tocline"><a class="tocxref" href="#subject-search-api"><bdi class="secno">8.4 </bdi>Subject Search API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#subject-search-request"><bdi class="secno">8.4.1 </bdi>The Subject Search API Request</a></li><li class="tocline"><a class="tocxref" href="#example-non-normative-subject-search-example"><bdi class="secno">8.4.2 </bdi>Example (non-normative) {#subject-search-example"}</a></li></ol></li><li class="tocline"><a class="tocxref" href="#resource-search-api"><bdi class="secno">8.5 </bdi>Resource Search API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#resource-search-request"><bdi class="secno">8.5.1 </bdi>The Resource Search API Request</a></li><li class="tocline"><a class="tocxref" href="#example-non-normative-resource-search-example"><bdi class="secno">8.5.2 </bdi>Example (non-normative) {#resource-search-example"}</a></li></ol></li><li class="tocline"><a class="tocxref" href="#action-search-api"><bdi class="secno">8.6 </bdi>Action Search API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#action-search-request"><bdi class="secno">8.6.1 </bdi>The Action Search API Request</a></li><li class="tocline"><a class="tocxref" href="#example-non-normative-action-search-example"><bdi class="secno">8.6.2 </bdi>Example (non-normative) {#action-search-example"}</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#pdp-metadata"><bdi class="secno">9. </bdi>Policy Decision Point Metadata</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pdp-metadata-data"><bdi class="secno">9.1 </bdi>Data structure</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pdp-metadata-data-endpoint"><bdi class="secno">9.1.1 </bdi>Endpoint Parameters</a></li><li class="tocline"><a class="tocxref" href="#pdp-metadata-data-capabilities"><bdi class="secno">9.1.2 </bdi>Capabilities Parameters</a></li><li class="tocline"><a class="tocxref" href="#pdp-metadata-data-sig"><bdi class="secno">9.1.3 </bdi>Signature Parameter</a></li></ol></li><li class="tocline"><a class="tocxref" href="#pdp-metadata-access"><bdi class="secno">9.2 </bdi>Obtaining Policy Decision Point Metadata</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pdp-metadata-access-request"><bdi class="secno">9.2.1 </bdi>Policy Decision Point Metadata Request</a></li><li class="tocline"><a class="tocxref" href="#pdp-metadata-access-response"><bdi class="secno">9.2.2 </bdi>Policy Decision Point Metadata Response</a></li><li class="tocline"><a class="tocxref" href="#pdp-metadata-data-endpoint-validation"><bdi class="secno">9.2.3 </bdi>Policy Decision Point Metadata Validation</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">10. </bdi>Transport</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#transport-https-json"><bdi class="secno">10.1 </bdi>HTTPS JSON Binding</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#transport-https-json-serialization"><bdi class="secno">10.1.1 </bdi>JSON Serialization</a></li><li class="tocline"><a class="tocxref" href="#error-responses"><bdi class="secno">10.1.2 </bdi>Error Responses</a></li><li class="tocline"><a class="tocxref" href="#request-identification"><bdi class="secno">10.1.3 </bdi>Request Identification</a></li><li class="tocline"><a class="tocxref" href="#examples-non-normative-5"><bdi class="secno">10.1.4 </bdi>Examples (non-normative)</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#Security"><bdi class="secno">11. </bdi>Security Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#security-integrity-confidentiality"><bdi class="secno">11.1 </bdi>Communication Integrity and Confidentiality</a></li><li class="tocline"><a class="tocxref" href="#security-confidentiality-authn"><bdi class="secno">11.2 </bdi>Policy Confidentiality and Sender Authentication</a></li><li class="tocline"><a class="tocxref" href="#security-sender-authentn-fail"><bdi class="secno">11.3 </bdi>Sender Authentication Failure</a></li><li class="tocline"><a class="tocxref" href="#security-trust"><bdi class="secno">11.4 </bdi>Trust</a></li><li class="tocline"><a class="tocxref" href="#security-json"><bdi class="secno">11.5 </bdi>JSON Payload Considerations</a></li><li class="tocline"><a class="tocxref" href="#security-authorization-response-integrity"><bdi class="secno">11.6 </bdi>Authorization Response Integrity</a></li><li class="tocline"><a class="tocxref" href="#availability-denial-of-service-security-avail-dos"><bdi class="secno">11.7 </bdi>Availability &amp; Denial of Service {#security-avail-dos}}</a></li><li class="tocline"><a class="tocxref" href="#security-metadata-sig"><bdi class="secno">11.8 </bdi>Differences between Unsigned and Signed Metadata</a></li><li class="tocline"><a class="tocxref" href="#security-metadata-caching"><bdi class="secno">11.9 </bdi>Metadata Caching</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana"><bdi class="secno">12. </bdi>IANA Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#iana-pdp-metadata-registry"><bdi class="secno">12.1 </bdi>AuthZEN Policy Decision Point Metadata Registry</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#registry-definition"><bdi class="secno">12.1.1 </bdi>Registry Definition</a></li><li class="tocline"><a class="tocxref" href="#iana-pdp-metadata-template"><bdi class="secno">12.1.2 </bdi>Registration Template</a></li><li class="tocline"><a class="tocxref" href="#iana-pdp-metadata-initial"><bdi class="secno">12.1.3 </bdi>Initial Registrations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana-wk-registry"><bdi class="secno">12.2 </bdi>Well-Known URI Registry</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#iana-wk-contents"><bdi class="secno">12.2.1 </bdi>Registry Contents</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana-pdp-capabilities-registry"><bdi class="secno">12.3 </bdi>AuthZEN Policy Decision Point Capabilities Registry</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#iana-pdp-capabilities-definition"><bdi class="secno">12.3.1 </bdi>Registry Definition</a></li><li class="tocline"><a class="tocxref" href="#iana-pdp-capabilities-template"><bdi class="secno">12.3.2 </bdi>Registration Template</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana-urn-namespace"><bdi class="secno">12.4 </bdi>Registration of "authzen" URN Sub-namespace</a></li></ol></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">A. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#Acknowledgements"><bdi class="secno">B. </bdi>Acknowledgements</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">C. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">C.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">C.2 </bdi>Terms defined by reference</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">D. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">D.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">D.2 </bdi>Informative references</a></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformance-0">Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
         The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>, <em class="rfc2119">OPTIONAL</em>, <em class="rfc2119">RECOMMENDED</em>, <em class="rfc2119">REQUIRED</em>, <em class="rfc2119">SHOULD</em>, and <em class="rfc2119">SHOULD NOT</em> in this document
         are to be interpreted as described in
         <a href="https://www.rfc-editor.org/info/bcp14">BCP 14</a>
@@ -1009,18 +1043,19 @@ ul.index code{color:inherit}
   <section id="abstract" class="introductory"><h2>Abstract</h2><p>The Authorization API enables Policy Decision Points (PDPs) and Policy Enforcement Points (PEPs) to communicate authorization requests and decisions to each other without requiring knowledge of each other's inner workings. The Authorization API is served by the PDP and is called by the PEP. The Authorization API includes evaluation endpoints, which provide specific access decisions, and search endpoints for discovering permissible subjects, resources, or actions.</p>
 </section>
   <div>
-   <i>
-    This document is an adaptation of the
-    <a href="https://openid.net/specs/authorization-api-1_0-04.html">
-     'OpenID AuthZEN Authorization API 1.0 – draft 04’ (hereinafter: AuthZEN)
-    </a>
-    of the OpenID Foundation.
-      This does not indicate an endorsement by the OpenID Foundation. In as far as AuthZEN is incorporated in this document, the
-    <a href="https://openid.net/intellectual-property/contribution-license-agreement/">
-     OpenID Copyright License
-    </a>
-    applies.
-   </i>
+    <i>
+      This document is an adaptation of the
+      <a href="https://openid.net/specs/authorization-api-1_0-04.html">
+        'OpenID AuthZEN Authorization API 1.0 – draft 04’ (hereinafter: AuthZEN)
+      </a>
+      of the OpenID Foundation.
+      This does not indicate an endorsement by the OpenID Foundation. In as far as AuthZEN is incorporated in this
+      document, the
+      <a href="https://openid.net/intellectual-property/contribution-license-agreement/">
+        OpenID Copyright License
+      </a>
+      applies.
+    </i>
   </div>
   
   <section class="introductory" id="dutch-government-profile-for-openid-authzen-authorization-api"><div class="header-wrapper"><h2 id="dutch-government-profile-for-openid-authzen-authorization-api-0">Dutch government profile for OpenID AuthZEN Authorization API</h2><a class="self-link" href="#dutch-government-profile-for-openid-authzen-authorization-api" aria-label="Permalink for this Section"></a></div>
@@ -1028,7 +1063,7 @@ ul.index code{color:inherit}
 <p>Starting with chapter Introduction we follow the structure of the AuthZEN Authorization API. Content introduced by the NLgov profile is marked in <span class="nlgov-add">green</span>. Content from the AuthZEN Authorization API that is not used in the NLgov profile is marked <span class="nlgov-del">red</span>.</p>
 </section>
   <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
-<p>Computational services often implement access control within their components by separating Policy Decision Points (PDPs) from Policy Enforcement Points (PEPs). PDPs and PEPs are defined in XACML ([<cite><a class="bibref" data-link-type="biblio" href="#bib-xacml20" title="OASIS eXtensible Access Control Markup Language (XACML) Version 2.0">XACML20</a></cite>]) and NIST's ABAC SP 800-162 ([<cite><a class="bibref" data-link-type="biblio" href="#bib-nist.sp.800-162" title=" Guide to Attribute Based Access Control (ABAC) Definition and Considerations ">NIST.SP.800-162</a></cite>]). Communication between PDPs and PEPs follows similar patterns across different software and services that require or provide authorization information. The Authorization API described in this document enables different providers to offer PDP and PEP capabilities without having to bind themselves to one particular implementation of a PDP or PEP.</p>
+<p>Computational services often implement access control within their components by separating Policy Decision Points (PDPs) from Policy Enforcement Points (PEPs). PDPs and PEPs are defined in XACML ([<cite><a class="bibref" data-link-type="biblio" href="#bib-xacml20" title="OASIS eXtensible Access Control Markup Language (XACML) Version 2.0">XACML20</a></cite>]) and NIST's ABAC SP 800-162 ([<cite><a class="bibref" data-link-type="biblio" href="#bib-nist-sp-800-162" title=" Guide to Attribute Based Access Control (ABAC) Definition and Considerations ">NIST.SP.800-162</a></cite>]). Communication between PDPs and PEPs follows similar patterns across different software and services that require or provide authorization information. The Authorization API described in this document enables different providers to offer PDP and PEP capabilities without having to bind themselves to one particular implementation of a PDP or PEP.</p>
 </section>
   <section id="model"><div class="header-wrapper"><h2 id="x2-model"><bdi class="secno">2. </bdi>Model</h2><a class="self-link" href="#model" aria-label="Permalink for Section 2."></a></div>
 <p>By convention, we refer to a service that implements this API as a Policy Decision Point, or PDP. The policy language, architecture, and state management aspects of a PDP are beyond the scope of this specification.</p>
@@ -1059,12 +1094,12 @@ ul.index code{color:inherit}
 <p>This document describes the API version 1.0. Any updates to this API through subsequent revisions of this document or other documents <em class="rfc2119">MAY</em> augment this API, but <em class="rfc2119">MUST NOT</em> modify the API described here. Augmentation <em class="rfc2119">MAY</em> include additional API methods or additional parameters to existing API methods, additional authorization mechanisms, or additional optional headers in HTTPS transport bindings. Endpoints for version 1.0 <em class="rfc2119">SHOULD</em> include <code>v1</code> in the endpoint identifier (e.g. <code>https://pdp.example.com/access/v1/</code>).</p>
 </section>
   <section id="information-model-0"><div class="header-wrapper"><h2 id="information-model"><bdi class="secno">5. </bdi>Information Model</h2><a class="self-link" href="#information-model" aria-label="Permalink for Section 5."></a></div><p>The information model for requests and responses include the following entities: Subject, Action, Resource, Context, and Decision. These are all defined below.</p>
-<p><span class="nlgov-add">Specific implementations of the generic AuthZEN information model <em class="rfc2119">SHOULD</em> be documented in a meta-information model. This enables an unambigous interpretation of the meaning of requests. It is <em class="rfc2119">RECOMMENDED</em> to document to the meta-information model using [<cite><a class="bibref" data-link-type="biblio" href="#bib-mim" title="Metamodel Informatie Modellering">MIM</a></cite>].</span></p>
-<p><span class="nlgov-add">It is <em class="rfc2119">RECOMMENDED</em> to use [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">JSON-LD11</a></cite>] to enable automatic integration into existing semantic models, as described in <a href="#context-mim" data-matched-text="[[[#context-mim]]]" class="sec-ref"><bdi class="secno">5.4.1.4 </bdi><span class="nlgov-add">Meta-information Model</span></a>.</span></p>
-<section id="subject-0"><div class="header-wrapper"><h3 id="subject"><bdi class="secno">5.1 </bdi>Subject</h3><a class="self-link" href="#subject" aria-label="Permalink for Section 5.1"></a></div><p>A Subject is the user or machine principal about whom the Authorization API is being invoked. The Subject may be requesting access at the time the Authorization API is invoked.</p>
+<div class="nlgov-add-section"><p>Specific implementations of the generic AuthZEN information model <em class="rfc2119">SHOULD</em> be documented in a meta-information model. This enables an unambigous interpretation of the meaning of requests. It is <em class="rfc2119">RECOMMENDED</em> to document to the meta-information model using [<cite><a class="bibref" data-link-type="biblio" href="#bib-mim" title="Metamodel Informatie Modellering">MIM</a></cite>].</p>
+<p>It is <em class="rfc2119">RECOMMENDED</em> to use [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">JSON-LD11</a></cite>] to enable automatic integration into existing semantic models, as described in <a href="#context-mim" data-matched-text="[[[#context-mim]]]" class="sec-ref"><bdi class="secno">5.4.1.4 </bdi>Meta-information Model</a>.</p>
+</div><section id="subject-0"><div class="header-wrapper"><h3 id="subject"><bdi class="secno">5.1 </bdi>Subject</h3><a class="self-link" href="#subject" aria-label="Permalink for Section 5.1"></a></div><p>A Subject is the user or machine principal about whom the Authorization API is being invoked. The Subject may be requesting access at the time the Authorization API is invoked.</p>
 <p>A Subject is an object that contains two <em class="rfc2119">REQUIRED</em> keys, <code>type</code> and <code>id</code>, which have a string value, and an <em class="rfc2119">OPTIONAL</em> key, <code>properties</code>, with a value of an object.</p>
 <p><code>type</code>:
-: <em class="rfc2119">REQUIRED</em>. A string value that specifies the type of the Subject. <span class="nlgov-add">It is <em class="rfc2119">RECOMMENDED</em> to define the type as a Linked Data URI.</span></p>
+: <em class="rfc2119">REQUIRED</em>. A string value that specifies the type of the Subject. <span class="nlgov-add" aria-label="section toegevoegd in NLgov">It is <em class="rfc2119">RECOMMENDED</em> to define the type as a Linked Data URI.</span></p>
 <p><code>id</code>:
 : <em class="rfc2119">REQUIRED</em>. A string value containing the unique identifier of the Subject, scoped to the <code>type</code>.</p>
 <p><code>properties</code>:
@@ -1085,9 +1120,7 @@ ul.index code{color:inherit}
   <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"user"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice@example.com"</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>The following is a non-normative example of a Subject which adds a string-valued <code>department</code> property:</p>
+      </div><p>The following is a non-normative example of a Subject which adds a string-valued <code>department</code> property:</p>
 <div class="example" id="subject-department-example">
         <div class="marker">
     <a class="self-link" href="#subject-department-example">Example<bdi> 2</bdi></a><span class="example-title">: Example Subject with Additional Property</span>
@@ -1098,9 +1131,7 @@ ul.index code{color:inherit}
     <span class="hljs-attr">"department"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Sales"</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>The following is a non-normative example of a subject which adds IP address and device identifier properties:</p>
+      </div><p>The following is a non-normative example of a subject which adds IP address and device identifier properties:</p>
 <div class="example" id="subject-device-id-example">
         <div class="marker">
     <a class="self-link" href="#subject-device-id-example">Example<bdi> 3</bdi></a><span class="example-title">: Example Subject with IP Address and Device ID</span>
@@ -1112,11 +1143,9 @@ ul.index code{color:inherit}
     <span class="hljs-attr">"device_id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"8:65:ee:17:7e:0b"</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section></section><section id="resource-0"><div class="header-wrapper"><h3 id="resource"><bdi class="secno">5.2 </bdi>Resource</h3><a class="self-link" href="#resource" aria-label="Permalink for Section 5.2"></a></div><p>A Resource is the target of an access request. It is an object that is constructed similar to a Subject entity. It has the following keys:</p>
+      </div></section></section><section id="resource-0"><div class="header-wrapper"><h3 id="resource"><bdi class="secno">5.2 </bdi>Resource</h3><a class="self-link" href="#resource" aria-label="Permalink for Section 5.2"></a></div><p>A Resource is the target of an access request. It is an object that is constructed similar to a Subject entity. It has the following keys:</p>
 <p><code>type</code>:
-: <em class="rfc2119">REQUIRED</em>. A string value that specifies the type of the Resource. <span class="nlgov-add">It is <em class="rfc2119">RECOMMENDED</em> to define the type as a Linked Data URI.</span></p>
+: <em class="rfc2119">REQUIRED</em>. A string value that specifies the type of the Resource. <span class="nlgov-add" aria-label="section toegevoegd in NLgov">It is <em class="rfc2119">RECOMMENDED</em> to define the type as a Linked Data URI.</span></p>
 <p><code>id</code>:
 : <em class="rfc2119">REQUIRED</em>. A string value containing the unique identifier of the Resource, scoped to the <code>type</code>.</p>
 <p><code>properties</code>:
@@ -1131,9 +1160,7 @@ ul.index code{color:inherit}
   <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"book"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"123"</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>The following is a non-normative example of a Resource containing a <code>library_record</code> property, that is itself an object:</p>
+      </div><p>The following is a non-normative example of a Resource containing a <code>library_record</code> property, that is itself an object:</p>
 <div class="example" id="resource-example-structured">
         <div class="marker">
     <a class="self-link" href="#resource-example-structured">Example<bdi> 5</bdi></a><span class="example-title">: Example Resource with Additional Property</span>
@@ -1147,9 +1174,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section></section><section id="action-0"><div class="header-wrapper"><h3 id="action"><bdi class="secno">5.3 </bdi>Action</h3><a class="self-link" href="#action" aria-label="Permalink for Section 5.3"></a></div><p>An Action is the type of access that the requester intends to perform.</p>
+      </div></section></section><section id="action-0"><div class="header-wrapper"><h3 id="action"><bdi class="secno">5.3 </bdi>Action</h3><a class="self-link" href="#action" aria-label="Permalink for Section 5.3"></a></div><p>An Action is the type of access that the requester intends to perform.</p>
 <p>Action is an object that contains a <em class="rfc2119">REQUIRED</em> <code>name</code> key with a string value, and an <em class="rfc2119">OPTIONAL</em> <code>properties</code> key with an object value.</p>
 <p><code>name</code>:
 : <em class="rfc2119">REQUIRED</em>. A string value containing the name of the Action.</p>
@@ -1157,29 +1182,25 @@ ul.index code{color:inherit}
 : <em class="rfc2119">OPTIONAL</em>. An object which can be used to express additional attributes of an Action.</p>
 <section id="action-properties-0"><div class="header-wrapper"><h4 id="action-properties"><bdi class="secno">5.3.1 </bdi>Action Properties</h4><a class="self-link" href="#action-properties" aria-label="Permalink for Section 5.3.1"></a></div><p>Similarly to the Subject and Resource properties, the PEP can also provide attributes for the Action in the properties field.</p>
 <p>Such attributes can include, but are not limited to, parameters of the action that is being requested.</p>
-<p><span class="nlgov-add">To increase interoperability, a few common properties are specified below:</span></p>
-<section id="processing-activity-identifier"><div class="header-wrapper"><h5 id="x5-3-1-1-processing-activity-identifier"><bdi class="secno">5.3.1.1 </bdi><span class="nlgov-add">Processing Activity identifier</span></h5><a class="self-link" href="#processing-activity-identifier" aria-label="Permalink for Section 5.3.1.1"></a></div>
-<p><span class="nlgov-add">Under Dutch and EU legislation, processing of personal data should be described in a Record of Processing Activities. In certain cases, e.g. when a single system processes data for multiple different processing activities, a relation to the processing activity <em class="rfc2119">MAY</em> be included.</span></p>
-<p><span class="nlgov-add">When included, the reference to the processing activity <em class="rfc2119">SHOULD</em> be included using the following key:</span></p>
-<p><span class="nlgov-add"><code>processing_activity_id</code>:
-: <em class="rfc2119">REQUIRED</em>. A string value containing the URI of the processing activity within a Processing Activity registry. </span></p>
-<p><span class="nlgov-add"></span></p><div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="6"><span>Note</span></div><p class="">The processing activity identifier should only be used within the context of an organization and <em class="rfc2119">SHOULD NOT</em> cross organizational boundaries.</p></div><p></p>
-</section><section id="algorithm-identifier"><div class="header-wrapper"><h5 id="x5-3-1-2-algorithm-identifier"><bdi class="secno">5.3.1.2 </bdi><span class="nlgov-add">Algorithm identifier</span></h5><a class="self-link" href="#algorithm-identifier" aria-label="Permalink for Section 5.3.1.2"></a></div>
-<p><span class="nlgov-add">When data is processed as part of an algorithm in a public registry, such as <a href="https://algoritmes.overheid.nl/">"Het Algoritmeregister"</a>, a reference to the relevant algorithm <em class="rfc2119">MAY</em> be included.</span></p>
-<p><span class="nlgov-add">When included, the reference to the algorithm <em class="rfc2119">SHOULD</em> be included using the following key:</span></p>
-<p><span class="nlgov-add"><code>algorithm_id</code>:
-: <em class="rfc2119">REQUIRED</em>. A string value containing the URI of the algorithm in an algorithm registry.</span></p>
-<p><span class="nlgov-add"></span></p><div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note-0" aria-level="6"><span>Note</span></div><p class="">The algorithm identifier should only be used within the context of an organization and <em class="rfc2119">SHOULD NOT</em> cross organizational boundaries.</p></div><p></p>
-</section></section><section id="examples-non-normative-1"><div class="header-wrapper"><h4 id="action-examples"><bdi class="secno">5.3.2 </bdi>Examples (non-normative)</h4><a class="self-link" href="#action-examples" aria-label="Permalink for Section 5.3.2"></a></div><p>The following is a non-normative example of an action:</p>
+<p><span class="nlgov-add" aria-label="section toegevoegd in NLgov">To increase interoperability, a few common properties are specified below:</span></p>
+<section class="nlgov-add" aria-label="section toegevoegd in NLgov" id="processing-activity-identifier"><div class="header-wrapper"><h5 id="x5-3-1-1-processing-activity-identifier"><bdi class="secno">5.3.1.1 </bdi>Processing Activity identifier</h5><a class="self-link" href="#processing-activity-identifier" aria-label="Permalink for Section 5.3.1.1"></a></div>
+<p>Under Dutch and EU legislation, processing of personal data should be described in a Record of Processing Activities. In certain cases, e.g. when a single system processes data for multiple different processing activities, a relation to the processing activity <em class="rfc2119">MAY</em> be included.</p>
+<p>When included, the reference to the processing activity <em class="rfc2119">SHOULD</em> be included using the following key:</p>
+<p><code>processing_activity_id</code>:
+: <em class="rfc2119">REQUIRED</em>. A string value containing the URI of the processing activity within a Processing Activity registry.</p>
+<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="6"><span>Note</span></div><p class="">The processing activity identifier should only be used within the context of an organization and <em class="rfc2119">SHOULD NOT</em> cross organizational boundaries.</p></div><section id="algorithm-identifier"><div class="header-wrapper"><h6 id="x5-3-1-1-1-algorithm-identifier"><bdi class="secno">5.3.1.1.1 </bdi>Algorithm identifier</h6><a class="self-link" href="#algorithm-identifier" aria-label="Permalink for Section 5.3.1.1.1"></a></div>
+<p>When data is processed as part of an algorithm in a public registry, such as <a href="https://algoritmes.overheid.nl/">"Het Algoritmeregister"</a>, a reference to the relevant algorithm <em class="rfc2119">MAY</em> be included.</p>
+<p>When included, the reference to the algorithm <em class="rfc2119">SHOULD</em> be included using the following key:</p>
+<p><code>algorithm_id</code>:
+: <em class="rfc2119">REQUIRED</em>. A string value containing the URI of the algorithm in an algorithm registry.</p>
+<div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note-0" aria-level="7"><span>Note</span></div><p class="">The algorithm identifier should only be used within the context of an organization and <em class="rfc2119">SHOULD NOT</em> cross organizational boundaries.</p></div></section></section></section><section id="examples-non-normative-1"><div class="header-wrapper"><h4 id="action-examples"><bdi class="secno">5.3.2 </bdi>Examples (non-normative)</h4><a class="self-link" href="#action-examples" aria-label="Permalink for Section 5.3.2"></a></div><p>The following is a non-normative example of an action:</p>
 <div class="example" id="action-example">
         <div class="marker">
     <a class="self-link" href="#action-example">Example<bdi> 6</bdi></a><span class="example-title">: Example Action</span>
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"can_read"</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>The following is a non-normative example of an action with additional properties:</p>
+      </div><p>The following is a non-normative example of an action with additional properties:</p>
 <div class="example" id="action-extend-loan-example">
         <div class="marker">
     <a class="self-link" href="#action-extend-loan-example">Example<bdi> 7</bdi></a><span class="example-title">: Example Action with properties for extending a book loan.</span>
@@ -1189,9 +1210,7 @@ ul.index code{color:inherit}
     <span class="hljs-attr">"period"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"2W"</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section></section><section id="context-0"><div class="header-wrapper"><h3 id="context"><bdi class="secno">5.4 </bdi>Context</h3><a class="self-link" href="#context" aria-label="Permalink for Section 5.4"></a></div><p>The Context represents the environment of the access evaluation request.</p>
+      </div></section></section><section id="context-0"><div class="header-wrapper"><h3 id="context"><bdi class="secno">5.4 </bdi>Context</h3><a class="self-link" href="#context" aria-label="Permalink for Section 5.4"></a></div><p>The Context represents the environment of the access evaluation request.</p>
 <p>Context is an object which can be used to express attributes of the environment.</p>
 <p>Examples of context attributes can include, but are not limited to:</p>
 <ul>
@@ -1200,35 +1219,30 @@ ul.index code{color:inherit}
 <li>Capabilities of the PEP,</li>
 <li>JSON Schema or JSON-LD definitions for the request.</li>
 </ul>
-<section id="context-properties"><div class="header-wrapper"><h4 id="x5-4-1-context-properties"><bdi class="secno">5.4.1 </bdi><span class="nlgov-add">Context Properties</span></h4><a class="self-link" href="#context-properties" aria-label="Permalink for Section 5.4.1"></a></div>
-<p><span class="nlgov-add">Context <em class="rfc2119">MAY</em> include zero or more additional attributes as key-value pairs.</span></p>
-<p><span class="nlgov-add">To increase interoperability, a few common properties are specified below:</span></p>
-<section id="time"><div class="header-wrapper"><h5 id="x5-4-1-1-time"><bdi class="secno">5.4.1.1 </bdi><span class="nlgov-add">Time</span></h5><a class="self-link" href="#time" aria-label="Permalink for Section 5.4.1.1"></a></div>
-<p><span class="nlgov-add">The logical time at which the action was considered to be initiated, identified by the <code>time</code> field, whose value is a textual representation of the time as defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3339" title="Date and Time on the Internet: Timestamps">RFC3339</a></cite>].</span></p>
-<p><span class="nlgov-add">This timestamp <em class="rfc2119">SHOULD</em> be used when a PDP evaluates the access request uses information from data sources that support temporal queries. See for example the <cite><a data-matched-text="[[[?ADR]]]" href="https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1">API Design Rules</a></cite> and its <a href="https://docs.geostandaarden.nl/api/API-Strategie-ext/#temporal">temporal extension</a>.</span></p>
-</section><section id="w3c-trace-context"><div class="header-wrapper"><h5 id="x5-4-1-2-w3c-trace-context"><bdi class="secno">5.4.1.2 </bdi><span class="nlgov-add">W3C Trace Context</span></h5><a class="self-link" href="#w3c-trace-context" aria-label="Permalink for Section 5.4.1.2"></a></div>
-<p><span class="nlgov-add">To enable tracing of requests, request identifiers <em class="rfc2119">SHOULD</em> be included in the evaluation request. Request identifiers <em class="rfc2119">SHOULD</em> be included in the Context object. They <em class="rfc2119">SHOULD</em> be in the form of <code>tracestate</code> and <code>traceparent</code> values as defined by [<cite><a class="bibref" data-link-type="biblio" href="#bib-trace-context-1" title="Trace Context">trace-context-1</a></cite>].</span></p>
-<p><span class="nlgov-add">When included, the W3C Trace Context <em class="rfc2119">SHOULD</em> be included in the Context object using the following keys:</span></p>
-<p><span class="nlgov-add"><code>traceparent</code>:
-: <em class="rfc2119">REQUIRED</em>. An string value containing a value as defined in Section 3.2.2 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-trace-context-1" title="Trace Context">trace-context-1</a></cite>]</span></p>
-<p><span class="nlgov-add"><code>tracestate</code>:
-: <em class="rfc2119">REQUIRED</em>. An string value containing a value as defined in Section 3.3.1.1 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-trace-context-1" title="Trace Context">trace-context-1</a></cite>]</span></p>
-</section><section id="verifiable-claims"><div class="header-wrapper"><h5 id="x5-4-1-3-verifiable-claims"><bdi class="secno">5.4.1.3 </bdi><span class="nlgov-add">Verifiable claims</span></h5><a class="self-link" href="#verifiable-claims" aria-label="Permalink for Section 5.4.1.3"></a></div>
-<p><span class="nlgov-add">As described in <a href="#security-trust" data-matched-text="[[[#security-trust]]]" class="sec-ref"><bdi class="secno">11.4 </bdi>Trust</a>, it is recommended to consider values in the information model as trusted and valid. For purposes of defense-in-depth and traceability, verifiable claims for values in the information model <em class="rfc2119">MAY</em> be provided. The verifiable claims <em class="rfc2119">MAY</em> use standards such as, but not limited to, SAML ([<cite><a class="bibref" data-link-type="biblio" href="#bib-saml2-core" title="Assertions and Protocols for SAML V2.0">SAML2-CORE</a></cite>]), Oauth ([<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6749" title="The OAuth 2.0 Authorization Framework">RFC6749</a></cite>]), and Verifiable Credentials ([<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model-2.0" title="Verifiable Credentials Data Model v2.0">vc-data-model-2.0</a></cite>]).</span></p>
-</section><section id="meta-information-model"><div class="header-wrapper"><h5 id="context-mim"><bdi class="secno">5.4.1.4 </bdi><span class="nlgov-add">Meta-information Model</span></h5><a class="self-link" href="#context-mim" aria-label="Permalink for Section 5.4.1.4"></a></div>
-
-<p><span class="nlgov-add">It is <em class="rfc2119">RECOMMENDED</em> to make the information model self-describing by including a URL to the meta-information model <a href="#information-model" data-matched-text="[[[#information-model]]]" class="sec-ref"><bdi class="secno">5. </bdi>Information Model</a> in the context.</span></p>
-<p><span class="nlgov-add">When included, the meta-information model <em class="rfc2119">SHOULD</em> be included in Context object as the following key</span></p>
-<p><span class="nlgov-add"><code>mim</code>:
-: <em class="rfc2119">REQUIRED</em>. A string value containing a URL that links to the meta-information model for the request. </span></p>
-</section><section id="linked-data-context"><div class="header-wrapper"><h5 id="context-ld"><bdi class="secno">5.4.1.5 </bdi><span class="nlgov-add">Linked Data context</span></h5><a class="self-link" href="#context-ld" aria-label="Permalink for Section 5.4.1.5"></a></div>
-
-<p><span class="nlgov-add">When a transport (<a href="#transport" data-matched-text="[[[#transport]]]" class="sec-ref"><bdi class="secno">10. </bdi>Transport</a>) does not use a Linked Data format as its serialization, the Context <em class="rfc2119">SHOULD</em> include a URL to a resource, called the "Linked Data context" that allows the information model to be converted to a Linked Data representation. </span></p>
-<p><span class="nlgov-add"></span></p><div class="note" role="note" id="issue-container-generatedID-1"><div role="heading" class="note-title marker" id="h-note-1" aria-level="6"><span>Note</span></div><p class="">The Linked Data context is <em>not</em> the same as the Context object. The Context object describes the context in which an evaluation request takes place. The Linked Data context describes how to convert the <em>entire</em> request, containing a Subject, Action, Resource and Context object, to a Linked Data representation.</p></div><p></p>
-<p><span class="nlgov-add">When included, the Linked Data context <em class="rfc2119">SHOULD</em> be included in Context object as the following key:</span></p>
-<p><span class="nlgov-add"><code>ld-context</code>:
-: <em class="rfc2119">REQUIRED</em>. An object that provides context for mapping the serialized information model to Linked Data, or a string value containing a URL from which the mapping can be retrieved.</span></p>
-<p><span class="nlgov-add">When serializing the information model to JSON it is <em class="rfc2119">RECOMMENDED</em> to use [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">JSON-LD11</a></cite>] to provide the Linked Data context. In that case, the value of the <code>ld-context</code> key should be considered as the value of the <code>@context</code> key at top-level.</span></p>
+<section class="nlgov-add" aria-label="section toegevoegd in NLgov" id="context-properties"><div class="header-wrapper"><h4 id="x5-4-1-context-properties"><bdi class="secno">5.4.1 </bdi>Context Properties</h4><a class="self-link" href="#context-properties" aria-label="Permalink for Section 5.4.1"></a></div>
+<p>Context <em class="rfc2119">MAY</em> include zero or more additional attributes as key-value pairs.</p>
+<p>To increase interoperability, a few common properties are specified below:</p>
+<section id="time"><div class="header-wrapper"><h5 id="x5-4-1-1-time"><bdi class="secno">5.4.1.1 </bdi>Time</h5><a class="self-link" href="#time" aria-label="Permalink for Section 5.4.1.1"></a></div>
+<p>The logical time at which the action was considered to be initiated, identified by the <code>time</code> field, whose value is a textual representation of the time as defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3339" title="Date and Time on the Internet: Timestamps">RFC3339</a></cite>].</p>
+<p>This timestamp <em class="rfc2119">SHOULD</em> be used when a PDP evaluates the access request uses information from data sources that support temporal queries. See for example the <cite><a data-matched-text="[[[?ADR]]]" href="https://gitdocumentatie.logius.nl/publicatie/api/adr/">API Design Rules</a></cite> and its <a href="https://docs.geostandaarden.nl/api/API-Strategie-ext/#temporal">temporal extension</a>.</p>
+</section><section id="w3c-trace-context"><div class="header-wrapper"><h5 id="x5-4-1-2-w3c-trace-context"><bdi class="secno">5.4.1.2 </bdi>W3C Trace Context</h5><a class="self-link" href="#w3c-trace-context" aria-label="Permalink for Section 5.4.1.2"></a></div>
+<p>To enable tracing of requests, request identifiers <em class="rfc2119">SHOULD</em> be included in the evaluation request. Request identifiers <em class="rfc2119">SHOULD</em> be included in the Context object. They <em class="rfc2119">SHOULD</em> be in the form of <code>tracestate</code> and <code>traceparent</code> values as defined by [<cite><a class="bibref" data-link-type="biblio" href="#bib-trace-context-1" title="Trace Context">trace-context-1</a></cite>].</p>
+<p>When included, the W3C Trace Context <em class="rfc2119">SHOULD</em> be included in the Context object using the following keys:</p>
+<p><code>traceparent</code>:
+: <em class="rfc2119">REQUIRED</em>. An string value containing a value as defined in Section 3.2.2 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-trace-context-1" title="Trace Context">trace-context-1</a></cite>]</p>
+<p><code>tracestate</code>:
+: <em class="rfc2119">REQUIRED</em>. An string value containing a value as defined in Section 3.3.1.1 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-trace-context-1" title="Trace Context">trace-context-1</a></cite>]</p>
+</section><section id="verifiable-claims"><div class="header-wrapper"><h5 id="x5-4-1-3-verifiable-claims"><bdi class="secno">5.4.1.3 </bdi>Verifiable claims</h5><a class="self-link" href="#verifiable-claims" aria-label="Permalink for Section 5.4.1.3"></a></div>
+<p>As described in <a href="#security-trust" data-matched-text="[[[#security-trust]]]" class="sec-ref"><bdi class="secno">11.4 </bdi>Trust</a>, it is recommended to consider values in the information model as trusted and valid. For purposes of defense-in-depth and traceability, verifiable claims for values in the information model <em class="rfc2119">MAY</em> be provided. The verifiable claims <em class="rfc2119">MAY</em> use standards such as, but not limited to, SAML ([<cite><a class="bibref" data-link-type="biblio" href="#bib-saml2-core" title="Assertions and Protocols for SAML V2.0">SAML2-CORE</a></cite>]), Oauth ([<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6749" title="The OAuth 2.0 Authorization Framework">RFC6749</a></cite>]), and Verifiable Credentials ([<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model-2-0" title="Verifiable Credentials Data Model v2.0">vc-data-model-2.0</a></cite>]).</p>
+</section><section id="meta-information-model"><div class="header-wrapper"><h5 id="context-mim"><bdi class="secno">5.4.1.4 </bdi>Meta-information Model</h5><a class="self-link" href="#context-mim" aria-label="Permalink for Section 5.4.1.4"></a></div><p>It is <em class="rfc2119">RECOMMENDED</em> to make the information model self-describing by including a URL to the meta-information model <a href="#information-model" data-matched-text="[[[#information-model]]]" class="sec-ref"><bdi class="secno">5. </bdi>Information Model</a> in the context.</p>
+<p>When included, the meta-information model <em class="rfc2119">SHOULD</em> be included in Context object as the following key</p>
+<p><code>mim</code>:
+: <em class="rfc2119">REQUIRED</em>. A string value containing a URL that links to the meta-information model for the request.</p>
+</section><section id="linked-data-context"><div class="header-wrapper"><h5 id="context-ld"><bdi class="secno">5.4.1.5 </bdi>Linked Data context</h5><a class="self-link" href="#context-ld" aria-label="Permalink for Section 5.4.1.5"></a></div><p>When a transport (<a href="#transport" data-matched-text="[[[#transport]]]" class="sec-ref"><bdi class="secno">10. </bdi>Transport</a>) does not use a Linked Data format as its serialization, the Context <em class="rfc2119">SHOULD</em> include a URL to a resource, called the "Linked Data context" that allows the information model to be converted to a Linked Data representation.</p>
+<div class="note" role="note" id="issue-container-generatedID-1"><div role="heading" class="note-title marker" id="h-note-1" aria-level="6"><span>Note</span></div><p class="">The Linked Data context is *not* the same as the Context object. The Context object describes the context in which an evaluation request takes place. The Linked Data context describes how to convert the *entire* request, containing a Subject, Action, Resource and Context object, to a Linked Data representation.</p></div><p>When included, the Linked Data context <em class="rfc2119">SHOULD</em> be included in Context object as the following key:</p>
+<p><code>ld-context</code>:
+: <em class="rfc2119">REQUIRED</em>. An object that provides context for mapping the serialized information model to Linked Data, or a string value containing a URL from which the mapping can be retrieved.</p>
+<p>When serializing the information model to JSON it is <em class="rfc2119">RECOMMENDED</em> to use [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">JSON-LD11</a></cite>] to provide the Linked Data context. In that case, the value of the <code>ld-context</code> key should be considered as the value of the <code>@context</code> key at top-level.</p>
 </section></section><section id="examples-non-normative-2"><div class="header-wrapper"><h4 id="context-examples"><bdi class="secno">5.4.2 </bdi>Examples (non-normative)</h4><a class="self-link" href="#context-examples" aria-label="Permalink for Section 5.4.2"></a></div><p>The following is a non-normative example of a Context:</p>
 <div class="example" id="context-example">
         <div class="marker">
@@ -1236,9 +1250,7 @@ ul.index code{color:inherit}
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"time"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"1985-10-26T01:22-07:00"</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section></section><section id="decision-0"><div class="header-wrapper"><h3 id="decision"><bdi class="secno">5.5 </bdi>Decision</h3><a class="self-link" href="#decision" aria-label="Permalink for Section 5.5"></a></div><p>A Decision is the result of the evaluation of an access request. It provides the information required for the PEP to enforce the decision.</p>
+      </div></section></section><section id="decision-0"><div class="header-wrapper"><h3 id="decision"><bdi class="secno">5.5 </bdi>Decision</h3><a class="self-link" href="#decision" aria-label="Permalink for Section 5.5"></a></div><p>A Decision is the result of the evaluation of an access request. It provides the information required for the PEP to enforce the decision.</p>
 <p>Decision is an object that contains a <em class="rfc2119">REQUIRED</em> <code>decision</code> key with a <code>boolean</code> value, and an <em class="rfc2119">OPTIONAL</em> <code>context</code> key with an object value.</p>
 <p><code>decision</code>:
 : <em class="rfc2119">REQUIRED</em>. A boolean value that specifies whether the Decision is to allow or deny the operation.</p>
@@ -1256,9 +1268,7 @@ ul.index code{color:inherit}
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"decision"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<section id="decision-context-0"><div class="header-wrapper"><h4 id="decision-context"><bdi class="secno">5.5.1 </bdi>Decision Context</h4><a class="self-link" href="#decision-context" aria-label="Permalink for Section 5.5.1"></a></div><p>In addition to a <code>decision</code>, a response <em class="rfc2119">MAY</em> contain a <code>context</code> field which contains an object. This context can convey additional information that can be used by the PEP as part of the decision enforcement process.</p>
+      </div><section id="decision-context-0"><div class="header-wrapper"><h4 id="decision-context"><bdi class="secno">5.5.1 </bdi>Decision Context</h4><a class="self-link" href="#decision-context" aria-label="Permalink for Section 5.5.1"></a></div><p>In addition to a <code>decision</code>, a response <em class="rfc2119">MAY</em> contain a <code>context</code> field which contains an object. This context can convey additional information that can be used by the PEP as part of the decision enforcement process.</p>
 <p>Examples include, but are not limited to:</p>
 <ul>
 <li>Reason(s) a decision was made,</li>
@@ -1285,9 +1295,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section><section id="non-normative-example-2-conveying-metadata-and-environmental-elements"><div class="header-wrapper"><h5 id="x5-5-2-2-non-normative-example-2-conveying-metadata-and-environmental-elements"><bdi class="secno">5.5.2.2 </bdi>Non-normative Example 2: conveying metadata and environmental elements</h5><a class="self-link" href="#non-normative-example-2-conveying-metadata-and-environmental-elements" aria-label="Permalink for Section 5.5.2.2"></a></div>
+      </div></section><section id="non-normative-example-2-conveying-metadata-and-environmental-elements"><div class="header-wrapper"><h5 id="x5-5-2-2-non-normative-example-2-conveying-metadata-and-environmental-elements"><bdi class="secno">5.5.2.2 </bdi>Non-normative Example 2: conveying metadata and environmental elements</h5><a class="self-link" href="#non-normative-example-2-conveying-metadata-and-environmental-elements" aria-label="Permalink for Section 5.5.2.2"></a></div>
 <p>In the following non-normative example, the PDP justifies its decision by including environmental conditions that did not meet its policies. Metadata pertaining to the decision response times is also provided:</p>
 <div class="example" id="response-with-environment-context-example">
         <div class="marker">
@@ -1306,9 +1314,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section><section id="non-normative-example-3-requesting-step-up-authentication"><div class="header-wrapper"><h5 id="x5-5-2-3-non-normative-example-3-requesting-step-up-authentication"><bdi class="secno">5.5.2.3 </bdi>Non-normative Example 3: requesting step-up authentication</h5><a class="self-link" href="#non-normative-example-3-requesting-step-up-authentication" aria-label="Permalink for Section 5.5.2.3"></a></div>
+      </div></section><section id="non-normative-example-3-requesting-step-up-authentication"><div class="header-wrapper"><h5 id="x5-5-2-3-non-normative-example-3-requesting-step-up-authentication"><bdi class="secno">5.5.2.3 </bdi>Non-normative Example 3: requesting step-up authentication</h5><a class="self-link" href="#non-normative-example-3-requesting-step-up-authentication" aria-label="Permalink for Section 5.5.2.3"></a></div>
 <p>In the following non-normative example, the PDP requests a step-up authentication of the requesting subject, by signalling the required <code>acr</code> and <code>amr</code> access token claim values it expects to see in order to approve the request:</p>
 <div class="example" id="response-with-step-up-example">
         <div class="marker">
@@ -1354,9 +1360,7 @@ ul.index code{color:inherit}
     <span class="hljs-attr">"time"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"1985-10-26T01:22-07:00"</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section></section><section id="the-access-evaluation-api-response"><div class="header-wrapper"><h3 id="access-evaluation-response"><bdi class="secno">6.2 </bdi>The Access Evaluation API Response</h3><a class="self-link" href="#access-evaluation-response" aria-label="Permalink for Section 6.2"></a></div><p>The response of the Access Evaluation API consists of the Decision entity as defined in the Information Model (<a href="#information-model" data-matched-text="[[[#information-model]]]" class="sec-ref"><bdi class="secno">5. </bdi>Information Model</a>).</p>
+      </div></section></section><section id="the-access-evaluation-api-response"><div class="header-wrapper"><h3 id="access-evaluation-response"><bdi class="secno">6.2 </bdi>The Access Evaluation API Response</h3><a class="self-link" href="#access-evaluation-response" aria-label="Permalink for Section 6.2"></a></div><p>The response of the Access Evaluation API consists of the Decision entity as defined in the Information Model (<a href="#information-model" data-matched-text="[[[#information-model]]]" class="sec-ref"><bdi class="secno">5. </bdi>Information Model</a>).</p>
 </section></section>
   <section id="access-evaluations-api-0"><div class="header-wrapper"><h2 id="access-evaluations-api"><bdi class="secno">7. </bdi>Access Evaluations API</h2><a class="self-link" href="#access-evaluations-api" aria-label="Permalink for Section 7."></a></div><p>The Access Evaluations API defines the message exchange pattern between a PEP and a PDP for evaluating multiple access evaluations within the scope of a single message exchange (also known as "boxcarring" requests).</p>
 <section id="the-access-evaluations-api-request"><div class="header-wrapper"><h3 id="access-evaluations-request"><bdi class="secno">7.1 </bdi>The Access Evaluations API Request</h3><a class="self-link" href="#access-evaluations-request" aria-label="Permalink for Section 7.1"></a></div><p>The Access Evaluation API Request builds on the information model presented in <a href="#information-model" data-matched-text="[[[#information-model]]]" class="sec-ref"><bdi class="secno">5. </bdi>Information Model</a> and the object defined in the Access Evaluation Request (<a href="#access-evaluation-request" data-matched-text="[[[#access-evaluation-request]]]" class="sec-ref"><bdi class="secno">6.1 </bdi>The Access Evaluation API Request</a>).</p>
@@ -1420,9 +1424,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<section id="default-values-0"><div class="header-wrapper"><h4 id="default-values"><bdi class="secno">7.1.1 </bdi>Default values</h4><a class="self-link" href="#default-values" aria-label="Permalink for Section 7.1.1"></a></div><p>While the example above provides the most flexibility in specifying distinct values in each request for every evaluation, it is common for boxcarred requests to share one or more values of the evaluation request. For example, evaluations <em class="rfc2119">MAY</em> all refer to a single subject, and/or have the same contextual (environmental) attributes.</p>
+      </div><section id="default-values-0"><div class="header-wrapper"><h4 id="default-values"><bdi class="secno">7.1.1 </bdi>Default values</h4><a class="self-link" href="#default-values" aria-label="Permalink for Section 7.1.1"></a></div><p>While the example above provides the most flexibility in specifying distinct values in each request for every evaluation, it is common for boxcarred requests to share one or more values of the evaluation request. For example, evaluations <em class="rfc2119">MAY</em> all refer to a single subject, and/or have the same contextual (environmental) attributes.</p>
 <p>Default values offer a more compact syntax that avoids unnecessary duplication of request data.</p>
 <p>The top-level <code>subject</code>, <code>action</code>, <code>resource</code>, and <code>context</code> keys provide default values for each object in the evaluations array. Any of these keys specified within an individual evaluation object overrides the corresponding top-level default. Because <code>subject</code>, <code>action</code>, and <code>resource</code> are required for a valid evaluation, any of these keys omitted from an evaluation object <em class="rfc2119">MUST</em> be provided as a top-level key.</p>
 <p>The following is a non-normative example for specifying three requests that refer to a single subject and context:</p>
@@ -1467,9 +1469,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>The following is a non-normative example for specifying three requests that refer to a single <code>subject</code> and <code>context</code>, with a default value for <code>action</code>, that is overridden by the third request:</p>
+      </div><p>The following is a non-normative example for specifying three requests that refer to a single <code>subject</code> and <code>context</code>, with a default value for <code>action</code>, that is overridden by the third request:</p>
 <div class="example" id="example-16">
         <div class="marker">
     <a class="self-link" href="#example-16">Example<bdi> 16</bdi></a>
@@ -1508,9 +1508,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section><section id="evaluations-options"><div class="header-wrapper"><h4 id="x7-1-2-evaluations-options"><bdi class="secno">7.1.2 </bdi>Evaluations options</h4><a class="self-link" href="#evaluations-options" aria-label="Permalink for Section 7.1.2"></a></div>
+      </div></section><section id="evaluations-options"><div class="header-wrapper"><h4 id="x7-1-2-evaluations-options"><bdi class="secno">7.1.2 </bdi>Evaluations options</h4><a class="self-link" href="#evaluations-options" aria-label="Permalink for Section 7.1.2"></a></div>
 <p>The <code>evaluations</code> request payload includes an <em class="rfc2119">OPTIONAL</em> <code>options</code> key, with a value that is an object.</p>
 <p>This provides a general-purpose mechanism for providing PEP-supplied metadata on how the request is to be executed.</p>
 <p>One such option controls <em>evaluation semantics</em>, and is described in <a href="#evaluations-semantics" data-matched-text="[[[#evaluations-semantics]]]" class="sec-ref"><bdi class="secno">7.1.2.1 </bdi>Evaluations semantics</a>.</p>
@@ -1534,9 +1532,7 @@ ul.index code{color:inherit}
     <span class="hljs-attr">"another_option"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"value"</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<section id="evaluations-semantics-0"><div class="header-wrapper"><h5 id="evaluations-semantics"><bdi class="secno">7.1.2.1 </bdi>Evaluations semantics</h5><a class="self-link" href="#evaluations-semantics" aria-label="Permalink for Section 7.1.2.1"></a></div><p>By default, every request in the <code>evaluations</code> array is executed and a response returned in the same array order. This is the most common use-case for boxcarring multiple evaluation requests in a single payload.</p>
+      </div><section id="evaluations-semantics-0"><div class="header-wrapper"><h5 id="evaluations-semantics"><bdi class="secno">7.1.2.1 </bdi>Evaluations semantics</h5><a class="self-link" href="#evaluations-semantics" aria-label="Permalink for Section 7.1.2.1"></a></div><p>By default, every request in the <code>evaluations</code> array is executed and a response returned in the same array order. This is the most common use-case for boxcarring multiple evaluation requests in a single payload.</p>
 <p>This specification supports three evaluation semantics:</p>
 <ol>
 <li><em>Execute all of the requests (potentially in parallel), return all of the results.</em> Any failure can be denoted by <code>"decision": false</code> and <em class="rfc2119">MAY</em> provide a reason code in the context.</li>
@@ -1587,9 +1583,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>Response:</p>
+      </div><p>Response:</p>
 <div class="example" id="example-19">
         <div class="marker">
     <a class="self-link" href="#example-19">Example<bdi> 19</bdi></a>
@@ -1606,9 +1600,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>Deny on first deny:</p>
+      </div><p>Deny on first deny:</p>
 <div class="example" id="example-20">
         <div class="marker">
     <a class="self-link" href="#example-20">Example<bdi> 20</bdi></a>
@@ -1644,9 +1636,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>Response:</p>
+      </div><p>Response:</p>
 <div class="example" id="example-21">
         <div class="marker">
     <a class="self-link" href="#example-21">Example<bdi> 21</bdi></a>
@@ -1664,9 +1654,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>Permit on first permit:</p>
+      </div><p>Permit on first permit:</p>
 <div class="example" id="example-22">
         <div class="marker">
     <a class="self-link" href="#example-22">Example<bdi> 22</bdi></a>
@@ -1702,9 +1690,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>Response:</p>
+      </div><p>Response:</p>
 <div class="example" id="example-23">
         <div class="marker">
     <a class="self-link" href="#example-23">Example<bdi> 23</bdi></a>
@@ -1715,9 +1701,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section></section></section></section><section id="the-access-evaluations-api-response"><div class="header-wrapper"><h3 id="access-evaluations-response"><bdi class="secno">7.2 </bdi>The Access Evaluations API Response</h3><a class="self-link" href="#access-evaluations-response" aria-label="Permalink for Section 7.2"></a></div><p>Like the request format, the Access Evaluations Response format for an Access Evaluations Request adds an <code>evaluations</code> array that lists the decisions in the same order they were provided in the <code>evaluations</code> array in the request. Each value of the evaluations array is typed as a Decision as defined in the Information Model (<a href="#information-model" data-matched-text="[[[#information-model]]]" class="sec-ref"><bdi class="secno">5. </bdi>Information Model</a>).</p>
+      </div></section></section></section></section><section id="the-access-evaluations-api-response"><div class="header-wrapper"><h3 id="access-evaluations-response"><bdi class="secno">7.2 </bdi>The Access Evaluations API Response</h3><a class="self-link" href="#access-evaluations-response" aria-label="Permalink for Section 7.2"></a></div><p>Like the request format, the Access Evaluations Response format for an Access Evaluations Request adds an <code>evaluations</code> array that lists the decisions in the same order they were provided in the <code>evaluations</code> array in the request. Each value of the evaluations array is typed as a Decision as defined in the Information Model (<a href="#information-model" data-matched-text="[[[#information-model]]]" class="sec-ref"><bdi class="secno">5. </bdi>Information Model</a>).</p>
 <p>In case the <code>evaluations</code> array is present, it is <em class="rfc2119">RECOMMENDED</em> that the <code>decision</code> key of the response be omitted. If present, it can be ignored by the PEP.</p>
 <p>The following is a non-normative example of a Access Evaluations Response to an Access Evaluations Request containing three evaluation objects:</p>
 <div class="example" id="example-24">
@@ -1742,9 +1726,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<section id="errors"><div class="header-wrapper"><h4 id="x7-2-1-errors"><bdi class="secno">7.2.1 </bdi>Errors</h4><a class="self-link" href="#errors" aria-label="Permalink for Section 7.2.1"></a></div>
+      </div><section id="errors"><div class="header-wrapper"><h4 id="x7-2-1-errors"><bdi class="secno">7.2.1 </bdi>Errors</h4><a class="self-link" href="#errors" aria-label="Permalink for Section 7.2.1"></a></div>
 <p>There are two types of errors, and they are handled differently:</p>
 <ol>
 <li>Transport-level errors, or errors that pertain to the entire payload.</li>
@@ -1829,9 +1811,7 @@ ul.index code{color:inherit}
     <span class="hljs-attr">"limit"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<div class="example" id="search-pagination-token-initial-response">
+      </div><div class="example" id="search-pagination-token-initial-response">
         <div class="marker">
     <a class="self-link" href="#search-pagination-token-initial-response">Example<bdi> 27</bdi></a><span class="example-title">: Example initial Search API Response</span>
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-punctuation">{</span>
@@ -1851,9 +1831,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<div class="example" id="search-pagination-token-second-request">
+      </div><div class="example" id="search-pagination-token-second-request">
         <div class="marker">
     <a class="self-link" href="#search-pagination-token-second-request">Example<bdi> 28</bdi></a><span class="example-title">: Example second Search API Request</span>
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-punctuation">{</span>
@@ -1871,9 +1849,7 @@ ul.index code{color:inherit}
     <span class="hljs-attr">"token"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"a3M9NDU2O3N6PTI="</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<div class="example" id="search-pagination-token-second-response">
+      </div><div class="example" id="search-pagination-token-second-response">
         <div class="marker">
     <a class="self-link" href="#search-pagination-token-second-response">Example<bdi> 29</bdi></a><span class="example-title">: Example second Search API Response</span>
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-punctuation">{</span>
@@ -1889,9 +1865,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section></section><section id="the-search-api-response"><div class="header-wrapper"><h3 id="search-response"><bdi class="secno">8.3 </bdi>The Search API Response</h3><a class="self-link" href="#search-response" aria-label="Permalink for Section 8.3"></a></div><p>The response to a Search API Request always follows the same structure. Each Search API Response is a JSON object with the following keys:</p>
+      </div></section></section><section id="the-search-api-response"><div class="header-wrapper"><h3 id="search-response"><bdi class="secno">8.3 </bdi>The Search API Response</h3><a class="self-link" href="#search-response" aria-label="Permalink for Section 8.3"></a></div><p>The response to a Search API Request always follows the same structure. Each Search API Response is a JSON object with the following keys:</p>
 <p><code>page</code>:
 : <em class="rfc2119">OPTIONAL</em>. An object providing pagination information, as defined in Paginated Responses (<a href="#search-pagination-response" data-matched-text="[[[#search-pagination-response]]]" class="sec-ref"><bdi class="secno">8.2.2 </bdi>Paginated Responses</a>). It is <em class="rfc2119">RECOMMENDED</em> that the <code>page</code> object be the first key in the response, as this allows a PEP to use the <code>count</code> value to display a progress indicator when processing large or slow responses.</p>
 <p><code>context</code>:
@@ -1921,9 +1895,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section><section id="subject-search-api-0"><div class="header-wrapper"><h3 id="subject-search-api"><bdi class="secno">8.4 </bdi>Subject Search API</h3><a class="self-link" href="#subject-search-api" aria-label="Permalink for Section 8.4"></a></div><p>The Subject Search API returns all subjects of a given type that are permitted according to the provided Action (<a href="#action" data-matched-text="[[[#action]]]" class="sec-ref"><bdi class="secno">5.3 </bdi>Action</a>), Resource (<a href="#resource" data-matched-text="[[[#resource]]]" class="sec-ref"><bdi class="secno">5.2 </bdi>Resource</a>), and Context (<a href="#context" data-matched-text="[[[#context]]]" class="sec-ref"><bdi class="secno">5.4 </bdi>Context</a>).</p>
+      </div></section><section id="subject-search-api-0"><div class="header-wrapper"><h3 id="subject-search-api"><bdi class="secno">8.4 </bdi>Subject Search API</h3><a class="self-link" href="#subject-search-api" aria-label="Permalink for Section 8.4"></a></div><p>The Subject Search API returns all subjects of a given type that are permitted according to the provided Action (<a href="#action" data-matched-text="[[[#action]]]" class="sec-ref"><bdi class="secno">5.3 </bdi>Action</a>), Resource (<a href="#resource" data-matched-text="[[[#resource]]]" class="sec-ref"><bdi class="secno">5.2 </bdi>Resource</a>), and Context (<a href="#context" data-matched-text="[[[#context]]]" class="sec-ref"><bdi class="secno">5.4 </bdi>Context</a>).</p>
 <section id="the-subject-search-api-request"><div class="header-wrapper"><h4 id="subject-search-request"><bdi class="secno">8.4.1 </bdi>The Subject Search API Request</h4><a class="self-link" href="#subject-search-request" aria-label="Permalink for Section 8.4.1"></a></div><p>The Subject Search request is an object consisting of the following entities:</p>
 <p><code>subject</code>:
 : <em class="rfc2119">REQUIRED</em>. The subject (or principal) of type Subject. The Subject <em class="rfc2119">MUST</em> contain a <code>type</code>, but the Subject <code>id</code> <em class="rfc2119">SHOULD</em> be omitted, and if present, <em class="rfc2119">MUST</em> be ignored.</p>
@@ -1955,9 +1927,7 @@ ul.index code{color:inherit}
     <span class="hljs-attr">"time"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"2024-10-26T01:22-07:00"</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>The following payload defines a valid response to this request.</p>
+      </div><p>The following payload defines a valid response to this request.</p>
 <div class="example" id="subject-search-response-example">
         <div class="marker">
     <a class="self-link" href="#subject-search-response-example">Example<bdi> 32</bdi></a><span class="example-title">: Example Subject Search API Response</span>
@@ -1973,9 +1943,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section></section><section id="resource-search-api-0"><div class="header-wrapper"><h3 id="resource-search-api"><bdi class="secno">8.5 </bdi>Resource Search API</h3><a class="self-link" href="#resource-search-api" aria-label="Permalink for Section 8.5"></a></div><p>The Resource Search API returns all resources of a given type that are permitted according to the provided Action (<a href="#action" data-matched-text="[[[#action]]]" class="sec-ref"><bdi class="secno">5.3 </bdi>Action</a>), Subject (<a href="#subject" data-matched-text="[[[#subject]]]" class="sec-ref"><bdi class="secno">5.1 </bdi>Subject</a>), and Context (<a href="#context" data-matched-text="[[[#context]]]" class="sec-ref"><bdi class="secno">5.4 </bdi>Context</a>).</p>
+      </div></section></section><section id="resource-search-api-0"><div class="header-wrapper"><h3 id="resource-search-api"><bdi class="secno">8.5 </bdi>Resource Search API</h3><a class="self-link" href="#resource-search-api" aria-label="Permalink for Section 8.5"></a></div><p>The Resource Search API returns all resources of a given type that are permitted according to the provided Action (<a href="#action" data-matched-text="[[[#action]]]" class="sec-ref"><bdi class="secno">5.3 </bdi>Action</a>), Subject (<a href="#subject" data-matched-text="[[[#subject]]]" class="sec-ref"><bdi class="secno">5.1 </bdi>Subject</a>), and Context (<a href="#context" data-matched-text="[[[#context]]]" class="sec-ref"><bdi class="secno">5.4 </bdi>Context</a>).</p>
 <section id="the-resource-search-api-request"><div class="header-wrapper"><h4 id="resource-search-request"><bdi class="secno">8.5.1 </bdi>The Resource Search API Request</h4><a class="self-link" href="#resource-search-request" aria-label="Permalink for Section 8.5.1"></a></div><p>The Resource Search request is an object consisting of the following entities:</p>
 <p><code>subject</code>:
 : <em class="rfc2119">REQUIRED</em>. The subject (or principal) of type Subject.</p>
@@ -2004,9 +1972,7 @@ ul.index code{color:inherit}
     <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"account"</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>The following payload defines a valid response to this request.</p>
+      </div><p>The following payload defines a valid response to this request.</p>
 <div class="example" id="resource-search-response-example">
         <div class="marker">
     <a class="self-link" href="#resource-search-response-example">Example<bdi> 34</bdi></a><span class="example-title">: Example Resource Search API Response</span>
@@ -2022,9 +1988,7 @@ ul.index code{color:inherit}
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-</section></section><section id="action-search-api-0"><div class="header-wrapper"><h3 id="action-search-api"><bdi class="secno">8.6 </bdi>Action Search API</h3><a class="self-link" href="#action-search-api" aria-label="Permalink for Section 8.6"></a></div><p>The Action Search API returns all actions that are permitted according to the provided Subject (<a href="#subject" data-matched-text="[[[#subject]]]" class="sec-ref"><bdi class="secno">5.1 </bdi>Subject</a>), Resource (<a href="#resource" data-matched-text="[[[#resource]]]" class="sec-ref"><bdi class="secno">5.2 </bdi>Resource</a>), and Context (<a href="#context" data-matched-text="[[[#context]]]" class="sec-ref"><bdi class="secno">5.4 </bdi>Context</a>).</p>
+      </div></section></section><section id="action-search-api-0"><div class="header-wrapper"><h3 id="action-search-api"><bdi class="secno">8.6 </bdi>Action Search API</h3><a class="self-link" href="#action-search-api" aria-label="Permalink for Section 8.6"></a></div><p>The Action Search API returns all actions that are permitted according to the provided Subject (<a href="#subject" data-matched-text="[[[#subject]]]" class="sec-ref"><bdi class="secno">5.1 </bdi>Subject</a>), Resource (<a href="#resource" data-matched-text="[[[#resource]]]" class="sec-ref"><bdi class="secno">5.2 </bdi>Resource</a>), and Context (<a href="#context" data-matched-text="[[[#context]]]" class="sec-ref"><bdi class="secno">5.4 </bdi>Context</a>).</p>
 <section id="the-action-search-api-request"><div class="header-wrapper"><h4 id="action-search-request"><bdi class="secno">8.6.1 </bdi>The Action Search API Request</h4><a class="self-link" href="#action-search-request" aria-label="Permalink for Section 8.6.1"></a></div><p>The Action Search request is an object consisting of the following entities:</p>
 <p><code>subject</code>:
 : <em class="rfc2119">REQUIRED</em>. The subject (or principal) of type Subject.</p>
@@ -2034,9 +1998,7 @@ ul.index code{color:inherit}
 : <em class="rfc2119">OPTIONAL</em>. Contextual data about the request.</p>
 <p><code>page</code>:
 : <em class="rfc2119">OPTIONAL</em>. A page object for paginated requests.</p>
-<div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>Note</span></div><p class="">Unlike the Subject and Resource Search APIs, the <code>action</code> key is omitted from the Action Search request payload.</p></div>
-
-</section><section id="example-non-normative-action-search-example"><div class="header-wrapper"><h4 id="x8-6-2-example-non-normative-action-search-example"><bdi class="secno">8.6.2 </bdi>Example (non-normative) {#action-search-example"}</h4><a class="self-link" href="#example-non-normative-action-search-example" aria-label="Permalink for Section 8.6.2"></a></div>
+<div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>Note</span></div><p class="">Unlike the Subject and Resource Search APIs, the <code>action</code> key is omitted from the Action Search request payload.</p></div></section><section id="example-non-normative-action-search-example"><div class="header-wrapper"><h4 id="x8-6-2-example-non-normative-action-search-example"><bdi class="secno">8.6.2 </bdi>Example (non-normative) {#action-search-example"}</h4><a class="self-link" href="#example-non-normative-action-search-example" aria-label="Permalink for Section 8.6.2"></a></div>
 <p>The following payload defines a request for the actions that the subject of type <code>user</code> with ID <code>123</code> may perform on the resource of type <code>account</code> and ID <code>123</code> at 01:22 AM.</p>
 <div class="example" id="action-search-request-example">
         <div class="marker">
@@ -2054,9 +2016,7 @@ ul.index code{color:inherit}
     <span class="hljs-attr">"time"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"2024-10-26T01:22-07:00"</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
-      </div>
-
-<p>The following payload defines a valid response to this request.</p>
+      </div><p>The following payload defines a valid response to this request.</p>
 <div class="example" id="action-search-response-example">
         <div class="marker">
     <a class="self-link" href="#action-search-response-example">Example<bdi> 36</bdi></a><span class="example-title">: Example Action Search API Response</span>
@@ -2085,9 +2045,7 @@ ul.index code{color:inherit}
 : <em class="rfc2119">OPTIONAL</em>. URL of Search API endpoint for action entities</p>
 <p><code>search_resource_endpoint</code>:
 : <em class="rfc2119">OPTIONAL</em>. URL of Search API endpoint for resource entities</p>
-<div class="note" role="note" id="issue-container-generatedID-3"><div role="heading" class="note-title marker" id="h-note-3" aria-level="5"><span>Note</span></div><p class="">The absence of any of these parameters is sufficient for the PEP to determine that the PDP is not capable and therefore will not return a result for the associated API.</p></div>
-
-</section><section id="capabilities-parameters"><div class="header-wrapper"><h4 id="pdp-metadata-data-capabilities"><bdi class="secno">9.1.2 </bdi>Capabilities Parameters</h4><a class="self-link" href="#pdp-metadata-data-capabilities" aria-label="Permalink for Section 9.1.2"></a></div><p><code>capabilities</code>:
+<div class="note" role="note" id="issue-container-generatedID-3"><div role="heading" class="note-title marker" id="h-note-3" aria-level="5"><span>Note</span></div><p class="">The absence of any of these parameters is sufficient for the PEP to determine that the PDP is not capable and therefore will not return a result for the associated API.</p></div></section><section id="capabilities-parameters"><div class="header-wrapper"><h4 id="pdp-metadata-data-capabilities"><bdi class="secno">9.1.2 </bdi>Capabilities Parameters</h4><a class="self-link" href="#pdp-metadata-data-capabilities" aria-label="Permalink for Section 9.1.2"></a></div><p><code>capabilities</code>:
 : <em class="rfc2119">OPTIONAL</em>. JSON array containing a list of registered IANA URNs referencing PDP specific capabilities.</p>
 </section><section id="signature-parameter"><div class="header-wrapper"><h4 id="pdp-metadata-data-sig"><bdi class="secno">9.1.3 </bdi>Signature Parameter</h4><a class="self-link" href="#pdp-metadata-data-sig" aria-label="Permalink for Section 9.1.3"></a></div><p>In addition to JSON elements, metadata parameters <em class="rfc2119">MAY</em> also be provided as a <code>signed_metadata</code> value, which is a JSON Web Token [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7519" title="JSON Web Token (JWT)">RFC7519</a></cite>] that asserts metadata values about the PDP as a bundle. A set of metadata parameters that can be used in signed metadata as claims are defined in <a href="#pdp-metadata-data-endpoint" data-matched-text="[[[#pdp-metadata-data-endpoint]]]" class="sec-ref"><bdi class="secno">9.1.1 </bdi>Endpoint Parameters</a>. The signed metadata <em class="rfc2119">MUST</em> be digitally signed or MACed using JSON Web Signature [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7515" title="JSON Web Signature (JWS)">RFC7515</a></cite>] and <em class="rfc2119">MUST</em> contain an <code>iss</code> (issuer) claim denoting the party attesting to the claims in the signed metadata.</p>
 <p>A PEP <em class="rfc2119">MAY</em> ignore the signed metadata if they do not support this feature. If the PEP supports signed metadata, metadata values conveyed in the signed metadata <em class="rfc2119">MUST</em> take precedence over the corresponding values conveyed using plain JSON elements. Signed metadata is included in the Policy Decision Point metadata JSON object using this <em class="rfc2119">OPTIONAL</em> metadata parameter:</p>
@@ -2104,9 +2062,7 @@ ul.index code{color:inherit}
     <a class="self-link" href="#example-37">Example<bdi> 37</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/.well-known/authzen-configuration</span> <span class="hljs-meta">HTTP/1.1</span>
 <span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>pdp.example.com</code></pre>
-      </div>
-
-</section><section id="policy-decision-point-metadata-response"><div class="header-wrapper"><h4 id="pdp-metadata-access-response"><bdi class="secno">9.2.2 </bdi>Policy Decision Point Metadata Response</h4><a class="self-link" href="#pdp-metadata-access-response" aria-label="Permalink for Section 9.2.2"></a></div><p>The response is a set of metadata parameters about the protected resource's configuration.</p>
+      </div></section><section id="policy-decision-point-metadata-response"><div class="header-wrapper"><h4 id="pdp-metadata-access-response"><bdi class="secno">9.2.2 </bdi>Policy Decision Point Metadata Response</h4><a class="self-link" href="#pdp-metadata-access-response" aria-label="Permalink for Section 9.2.2"></a></div><p>The response is a set of metadata parameters about the protected resource's configuration.</p>
 <p>A successful response <em class="rfc2119">MUST</em> use the HTTP status code <code>200</code> and a <code>Content-Type</code> of <code>application/json</code>. Its body <em class="rfc2119">MUST</em> be a JSON object that contains a set of metadata parameters as defined in the AuthZEN Policy Decision Point Metadata Registry (<a href="#iana-pdp-metadata-registry" data-matched-text="[[[#iana-pdp-metadata-registry]]]" class="sec-ref"><bdi class="secno">12.1 </bdi>AuthZEN Policy Decision Point Metadata Registry</a>).</p>
 <p>Any metadata parameters in the response that are not understood by the PEP <em class="rfc2119">MUST</em> be ignored.</p>
 <p>Parameters that have multiple values are represented as JSON arrays. Parameters that have no values <em class="rfc2119">MUST</em> be omitted from the response.</p>
@@ -2124,9 +2080,7 @@ ul.index code{color:inherit}
   <span class="hljs-attr">"search_subject_endpoint"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://pdp.example.com/access/v1/search/subject"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"search_resource_endpoint"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://pdp.example.com/access/v1/search/resource"</span>
 <span class="hljs-punctuation">}</span></span></code></pre>
-      </div>
-
-</section><section id="policy-decision-point-metadata-validation"><div class="header-wrapper"><h4 id="pdp-metadata-data-endpoint-validation"><bdi class="secno">9.2.3 </bdi>Policy Decision Point Metadata Validation</h4><a class="self-link" href="#pdp-metadata-data-endpoint-validation" aria-label="Permalink for Section 9.2.3"></a></div><p>The <code>policy_decision_point</code> value returned <em class="rfc2119">MUST</em> be identical to the Policy Decision Point identifier value into which the well-known URI string was inserted to create the URL used to retrieve the metadata.  If these values are not identical, the data contained in the response <em class="rfc2119">MUST NOT</em> be used.</p>
+      </div></section><section id="policy-decision-point-metadata-validation"><div class="header-wrapper"><h4 id="pdp-metadata-data-endpoint-validation"><bdi class="secno">9.2.3 </bdi>Policy Decision Point Metadata Validation</h4><a class="self-link" href="#pdp-metadata-data-endpoint-validation" aria-label="Permalink for Section 9.2.3"></a></div><p>The <code>policy_decision_point</code> value returned <em class="rfc2119">MUST</em> be identical to the Policy Decision Point identifier value into which the well-known URI string was inserted to create the URL used to retrieve the metadata.  If these values are not identical, the data contained in the response <em class="rfc2119">MUST NOT</em> be used.</p>
 <p>The recipient <em class="rfc2119">MUST</em> validate that any signed metadata was signed by a key belonging to the issuer and that the signature is valid. If the signature does not validate or the issuer is not trusted, the recipient <em class="rfc2119">SHOULD</em> treat this as an error condition.</p>
 </section></section></section>
   <section id="transport-0"><div class="header-wrapper"><h2 id="transport"><bdi class="secno">10. </bdi>Transport</h2><a class="self-link" href="#transport" aria-label="Permalink for Section 10."></a></div><p>This specification defines an HTTPS binding using JSON serialization which <em class="rfc2119">MUST</em> be implemented by a compliant PDP.</p>
@@ -2179,9 +2133,7 @@ ul.index code{color:inherit}
         <td><a href="#action-search-request" data-matched-text="[[[#action-search-request]]]" class="sec-ref"><bdi class="secno">8.6.1 </bdi>The Action Search API Request</a></td>
         <td><a href="#search-response" data-matched-text="[[[#search-response]]]" class="sec-ref"><bdi class="secno">8.3 </bdi>The Search API Response</a></td>
     </tr>
-</tbody></table>
-
-<section id="json-serialization"><div class="header-wrapper"><h4 id="transport-https-json-serialization"><bdi class="secno">10.1.1 </bdi>JSON Serialization</h4><a class="self-link" href="#transport-https-json-serialization" aria-label="Permalink for Section 10.1.1"></a></div><p>This section specifies the serialization of the information model entities and API schemas defined in this document to the JSON format [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">RFC8259</a></cite>]. The top-level element of all request and response bodies <em class="rfc2119">MUST</em> be a JSON object (Section 4 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">RFC8259</a></cite>]). Implementations <em class="rfc2119">SHOULD</em> also adhere to the security recommendations in JSON Payload Considerations (<a href="#security-json" data-matched-text="[[[#security-json]]]" class="sec-ref"><bdi class="secno">11.5 </bdi>JSON Payload Considerations</a>).</p>
+</tbody></table><section id="json-serialization"><div class="header-wrapper"><h4 id="transport-https-json-serialization"><bdi class="secno">10.1.1 </bdi>JSON Serialization</h4><a class="self-link" href="#transport-https-json-serialization" aria-label="Permalink for Section 10.1.1"></a></div><p>This section specifies the serialization of the information model entities and API schemas defined in this document to the JSON format [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">RFC8259</a></cite>]. The top-level element of all request and response bodies <em class="rfc2119">MUST</em> be a JSON object (Section 4 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">RFC8259</a></cite>]). Implementations <em class="rfc2119">SHOULD</em> also adhere to the security recommendations in JSON Payload Considerations (<a href="#security-json" data-matched-text="[[[#security-json]]]" class="sec-ref"><bdi class="secno">11.5 </bdi>JSON Payload Considerations</a>).</p>
 <p>The data types defined in this specification are mapped to JSON types as follows:</p>
 <p>Object:
 : Represented as a JSON object (Section 4 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">RFC8259</a></cite>]). The values of its members can be any valid JSON value as defined in Section 3 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">RFC8259</a></cite>], including other objects and arrays, unless specified otherwise.</p>
@@ -2222,11 +2174,7 @@ ul.index code{color:inherit}
         <td>Internal Error</td>
         <td>An error message string</td>
     </tr>
-</tbody></table>
-
-<div class="note" role="note" id="issue-container-generatedID-4"><div role="heading" class="note-title marker" id="h-note-4" aria-level="5"><span>Note</span></div><p class="">HTTPS errors are returned by the PDP to indicate an error condition relating to the request or its processing; they are unrelated to the outcome of an authorization decision and are distinct from it. A successful request that results in a "deny" is indicated by a 200 OK status code with a { "decision": false } payload.</p></div>
-
-<p>To make this concrete:</p>
+</tbody></table><div class="note" role="note" id="issue-container-generatedID-4"><div role="heading" class="note-title marker" id="h-note-4" aria-level="5"><span>Note</span></div><p class="">HTTPS errors are returned by the PDP to indicate an error condition relating to the request or its processing; they are unrelated to the outcome of an authorization decision and are distinct from it. A successful request that results in a "deny" is indicated by a 200 OK status code with a { "decision": false } payload.</p></div><p>To make this concrete:</p>
 <ul>
 <li>a <code>401</code> HTTPS status code indicates that the PEP did not properly authenticate to the PDP - for example, by omitting a required <code>Authorization</code> header, or using an invalid access token.</li>
 <li>the PDP indicates to the PEP that the authorization request is denied by sending a response with a <code>200</code> HTTPS status code, along with a payload of <code>{ "decision": false }</code>.</li>
@@ -2239,9 +2187,7 @@ ul.index code{color:inherit}
   </div> <pre aria-busy="false"><code class="hljs http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/access/v1/evaluation</span> <span class="hljs-meta">HTTP/1.1</span>
 <span class="hljs-attribute">Authorization</span><span class="hljs-punctuation">: </span>Bearer mF_9.B5f-4.1JqM
 <span class="hljs-attribute">X-Request-ID</span><span class="hljs-punctuation">: </span>bfe9eb29-ab87-4ca3-be83-a1d5d8305716</code></pre>
-      </div>
-
-<p>When an Authorization API request contains a request identifier the PDP <em class="rfc2119">MUST</em> include a request identifier in the response. It is <em class="rfc2119">RECOMMENDED</em> to specify the request identifier using the HTTPS Response header <code>X-Request-ID</code>. If the PEP specified a request identifier in the request, the PDP <em class="rfc2119">MUST</em> include the same identifier in the response to that request.</p>
+      </div><p>When an Authorization API request contains a request identifier the PDP <em class="rfc2119">MUST</em> include a request identifier in the response. It is <em class="rfc2119">RECOMMENDED</em> to specify the request identifier using the HTTPS Response header <code>X-Request-ID</code>. If the PEP specified a request identifier in the request, the PDP <em class="rfc2119">MUST</em> include the same identifier in the response to that request.</p>
 <p>The following is a non-normative example of an HTTPS Response with this header:</p>
 <div class="example" id="example-response-request-id">
         <div class="marker">
@@ -2249,9 +2195,7 @@ ul.index code{color:inherit}
   </div> <pre class="http" aria-busy="false"><code class="hljs">HTTP/1.1 OK
 Content-Type: application/json
 X-Request-ID: bfe9eb29-ab87-4ca3-be83-a1d5d8305716</code></pre>
-      </div>
-
-</section><section id="examples-non-normative-5"><div class="header-wrapper"><h4 id="x10-1-4-examples-non-normative"><bdi class="secno">10.1.4 </bdi>Examples (non-normative)</h4><a class="self-link" href="#examples-non-normative-5" aria-label="Permalink for Section 10.1.4"></a></div>
+      </div></section><section id="examples-non-normative-5"><div class="header-wrapper"><h4 id="x10-1-4-examples-non-normative"><bdi class="secno">10.1.4 </bdi>Examples (non-normative)</h4><a class="self-link" href="#examples-non-normative-5" aria-label="Permalink for Section 10.1.4"></a></div>
 <p>The following is a non-normative example of the HTTPS binding of the Access Evaluation Request:</p>
 <div class="example" id="example-access-evaluation-request">
         <div class="marker">
@@ -2279,9 +2223,7 @@ X-Request-ID: bfe9eb29-ab87-4ca3-be83-a1d5d8305716</code></pre>
   }
 }
 </span></code></pre>
-      </div>
-
-<p>The following is a non-normative example of an HTTPS Access Evaluation Response:</p>
+      </div><p>The following is a non-normative example of an HTTPS Access Evaluation Response:</p>
 <div class="example" id="example-access-evaluation-response">
         <div class="marker">
     <a class="self-link" href="#example-access-evaluation-response">Example<bdi> 42</bdi></a><span class="example-title">: Example of an HTTP Access Evaluation Response</span>
@@ -2292,9 +2234,7 @@ X-Request-ID: bfe9eb29-ab87-4ca3-be83-a1d5d8305716
 {
   "decision": true
 }</code></pre>
-      </div>
-
-<p>The following is a non-normative example of a the HTTPS binding of the Access Evaluations Request:</p>
+      </div><p>The following is a non-normative example of a the HTTPS binding of the Access Evaluations Request:</p>
 <div class="example" id="example-access-evaluations-request">
         <div class="marker">
     <a class="self-link" href="#example-access-evaluations-request">Example<bdi> 43</bdi></a><span class="example-title">: Example of an HTTPS Access Evaluations Request</span>
@@ -2340,9 +2280,7 @@ X-Request-ID: bfe9eb29-ab87-4ca3-be83-a1d5d8305716
   ]
 }
 </span></code></pre>
-      </div>
-
-<p>The following is a non-normative example of an HTTPS Access Evaluations Response:</p>
+      </div><p>The following is a non-normative example of an HTTPS Access Evaluations Response:</p>
 <div class="example" id="example-access-evaluations-response">
         <div class="marker">
     <a class="self-link" href="#example-access-evaluations-response">Example<bdi> 44</bdi></a><span class="example-title">: Example of an HTTPS Access Evaluations Response</span>
@@ -2372,9 +2310,7 @@ X-Request-ID: bfe9eb29-ab87-4ca3-be83-a1d5d8305716
     }
   ]
 }</code></pre>
-      </div>
-
-<p>The following is a non-normative example of the HTTPS binding of the Subject Search Request:</p>
+      </div><p>The following is a non-normative example of the HTTPS binding of the Subject Search Request:</p>
 <div class="example" id="example-subject-search-request">
         <div class="marker">
     <a class="self-link" href="#example-subject-search-request">Example<bdi> 45</bdi></a><span class="example-title">: Example of an HTTPS Subject Search Request</span>
@@ -2397,9 +2333,7 @@ X-Request-ID: bfe9eb29-ab87-4ca3-be83-a1d5d8305716
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </span></code></pre>
-      </div>
-
-<p>The following is a non-normative example of an HTTPS Subject Search Response:</p>
+      </div><p>The following is a non-normative example of an HTTPS Subject Search Response:</p>
 <div class="example" id="example-subject-search-response">
         <div class="marker">
     <a class="self-link" href="#example-subject-search-response">Example<bdi> 46</bdi></a><span class="example-title">: Example of an HTTPS Subject Search Response</span>
@@ -2422,9 +2356,7 @@ X-Request-ID: bfe9eb29-ab87-4ca3-be83-a1d5d8305716
     }
   ]
 }</code></pre>
-      </div>
-
-<p>The following is a non-normative example of the HTTPS binding of the Resource Search Request:</p>
+      </div><p>The following is a non-normative example of the HTTPS binding of the Resource Search Request:</p>
 <div class="example" id="example-resource-search-request">
         <div class="marker">
     <a class="self-link" href="#example-resource-search-request">Example<bdi> 47</bdi></a><span class="example-title">: Example of an HTTPS Resource Search Request</span>
@@ -2447,9 +2379,7 @@ X-Request-ID: bfe9eb29-ab87-4ca3-be83-a1d5d8305716
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </span></code></pre>
-      </div>
-
-<p>The following is a non-normative example of an HTTPS Resource Search Response:</p>
+      </div><p>The following is a non-normative example of an HTTPS Resource Search Response:</p>
 <div class="example" id="example-resource-search-response">
         <div class="marker">
     <a class="self-link" href="#example-resource-search-response">Example<bdi> 48</bdi></a><span class="example-title">: Example of an HTTPS Resource Search Response</span>
@@ -2472,9 +2402,7 @@ X-Request-ID: bfe9eb29-ab87-4ca3-be83-a1d5d8305716
     }
   ]
 }</code></pre>
-      </div>
-
-<p>The following is a non-normative example of the HTTPS binding of the Action Search Request:</p>
+      </div><p>The following is a non-normative example of the HTTPS binding of the Action Search Request:</p>
 <div class="example" id="example-action-search-request">
         <div class="marker">
     <a class="self-link" href="#example-action-search-request">Example<bdi> 49</bdi></a><span class="example-title">: Example of an HTTPS Action Search Request</span>
@@ -2498,9 +2426,7 @@ X-Request-ID: bfe9eb29-ab87-4ca3-be83-a1d5d8305716
   }
 }
 </span></code></pre>
-      </div>
-
-<p>The following is a non-normative example of an HTTPS Action Search Response:</p>
+      </div><p>The following is a non-normative example of an HTTPS Action Search Response:</p>
 <div class="example" id="example-action-search-response">
         <div class="marker">
     <a class="self-link" href="#example-action-search-response">Example<bdi> 50</bdi></a><span class="example-title">: Example of an HTTPS Action Search Response</span>
@@ -2653,7 +2579,7 @@ When using unsigned metadata, the party issuing the metadata is the PDP itself. 
 : <a href="mailto:openid-specs-authzen@lists.openid.net">openid-specs-authzen@lists.openid.net</a></p>
 <p>Specification Document(s):
 : <a href="#pdp-metadata-data-sig" data-matched-text="[[[#pdp-metadata-data-sig]]]" class="sec-ref"><bdi class="secno">9.1.3 </bdi>Signature Parameter</a> of [This Document]</p>
-</section></section><section id="well-known-uri-registry"><div class="header-wrapper"><h3 id="iana-wk-registry"><bdi class="secno">12.2 </bdi>Well-Known URI Registry</h3><a class="self-link" href="#iana-wk-registry" aria-label="Permalink for Section 12.2"></a></div><p>This specification asks IANA to register the well-known URI defined in <a href="#pdp-metadata-access" data-matched-text="[[[#pdp-metadata-access]]]" class="sec-ref"><bdi class="secno">9.2 </bdi>Obtaining Policy Decision Point Metadata</a> in the IANA "Well-Known URIs" registry [<cite><a class="bibref" data-link-type="biblio" href="#bib-iana.well-known-uris" title="IANA &quot;Well-Known URIs&quot; registry">IANA.well-known-uris</a></cite>].</p>
+</section></section><section id="well-known-uri-registry"><div class="header-wrapper"><h3 id="iana-wk-registry"><bdi class="secno">12.2 </bdi>Well-Known URI Registry</h3><a class="self-link" href="#iana-wk-registry" aria-label="Permalink for Section 12.2"></a></div><p>This specification asks IANA to register the well-known URI defined in <a href="#pdp-metadata-access" data-matched-text="[[[#pdp-metadata-access]]]" class="sec-ref"><bdi class="secno">9.2 </bdi>Obtaining Policy Decision Point Metadata</a> in the IANA "Well-Known URIs" registry [<cite><a class="bibref" data-link-type="biblio" href="#bib-iana-well-known-uris" title="IANA &quot;Well-Known URIs&quot; registry">IANA.well-known-uris</a></cite>].</p>
 <section id="registry-contents"><div class="header-wrapper"><h4 id="iana-wk-contents"><bdi class="secno">12.2.1 </bdi>Registry Contents</h4><a class="self-link" href="#iana-wk-contents" aria-label="Permalink for Section 12.2.1"></a></div><p>URI Suffix:
 : authzen-configuration</p>
 <p>Reference:
@@ -2735,54 +2661,54 @@ Pekka Savola, Elwyn Davies and Henrik Levkowetz.</p>
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="d-references"><bdi class="secno">D. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix D."></a></div><section id="normative-references">
     <div class="header-wrapper"><h3 id="d-1-normative-references"><bdi class="secno">D.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix D.1"></a></div>
-    <dl class="bibliography"><dt id="bib-iana.well-known-uris">[IANA.well-known-uris]</dt><dd>
+    <dl class="bibliography"><dt id="bib-iana-well-known-uris">[IANA.well-known-uris]</dt><dd>
       <a href="https://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml"><cite>IANA "Well-Known URIs" registry</cite></a>. 2010-01-20. URL: <a href="https://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml">https://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml</a>
     </dd><dt id="bib-rfc2119">[RFC2119]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
+      <a href="https://www.rfc-editor.org/info/rfc2119/"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/info/rfc2119/">https://www.rfc-editor.org/info/rfc2119/</a>
     </dd><dt id="bib-rfc3339">[RFC3339]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc3339"><cite>Date and Time on the Internet: Timestamps</cite></a>. G. Klyne; C. Newman.  IETF. July 2002. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3339">https://www.rfc-editor.org/rfc/rfc3339</a>
+      <a href="https://www.rfc-editor.org/info/rfc3339/"><cite>Date and Time on the Internet: Timestamps</cite></a>. G. Klyne; C. Newman.  IETF. July 2002. Proposed Standard. URL: <a href="https://www.rfc-editor.org/info/rfc3339/">https://www.rfc-editor.org/info/rfc3339/</a>
     </dd><dt id="bib-rfc3553">[RFC3553]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc3553"><cite>An IETF URN Sub-namespace for Registered Protocol Parameters</cite></a>. M. Mealling; L. Masinter; T. Hardie; G. Klyne.  IETF. June 2003. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc3553">https://www.rfc-editor.org/rfc/rfc3553</a>
+      <a href="https://www.rfc-editor.org/info/rfc3553/"><cite>An IETF URN Sub-namespace for Registered Protocol Parameters</cite></a>. M. Mealling; L. Masinter; T. Hardie; G. Klyne.  IETF. June 2003. Best Current Practice. URL: <a href="https://www.rfc-editor.org/info/rfc3553/">https://www.rfc-editor.org/info/rfc3553/</a>
     </dd><dt id="bib-rfc7515">[RFC7515]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc7515"><cite>JSON Web Signature (JWS)</cite></a>. M. Jones; J. Bradley; N. Sakimura.  IETF. May 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7515">https://www.rfc-editor.org/rfc/rfc7515</a>
+      <a href="https://www.rfc-editor.org/info/rfc7515/"><cite>JSON Web Signature (JWS)</cite></a>. M. Jones; J. Bradley; N. Sakimura.  IETF. May 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/info/rfc7515/">https://www.rfc-editor.org/info/rfc7515/</a>
     </dd><dt id="bib-rfc7519">[RFC7519]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc7519"><cite>JSON Web Token (JWT)</cite></a>. M. Jones; J. Bradley; N. Sakimura.  IETF. May 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7519">https://www.rfc-editor.org/rfc/rfc7519</a>
+      <a href="https://www.rfc-editor.org/info/rfc7519/"><cite>JSON Web Token (JWT)</cite></a>. M. Jones; J. Bradley; N. Sakimura.  IETF. May 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/info/rfc7519/">https://www.rfc-editor.org/info/rfc7519/</a>
     </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+      <a href="https://www.rfc-editor.org/info/rfc8174/"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/info/rfc8174/">https://www.rfc-editor.org/info/rfc8174/</a>
     </dd><dt id="bib-rfc8259">[RFC8259]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed. IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a>
+      <a href="https://www.rfc-editor.org/info/rfc8259/"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed. IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/info/rfc8259/">https://www.rfc-editor.org/info/rfc8259/</a>
     </dd><dt id="bib-rfc8615">[RFC8615]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc8615"><cite>Well-Known Uniform Resource Identifiers (URIs)</cite></a>. M. Nottingham.  IETF. May 2019. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8615">https://www.rfc-editor.org/rfc/rfc8615</a>
+      <a href="https://www.rfc-editor.org/info/rfc8615/"><cite>Well-Known Uniform Resource Identifiers (URIs)</cite></a>. M. Nottingham.  IETF. May 2019. Proposed Standard. URL: <a href="https://www.rfc-editor.org/info/rfc8615/">https://www.rfc-editor.org/info/rfc8615/</a>
     </dd><dt id="bib-rfc9110">[RFC9110]</dt><dd>
       <a href="https://httpwg.org/specs/rfc9110.html"><cite>HTTP Semantics</cite></a>. R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed. IETF. June 2022. Internet Standard. URL: <a href="https://httpwg.org/specs/rfc9110.html">https://httpwg.org/specs/rfc9110.html</a>
     </dd></dl>
   </section><section id="informative-references">
     <div class="header-wrapper"><h3 id="d-2-informative-references"><bdi class="secno">D.2 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix D.2"></a></div>
     <dl class="bibliography"><dt id="bib-adr">[ADR]</dt><dd>
-      <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1"><cite>API Design Rules</cite></a>. Jasper Roes; Joost Farla.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1">https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1</a>
+      <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/"><cite>API Design Rules</cite></a>. Jasper Roes; Joost Farla.  Logius. URL: <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/">https://gitdocumentatie.logius.nl/publicatie/api/adr/</a>
     </dd><dt id="bib-json-ld11">[JSON-LD11]</dt><dd>
       <a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a>
     </dd><dt id="bib-mim">[MIM]</dt><dd>
       <a href="https://docs.geostandaarden.nl/mim/mim/"><cite>Metamodel Informatie Modellering</cite></a>. 13 juni 2024. URL: <a href="https://docs.geostandaarden.nl/mim/mim/">https://docs.geostandaarden.nl/mim/mim/</a>
-    </dd><dt id="bib-nist.sp.800-162">[NIST.SP.800-162]</dt><dd>
+    </dd><dt id="bib-nist-sp-800-162">[NIST.SP.800-162]</dt><dd>
       <a href=" https://doi.org/10.6028/NIST.SP.800-162 "><cite> Guide to Attribute Based Access Control (ABAC) Definition and Considerations </cite></a>. Vincent C. Hu; David Ferraiolo; Rick Kuhn; Adam Schnitzer; Kenneth Sandlin; Robert Miller; Karen Scarfone.  January 2014 . URL: <a href=" https://doi.org/10.6028/NIST.SP.800-162 "> https://doi.org/10.6028/NIST.SP.800-162 </a>
     </dd><dt id="bib-rfc2617">[RFC2617]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc2617"><cite>HTTP Authentication: Basic and Digest Access Authentication</cite></a>. J. Franks; P. Hallam-Baker; J. Hostetler; S. Lawrence; P. Leach; A. Luotonen; L. Stewart.  IETF. June 1999. Draft Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2617">https://www.rfc-editor.org/rfc/rfc2617</a>
+      <a href="https://www.rfc-editor.org/info/rfc2617/"><cite>HTTP Authentication: Basic and Digest Access Authentication</cite></a>. J. Franks; P. Hallam-Baker; J. Hostetler; S. Lawrence; P. Leach; A. Luotonen; L. Stewart.  IETF. June 1999. Draft Standard. URL: <a href="https://www.rfc-editor.org/info/rfc2617/">https://www.rfc-editor.org/info/rfc2617/</a>
     </dd><dt id="bib-rfc6749">[RFC6749]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc6749"><cite>The OAuth 2.0 Authorization Framework</cite></a>. D. Hardt, Ed. IETF. October 2012. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc6749">https://www.rfc-editor.org/rfc/rfc6749</a>
+      <a href="https://www.rfc-editor.org/info/rfc6749/"><cite>The OAuth 2.0 Authorization Framework</cite></a>. D. Hardt, Ed. IETF. October 2012. Proposed Standard. URL: <a href="https://www.rfc-editor.org/info/rfc6749/">https://www.rfc-editor.org/info/rfc6749/</a>
     </dd><dt id="bib-rfc7234">[RFC7234]</dt><dd>
       <a href="https://httpwg.org/specs/rfc7234.html"><cite>Hypertext Transfer Protocol (HTTP/1.1): Caching</cite></a>. R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed. IETF. June 2014. Proposed Standard. URL: <a href="https://httpwg.org/specs/rfc7234.html">https://httpwg.org/specs/rfc7234.html</a>
     </dd><dt id="bib-rfc7493">[RFC7493]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc7493"><cite>The I-JSON Message Format</cite></a>. T. Bray, Ed. IETF. March 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc7493">https://www.rfc-editor.org/rfc/rfc7493</a>
+      <a href="https://www.rfc-editor.org/info/rfc7493/"><cite>The I-JSON Message Format</cite></a>. T. Bray, Ed. IETF. March 2015. Proposed Standard. URL: <a href="https://www.rfc-editor.org/info/rfc7493/">https://www.rfc-editor.org/info/rfc7493/</a>
     </dd><dt id="bib-rfc8126">[RFC8126]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc8126"><cite>Guidelines for Writing an IANA Considerations Section in RFCs</cite></a>. M. Cotton; B. Leiba; T. Narten.  IETF. June 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8126">https://www.rfc-editor.org/rfc/rfc8126</a>
+      <a href="https://www.rfc-editor.org/info/rfc8126/"><cite>Guidelines for Writing an IANA Considerations Section in RFCs</cite></a>. M. Cotton; B. Leiba; T. Narten.  IETF. June 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/info/rfc8126/">https://www.rfc-editor.org/info/rfc8126/</a>
     </dd><dt id="bib-rfc9525">[RFC9525]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc9525"><cite>Service Identity in TLS</cite></a>. P. Saint-Andre; R. Salz.  IETF. November 2023. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc9525">https://www.rfc-editor.org/rfc/rfc9525</a>
+      <a href="https://www.rfc-editor.org/info/rfc9525/"><cite>Service Identity in TLS</cite></a>. P. Saint-Andre; R. Salz.  IETF. November 2023. Proposed Standard. URL: <a href="https://www.rfc-editor.org/info/rfc9525/">https://www.rfc-editor.org/info/rfc9525/</a>
     </dd><dt id="bib-saml2-core">[SAML2-CORE]</dt><dd>
       <a href="https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf"><cite>Assertions and Protocols for SAML V2.0</cite></a>. Scott Cantor; John Kemp; Rob Philpott; Eve Maler. 15 March 2005. URL: <a href="https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf">https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf</a>
     </dd><dt id="bib-trace-context-1">[trace-context-1]</dt><dd>
       <a href="https://www.w3.org/TR/trace-context-1/"><cite>Trace Context</cite></a>. Sergey Kanzhelev; Morgan McLean; Alois Reitbauer; Bogdan Drutu; Nik Molnar; Yuri Shkuro.  W3C. 23 November 2021. W3C Recommendation. URL: <a href="https://www.w3.org/TR/trace-context-1/">https://www.w3.org/TR/trace-context-1/</a>
-    </dd><dt id="bib-vc-data-model-2.0">[vc-data-model-2.0]</dt><dd>
+    </dd><dt id="bib-vc-data-model-2-0">[vc-data-model-2.0]</dt><dd>
       <a href="https://www.w3.org/TR/vc-data-model-2.0/"><cite>Verifiable Credentials Data Model v2.0</cite></a>. Ivan Herman; Michael Jones; Manu Sporny; Ted Thibodeau Jr; Gabe Cohen.  W3C. 15 May 2025. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model-2.0/">https://www.w3.org/TR/vc-data-model-2.0/</a>
     </dd><dt id="bib-xacml20">[XACML20]</dt><dd>
       <a href="https://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-core-spec-os.pdf"><cite>OASIS eXtensible Access Control Markup Language (XACML) Version 2.0</cite></a>. Tim Moses. 1 February 2005. URL: <a href="https://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-core-spec-os.pdf">https://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-core-spec-os.pdf</a>
@@ -2794,6 +2720,7 @@ Pekka Savola, Elwyn Davies and Henrik Levkowetz.</p>
       <div>
         <a class="self-link" href="#dfn-subject" aria-label="Permalink for definition: Subject. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2806,6 +2733,7 @@ Pekka Savola, Elwyn Davies and Henrik Levkowetz.</p>
       <div>
         <a class="self-link" href="#dfn-resource" aria-label="Permalink for definition: Resource. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2818,6 +2746,7 @@ Pekka Savola, Elwyn Davies and Henrik Levkowetz.</p>
       <div>
         <a class="self-link" href="#dfn-action" aria-label="Permalink for definition: Action. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2828,6 +2757,7 @@ Pekka Savola, Elwyn Davies and Henrik Levkowetz.</p>
       <div>
         <a class="self-link" href="#dfn-context" aria-label="Permalink for definition: Context. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2838,6 +2768,7 @@ Pekka Savola, Elwyn Davies and Henrik Levkowetz.</p>
       <div>
         <a class="self-link" href="#dfn-decision" aria-label="Permalink for definition: Decision. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2848,6 +2779,7 @@ Pekka Savola, Elwyn Davies and Henrik Levkowetz.</p>
       <div>
         <a class="self-link" href="#dfn-pdp" aria-label="Permalink for definition: PDP. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2858,6 +2790,7 @@ Pekka Savola, Elwyn Davies and Henrik Levkowetz.</p>
       <div>
         <a class="self-link" href="#dfn-pep" aria-label="Permalink for definition: PEP. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2878,8 +2811,11 @@ function setupPanel() {
 }
 
 function panelListener() {
-  /** @type {HTMLElement} */
+  /** @type {HTMLElement | null} */
   let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
   return event => {
     const { target, type } = event;
 
@@ -2887,24 +2823,34 @@ function panelListener() {
 
     // For keys, we only care about Enter key to activate the panel
     // otherwise it's activated via a click.
-    if (type === "keydown" && event.key !== "Enter") return;
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
 
     const action = deriveAction(event);
 
     switch (action) {
       case "show": {
         hidePanel(panel);
-        /** @type {HTMLElement} */
+        /** @type {HTMLElement | null} */
         const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
         panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
-        const coords = deriveCoordinates(event);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
         displayPanel(dfn, panel, coords);
         break;
       }
       case "dock": {
-        panel.style.left = null;
-        panel.style.top = null;
-        panel.classList.add("docked");
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
         break;
       }
       case "hide": {
@@ -2955,7 +2901,8 @@ function deriveAction(event) {
     if (hitALink) {
       return target.classList.contains("self-link") ? "hide" : "dock";
     }
-    const panel = target.closest(".dfn-panel");
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
     return panel.classList.contains("docked") ? "hide" : "none";
   }
   if (document.querySelector(".dfn-panel:not([hidden])")) {
@@ -2999,9 +2946,9 @@ function displayPanel(dfn, panel, { x, y }) {
     const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
     const newCaretOffset = left - newLeft;
     panel.style.left = `${newLeft}px`;
-    /** @type {HTMLElement} */
+    /** @type {HTMLElement | null} */
     const caret = panel.querySelector(".caret");
-    caret.style.left = `${newCaretOffset}px`;
+    if (caret) caret.style.left = `${newCaretOffset}px`;
   }
 
   // As it's a dialog, we trap focus.
@@ -3050,6 +2997,9 @@ function trapFocus(panel, dfn) {
 function createTrapListener(anchors, panel, dfn) {
   const lastIndex = anchors.length - 1;
   let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
   return event => {
     switch (event.key) {
       // Hitting "Tab" traps us in a nice loop around elements.
@@ -3079,7 +3029,7 @@ function createTrapListener(anchors, panel, dfn) {
   };
 }
 
-/** @param {HTMLElement} panel */
+/** @param {HTMLElement | null} panel */
 function hidePanel(panel) {
   if (!panel) return;
   panel.hidden = true;
