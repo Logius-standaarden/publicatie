@@ -300,6 +300,10 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
    - [ftv/adl/1/](https://gitdocumentatie.logius.nl/publicatie/ftv/adl/1/) [:scroll:](https://logius-standaarden.github.io/publicatie/ftv/adl/1/ "Preview op GitHub Pages")
    - [ftv/adl/1.0/](https://gitdocumentatie.logius.nl/publicatie/ftv/adl/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/ftv/adl/1.0/ "Preview op GitHub Pages")
    - [ftv/adl/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/ftv/adl/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/ftv/adl/1.0.0/ "Preview op GitHub Pages")
+- [ftv/authzen/](https://gitdocumentatie.logius.nl/publicatie/ftv/authzen/) [:scroll:](https://logius-standaarden.github.io/publicatie/ftv/authzen/ "Preview op GitHub Pages")
+   - [ftv/authzen/1/](https://gitdocumentatie.logius.nl/publicatie/ftv/authzen/1/) [:scroll:](https://logius-standaarden.github.io/publicatie/ftv/authzen/1/ "Preview op GitHub Pages")
+   - [ftv/authzen/1.0/](https://gitdocumentatie.logius.nl/publicatie/ftv/authzen/1.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/ftv/authzen/1.0/ "Preview op GitHub Pages")
+   - [ftv/authzen/1.0.0/](https://gitdocumentatie.logius.nl/publicatie/ftv/authzen/1.0.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/ftv/authzen/1.0.0/ "Preview op GitHub Pages")
 
 ### logboek
 
