@@ -1,0 +1,2979 @@
+<!DOCTYPE html><html lang="nl"><head>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 37.2.0">
+<style>
+span.example-title{text-transform:none}
+:is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+div.illegal-example{color:red}
+div.illegal-example p{color:#000}
+aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
+</style>
+<style>
+.issue-label{text-transform:initial}
+.warning>p:first-child{margin-top:0}
+.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+span.warning{padding:.1em .5em .15em}
+.issue.closed span.issue-number{text-decoration:line-through}
+.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
+.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
+.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+li.task-list-item{list-style:none}
+input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+  
+  
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+  
+  
+<link href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico" rel="shortcut icon" type="image/x-icon">
+  
+<title>Digimelding-koppelvlakspecificatie 1.4.1</title>
+  
+ 
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+cite .bibref{font-style:italic}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
+</style>
+<style id="respec-nlgov">
+img.license{float:left;padding-right:5px;background:0 0}
+</style>
+<meta name="color-scheme" content="light">
+<style>
+.hljs,body:has(input[name=color-scheme][value=light]:checked) .hljs,head:not(:has(meta[name=color-scheme][content~=dark]))+body .hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
+}
+}
+body:has(input[name=color-scheme][value=dark]:checked) .hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+
+  .sidelabel {
+    position: fixed;
+    -webkit-transform-origin: top right;
+    right: 100%;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+    padding: 4px 50px 4px 10px;
+    color: white;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: #154273;
+  }
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "nl_organisationName": "Logius",
+  "nl_organisationStylesURL": "https://gitdocumentatie.logius.nl/publicatie/respec/style/",
+  "nl_organisationPublishURL": "https://gitdocumentatie.logius.nl/publicatie/",
+  "logos": [
+    {
+      "src": "https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg",
+      "alt": "Logius",
+      "id": "Logius",
+      "height": 77,
+      "width": 44,
+      "url": "https://www.logius.nl/onze-dienstverlening/standaarden"
+    }
+  ],
+  "useLogo": true,
+  "fileName": "",
+  "latestVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "fileName"
+  ],
+  "thisVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "publishVersion",
+    "/",
+    "fileName"
+  ],
+  "prevVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/",
+    "previousPublishVersion",
+    "/",
+    "fileName"
+  ],
+  "addSectionLinks": true,
+  "localizationStrings": {
+    "en": {
+      "wv": "Draft",
+      "cv": "Consultation version",
+      "vv": "Proposed version",
+      "def": "Definitive version",
+      "basis": "Document",
+      "eo": "Outdated version",
+      "tg": "Rescinded version",
+      "no": "Norm",
+      "st": "Standard",
+      "im": "Information model",
+      "pr": "Guideline",
+      "hr": "Guide",
+      "wa": "Proposed recommendation",
+      "al": "General",
+      "bd": "Governance documentation",
+      "bp": "Best practice"
+    },
+    "nl": {
+      "wv": "Werkversie",
+      "cv": "Consultatieversie",
+      "vv": "Versie ter vaststelling",
+      "def": "Vastgestelde versie",
+      "basis": "Document",
+      "eo": "Verouderde versie",
+      "tg": "Teruggetrokken versie",
+      "no": "Norm",
+      "st": "Standaard",
+      "im": "Informatiemodel",
+      "pr": "Praktijkrichtlijn",
+      "hr": "Handreiking",
+      "wa": "Werkafspraak",
+      "al": "Algemeen",
+      "bd": "Beheerdocumentatie",
+      "bp": "Best practice"
+    }
+  },
+  "sotdText": {
+    "nl": {
+      "sotd": "Status van dit document",
+      "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen door het TO goedgekeurde consultatieversie.",
+      "cv": "Dit is een door het TO goedgekeurde consultatieversie. Commentaar over dit document kan gestuurd worden naar digikoppeling@logius.nl",
+      "vv": "Dit is een definitief concept van de nieuwe versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "basis": "Dit is een document zonder officiële status."
+    },
+    "en": {
+      "sotd": "Status of This Document",
+      "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
+      "wv": "This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.",
+      "cv": "This is a proposed recommendation approved by TO. Comments regarding this document may be sent to api@logius.nl",
+      "vv": "This is the definitive concept of this document. Edits resulting from consultations have been applied.",
+      "basis": "This document has no official standing."
+    }
+  },
+  "labelColor": {
+    "def": "#154273",
+    "wv": "#39870c",
+    "cv": "#000000",
+    "vv": "#000000"
+  },
+  "useLabel": true,
+  "licenses": {
+    "cc0": {
+      "name": "Creative Commons 0 Public Domain Dedication",
+      "short": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-zero.svg"
+    },
+    "cc-by": {
+      "name": "Creative Commons Attribution 4.0 International Public License",
+      "short": "CC-BY",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg"
+    },
+    "cc-by-nd": {
+      "name": "Creative Commons Naamsvermelding-GeenAfgeleideWerken 4.0 Internationaal",
+      "short": "CC-BY-ND",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/legalcode.nl",
+      "image": "https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by-nd.svg"
+    }
+  },
+  "license": "cc-by",
+  "localBiblio": {
+    "ADR": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
+      "publisher": "Logius",
+      "title": "API Design Rules"
+    },
+    "ADR1": {
+      "authors": [
+        "Jasper Roes",
+        "Joost Farla"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/1.0",
+      "publisher": "Logius",
+      "title": "API Design Rules"
+    },
+    "ADR-ext": {
+      "authors": [
+        "Jasper Roes",
+        "Linda van den Brink"
+      ],
+      "date": "Januari 2020",
+      "href": "https://docs.geostandaarden.nl/api/API-Strategie-ext",
+      "publisher": "Geonovum/Kennisplatform APi's",
+      "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
+    },
+    "Algemene Voorwaarden Logius": {
+      "date": "12 juni, 2018",
+      "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
+      "publisher": "Logius",
+      "title": "Algemene voorwaarden Logius"
+    },
+    "AuthZEN": {
+      "date": "September 6, 2024 ",
+      "href": "https://openid.net/specs/authorization-api-1_0-01.html",
+      "publisher": "OpenID",
+      "title": "Authorization API 1.0 – draft 01"
+    },
+    "AVG": {
+      "date": "April 27, 2016",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
+      "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
+      "title": "Algemene Verordening Gegevensbescherming"
+    },
+    "BCP195": {
+      "authors": [
+        "Y. Sheffer",
+        "R. Holz",
+        "P. Saint-Andre"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/bcp195",
+      "publisher": "IETF",
+      "title": "Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"
+    },
+    "DK-beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "CloudEvents": {
+      "date": "May 2011",
+      "href": "https://github.com/cloudevents/spec/blob/v1.0.1/spec.md",
+      "publisher": "CNCF Serverless Working Group",
+      "title": "CloudEvents - Version 1.0.1"
+    },
+    "NLgov.CloudEvents": {
+      "authors": [
+        "Werkgroep Berichtenstandaard (Project Notificatieservices)"
+      ],
+      "href": "https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/",
+      "publisher": "Logius",
+      "title": "NLgov profile for CloudEvents"
+    },
+    "DK-CV": {
+      "href": "https://gitlab.com/logius/digikoppeling-compliance",
+      "publisher": "Logius",
+      "title": "Digikoppeling Compliance Voorziening"
+    },
+    "DK-Portaal": {
+      "href": "https://oinregister.logius.nl/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Portaal"
+    },
+    "DK-WUS-voorbeeld": {
+      "href": "https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiKoppeling/Overig/Digikoppeling-Koppelvlakstandaard-WUS-Voorbeeldberichten.zip",
+      "publisher": "Logius",
+      "title": "Set voorbeeldberichten (zip)"
+    },
+    "Deployment Guide 1.1": {
+      "authors": [
+        "Pete Wenzel",
+        "Jacques Durand"
+      ],
+      "date": "June 2005",
+      "href": "http://www.oasis-open.org/apps/org/workgroup/ebxml-iic-deployment-profile-template-intro-100406.doc",
+      "publisher": "OASIS",
+      "title": "Deployment Profile Template For OASIS ebXML Message Service 2.0"
+    },
+    "DK": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling",
+      "publisher": "Logius",
+      "title": "Logius | Digikoppeling"
+    },
+    "DK-Doc": {
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie",
+      "publisher": "Logius",
+      "title": "Digikoppeling documentatie"
+    },
+    "DK-Beheermodel": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beheer/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beheermodel"
+    },
+    "DK-BPebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices ebMS2"
+    },
+    "DK-BPGB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpgb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices Grote Berichten"
+    },
+    "DK-BPWUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/bpwus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Best Practices WUS"
+    },
+    "DK-Beveiliging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/beveilig/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Beveiligingsstandaarden en voorschriften"
+    },
+    "DK-gbachtcert": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-ebMS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/ebms/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard ebMS2"
+    },
+    "DK-GB": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/gb/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard Grote Berichten"
+    },
+    "DK-WUS": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/wus/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard WUS"
+    },
+    "DK-RESTAPI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/restapi/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Koppelvlakstandaard REST-API"
+    },
+    "DK-Architectuur": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Architectuur"
+    },
+    "DK-IDAuth": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/idauth/",
+      "publisher": "Logius",
+      "title": "Digikoppeling Identificatie en Authenticatie"
+    },
+    "DK-WI": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/dk/watisdk/",
+      "publisher": "Logius",
+      "title": "Wat is Digikoppeling?"
+    },
+    "BOMOSFundament": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/fundament/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, het fundament"
+    },
+    "BOMOSVerdieping": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/bomos/verdieping/",
+      "date": "2 november 2023",
+      "publisher": "Logius",
+      "title": "BOMOS, de verdieping"
+    },
+    "ebCPP": {
+      "authors": [
+        "Oasis"
+      ],
+      "date": "September 2002",
+      "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "ebMS3": {
+      "authors": [
+        "Ian Jones",
+        "Pete Wenzel"
+      ],
+      "date": "October 2007",
+      "href": "https://docs.oasis-open.org/ebxml-msg/ebms/v3.0/core/os/ebms_core-3.0-spec-os.html",
+      "publisher": "Oasis",
+      "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
+    },
+    "eDelivery API4IPS": {
+      "authors": [
+        "J. Dimitriou, V. Veduta, B. Dumitriu"
+      ],
+      "date": "September 8, 2022",
+      "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
+      "publisher": "OpenID foundation",
+      "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
+    },
+    "folmer2011": {
+      "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
+      "title": "Management and Development Model for Open Standards (BOMOS) version 2",
+      "keywords": "IR-76837",
+      "authors": [
+        "ErwinFolmer",
+        "Matthijs Punter"
+      ],
+      "date": "2011",
+      "language": "English",
+      "publisher": "Programmabureau NOiV"
+    },
+    "folmer2012": {
+      "href": "https://research.utwente.nl/en/publications/quality-of-semantic-standards",
+      "title": "Quality of Semantic Standards",
+      "authors": [
+        "Erwin Folmer"
+      ],
+      "date": "2012",
+      "publisher": "Universiteit Twente"
+    },
+    "DK-Gebruiksvoorwaarden": {
+      "date": "Januari 1, 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Gebruiksvoorwaarden Digikoppeling"
+    },
+    "ADR-GEO": {
+      "authors": [
+        "L. van den Brink, P. Bresters, P. van Genuchten, G. Mathijssen, M. Strijker"
+      ],
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-geo/",
+      "publisher": "Geonovum",
+      "title": "API Design Rules Module: Geospatial"
+    },
+    "HTTPS-factsheet NCSC": {
+      "date": "November 2014",
+      "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
+      "publisher": "NCSC",
+      "title": "Factsheet HTTPS kan een stuk veiliger"
+    },
+    "iGOV.OpenID": {
+      "authors": [
+        "M. Varley, P. Grassi"
+      ],
+      "date": "October 5, 2018",
+      "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
+    },
+    "NLgov.OpenID": {
+      "authors": [
+        "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
+      ],
+      "date": "September 18, 2023",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
+      "publisher": "Logius",
+      "title": "NLgov Assurance profile for OpenID Connect 1.0"
+    },
+    "Introspection": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "October 2015",
+      "href": "https://tools.ietf.org/html/rfc7662",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Token Introspection"
+    },
+    "JWA": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/rfc7518",
+      "publisher": "IETF",
+      "title": "JSON Web Algorithms (JWA)"
+    },
+    "JWE": {
+      "authors": [
+        "M. Jones, J. Hildebrand"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/rfc7516",
+      "publisher": "IETF",
+      "title": "JSON Web Encryption (JWE)"
+    },
+    "JWK": {
+      "authors": [
+        "M. Jones"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/rfc7517",
+      "publisher": "IETF",
+      "title": "JSON Web Key (JWK))"
+    },
+    "JWS": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/rfc7515",
+      "publisher": "IETF",
+      "title": "JSON Web Signature (JWS)"
+    },
+    "JWT": {
+      "authors": [
+        "M. Jones, J. Bradley, N. Sakimura"
+      ],
+      "date": "May 2015",
+      "href": "https://tools.ietf.org/html/rfc7519",
+      "publisher": "IETF",
+      "title": "JSON Web Token (JWT)"
+    },
+    "NCSC 2021": {
+      "date": "January 2021",
+      "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
+      "publisher": "NCSC",
+      "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
+    },
+    "NCSC 2025": {
+      "date": "June 2025",
+      "href": "https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05",
+      "publisher": "NCSC",
+      "title": "Transport Layer Security (TLS) richtlijnen 2025-05"
+    },
+    "NEN3610": {
+      "date": "Maart 2011",
+      "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
+      "publisher": "Nederlands Normalisatie-instituut",
+      "title": "Basismodel Geo-informatie - Termen, definities, relaties en algemene regels voor de uitwisseling van informatie over aan de aarde gerelateerde ruimtelijke objecten"
+    },
+    "no-Reliable-messaging": {
+      "authors": [
+        "Marc de Graauw"
+      ],
+      "date": "June 18, 2010",
+      "href": "https://www.infoq.com/articles/no-reliable-messaging/",
+      "publisher": "infoQ",
+      "title": "Nobody Needs Reliable Messaging"
+    },
+    "OAuth2": {
+      "authors": [
+        "D. Hardt"
+      ],
+      "date": "October 2012",
+      "href": "https://tools.ietf.org/html/rfc6749",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "The OAuth 2.0 Authorization Framework"
+    },
+    "OpenID.Core": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
+      ],
+      "date": "November 8, 2014",
+      "href": "https://openid.net/specs/openid-connect-core-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Core 1.0"
+    },
+    "OpenID.Discovery": {
+      "authors": [
+        "N. Sakimura, J. Bradley, M. Jones, E. Jay"
+      ],
+      "date": "November 8, 2014",
+      "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "OpenID Connect Discovery 1.0"
+    },
+    "Pas-toe-of-leg-uit": {
+      "href": "https://www.forumstandaardisatie.nl/open-standaarden/verplicht",
+      "publisher": "Forum Standaardisatie",
+      "title": "Lijst Verplichte standaarden"
+    },
+    "PKIO-PvE": {
+      "href": "https://cp.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Certificate Policy/Programme of Requirements PKIoverheid"
+    },
+    "PKI-CA": {
+      "href": "https://www.logius.nl/domeinen/toegang/aansluiten-als-trust-service-provider",
+      "publisher": "Logius",
+      "title": "Aansluiten als Trust Service Provider"
+    },
+    "PKIoverheid": {
+      "href": "https://www.logius.nl/domeinen/toegang/pkioverheid",
+      "publisher": "Logius",
+      "title": "PKIoverheid"
+    },
+    "PKIO-Cert": {
+      "href": "https://cert.pkioverheid.nl/",
+      "publisher": "Logius",
+      "title": "Overzicht PKIoverheid certificaten"
+    },
+    "SemVer": {
+      "authors": [
+        "T. Preston-Werner"
+      ],
+      "date": "June 2013",
+      "href": "https://semver.org",
+      "title": "Semantic Versioning 2.0.0"
+    },
+    "ADR-TS": {
+      "date": "March 07, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
+      "publisher": "Kennisplatform API's",
+      "title": "API Design Rules Module: Transport Security"
+    },
+    "UMMR10": {
+      "date": "2001",
+      "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
+      "publisher": "UN/CEFACT",
+      "title": "UMM Revision 10"
+    },
+    "UMMUG": {
+      "date": "2003",
+      "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
+      "publisher": "UN/CEFACT",
+      "title": "UN/CEFACT Modeling Methodology (UMM) User Guide"
+    },
+    "UUID": {
+      "authors": [
+        "P. Leach",
+        "M. Mealling",
+        "R. Salz"
+      ],
+      "date": "July 2005",
+      "href": "https://tools.ietf.org/html/rfc4122",
+      "publisher": "The Internet Engineering Task Force",
+      "title": "A Universally Unique IDentifier (UUID) URN Namespace"
+    },
+    "DK-Voorwaarden": {
+      "date": "Januari 1, 2021",
+      "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
+      "publisher": "Logius",
+      "title": "Voorwaarden Digikoppeling"
+    },
+    "X520": {
+      "href": "https://www.iso.org/standard/43796.html",
+      "publisher": "ISO",
+      "title": "ITU-T Recommendation X.520 (2001) ISO/IEC 9594-6"
+    },
+    "ADR-Validator": {
+      "href": "https://gitlab.com/commonground/don/adr-validator/-/tree/v0.5.0/pkg/rulesets",
+      "title": "Technical ADR Validation rule testset 0.5.0",
+      "authors": [
+        "H. Stijns"
+      ],
+      "publisher": "Geonovum",
+      "date": "November 2023"
+    },
+    "JRC117836": {
+      "href": "https://op.europa.eu/en/publication-detail/-/publication/6521f427-01df-11ea-8c1f-01aa75ed71a1",
+      "title": "The Relationship Between Open Source Software and Standard Setting",
+      "authors": [
+        "Knut Blind",
+        "Mirko Böhm"
+      ],
+      "editors": [
+        "Nikolaus Thumm"
+      ],
+      "publisher": "Joint Research Center",
+      "id": "JRC117836",
+      "date": "2019"
+    },
+    "Krechmer2002": {
+      "href": "https://www.isology.com/pdf/cathedrals.pdf",
+      "title": "Cathedrals, Libraries and Bazaars",
+      "authors": [
+        "Ken Krechmer"
+      ],
+      "publisher": "Association of Computing Machinery (ACM)",
+      "date": "March 2002"
+    },
+    "FSC-Core": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/core/2.0.0/",
+      "title": "FSC - Core",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "FSC-Logging": {
+      "href": "https://gitdocumentatie.logius.nl/publicatie/fsc/logging/1.1.0/",
+      "title": "FSC - Logging",
+      "authors": [
+        "Eelco Hotting",
+        "Ronald Koster",
+        "Henk van Maanen",
+        "Niels Dequeker",
+        "Edward van Gelderen",
+        "Pim Gaemers"
+      ],
+      "publisher": "Logius"
+    },
+    "HEART.OAuth2": {
+      "authors": [
+        "J. Richer"
+      ],
+      "date": "April 25, 2017",
+      "href": "https://openid.net/specs/openid-heart-oauth2-1_0.html",
+      "publisher": "OpenID foundation",
+      "title": "Health Relationship Trust Profile for OAuth 2.0"
+    },
+    "JWS.JWE.Algs": {
+      "authors": [
+        "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
+      ],
+      "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
+      "publisher": "IANA",
+      "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
+    },
+    "I-D.ietf-oauth-pop-architecture": {
+      "authors": [
+        "P. Hunt, J. Richer, W. Mills, P. Mishra, H. Tschofenig"
+      ],
+      "date": "July 8, 2016",
+      "href": "https://tools.ietf.org/html/draft-ietf-oauth-pop-architecture-08",
+      "publisher": "IETF",
+      "title": "OAuth 2.0 Proof-of-Possession (PoP) Security Architecture"
+    },
+    "iGOV.OAuth2": {
+      "authors": [
+        "J. Richer, M. Varley, P. Grassi"
+      ],
+      "date": "October 5, 2018",
+      "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
+      "publisher": "OpenID foundation",
+      "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
+    },
+    "NLgov.OAuth2": {
+      "authors": [
+        "Jaron Azaria",
+        "Martin Borgman",
+        "Marc Fleischeuers",
+        "Peter Haasnoot",
+        "Leon van der Ree",
+        "Bob te Riele",
+        "Remco Schaar",
+        "Frank Terpstra",
+        "Jan Jaap Zoutendijk"
+      ],
+      "date": "December 3, 2024",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
+      "publisher": "Logius",
+      "title": "NLgov Assurance profile for OAuth 2.0"
+    },
+    "ietf-oauth-v2-1-10-refresh-token-grant": {
+      "authors": [
+        "Dick Hardt, Aaron Parecki, Torsten Lodderstedt"
+      ],
+      "date": "January 9, 2024",
+      "href": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-10#name-refresh-token-grant",
+      "publisher": "IETF",
+      "title": "The OAuth 2.1 Authorization Framework: Refresh Token Grant"
+    },
+    "OpenID.FAPI2.0": {
+      "authors": [
+        "D. Fett, D. Tonge, J. Heenan"
+      ],
+      "date": "February 22, 2025",
+      "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
+      "publisher": "OpenID foundation",
+      "title": "FAPI 2.0 Security Profile"
+    },
+    "logboek-extensie-guideline": {
+      "authors": [
+        "Nil Barua",
+        "Tim van der Lippe"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/",
+      "publisher": "Logius",
+      "title": "Logboek Dataverwerkingen Extensie Guidelines"
+    },
+    "logboek dataverwerkingen": {
+      "authors": [
+        "Eelco Hotting",
+        "Vedran Bilanovic"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/",
+      "publisher": "Logius",
+      "title": "Logboek Dataverwerkingen"
+    }
+  },
+  "authors": [
+    {
+      "company": "Logius",
+      "name": "Peter Haasnoot",
+      "url": "https://www.logius.nl"
+    }
+  ],
+  "editors": [
+    {
+      "company": "Logius",
+      "name": "Peter Haasnoot",
+      "url": "https://www.logius.nl"
+    }
+  ],
+  "github": "https://github.com/Logius-standaarden/Digimelding-Koppelvlakspecificatie",
+  "pubDomain": "digimelding",
+  "shortName": "koppelvlak",
+  "specType": "HR",
+  "specStatus": "DEF",
+  "previousPublishVersion": "1.4.0",
+  "publishVersion": "1.4.1",
+  "publishDate": "2026-07-28",
+  "preProcess": [
+    null,
+    null,
+    null,
+    null
+  ],
+  "postProcess": [
+    null
+  ]
+}</script>
+<link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
+ <body class="h-entry"><div class="head">
+    <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
+  </a> <h1 id="title" class="title">Digimelding-koppelvlakspecificatie 1.4.1</h1>
+    
+    <h2>
+      Logius Handreiking<br>
+      Vastgestelde versie
+      <time class="dt-published" datetime="2026-07-28">28 juli 2026</time>
+    </h2>
+    <dl>
+      <dt>Deze versie:</dt><dd class="status">
+              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/digimelding/koppelvlak/1.4.1/">https://gitdocumentatie.logius.nl/publicatie/digimelding/koppelvlak/1.4.1/</a>
+            </dd>
+      <dt>Laatst gepubliceerde versie:</dt><dd>
+              <a href="https://gitdocumentatie.logius.nl/publicatie/digimelding/koppelvlak/">https://gitdocumentatie.logius.nl/publicatie/digimelding/koppelvlak/</a>
+            </dd>
+      <dt>Laatste werkversie:</dt><dd><a href="https://logius-standaarden.github.io/Digimelding-Koppelvlakspecificatie/">https://logius-standaarden.github.io/Digimelding-Koppelvlakspecificatie/</a></dd>
+      
+      
+      
+      <dt>Vorige versie:</dt><dd><a href="https://gitdocumentatie.logius.nl/publicatie/digimelding/koppelvlak/1.4.0/">https://gitdocumentatie.logius.nl/publicatie/digimelding/koppelvlak/1.4.0/</a></dd>
+      
+      <dt>Redacteur:</dt>
+      <dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://www.logius.nl">Peter Haasnoot</a> (<span class="p-org org h-org">Logius</span>)
+  </dd>
+      
+      <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://www.logius.nl">Peter Haasnoot</a> (<span class="p-org org h-org">Logius</span>)
+  </dd>
+      <dt>Doe mee:</dt><dd>
+    <a href="https://github.com/Logius-standaarden/Digimelding-Koppelvlakspecificatie/">GitHub Logius-standaarden/Digimelding-Koppelvlakspecificatie</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/Digimelding-Koppelvlakspecificatie/issues/">All issues</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/Digimelding-Koppelvlakspecificatie/issues/new/choose">Dien een melding in</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/Digimelding-Koppelvlakspecificatie/commits/">Revisiehistorie</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/Digimelding-Koppelvlakspecificatie/pulls/">Pull requests</a>
+  </dd>
+    </dl>
+    
+    
+    <p>
+          Dit document is ook beschikbaar in dit niet-normatieve formaat:
+          <a rel="alternate" href="digimelding-koppelvlak-1.4.1.pdf">PDF</a>
+        </p>
+    <p class="copyright">
+            Dit document valt onder de volgende licentie: 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
+    <hr title="Separator for header">
+  </div><section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#documentbeheer">Documentbeheer</a></li><li class="tocline"><a class="tocxref" href="#colofon">Colofon</a></li><li class="tocline"><a class="tocxref" href="#achtergrond"><bdi class="secno">1. </bdi>Achtergrond</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#bronverwijzing-en-referentiedocumenten"><bdi class="secno">1.1 </bdi>Bronverwijzing en referentiedocumenten</a></li></ol></li><li class="tocline"><a class="tocxref" href="#functionaliteit-op-hoofdlijnen-en-architectuur"><bdi class="secno">2. </bdi>Functionaliteit op hoofdlijnen en architectuur</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#referentiearchitectuur"><bdi class="secno">2.1 </bdi>Referentiearchitectuur</a></li></ol></li><li class="tocline"><a class="tocxref" href="#beveiliging-autorisatie-en-protocollen"><bdi class="secno">3. </bdi>Beveiliging, autorisatie en protocollen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#authenticatie-en-autorisatie"><bdi class="secno">3.1 </bdi>Authenticatie en autorisatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#protocollen"><bdi class="secno">3.1.1 </bdi>Protocollen</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#specificaties-services"><bdi class="secno">4. </bdi>Specificaties Services</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#annotaties-algemeen"><bdi class="secno">4.1 </bdi>Annotaties Algemeen</a></li><li class="tocline"><a class="tocxref" href="#annotatie-versturen"><bdi class="secno">4.2 </bdi>Annotatie versturen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#algemeen"><bdi class="secno">4.2.1 </bdi>Algemeen</a></li><li class="tocline"><a class="tocxref" href="#scenario-s-communicatie"><bdi class="secno">4.2.2 </bdi>Scenario's Communicatie</a></li><li class="tocline"><a class="tocxref" href="#inhoud-bericht-annotatie-toevoegenrequest"><bdi class="secno">4.2.3 </bdi>Inhoud bericht Annotatie ToevoegenRequest</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#annotatie-toevoegen-terugmelden"><bdi class="secno">4.2.3.1 </bdi>Annotatie toevoegen (terugmelden)</a></li><li class="tocline"><a class="tocxref" href="#annotatie-toevoegen-intrekken"><bdi class="secno">4.2.3.2 </bdi>Annotatie toevoegen (intrekken)</a></li><li class="tocline"><a class="tocxref" href="#annotatie-toevoegen-aanpassing"><bdi class="secno">4.2.3.3 </bdi>Annotatie toevoegen (aanpassing)</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#status-bevragen"><bdi class="secno">4.3 </bdi>Status bevragen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#algemeen-0"><bdi class="secno">4.3.1 </bdi>Algemeen</a></li><li class="tocline"><a class="tocxref" href="#statusoverzichtrequest"><bdi class="secno">4.3.2 </bdi>StatusoverzichtRequest</a></li><li class="tocline"><a class="tocxref" href="#statusoverzichtresponse"><bdi class="secno">4.3.3 </bdi>StatusoverzichtResponse</a></li><li class="tocline"><a class="tocxref" href="#detailsterugmeldingrequest"><bdi class="secno">4.3.4 </bdi>DetailsTerugmeldingRequest</a></li><li class="tocline"><a class="tocxref" href="#detailsterugmeldingresponse"><bdi class="secno">4.3.5 </bdi>DetailsTerugmeldingResponse</a></li></ol></li><li class="tocline"><a class="tocxref" href="#echo"><bdi class="secno">4.4 </bdi>Echo</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#algemeen-1"><bdi class="secno">4.4.1 </bdi>Algemeen</a></li><li class="tocline"><a class="tocxref" href="#echorequest"><bdi class="secno">4.4.2 </bdi>EchoRequest</a></li><li class="tocline"><a class="tocxref" href="#echoresponse"><bdi class="secno">4.4.3 </bdi>EchoResponse</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#foutberichten"><bdi class="secno">5. </bdi>Foutberichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#autorisatiefouten"><bdi class="secno">5.1 </bdi>Autorisatiefouten</a></li><li class="tocline"><a class="tocxref" href="#verwerkingsfouten"><bdi class="secno">5.2 </bdi>Verwerkingsfouten</a></li><li class="tocline"><a class="tocxref" href="#syntaxfouten"><bdi class="secno">5.3 </bdi>Syntaxfouten</a></li><li class="tocline"><a class="tocxref" href="#generieke-foutcodes-van-toepassing-op-digimelding"><bdi class="secno">5.4 </bdi>Generieke foutcodes van toepassing op Digimelding</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bijlagen"><bdi class="secno">6. </bdi>bijlagen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#bijlage-a-afkortingen-begrippen-en-symbolen"><bdi class="secno">6.1 </bdi>Bijlage A: Afkortingen, begrippen en symbolen</a></li><li class="tocline"><a class="tocxref" href="#bijlage-b-geadviseerde-statussen"><bdi class="secno">6.2 </bdi>Bijlage B : Geadviseerde Statussen</a></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformiteit">Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>Naast onderdelen die als niet-normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet-normatief. Verder is alles in dit document normatief.</p>
+  </section>
+  <section id="abstract" class="introductory"><h2>Samenvatting</h2>Voor terugmeldvoorzieningen in het algemeen is de Digimelding Koppelvlakspecificatie (DMKS) opgesteld, waarin wordt gespecificeerd hoe terugmeldingen verzonden dienen te worden. De webservices waarmee gemeentelijke pakketleveranciers geautomatiseerde terugmeldingen kunnen doen zijn ook gebaseerd op Digimelding.
+</section>
+  
+  
+  <section class="introductory" id="documentbeheer"><div class="header-wrapper"><h2 id="documentbeheer-0">Documentbeheer</h2><a class="self-link" href="#documentbeheer" aria-label="Permalink for this Section"></a></div>
+<table>
+<thead>
+<tr>
+<th>Datum</th>
+<th>Versie</th>
+<th>Auteur</th>
+<th>Opmerkingen</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>13-02-2015</td>
+<td>0.1</td>
+<td>Logius</td>
+<td>Eerste concept</td>
+</tr>
+<tr>
+<td></td>
+<td>0.2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>28-10-2015</td>
+<td>0.9</td>
+<td>Logius</td>
+<td>Diverse spellingsverbeteringen.</td>
+</tr>
+<tr>
+<td>31-03-2016</td>
+<td>0.91</td>
+<td>Logius</td>
+<td>Aanpassingen n.a.v. bevindingen pilot</td>
+</tr>
+<tr>
+<td>30-03-2016</td>
+<td>1.0</td>
+<td>Logius</td>
+<td>Definitief na goedkeuring Afnemersraad</td>
+</tr>
+<tr>
+<td>14-05-2018</td>
+<td>1.1</td>
+<td>Logius</td>
+<td>RFC Behandelend Bronhouder</td>
+</tr>
+<tr>
+<td>21-11-2019</td>
+<td>1.2</td>
+<td>Logius</td>
+<td>Zie release notes</td>
+</tr>
+<tr>
+<td>24-06-2020</td>
+<td>1.2.1</td>
+<td>Logius</td>
+<td>Tekstuele aanpassingen / correcties</td>
+</tr>
+<tr>
+<td>01-06-2021</td>
+<td>1.3</td>
+<td>Logius</td>
+<td>RFC-2020-3 - SSOn-Rijk gebruik in Digimelding Portaal</td>
+</tr>
+</tbody></table>
+</section>
+  <section class="introductory" id="colofon"><div class="header-wrapper"><h2 id="colofon-0">Colofon</h2><a class="self-link" href="#colofon" aria-label="Permalink for this Section"></a></div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Logius Servicecentrum:</td>
+<td>Postbus 96810 <br>2509 JE Den Haag<br>tel. 0900 555 4555 (10 ct p/m)<br>email <a href="mailto:servicecentrum@logius.nl">servicecentrum@logius.nl</a></td>
+</tr>
+</tbody></table>
+</section>
+  <section id="achtergrond"><div class="header-wrapper"><h2 id="x1-achtergrond"><bdi class="secno">1. </bdi>Achtergrond</h2><a class="self-link" href="#achtergrond" aria-label="Permalink for Section 1."></a></div>
+<p>De volgende partijen hebben meegewerkt aan de totstandkoming van dit document: Gemeente Amsterdam, Centric, Gemeente Den Haag, Gemeente Rotterdam, ICTU, Kamer van Koophandel, KING, Logius, PinkRoccade, Vicrea en de Waarderingskamer.</p>
+<section id="bronverwijzing-en-referentiedocumenten"><div class="header-wrapper"><h3 id="x1-1-bronverwijzing-en-referentiedocumenten"><bdi class="secno">1.1 </bdi>Bronverwijzing en referentiedocumenten</h3><a class="self-link" href="#bronverwijzing-en-referentiedocumenten" aria-label="Permalink for Section 1.1"></a></div>
+<table>
+<thead>
+<tr>
+<th>Referentiedocument</th>
+<th>Bronverwijzing</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GEMMA Informatiearchitectuur 1.0</td>
+<td><a href="http://www.noraonline.nl/images/noraonline/a/a3/GEMMA_Informatiearchitectuur_v10_KING.pdf">PDF versie op NORA</a></td>
+</tr>
+<tr>
+<td>StUF 3.01</td>
+<td><a href="https://www.gemmaonline.nl/wiki/GEMMA/id-c2d3d571-8db0-11e3-67ab-0050568a6153">StUF website</a></td>
+</tr>
+<tr>
+<td>StUF protocolbindingen 3.02</td>
+<td><a href="https://www.gemmaonline.nl/wiki/GEMMA/id-c3e59391-8db0-11e3-67ab-0050568a6153">StUF website</a></td>
+</tr>
+<tr>
+<td>ArchiMate 2.n</td>
+<td><a href="https://www.opengroup.org/">The Open Group Website</a></td>
+</tr>
+<tr>
+<td>DMKS cookiebox</td>
+<td><a href="https://www.logius.nl/diensten/digimelding/">Digimelding pagina op Logius website</a></td>
+</tr>
+<tr>
+<td>Digikoppeling WUS 3.0</td>
+<td><a href="https://gitdocumentatie.logius.nl/publicatie/dk/wus/">Vastgestelde versie 06 oktober 2020</a></td>
+</tr>
+<tr>
+<td>Digikoppeling-architectuur</td>
+<td><a href="https://gitdocumentatie.logius.nl/publicatie/dk/architectuur/">Vastgestelde versie 07 oktober 2018</a></td>
+</tr>
+</tbody></table>
+</section></section>
+  <section id="functionaliteit-op-hoofdlijnen-en-architectuur"><div class="header-wrapper"><h2 id="x2-functionaliteit-op-hoofdlijnen-en-architectuur"><bdi class="secno">2. </bdi>Functionaliteit op hoofdlijnen en architectuur</h2><a class="self-link" href="#functionaliteit-op-hoofdlijnen-en-architectuur" aria-label="Permalink for Section 2."></a></div>
+<p>Deze specificatie geeft een technische en functionele beschrijving van
+een aantal services voor het uitwisselen van informatie tussen
+terugmeldapplicaties, Digimelding Webservice en landelijke voorzieningen
+van basisregistraties</p>
+<p>De beschreven services zorgen ervoor dat de informatie op een standaard
+manier wordt uitgewisseld.</p>
+<p>In de volgende paragraaf wordt ingegaan op hoe de services zich
+verhouden tot de NORA-informatiearchitectuur en welke standaarden worden
+gebruikt. Vervolgens wordt dieper ingegaan op de functionaliteit die
+deze services moeten bieden.</p>
+<section id="referentiearchitectuur"><div class="header-wrapper"><h3 id="x2-1-referentiearchitectuur"><bdi class="secno">2.1 </bdi>Referentiearchitectuur</h3><a class="self-link" href="#referentiearchitectuur" aria-label="Permalink for Section 2.1"></a></div>
+<p>In deze specificatie wordt uitgegaan van een referentiearchitectuur.</p>
+<p>
+      </p><figure id="fig-de-referentiearchitectuur">
+        <img src="media/image1.png" alt="De referentiearchitectuur">
+        <figcaption><a class="self-link" href="#fig-de-referentiearchitectuur">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">De referentiearchitectuur</span></figcaption>
+      </figure>
+    <p></p>
+<p>In <a href="#fig-de-referentiearchitectuur">bovenstaande figuur</a> is de referentie-applicatiearchitectuur weergegeven. Deze
+gaat uit van een generiek overheidsperspectief, waarbij wordt
+teruggemeld op meerdere basisregistraties en het dus handig is om
+gebruik te maken van de routering door Digimelding Webservice. Het is
+ook mogelijk om als afnemer direct aan te sluiten op de TMV van een
+basisregistratie. De specificaties van de services in hoofdstuk 6 laten
+beide varianten toe.</p>
+<p>Aangaande deze catalogusvoorziening kunnen de verschillende catalogi ook
+als bestanden beschikbaar gesteld worden aan de terugmeldende
+organisaties voor implementaties in de eigen terugmeldapplicatie.</p>
+<p>Aan deze specificatie wordt voldaan indien de in hoofdstuk 4 beschreven
+services, voor zover deze relevant zijn voor de betreffende applicatie,
+worden ondersteund.</p>
+<p>Aanvullend geldt dat er een aantal implementatievarianten zijn.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Implementatievariant</th>
+<th align="left">Specifieke en aanvullende eisen</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">A1</td>
+<td align="left">De terugmeldende ambtenaar maakt gebruik van het landelijke Digimelding Webservice portaal.</td>
+</tr>
+<tr>
+<td align="left">A2</td>
+<td align="left">De terugmeldende ambtenaar maakt gebruik van een lokaal binnen de organisatie geïnstalleerd terugmeldportaal welke middels webservices communiceert.</td>
+</tr>
+<tr>
+<td align="left">A3</td>
+<td align="left">De terugmeldende ambtenaar maakt gebruik van een terugmeldoptie binnen zijn taakapplicatie; de taakapplicatie zet deze terugmelding door naar een terugmeldapplicatie binnen de organisatie welke middels webservices communiceert.</td>
+</tr>
+<tr>
+<td align="left">B1</td>
+<td align="left">De communicatie middels webservices tussen terugmeldende organisatie en landelijke voorziening van een basisregistratie loopt via een webservices koppelvlak op de Digimelding Webservice, als landelijke voorziening. Deze landelijke voorziening verzorgt routering naar basisregistraties (en mogelijk protocoltransformatie naar een vorige of volgende versie van het koppelvlak).</td>
+</tr>
+<tr>
+<td align="left">B2</td>
+<td align="left">De communicatie middels webservices tussen terugmeldende organisatie en landelijke voorziening van een basisregistratie loopt rechtstreeks (staat niet geïllustreerd in referentieplaatje hierboven).</td>
+</tr>
+</tbody></table>
+</section></section>
+  <section id="beveiliging-autorisatie-en-protocollen"><div class="header-wrapper"><h2 id="x3-beveiliging-autorisatie-en-protocollen"><bdi class="secno">3. </bdi>Beveiliging, autorisatie en protocollen</h2><a class="self-link" href="#beveiliging-autorisatie-en-protocollen" aria-label="Permalink for Section 3."></a></div>
+<section id="authenticatie-en-autorisatie"><div class="header-wrapper"><h3 id="x3-1-authenticatie-en-autorisatie"><bdi class="secno">3.1 </bdi>Authenticatie en autorisatie</h3><a class="self-link" href="#authenticatie-en-autorisatie" aria-label="Permalink for Section 3.1"></a></div>
+<p>Binnen de Digimelding-keten vindt op meerdere plaatsen authenticatie en
+autorisatie plaats.</p>
+<p>In deze sectie wordt uitgelegd welke verschillende middelen er zijn en
+in welke stap ze gebruikt worden. Binnen Digimelding vinden
+authenticatie en autorisatie plaats op transportniveau, applicatieniveau
+en soms op persoonsniveau. Transport en logistiek gaan via de
+Digikoppeling-standaarden.</p>
+<p>Op applicatieniveau gaat het over de terugmeldapplicatie van de afnemer,
+Digimelding Webservice en TMVs van basisregistraties.</p>
+<p>Persoonsniveau komt voor bij Digimelding Portaal en mogelijkerwijs bij
+nog te ontwikkelen andere oplossingen die gebruik maken van eHerkenning
+of SSOn Rijk. Daarnaast kent een afnemende organisatie ook nog interne
+authenticatie en autorisatie voor het verkrijgen van toegang door de
+terugmelder tot de terugmeldapplicatie. Dit is buiten scope van deze
+specificatie.</p>
+<p>
+      </p><figure id="fig-authenticatie-en-autorisatie-bij-digimelding">
+        <img src="media/image2.png" alt="Authenticatie en autorisatie bij Digimelding">
+        <figcaption><a class="self-link" href="#fig-authenticatie-en-autorisatie-bij-digimelding">Figuur <bdi class="figno">2</bdi></a> <span class="fig-title">Authenticatie en autorisatie bij Digimelding</span></figcaption>
+      </figure>
+    <p></p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Autorisatie</strong></th>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Terugmelder</strong></td>
+<td align="left"><strong>Terugmeld Applicatie</strong></td>
+<td align="left"><strong>Digikoppeling Adapter</strong></td>
+<td align="left"><strong>TMV Basisregistratie</strong></td>
+</tr>
+<tr>
+<td align="left">E-herkenning in DMKS bericht<br>OIN<br>Vestigingsnr<br>Persoonsaanduiding</td>
+<td align="left">OIN in DMKS bericht</td>
+<td align="left">OIN in Digikoppeling Headers WS-Adressing</td>
+<td align="left">Transport via Digikoppeling</td>
+</tr>
+<tr>
+<td align="left">SSOn Rijk<br>OIN<br>Vestigingsnr<br>Persoonsaanduiding</td>
+<td align="left">(PKIO certificaat met OIN voor signing)</td>
+<td align="left">PKIO certificaat met OIN voor TLS/signing</td>
+<td align="left">Applicatie: via OIN in DMKS bericht of via E-Herkenning : OIN, vestigingsnummer en persoonsaanduiding in DMKS bericht of via SSOn Rijk attributen</td>
+</tr>
+<tr>
+<td align="left">Vrije keuze</td>
+<td align="left">OIN in Digikoppeling Header WS-security</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p>Figuur 2. Authenticatie en autorisatie bij Digimelding</p>
+<p>Indien in de keten de terugmelder met eHerkenning geauthenticeerd wordt,
+willen basisregistraties dit altijd gebruiken als autorisatiemiddel en
+dienen de eHerkenningsgegevens ( 'OIN'<sup>1</sup>, 'vestigingsnummer' en
+'pseudoID' van de natuurlijk persoon(ontvangen via een SAML-token) in
+het DMKS-bericht doorgegeven te worden. In deze gevallen is de
+autorisatie voor de TMV-applicatie geregeld middels eHerkenning op
+persoonsniveau.</p>
+<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Noot</span></div><p class="">
+<sup>1</sup> De eHerkenningmiddelenleverancier stuurt een SAML token terug met daarin
+o.a. het 'OIN' zoals in de eHerkenningskoppelvlakstandaard is
+gespecificeerd. Dit 'OIN' met een prefix 00000003 is niet gelijk aan
+het door Logius uitgegeven OIN zoals in het OIN-register is
+opgenomen.</p></div><p>Indien in de keten de terugmelder met SSOn-Rijk geauthenticeerd wordt,
+willen basisregistraties dit altijd gebruiken als autorisatiemiddel en
+dienen de gegevens ('OIN', en 'pseudoID' ) van de natuurlijk persoon
+(ontvangen via een SAML-token) in het DMKS-bericht doorgegeven te
+worden. In deze gevallen is de autorisatie voor de TMV-applicatie
+geregeld middels SSOn-Rijk op persoonsniveau.</p>
+<p>In het geval dat er geen authenticatie op Persoonssniveau plaatsvindt,
+worden authenticatie en autorisatie op applicatieniveau gedaan op basis
+van het OIN van de afnemende organisatie. Dit is het OIN dat een
+organisatie krijgt wanneer deze zich aanmeldt voor Digikoppeling en is
+terug te vinden in het OIN-register van Logius. Dit OIN wordt opgenomen
+in het DMKS-bericht.</p>
+<p>Indien de basisregistratie er om vraagt kan als extra
+authenticatiemiddel signing van het DMKS-bericht met een
+PKIoverheidcertificaat worden gevraagd. Dit certificaat dient van de
+afnemende organisatie te zijn en het OIN te bevatten zoals uitgegeven
+toen de organisatie zich aanmeldde voor Digikoppeling.</p>
+<p>Op transportniveau wordt geautoriseerd op het OIN dat door de
+Digikoppeling-adapter van de afnemende organisatie wordt gebruikt. Dit
+wordt gebruikt in de Digikoppeling headers WS-Addressing (WUS) en
+PartyID (ebMS) en in het PKIoverheidscertificaat dat voor transport
+beveiliging (TLS) wordt gebruikt. Dit is niet altijd het OIN van de
+organisatie zelf! Bij sectorale knooppunten, SaaS-oplossingen en
+samenwerkingsverbanden kan dit mogelijk een ander OIN zijn. De interne
+authenticatie en autorisatie (indien anders dan eHerkenning/SSOn-Rijk)
+is volledig vrij door de afnemende organisatie in te vullen. Hiervan
+hoeft niets meegegeven te worden in DMKS-berichten.</p>
+<section id="protocollen"><div class="header-wrapper"><h4 id="x3-1-1-protocollen"><bdi class="secno">3.1.1 </bdi>Protocollen</h4><a class="self-link" href="#protocollen" aria-label="Permalink for Section 3.1.1"></a></div>
+<p>Bij synchrone communicatie wordt gebruik gemaakt van Digikoppeling WUS
+volgens het '2W-be'-profiel<sup>2</sup> met ondersteuning voor MTOM voor
+efficiënt transport van attachments.</p>
+<p>Indien een basisregistratie verzoekt om een authenticatie van de
+terugmeldende organisatie wordt bij synchrone communicatie gebruikt
+gemaakt van WUS Profiel Digikoppeling 2W-be-S<sup>3</sup>.</p>
+<div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note-0" aria-level="5"><span>Noot</span></div><p class="">
+<sup>2</sup> Best Effort, beveiligd met tweezijdige TLS
+</p></div>
+<div class="note" role="note" id="issue-container-generatedID-1"><div role="heading" class="note-title marker" id="h-note-1" aria-level="5"><span>Noot</span></div><p class="">
+<sup>3</sup> Best Effort, beveiligd met tweezijdige TLS en gesigneerde berichten
+</p></div></section></section></section>
+  <section id="specificaties-services"><div class="header-wrapper"><h2 id="x4-specificaties-services"><bdi class="secno">4. </bdi>Specificaties Services</h2><a class="self-link" href="#specificaties-services" aria-label="Permalink for Section 4."></a></div>
+<p>Dit hoofdstuk beschrijft de berichten tussen terugmeldapplicatie,
+Digimelding Webservice en de LV van basisregistraties (gerouteerd via
+Digimelding Webservice)</p>
+<p>Het interactiediagram biedt overzicht in hoe de berichten zich tot
+elkaar verhouden en in welke volgorde de berichten worden gebruikt.</p>
+<p>Per bericht wordt aangegeven (indien relevant):</p>
+<ul>
+<li>berichtnaam;</li>
+<li>trigger van het bericht;</li>
+<li>verandering in terugmeldapplicatie/Digimelding Webservice/LV
+basisregistratie ten gevolge van het bericht;</li>
+<li>lijst van objecten en velden in het bericht, en per veld:<ul>
+<li>specificatie van de vulling van het veld,</li>
+<li>toelichting, bijvoorbeeld met de gebruikersactie of configuratie
+die nodig is om de juiste vulling te krijgen.</li>
+</ul>
+</li>
+</ul>
+<p>Tevens wordt bij de berichten een interactiediagram getoond waarin
+duidelijk wordt welk systeem het bericht initieert.
+Alle tijdstempels in de communicatie van en naar Digimelding hebben de
+tijdzone <code>Europe/Amsterdam</code>.</p>
+<section id="annotaties-algemeen"><div class="header-wrapper"><h3 id="x4-1-annotaties-algemeen"><bdi class="secno">4.1 </bdi>Annotaties Algemeen</h3><a class="self-link" href="#annotaties-algemeen" aria-label="Permalink for Section 4.1"></a></div>
+<p>De Digimelding-koppelvlakspecificatie (DMKS) die de basis vormt voor dit
+koppelvlak gaat uit van annotaties. Alle informatie over een
+terugmelding is vastgelegd in de vorm van een annotatie. Hierbij kent de
+DMKS ook annotatiebomen waarbij root annotaties voorzien zijn van leaf
+annotaties. De leafs zijn annotaties die een verwijzing bevatten naar de
+UUID van de root annotatie waar ze aan hangen. In theorie is het
+mogelijk dat een annotatie tegelijkertijd een root en leaf is, deze
+annotatie hangt dan aan een andere 'root node' maar heeft zelf ook
+leafs. Dit laatste komt in de huidige praktijk niet voor.</p>
+<p>Iedere annotatie kent een basisset aan elementen: de 'annotatiebasis'
+Deze worden bij iedere annotatie herhaald waardoor berichten behoorlijk
+omvangrijk worden. Voor het overzicht wordt deze annotatie basis in de
+volgende secties met specifieke berichten samengevat tot één regel
+Annotatiebasis. Hieronder leggen we eenmalig uit welke elementen deze
+annotatiebasis bevat.</p>
+<p><strong>Tabel Annotatiebasis</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Toelichting</th>
+<th align="center">Relaties</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">@uuid</td>
+<td align="left">Unieke identificatie van de annotatie.</td>
+<td align="center">[1..1]</td>
+</tr>
+<tr>
+<td align="left">GeannoteerdDoor</td>
+<td align="left">Gegevens van diegene die de annotatie heeft toegevoegd.</td>
+<td align="center">[1..1]</td>
+</tr>
+<tr>
+<td align="left">GeannoteerdDoor.Oin</td>
+<td align="left">OIN van de terugmeldende organisatie.</td>
+<td align="center">[1..1]</td>
+</tr>
+<tr>
+<td align="left">GeannoteerdDoor.Vestiging</td>
+<td align="left">Vestigingsnummer van desbetreffende organisatie uit eHerkenning/SSOn Rijk (indien door de afnemer toegepast voor authenticatie).</td>
+<td align="center">[0..1]</td>
+</tr>
+<tr>
+<td align="left">GeannoteerdDoor.Persoonsaanduiding</td>
+<td align="left">Deze zal met webservices bijna altijd de waarde "anoniem" hebben. Er zijn twee uitzonderingen. De eerste is wanneer nadere afspraken gemaakt zijn met een basisregistratie over de invulling van dit veld. De tweede is dat, indien binnen de organisatie eHerkenning/SSOn Rijk gebruikt is voor autorisatie en authenticatie, persoonsaanduiding uit eHerkenning/SSOn Rijk dient te worden meegegeven.</td>
+<td align="center">[1..1]</td>
+</tr>
+<tr>
+<td align="left">GeannoteerdOp</td>
+<td align="left">Tijdstempel waarop de annotatie heeft plaatsgevonden.</td>
+<td align="center">[1..1]</td>
+</tr>
+<tr>
+<td align="left">Toelichting</td>
+<td align="left">Een toelichting bij de annotatie. In de huidige praktijk in gebruik voor root annotaties en status leaf annotaties voor overige leaf annotaties in de huidige praktijk altijd leeg.</td>
+<td align="center">[0..1]</td>
+</tr>
+<tr>
+<td align="left">Annotatieverwijzing</td>
+<td align="left">Verwijzing naar de root annotatie waar een leaf annotatie aan gerelateerd is. Dit wordt afhankelijk  van de relevantie opgenomen.</td>
+<td align="center">[0..1]</td>
+</tr>
+</tbody></table>
+</section><section id="annotatie-versturen"><div class="header-wrapper"><h3 id="x4-2-annotatie-versturen"><bdi class="secno">4.2 </bdi>Annotatie versturen</h3><a class="self-link" href="#annotatie-versturen" aria-label="Permalink for Section 4.2"></a></div>
+<p>De berichten beschreven in deze uitwisseling worden gebruikt om:</p>
+<ul>
+<li>met de terugmeldapplicatie van een afnemer een terugmelding te
+versturen</li>
+<li>om een eerder door de afnemer gedane terugmelding in te trekken</li>
+<li>om een status terug te melden van een bronhouder naar een Landelijke
+Voorziening</li>
+</ul>
+<section id="algemeen"><div class="header-wrapper"><h4 id="x4-2-1-algemeen"><bdi class="secno">4.2.1 </bdi>Algemeen</h4><a class="self-link" href="#algemeen" aria-label="Permalink for Section 4.2.1"></a></div>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Doel</td>
+<td>Het toevoegen van een annotatie(boom) bij een op Digimelding aangesloten basisregistratie door een (medewerker van) een organisatie.<br>Het effect van het annotatie toevoegen, <strong>terugmelden</strong> is het doen van een terugmelding.<br>Het effect van een annotatie toevoegen, <strong>intrekken</strong> is het intrekken van een terugmelding.<br> Het effect van een annotatie toevoegen, <strong>statuswijziging</strong> is het geven van een statusupdate.</td>
+</tr>
+<tr>
+<td>Voorwaarde</td>
+<td>Afname van gegevens uit basisregistraties door de terugmeldende organisatie, en het gedaan hebben van een check van de actuele waarde in de basisregistratie bij het doen van een terugmelding.<br>Voor het <strong>intrekken</strong> van een terugmelding moet er al een terugmelding gedaan is.<br>Voor het verzenden van een <strong>statuswijziging</strong> moet een terugmelding zijn ontvangen door de bronhouder</td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Gerede twijfel over de juistheid van een gegeven in een op Digimelding aangesloten basisregistratie bij een ambtenaar binnen de organisatie.<br>Het terugkomen op de gerede twijfel van een eerder gedane terugmelding in het geval van <strong>intrekken</strong>.<br>Het veranderen van een status door middel van een <strong>statuswijziging</strong> van een terugmelding bij een bronhouder.</td>
+</tr>
+<tr>
+<td>Direct gevolg</td>
+<td>Versturen van een bericht naar de betreffende bronhouder of landelijke voorziening.</td>
+</tr>
+<tr>
+<td>Vervolgactie</td>
+<td>De landelijke voorziening van de basisregistratie  neemt de terugmelding in behandeling. De gebruiker van de terugmeldende organisatie kan dit volgen  middels status opvragen.<br>De landelijke voorziening verwerkt de statusupdate.</td>
+</tr>
+</tbody></table>
+</section><section id="scenario-s-communicatie"><div class="header-wrapper"><h4 id="x4-2-2-scenario-s-communicatie"><bdi class="secno">4.2.2 </bdi>Scenario's Communicatie</h4><a class="self-link" href="#scenario-s-communicatie" aria-label="Permalink for Section 4.2.2"></a></div>
+<p>
+      </p><figure id="fig-interactiediagram-terugmelden-intrekken-direct">
+        <img src="media/image3.png" alt="Interactiediagram terugmelden/intrekken direct">
+        <figcaption><a class="self-link" href="#fig-interactiediagram-terugmelden-intrekken-direct">Figuur <bdi class="figno">3</bdi></a> <span class="fig-title">Interactiediagram terugmelden/intrekken direct</span></figcaption>
+      </figure>
+    <p></p>
+<p>
+      </p><figure id="fig-interactiediagram-terugmelden-intrekken-via-digimelding-webservice">
+        <img src="media/image4.png" alt="Interactiediagram terugmelden/intrekken via Digimelding Webservice">
+        <figcaption><a class="self-link" href="#fig-interactiediagram-terugmelden-intrekken-via-digimelding-webservice">Figuur <bdi class="figno">4</bdi></a> <span class="fig-title">Interactiediagram terugmelden/intrekken via Digimelding Webservice</span></figcaption>
+      </figure>
+    <p></p>
+<p>
+      </p><figure id="fig-interactiediagram-status-wijzigen">
+        <img src="media/image5.png" alt="Interactiediagram status wijzigen">
+        <figcaption><a class="self-link" href="#fig-interactiediagram-status-wijzigen">Figuur <bdi class="figno">5</bdi></a> <span class="fig-title">Interactiediagram status wijzigen</span></figcaption>
+      </figure>
+    <p></p>
+</section><section id="inhoud-bericht-annotatie-toevoegenrequest"><div class="header-wrapper"><h4 id="x4-2-3-inhoud-bericht-annotatie-toevoegenrequest"><bdi class="secno">4.2.3 </bdi>Inhoud bericht Annotatie ToevoegenRequest</h4><a class="self-link" href="#inhoud-bericht-annotatie-toevoegenrequest" aria-label="Permalink for Section 4.2.3"></a></div>
+<p><strong>Tabel AnnotatieToevoegenRequest</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Toelichting</th>
+<th align="center">Relaties</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">OinBasisregistratie</td>
+<td align="left">Het OIN van de houder van een landelijke voorziening van de basisregistratie</td>
+<td align="center">[1..1]</td>
+</tr>
+<tr>
+<td align="left">Registratie</td>
+<td align="left">Code (maximaal 3 letterig) waarmee de basisregistratie wordt aangeduid wanneer de houder van een landelijke  voorziening meer dan 1 basisregistratie beheert (bv BRT, BGT).</td>
+<td align="center">[0..1]</td>
+</tr>
+<tr>
+<td align="left">Annotatie</td>
+<td align="left">Dit element wordt alleen gevuld met een annotatie die moet worden ingetrokken.*</td>
+<td align="center">[1..1]*</td>
+</tr>
+<tr>
+<td align="left">AnnotatieBoom</td>
+<td align="left">Bestaat uit minimaal één annotatie (de terugmelding) en de bijbehorende leafs.*</td>
+<td align="center">[1..1]*</td>
+</tr>
+</tbody></table>
+<p>* De elementen Annotatie en AnnotatieBoom zijn onderdeel van een
+verplicht keuzeveld: de AnnotatieToevoegenRequest bevat altijd slechts
+één van de twee.</p>
+<section id="annotatie-toevoegen-terugmelden"><div class="header-wrapper"><h5 id="x4-2-3-1-annotatie-toevoegen-terugmelden"><bdi class="secno">4.2.3.1 </bdi>Annotatie toevoegen (terugmelden)</h5><a class="self-link" href="#annotatie-toevoegen-terugmelden" aria-label="Permalink for Section 4.2.3.1"></a></div>
+<p>De structuur van de instanties van 'Annotatie' in de 'AnnotatieBoom' is
+als volgt:</p>
+<p><strong>Tabel AnnotatieBoom.Annotatie</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>AnnotatieBoom . Annotatie</strong></th>
+<th></th>
+<th>[1..*]</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Annotatie.Terugmelding</strong></td>
+<td></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Terugmelding.<strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Terugmelding.Bronverwijzingen</td>
+<td>Bronverwijzingen bestaande uit één of meerdere bronverwijzing*<br>*Lijst van verwijzingen met basisregistratie elementen waarop wordt teruggemeld.</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Terugmelding.Bronverwijzingen. Bronverwijzing</td>
+<td>Bestaande uit een URI en een selectieverwijzing naar het basisregistratie-element waarop wordt teruggemeld. Dit zijn er meerdere, maar in de huidige praktijk is dit er altijd precies één.</td>
+<td>[1..*]</td>
+</tr>
+<tr>
+<td>Terugmelding.Bronverwijzingen. Bronverwijzing.Uri</td>
+<td>Een combinatie van OIN en de unieke sleutel van het brongegeven zodat een unieke referentie ontstaat naar het brongegeven (bijv. OIN en HRN).</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Terugmelding.Bronverwijzingen. Bronverwijzing.Selectie</td>
+<td>Selectie van een element binnen de structuur die door de URI uniek geïdentificeerd wordt (bijvoorbeeld onderneming).</td>
+<td>[0..*]</td>
+</tr>
+<tr>
+<td>Terugmelding . Attributenset</td>
+<td>De set van attributen die daadwerkelijk gewijzigd dienen te worden.</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Attribuut</td>
+<td>Eén of meerdere attributen die gewijzigd dienen te worden.</td>
+<td>[1..*]</td>
+</tr>
+<tr>
+<td>Attribuut.Uri</td>
+<td>De unieke aanduiding van het attribuut</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Attribuut.BetwijfeldeWaarde</td>
+<td>De bestaande waarde in de basisregistratie.</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Attribuut.VoorgesteldeWaarde</td>
+<td>De voorgestelde nieuwe waarde.</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Terugmelding . Peilmoment</td>
+<td>De datum waarop de betwijfelde waarde geldig is en de voorgestelde waarde geldig zou moeten zijn.</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie.Annotatiestatus</strong></td>
+<td>Status van de terugmelding</td>
+<td>[1..*]</td>
+</tr>
+<tr>
+<td>Annotatiestatus.<strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Annotatiestatus . Status</td>
+<td>Zie bijlage B voor lijst met geadviseerde statussen voor aangesloten basisregistraties.(Het is toegestaan om in de eigen catalogus afwijkende statussen op te nemen)</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie.Referentiekenmerk</strong></td>
+<td>Eigen kenmerk terugmeldende organisatie (het mogen er meer zijn, in de huidige praktijk altijd precies één).</td>
+<td>[1..*]</td>
+</tr>
+<tr>
+<td>Referentiekenmerk.<strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Referentiekenmerk.Kenmerk</td>
+<td>Eigen kenmerk terugmeldende organisatie.*<br>*In de huidige praktijk maximaal 12 posities</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie.Contactinformatie</strong></td>
+<td>Contactgegevens</td>
+<td>[1..*]</td>
+</tr>
+<tr>
+<td>Contactinformatie.@ContactType</td>
+<td>kan alleen de waarden 'Melder' of 'Behandelaar' hebben</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Contactinformatie.<strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Contactinformatie.Naam</td>
+<td></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Contactinformatie.Telefoon</td>
+<td></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Contactinformatie.Email</td>
+<td></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Contactinformatie.Afdeling</td>
+<td></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie.Bijlageverwijzing</strong></td>
+<td><em>HR ondersteunt maximaal 5 bijlagen.</em></td>
+<td>[0..*]</td>
+</tr>
+<tr>
+<td>Bijlageverwijzing.<strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Bijlageverwijzing.Bestandsnaam</td>
+<td>De naam van het bestand.</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Bijlageverwijzing.MIMEType</td>
+<td>Het MIME type van de bijlage.</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Bijlageverwijzing.BijlageData</td>
+<td>Het bestand zelf in Base64-binary encoding.</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Bijlageverwijzing.Beschrijving</td>
+<td>Beschrijving van de bijlage. De bijlage zelf wordt nooit mee teruggeleverd bij het bevragen van een terugmelding/annotatie.</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie.BehandelendeBronhouder</strong></td>
+<td>Behandelende bronhouder</td>
+<td>[0 *]</td>
+</tr>
+<tr>
+<td>BehandelendeBronhouder.<strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BehandelendeBronhouder.Bronhouder</td>
+<td>De gewenste bronhouder</td>
+<td>[1..1]</td>
+</tr>
+</tbody></table>
+</section><section id="annotatie-toevoegen-intrekken"><div class="header-wrapper"><h5 id="x4-2-3-2-annotatie-toevoegen-intrekken"><bdi class="secno">4.2.3.2 </bdi>Annotatie toevoegen (intrekken)</h5><a class="self-link" href="#annotatie-toevoegen-intrekken" aria-label="Permalink for Section 4.2.3.2"></a></div>
+<p>De volgende structuur is in de XML-structuur child van de 'Annotatie'.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Annotatiestatus</strong></th>
+<th>Status van de terugmelding.</th>
+<th>[1..*]</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Annotatiestatus.Annotatiebasis</strong></td>
+<td>Inclusief toelichting en annotatieverwijzing</td>
+<td></td>
+</tr>
+<tr>
+<td>Annotatiestatus.Status</td>
+<td>Een afnemer kan bij het doen van een intrekking alleen de status: INGETROKKEN gebruiken in de huidige praktijk.</td>
+<td>[0..1]</td>
+</tr>
+</tbody></table>
+<p><strong>Annotatie toevoegen (statuswijziging)</strong>
+De volgende structuur is in de XML-structuur child van de 'Annotatie'.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Annotatiestatus</strong></th>
+<th>Status van de terugmelding.</th>
+<th>[1..*]</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Annotatiestatus.Annotatiebasis</strong></td>
+<td>Inclusief toelichting en annotatieverwijzing</td>
+<td></td>
+</tr>
+<tr>
+<td>Annotatiestatus.Status</td>
+<td>Zie bijlage B voor lijst met geadviseerde statussen voor aangesloten basisregistraties.(Het is toegestaan om in de eigen catalogus afwijkende statussen op te nemen)</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Annotatiestatus.Statustype</td>
+<td></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie.Contactinformatie</strong></td>
+<td>Contactgegevens.</td>
+<td>[0..*]</td>
+</tr>
+<tr>
+<td>Contactinformatie.@ContactType</td>
+<td>Kan alleen de waarden 'Melder' of 'Behandelaar' hebben.</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td><strong>Contactinformatie.Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Contactinformatie.Naam</td>
+<td></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Contactinformatie.Telefoon</td>
+<td></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Contactinformatie.Email</td>
+<td></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Contactinformatie.Afdeling</td>
+<td></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie.Planningsverwachting</strong></td>
+<td>Verwachte termijn voor behandeling.</td>
+<td>[0..*]</td>
+</tr>
+<tr>
+<td>Planningsverwachting.<strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Planningsverwachting.MijlpaalAanduiding</td>
+<td>Beschrijving van de planningsverwachting.</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Planningsverwachting.MijlpaalTijdstempel</td>
+<td>Datum waarop de planning gereed is.</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie.BehandelendeBronhouder</strong></td>
+<td>Behandelende bronhouder</td>
+<td>[0 *]</td>
+</tr>
+<tr>
+<td>BehandelendeBronhouder.<strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BehandelendeBronhouder.Bronhouder</td>
+<td>De gewenste bronhouder (bij status "Verkeerde Bronhouder")</td>
+<td>[1..1]</td>
+</tr>
+</tbody></table>
+<p>Optioneel kan bij een statuswijziging worden meegezonden:</p>
+<p>Planningsverwachting, Contactinformatie en Behandelendbronhouder
+(hiermee kan bij de statuswijziging <em>"Verkeerde Bronhouder"</em> de gewenste
+bronhouder worden aangegeven).</p>
+</section><section id="annotatie-toevoegen-aanpassing"><div class="header-wrapper"><h5 id="x4-2-3-3-annotatie-toevoegen-aanpassing"><bdi class="secno">4.2.3.3 </bdi>Annotatie toevoegen (aanpassing)</h5><a class="self-link" href="#annotatie-toevoegen-aanpassing" aria-label="Permalink for Section 4.2.3.3"></a></div>
+<p>Het antwoord op het toevoegen van een annotatie of het nu een
+annotatieboom met volledige terugmelding is of een annotatie voor een
+intrekking is altijd een AnnotatieToevoegenResponse-bericht met daarin
+een tijdstempel. Het is een zogeheten functionele acknowledgement wat
+betekent dat de achterliggende (TMV-)applicatie het vraagbericht in
+goede orde ontvangen heeft.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Berichttype:</strong> AnnotatieToevoegenResponse</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Elementen/attributen</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AnnotatieToevoegenResponse</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AnnotatieToevoegenResponse . Tijdstempel</td>
+<td><em>Tijd waarop antwoord verstuurd is.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>AnnotatieToevoegenResponse . AnnotatieVerwijzing</td>
+<td><em>UUID van de toegevoegde annotatie waar het antwoord betrekking op heeft.</em></td>
+<td>[1..1]</td>
+</tr>
+</tbody></table>
+</section></section></section><section id="status-bevragen"><div class="header-wrapper"><h3 id="x4-3-status-bevragen"><bdi class="secno">4.3 </bdi>Status bevragen</h3><a class="self-link" href="#status-bevragen" aria-label="Permalink for Section 4.3"></a></div>
+<p>Deze interactie wordt gebruikt door de afnemer om meer informatie te
+verkrijgen over de door zijn organisatie gedane terugmeldingen en de
+huidige status van deze terugmeldingen.</p>
+<section id="algemeen-0"><div class="header-wrapper"><h4 id="x4-3-1-algemeen"><bdi class="secno">4.3.1 </bdi>Algemeen</h4><a class="self-link" href="#algemeen-0" aria-label="Permalink for Section 4.3.1"></a></div>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Doel</td>
+<td align="left">Het opvragen van de status van terugmeldingen van een terugmeldende organisatie.</td>
+</tr>
+<tr>
+<td align="left">Voorwaarde</td>
+<td align="left">De organisatie heeft terugmeldingen gedaan.</td>
+</tr>
+<tr>
+<td align="left">Trigger</td>
+<td align="left">Een gebruiker wil de status van terugmeldingen van zijn organisatie weten.</td>
+</tr>
+<tr>
+<td align="left">Direct gevolg</td>
+<td align="left">De gebruiker is geïnformeerd over de status en eventueel extra detailinformatie van de terugmeldingen die hem interesseren.</td>
+</tr>
+<tr>
+<td align="left">Vervolgactie</td>
+<td align="left">De gebruiker kan terugmeldingen van zijn organisatie intrekken op basis van de informatie verstrekt in het status overzicht.</td>
+</tr>
+<tr>
+<td align="left">Bijzonderheden</td>
+<td align="left">-</td>
+</tr>
+</tbody></table>
+</section><section id="statusoverzichtrequest"><div class="header-wrapper"><h4 id="x4-3-2-statusoverzichtrequest"><bdi class="secno">4.3.2 </bdi>StatusoverzichtRequest</h4><a class="self-link" href="#statusoverzichtrequest" aria-label="Permalink for Section 4.3.2"></a></div>
+<p>Het bericht StatusoverzichtRequest wordt gebruikt in de communicatie
+tussen Afnemer en LV/Basisregistratie alsook tussen LV/Basisregistratie
+en Bronhouder om een statusoverzicht op te vragen.</p>
+<p>Ter illustratie onderstaand de interactie tussen Afnemer en
+Basisregistratie.</p>
+<p>
+      </p><figure id="fig-interactiediagram-status-opvragen-via-de-digimelding-webservice">
+        <img src="media/image6.png" alt="Interactiediagram status opvragen via de Digimelding Webservice">
+        <figcaption><a class="self-link" href="#fig-interactiediagram-status-opvragen-via-de-digimelding-webservice">Figuur <bdi class="figno">6</bdi></a> <span class="fig-title">Interactiediagram status opvragen via de Digimelding Webservice</span></figcaption>
+      </figure>
+    <p></p>
+<p>
+      </p><figure id="fig-interactiediagram-status-opvragen-rechtstreeks">
+        <img src="media/image7.png" alt="Interactiediagram status opvragen rechtstreeks">
+        <figcaption><a class="self-link" href="#fig-interactiediagram-status-opvragen-rechtstreeks">Figuur <bdi class="figno">7</bdi></a> <span class="fig-title">Interactiediagram status opvragen rechtstreeks</span></figcaption>
+      </figure>
+    <p></p>
+<p>Het statusoverzicht wordt opgevraagd op basis van de verplichte
+elementen OIN en basisregistratie. Het OIN is verplicht omdat alle
+aangesloten basisregistraties alleen van plan zijn terugmeldingen van de
+afnemer zelf terug te geven. Basisregistratie is verplicht, omdat dit
+het doorgeven van functionele fouten door de Digimelding Webservice
+vergemakkelijkt. Dit is een beperkte voorziening, het samenvoegen van
+overzichtsberichten zou de complexiteit verhogen en vooral op een goede
+wijze functionele fouten over meerdere basisregistraties heen geven,
+levert teveel complexiteit op. In het geval dat het opgeven van één
+basisregistratie verplicht is routeert de Digimelding Webservice
+slechts. Naast deze verplichte elementen is er een aantal optionele
+elementen waarmee de resultaten gefilterd kunnen worden. Een lijst met
+kenmerken van de organisatie zelf kan worden meegegeven. Dit is handig
+wanneer de afnemer een eigen registratiesysteem heeft. Daarnaast kan
+gefilterd worden op de datum van indienen en de datum van laatste
+wijziging. Tot slot kan er gefilterd worden op de status van
+terugmeldingen. Dit is enigszins bewerkelijk aangezien iedere
+basisregistratie zijn eigen statussen mag definiëren. In de
+berichtenschema's is daarom slechts vastgelegd dat dit een string is.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Berichttype</strong>: StatusoverzichtRequest</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Elementen/attributen</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OinVragendeOrganisatie</td>
+<td><em>OIN van de vragende organisatie.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>OinBasisregistratie</td>
+<td>*Het OIN van de houder van een landelijke voorziening van de basisregistratie</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Registratie</td>
+<td>Code (maximaal 3 letterig) waarmee de basisregistratie wordt aangeduid wanneer de houder van een landelijke voorziening meer dan 1 basisregistratie beheert (bv BRT, BGT).</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td><strong>Filter</strong></td>
+<td></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Filter.MeldingskenmerkenLijst</td>
+<td><em>(Lijst met)Eigen kenmerk(en) terugmeldende organisatie.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Filter.MeldingskenmerkenLijst.MeldinggkenmerkLijstElement</td>
+<td></td>
+<td>[1..*]</td>
+</tr>
+<tr>
+<td>Filter.VanafTijdstempelIndienen</td>
+<td><em>Filtert resultaten die zijn ingediend voor dit tijdstempel weg. Resultaten op de tijdstempel of daarna worden getoond.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Filter.TotEnMetTijdstempelIndienen</td>
+<td><em>Filtert resultaten die zijn ingediend na dit tijdstempel weg. Resultaten op de tijdstempel of daarvoor worden getoond.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Filter.VanafTijdstempelWijziging</td>
+<td><em>Filtert resultaten die zijn gewijzigd voor dit tijdstempel weg. Resultaten op de tijdstempel of daarna worden getoond<sup>4</sup>.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Filter.TotEnMetTijdstempelWijziging</td>
+<td><em>Filtert resultaten die zijn gewijzigd na dit tijdstempel weg. Resultaten op de tijdstempel of daarvoor worden getoond<sup>4</sup>.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Filter.StatusTerugmelding</td>
+<td><em>String met daarin een status behorende bij de basisregistratie waarvan het overzicht gevraagd wordt.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Filter.Objectidentificatie</td>
+<td><em>String met daarin een objectidentificatie behorende bij de basisregistratie waarvan het overzicht gevraagd wordt. Hiermee kunnen terugmeldingen ook op basis van KvK-nummer, BSN-nummer, BAG-id, etc teruggevonden worden.</em></td>
+<td>[0..1]</td>
+</tr>
+</tbody></table>
+<div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>Noot</span></div><p class="">
+<sup>4</sup> *Het resultaat* betreft terugmeldingen (annotatiebomen) waarvoor
+geldt dat **de laatste annotatie** is toegevoegd tussen
+VanafTijdstempelWijziging en TotEnMetTijdstempelWijziging
+</p></div></section><section id="statusoverzichtresponse"><div class="header-wrapper"><h4 id="x4-3-3-statusoverzichtresponse"><bdi class="secno">4.3.3 </bdi>StatusoverzichtResponse</h4><a class="self-link" href="#statusoverzichtresponse" aria-label="Permalink for Section 4.3.3"></a></div>
+<p>Het statusoverzicht geeft een lijst met annotaties terug. Dit zijn in
+dit geval altijd 'root' annotaties waar een annotatieboom aan hangt. Dit
+is noodzakelijk omdat een aantal van de kenmerken die in de
+annotatielijst verplicht worden meegegeven afkomstig zijn uit leaf
+annotaties van een annotatieboom.</p>
+<p>Wanneer het antwoord op een statusoverzichtbevraging niets oplevert
+wordt een lege lijst meegegeven. In lijn met het 'gemeenschappelijke
+afspraken berichtstandaarden'-voorstel voor 'geen waarde' wordt hierbij
+als reden meegegeven 'geenWaarde'. Een regulier antwoordbericht is in
+deze foutsituaties op zijn plaats omdat dit geen kritieke fouten zijn en
+het aan de afnemer is om te bepalen of hier actie op moet worden
+ondernomen.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Berichttype</strong>: StatusoverzichtResponse</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Elementen/attributen</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>AnnotatieLijst</strong></td>
+<td></td>
+<td>[1..*]</td>
+</tr>
+<tr>
+<td>Annotatie</td>
+<td></td>
+<td>[0..*]</td>
+</tr>
+<tr>
+<td>Annotatie . Tijdstempel</td>
+<td><em>Datum/tijd waarop de annotatie heeft plaatsgevonden</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Annotatie . Uuid</td>
+<td><em>Unieke verwijzing naar de root annotatie van een annotatieboom.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Annotatie . Meldingskenmerk</td>
+<td><em>Eigen kenmerk terugmeldende organisatie.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Annotatie . Bronverwijzing</td>
+<td></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Annotatie . Bronverwijzing . Uri</td>
+<td><em>Een combinatie van OIN en de unieke sleutel van het brongegeven zodat een unieke referentie ontstaat naar het brongegeven (bijv. OIN en HRN).</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Annotatie . Bronverwijzing . Selectie</td>
+<td><em>Object waarop is teruggemeld.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Annotatie . Annotatiestatus</td>
+<td><em>Laatste status annotatie van de terugmelding.</em></td>
+<td>[1..1]</td>
+</tr>
+</tbody></table>
+</section><section id="detailsterugmeldingrequest"><div class="header-wrapper"><h4 id="x4-3-4-detailsterugmeldingrequest"><bdi class="secno">4.3.4 </bdi>DetailsTerugmeldingRequest</h4><a class="self-link" href="#detailsterugmeldingrequest" aria-label="Permalink for Section 4.3.4"></a></div>
+<p>Het bericht DetailsTerugmeldingRequest wordt gebruikt in de communicatie
+tussen Afnemer en LV/Basisregistratie alsook tussen LV/Basisregistratie
+en Bronhouder om details van een bepaalde terugmelding op te vragen.</p>
+<p>Ter illustratie onderstaand de interactie tussen Afnemer en
+Basisregistratie.</p>
+<p>
+      </p><figure id="fig-interactiediagram-details-terugmelding-bevragen-via-digimelding-webservice">
+        <img src="media/image8.png" alt="Interactiediagram details terugmelding bevragen via Digimelding Webservice">
+        <figcaption><a class="self-link" href="#fig-interactiediagram-details-terugmelding-bevragen-via-digimelding-webservice">Figuur <bdi class="figno">8</bdi></a> <span class="fig-title">Interactiediagram details terugmelding bevragen via Digimelding Webservice</span></figcaption>
+      </figure>
+    <p></p>
+<p>
+      </p><figure id="fig-interactiediagram-detail-terugmelding-bevragen-rechtstreeks">
+        <img src="media/image9.png" alt="Interactiediagram detail terugmelding bevragen rechtstreeks">
+        <figcaption><a class="self-link" href="#fig-interactiediagram-detail-terugmelding-bevragen-rechtstreeks">Figuur <bdi class="figno">9</bdi></a> <span class="fig-title">Interactiediagram detail terugmelding bevragen rechtstreeks</span></figcaption>
+      </figure>
+    <p></p>
+<p>Het doel van dit bericht is het opvragen van alle informatie over één
+terugmelding bij een basisregistratie. Hiervoor wordt het OIN van de
+afnemer meegegeven en de basisregistratie waar de detailopvraging wordt
+gedaan, tot slot wordt de UUID van de annotatie meegegeven. In de
+huidige praktijk gaat het altijd om een UUID van een root annotatie.
+Volgens het protocol kan ook een individuele leaf annotatie of een
+deelboom worden opgevraagd. Dit is nu in theorie mogelijk maar wordt in
+de praktijk niet toegepast en is niet getest.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Berichttype</strong>: DetailsTerugmeldingRequest</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Elementen/attributen</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OinVragendeOrganisatie</td>
+<td><em>Identificatie d.m.v. OIN-vragende organisatie.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>OinBasisregistratie</td>
+<td>Het OIN van de houder van een landelijke voorziening van de basisregistratie</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Registratie</td>
+<td>Code (maximaal 3 letterig) waarmee de basisregistratie wordt aangeduid wanneer de houder van een landelijke voorziening meer dan 1 basisregistratie beheert (bv BRT, BGT).</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Uuid</td>
+<td><em>UUID van root annotatie.</em></td>
+<td>[1..1]</td>
+</tr>
+</tbody></table>
+</section><section id="detailsterugmeldingresponse"><div class="header-wrapper"><h4 id="x4-3-5-detailsterugmeldingresponse"><bdi class="secno">4.3.5 </bdi>DetailsTerugmeldingResponse</h4><a class="self-link" href="#detailsterugmeldingresponse" aria-label="Permalink for Section 4.3.5"></a></div>
+<p>Op basis van een UUID geeft een basisregistratie de annotatie met
+daaraan hangende leafs terug als antwoord. Op dit moment is dat altijd
+een toevoeging of wijziging (terugmelding) als root annotatie met
+daaraan altijd tenminste één van elk van de volgende leafs: contact,
+meldingskenmerk en/of status. Daarnaast worden optioneel één of meerdere
+leafs van het type: Bijlageverwijzing en Planningsverwachting
+meegegeven.</p>
+<p>Een basisregistratie moet het opvragen van root annotaties met eraan
+hangende boom ondersteunen, daarnaast mag een basisregistratie
+annotatie(bomen) teruggeven van niet root annotaties, dit is echter nu
+nog niet gerealiseerd of getest. Aangezien het statusoverzicht alleen
+root annotaties oplevert zal het opvragen van andere soorten annotaties
+in de praktijk ook niet snel voorkomen.</p>
+<p>Doordat de annotatiebasis in iedere annotatie zit wordt de annotatieboom
+een behoorlijk lijvige constructie. In de onderstaande berichten wordt
+deze daarom tot één regel afgekort. Zie paragraaf 4.1 voor een
+uitgebreide toelichting van wat er in de annotatiebasis staat. Elke
+annotatie kent een eigen instantie, zoals ook bij
+'AnnotatieToevoegenRequest' en elke annotatie kan slechts één van de
+volgende soorten annotaties bevatten: Terugmelding, Annotatiestatus,
+Referentiekenmerk, Contactinformatie, Bijlageverwijzing,
+Planningsverwachting en BehandelendeBronhouder.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Berichttype</strong>: DetailsTerugmeldingResponse</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Elementen/attributen</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>AnnotatieBoom</strong></td>
+<td><em>De container die de verzameling annotaties bevat die ofwel het gevraagde UUID als kenmerk hebben of daar middels een annotatieverwijzing naar verwijzen.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td><strong>Annotatie.Terugmelding</strong></td>
+<td><em>De terugmelding (de annotatie die uiteindelijk de root annotatie zal worden)</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Terugmelding.<strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Terugmelding.Bronverwijzingen</td>
+<td><em>Bronverwijzingen bestaande uit één of meerdere bronverwijzing(en)</em><br><em>Lijst van verwijzingen met basisregistratie elementen waarop wordt teruggemeld.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Bronverwijzingen.Bronverwijzing</td>
+<td><em>Bestaande uit een URI en een selectieverwijzing naar het basisregistratie element waarop wordt teruggemeld. Dit mogen er meerdere zijn, maar in de huidige praktijk is dit er altijd precies één.</em></td>
+<td>[1..*]</td>
+</tr>
+<tr>
+<td>Bronverwijzing.Uri</td>
+<td><em>De URI die de combinatie van basisregistratie en sleutel (bijvoorbeeld BSN of HRN) uniek identificeert.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Bronverwijzing.Selectie</td>
+<td><em>Selectie van een element binnen de structuur die door de URI uniek geïdentificeerd wordt (bijvoorbeeld onderneming).</em></td>
+<td>[0..*]</td>
+</tr>
+<tr>
+<td>Terugmelding.Attributenset</td>
+<td><em>De set van attributen die daadwerkelijk gewijzigd dienen te worden.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Attributenset.Attribuut</td>
+<td><em>Eén of meerdere attributen die gewijzigd dienen te worden.</em></td>
+<td>[1..*]</td>
+</tr>
+<tr>
+<td>Attribuut.Uri</td>
+<td>De unieke aanduiding van het attribuut</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Attribuut.BetwijfeldeWaarde</td>
+<td><em>De bestaande waarde in de basisregistratie.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Attribuut.VoorgesteldeWaarde</td>
+<td><em>De voorgestelde nieuwe waarde.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Terugmelding.Peilmoment</td>
+<td><em>De datum waarop de betwijfelde waarde geldig is en de voorgestelde waarde geldig zou moeten zijn.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie.Annotatiestatus</strong></td>
+<td><em>Status van de terugmelding, de status met de meest recente datum GeannoteerdOp is de geldige status.</em></td>
+<td>[1..*]</td>
+</tr>
+<tr>
+<td>Annotatiestatus.<strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Annotatiestatus.Status</td>
+<td>*Zie bijlage B voor lijst met geadviseerde statussen voor aangesloten basisregistraties. Het is toegestaan om in de eigen catalogus afwijkende statussen op te  nemen)</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie . Referentiekenmerk</strong></td>
+<td><em>Eigen kenmerk terugmeldende organisatie (het mogen er meer zijn, in de huidige praktijk altijd precies één).</em></td>
+<td>[1 *]</td>
+</tr>
+<tr>
+<td><strong>Referentiekenmerk.Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Referentiekenmerk.Kenmerk</td>
+<td><em>Eigen kenmerk terugmeldende organisatie.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie.Contactinformatie</strong></td>
+<td><em>Contactgegevens.</em></td>
+<td>[1 *]</td>
+</tr>
+<tr>
+<td>Contactinformatie.@ContactType</td>
+<td><em>kan alleen de waarden 'Melder' of 'Behandelaar' hebben</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td><strong>Contactinformatie.Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Contactinformatie.Naam</td>
+<td></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Contactinformatie.Telefoon</td>
+<td></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Contactinformatie.Email</td>
+<td></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Contactinformatie.Afdeling</td>
+<td></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie . Bijlageverwijzing</strong></td>
+<td><em>Metainformatie over bijlagen.</em><br><em>Wordt in de praktijk niet ondersteund door BRP, HR ondersteunt er maximaal 5.</em></td>
+<td>[0..*]</td>
+</tr>
+<tr>
+<td>Bijlageverwijzing . <strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Bijlageverwijzing . Bestandsnaam</td>
+<td><em>De naam van het bestand.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Bijlageverwijzing . MIMEType</td>
+<td><em>Het MIME type van de bijlage.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Bijlageverwijzing . BijlageData</td>
+<td>*Het bestand zelf in Base64-binary encoding.<sup>5</sup></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>Bijlageverwijzing . Beschrijving</td>
+<td>*Beschrijving van de bijlage. De bijlage zelf wordt nooit mee teruggeleverd bij het bevragen van een terugmelding/annotatie.</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie . Planningsverwachting</strong></td>
+<td><em>Verwachte termijn voor behandeling, wordt alleen gebruikt door BRP en komt dan slechts eenmaal voor.</em></td>
+<td>[0..*]</td>
+</tr>
+<tr>
+<td>Planningsverwachting . <strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Planningsverwachting . MijlpaalAanduiding</td>
+<td><em>Beschrijving van de planningsverwachting.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>Planningsverwachting . MijlpaalTijdstempel</td>
+<td><em>Datum waarop de planning gereed is.</em></td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Annotatie . BehandelendeBronhouder</strong></td>
+<td><em>Behandelende bronhouder, huidige behandelaar is leaf annotatie met meest recente tijdstempel.</em></td>
+<td>[0 *]</td>
+</tr>
+<tr>
+<td>BehandelendeBronhouder . <strong>Annotatiebasis</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BehandelendeBronhouder . Bronhouder</td>
+<td><em>De bronhouder die de terugmelding momenteel in behandeling heeft.</em></td>
+<td>[1..1]</td>
+</tr>
+</tbody></table>
+<div class="note" role="note" id="issue-container-generatedID-3"><div role="heading" class="note-title marker" id="h-note-3" aria-level="5"><span>Noot</span></div><p class="">
+<sup>5</sup> Dit veld wordt bij een bericht 'DetailsTerugmeldingResponse' leeg gelaten
+</p></div></section></section><section id="echo"><div class="header-wrapper"><h3 id="x4-4-echo"><bdi class="secno">4.4 </bdi>Echo</h3><a class="self-link" href="#echo" aria-label="Permalink for Section 4.4"></a></div>
+<p>De berichten beschreven in deze uitwisseling kunnen worden gebruikt om
+te controleren of de berichtverwerking in zijn algemeenheid beschikbaar
+is.</p>
+<section id="algemeen-1"><div class="header-wrapper"><h4 id="x4-4-1-algemeen"><bdi class="secno">4.4.1 </bdi>Algemeen</h4><a class="self-link" href="#algemeen-1" aria-label="Permalink for Section 4.4.1"></a></div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Doel</td>
+<td>Het ontvangen van een antwoordbericht waaruit blijkt dat de berichtverwerking conform specificaties werkt.</td>
+</tr>
+<tr>
+<td>Voorwaarde</td>
+<td>Geen.</td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Behoefte om te controleren of berichtverwerking naar behoren functioneert.</td>
+</tr>
+<tr>
+<td>Direct gevolg</td>
+<td>Terugsturen van een echobericht.</td>
+</tr>
+<tr>
+<td>Vervolgactie</td>
+<td>Indien de echo faalt onderzoeken waardoor dit wordt veroorzaakt.</td>
+</tr>
+<tr>
+<td>Bijzonderheden</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>
+      </p><figure id="fig-interactiediagram-voor-echo-s">
+        <img src="media/image10.png" alt=" Interactiediagram voor echo's">
+        <figcaption><a class="self-link" href="#fig-interactiediagram-voor-echo-s">Figuur <bdi class="figno">10</bdi></a> <span class="fig-title"> Interactiediagram voor echo's</span></figcaption>
+      </figure>
+    <p></p>
+<p>
+      </p><figure id="fig-interactiediagram-echoverzoek-via-digimelding-webservice">
+        <img src="media/image11.png" alt="Interactiediagram echoverzoek via Digimelding Webservice">
+        <figcaption><a class="self-link" href="#fig-interactiediagram-echoverzoek-via-digimelding-webservice">Figuur <bdi class="figno">11</bdi></a> <span class="fig-title">Interactiediagram echoverzoek via Digimelding Webservice</span></figcaption>
+      </figure>
+    <p></p>
+</section><section id="echorequest"><div class="header-wrapper"><h4 id="x4-4-2-echorequest"><bdi class="secno">4.4.2 </bdi>EchoRequest</h4><a class="self-link" href="#echorequest" aria-label="Permalink for Section 4.4.2"></a></div>
+<p>De structuur van het echoverzoek is als volgt:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Berichttype: EchoRequest</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EchoRequest.OinBasisregistratie</td>
+<td><em>Het OIN van de basisregistratie waar het echoverzoek naar toe moet</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>EchoRequest.OinBasisregistratie</td>
+<td>Het OIN van de houder van een landelijke voorziening van de basisregistratie</td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>EchoRequest.Registratie</td>
+<td>Code (maximaal 3 letterig) waarmee de basisregistratie wordt aangeduid wanneer de houder van een landelijke voorziening meer dan 1 basisregistratie beheert (bv BRT, BGT).</td>
+<td>[0..1]</td>
+</tr>
+<tr>
+<td>EchoRequest.Echo</td>
+<td>De string die geëchood moet worden</td>
+<td>[1..1]</td>
+</tr>
+</tbody></table>
+</section><section id="echoresponse"><div class="header-wrapper"><h4 id="x4-4-3-echoresponse"><bdi class="secno">4.4.3 </bdi>EchoResponse</h4><a class="self-link" href="#echoresponse" aria-label="Permalink for Section 4.4.3"></a></div>
+<p>De structuur van het echo-antwoord is als volgt:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Berichttype: EchoResponse</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EchoResponse.Echo</td>
+<td>De teruggestuurde echo string</td>
+<td>[1..1]</td>
+</tr>
+</tbody></table>
+</section></section></section>
+  <section id="foutberichten"><div class="header-wrapper"><h2 id="x5-foutberichten"><bdi class="secno">5. </bdi>Foutberichten</h2><a class="self-link" href="#foutberichten" aria-label="Permalink for Section 5."></a></div>
+<table>
+<thead>
+<tr>
+<th>Begrip</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Doel</td>
+<td>Aangeven dat er een fout is opgetreden.</td>
+</tr>
+<tr>
+<td>Voorwaarde</td>
+<td>Een foutbericht is altijd een reactie op een reeds verzonden bericht, dus één van de vraagberichten uit de voorgaande secties (AnnotatieToevoegenRequest, StatusoverzichtRequest, DetailsTerugmeldingRequest).</td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Het verzonden vraagbericht leidt tot een fout in de verwerking ervan.</td>
+</tr>
+<tr>
+<td>Direct gevolg</td>
+<td>Een foutbericht wordt verstuurd.</td>
+</tr>
+<tr>
+<td>Vervolgactie</td>
+<td>De ontvanger van het foutbericht dient de fout af te handelen.</td>
+</tr>
+<tr>
+<td>Bijzonderheden</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Een aantal foutsituaties is voorstelbaar. Er kan een probleem zijn met
+autorisatie, met de syntax van de gegevens of er kan een fout optreden
+in het systeem dat de annotatie moet verwerken.</p>
+<section id="autorisatiefouten"><div class="header-wrapper"><h3 id="x5-1-autorisatiefouten"><bdi class="secno">5.1 </bdi>Autorisatiefouten</h3><a class="self-link" href="#autorisatiefouten" aria-label="Permalink for Section 5.1"></a></div>
+<p>Wanneer een systeem van de afnemer op transportniveau of
+applicatieniveau niet geautoriseerd is bij het leverende systeem dan
+krijgt deze een Digikoppeling-foutmelding 'niet geautoriseerd' terug.</p>
+<p>Optioneel kan de basisregistratie in de SOAP Fault-detail meer
+informatie verstrekken.<br>Indien een basisregistratie een eigen specifiekere foutcode heeft dan
+mag deze ook verzonden worden in plaats van de Digikoppeling-melding.</p>
+</section><section id="verwerkingsfouten"><div class="header-wrapper"><h3 id="x5-2-verwerkingsfouten"><bdi class="secno">5.2 </bdi>Verwerkingsfouten</h3><a class="self-link" href="#verwerkingsfouten" aria-label="Permalink for Section 5.2"></a></div>
+<p>In het geval dat een verwerkingsfout er toe leidt dat een antwoord
+volledig uitblijft, bijvoorbeeld door het offline zijn van het
+verwerkende systeem, dan zal de Digikoppeling-adapter van de afnemer een
+time-out geven.</p>
+<p>Indien het bevraagde systeem het bericht niet kan verwerken door een
+systeemfout maar nog wel kan antwoorden, dan krijgt de afnemer een SOAP
+Fault-bericht terug met de Digikoppeling-fout DK0051 (time-out),
+optioneel kan de basisregistratie in de SOAP Fault-detail meer
+informatie verstrekken. Wanneer het bericht niet verwerkt kan worden
+vanwege een probleem met de inhoud van het bericht, anders dan de
+syntax, dan wordt een DK0050-bericht ('kan bericht niet verwerken')
+verstuurd. Indien een basisregistratie een eigen specifieke foutcode
+heeft dan mag deze in plaats van de Digikoppeling-foutmelding verstuurd
+worden.</p>
+</section><section id="syntaxfouten"><div class="header-wrapper"><h3 id="x5-3-syntaxfouten"><bdi class="secno">5.3 </bdi>Syntaxfouten</h3><a class="self-link" href="#syntaxfouten" aria-label="Permalink for Section 5.3"></a></div>
+<p>Indien er een syntaxfout zit in de Digikoppeling-headers, dan volgt
+hierop een SOAP Fault met de juiste foutcode volgens de
+Digikoppelingstandaard (er bestaan specifieke foutcodes voor fouten in
+headervelden).</p>
+<p>Indien de inhoud van het vraagbericht niet voldoet aan de syntax van het
+vraagbericht-XSD of een andere XSD die over de inhoud van het bericht
+gaat dan wordt een SOAP Fault verstuurd; deze heeft als code DK0004
+('element niet conform XSD'). In de SOAP Fault-detail wordt door de
+basisregistratie aangegeven tegen welke XSD het bericht niet valideerde.
+Optioneel is de basisregistratie vrij om nog meer informatie mee te
+geven in de toelichting. Indien een basisregistratie een eigen
+specifieke foutcode heeft dan mag deze in plaats van de
+Digikoppeling-foutcode verstuurd worden.</p>
+<p>Synchrone fouten voor Digikoppeling-WUS-berichten worden verstuurd als
+SOAP Fault zoals dit is voorgesteld voor de berichtenstandaard van het
+stelsel.<sup>6</sup> SOAP Faults worden doorgaans door de Digikoppeling-adapter
+doorgestuurd naar de achterliggende applicatie. Dit koppelvlak gaat er
+vanuit dat dit ook gebeurt voor de fouten die hier beschreven worden. De
+foutafhandeling dient in de terugmeldapplicatie plaats te vinden. Binnen
+de SOAP Fault wordt een aantal velden onderkend te weten:</p>
+<div class="note" role="note" id="issue-container-generatedID-4"><div role="heading" class="note-title marker" id="h-note-4" aria-level="4"><span>Noot</span></div><p class="">
+<sup>6</sup> Zie voorstel ["foutafhandeling synchrone berichten" van de "gemeenschappelijke afspraken berichtstandaarden"](https://digistandaarden.pleio.nl/groups/profile/24027452/gemeenschappelijke-afspraken-berichtstandaarden-gab)
+</p></div><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Berichttype</strong>: DigimeldingSynchroonFault</td>
+<td><em>Synchrone foutafhandeling gaat middels een SOAP Fault</em></td>
+<td></td>
+</tr>
+<tr>
+<td>faultcode</td>
+<td><em>De plek waar de fout is opgetreden, één string opgebouwd uit de elementen &lt;Defaultwaarde&gt;.&lt;Code&gt;.&lt;OmschrijvingKort&gt; :</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td></td>
+<td>Defaultwaarde: <em>Bevat één van de defaultwaarden VersionMismatch, MustUnderstand, Client en Server.</em><sup>7</sup> <em>Voor Digimeldingpraktijk zijn alleen Client- of Server-waarden relevant om aan te geven wat de aard van de fout is.</em></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Code: <em>De specifieke foutcode die hoort bij de technische fout (format: &lt;afkortingbron&gt;&lt;codering van fout&gt;.</em></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>OmschrijvingKort: De korte omschrijving van de fout (bijvoorbeeld: de Digikoppeling omschrijving uit de lijst met foutmeldingen.* <em>Zie onderstaand voorbeeld.</em></td>
+<td></td>
+</tr>
+<tr>
+<td>faultstring</td>
+<td><em>De eigen meer gedetailleerde beschrijving van de foutsituatie.</em><br><em>De eigen beschrijving zoveel mogelijk geschikt maken voor het kunnen presenteren aan gebruiker.</em><br><em>De ontvanger is niet verplicht deze tekst over te nemen.</em></td>
+<td>[1..1]</td>
+</tr>
+<tr>
+<td>faultactor</td>
+<td><em>Bevat een URI van de antwoordende service.</em><br><em>Vul de faultactor in met de URI van de bron van de oorzaak, indien het SOAP-bericht langs een tussenstation gaat. Bijvoorbeeld Digimelding Webservice.</em></td>
+<td>[0..*]</td>
+</tr>
+<tr>
+<td>faultdetail</td>
+<td><em>Volledig vrij veld om nadere toelichting op de fout te geven, kan gebruikt worden om bijv. achterliggende applicatiefoutmeldingen mee te geven (xs:any).</em></td>
+<td>[0..*]</td>
+</tr>
+</tbody></table>
+<div class="note" role="note" id="issue-container-generatedID-5"><div role="heading" class="note-title marker" id="h-note-5" aria-level="4"><span>Noot</span></div><p class="">
+<sup>7</sup> Zie <http: www.w3.org="" tr="" 2000="" note-soap-20000508=""> sectie 4.4.1 voor uitleg
+</http:></p></div><p>Voorbeeld:</p>
+<aside class="example" id="example-foutcode"><div class="marker">
+    <a class="self-link" href="#example-foutcode">Voorbeeld<bdi> 1</bdi></a><span class="example-title">: Foutcode</span>
+  </div><pre aria-busy="false"><code class="hljs">
+\
+  \*soap:Server*\
+  \*Fout*\
+  \
+    **\"\&gt;
+    \*001*\
+    \*Foutmelding*\
+    \*Actor*\
+    \
+    **\**
+  \
+\
+</code></pre></aside></section><section id="generieke-foutcodes-van-toepassing-op-digimelding"><div class="header-wrapper"><h3 id="x5-4-generieke-foutcodes-van-toepassing-op-digimelding"><bdi class="secno">5.4 </bdi>Generieke foutcodes van toepassing op Digimelding</h3><a class="self-link" href="#generieke-foutcodes-van-toepassing-op-digimelding" aria-label="Permalink for Section 5.4"></a></div>
+<p>Voor fouten op protocolniveau dienen de fouten van Digikoppeling gevolgd
+te worden. Voor generieke fouten in Digimelding zijn de volgende
+Digikoppeling-foutcodes van toepassing:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Nr</strong></th>
+<th><strong>Omschrijving</strong></th>
+<th><strong>Toelichting</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DK0002</td>
+<td>Requester systeem niet geautoriseerd</td>
+<td>Indien je voor een basisregistratie niet geautoriseerd bent, ontvang je geen inhoudelijke informatie van die basisregistratie. Het autorisatiemodel wordt door de basisregistratie bepaald. In de foutmelding wordt de betreffende basisregistratie, waarvoor geen autorisatie bestaat, teruggegeven.</td>
+</tr>
+<tr>
+<td>DK0004</td>
+<td>Element niet conform XSD</td>
+<td>Bij een validatiefout wordt meegegeven in het SOAP Faultdetail aan welke XSD niet voldaan wordt.</td>
+</tr>
+<tr>
+<td>DK0050</td>
+<td>Proces voor afhandelen bericht geeft fout</td>
+<td>Wanneer een bericht zich niet houdt aan afspraken die gemaakt zijn rondom de vulling van de payload welke basisregistratiespecifiek zijn, bijvoorbeeld: Status is volgens de XSD een vrij tekstveld, iedere basisregistratie is vrij deze te kiezen. De basisregistratie kan teruggeven dat een status bij hen niet bekend is.</td>
+</tr>
+<tr>
+<td>DK0051</td>
+<td>Antwoordend systeem geeft time-out</td>
+<td>Indien de achterliggende applicatie niet draait of een fout produceert dan kan het geen antwoord geven terwijl een geldig antwoord wel mogelijk zou moeten zijn en de messaging stack(Digikoppeling) nog wel in de lucht is.</td>
+</tr>
+</tbody></table>
+</section></section>
+  <section id="bijlagen"><div class="header-wrapper"><h2 id="x6-bijlagen"><bdi class="secno">6. </bdi>bijlagen</h2><a class="self-link" href="#bijlagen" aria-label="Permalink for Section 6."></a></div>
+<section id="bijlage-a-afkortingen-begrippen-en-symbolen"><div class="header-wrapper"><h3 id="x6-1-bijlage-a-afkortingen-begrippen-en-symbolen"><bdi class="secno">6.1 </bdi>Bijlage A: Afkortingen, begrippen en symbolen</h3><a class="self-link" href="#bijlage-a-afkortingen-begrippen-en-symbolen" aria-label="Permalink for Section 6.1"></a></div>
+<table>
+<thead>
+<tr>
+<th><strong>Afkorting</strong></th>
+<th><strong>Omschrijving</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BAG</td>
+<td>Basisregistratie Adressen en Gebouwen</td>
+</tr>
+<tr>
+<td>BRP</td>
+<td>Basisregistratie Personen</td>
+</tr>
+<tr>
+<td>GEMMA</td>
+<td>Gemeentelijke modelarchitectuur</td>
+</tr>
+<tr>
+<td>ICTU</td>
+<td>ICT Uitvoeringsorganisatie</td>
+</tr>
+<tr>
+<td>KING</td>
+<td>Kwaliteitsinstituut Nederlandse Gemeenten</td>
+</tr>
+<tr>
+<td>HR</td>
+<td>Handelsregister</td>
+</tr>
+<tr>
+<td>NUP</td>
+<td>Nationaal Uitvoeringsprogramma</td>
+</tr>
+<tr>
+<td>StUF</td>
+<td>Standaarduitwisselingsformaat</td>
+</tr>
+</tbody></table>
+</section><section id="bijlage-b-geadviseerde-statussen"><div class="header-wrapper"><h3 id="x6-2-bijlage-b-geadviseerde-statussen"><bdi class="secno">6.2 </bdi>Bijlage B : Geadviseerde Statussen</h3><a class="self-link" href="#bijlage-b-geadviseerde-statussen" aria-label="Permalink for Section 6.2"></a></div>
+<p><em>Diagram</em></p>
+<p>Op een terugmelding kunnen verschillende statussen van toepassing zijn.
+In onderstaand figuur zijn de verschillende statussen en hun relatie
+afgebeeld.</p>
+<p>
+      </p><figure id="fig-digimelding-proces">
+        <img src="media/digimelding.svg" alt="Digimelding proces">
+        <figcaption><a class="self-link" href="#fig-digimelding-proces">Figuur <bdi class="figno">12</bdi></a> <span class="fig-title">Digimelding proces</span></figcaption>
+      </figure>
+    <p></p>
+</section></section>
+ 
+
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Terug naar boven">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement | null} */
+  let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement | null} */
+        const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement | null} */
+    const caret = panel.querySelector(".caret");
+    if (caret) caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement | null} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><div class="sidelabel">Logius Handreiking - Vastgestelde versie</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
