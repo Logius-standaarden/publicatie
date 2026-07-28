@@ -102,6 +102,9 @@ Klik op het pad om naar de pagina op logius.nl te gaan. Klik op :scroll: om de p
 ### digimelding
 
 - [digimelding/koppelvlak/](https://gitdocumentatie.logius.nl/publicatie/digimelding/koppelvlak/) [:scroll:](https://logius-standaarden.github.io/publicatie/digimelding/koppelvlak/ "Preview op GitHub Pages")
+   - [digimelding/koppelvlak/1/](https://gitdocumentatie.logius.nl/publicatie/digimelding/koppelvlak/1/) [:scroll:](https://logius-standaarden.github.io/publicatie/digimelding/koppelvlak/1/ "Preview op GitHub Pages")
+   - [digimelding/koppelvlak/1.4/](https://gitdocumentatie.logius.nl/publicatie/digimelding/koppelvlak/1.4/) [:scroll:](https://logius-standaarden.github.io/publicatie/digimelding/koppelvlak/1.4/ "Preview op GitHub Pages")
+   - [digimelding/koppelvlak/1.4.0/](https://gitdocumentatie.logius.nl/publicatie/digimelding/koppelvlak/1.4.0/) [:scroll:](https://logius-standaarden.github.io/publicatie/digimelding/koppelvlak/1.4.0/ "Preview op GitHub Pages")
 
 ### dk
 
