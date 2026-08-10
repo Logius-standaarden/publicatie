@@ -732,7 +732,7 @@ export function loadRespecWithConfiguration(localConfig) {
       if (!config.alternateFormats) {
         config.alternateFormats = [];
       }
-      const pdfName = `${config.pubDomain}-${config.shortName}-${config.publishVersion}.pdf`;
+      const pdfName = `${config.pubDomain}-${config.shortName.replace(/\//, '-'}-${config.publishVersion}.pdf`;
       const existingFormat = config.alternateFormats.find(format => format.label.toLowerCase() === 'pdf');
       if (existingFormat) {
         if (existingFormat.uri !== pdfName) {
