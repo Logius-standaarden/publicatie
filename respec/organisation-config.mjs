@@ -391,17 +391,10 @@ const organisationConfig = {
       publisher: "IETF",
       title: "JSON Web Token (JWT)"
     },
-    "NCSC 2021": {
-      date: "January 2021",
-      href: "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
+    "NCSC": {
+      href: "https://www.ncsc.nl/transport-layer-security-tls/ict-beveiligingsrichtlijnen-voor-transport-layer-security",
       publisher: "NCSC",
-      title: "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
-    },
-    "NCSC 2025": {
-      date: "June 2025",
-      href: "https://www.ncsc.nl/wat-kun-je-zelf-doen/documenten/publicaties/2025/juni/01/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2025-05",
-      publisher: "NCSC",
-      title: "Transport Layer Security (TLS) richtlijnen 2025-05"
+      title: "Transport Layer Security (TLS) richtlijnen"
     },
     "NEN3610": {
       date: "Maart 2011",
