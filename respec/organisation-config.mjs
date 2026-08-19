@@ -750,6 +750,14 @@ export function loadRespecWithConfiguration(localConfig) {
 
   respecConfig.postProcess = [
     ...(localConfig.postProcess || []),
+    (config, document, utils) => {
+      if (!document.title.toLowerCase().replaceAll('-', '').includes("nlgov")) {
+        return;
+      }
+      if (!document.title.includes("NLgov")) {
+        utils.showError(`Invalid title of standard. Any Dutch profile maintained for the Dutch government must use "NLgov" as tag, preferably at the start of the title.`);
+      }
+    },
     (config, document) => {
       if (!config.spellcheck) {
         return;
