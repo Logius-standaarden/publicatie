@@ -751,7 +751,7 @@ export function loadRespecWithConfiguration(localConfig) {
   respecConfig.postProcess = [
     ...(localConfig.postProcess || []),
     (config, document, utils) => {
-      if (!document.title.toLowerCase().replaceAll('-', '').includes("nlgov")) {
+      if (!document.title.toLowerCase().replaceAll(/\W/g, '').includes("nlgov")) {
         return;
       }
       if (!document.title.includes("NLgov")) {
