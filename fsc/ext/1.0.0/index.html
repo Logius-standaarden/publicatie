@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.8.0">
+<meta name="generator" content="ReSpec 37.2.0">
 <style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
@@ -16,6 +16,7 @@ dfn{cursor:pointer}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
 .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
 .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
 .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
 .dfn-panel a[href]:hover{border-bottom-width:1px}
 .dfn-panel ul{padding:0}
@@ -25,7 +26,7 @@ dfn{cursor:pointer}
     
     
     
-<title>FSC - External Contract Reference 1.0.0</title>
+<title>FSC - External Contract Reference</title>
     
 <link rel="shortcut icon" type="image/x-icon" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/logius.ico">
     
@@ -46,13 +47,17 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
 cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
 #issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
+#issue-summary li{list-style:none}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
 details.respec-tests-details>*{padding-right:2em}
 details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
@@ -61,7 +66,8 @@ details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-.header-wrapper{display:flex;align-items:baseline;position:relative;left:-.5em}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
 :is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
 :is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
 :is(h2,h3)+a.self-link{top:-.2em}
@@ -72,6 +78,8 @@ dd{margin-left:0}
 @media print{
 .removeOnSave{display:none}
 }
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
 <style id="respec-nlgov">
 img.license{float:left;padding-right:5px;background:0 0}
@@ -83,9 +91,36 @@ The purpose of the External Contract Reference extension is to allow delegation 
 The External Contract Reference extension contains descriptions of the Properties that can be added to the
 ServiceConnectionGrant and the ServicePublicationGrant, and how these properties can be used by the FSC components.">
 <style>
-.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+.hljs,body:has(input[name=color-scheme][value=light]:checked) .hljs,head:not(:has(meta[name=color-scheme][content~=dark]))+body .hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
 @media (prefers-color-scheme:dark){
-.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+.hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
+}
+}
+body:has(input[name=color-scheme][value=dark]:checked) .hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
 }
 .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
 .hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
@@ -112,7 +147,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
     color: white;
     white-space: nowrap;
     z-index: 1;
-    background-color: #154273;
+    background-color: #39870c;
   }
 </style>
 <script id="initialUserConfig" type="application/json">{
@@ -250,7 +285,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
         "Jasper Roes",
         "Joost Farla"
       ],
-      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/api/adr/",
       "publisher": "Logius",
       "title": "API Design Rules"
     },
@@ -274,19 +309,19 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "title": "API Designrules Extensions (Nederlandse API Strategie IIb)"
     },
     "Algemene Voorwaarden Logius": {
-      "date": "12 juni 2018",
+      "date": "12 juni, 2018",
       "href": "https://www.logius.nl/onze-organisatie/zakendoen-met-logius/voorwaarden/algemene-voorwaarden-logius",
       "publisher": "Logius",
       "title": "Algemene voorwaarden Logius"
     },
     "AuthZEN": {
-      "date": "6 September 2024 ",
+      "date": "September 6, 2024 ",
       "href": "https://openid.net/specs/authorization-api-1_0-01.html",
       "publisher": "OpenID",
       "title": "Authorization API 1.0 – draft 01"
     },
     "AVG": {
-      "date": "27 april 2016",
+      "date": "April 27, 2016",
       "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32016R0679",
       "publisher": "Verordening (EU) 2016/679 van het Europees Parlement",
       "title": "Algemene Verordening Gegevensbescherming"
@@ -313,13 +348,13 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "publisher": "CNCF Serverless Working Group",
       "title": "CloudEvents - Version 1.0.1"
     },
-    "NLGOV-CloudEvents": {
+    "NLgov.CloudEvents": {
       "authors": [
         "Werkgroep Berichtenstandaard (Project Notificatieservices)"
       ],
-      "href": "https://logius-standaarden.github.io/NL-GOV-profile-for-CloudEvents/",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/notificatieservices/cloudevents-nl/",
       "publisher": "Logius",
-      "title": "NL GOV profile for CloudEvents"
+      "title": "NLgov profile for CloudEvents"
     },
     "DK-CV": {
       "href": "https://gitlab.com/logius/digikoppeling-compliance",
@@ -437,7 +472,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "Oasis"
       ],
-      "date": "september 2002",
+      "date": "September 2002",
       "href": "http://www.ebxml.org/specs/ebcpp-2.0.pdf",
       "publisher": "Oasis",
       "title": "Collaboration-Protocol Profile and Agreement Specification Version 2.0"
@@ -456,19 +491,10 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "J. Dimitriou, V. Veduta, B. Dumitriu"
       ],
-      "date": "sept 8 2022",
+      "date": "September 8, 2022",
       "href": "https://ec.europa.eu/digital-building-blocks/wikis/display/EDELCOMMUNITY/Project+deliverables",
       "publisher": "OpenID foundation",
       "title": "(ISA2).(eDelivery).(Piloting a REST API extension of CEF eDelivery).(ISA² IPS REST API Profile).(v1.0).pdf"
-    },
-    "Expert": {
-      "authors": [
-        "@@@"
-      ],
-      "date": "@@@",
-      "href": "https://www.forumstandaardisatie.nl/sites/bfs/files/@@@.pdf",
-      "publisher": "Forum Standaardisatie",
-      "title": "Expertadvies CloudEvents 1.0"
     },
     "folmer2011": {
       "href": "https://research.utwente.nl/en/publications/management-and-development-model-for-open-standards-bomos-version",
@@ -492,7 +518,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "publisher": "Universiteit Twente"
     },
     "DK-Gebruiksvoorwaarden": {
-      "date": "1 januari 2021",
+      "date": "Januari 1, 2021",
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/gebruiksvoorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Gebruiksvoorwaarden Digikoppeling"
@@ -507,7 +533,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "title": "API Design Rules Module: Geospatial"
     },
     "HTTPS-factsheet NCSC": {
-      "date": "Nov 2014",
+      "date": "November 2014",
       "href": "https://www.ncsc.nl/documenten/factsheets/2019/juni/01/factsheet-https-kan-een-stuk-veiliger",
       "publisher": "NCSC",
       "title": "Factsheet HTTPS kan een stuk veiliger"
@@ -516,18 +542,19 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "M. Varley, P. Grassi"
       ],
-      "date": "October 5 2018",
+      "date": "October 5, 2018",
       "href": "https://openid.net/specs/openid-igov-openid-connect-1_0.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OpenID Connect 1.0 - draft 3"
     },
-    "NLGOV.OpenID": {
+    "NLgov.OpenID": {
       "authors": [
         "Remco Schaar, Frank van Es, Joris Joosten, Jan Geert Koops"
       ],
+      "date": "September 18, 2023",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/oidc/",
       "publisher": "Logius",
-      "title": "OpenID NLGov"
+      "title": "NLgov Assurance profile for OpenID Connect 1.0"
     },
     "Introspection": {
       "authors": [
@@ -542,7 +569,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "M. Jones"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7518",
       "publisher": "IETF",
       "title": "JSON Web Algorithms (JWA)"
@@ -551,7 +578,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "M. Jones, J. Hildebrand"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7516",
       "publisher": "IETF",
       "title": "JSON Web Encryption (JWE)"
@@ -560,7 +587,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "M. Jones"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7517",
       "publisher": "IETF",
       "title": "JSON Web Key (JWK))"
@@ -569,7 +596,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7515",
       "publisher": "IETF",
       "title": "JSON Web Signature (JWS)"
@@ -578,13 +605,13 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "M. Jones, J. Bradley, N. Sakimura"
       ],
-      "date": "may 2015",
+      "date": "May 2015",
       "href": "https://tools.ietf.org/html/rfc7519",
       "publisher": "IETF",
       "title": "JSON Web Token (JWT)"
     },
     "NCSC 2021": {
-      "date": "Jan 2021",
+      "date": "January 2021",
       "href": "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1",
       "publisher": "NCSC",
       "title": "ICT-beveiligingsrichtlijnen voor Transport Layer Security (TLS) v2.1"
@@ -596,9 +623,6 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "title": "Transport Layer Security (TLS) richtlijnen 2025-05"
     },
     "NEN3610": {
-      "authors": [
-        ""
-      ],
       "date": "Maart 2011",
       "href": "https://www.nen.nl/nen-3610-2011-a1-2016-nl-217738",
       "publisher": "Nederlands Normalisatie-instituut",
@@ -626,7 +650,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, C. Mortimore"
       ],
-      "date": "November 8 2014",
+      "date": "November 8, 2014",
       "href": "https://openid.net/specs/openid-connect-core-1_0.html",
       "publisher": "OpenID foundation",
       "title": "OpenID Connect Core 1.0"
@@ -635,7 +659,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "N. Sakimura, J. Bradley, M. Jones, E. Jay"
       ],
-      "date": "November 8 2014",
+      "date": "November 8, 2014",
       "href": "https://openid.net/specs/openid-connect-discovery-1_0.html",
       "publisher": "OpenID foundation",
       "title": "OpenID Connect Discovery 1.0"
@@ -674,27 +698,18 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "title": "Semantic Versioning 2.0.0"
     },
     "ADR-TS": {
-      "authors": [
-        ""
-      ],
       "date": "March 07, 2024",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/mod-ts/",
       "publisher": "Kennisplatform API's",
       "title": "API Design Rules Module: Transport Security"
     },
     "UMMR10": {
-      "authors": [
-        ""
-      ],
       "date": "2001",
       "href": "https://unece.org/DAM/cefact/umm/UMM_Revision_10_2001.zip",
       "publisher": "UN/CEFACT",
       "title": "UMM Revision 10"
     },
     "UMMUG": {
-      "authors": [
-        ""
-      ],
       "date": "2003",
       "href": "https://www.unece.org/fileadmin/DAM/cefact/umm/UMM_userguide_220606.pdf",
       "publisher": "UN/CEFACT",
@@ -712,7 +727,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "title": "A Universally Unique IDentifier (UUID) URN Namespace"
     },
     "DK-Voorwaarden": {
-      "date": "1 januari 2021",
+      "date": "Januari 1, 2021",
       "href": "https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling/documentatie/voorwaarden-digikoppeling",
       "publisher": "Logius",
       "title": "Voorwaarden Digikoppeling"
@@ -793,7 +808,6 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "Jim Schaad, Jeff Hodges, Joe Hildebrand, Sean Turner"
       ],
-      "date": "",
       "href": "https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms",
       "publisher": "IANA",
       "title": "IANA JSON Web Signatures and Encryption Algorithms registry"
@@ -811,15 +825,27 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "J. Richer, M. Varley, P. Grassi"
       ],
-      "date": "October 5 2018",
+      "date": "October 5, 2018",
       "href": "https://openid.net/specs/openid-igov-oauth2-1_0-03.html",
       "publisher": "OpenID foundation",
       "title": "International Government Assurance Profile (iGov) for OAuth 2.0"
     },
-    "NLGOV.OAuth2": {
+    "NLgov.OAuth2": {
+      "authors": [
+        "Jaron Azaria",
+        "Martin Borgman",
+        "Marc Fleischeuers",
+        "Peter Haasnoot",
+        "Leon van der Ree",
+        "Bob te Riele",
+        "Remco Schaar",
+        "Frank Terpstra",
+        "Jan Jaap Zoutendijk"
+      ],
+      "date": "December 3, 2024",
       "href": "https://gitdocumentatie.logius.nl/publicatie/api/oauth/",
       "publisher": "Logius",
-      "title": "NL GOV Assurance profile for OAuth 2.0"
+      "title": "NLgov Assurance profile for OAuth 2.0"
     },
     "ietf-oauth-v2-1-10-refresh-token-grant": {
       "authors": [
@@ -834,23 +860,33 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       "authors": [
         "D. Fett, D. Tonge, J. Heenan"
       ],
-      "date": "February 22 2025",
+      "date": "February 22, 2025",
       "href": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
       "publisher": "OpenID foundation",
       "title": "FAPI 2.0 Security Profile"
     },
     "logboek-extensie-guideline": {
-      "href": "https://logius-standaarden.github.io/logboek-extensie-template/",
+      "authors": [
+        "Nil Barua",
+        "Tim van der Lippe"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/logboek-extensie-template/",
       "publisher": "Logius",
-      "title": "LDV Extensie Guideline"
+      "title": "Logboek Dataverwerkingen Extensie Guidelines"
     },
     "logboek dataverwerkingen": {
-      "href": "https://logius-standaarden.github.io/logboek-dataverwerkingen/",
+      "authors": [
+        "Eelco Hotting",
+        "Vedran Bilanovic"
+      ],
+      "date": "April 9, 2026",
+      "href": "https://gitdocumentatie.logius.nl/publicatie/logboek/dataverwerkingen/",
       "publisher": "Logius",
       "title": "Logboek Dataverwerkingen"
     }
   },
-  "specStatus": "DEF",
+  "specStatus": "WV",
   "specType": "ST",
   "pubDomain": "fsc",
   "shortName": "ext",
@@ -902,21 +938,25 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
     null,
     null,
     null
+  ],
+  "postProcess": [
+    null,
+    null
   ]
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
-  <body class="h-entry toc-inline"><div class="head">
+  <body class="h-entry"><div class="head">
     <a class="logo" href="https://www.logius.nl/onze-dienstverlening/standaarden"><img alt="Logius" height="77" id="Logius" src="https://gitdocumentatie.logius.nl/publicatie/respec/style/logos/figure-logius.svg" width="44">
-  </a> <h1 id="title" class="title">FSC - External Contract Reference 1.0.0</h1>
+  </a> <h1 id="title" class="title">FSC - External Contract Reference</h1>
     
     <h2>
       Logius Standard<br>
-      Definitive version
-      <time class="dt-published" datetime="2026-04-21">April 21, 2026</time>
+      Draft
+      <time class="dt-published" datetime="2026-04-21">September 07, 2026</time>
     </h2>
     <dl>
       <dt>This version:</dt><dd class="status">
-              <a class="u-url status" href="https://gitdocumentatie.logius.nl/publicatie/fsc/ext/1.0.0/">https://gitdocumentatie.logius.nl/publicatie/fsc/ext/1.0.0/</a>
+              <a class="u-url status" href="https://logius-standaarden.github.io/fsc-external-contract/">https://logius-standaarden.github.io/fsc-external-contract/</a>
             </dd>
       <dt>Latest published version:</dt><dd>
               <a href="https://gitdocumentatie.logius.nl/publicatie/fsc/ext/">https://gitdocumentatie.logius.nl/publicatie/fsc/ext/</a>
@@ -942,7 +982,9 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
       <dt>Participate:</dt><dd>
     <a href="https://github.com/Logius-standaarden/fsc-external-contract/">GitHub Logius-standaarden/fsc-external-contract</a>
   </dd><dd>
-    <a href="https://github.com/Logius-standaarden/fsc-external-contract/issues/">File an issue</a>
+    <a href="https://github.com/Logius-standaarden/fsc-external-contract/issues/">All issues</a>
+  </dd><dd>
+    <a href="https://github.com/Logius-standaarden/fsc-external-contract/issues/new/choose">File an issue</a>
   </dd><dd>
     <a href="https://github.com/Logius-standaarden/fsc-external-contract/commits/">Commit history</a>
   </dd><dd>
@@ -960,7 +1002,7 @@ ServiceConnectionGrant and the ServicePublicationGrant, and how these properties
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://gitdocumentatie.logius.nl/publicatie/respec/media/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
           </p>
     <hr title="Separator for header">
-  </div><section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is the definitive version of this document. Edits resulting from consultations have been applied.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformance</a></li><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#purpose"><bdi class="secno">1.1 </bdi>Purpose</a></li><li class="tocline"><a class="tocxref" href="#overall-operation-of-external-contract-reference"><bdi class="secno">1.2 </bdi>Overall Operation of External Contract Reference</a></li><li class="tocline"><a class="tocxref" href="#caveat"><bdi class="secno">1.3 </bdi>Caveat</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">1.4 </bdi>Terminology</a></li></ol></li><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">2. </bdi>Architecture</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#trust-and-validation-model"><bdi class="secno">2.1 </bdi>Trust and Validation Model</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#trust-relationships"><bdi class="secno">2.1.1 </bdi>Trust Relationships</a></li><li class="tocline"><a class="tocxref" href="#validation-requirements"><bdi class="secno">2.1.2 </bdi>Validation Requirements</a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-publication-delegation"><bdi class="secno">2.2 </bdi>Service Publication Delegation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#publication-delegation-flow"><bdi class="secno">2.2.1 </bdi>Publication Delegation Flow</a></li><li class="tocline"><a class="tocxref" href="#publication-architecture-implications"><bdi class="secno">2.2.2 </bdi>Publication Architecture Implications</a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-connection-delegation"><bdi class="secno">2.3 </bdi>Service Connection Delegation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#connection-delegation-flow"><bdi class="secno">2.3.1 </bdi>Connection Delegation Flow</a></li></ol></li><li class="tocline"><a class="tocxref" href="#connection-architecture-implications"><bdi class="secno">2.4 </bdi>Connection Architecture Implications</a></li><li class="tocline"><a class="tocxref" href="#property-lifecycle"><bdi class="secno">2.5 </bdi>Property Lifecycle</a></li><li class="tocline"><a class="tocxref" href="#integration-with-fsc-core"><bdi class="secno">2.6 </bdi>Integration with FSC Core</a></li></ol></li><li class="tocline"><a class="tocxref" href="#specification"><bdi class="secno">3. </bdi>Specification</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#properties-for-an-external-contract-reference"><bdi class="secno">3.1 </bdi>Properties for an External Contract Reference</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#serviceconnectiongrant"><bdi class="secno">3.1.1 </bdi>ServiceConnectionGrant</a></li><li class="tocline"><a class="tocxref" href="#servicepublicationgrant"><bdi class="secno">3.1.2 </bdi>ServicePublicationGrant</a></li></ol></li><li class="tocline"><a class="tocxref" href="#transaction-log"><bdi class="secno">3.2 </bdi>Transaction log</a></li><li class="tocline"><a class="tocxref" href="#access-token"><bdi class="secno">3.3 </bdi>Access token</a></li><li class="tocline"><a class="tocxref" href="#inway"><bdi class="secno">3.4 </bdi>Inway</a></li><li class="tocline"><a class="tocxref" href="#outway"><bdi class="secno">3.5 </bdi>Outway</a></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">4. </bdi>List of Figures</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformance-0">Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+  </div><section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This is a draft that could be altered, removed or replaced by other documents. It is not a recommendation approved by TO.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#conformance">Conformance</a></li><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#purpose"><bdi class="secno">1.1 </bdi>Purpose</a></li><li class="tocline"><a class="tocxref" href="#overall-operation-of-external-contract-reference"><bdi class="secno">1.2 </bdi>Overall Operation of External Contract Reference</a></li><li class="tocline"><a class="tocxref" href="#caveat"><bdi class="secno">1.3 </bdi>Caveat</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">1.4 </bdi>Terminology</a></li></ol></li><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">2. </bdi>Architecture</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#trust-and-validation-model"><bdi class="secno">2.1 </bdi>Trust and Validation Model</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#trust-relationships"><bdi class="secno">2.1.1 </bdi>Trust Relationships</a></li><li class="tocline"><a class="tocxref" href="#validation-requirements"><bdi class="secno">2.1.2 </bdi>Validation Requirements</a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-publication-delegation"><bdi class="secno">2.2 </bdi>Service Publication Delegation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#publication-delegation-flow"><bdi class="secno">2.2.1 </bdi>Publication Delegation Flow</a></li><li class="tocline"><a class="tocxref" href="#publication-architecture-implications"><bdi class="secno">2.2.2 </bdi>Publication Architecture Implications</a></li></ol></li><li class="tocline"><a class="tocxref" href="#service-connection-delegation"><bdi class="secno">2.3 </bdi>Service Connection Delegation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#connection-delegation-flow"><bdi class="secno">2.3.1 </bdi>Connection Delegation Flow</a></li></ol></li><li class="tocline"><a class="tocxref" href="#connection-architecture-implications"><bdi class="secno">2.4 </bdi>Connection Architecture Implications</a></li><li class="tocline"><a class="tocxref" href="#property-lifecycle"><bdi class="secno">2.5 </bdi>Property Lifecycle</a></li><li class="tocline"><a class="tocxref" href="#integration-with-fsc-core"><bdi class="secno">2.6 </bdi>Integration with FSC Core</a></li></ol></li><li class="tocline"><a class="tocxref" href="#specification"><bdi class="secno">3. </bdi>Specification</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#properties-for-an-external-contract-reference"><bdi class="secno">3.1 </bdi>Properties for an External Contract Reference</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#serviceconnectiongrant"><bdi class="secno">3.1.1 </bdi>ServiceConnectionGrant</a></li><li class="tocline"><a class="tocxref" href="#servicepublicationgrant"><bdi class="secno">3.1.2 </bdi>ServicePublicationGrant</a></li></ol></li><li class="tocline"><a class="tocxref" href="#transaction-log"><bdi class="secno">3.2 </bdi>Transaction log</a></li><li class="tocline"><a class="tocxref" href="#access-token"><bdi class="secno">3.3 </bdi>Access token</a></li><li class="tocline"><a class="tocxref" href="#inway"><bdi class="secno">3.4 </bdi>Inway</a></li><li class="tocline"><a class="tocxref" href="#outway"><bdi class="secno">3.5 </bdi>Outway</a></li></ol></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">4. </bdi>List of Figures</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav><section id="conformance" class="introductory"><div class="header-wrapper"><h2 id="conformance-0">Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for this Section"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
         The key words <em class="rfc2119">MUST</em> and <em class="rfc2119">SHOULD</em> in this document
         are to be interpreted as described in
         <a href="https://www.rfc-editor.org/info/bcp14">BCP 14</a>
@@ -1233,9 +1275,9 @@ The name of the Delegator that has delegated the authorisation to publish the Se
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references">
     <div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
     <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
+      <a href="https://www.rfc-editor.org/info/rfc2119/"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/info/rfc2119/">https://www.rfc-editor.org/info/rfc2119/</a>
     </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+      <a href="https://www.rfc-editor.org/info/rfc8174/"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/info/rfc8174/">https://www.rfc-editor.org/info/rfc8174/</a>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
@@ -1254,8 +1296,11 @@ function setupPanel() {
 }
 
 function panelListener() {
-  /** @type {HTMLElement} */
+  /** @type {HTMLElement | null} */
   let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
   return event => {
     const { target, type } = event;
 
@@ -1263,24 +1308,34 @@ function panelListener() {
 
     // For keys, we only care about Enter key to activate the panel
     // otherwise it's activated via a click.
-    if (type === "keydown" && event.key !== "Enter") return;
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
 
     const action = deriveAction(event);
 
     switch (action) {
       case "show": {
         hidePanel(panel);
-        /** @type {HTMLElement} */
+        /** @type {HTMLElement | null} */
         const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
         panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
-        const coords = deriveCoordinates(event);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
         displayPanel(dfn, panel, coords);
         break;
       }
       case "dock": {
-        panel.style.left = null;
-        panel.style.top = null;
-        panel.classList.add("docked");
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
         break;
       }
       case "hide": {
@@ -1331,7 +1386,8 @@ function deriveAction(event) {
     if (hitALink) {
       return target.classList.contains("self-link") ? "hide" : "dock";
     }
-    const panel = target.closest(".dfn-panel");
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
     return panel.classList.contains("docked") ? "hide" : "none";
   }
   if (document.querySelector(".dfn-panel:not([hidden])")) {
@@ -1375,9 +1431,9 @@ function displayPanel(dfn, panel, { x, y }) {
     const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
     const newCaretOffset = left - newLeft;
     panel.style.left = `${newLeft}px`;
-    /** @type {HTMLElement} */
+    /** @type {HTMLElement | null} */
     const caret = panel.querySelector(".caret");
-    caret.style.left = `${newCaretOffset}px`;
+    if (caret) caret.style.left = `${newCaretOffset}px`;
   }
 
   // As it's a dialog, we trap focus.
@@ -1426,6 +1482,9 @@ function trapFocus(panel, dfn) {
 function createTrapListener(anchors, panel, dfn) {
   const lastIndex = anchors.length - 1;
   let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
   return event => {
     switch (event.key) {
       // Hitting "Tab" traps us in a nice loop around elements.
@@ -1455,10 +1514,10 @@ function createTrapListener(anchors, panel, dfn) {
   };
 }
 
-/** @param {HTMLElement} panel */
+/** @param {HTMLElement | null} panel */
 function hidePanel(panel) {
   if (!panel) return;
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Logius Standard - Definitive version</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Logius Standard - Draft</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
